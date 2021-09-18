@@ -24,7 +24,8 @@
             {#each facts as fact}
                 <li>
                     <div class="checkmark">
-                        ✓
+                        <img src="/static/check.png" alt="✓">
+                        
                     </div>
                     <div class="value">
                         {fact[0]}
@@ -35,6 +36,7 @@
                 </li>
             {/each}
         </ul>
+		<img class="fact-img" src="/static/illu/illu_01.png" alt="">
     </div>
 </div>
 
@@ -42,10 +44,13 @@
     .hero {
         display: flex;
         margin-top: 128px;
+        margin-bottom: 128px;
         min-height: 320px;
+        justify-content: space-between;
     }
     .hero > div {
-        width: 50%;
+        width: calc(50% - 16px);
+        position: relative;
     }
 
     .hero .left {
@@ -91,9 +96,9 @@
         margin: auto;
     }
 
-    .facts li .checkmark {
-        color: var(--color-primary);
-        font-size:32px;
+    .facts li .checkmark img {
+        margin: auto;
+        user-select: none;
     }
 
     .facts li .value {
@@ -104,5 +109,14 @@
     .facts li .text {
         flex-grow: 1;
         text-align: right;
+    }
+
+    .fact-img {
+        width: 250px;
+        height: 270px;
+        position: absolute;
+        top: calc(50% - 270px / 2);
+        left: calc(50% - 250px / 2);
+        user-select: none;
     }
 </style>

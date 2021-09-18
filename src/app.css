@@ -3,11 +3,14 @@
     --color-text: #000;
     --color-primary: #ef4d37;
     --color-secondary: #b5a26d;
-  }  
+    --max-width: 1400px;
+}  
 
 body {
     background: var(--color-bg);
     color: var(--color-text);
+
+    font-family: 'Barlow', sans-serif;
 
     padding-top: 80px;
 }

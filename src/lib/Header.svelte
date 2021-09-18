@@ -13,7 +13,9 @@
 
 <header>
 	<div class="logo">
-		<img src="/static/logo.png" alt="Logo Herního archivu" height=62>
+		<a href="/">
+			<img src="/static/logo.png" alt="Logo Herního archivu" height=62>
+		</a>
 	</div>
 	<div class="menu">
 		<ul>
@@ -28,7 +30,7 @@
 
 <style>
 	header {
-		max-width: 1400px;
+		max-width: var(--max-width);
 		margin: auto;
 		margin-bottom: 64px;
 
