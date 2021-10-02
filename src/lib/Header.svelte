@@ -14,7 +14,7 @@
 <header>
 	<div class="logo">
 		<a href="/">
-			<img src="/static/logo.png" alt="Logo Herního archivu" height=62>
+			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
 	</div>
 	<div class="menu">

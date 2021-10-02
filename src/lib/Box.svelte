@@ -5,7 +5,7 @@
 
 <div class="box">
     <div class="cross">
-        <img src="/static/cross.png" alt="x">
+        <img src="/ico/ico_x.svg" alt="x">
     </div>
     <div>
         <slot />
@@ -28,6 +28,11 @@
         flex-shrink: 0;
         user-select: none;
     }
+
+    .box .cross img {
+        width: 15px;
+    }
+
     .box :global(h2) {
         margin-top: 0;
     }

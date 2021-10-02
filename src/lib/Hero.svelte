@@ -24,8 +24,7 @@
             {#each facts as fact}
                 <li>
                     <div class="checkmark">
-                        <img src="/static/check.png" alt="✓">
-                        
+                        <img src="/ico/ico_check.svg" alt="✓">
                     </div>
                     <div class="value">
                         {fact[0]}
@@ -36,7 +35,7 @@
                 </li>
             {/each}
         </ul>
-		<img class="fact-img" src="/static/illu/illu_01.png" alt="">
+		<img class="fact-img" src="/illu/illu_01.png" alt="">
     </div>
 </div>
 
@@ -97,6 +96,7 @@
     }
 
     .facts li .checkmark img {
+        width: 22px;
         margin: auto;
         user-select: none;
     }
