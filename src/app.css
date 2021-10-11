@@ -11,6 +11,12 @@ body {
     color: var(--color-text);
 
     font-family: 'Barlow', sans-serif;
+    font-size: 120%;
 
     padding-top: 80px;
+}
+
+article.thin {
+    max-width: 800px;
+    margin: auto;
 }

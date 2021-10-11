@@ -23,6 +23,7 @@
 
 <style>
     .box {
+        box-sizing: border-box;
         display: flex;
         margin-top: 38px;
         margin-bottom: 38px;
@@ -54,14 +55,14 @@
     }
 
     .left, .right {
-        width: calc(50% - 1px);
         margin-bottom: -38px;
     }
 
     .left {
+        width: 50%;
         text-align: right;
+        margin-right: auto;
         flex-direction: row-reverse;
-        border-right: 2px solid var(--color-secondary);
     }
 
     .left .cross {
@@ -69,8 +70,8 @@
     }
 
     .right {
+        width: 50%;
         margin-left: auto;
-        border-left: 2px solid var(--color-secondary);
     }
 
     .right .cross {

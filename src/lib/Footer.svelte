@@ -5,6 +5,7 @@
 <style>
     footer {
         margin: 200px auto 100px auto;
+		padding: 0 16px 0 16px;
         max-width: var(--max-width);
         text-align: right;
         font-size: smaller;

@@ -33,6 +33,7 @@
 		max-width: var(--max-width);
 		margin: auto;
 		margin-bottom: 64px;
+		padding: 0 16px 0 16px;
 
 		display: flex;
 		justify-content: space-between;
@@ -49,6 +50,7 @@
 		list-style: none;
 		display: flex;
 		justify-content: end;
+		flex-wrap: wrap;
 	}
 
 	li {
@@ -64,6 +66,7 @@
 		color: inherit;
 		text-transform: uppercase;
 		text-decoration: none;
+		white-space: nowrap;
 	}
 
 	a:hover {
