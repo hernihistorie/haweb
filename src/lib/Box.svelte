@@ -77,4 +77,25 @@
     .right .cross {
         margin-left: -8px;
     }
+
+    @media only screen and (max-width: 700px) {
+        .left, .right {
+            width: 100%;
+        }
+
+        .left {
+            margin-left: auto;
+            text-align: left;
+            flex-direction: row;
+        }
+
+        .right {
+            margin-left: 0px;
+        }
+
+        .left .cross, .right .cross {
+            margin-left: -2px;
+            margin-right: 0px;
+        }
+    }
 </style>

@@ -77,6 +77,7 @@
         flex-direction: column;
         justify-content: space-between;
         background: var(--color-secondary);
+        min-height: 260px;
     }
 
     .facts li {
@@ -118,5 +119,28 @@
         top: calc(50% - 270px / 2);
         left: calc(50% - 250px / 2);
         user-select: none;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .hero {
+            flex-wrap: wrap;
+        }
+
+        .hero > div {
+            width: 100%;
+        }
+
+        .hero .left {
+            margin-bottom: 32px;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .fact-img {
+            width: calc(250px / 2);
+            height: calc(270px / 2);
+            top: calc(50% - 270px / 4);
+            left: calc(50% - 250px / 4);
+        }
     }
 </style>

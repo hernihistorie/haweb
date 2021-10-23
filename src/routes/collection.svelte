@@ -29,3 +29,9 @@
 
     <!--<p>Náhled do archivu je možný zde...-->
 </article>
+
+<style>
+    img {
+        max-width: 100%;
+    }
+</style>

@@ -46,4 +46,10 @@
         height: 100%;
         border-right: 2px solid var(--color-secondary);
     }
+
+    @media only screen and (max-width: 700px) {
+        .timeline-line {
+            left: calc(4px);
+        }
+    }
 </style>

@@ -34,7 +34,7 @@
     </Box>
 
     <div class="filler">
-		<img src="/static/illu/illu_03.png" alt="">
+		<img src="/illu/illu_03.png" alt="">
     </div>
     <Box href="/o-nas">
         <h2>Sbírka</h2>
@@ -70,5 +70,23 @@
     .filler img {
         height: 180px;
         margin: auto;
+    }
+
+    @media only screen and (max-width: 750px) {
+        .boxes > :global(div) {
+            width: 100%;
+        }
+
+        .filler img {
+            height: 160px;
+            margin: auto;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .filler img {
+            height: 120px;
+            margin: auto;
+        }
     }
 </style>
