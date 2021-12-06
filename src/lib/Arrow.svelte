@@ -3,7 +3,7 @@
 </script>
 
 <a class="arrow" href="{href}">
-    <img src="/static/ico/ico_arrow.svg" alt="→">
+    <img src="/ico/ico_arrow.svg" alt="→">
 </a>
 
 <style>

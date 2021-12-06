@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import BurgerMenu from '$lib/BurgerMenu.svelte';
 
 	var links = [
 		['/', "Mise a cíle"],
@@ -18,7 +19,18 @@
 		</a>
 	</div>
 	<div class="menu">
-		<ul>
+		<div class="burger-menu">
+			<BurgerMenu padding={'25px'}>
+				<ul class="burger-links">
+					{#each links as link}
+						<li>
+							<a sveltekit:prefetch href="{link[0]}">{link[1]}</a>
+						</li>
+					{/each}
+				</ul>
+			</BurgerMenu>
+		</div>
+		<ul class="regular-links">
 			{#each links as link}
 				<li>
 					<a sveltekit:prefetch href="{link[0]}">{link[1]}</a>
@@ -71,5 +83,61 @@
 
 	a:hover {
 		text-decoration: underline;
+	}
+
+	.burger-menu {
+		display: none;
+	}
+
+	.burger-links {
+		flex-direction: column;
+		padding-left: 0;
+		margin-right: 64px;
+	}
+
+	.burger-links li {
+		padding-left: 0;
+		padding-bottom: 32px;
+	}
+
+	.burger-links a {
+		white-space: normal;
+		font-size: 120%;
+	}
+
+	@media screen and (max-width: 1300px) {
+		li {
+			padding: 0 20px 0 20px;
+		}
+	}
+
+	@media screen and (max-width: 1200px) {
+		li {
+			padding: 0 10px 0 10px;
+		}
+	}
+
+	@media screen and (min-width: 850px) and (max-width: 1100px) {
+		li {
+			padding: 0 20px 0 20px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+		li:nth-child(3) {
+			border-right: 0;
+		}
+		li:nth-child(4) {
+			padding-left: 40%;
+		}
+	}
+
+	@media screen and (max-width: 850px) {
+		.menu ul.regular-links {
+			display: none;
+		}
+
+		.burger-menu {
+			display: block;
+		}
 	}
 </style>
