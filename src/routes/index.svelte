@@ -8,26 +8,26 @@
 
 <div class="boxes">
     <Box href="/o-nas">
-        <h2>O nás</h2>
+        <h3>O nás</h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>
     </Box>
     <Box href="/o-nas">
-        <h2>Mise a cíle</h2>
+        <h3>Mise a cíle</h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>
     </Box>
 
     <Box href="/o-nas">
-        <h2>Projekty</h2>
+        <h3>Projekty</h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>
     </Box>
     <Box href="/o-nas">
-        <h2>Služby a technologie</h2>
+        <h3>Služby a technologie</h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>
@@ -37,7 +37,7 @@
 		<img src="/illu/illu_03.png" alt="">
     </div>
     <Box href="/o-nas">
-        <h2>Sbírka</h2>
+        <h3>Sbírka</h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>
@@ -45,9 +45,9 @@
 </div>
 
 <!--
-    <h2>Blog</h2>
+    <h3>Blog</h3>
     <BlogBox href="/blog/1">
-        <h2><a href="">Spuštěn nový web</a></h2>
+        <h3><a href="">Spuštěn nový web</a></h3>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
         </p>

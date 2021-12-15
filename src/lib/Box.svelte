@@ -40,7 +40,7 @@
         width: 15px;
     }
 
-    .box :global(h2) {
+    .box :global(h3) {
         margin-top: 0;
     }
 
