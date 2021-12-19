@@ -7,7 +7,7 @@
 <Hero />
 
 <div class="boxes">
-    <Box href="/o-nas">
+    <Box>
         <h3>O nás</h3>
         <p>
             Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní historii v rámci

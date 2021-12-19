@@ -15,13 +15,13 @@
         Email
     </dt>
     <dd>
-        info@herniarchiv.cz
+        <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>
     </dd>
 
     <dt>
         Discord server
     </dt>
     <dd>
-        https://discord.gg/bm2G8FS
+        <a href="https://discord.gg/bm2G8FS">https://discord.gg/bm2G8FS</a>
     </dd>
 </dl>

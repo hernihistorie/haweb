@@ -27,9 +27,9 @@
     </Box>
 
     <Box right>
-        <h3><span class="year">2021</span> Název projektu</h3>
+        <h3><span class="year">2015</span> RetroHerna</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            Již od roku 2015 v rámci projektu <a href="https://retroherna.org">RetroHerna</a> objíždíme obě republiky a přinášíme hry k lidem.
         </p>
     </Box>
 </div>
