@@ -28,4 +28,11 @@
         text-decoration-thickness: 3px;
         text-transform: uppercase;
     }
+
+
+	@media screen and (max-width: 1200px) {
+		.blog-box {
+			width: 100%;
+		}
+	}
 </style>

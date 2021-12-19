@@ -30,3 +30,11 @@ article.thin {
     max-width: 800px;
     margin: auto;
 }
+
+a {
+    color: var(--color-primary);
+}
+
+img {
+    max-width: 100%;
+}

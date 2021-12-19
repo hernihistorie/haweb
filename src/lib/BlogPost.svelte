@@ -63,4 +63,17 @@
     img, author, date {
         display: block;
     }
+
+	@media screen and (max-width: 1200px) {
+		article {
+            display: block;
+        }
+
+        .side {
+            margin: 0;
+            margin-bottom: 32px;
+            text-align: center;
+            width: 100%;
+        }
+	}
 </style>

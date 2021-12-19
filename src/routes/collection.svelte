@@ -21,11 +21,11 @@
 
     <img src="photos/tesla_xd_8001.jpg" alt="Stroj TV Hra XD 8001 od Tesly včetně analogových ovladačů na Pong">
 
-    <p>Všechny hry jsou navrženy pro technologii své doby. Pokrok ovšem nelze zastavit, a tak jsou časem stroje nahrazeny. Podpora se časem vytratí a staré hry nelze na moderních strojích jednoduše přehrát. A i pokud to možné je, jedná se o odlišný zážitek. Staré stroje chátrají a jejich správa vyžaduje určité know-how. V naší sbírce najdete přes 100 strojů, včetně těch československé výroby. Kde je to možné zakomponováváme zajímavé a vzácné periferie i moderní doplňky</p>
+    <p>Všechny hry jsou navrženy pro technologii své doby. Pokrok ovšem nelze zastavit, a tak jsou časem stroje nahrazeny. Podpora se časem vytratí a staré hry nelze na moderních zařízeních jednoduše přehrát. A i pokud to možné je, jedná se o odlišný zážitek. Staré stroje chátrají a jejich správa vyžaduje určité know-how. V naší sbírce najdete přes 100 strojů, včetně těch československé výroby. Kde je to možné zakomponováváme zajímavé a vzácné periferie i moderní doplňky.</p>
 
     <hr>
 
-    <p>Sbírka Československého herního archivu zahrnuje také zahraniční hry a stroje. Ty jsou využívané mimo jiné v rámci projektu RetroHerna, který zpřístupňuje herní historii veřejnosti.</p>
+    <p>Sbírka Československého herního archivu zahrnuje také zahraniční hry a stroje. Ty jsou využívané mimo jiné v rámci projektu <a href="https://retroherna.org">RetroHerna</a>, který zpřístupňuje herní historii veřejnosti.</p>
 
     <!--<p>Náhled do archivu je možný zde...-->
 </article>
