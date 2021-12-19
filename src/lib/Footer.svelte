@@ -1,3 +1,4 @@
+<!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
     Herní archiv je projektem Herní Historie, z. s.
 </footer>

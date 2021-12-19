@@ -18,46 +18,46 @@ a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastře
 lokální stopu v tomto odvětví kultury.
         </p>
     </Box>
-    <Box href="/o-nas">
+    <Box href="/mission">
         <h3>Mise a cíle</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            Interkativní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Rozhodli jsme se, že Česká a Slovenská Republika potřebuje reprezentaci v meznárodních snahách, na kterých se často podílíme. A s tím jsme se s nadšením pustili do projektu, který se bude aktivně snažit zachránit co nejvíce z počátků videoher.
         </p>
     </Box>
 
-    <Box href="/o-nas">
+    <Box href="/projects">
         <h3>Projekty</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            Za naší existenci jsme spustili několik projektů jak v domácích kotlinách tak ve spolupráci se zahraničními institucemi. O každém z projektů se můžete dozvědět více a sledovat jeho vývoj.
         </p>
     </Box>
-    <Box href="/o-nas">
+    <Box href="/services">
         <h3>Služby a technologie</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            V rámci našich archivářských činností si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Rádi pomůžeme i Vám zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu.  
         </p>
     </Box>
 
     <div class="filler">
 		<img src="/illu/illu_03.png" alt="">
     </div>
-    <Box href="/o-nas">
+    <Box href="/collection">
         <h3>Sbírka</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            Videohry bereme jako umění a součást lidské kultury, která si zaslouží uchování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch v souvistlosti s Českem a Slovenskem. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme.
         </p>
     </Box>
 </div>
 
-<!--
     <h3>Blog</h3>
-    <BlogBox href="/blog/1">
-        <h3><a href="">Spuštěn nový web</a></h3>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
-        </p>
-    </BlogBox>
--->
+    <!-- TODO deduplicate -->
+    <div class="blogboxes">
+        <BlogBox href="/blog/1-svycarske-dobrodruzstvi"
+            title="Švýcarské dobrodružství"
+        >
+            Krátce po té, co jsem se oficiálně zapojil do činnosti spolku Herní historie, stala se věc. Už si bohužel napamatuji, kdo s ní přišel, ale protože pro mě každá věc co smrdí dobrodružstvím, je věcí šíleně neodolatelnou, okamžitě jsem se přihlásil a dokonce jsem nabídl i svá rychlá kola. O jakou věc, že se jedná? Výlet do Švýcarska.
+        </BlogBox>
+    </div>
 
 <style>
     .boxes {

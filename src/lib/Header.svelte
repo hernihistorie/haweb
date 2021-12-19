@@ -3,7 +3,7 @@
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 
 	var links = [
-		['/', "Mise a cíle"],
+		['/mission', "Mise a cíle"],
 		['/projects', "Projekty"],
 		['/services', "Služby a technologie"],
 		['/collection', "Sbírka"],

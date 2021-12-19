@@ -12,14 +12,14 @@
 <div class="hero">
     <div class="left">
         <h1>
-            Československý<br>
+            Česko&shy;slovenský<br>
             herní archiv
         </h1>
         <p>
             Herní archiv je iniciativou neziskového spolku Herní historie, jehož cílem je centralizovat materiály okolo her pod jednu střechu.
         </p>
     </div>
-    <div>
+    <div class="right">
         <ul class="facts">
             {#each facts as fact}
                 <li>
@@ -121,6 +121,15 @@
         user-select: none;
     }
 
+    @media only screen and (min-width: 1000px) and (max-width: 1200px) {
+        .fact-img {
+            width: calc(250px / 1.5);
+            height: calc(270px / 1.5);
+            top: calc(50% - 270px / 2.75);
+            left: calc(50% - 250px / 2.75);
+        }
+    }
+
     @media only screen and (max-width: 1000px) {
         .hero {
             flex-wrap: wrap;
@@ -141,6 +150,23 @@
             height: calc(270px / 2);
             top: calc(50% - 270px / 4);
             left: calc(50% - 250px / 4);
+        }
+    }
+
+
+
+    @media only screen and (max-width: 450px) {
+        .fact-img {
+            top: -32px;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        .right {
+            margin-top: 128px;
+        }
+        .fact-img {
+            top: -128px;
         }
     }
 </style>
