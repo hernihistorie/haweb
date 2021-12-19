@@ -30,11 +30,11 @@
         
     <p>Orientační chaos v důsledku nedostatku Internetů byl samozřejmostí, ale zvládli jsme to. Nenápadná budova, kousek od vlakového nádraží, ukrývala opravdový poklad. Dvě patra plná všemožných klenotů, které jejich muzeum stihlo za dobu jejich existence získat.
 
-    <p><img src="/photos/svycarske-dobrodruzstvi/archiv.jpg" alt=""></p>
+    <p><img src="/photos/svycarske-dobrodruzstvi/sklad.jpg" alt=""></p>
 
     <p>A mezi tím vším, SGI poklad - důvod našeho výjezdu:
 
-    <p><img src="/photos/svycarske-dobrodruzstvi/archiv2.jpg" alt=""></p>
+    <p><img src="/photos/svycarske-dobrodruzstvi/sklad2.jpg" alt=""></p>
 
     <p>Opravdové dobrodružství začíná. Vytáhli jsme čerstvě pořízené all in one IDE dumpovací desky. A poprvé jsme zkusili taktéž nově zakoupené SCSI řadiče - standard, který jsme později nazvali nejhorším standardem na světě. Proč?
 

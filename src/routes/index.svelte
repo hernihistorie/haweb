@@ -10,7 +10,12 @@
     <Box href="/o-nas">
         <h3>O nás</h3>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam alias id explicabo, amet consequuntur suscipit commodi delectus sapiente perspiciatis eius, dignissimos voluptatum? Aspernatur expedita molestiae fugiat laudantium amet itaque laboriosam!
+            Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní historii v rámci
+České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech
+artefaktů spojených s herní historií, jako například časopisy, dobová zařízení nebo
+média obsahující videoherní obsah. Spolupracujeme s řadou mezinárodních organizací
+a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující
+lokální stopu v tomto odvětví kultury.
         </p>
     </Box>
     <Box href="/o-nas">
