@@ -21,7 +21,7 @@ lokální stopu v tomto odvětví kultury.
     <Box href="/mission">
         <h3>Mise a cíle</h3>
         <p>
-            Interkativní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Rozhodli jsme se, že Česká a Slovenská Republika potřebuje reprezentaci v meznárodních snahách, na kterých se často podílíme. A s tím jsme se s nadšením pustili do projektu, který se bude aktivně snažit zachránit co nejvíce z počátků videoher.
+            Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Rozhodli jsme se, že Česká a Slovenská Republika potřebuje reprezentaci v meznárodních snahách, na kterých se často podílíme. A s tím jsme se s nadšením pustili do projektu, který se bude aktivně snažit zachránit co nejvíce z počátků videoher.
         </p>
     </Box>
 
