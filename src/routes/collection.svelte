@@ -1,7 +1,7 @@
 <article class="thin">
     <h2>Sbírka</h2>
 
-    <p>Videohry bereme jako umění a součást lidské kultury, která si zaslouží uchování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch v souvistlosti s Českem a Slovenskem. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme.</p>
+    <p>Videohry bereme jako umění a součást lidské kultury, která si zaslouží uchování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch v souvislosti s Českem a Slovenskem. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme.</p>
 
     <h3>Psané materiály</h3>
 
@@ -15,7 +15,7 @@
 
     <img src="/photos/tajemstvi_osliho_ostrova.jpg" alt="Fotka krabicové hry Tajemství oslího ostrova, včetně diskety">
 
-    <p>Samozřejmě nemohou chybět hry samotné, kterých máme ve sbírce více jak 1000, a to jak od českých a slovenských tvůrců, tak zahraniční v lokalizované distribuci. Sbíráme hry na původních nosičích a všechna média zálohujeme, neboť např. diskety a optické disky již v dnešní době podléhají skáze a ztrácejí data (tzv. bit rot). Součástí herní prezentace jsou i manuály a krabice. Neopomenutelnou stránkou herní historie jsou i nelicencované kopie zahraničních her, zejména z doby před pádem železné opony.</p>
+    <p>Samozřejmě nemohou chybět hry samotné, kterých máme ve sbírce více jak 1000, a to jak od českých a slovenských tvůrců, tak zahraniční v lokalizované distribuci. Sbíráme hry na původních nosičích a všechna média zálohujeme, neboť např. diskety a optické disky již v dnešní době podléhají zkáze a ztrácejí data (tzv. bit rot). Součástí herní prezentace jsou i manuály a krabice. Neopomenutelnou stránkou herní historie jsou i nelicencované kopie zahraničních her, zejména z doby před pádem železné opony.</p>
 
     <h3>Stroje</h3>
 
