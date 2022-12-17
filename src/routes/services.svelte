@@ -8,7 +8,7 @@
         Žádné médium není dlouhodobě udržitelné a vhodné na archivaci.  Média jako optické mechaniky a pevné disky v průběhu času ztrácejí data (tzv. bitrot); u dedikovaných zálohovacích technologií jako jsou kazety se ztrácí podpora hardwaru, který jej umí číst; a i v případě zachovalých digitálních dat může být obnovení dat ze zastaralých formátů složité.  Dnes je ten nejvyšší čas data zdigitalizovat a vytvořit nové kopie.
     </p>
     <p>
-        Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně se podílíme na <a href="/projects">rozsáhlých archivačních projektech ve spřátelených institucích</a>.  Rádi pomůžeme <strong>právě Vám</strong> zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu.  Neváhejte a <a href="/contact"><strong>kontaktujte nás</strong></a>.
+        Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně podílíme na <a href="/projects">rozsáhlých archivačních projektech ve spřátelených institucích</a>.  Rádi pomůžeme <strong>právě Vám</strong> zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu.  Neváhejte a <a href="/contact"><strong>kontaktujte nás</strong></a>.
     </p>
 
     <img src="/photos/diskety.jpg" alt="Fotka disket">
