@@ -10,9 +10,9 @@
     <Box>
         <h3>O nás</h3>
         <p>
-            Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní historii v rámci
+            Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulruru v rámci
 České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech
-artefaktů spojených s herní historií, jako například časopisy, dobová zařízení nebo
+artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo
 média obsahující videoherní obsah. Spolupracujeme s řadou mezinárodních organizací
 a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující
 lokální stopu v tomto odvětví kultury.
@@ -21,20 +21,20 @@ lokální stopu v tomto odvětví kultury.
     <Box href="/mission">
         <h3>Mise a cíle</h3>
         <p>
-            Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Rozhodli jsme se, že Česká a Slovenská Republika potřebuje reprezentaci v meznárodních snahách, na kterých se často podílíme. A s tím jsme se s nadšením pustili do projektu, který se bude aktivně snažit zachránit co nejvíce z počátků videoher.
+            Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás.
         </p>
     </Box>
 
     <Box href="/projects">
         <h3>Projekty</h3>
         <p>
-            Za naší existenci jsme spustili několik projektů jak v domácích kotlinách tak ve spolupráci se zahraničními institucemi. O každém z projektů se můžete dozvědět více a sledovat jeho vývoj.
+            Za naší existence jsme spustili několik projektů, nejenom u nás, ale i v zahraničí ve spolupráci s partnerskými institucemi. O každém z projektů se můžete dozvědět více a sledovat jeho vývoj.
         </p>
     </Box>
     <Box href="/services">
         <h3>Služby a technologie</h3>
         <p>
-            V rámci našich archivářských činností si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Rádi pomůžeme i Vám zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu.  
+            V rámci našich archivářských činností si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Rádi pomůžeme i Vám zachránit data ze zapomenutých médií, či zorganizovat projekt na digitalizaci celého archivu.  
         </p>
     </Box>
 
@@ -44,7 +44,7 @@ lokální stopu v tomto odvětví kultury.
     <Box href="/collection">
         <h3>Sbírka</h3>
         <p>
-            Videohry bereme jako umění a součást lidské kultury, která si zaslouží uchování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch v souvistlosti s Českem a Slovenskem. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme.
+            Videohry bereme jako umění a součást lidské kultury, která si zaslouží zachování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch z Česka a Slovenska. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme.
         </p>
     </Box>
 </div>
