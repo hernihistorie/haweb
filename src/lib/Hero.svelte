@@ -1,11 +1,11 @@
 <script>
 	var facts = [
-		[8, "Členů spolku"],
-		[6, "Let snahy"],
+		[13, "Členů spolku"],
+		[7, "Let snahy"],
 		[50, "Let historie"],
-		[2700, "Tiskovin a příloh"],
-		[120, "Místních her"],
-		[1.2, "Terabytů dat"],
+		[2800, "Tiskovin a příloh"],
+		[135, "Místních her"],
+		[7.5, "Terabytů dat"],
 	]
 </script>
 
