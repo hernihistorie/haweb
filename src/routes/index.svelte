@@ -2,13 +2,14 @@
 	import Hero from '$lib/Hero.svelte';
 	import Box from '$lib/Box.svelte';
 	import BlogBox from '$lib/BlogBox.svelte';
+    import Loc from '$lib/Loc.svelte';
 </script>
 
 <Hero />
 
 <div class="boxes">
     <Box>
-        <h3>O nás</h3>
+        <h3><Loc cs="O nás" en="About us" /></h3>
         <p>
             Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulruru v rámci
 České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech

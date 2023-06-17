@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { lang } from '../stores.js';
 	import { page } from '$app/stores';
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 
@@ -10,6 +11,18 @@
 		['/blog', "Blog"],
 		['/contact', "Kontakty"],
 	]
+    let langValue;
+    lang.subscribe(value => {
+        langValue = value;
+    })
+
+	function setLangEn() {
+		lang.set('en')
+	}
+
+	function setLangCs() {
+		lang.set('cs')
+	}
 </script>
 
 <header>
@@ -29,6 +42,13 @@
 					{/each}
 				</ul>
 			</BurgerMenu>
+		</div>
+		<div class="language-select">
+			{#if langValue == 'cs'}
+				<a on:click={setLangEn} href="#">switch to english</a>
+			{:else}
+				<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+			{/if}
 		</div>
 		<ul class="regular-links">
 			{#each links as link}
@@ -54,6 +74,13 @@
 
 	.menu {
 		margin: auto 0 auto 0;
+	}
+
+	.language-select {
+		text-align: right;
+		margin-right: 28px;
+		position: relative;
+		top: -32px;
 	}
 
 	ul {
