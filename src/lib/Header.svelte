@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { lang } from '../stores.js';
+    import Loc from '$lib/Loc.svelte';
 	import { page } from '$app/stores';
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 
 	var links = [
-		['/mission', "Mise a cíle"],
-		['/projects', "Projekty"],
-		['/services', "Služby a technologie"],
-		['/collection', "Sbírka"],
-		['/blog', "Blog"],
-		['/contact', "Kontakty"],
+		['/mission', "Mise a cíle", "Missions and goals"],
+		['/projects', "Projekty", "Projects"],
+		['/services', "Služby a technologie", "Services and technologies"],
+		['/collection', "Sbírka", "Collection"],
+		['/blog', "Blog", "Blog"],
+		['/contact', "Kontakty", "Contacts"],
 	]
     let langValue;
     lang.subscribe(value => {
@@ -35,9 +36,20 @@
 		<div class="burger-menu">
 			<BurgerMenu padding={'25px'}>
 				<ul class="burger-links">
+					<li>
+						{#if $page.path == '/' }
+							{#if langValue == 'cs'}
+								<a on:click={setLangEn} href="#">switch to english</a>
+							{:else}
+								<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+							{/if}
+						{/if}
+					</li>
 					{#each links as link}
 						<li>
-							<a sveltekit:prefetch href="{link[0]}">{link[1]}</a>
+							<a sveltekit:prefetch href="{link[0]}">
+								<Loc cs="{link[1]}" en="{link[2]}" />
+							</a>
 						</li>
 					{/each}
 				</ul>
@@ -56,7 +68,9 @@
 		<ul class="regular-links">
 			{#each links as link}
 				<li>
-					<a sveltekit:prefetch href="{link[0]}">{link[1]}</a>
+					<a sveltekit:prefetch href="{link[0]}">
+						<Loc cs="{link[1]}" en="{link[2]}" />
+					</a>
 				</li>
 			{/each}
 		</ul>
@@ -165,6 +179,8 @@
 		.menu ul.regular-links {
 			display: none;
 		}
+		
+		.language-select {display: none;}
 
 		.burger-menu {
 			display: block;
