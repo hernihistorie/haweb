@@ -1,6 +1,10 @@
+<script>
+    import Loc from '$lib/Loc.svelte';
+</script>
+
 <!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
-    Herní archiv je projektem Herní Historie, z. s.
+    <Loc cs="Herní archiv je projektem Herní Historie, z. s." en="Herní archiv is a project of Herní Historie, z. s." />
 </footer>
 
 <style>

@@ -1,22 +1,31 @@
 <script>
+    import Loc from '$lib/Loc.svelte';
 	var facts = [
-		[13, "Členů spolku"],
-		[7, "Let snahy"],
-		[50, "Let historie"],
-		[2800, "Tiskovin a příloh"],
-		[135, "Místních her"],
-		[7.5, "Terabytů dat"],
+		[13, "Členů spolku", "Organization members"],
+		[7, "Let snahy", "Years of effort"],
+		[50, "Let historie", "Years of histoy"],
+		[2800, "Tiskovin a příloh", "Printed materials"],
+		[135, "Místních her", "Local games"],
+		[7.5, "Terabytů dat", "Terabytes of data"],
 	]
 </script>
 
 <div class="hero">
     <div class="left">
         <h1>
-            Česko&shy;slovenský<br>
-            herní archiv
+            <Loc cs="
+                Česko&shy;slovenský<br>
+                herní archiv"
+                en="
+                Czecho&shy;slovak<br>
+                Game Archive
+                "/>
         </h1>
         <p>
-            Herní archiv je iniciativou neziskového spolku Herní historie, jehož cílem je centralizovat materiály okolo her pod jednu střechu.
+            <Loc
+                cs="Herní archiv je iniciativou neziskového spolku Herní historie, jehož cílem je centralizovat materiály okolo her pod jednu střechu."
+                en="The Czechoslovak Game Archive is an initiative of the nonprofit organization Herní historie, whose goal is to centralize materials surrounding games under a single roof."
+            />
         </p>
     </div>
     <div class="right">
@@ -30,7 +39,10 @@
                         {fact[0]}
                     </div>
                     <div class="text">
-                        {fact[1]}
+                        <Loc
+                            cs="{fact[1]}"
+                            en="{fact[2]}"
+                        />
                     </div>
                 </li>
             {/each}

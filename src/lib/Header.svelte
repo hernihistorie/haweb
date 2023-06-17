@@ -44,10 +44,13 @@
 			</BurgerMenu>
 		</div>
 		<div class="language-select">
-			{#if langValue == 'cs'}
-				<a on:click={setLangEn} href="#">switch to english</a>
-			{:else}
-				<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+			<!-- Currently only the homepage is localized -->
+			{#if $page.path == '/' }
+				{#if langValue == 'cs'}
+					<a on:click={setLangEn} href="#">switch to english</a>
+				{:else}
+					<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+				{/if}
 			{/if}
 		</div>
 		<ul class="regular-links">

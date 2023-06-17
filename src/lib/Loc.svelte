@@ -10,7 +10,7 @@
 </script>
 
 {#if langValue == 'cs' }
-	{ cs }
+	{ @html cs }
 {:else if langValue == 'en' }
-    { en }
+    { @html en }
 {/if}
