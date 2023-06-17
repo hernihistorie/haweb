@@ -3,7 +3,7 @@
 	var facts = [
 		[14, "Členů spolku", "Organization members"],
 		[7, "Let snahy", "Years of effort"],
-		[50, "Let historie", "Years of histoy"],
+		[50, "Let historie", "Years of history"],
 		[2800, "Tiskovin a příloh", "Printed materials"],
 		[145, "Místních her", "Local games"],
 		[7.5, "Terabytů dat", "Terabytes of data"],
