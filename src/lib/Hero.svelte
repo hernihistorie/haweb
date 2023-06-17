@@ -1,11 +1,11 @@
 <script>
     import Loc from '$lib/Loc.svelte';
 	var facts = [
-		[13, "Členů spolku", "Organization members"],
+		[14, "Členů spolku", "Organization members"],
 		[7, "Let snahy", "Years of effort"],
 		[50, "Let historie", "Years of histoy"],
 		[2800, "Tiskovin a příloh", "Printed materials"],
-		[135, "Místních her", "Local games"],
+		[145, "Místních her", "Local games"],
 		[7.5, "Terabytů dat", "Terabytes of data"],
 	]
 </script>
