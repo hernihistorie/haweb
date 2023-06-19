@@ -27,7 +27,7 @@ lokální stopu v tomto odvětví kultury.
         <p>
             <Loc
                 cs="Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás."
-                en="Interactive entertainment remains a very young field. We can watch our understanding of game histoy deepen every day and it is necessary for organized efforts to start emerging. We believe that the Czech and Slovak Republics deserve representation in international efforts, which we often participate in. This enthusiasm led us to launch a project that will aim to save as much as possible from the beginnings of video game culture in our countries."
+                en="Interactive entertainment remains a very young field. We can watch our understanding of game history deepen every day and it is necessary for organized efforts to start emerging. We believe that the Czech and Slovak Republics deserve representation in international efforts, which we often participate in. This enthusiasm led us to launch a project that will aim to save as much as possible from the beginnings of video game culture in our countries."
             />
         </p>
     </Box>
