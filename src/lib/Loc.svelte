@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import { lang } from '../stores.js'
-    export let cs;
-    export let en;
+    export let cs: string;
+    export let en: string;
 
-    let langValue;
+    let langValue: "en" | "cs";
     lang.subscribe(value => {
         langValue = value;
     })

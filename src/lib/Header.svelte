@@ -12,7 +12,7 @@
 		['/blog', "Blog", "Blog"],
 		['/contact', "Kontakty", "Contacts"],
 	]
-    let langValue;
+    let langValue: "en" | "cs";
     lang.subscribe(value => {
         langValue = value;
     })
@@ -37,7 +37,7 @@
 			<BurgerMenu padding={'25px'}>
 				<ul class="burger-links">
 					<li>
-						{#if $page.path == '/' }
+						{#if $page.url.pathname == '/' }
 							{#if langValue == 'cs'}
 								<a on:click={setLangEn} href="#">switch to english</a>
 							{:else}
@@ -47,7 +47,7 @@
 					</li>
 					{#each links as link}
 						<li>
-							<a sveltekit:prefetch href="{link[0]}">
+							<a href="{link[0]}">
 								<Loc cs="{link[1]}" en="{link[2]}" />
 							</a>
 						</li>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="language-select">
 			<!-- Currently only the homepage is localized -->
-			{#if $page.path == '/' }
+			{#if $page.url.pathname == '/' }
 				{#if langValue == 'cs'}
 					<a on:click={setLangEn} href="#">switch to english</a>
 				{:else}
@@ -68,7 +68,7 @@
 		<ul class="regular-links">
 			{#each links as link}
 				<li>
-					<a sveltekit:prefetch href="{link[0]}">
+					<a href="{link[0]}">
 						<Loc cs="{link[1]}" en="{link[2]}" />
 					</a>
 				</li>
