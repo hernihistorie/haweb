@@ -1,16 +1,11 @@
 <script lang="ts">
-	import { pageTitle } from '../stores.js'
+	import Meta from '$lib/Meta.svelte';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import '../app.css';
-
-	$pageTitle = "";
-	$: actualTitle = $pageTitle ? $pageTitle + " - Herní archiv" : "Herní archiv";
 </script>
 
-<svelte:head>
-	<title>{actualTitle}</title>
-</svelte:head>
+<Meta title="" />
 
 <Header />
 

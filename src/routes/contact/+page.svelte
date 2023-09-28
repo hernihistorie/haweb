@@ -1,3 +1,9 @@
+<script>
+	import Meta from "$lib/Meta.svelte";
+</script>
+
+<Meta title="Kontaky" />
+
 <h2>Kontakty</h2>
 <p>
     Kontaktovat nás můžete na následujících místech:

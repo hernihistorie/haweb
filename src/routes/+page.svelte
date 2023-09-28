@@ -1,9 +1,12 @@
 <script lang="ts">
+	import Meta from '$lib/Meta.svelte';
 	import Hero from '$lib/Hero.svelte';
 	import Box from '$lib/Box.svelte';
 	import BlogBox from '$lib/BlogBox.svelte';
     import Loc from '$lib/Loc.svelte';
 </script>
+
+<Meta title="" />
 
 <Hero />
 

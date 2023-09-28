@@ -1,3 +1,9 @@
+<script>
+	import Meta from "$lib/Meta.svelte";
+</script>
+
+<Meta title="Mise a cíle" />
+
 <article class="thin">
     <h2>Mise a cíle</h2>
     <p>

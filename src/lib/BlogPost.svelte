@@ -1,11 +1,12 @@
 <script>
 	import { pageTitle } from '../stores.js'
+	import Meta from './Meta.svelte';
     export let author_name;
     export let date;
     export let title;
-
-    $pageTitle = title;
 </script>
+
+<Meta title={title}/>
 
 <article>
     <div class="side">

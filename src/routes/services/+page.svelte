@@ -1,3 +1,9 @@
+<script>
+	import Meta from "$lib/Meta.svelte";
+</script>
+
+<Meta title="Služby a technologie" />
+
 <article class="thin">
     <h2>Služby a technologie</h2>
     <p>

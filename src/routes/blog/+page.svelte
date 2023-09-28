@@ -1,6 +1,9 @@
 <script lang="ts">
+	import Meta from '$lib/Meta.svelte';
 	import BlogBox from '$lib/BlogBox.svelte';
 </script>
+
+<Meta title="Blog" />
 
 <h2>Blog</h2>
 <div class="blogboxes">

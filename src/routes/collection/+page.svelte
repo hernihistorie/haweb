@@ -1,3 +1,9 @@
+<script>
+	import Meta from "$lib/Meta.svelte";
+</script>
+
+<Meta title="Sbírka" />
+
 <article class="thin">
     <h2>Sbírka</h2>
 

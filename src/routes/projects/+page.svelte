@@ -1,6 +1,9 @@
 <script>
+	import Meta from "$lib/Meta.svelte";
 	import Box from '$lib/Box.svelte';
 </script>
+
+<Meta title="Projekty" />
 
 <h3>Projekty</h3>
 <div class="projects">
