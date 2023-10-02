@@ -1,10 +1,15 @@
+<script lang="ts">
+    export let speaker: string = "";
+</script>
+
 <div class="answer">
-    <slot />
+    <strong>{ speaker }:</strong> <slot />
 </div>
 
 <style>
     .answer {
-        text-align: justify;
+        /* Brambora doesn't want this */
+        /* text-align: justify; */
         margin-bottom: 20px;
         line-height: 1.4;
     }

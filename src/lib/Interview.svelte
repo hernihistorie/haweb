@@ -12,7 +12,33 @@
     </div>
     <div slot="content">
         <h2>{ data.title }</h2>
-        ((sem přijde přehrávač, kterej se bude skrolovat se stránkou))
+        
+        <div class="audio-container">
+            <audio controls></audio>
+        </div>
+
         <slot />
     </div>
 </Post>
+
+<style>
+    h2 {
+        margin-bottom: 0;
+    }
+    .audio-container {
+        width: calc(100% + 16px);
+        margin-left: -8px;
+        position: sticky;
+        top: 0px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        margin-bottom: 60px;
+        background-color: var(--color-bg);
+        box-shadow: 0px 40px 40px 20px var(--color-bg);
+    }
+
+    audio {
+        display: block;
+        width: 100%;
+    }
+</style>
