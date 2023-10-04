@@ -39,9 +39,9 @@
 					<li>
 						{#if $page.url.pathname == '/' }
 							{#if langValue == 'cs'}
-								<a on:click={setLangEn} href="#">switch to english</a>
+								<a on:click={setLangEn} on:keyup={setLangEn}>switch to english</a>
 							{:else}
-								<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+								<a on:click={setLangCs} on:keyup={setLangCs}>přepnout do češtiny</a>
 							{/if}
 						{/if}
 					</li>
@@ -59,9 +59,9 @@
 			<!-- Currently only the homepage is localized -->
 			{#if $page.url.pathname == '/' }
 				{#if langValue == 'cs'}
-					<a on:click={setLangEn} href="#">switch to english</a>
+					<a on:click={setLangEn} on:keyup={setLangEn}>switch to english</a>
 				{:else}
-					<a on:click={setLangCs} href="#">přepnout do češtiny</a>
+					<a on:click={setLangCs} on:keyup={setLangCs}>přepnout do češtiny</a>
 				{/if}
 			{/if}
 		</div>

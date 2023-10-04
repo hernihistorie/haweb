@@ -30,7 +30,7 @@
         text-align: center;
     }
 
-    .side img {
+    .side :global(img) {
         margin-bottom: 8px;
     }
 
