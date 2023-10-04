@@ -5,9 +5,9 @@
 <script lang="ts">
 	export let src: string;
 	export let title: string;
+	export let duration: number = 0;
 
 	let time = 0;
-	let duration = 0;
 	let paused = true;
 
 	function format_time(time: number): string {

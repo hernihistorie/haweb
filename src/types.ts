@@ -2,6 +2,7 @@ interface InterviewData {
     lang: string;
     title: string;
     audio_file: string;
+    audio_duration: number;
     narrator: {
         name: string;
         birth_year: string;
