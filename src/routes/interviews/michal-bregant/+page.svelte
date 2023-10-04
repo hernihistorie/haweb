@@ -9,6 +9,7 @@
     export const data: InterviewData = {
         lang: "cs",
         title: "Rozhovor s Michalem Bregantem",
+        audio_file: "herni-archiv-rozhovor-michal-bregant.m4a",
         narrator: {
             name: "Michal Bregant",
             birth_year: "1964",
