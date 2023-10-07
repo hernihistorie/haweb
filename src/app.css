@@ -26,7 +26,7 @@ h3 {
     font-size: 30px;
 }
 
-article.thin {
+article.thin, div.thin {
     max-width: 800px;
     margin: auto;
 }

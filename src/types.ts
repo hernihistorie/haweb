@@ -7,6 +7,7 @@ interface Photo {
 }
 
 interface InterviewData {
+    slug: string;
     lang: string;
     title: string;
     audio_file: string;

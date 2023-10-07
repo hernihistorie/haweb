@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    export let href = undefined;
+    export let href: string | undefined = undefined;
     export let left = undefined;
     export let right = undefined;
 
