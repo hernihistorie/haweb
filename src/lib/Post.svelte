@@ -62,7 +62,8 @@
         }
 
         .side {
-            margin: 0;
+            position: auto;
+            margin: auto;
             margin-bottom: 32px;
             text-align: center;
             width: 100%;

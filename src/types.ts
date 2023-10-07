@@ -1,5 +1,11 @@
 type Gender = 'M' | 'F';
 
+interface Photo {
+    url: string;
+    details_url: string;
+    license_text: string;
+}
+
 interface InterviewData {
     lang: string;
     title: string;
@@ -9,6 +15,7 @@ interface InterviewData {
         name: string;
         birth_year: string;
         gender: Gender;
+        photo: Photo | undefined;
     };
     interview: {
         date: Date;

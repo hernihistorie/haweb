@@ -6,7 +6,10 @@
 
 <Post title={data.title}>
     <div slot="side">
-        { data.narrator.name }
+        <img src="{ data.narrator.photo.url }" alt="Fotografie nrátora" />
+        <strong>
+            { data.narrator.name }
+        </strong>
         <date>
             { data.interview.date.toLocaleDateString("cs-CZ") }
         </date>
@@ -41,11 +44,29 @@
         <hr>
 
         <slot />
+
+        <hr>
+
+        {#if data.narrator.photo }
+            <h4>Fotografie</h4>
+            <a href="{ data.narrator.photo.details_url }">
+                { data.narrator.photo.license_text }
+            </a>
+        {/if}
     </div>
 </Post>
 
 <style>
     h2 {
         margin-bottom: 0;
+    }
+
+    div[slot="side"] {
+        position: sticky;
+        top: 2em;
+    }
+
+    div[slot="side"] img {
+        border-radius: 8px;
     }
 </style>
