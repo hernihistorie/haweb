@@ -10,7 +10,7 @@
         lang: "cs",
         title: "Rozhovor s Michalem Bregantem",
         audio_file: "herni-archiv-rozhovor-michal-bregant.m4a",
-        audio_duration: 7866,
+        audio_duration: 7266, // duration must be correct
         narrator: {
             name: "Michal Bregant",
             birth_year: "1964",
