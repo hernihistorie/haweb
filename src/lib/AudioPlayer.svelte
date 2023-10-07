@@ -9,6 +9,9 @@
 
 	let time = 0;
 	let paused = true;
+	let volume = 1;
+	let oldVolume = 1;
+	const max_volume = 1;
 
 	function format_time(time: number): string {
 		if (isNaN(time) || time == 0) return '--:--';
@@ -18,6 +21,40 @@
 
 		return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 	}
+
+	function make_slider_pointerdown(setValue: (value: number) => void, max_value: number, x: boolean) {
+		function func(e: PointerEvent) {
+			const div = e.currentTarget;
+			
+			function seek(e: PointerEvent) {
+				let p: number;
+				const { left, width, top, height } = div.getBoundingClientRect();
+				if (x) {
+					p = (e.clientX - left) / width;
+				} else {
+					p = 1 - (e.clientY - top) / height;
+				}
+				if (p < 0) p = 0;
+				if (p > 1) p = 1;
+				
+				setValue(p * max_value);
+			}
+
+			seek(e);
+
+			window.addEventListener('pointermove', seek);
+
+			window.addEventListener('pointerup', () => {
+				window.removeEventListener('pointermove', seek);
+			}, {
+				once: true
+			});
+		}
+		return func;
+	}
+
+	let time_pointerdown = make_slider_pointerdown((value) => time = value, duration, true);
+	let volume_pointerdown = make_slider_pointerdown((value) => volume = value, max_volume, false);
 </script>
 
 <div class="player" class:paused>
@@ -26,6 +63,7 @@
 		bind:currentTime={time}
 		bind:duration
 		bind:paused
+		bind:volume
 		preload="metadata"
 		on:ended={() => {
 			time = 0;
@@ -47,33 +85,32 @@
 			<span class="time-text">{format_time(time)}</span>
 			<div
 				class="slider"
-				on:pointerdown={e => {
-					const div = e.currentTarget;
-					
-					function seek(e) {
-						const { left, width } = div.getBoundingClientRect();
-
-						let p = (e.clientX - left) / width;
-						if (p < 0) p = 0;
-						if (p > 1) p = 1;
-						
-						time = p * duration;
-					}
-
-					seek(e);
-
-					window.addEventListener('pointermove', seek);
-
-					window.addEventListener('pointerup', () => {
-						window.removeEventListener('pointermove', seek);
-					}, {
-						once: true
-					});
-				}}
+				on:pointerdown={time_pointerdown}
 			>
 				<div class="progress" style="--progress: {time / duration}%" />
 			</div>
 			<span>{format_time(duration)}</span>
+		</div>
+	</div>
+	<div class="volume-section">
+		<button
+			class="speaker-icon"
+			aria-label="mute"
+			on:click={() => {
+				if (volume == 0) {
+					volume = oldVolume;
+				} else {
+					oldVolume = volume;
+					volume = 0;
+				}
+			}}
+		>
+		</button>
+		<div
+			class="volume-slider"
+			on:pointerdown={volume_pointerdown}
+		>
+			<div class="volume-progress" style="--progress: {1-volume}%" />
 		</div>
 	</div>
 </div>
@@ -81,7 +118,7 @@
 <style>
 	.player {
 		display: grid;
-		grid-template-columns: 2.5em 1fr;
+		grid-template-columns: 2.5em 1fr auto;
 		align-items: center;
 		gap: 1em;
 		padding: 0.5em 1em 0.5em 0.5em;
@@ -119,6 +156,13 @@
 	[aria-label="play"] {
 		background-image: url(/audio_player/play.svg);
 	}
+	.speaker-icon {
+		border: none;
+		width: 1.5em;
+		height: 1.5em;
+		background-image: url(/audio_player/speaker.svg);
+		background-size: cover;
+	}
 
 	.info {
 		overflow: hidden;
@@ -141,10 +185,16 @@
 		font-size: 0.7em;
 	}
 
+	.volume-section {
+		display: flex;
+		align-items: end;
+		gap: 0.3em;
+	}
+
 	.slider {
 		flex: 1;
 		height: 0.5em;
-		background: var(--bg-2);
+		background: var(--color-bg);
 		border-radius: 0.5em;
 		overflow: hidden;
         border: 2px solid var(--color-secondary);
@@ -154,6 +204,21 @@
 		width: calc(100 * var(--progress));
 		height: 100%;
 		background: var(--color-secondary);
+	}
+
+	.volume-slider {
+		flex: 1;
+		width: 0.5em;
+		height: 2em;
+		background: var(--color-secondary);
+		border-radius: 0.5em;
+		overflow: hidden;
+        border: 2px solid var(--color-secondary);
+	}
+
+	.volume-progress {
+		height: calc(100 * var(--progress));
+		background: var(--color-bg);
 	}
 
     .time-text {
