@@ -3,11 +3,13 @@
     Under MIT license
 -->
 <script lang="ts">
+	import { persisted } from 'svelte-persisted-store'
+
 	export let src: string;
 	export let title: string;
 	export let duration: number = 0;
 
-	let time = 0;
+	const time = persisted(`playerPosition-${title}`, 0);
 	let paused = true;
 	let volume = 1;
 	let oldVolume = 1;
@@ -53,20 +55,24 @@
 		return func;
 	}
 
-	let time_pointerdown = make_slider_pointerdown((value) => time = value, duration, true);
+	let time_pointerdown = make_slider_pointerdown((value) => time.set(value), duration, true);
 	let volume_pointerdown = make_slider_pointerdown((value) => volume = value, max_volume, false);
 </script>
 
 <div class="player" class:paused>
 	<audio
 		{src}
-		bind:currentTime={time}
+		bind:currentTime={$time}
 		bind:duration
 		bind:paused
 		bind:volume
 		preload="metadata"
+		on:loadeddata={(e) => {
+			// workaround bug of time being reset
+			e.currentTarget.currentTime = $time;
+		}}
 		on:ended={() => {
-			time = 0;
+			time.set(0);
 		}}
 	/>
 	
@@ -82,12 +88,12 @@
 		</div>
 
 		<div class="time">
-			<span class="time-text">{format_time(time)}</span>
+			<span class="time-text">{format_time($time)}</span>
 			<div
 				class="slider"
 				on:pointerdown={time_pointerdown}
 			>
-				<div class="progress" style="--progress: {time / duration}%" />
+				<div class="progress" style="--progress: {$time / duration}%" />
 			</div>
 			<span>{format_time(duration)}</span>
 		</div>
