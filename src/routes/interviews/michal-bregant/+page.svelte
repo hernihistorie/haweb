@@ -14,6 +14,7 @@
         narrator: {
             name: "Michal Bregant",
             birth_year: "1964",
+            gender: "M"
         },
         interview: {
             date: new Date("2023-05-01"),

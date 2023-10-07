@@ -1,3 +1,5 @@
+type Gender = 'M' | 'F';
+
 interface InterviewData {
     lang: string;
     title: string;
@@ -6,6 +8,7 @@ interface InterviewData {
     narrator: {
         name: string;
         birth_year: string;
+        gender: Gender;
     };
     interview: {
         date: Date;

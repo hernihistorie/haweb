@@ -38,3 +38,19 @@ a {
 img {
     max-width: 100%;
 }
+
+dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+dt {
+    width: 40%;
+    font-weight: bold;
+}
+
+dd {
+    margin: 0;
+    width: 50%;
+    font-weight: normal;
+}
