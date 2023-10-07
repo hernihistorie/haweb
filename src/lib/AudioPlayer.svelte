@@ -93,7 +93,7 @@
 				class="slider"
 				on:pointerdown={time_pointerdown}
 			>
-				<div class="progress" style="--progress: {$time / duration}%" />
+				<div class="progress" style="--progress: {$time / duration}" />
 			</div>
 			<span>{format_time(duration)}</span>
 		</div>
@@ -116,7 +116,7 @@
 			class="volume-slider"
 			on:pointerdown={volume_pointerdown}
 		>
-			<div class="volume-progress" style="--progress: {1-volume}%" />
+			<div class="volume-progress" style="--progress: {1-volume}" />
 		</div>
 	</div>
 </div>
@@ -198,7 +198,7 @@
 	}
 
 	.slider {
-		flex: 1;
+		width: 100%;
 		height: 0.5em;
 		background: var(--color-bg);
 		border-radius: 0.5em;
@@ -207,7 +207,7 @@
 	}
 
 	.progress {
-		width: calc(100 * var(--progress));
+		width: calc(100% * var(--progress));
 		height: 100%;
 		background: var(--color-secondary);
 	}
@@ -223,7 +223,7 @@
 	}
 
 	.volume-progress {
-		height: calc(100 * var(--progress));
+		height: calc(100% * var(--progress));
 		background: var(--color-bg);
 	}
 
