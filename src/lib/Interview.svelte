@@ -69,4 +69,13 @@
     div[slot="side"] img {
         border-radius: 8px;
     }
+
+    @media only screen and (max-width: 500px) {
+        dt, dd {
+            width: 100%;
+        }
+        dd {
+            margin-left: 1.75em;
+        }
+    }
 </style>

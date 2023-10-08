@@ -133,6 +133,7 @@
 		transition: filter 0.2s;
 		color: var(--fg-3);
 		user-select: none;
+        transition: padding 0.3s ease-in-out, margin 0.3s ease-in-out;
 	}
 
 	.player:not(.paused) {
@@ -232,4 +233,28 @@
         font-variant: font-variant-numeric;
         /*font-family: monospace;*/ /* TODO find a nice monospaced font */
     }
+
+	@media only screen and (max-width: 500px) {
+		.player {
+			padding: 0;
+		}
+	}
+
+	@media only screen and (max-width: 400px) {
+		.player {
+			margin-left: -0.5em;
+			margin-right: -0.5em;
+			gap: 0.3em;
+		}
+	}
+
+	@media only screen and (max-width: 300px) {
+		.time {
+			flex-direction: column;
+			gap: 0;
+		}
+		.slider {
+			width: 90%;
+		}
+	}
 </style>

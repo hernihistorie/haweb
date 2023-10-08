@@ -30,6 +30,7 @@
         margin-bottom: 40px;
         background-color: var(--color-bg);
         border-radius: 16px;
+        transition: padding 0.3s ease-in-out;
     }
 
     /* trick to make animating a shadow faster:
@@ -51,5 +52,11 @@
 
     .audio-container.intersecting::before {
         opacity: 0;
+    }
+
+    @media only screen and (max-width: 350px) {
+        .audio-container {
+            padding-top: 24px;
+        }
     }
 </style>
