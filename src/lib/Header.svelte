@@ -10,7 +10,8 @@
 		['/collection', "Sbírka", "Collection"],
 		['/blog', "Blog", "Blog"],
 		['/contact', "Kontakty", "Contacts"],
-	]
+	];
+	let burgerMenuOpen = false;
 </script>
 
 <header>
@@ -21,14 +22,14 @@
 	</div>
 	<div class="menu">
 		<div class="burger-menu">
-			<BurgerMenu padding={'25px'}>
+			<BurgerMenu padding={'25px'} bind:open={burgerMenuOpen}>
 				<ul class="burger-links">
 					<li>
 						<LanguageSwitcher />
 					</li>
 					{#each links as link}
 						<li>
-							<a href="{link[0]}">
+							<a href="{link[0]}" on:click={() => burgerMenuOpen=false}>
 								<Loc cs="{link[1]}" en="{link[2]}" />
 							</a>
 						</li>
