@@ -11,6 +11,7 @@
 
     {#each interviews as data}
         <Box href="/interviews/{data.slug}">
+            <!-- TODO add photo of interviewed person-->
             <h3><a href="/interviews/{data.slug}">{ data.title }</a></h3>
             <p>Sem by měl přijít blurb (1-2 věty) o člověkovi, s kým je tento rozhovor.
             <p>

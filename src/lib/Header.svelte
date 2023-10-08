@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { lang } from '../stores.js';
     import Loc from '$lib/Loc.svelte';
-	import { page } from '$app/stores';
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
+	import LanguageSwitcher from './LanguageSwitcher.svelte';
 
 	var links = [
 		['/mission', "Mise a cíle", "Missions and goals"],
@@ -12,18 +11,6 @@
 		['/blog', "Blog", "Blog"],
 		['/contact', "Kontakty", "Contacts"],
 	]
-    let langValue: "en" | "cs";
-    lang.subscribe(value => {
-        langValue = value;
-    })
-
-	function setLangEn() {
-		lang.set('en')
-	}
-
-	function setLangCs() {
-		lang.set('cs')
-	}
 </script>
 
 <header>
@@ -37,13 +24,7 @@
 			<BurgerMenu padding={'25px'}>
 				<ul class="burger-links">
 					<li>
-						{#if $page.url.pathname == '/' }
-							{#if langValue == 'cs'}
-								<a on:click={setLangEn} on:keyup={setLangEn}>switch to english</a>
-							{:else}
-								<a on:click={setLangCs} on:keyup={setLangCs}>přepnout do češtiny</a>
-							{/if}
-						{/if}
+						<LanguageSwitcher />
 					</li>
 					{#each links as link}
 						<li>
@@ -56,14 +37,7 @@
 			</BurgerMenu>
 		</div>
 		<div class="language-select">
-			<!-- Currently only the homepage is localized -->
-			{#if $page.url.pathname == '/' }
-				{#if langValue == 'cs'}
-					<a on:click={setLangEn} on:keyup={setLangEn}>switch to english</a>
-				{:else}
-					<a on:click={setLangCs} on:keyup={setLangCs}>přepnout do češtiny</a>
-				{/if}
-			{/if}
+			<LanguageSwitcher />
 		</div>
 		<ul class="regular-links">
 			{#each links as link}
