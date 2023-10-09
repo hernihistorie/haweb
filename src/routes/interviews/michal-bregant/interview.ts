@@ -1,3 +1,6 @@
+import type { InterviewData } from "$src/types";
+import { slugify_chapters } from "$src/chapterify";
+
 export const data: InterviewData = {
     slug: "michal-bregant",
     lang: "cs",
@@ -24,5 +27,14 @@ export const data: InterviewData = {
         transcriber: "Rudolf Jan Suchý",
         verifier: null
     },
-    tags: []
-};
+    tags: [],
+    chapters: slugify_chapters([
+        "Popis",
+        "Životní cyklus",
+        "Evoluce",
+        "Systematika",
+        "Ekologie a rozšíření současných plavuní",
+        "Využití",
+        "Galerie",
+    ])
+}

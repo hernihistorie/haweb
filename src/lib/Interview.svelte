@@ -1,20 +1,27 @@
 <script lang="ts">
+	import type { InterviewChapters, InterviewData, Chapters } from '$src/types';
 	import Post from './Post.svelte';
 	import InterviewAudio from "./InterviewAudio.svelte";
+	import TableOfContents from './TableOfContents.svelte';
     export let data: InterviewData;
+    export let chapters: Chapters;
 </script>
 
 <Post title={data.title}>
     <div slot="side">
-        <img src="{ data.narrator.photo.url }" alt="Fotografie nrátora" />
+        <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
         <strong>
             { data.narrator.name }
         </strong>
         <date>
             { data.interview.date.toLocaleDateString("cs-CZ") }
         </date>
+
+        <hr>
+
+        <TableOfContents {chapters} />
     </div>
-    <div slot="content">
+    <div slot="content" class="content">
         <h2>{ data.title }</h2>
         <InterviewAudio {data} />
         <dl>
@@ -30,7 +37,7 @@
             <dt>Místo rozhovoru
             <dd>{ data.interview.place }
 
-            <dt>Jméno a příjmení tazatele <!-- XXX -->
+            <dt>Jméno tazatele <!-- XXX -->
             <dd>{ data.interview.interviewer }
 
             <dt>Délka rozhovoru
@@ -43,7 +50,7 @@
 
         <hr>
 
-        <slot />
+        <slot name="content"/>
 
         <hr>
 
@@ -77,5 +84,10 @@
         dd {
             margin-left: 1.75em;
         }
+    }
+
+    .content :global(hr) {
+        margin-top: 3em;
+        margin-bottom: 3em;
     }
 </style>

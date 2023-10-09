@@ -1,12 +1,12 @@
 type Gender = 'M' | 'F';
 
-interface Photo {
+export interface Photo {
     url: string;
     details_url: string;
     license_text: string;
 }
 
-interface InterviewData {
+export interface InterviewData {
     slug: string;
     lang: string;
     title: string;
@@ -29,4 +29,12 @@ interface InterviewData {
         verifier: null;
     };
     tags: never[];
+    chapters: Chapters;
 }
+
+export type InterviewChapters = string[]
+export interface Chapter {
+    name: string;
+    slug: string;
+}
+export type Chapters= {[name in InterviewChapters[number]]: Chapter}

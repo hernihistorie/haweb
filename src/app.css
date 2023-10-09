@@ -54,3 +54,8 @@ dd {
     width: 50%;
     font-weight: normal;
 }
+
+hr {
+    border-color: var(--color-secondary);
+    border-style: solid;
+}

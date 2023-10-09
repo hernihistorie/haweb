@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { InterviewData } from "$src/types";
     import Box from "$lib/Box.svelte";
     // import {data as bregant_data} from './michal-bregant/+page.svelte';
     import { data as bregant_data } from './michal-bregant/interview';
