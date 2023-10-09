@@ -18,10 +18,13 @@ const config = {
 			assets: 'build',
 			fallback: undefined,
 			precompress: false,
-			strict: true
+			strict: true,
 		}),
 		alias: {
 			$src: './src',
+		},
+		prerender: {
+			handleMissingId: 'warn',
 		}
 	}
 };
