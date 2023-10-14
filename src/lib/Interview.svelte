@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { InterviewChapters, InterviewData, Chapters } from '$src/types';
+    import { tocCrawler } from './TableOfContents/crawler';
 	import Post from './Post.svelte';
 	import InterviewAudio from "./InterviewAudio.svelte";
-	import TableOfContents from './TableOfContents.svelte';
+	import TableOfContents from './TableOfContents/TableOfContents.svelte';
     export let data: InterviewData;
-    export let chapters: Chapters;
 </script>
 
 <Post title={data.title}>
@@ -19,7 +19,7 @@
 
         <hr>
 
-        <TableOfContents {chapters} />
+        <TableOfContents />
     </div>
     <div slot="content" class="content">
         <h2>{ data.title }</h2>
@@ -49,8 +49,10 @@
         </dl>
 
         <hr>
-
-        <slot name="content"/>
+        
+        <article id="tocTarget" use:tocCrawler={{ mode: 'generate' }}>
+            <slot name="content"/>
+        </article>
 
         <hr>
 

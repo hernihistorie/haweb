@@ -1,21 +1,22 @@
 <script lang="ts">
-	import type { Chapter } from "$src/types";
-
-    export let chapter: Chapter;
+    export let title: string;
 </script>
 
 <section class="chapter">
-    <div class="anchor" id="chapter-{chapter.slug}"></div>
+    <!-- <div class="anchor" id="chapter-{chapter.slug}"></div> -->
+    <h3>{title}</h3>
     <div class="chapter-contents">
         <slot />
     </div>
 </section>
 
 <style>
-div.anchor {
+h3 {
     position: relative;
     top: -200px;
     visibility: hidden;
+    margin: 0;
+    font-size: 0;
 }
 
 .chapter-contents {
@@ -23,7 +24,7 @@ div.anchor {
     padding-left: 1em;
 }
 
-div.anchor:target ~ .chapter-contents {
+h3:target ~ .chapter-contents {
     animation: 3s ease-in-out change-color;
     animation-name: change-color;
     transition: border-left 1.3s ease-in-out;

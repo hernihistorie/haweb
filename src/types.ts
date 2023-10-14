@@ -28,13 +28,5 @@ export interface InterviewData {
         transcriber: string;
         verifier: null;
     };
-    tags: never[];
-    chapters: Chapters;
+    tags: string[] | undefined;
 }
-
-export type InterviewChapters = string[]
-export interface Chapter {
-    name: string;
-    slug: string;
-}
-export type Chapters= {[name in InterviewChapters[number]]: Chapter}
