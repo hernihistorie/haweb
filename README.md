@@ -1,33 +1,23 @@
-# create-svelte
+# haweb
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+EN: This is the source code repository for the official [Czechoslovak Game Archive](https://herniarchiv.cz/) website.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+CS: Toto je repozitář zdrojového kódu oficiálních webových stránek pro [Československý herní archiv](https://herniarchiv.cz/).
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+This website is written in Sveltekit.
+
+To set up the project, make a clone of the repository and run:
 
 ```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a static production version of this website:
 
 ```bash
 npm run build
@@ -35,4 +25,8 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The `deploy.sh` script is available to make deployment painless for administrators.
+
+## Contributing
+
+If you think you can improve our website, feel free to open an issue or discuss matters with us on the [RetroHerna + Herní archiv Discord server](https://discord.gg/9jajeqZ).
