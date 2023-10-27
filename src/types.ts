@@ -16,7 +16,7 @@ export interface InterviewData {
         name: string;
         birth_year: string;
         gender: Gender;
-        photo: Photo | undefined;
+        photo?: Photo;
     };
     interview: {
         date: Date;

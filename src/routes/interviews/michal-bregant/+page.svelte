@@ -5,7 +5,6 @@
 	import Chapter from "$lib/interviews/Chapter.svelte";
 
     import { data } from "./interview";
-    let chapters = data.chapters;
 
     let A = Answer;
     let Q = Question;
