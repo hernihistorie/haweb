@@ -55,6 +55,10 @@
 
         </dl>
 
+        {#if data.interview.redaction }
+            <p>Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+        {/if}
+
         <hr>
         
         <article id="tocTarget" use:tocCrawler={{ mode: 'generate' }}>
