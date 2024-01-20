@@ -29,6 +29,9 @@
         <dl>
             <dt>Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }
             <dd>{ data.narrator.name }
+                {#if data.interview.narrator_abbrev }
+                    ({ data.interview.narrator_abbrev })
+                {/if}
 
             <dt>Ročník narození
             <dd>{ data.narrator.birth_year }
@@ -38,6 +41,18 @@
 
             <dt>Místo rozhovoru
             <dd>{ data.interview.place }
+            
+            <dt>Jméno tazatele
+            <dd>{ data.interview.interviewer }
+                {#if data.interview.interviewer_abbrev }
+                    ({ data.interview.interviewer_abbrev })
+                {/if}
+
+            <dt>Délka rozhovoru
+            <dd>{ data.interview.length }
+
+            <dt>Projekt
+            <dd>{ data.interview.project }
 
             <dt>Přepis
             <dd>{ data.interview.transcriber }</dd>
@@ -46,12 +61,6 @@
                 <dt>Redakce
                 <dd>{ data.interview.redaction }</dd>
             {/if}
-
-            <dt>Délka rozhovoru
-            <dd>{ data.interview.length }
-
-            <dt>Projekt
-            <dd>{ data.interview.project }
 
         </dl>
 
@@ -67,7 +76,7 @@
 
         <hr>
 
-        {#if data.narrator.photo }
+        {#if data.narrator.photo && data.narrator.photo.license_text }
             <h4>Fotografie</h4>
             <a href="{ data.narrator.photo.details_url }">
                 { data.narrator.photo.license_text }

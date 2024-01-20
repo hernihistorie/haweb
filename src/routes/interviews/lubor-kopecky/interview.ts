@@ -13,7 +13,7 @@ export const data: InterviewData = {
         photo: {
             url: "/interviews/lubor-kopecky.jpg",
             details_url: "",
-            license_text: ""
+            // license_text: ""
         }
     },
     interview: {

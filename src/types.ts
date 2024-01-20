@@ -3,7 +3,7 @@ type Gender = 'M' | 'F';
 export interface Photo {
     url: string;
     details_url: string;
-    license_text: string;
+    license_text?: string;
 }
 
 export interface InterviewData {
@@ -21,7 +21,9 @@ export interface InterviewData {
     interview: {
         date: Date;
         place: string;
+        narrator_abbrev?: string;
         interviewer: string;
+        interviewer_abbrev?: string;
         length: string;
         project: string;
         informed_agreement: boolean;
