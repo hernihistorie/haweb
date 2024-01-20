@@ -12,7 +12,7 @@
 
 <style>
 
-    .c2 {
+    .c0 {
         font-style: italic
     }
 </style>
