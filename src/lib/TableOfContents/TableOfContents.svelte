@@ -15,7 +15,7 @@
 
 <div class="table-of-contents">
 	{#if $tocStore.length}
-		<div style="text-align: center;"><strong>Obsah</strong></div>
+		<div style="text-align: center; margin-bottom: 6px;"><strong>Obsah</strong></div>
 		<ul>
 			{#each $tocStore as tocHeading}
 				<li>
@@ -46,9 +46,10 @@
 		list-style: none;
 	}
 	.table-of-contents :global(li) {
-		margin-bottom: 0.2em;
+		margin-bottom: 0.35em;
 		padding-left: 1em;
 		text-indent: -1em;
+		font-size: 95%;
 	}
 	.table-of-contents :global(a) {
 		text-decoration: none;

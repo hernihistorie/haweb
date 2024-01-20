@@ -23,7 +23,7 @@
     }
     .side {
         margin-left: 100px;
-        max-width: 200px;
+        max-width: 260px;
         display: flex;
         flex-direction: column;
         align-items: center;
