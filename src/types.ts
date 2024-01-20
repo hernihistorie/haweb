@@ -26,6 +26,7 @@ export interface InterviewData {
         project: string;
         informed_agreement: boolean;
         transcriber: string;
+        redaction?: string;
         verifier: null;
     };
     tags: string[] | undefined;

@@ -9,7 +9,9 @@
 
 <Post title={data.title}>
     <div slot="side">
-        <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
+        {#if data.narrator.photo }
+            <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
+        {/if}
         <strong>
             { data.narrator.name }
         </strong>
@@ -37,8 +39,13 @@
             <dt>Místo rozhovoru
             <dd>{ data.interview.place }
 
-            <dt>Jméno tazatele <!-- XXX -->
-            <dd>{ data.interview.interviewer }
+            <dt>Přepis
+            <dd>{ data.interview.transcriber }</dd>
+
+            {#if data.interview.redaction }
+                <dt>Redakce
+                <dd>{ data.interview.redaction }</dd>
+            {/if}
 
             <dt>Délka rozhovoru
             <dd>{ data.interview.length }

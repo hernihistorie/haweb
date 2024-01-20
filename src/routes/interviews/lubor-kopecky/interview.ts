@@ -5,7 +5,7 @@ export const data: InterviewData = {
     lang: "cs",
     title: "Rozhovor s Luborem Kopeckým",
     audio_file: "herni-archiv-rozhovor-lubor-kopecky.m4a",
-    audio_duration: 7266, // TODO
+    audio_duration: 51 + 46*60 + 1*60*60,
     narrator: {
         name: "Lubor Kopecký",
         birth_year: "1978",
@@ -18,12 +18,13 @@ export const data: InterviewData = {
     },
     interview: {
         date: new Date("2023-07-31"),
-        place: "Smrčensko (narátorův statek)",
+        place: "Dolní Město – Smrčensko (narátorův statek)",
         interviewer: "Rudolf Jan Suchý",
-        length: "", // TODO
+        length: "1:46:51",
         project: "Porevoluční videoherní scéna – Sleep Team",
         informed_agreement: true,
         transcriber: "Alžběta Krejčí",
+        redaction: "Rudolf Jan Suchý",
         verifier: null
     },
     tags: []
