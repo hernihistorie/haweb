@@ -14,8 +14,6 @@ interface TOCCrawlerArgs {
 	mode?: 'generate' | undefined;
 	/** Provide query list of elements. Defaults h2-h6. */
 	queryElements?: string;
-	/* Provide a reference to the scrollable page element. */
-	scrollTarget?: string;
 	/** Reload the action when this key value changes. */
 	key?: unknown;
 	/* Provide a prefix for ToC links, to help keep them unique. */
@@ -75,7 +73,6 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
             const elemHeading = headings[i];
             const headerBoundTop = elemHeading.getBoundingClientRect().top;
             const offsetTop = headerBoundTop;
-            console.log(offsetTop)
             // 1 is needed to properly detect target scrolls
             if (offsetTop < 1) return tocActiveId.set(elemHeading.id);
         }
@@ -91,7 +88,7 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 			init();
 		},
 		destroy() {
-			if (scrollTarget) document.querySelector(scrollTarget)?.removeEventListener('scroll', onWindowScroll);
+			
 		}
 	};
 }
