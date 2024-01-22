@@ -12,12 +12,12 @@
         {#if data.narrator.photo }
             <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
         {/if}
-        <strong>
-            { data.narrator.name }
-        </strong>
-        <date>
-            { data.interview.date.toLocaleDateString("cs-CZ") }
-        </date>
+        <div>
+            <strong>
+                { data.narrator.name }
+            </strong>
+        </div>
+        { data.interview.project }
 
         <hr>
 
