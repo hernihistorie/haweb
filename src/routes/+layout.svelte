@@ -1,6 +1,4 @@
-<script lang="ts">
-	export const prerender = true;
-	
+<script lang="ts">	
 	import Meta from '$lib/Meta.svelte';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
