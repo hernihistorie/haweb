@@ -1,5 +1,7 @@
 import type { InterviewData } from "$src/types";
 
+// https://docs.google.com/document/d/1jym3l5vMQyDJuwkU3bANHMhsfRxdkE8A/edit
+
 export const data: InterviewData = {
     slug: "lubor-kopecky",
     lang: "cs",
