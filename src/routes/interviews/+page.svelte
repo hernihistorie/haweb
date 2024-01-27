@@ -91,4 +91,15 @@
         margin-bottom: 3px;
 
     }
+
+
+    @media only screen and (max-width: 600px) {
+        .interview {
+            flex-direction: column-reverse;
+        }
+        .photopart {
+            margin-left: 0;
+            margin-bottom: 16px;
+        }
+    }
 </style>

@@ -39,14 +39,14 @@
         <div class="thumbnails">
             {#each assets as number, index }
                 <GalleryThumbnail id={index}>
-                    <img src="/gallery/mlada-fronta/thumbs/RH{number}.jpg" alt="" class="thumbnail">
+                    <img src="/gallery/emil-fafek/thumbs/RH{number}.jpg" alt="" class="thumbnail">
                 </GalleryThumbnail>
             {/each}
         </div>
     </svelte:fragment>
     {#each assets as number, index }
         <GalleryImage id={index}>
-            <img src="/gallery/mlada-fronta/2mb/RH{number}.jpg" alt="">
+            <img src="/gallery/emil-fafek/2mb/RH{number}.jpg" alt="">
             <div class="inventorylink">
                 <a href="https://inventory.retroherna.org/admin/asset/details/?id={number}">
                     Předmět HH{number} v inventáři
