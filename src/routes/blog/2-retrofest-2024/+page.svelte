@@ -15,6 +15,7 @@
     <div style="text-align: center; font-size: 30px;">
         <p><a href="https://fb.me/e/65LTVgPcH">Událost na Facebooku</a>
         <p><a href="https://www.twitch.tv/retroherna_org">Twitch stream</a>
+        <p><a href="https://retroherna.org/ut99">Návod na připojení se k Unreal Tournament hře</a>
     </div>
 
     <p><img src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_program.jpg"></p>
