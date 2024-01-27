@@ -64,7 +64,8 @@
     .thumbnails {
         display: flex;
         flex-wrap: wrap;
-        gap: 4px;
+        gap:  8px 12px;
+        justify-content: center;
     }
     .thumbnail {
         width: 250px;
@@ -76,5 +77,32 @@
         z-index: 10;
         position: absolute;
         right: 0;
+    }
+
+    @media only screen and (max-width: 560px) {
+        .thumbnail {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    @media only screen and (max-width: 470px) {
+        .thumbnails {
+            display: flex;
+            flex-wrap: wrap;
+            gap:  2px 4px;
+        }
+        .thumbnail {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+
+    @media only screen and (max-width: 420px) {
+        .thumbnail {
+            width: 150px;
+            height: 150px;
+        }
     }
 </style>
