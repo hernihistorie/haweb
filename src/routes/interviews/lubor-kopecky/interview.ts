@@ -16,7 +16,8 @@ export const data: InterviewData = {
             url: "/interviews/lubor-kopecky.jpg",
             details_url: "",
             // license_text: ""
-        }
+        },
+        bio: "Lubor Kopecký se narodil roku 1978. Studoval na Obchodní akademii, kde potkal své tři kolegy, s kterými v následujících letech založil společnost <em>Sleep Team</em> v rámci které udělal svou první hru <em>Polda</em>. Po <em>Poldovi</em> dělal na hře <em>Bulánci</em>, <em>President: Path to Power</em> nebo <em>Bulánci 2</em>. Zároveň stál u založení GDA, České hry roku a katedry herního designu na FAMU."
     },
     interview: {
         date: new Date("2023-07-31"),
@@ -27,7 +28,8 @@ export const data: InterviewData = {
         informed_agreement: true,
         transcriber: "Alžběta Krejčí",
         redaction: "Rudolf Jan Suchý",
-        verifier: null
+        // verifier: null
     },
+    complete: true,
     tags: []
 }

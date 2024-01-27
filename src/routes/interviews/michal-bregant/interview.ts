@@ -24,7 +24,8 @@ export const data: InterviewData = {
         project: "Dějiny Filmových studií",
         informed_agreement: true,
         transcriber: "Rudolf Jan Suchý",
-        verifier: null
+        // verifier: null
     },
+    complete: true,
     tags: []
 }

@@ -64,6 +64,10 @@
 
         </dl>
 
+        {#if data.narrator.bio }
+            <p>{@html data.narrator.bio }</p>
+        {/if}
+
         {#if data.interview.redaction }
             <p>Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
         {/if}
