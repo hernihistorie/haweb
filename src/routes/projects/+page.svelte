@@ -17,13 +17,13 @@
     <Box right>
         <h3><span class="year">2023</span> Digitalizace fotografií</h3>
         <p>
-            V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href="/gallery/emil-fafek/">tématických fotografií z pozůstalosti Emila Fafka</a>.
+            V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny, považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href="/gallery/emil-fafek/">tématických fotografií z pozůstalosti Emila Fafka</a>.
         </p>
     </Box>
     <Box left>
         <h3><span class="year">2022</span> Zálohování datových nosičů</h3>
         <p>
-            Nalezli jsme řešení na světové úrovni pro digitalizaci starých datových nosičů, jejihž obsah podléhá skáze (tzv. <em>bitrot</em>).  Zajistili jsme techniku pro práci s disketami, kazetami, a optickými médii.  Navázali jsme spolupráci s širší komunitou a aktivně zálohujeme unikátní hry a programy českého a slovenkého původu.  Na <a href="http://www.bytefest.cz/novinky/2023/10/17/bytefest-2023i#:~:text=D%C3%A1le%20zde%20bude%20z%C3%A1lohovac%C3%AD%20stanice%20od%20Hern%C3%ADho%20archivu">ByteFestu v roce 2023</a> jsme naši digitalizační stanici poprvé představili na veřejné akci.
+            Nalezli jsme řešení na světové úrovni pro digitalizaci starých datových nosičů, jejihž obsah podléhá zkáze (tzv. <em>bitrot</em>).  Zajistili jsme techniku pro práci s disketami, kazetami, a optickými médii.  Navázali jsme spolupráci s širší komunitou a aktivně zálohujeme unikátní hry a programy českého a slovenkého původu.  Na <a href="http://www.bytefest.cz/novinky/2023/10/17/bytefest-2023i#:~:text=D%C3%A1le%20zde%20bude%20z%C3%A1lohovac%C3%AD%20stanice%20od%20Hern%C3%ADho%20archivu">ByteFestu v roce 2023</a> jsme naši digitalizační stanici poprvé představili na veřejné akci.
         </p>
     </Box>
     <Box right>
