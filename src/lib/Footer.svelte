@@ -4,10 +4,12 @@
 
 <!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
-    <Loc
+    <p><Loc
         cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
         en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
     />
+
+    <p>Webdesign: <a href="https://naymi.cz/">Nay Mi</a>
 </footer>
 
 <style>

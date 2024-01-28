@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition'
+
     import Loc from '$lib/Loc.svelte';
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
@@ -12,11 +14,12 @@
 		['/contact', "Kontakty", "Contacts"],
 	];
 	let burgerMenuOpen = false;
+	let projectsExpanded = false;
 </script>
 
 <header>
 	<div class="logo">
-		<a href="/">
+		<a href="/" on:click={() => projectsExpanded = false}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
 	</div>
@@ -42,11 +45,52 @@
 		</div>
 		<ul class="regular-links">
 			{#each links as link}
-				<li>
-					<a href="{link[0]}">
-						<Loc cs="{link[1]}" en="{link[2]}" />
-					</a>
-				</li>
+				<!-- XXX this is a temporary hack -->
+				{#if link[0] == '/projects'}
+					<li>
+						<a
+							style="cursor: pointer;"
+							on:click={() => projectsExpanded = !projectsExpanded}
+						>
+							<Loc cs="{link[1]} &nbsp;{projectsExpanded ? '▴' : '▾'}" en="{link[2]} &nbsp;{projectsExpanded ? '▴' : '▾'}" />
+						</a>
+						{#if projectsExpanded}
+							<ul class="dropdown" transition:slide>
+								<li>
+									<a href="/projects" on:click={() => projectsExpanded = false}>
+										<Loc cs="Časová osa" en="Timeline" />
+									</a>
+								</li>
+								<li>
+									<a href="https://inventory.retroherna.org/">
+										<Loc cs="Inventární systém" en="Inventory system" />
+									</a>
+								</li>
+								<li>
+									<a href="https://casopisy.herniarchiv.cz/">
+										<Loc cs="Databáze magazínů" en="Magazine database" />
+									</a>
+								</li>
+								<li>
+									<a href="/interviews" on:click={() => projectsExpanded = false}>
+										<Loc cs="Rozhovory" en="Interviews" />
+									</a>
+								</li>
+								<li>
+									<a href="/gallery/emil-fafek" on:click={() => projectsExpanded = false}>
+										<Loc cs="Fotografie" en="Photographs" />
+									</a>
+								</li>
+							</ul>
+						{/if}
+					</li>
+				{:else}
+					<li>
+						<a href="{link[0]}" on:click={() => projectsExpanded = false}>
+							<Loc cs="{link[1]}" en="{link[2]}" />
+						</a>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	</div>
@@ -85,8 +129,26 @@
 	}
 
 	li {
-		padding: 0 29px 0 29px;
+		padding: 0 27px 0 27px;
 		border-right: 1px solid var(--color-secondary);
+	}
+
+	.dropdown {
+		flex-direction: column;
+		position: absolute;
+		padding: 0;
+		flex-wrap: nowrap;
+		margin-top: 4px;
+		background-color: var(--color-bg);
+		border: 1px solid var(--color-secondary);
+		z-index: 50;
+		margin-left: -12px;
+	}
+
+	.dropdown li {
+		padding: 0;
+		margin: 8px 16px 8px 12px;
+		border: 0;
 	}
 
 	li:last-child {
