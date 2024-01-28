@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
     export let href: string | undefined = undefined;
-    export let left = undefined;
-    export let right = undefined;
+    export let left: boolean | undefined = undefined;
+    export let right: boolean | undefined = undefined;
 
     var box_class = "";
     if (left) box_class = "left";
