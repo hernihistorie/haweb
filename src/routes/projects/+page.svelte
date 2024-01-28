@@ -9,7 +9,7 @@
 <div class="projects">
     <div class="timeline-line"></div>
     <Box left>
-        <h3><span class="year">2023</span> <a href="/interviews/">Orálně historické rozhovory</a></h3>
+        <h3><span class="year">2023</span> <a href="/interviews/">Orálněhistorické rozhovory</a></h3>
         <p>
             Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href="/interviews/">veřejnému prohlížení</a>.
         </p>
