@@ -19,7 +19,7 @@
 
 <style>
     .blog-box {
-        width: 33%;
+        width: calc(30% - 32px);
     }
 
     a {

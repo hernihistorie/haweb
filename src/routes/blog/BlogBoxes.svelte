@@ -3,6 +3,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/3-novinky-na-pocatku-roku-2024"
+        title="Novinky na počátku roku 2024"
+    >
+        Začátkem tohoto roku jsme vypustili (a na streamu oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali. V tomto článku se o nich můžete dozvědět.
+    </BlogBox>
+
     <BlogBox href="/blog/2-retrofest-2024"
         title="RetroFest 2024 streamuje do vašich obýváků"
     >

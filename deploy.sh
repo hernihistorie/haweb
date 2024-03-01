@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 npm run build
 scp -r build sanqui.net:tmp_build
 ssh -t sanqui.net "\
