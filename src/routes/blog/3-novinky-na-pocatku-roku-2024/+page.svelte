@@ -18,7 +18,7 @@
         
     <p>Kromě skenování časopisů jsme také dávali dohromady <a href="https://casopisy.herniarchiv.cz/">jejich databázi</a>.
         
-    <p>Posledním projektem, na kterém jsme minulý rok začali dělat byli historické rozhovory s pamětníky z videoherní a počítačové kultury. První rozhovor, který můžete na stránkách Herního archivu nalézt je <a href="/interviews/lubor-kopecky/">rozhovor s Luborem Kopeckým</a> – jedním z tvůrců prvního Poldy nebo prvních Bulánků.
+    <p>Posledním projektem, na kterém jsme minulý rok začali dělat, byly historické rozhovory s pamětníky z videoherní a počítačové kultury. První rozhovor, který můžete na stránkách Herního archivu nalézt je <a href="/interviews/lubor-kopecky/">rozhovor s Luborem Kopeckým</a> – jedním z tvůrců prvního Poldy nebo prvních Bulánků.
     
     <p>Tyto projekty hodláme v roce 2024 nadále rozvíjet a nemůžeme se dočkat, až vám budeme moci představit více.  Děkujeme za vaši podporu i v tomto roce.
 
