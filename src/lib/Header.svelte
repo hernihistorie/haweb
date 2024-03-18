@@ -187,27 +187,27 @@
 	}
 
 	@media screen and (max-width: 1300px) {
-		li {
+		.regular-links > li {
 			padding: 0 20px 0 20px;
 		}
 	}
 
 	@media screen and (max-width: 1200px) {
-		li {
+		.regular-links > li {
 			padding: 0 10px 0 10px;
 		}
 	}
 
 	@media screen and (min-width: 850px) and (max-width: 1100px) {
-		li {
+		.regular-links > li {
 			padding: 0 20px 0 20px;
 			margin-top: 8px;
 			margin-bottom: 8px;
 		}
-		li:nth-child(3) {
+		.regular-links > li:nth-child(3) {
 			border-right: 0;
 		}
-		li:nth-child(4) {
+		.regular-links > li:nth-child(4) {
 			padding-left: 40%;
 		}
 	}
