@@ -3,6 +3,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/4-nove-zachranene-hry-od-firmy-mael"
+        title="Nově zachráněné hry od firmy Mael"
+    >
+        Tento pátek (20.4.2024) jsme byli na základě iniciativy ze strany <a href="https://www.facebook.com/karel.ondracek.5">Karla Ondráčka</a> (aka Solarise z Česko-Slovenského Speccy Archivu) u sběratele Filip Reichert zdigitalizovat některé předměty z jeho sbírky. Nejdůležitějším předmětem co jsme zdigitalizovali byly do teď nezachráněné hry (a jeden "propagační prográmek") na ZX Spectrum od firmy MAEL.
+    </BlogBox>
+
     <BlogBox href="/blog/3-novinky-na-pocatku-roku-2024"
         title="Novinky na počátku roku 2024"
     >
