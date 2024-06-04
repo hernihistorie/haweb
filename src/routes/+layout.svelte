@@ -1,11 +1,13 @@
 <script lang="ts">	
-	import Meta from '$lib/Meta.svelte';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import { MetaTags } from 'svelte-meta-tags';
 	import '../app.css';
 </script>
 
-<Meta title="" />
+<MetaTags
+  titleTemplate="%s | Herní archiv"
+/>
 
 <Header />
 
