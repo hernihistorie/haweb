@@ -3,6 +3,7 @@
     --color-text: #000;
     --color-primary: #ef4d37;
     --color-secondary: #b5a26d;
+    --color-secondary-transparent: #b5a26d60;
     --max-width: 1400px;
 }  
 
@@ -58,4 +59,9 @@ dd {
 hr {
     border-color: var(--color-secondary);
     border-style: solid;
+}
+
+code {
+    background-color: var(--color-secondary-transparent);
+    padding: 3px;
 }
