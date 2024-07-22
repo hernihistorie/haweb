@@ -13,6 +13,14 @@
 		['/blog', "Blog", "Blog"],
 		['/contact', "Kontakty", "Contacts"],
 	];
+	const projectLinks = [
+		["/projects", "Časová osa", "Timeline"],
+		["https://inventory.retroherna.org/", "Inventární systém", "Inventory system"],
+		["https://casopisy.herniarchiv.cz/", "Databáze magazínů", "Magazine database"],
+		["/interviews", "Rozhovory", "Interviews"],
+		["/gallery/emil-fafek", "Fotografie", "Photographs"],
+		["/projects/videostop", "Projekt Videostop", "Project Videostop"]
+	];
 	let burgerMenuOpen = false;
 	let projectsExpanded = false;
 </script>
@@ -56,36 +64,13 @@
 						</a>
 						{#if projectsExpanded}
 							<ul class="dropdown" transition:slide>
-								<li>
-									<a href="/projects" on:click={() => projectsExpanded = false}>
-										<Loc cs="Časová osa" en="Timeline" />
-									</a>
-								</li>
-								<li>
-									<a href="https://inventory.retroherna.org/">
-										<Loc cs="Inventární systém" en="Inventory system" />
-									</a>
-								</li>
-								<li>
-									<a href="https://casopisy.herniarchiv.cz/">
-										<Loc cs="Databáze magazínů" en="Magazine database" />
-									</a>
-								</li>
-								<li>
-									<a href="/interviews" on:click={() => projectsExpanded = false}>
-										<Loc cs="Rozhovory" en="Interviews" />
-									</a>
-								</li>
-								<li>
-									<a href="/gallery/emil-fafek" on:click={() => projectsExpanded = false}>
-										<Loc cs="Fotografie" en="Photographs" />
-									</a>
-								</li>
-								<li>
-									<a href="/projects/videostop" on:click={() => projectsExpanded = false}>
-										<Loc cs="Projekt Videostop" en="Project Videostop" />
-									</a>
-								</li>
+								{#each projectLinks as projectLink}
+									<li>
+										<a href="{projectLink[0]}" on:click={() => projectsExpanded = false}>
+											<Loc cs="{projectLink[1]}" en="{projectLink[2]}" />
+										</a>
+									</li>
+								{/each}
 							</ul>
 						{/if}
 					</li>
