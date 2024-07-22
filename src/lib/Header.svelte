@@ -81,6 +81,11 @@
 										<Loc cs="Fotografie" en="Photographs" />
 									</a>
 								</li>
+								<li>
+									<a href="/projects/videostop" on:click={() => projectsExpanded = false}>
+										<Loc cs="Projekt Videostop" en="Project Videostop" />
+									</a>
+								</li>
 							</ul>
 						{/if}
 					</li>

@@ -8,6 +8,12 @@
 <h3>Projekty</h3>
 <div class="projects">
     <div class="timeline-line"></div>
+    <Box right>
+        <h3><span class="year">2024</span> <a href="/projects/videostop">Projekt Videostop</a></h3>
+        <p>
+            Zábavný soutěžní program <em>Videostop</em> byl původně vysílán mezi lety 1985 a 2000 a testoval soutěžící v jejich znalostech filmové a televizní tvorby. Ve <em>Videostopu</em> se soutěžící pro odpovídání na otázku předháněli v tom, kdo dříve zmáčkne tlačítko, body byli počítané a vykreslované za pomocí počítače a hra na konci byla jednoduchá (avšak napínavá) videohra.  Fascinace interaktivností <em>Videostopu</em> byla ve své době do velké míry reflektovaná i v rámci Slovenské a České herní kultury.  Původní program od Ing. Zdeňka Vodáka získal a zpřístupnil Herní archiv v roce 2024. Součástí fondu, jenž zahrnuje samotné kazetové pásky s <em>Hrou Videostop</em> je také rozhovor se Zdeňkem Vodákem.
+        </p>
+    </Box>
     <Box left>
         <h3><span class="year">2023</span> <a href="/interviews/">Orálněhistorické rozhovory</a></h3>
         <p>
