@@ -11,8 +11,10 @@
 </script>
 
 <div class="thin">
-    <h2>Seznam rozhovorů - orální historie</h2>
-
+    <h2>Rozhovory</h2>
+    <p>
+        Sbírka rozhovorů je primárně složená z interview užívající metodu orální historie s představiteli české a slovenské herní kultury. Tyto rozhovory se zaměřují primárně na široké životopisné vyprávění, během kterých je snaha dát narátorům co nejvíce prostoru pro jejich autentický projev. To znamená, že je jejich projev jen minimálně přerušován a je jen minimálně veden samotným tazatelem. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně, které nemohou jiné historické prameny nabídnout. Tato sbírka také obsahuje rozhovory se zahraničními osobnostmi videoherní kultury, více strukturované rozhovory a záznamy přednášek, konferencí, debat a dalších akcí.
+    </p>
     {#each interviews as data}
         <Box>
             <div class="interview { data.complete ? 'complete' : 'incomplete' }">
