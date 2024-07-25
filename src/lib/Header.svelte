@@ -25,7 +25,7 @@
 		}, {
 			url: "/interviews", cs: "Rozhovory", en: "Interviews"
 		}, {
-			url: "https://inventory.retroherna.org/", cs: "Sbírka", en: "Collection"
+			url: "https://inventory.herniarchiv.cz/", cs: "Sbírka", en: "Collection"
 		}, {
 			url: "https://casopisy.herniarchiv.cz/", cs: "Časopisy", en: "Magazines"
 		}, {

@@ -48,7 +48,7 @@
         <GalleryImage id={index}>
             <img src="/gallery/emil-fafek/2mb/RH{number}.jpg" alt="">
             <div class="inventorylink">
-                <a href="https://inventory.retroherna.org/admin/asset/details/?id={number}">
+                <a href="https://inventory.herniarchiv.cz/admin/asset/details/?id={number}">
                     Předmět HH{number} v inventáři
                 </a>
             </div>

@@ -10,9 +10,9 @@
 
     <p>Začátkem tohoto roku jsme vypustili (a na <a href="/blog/2-retrofest-2024">streamu</a> oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali.
 
-    <p>Prvním takovým projektem bylo zveřejnění našeho <a href="https://inventory.retroherna.org/">inventarizačního systému</a>, jenž slouží k evidenci předmětů které jsou součástí (nejen) naší herně historické sbírky. V současnosti zde vedeme více než 7000 předmětů zahrnující herní konzole a počítače, hry, přepisovatelná média s uživatelskými programy a literaturu (včetně herních časopisů).
+    <p>Prvním takovým projektem bylo zveřejnění našeho <a href="https://inventory.herniarchiv.cz/">inventarizačního systému</a>, jenž slouží k evidenci předmětů které jsou součástí (nejen) naší herně historické sbírky. V současnosti zde vedeme více než 7000 předmětů zahrnující herní konzole a počítače, hry, přepisovatelná média s uživatelskými programy a literaturu (včetně herních časopisů).
         
-    <p>Minulý rok jsme také začali s tvorbou metody na digitalizaci počítačových disket a kazet. První (zajímavější) plody z našeho experimentování jsme zároveň zveřejnili i v našem inventarizačním systému, jako např. <a href="https://inventory.retroherna.org/admin/asset/details/?id=6838">tuto uživatelskou kazetu s některými (do nedávna) jinde nezveřejnými hrami na ZX Spectrum</a>.
+    <p>Minulý rok jsme také začali s tvorbou metody na digitalizaci počítačových disket a kazet. První (zajímavější) plody z našeho experimentování jsme zároveň zveřejnili i v našem inventarizačním systému, jako např. <a href="https://inventory.herniarchiv.cz/admin/asset/details/?id=6838">tuto uživatelskou kazetu s některými (do nedávna) jinde nezveřejnými hrami na ZX Spectrum</a>.
         
     <p>V rámci digitalizace se samozřejmě neomezujeme jen na paměťová média pro osobní počítače. Dlouho dobu se totiž také zabýváme skenováním a digitalizací různých tiskovin – zejména pak herních časopisů, ale také např. <a href="/gallery/emil-fafek/">historických fotografií</a>.
         

@@ -51,8 +51,8 @@
     <h3 id="Predmety">Předměty</h3>
     <!-- TODO fotky predmetu -->
      <ul>
-        <li><a href="https://inventory.retroherna.org/asset/7859">Uživatelská kazeta s programem „Videostop" (Fuji)</a>
-        <li><a href="https://inventory.retroherna.org/asset/7860">Uživatelská kazeta s programem „Videostop" (Magna)</a>
+        <li><a href="https://inventory.herniarchiv.cz/asset/7859">Uživatelská kazeta s programem „Videostop" (Fuji)</a>
+        <li><a href="https://inventory.herniarchiv.cz/asset/7860">Uživatelská kazeta s programem „Videostop" (Magna)</a>
     </ul>
 
     <!-- <h3>Rozhovory</h3>
