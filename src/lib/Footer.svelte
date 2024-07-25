@@ -4,18 +4,29 @@
 
 <!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
-    <p><Loc
-        cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-        en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-    />
+    <div>
+        <a href="/contact">Kontaktujte nás</a>
+    </div>
+    <div>
+        <p><Loc
+            cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
+            en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
+        />
 
-    <p>Webdesign: <a href="https://naymi.cz/">Nay Mi</a>
+        <p>Webdesign: <a href="https://naymi.cz/">Nay Mi</a>
+    </div>
 </footer>
 
 <style>
     footer {
-        margin: 200px auto 100px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 		padding: 0 16px 0 16px;
+    }
+
+    footer {
+        margin: 200px auto 100px auto;
         max-width: var(--max-width);
         text-align: right;
         font-size: smaller;
