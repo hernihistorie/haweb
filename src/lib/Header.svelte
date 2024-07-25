@@ -5,29 +5,46 @@
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 
-	var links = [
-		['/mission', "Mise a cíle", "Missions and goals"],
-		['/projects', "Projekty", "Projects"],
-		['/services', "Služby a technologie", "Services and technologies"],
-		['/collection', "Sbírka", "Collection"],
-		['/blog', "Blog", "Blog"],
-		['/contact', "Kontakty", "Contacts"],
-	];
-	const projectLinks = [
-		["/projects", "Časová osa", "Timeline"],
-		["https://inventory.retroherna.org/", "Inventární systém", "Inventory system"],
-		["https://casopisy.herniarchiv.cz/", "Databáze magazínů", "Magazine database"],
-		["/interviews", "Rozhovory", "Interviews"],
-		["/gallery/emil-fafek", "Fotografie", "Photographs"],
-		["/projects/videostop", "Projekt Videostop", "Project Videostop"]
+	type MenuItem = {
+		url: string;
+		cs: string;
+		en: string;
+		submenu?: MenuItem[];
+	}
+
+	var menuItems: MenuItem[] = [
+		{
+			url: "/about", cs: "O nás", en: "About us",
+		}, {
+			url: "/projects", cs: "Projekty", en: "Projects",
+			submenu: [
+				{ url: "/projects", cs: "Časová osa", en: "Timeline" },
+				{ url: "/gallery/emil-fafek", cs: "Fotografie Emila Fafka", en: "Emil Fafek photography" },
+				{ url: "/projects/videostop", cs: "Projekt Videostop", en: "Project Videostop" },
+			]
+		}, {
+			url: "/interviews", cs: "Rozhovory", en: "Interviews"
+		}, {
+			url: "https://inventory.retroherna.org/", cs: "Sbírka", en: "Collection"
+		}, {
+			url: "https://casopisy.herniarchiv.cz/", cs: "Časopisy", en: "Magazines"
+		}, {
+			url: "/blog", cs: "Blog", en: "Blog"
+		}, {
+			url: "/contact", cs: "Kontakty", en: "Contacts"
+		}
 	];
 	let burgerMenuOpen = false;
-	let projectsExpanded = false;
+	let currentExpandedMenu: MenuItem | null = null;
+
+	let resetExpandedMenu = () => {
+		currentExpandedMenu = null;
+	}
 </script>
 
 <header>
 	<div class="logo">
-		<a href="/" on:click={() => projectsExpanded = false}>
+		<a href="/" on:click={resetExpandedMenu}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
 	</div>
@@ -38,10 +55,10 @@
 					<li>
 						<LanguageSwitcher />
 					</li>
-					{#each links as link}
+					{#each menuItems as menuItem}
 						<li>
-							<a href="{link[0]}" on:click={() => burgerMenuOpen=false}>
-								<Loc cs="{link[1]}" en="{link[2]}" />
+							<a href="{menuItem.url}" on:click={() => burgerMenuOpen=false}>
+								<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
 							</a>
 						</li>
 					{/each}
@@ -52,22 +69,25 @@
 			<LanguageSwitcher />
 		</div>
 		<ul class="regular-links">
-			{#each links as link}
+			{#each menuItems as menuItem, i}
 				<!-- XXX this is a temporary hack -->
-				{#if link[0] == '/projects'}
+				{#if menuItem.submenu}
 					<li>
 						<a
 							style="cursor: pointer;"
-							on:click={() => projectsExpanded = !projectsExpanded}
+							on:click={() => currentExpandedMenu = currentExpandedMenu == menuItem ? null : menuItem}
 						>
-							<Loc cs="{link[1]} &nbsp;{projectsExpanded ? '▴' : '▾'}" en="{link[2]} &nbsp;{projectsExpanded ? '▴' : '▾'}" />
+							<Loc
+								cs="{menuItem.cs} &nbsp;{currentExpandedMenu == menuItem ? '▴' : '▾'}"
+								en="{menuItem.en} &nbsp;{currentExpandedMenu == menuItem ? '▴' : '▾'}"
+							/>
 						</a>
-						{#if projectsExpanded}
+						{#if currentExpandedMenu}
 							<ul class="dropdown" transition:slide>
-								{#each projectLinks as projectLink}
+								{#each menuItem.submenu as subMenuItem}
 									<li>
-										<a href="{projectLink[0]}" on:click={() => projectsExpanded = false}>
-											<Loc cs="{projectLink[1]}" en="{projectLink[2]}" />
+										<a href="{subMenuItem.url}" on:click={resetExpandedMenu}>
+											<Loc cs="{subMenuItem.cs}" en="{subMenuItem.en}" />
 										</a>
 									</li>
 								{/each}
@@ -76,10 +96,13 @@
 					</li>
 				{:else}
 					<li>
-						<a href="{link[0]}" on:click={() => projectsExpanded = false}>
-							<Loc cs="{link[1]}" en="{link[2]}" />
+						<a href="{menuItem.url}" on:click={resetExpandedMenu}>
+							<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
 						</a>
 					</li>
+				{/if}
+				{#if i == 3}
+					<li class="menu-break"></li>
 				{/if}
 			{/each}
 		</ul>
@@ -120,7 +143,7 @@
 
 	li {
 		padding: 0 27px 0 27px;
-		border-right: 1px solid var(--color-secondary);
+		border-left: 1px solid var(--color-secondary);
 	}
 
 	.dropdown {
@@ -141,8 +164,8 @@
 		border: 0;
 	}
 
-	li:last-child {
-		border-right: none;
+	li:first-child {
+		border-left: none;
 	}
 
 	a {
@@ -150,6 +173,7 @@
 		text-transform: uppercase;
 		text-decoration: none;
 		white-space: nowrap;
+		user-select: none;
 	}
 
 	a:hover {
@@ -176,6 +200,10 @@
 		font-size: 120%;
 	}
 
+	.menu-break { 
+		display: none;
+	}
+
 	@media screen and (max-width: 1300px) {
 		.regular-links > li {
 			padding: 0 20px 0 20px;
@@ -194,11 +222,14 @@
 			margin-top: 8px;
 			margin-bottom: 8px;
 		}
-		.regular-links > li:nth-child(3) {
-			border-right: 0;
+		.menu-break + li {
+			border-left: none !important;
 		}
-		.regular-links > li:nth-child(4) {
-			padding-left: 40%;
+		.menu-break {
+			display: block;
+			flex-basis: 100%;
+			height: 0;
+			margin: 0 !important;
 		}
 	}
 
