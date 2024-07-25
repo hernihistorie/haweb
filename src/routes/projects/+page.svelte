@@ -33,9 +33,9 @@
         </p>
     </Box>
     <Box right>
-        <h3><span class="year">2021</span> <a href="https://inventory.retroherna.org/">Inventarizace sbírky</a></h3>
+        <h3><span class="year">2021</span> <a href="https://inventory.herniarchiv.cz/">Inventarizace sbírky</a></h3>
         <p>
-            Započat projekt systématického zadávání předmětů v naší sbírce do vlastního digitálního systému. Do systému inventáře se zadávají metadata o předmětu a jeho původu. Ke kažému předmětu je přiřazena fotografie, dále vytištěn štítek a uložena jeho pozice pro možnosti dohledání. Od roku 2024 je značná část inventáře vedena veřejně a <a href="https://inventory.retroherna.org/">můžete do něj nahlédnout</a>.
+            Započat projekt systématického zadávání předmětů v naší sbírce do vlastního digitálního systému. Do systému inventáře se zadávají metadata o předmětu a jeho původu. Ke kažému předmětu je přiřazena fotografie, dále vytištěn štítek a uložena jeho pozice pro možnosti dohledání. Od roku 2024 je značná část inventáře vedena veřejně a <a href="https://inventory.herniarchiv.cz/">můžete do něj nahlédnout</a>.
         </p>
     </Box>
     <Box left>
