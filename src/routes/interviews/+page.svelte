@@ -6,8 +6,9 @@
     import { data as hrda_data } from './stanislav-hrda/interview';
     import { data as havelka_data } from './jozef-havelka/interview';
     import { data as robinett_data } from './warren-robinett/interview';
+    import { data as vodak_data } from './zdenek-vodak/interview';
 
-    let interviews: InterviewData[] = [kopecky_data, hrda_data, robinett_data, havelka_data];
+    let interviews: InterviewData[] = [kopecky_data, hrda_data, robinett_data, havelka_data, vodak_data];
 </script>
 
 <div class="thin">
