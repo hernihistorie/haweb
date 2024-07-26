@@ -7,4 +7,4 @@
 
 <h2>Blog</h2>
 
-<BlogBoxes />
+<BlogBoxes all={true}/>

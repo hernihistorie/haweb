@@ -70,7 +70,7 @@ lokální stopu v tomto odvětví kultury.
 
     <h3>Blog</h3>
 
-    <BlogBoxes />
+    <BlogBoxes all={false} />
 
 <style>
     .boxes {

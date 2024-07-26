@@ -1,5 +1,7 @@
 <script lang="ts">
 	import BlogBox from '$lib/BlogBox.svelte';
+
+    export let all: boolean;
 </script>
 
 <div class="blogboxes">
@@ -20,6 +22,8 @@
 >
         Sérii videoherních příruček u nás vydávala firma STUARE, která u nás překládala "strategy guides" od dvou konkurenčních zahrničních firem - Brady Games (od kterého je příručka na obrázku) a Prima Games. Těchto návodů vyšo celkově 48 (a v archivu nám jich zbývá 9). Tyto návody byli svého času plnohodnotnou součástí mnoha herních zážitků a proto jsme rádi, že máme možnost mít tento vzácnější kousek u nás v archvivu.
     </BlogBox>
+
+    {#if all}
 
     <BlogBox href="/blog/14-zaznam-retrofestu-2024"
     title="Záznam streamu Herní historie: RetroFest 2024"
@@ -122,6 +126,8 @@
     >
         Krátce po té, co jsem se oficiálně zapojil do činnosti spolku Herní historie, stala se věc. Už si bohužel napamatuji, kdo s ní přišel, ale protože pro mě každá věc co smrdí dobrodružstvím, je věcí šíleně neodolatelnou, okamžitě jsem se přihlásil a dokonce jsem nabídl i svá rychlá kola. O jakou věc, že se jedná? Výlet do Švýcarska.
     </BlogBox>
+
+    {/if}
 </div>
 
 <style>
