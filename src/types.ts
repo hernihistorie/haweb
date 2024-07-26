@@ -35,3 +35,10 @@ export interface InterviewData {
     complete: boolean;
     tags: string[] | undefined;
 }
+
+export interface AssetData {
+    name: string;
+    picture: Photo;
+    description: string;
+    inventory_url: string;
+}

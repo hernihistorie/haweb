@@ -1,5 +1,14 @@
-<script>
+<script lang="ts">
 	import Meta from "$lib/Meta.svelte";
+    import type { AssetData, InterviewData } from "$src/types";
+    import Box from "$lib/Box.svelte";
+    import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
+    import { data as asset07859_data } from '$src/routes/assets/asset_07859';
+    import { data as asset07860_data } from '$src/routes/assets/asset_07860';
+    import { data as asset08107_data } from '$src/routes/assets/asset_08107';
+
+    let interviews: InterviewData[] = [vodak_data];
+    let assets: AssetData[] = [asset07859_data, asset07860_data, asset08107_data];
 </script>
 
 <Meta title="Projekt Videostop" />
@@ -49,15 +58,154 @@
     </ol>
 
     <h3 id="Predmety">Předměty</h3>
-    <!-- TODO fotky predmetu -->
-     <ul>
-        <li><a href="https://inventory.herniarchiv.cz/asset/7859">Uživatelská kazeta s programem „Videostop" (Fuji)</a>
-        <li><a href="https://inventory.herniarchiv.cz/asset/7860">Uživatelská kazeta s programem „Videostop" (Magna)</a>
-    </ul>
+    <p>
+        {#each assets as data}
+        <Box>
+            <div class="asset">
+                <div>
+                    <div class="asset-name">
+                        <a href="{ data.inventory_url }"> { data.name }</a>
+                    </div>
+                        <p>{@html data.description }</p>
+                    </div>
+                    <div class="asset-photo">
+                        <img src="{ data.picture.url }" class="asset-img" alt="">
+                    </div>
+                </div>
+            </Box>
+        {/each}
 
-    <!-- <h3>Rozhovory</h3>
-    <p><em>Sem později přijdou jednotlivé rozhovory.</em>
-    <h3>Články</h3>
+    <style>
+        .asset-name {
+           font-size: 25px;
+           font-weight: bold; 
+        }
+        .asset {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+    
+        .asset-photo {
+            width: 350px;
+            margin-right: 4px;
+            margin-left: 16px;
+            flex-shrink: 0;
+        }
+        
+        .asset-photo a {
+            display: block;
+        }
+    
+        .asset-img {
+            margin-left: 32px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            width: 334px;
+            height: 200px;
+            object-fit: cover;
+        }    
+    
+        @media only screen and (max-width: 600px) {
+            .asset {
+                flex-direction: column-reverse;
+            }
+            .asset-photo {
+                margin-left: 0;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+
+    <h3>Rozhovory</h3>
+    <p>{#each interviews as data}
+        <Box>
+            <div class="interview { data.complete ? 'complete' : 'incomplete' }">
+                <div>
+                    <h3>
+                        <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
+                        {#if !data.complete }
+                            <br><span class="in-progress">připravujeme</span>
+                        {/if}
+                    </h3>
+                    {#if data.narrator.bio }
+                        <p>{@html data.narrator.bio }</p>
+                    {/if}
+                    {#if data.complete }
+                        <p>
+                            <strong>Datum:</strong> { data.interview.date.toLocaleDateString("cs-CZ") }
+                            &nbsp;&bull;&nbsp;
+                            <strong>Délka:</strong> { data.interview.length }
+                        </p>
+                    {:else}
+                        <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->
+                        {/if}
+                    </div>
+                    <div class="photopart">
+                        {#if data.narrator.photo }
+                            <a href={data.complete ? "/interviews/" + data.slug : undefined}>
+                                <img src="{ data.narrator.photo.url }" class="narrator-img" alt="">
+                            </a>
+                        {/if}
+                    </div>
+                </div>
+            </Box>
+        {/each}
+    <style>
+        .interview {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+    
+        .photopart {
+            width: 200px;
+            margin-right: 4px;
+            margin-left: 16px;
+            flex-shrink: 0;
+        }
+        .photopart a {
+            display: block;
+        }
+    
+        .narrator-img {
+            margin-left: 16px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+        .incomplete .narrator-img {
+            filter: sepia(1);
+        }
+        .incomplete a {
+            color: black;
+        }
+    
+        .in-progress {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-left: 8px;
+            font-size: 18px;
+    
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 3px;
+        }
+    
+    
+        @media only screen and (max-width: 600px) {
+            .interview {
+                flex-direction: column-reverse;
+            }
+            .photopart {
+                margin-left: 0;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+    <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->
 
 </article>
