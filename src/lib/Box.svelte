@@ -13,7 +13,7 @@
     <div class="cross">
         <img src="/ico/ico_x.svg" alt="x">
     </div>
-    <div>
+    <div class="content">
         <slot />
         {#if href}
             <Arrow {href} />
@@ -76,6 +76,10 @@
 
     .right .cross {
         margin-left: -8px;
+    }
+
+    .content {
+        width: 100%;
     }
 
     @media only screen and (max-width: 700px) {

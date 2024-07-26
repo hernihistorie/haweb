@@ -25,7 +25,7 @@
     }
     .asset {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 12px;
     }
 
