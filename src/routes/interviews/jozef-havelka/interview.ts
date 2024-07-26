@@ -10,7 +10,7 @@ export const data: InterviewData = {
         name: "Jozef Havelka",
         birth_year: "TODO TODO TODO TODO",
         gender: "M",
-        bio: "Jozef Havelka studoval a následně i pracoval v rámci zemědělství (zejména meliorace půdy). K prvnímu počítači se dostal, když mu první manželka přivezla z Francie počítač značky Sinclair. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku (ke kterému pak zcela utekl od meliorací půdy). Klub byl umístěn v budově, které pan Havelka říkal ,,první škola“ a fungoval od roku 1986 až do revoluce roku 1989. Kromě obecného fungování v prostorech školy, klub dělal i různé akce jako byl ,,Atari bál“ nebo akce, kde s počítači seznamoval pedagogy.",
+        bio: "Jozef Havelka studoval a následně i pracoval v rámci zemědělství (zejména meliorace půdy). K prvnímu počítači se dostal, když mu první manželka přivezla z Francie počítač značky Sinclair. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku (ke kterému pak zcela utekl od meliorací půdy). Klub byl umístěn v budově, které pan Havelka říkal ,,první škola“ a fungoval od roku 1986 až do revoluce roku 1989. Kromě obecného fungování v prostorech školy, klub dělal i různé akce jako byl „Atari bál“ nebo akce, kde s počítači seznamoval pedagogy.",
         photo: {
             url: "/interviews/jozef-havelka.jpg",
         }

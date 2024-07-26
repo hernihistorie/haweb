@@ -3,11 +3,12 @@
     import type { AssetData, InterviewData } from "$src/types";
     import Box from "$lib/Box.svelte";
     import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
+    import { data as bezdek_data } from '$src/routes/interviews/vladimir-bezdek/interview';
     import { data as asset07859_data } from '$src/routes/assets/asset_07859';
     import { data as asset07860_data } from '$src/routes/assets/asset_07860';
     import { data as asset08107_data } from '$src/routes/assets/asset_08107';
 
-    let interviews: InterviewData[] = [vodak_data];
+    let interviews: InterviewData[] = [vodak_data, bezdek_data];
     let assets: AssetData[] = [asset07859_data, asset07860_data, asset08107_data];
 </script>
 

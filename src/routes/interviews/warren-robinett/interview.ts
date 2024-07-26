@@ -10,7 +10,7 @@ export const data: InterviewData = {
         name: "Warren Robinett",
         birth_year: "1951",
         gender: "M",
-        bio: "Warren Robinett se narodil roku 1951 ve Springfield Missouri. Studoval undergraduate na Rice University a graduate na Berkley odkud po dostudování šel pracovat do firmy Atari. Zde udělal tři hry (<em>Slot Racer</em>, <em>BASIC Programming</em>, <em>Adventure</em>) než kvůli neshodám s vedením odešel. Později stál u založení firmy The Learning Company.",
+        bio: "Warren Robinett se narodil roku 1951 ve Springfield Missouri. Studoval undergraduate na Rice University a graduate na Berkley odkud po dostudování šel pracovat do firmy <em>Atari</em>. Zde udělal tři hry (<em>Slot Racer</em>, <em>BASIC Programming</em>, <em>Adventure</em>) než kvůli neshodám s vedením odešel. Později stál u založení firmy <em>The Learning Company</em>.",
         photo: {
             url: "/interviews/warren-robinett.jpg",
         }

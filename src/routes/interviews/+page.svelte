@@ -7,8 +7,11 @@
     import { data as havelka_data } from './jozef-havelka/interview';
     import { data as robinett_data } from './warren-robinett/interview';
     import { data as vodak_data } from './zdenek-vodak/interview';
+    import { data as bezdek_data } from './vladimir-bezdek/interview';
+    import { data as hurnikova_data } from './kamila-hurnikova/interview';
 
-    let interviews: InterviewData[] = [kopecky_data, hrda_data, robinett_data, havelka_data, vodak_data];
+
+    let interviews: InterviewData[] = [kopecky_data, hrda_data, robinett_data, havelka_data, vodak_data, bezdek_data, hurnikova_data];
 </script>
 
 <div class="thin">
