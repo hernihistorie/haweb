@@ -8,6 +8,7 @@
     import { data as asset07859_data } from '$src/routes/assets/asset_07859';
     import { data as asset07860_data } from '$src/routes/assets/asset_07860';
     import { data as asset08107_data } from '$src/routes/assets/asset_08107';
+	import AssetBox from "$src/lib/AssetBox.svelte";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
     let assets: AssetData[] = [asset07859_data, asset07860_data, asset08107_data];
@@ -60,64 +61,9 @@
     </ol>
 
     <h3 id="Predmety">Předměty</h3>
-    <p>
-        {#each assets as data}
-        <Box>
-            <div class="asset">
-                <div>
-                    <div class="asset-name">
-                        <a href="{ data.inventory_url }"> { data.name }</a>
-                    </div>
-                        <p>{@html data.description }</p>
-                    </div>
-                    <div class="asset-photo">
-                        <img src="{ data.picture.url }" class="asset-img" alt="">
-                    </div>
-                </div>
-            </Box>
-        {/each}
-
-    <style>
-        .asset-name {
-           font-size: 25px;
-           font-weight: bold; 
-        }
-        .asset {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-    
-        .asset-photo {
-            width: 350px;
-            margin-right: 4px;
-            margin-left: 16px;
-            flex-shrink: 0;
-        }
-        
-        .asset-photo a {
-            display: block;
-        }
-    
-        .asset-img {
-            margin-left: 32px;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            width: 334px;
-            height: 200px;
-            object-fit: cover;
-        }    
-    
-        @media only screen and (max-width: 600px) {
-            .asset {
-                flex-direction: column-reverse;
-            }
-            .asset-photo {
-                margin-left: 0;
-                margin-bottom: 16px;
-            }
-        }
-    </style>
+    {#each assets as data}
+        <AssetBox {data} />
+    {/each}
 
     <h3>Rozhovory</h3>
     {#each interviews as data}
