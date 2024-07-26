@@ -1,5 +1,6 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
+    import { SOCIAL_MEDIA_LINKS } from "$src/constants";
 </script>
 
 <Meta title="Kontaky" />
@@ -24,12 +25,20 @@
         <dd>
             <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>
         </dd>
+    </dl>
 
-        <dt>
-            Discord server
-        </dt>
-        <dd>
-            <a href="https://discord.gg/bm2G8FS">https://discord.gg/bm2G8FS</a>
-        </dd>
+    <p>
+        Nacházíme se na následujících sociálních sítích:
+    </p>
+
+    <dl>
+        {#each Object.entries(SOCIAL_MEDIA_LINKS) as [name, url]}
+            <dt>
+                { name }
+            </dt>
+            <dd>
+                <a href={ url }>{ url }</a>
+            </dd>
+        {/each}
     </dl>
 </article>
