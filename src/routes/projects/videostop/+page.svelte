@@ -8,10 +8,11 @@
     import { data as asset07859_data } from '$src/routes/assets/asset_07859';
     import { data as asset07860_data } from '$src/routes/assets/asset_07860';
     import { data as asset08107_data } from '$src/routes/assets/asset_08107';
+    import { data as asset08077_data } from '$src/routes/assets/asset_08077';
 	import AssetBox from "$src/lib/AssetBox.svelte";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
-    let assets: AssetData[] = [asset07859_data, asset07860_data, asset08107_data];
+    let assets: AssetData[] = [asset07859_data, asset07860_data, asset08077_data, asset08107_data];
 </script>
 
 <Meta title="Projekt Videostop" />
@@ -30,19 +31,23 @@
     <h3>Úvod</h3>
     <p>
         Původní verze zábavného pořadu <em>Videostop</em> byla vysílaná mezi lety 1985 a 2000. Pořad testoval soutěžící v jejich znalostech Československé (a od roku 1989 i světové) filmové a televizní tvorby – byl jim vždy puštěn úryvek z nějakého filmu, podle kterého měli poznat, o jaký film/seriál se jedná. Po té, co jeden ze čtyř (později tří) soutěžících správně uhodl, z čeho byla zmíněná ukázka, mu byla položena druhá otázka, se kterou mu radil jeden z VIP hostů, který buď mohl radit soutěžícímu správně, nebo ,,blafovat”. Pokud soutěžící správně odhadl, jestli mu host lže nebo říká pravdu, tak dostal ještě bod navíc. Vítěz s nejvíce body měl nakonec možnost si zahrát elektronické kostky (dále jen <em>Hra Videostop</em>), díky čemuž mohl následně vyhrát různé ceny – pokud nahrál jen málo bodů, tak dostal bačkory, pokud se mu naopak ve hře dařilo, tak mohl vyhrát třeba televizor.
-    </p><p>
+    </p>
+    <p><img src="/photos/videostop_porad.jpg" alt="Záběr hry v samotném pořadu"></p>
+    <p>
         Zejména v 80. letech byl tento pořad, s jehož konceptem přišel televizní technik Vladimír Bezděk st., fenoménem, který se těšil velké popularitě jak v Česku tak na Slovensku. Do značné míry mohla za popularitu tohoto pořadu moderátorská dvojice (která pořad uváděla od roku 1987) Jana Rosáka a filmového historika Karla Čáslavského. Atraktivní byl pořad i kvůli samotné koncepci – VIP hosté zde nebyli jen proto, aby radili soutěžícím, ale také se podíleli o různé historky z natáčení nebo z jejich životů. Nicméně, čím se <em>Videostop</em> výrazně lišil od jiných tuzemských soutěžních pořadů z této doby, byla snaha o zapojení nových médií do jeho fungování. Toto je zejména patrné pokud <em>Videostop</em> porovnáváte s např. <em>Šesti rany do klobouku</em>. V <em>Klobouku</em> byli soutěžící před zodpovídáním otázek vybírání moderátorem, body byli počítané za pomocí fyzických míčků a hra na konci spočívala v házení těchto míčků do velkého klobouku. Naopak ve <em>Videostopu</em> se soutěžící pro odpovídání na otázku předháněli v tom, kdo dříve zmáčkne tlačítko, body byli počítané a vykreslované za pomocí počítače a hra na konci byla jednoduchá (avšak napínavá) videohra.
-    </p><p>
+    </p>
+    <p>
         Tato fascinace interaktivností <em>Videostopu</em> byla ve své době do velké míry reflektovaná i v rámci Slovenské a České herní kultury. Během 80. a 90. let vznikla celá řada klonů hry <em>Videostop</em> téměř na každý počítač, který zde byl dostupný.
-    </p><p>
-        Původní program od Ing. Zdeňka Vodáka však získal a zpřístupnil Herní archiv až v roce 2024 a to díky samotnému jeho autorovi. Součástí fondu, jenž zahrnuje samotné kazetové pásky s <em>Hrou Videostop</em> je také rozhovor se Zdeňkem Vodákem apod.
+    </p>
+    <p><img src="/photos/videostop_kazeta.jpg" alt="Původní kazety s programem Videostop"></p>
+    <p>
+        Původní program od Ing. Zdeňka Vodáka však získal a zpřístupnil Herní archiv až v roce 2024 a to díky jeho autorovi. Součástí fondu jsou kromě samotných kazetových pásek s <em>Hrou Videostop</em>, dumpy těchto pásek, scénáře k Videostopu a jejich skeny, rozhovory se Zdeňkem Vodákem a Vladimírem Bezděkem st. ad.
     </p>
 
     <h3 id="Navody">Návody</h3>
     <h4>Návod na spuštění hry Videostop</h4>
-    <!-- TODO prosím dej tam odkaz přímo na ten soubor -->
     <p>
-        Pokud si chcete hru z pořadu <em>Videostop</em> jen zahrát a chcete se vyhnout složitému nastavováním, tak doporučujeme hru stáhnout z <a href="https://cs.speccy.cz/index.php">cs.speccy.cz</a>. Zde kromě originální verze naleznete i verzi upravenou, kterou lze nahrát samu o sobě a také je hratelná jen za pomocí klávesnice. Tato upravená verze je pojmenovaná <code>Videostop_v1_fixed.tap</code>. V menu této verze se pohybujete za pomocí čísel a hru ovládáte klávesou <code>7</code>. Pokud byste si naopak chtěli zahrát hru s ovladačem/joystickem, tak spusťte verzi s názvem <code>Videostop_v1_fixed_kemp.tap</code>. I zde menu ovládáte za pomocí čísel, ale hru zde ovládáte pomocí Kempston joysticku. (Autor upraveného programu: Roman Bórik)
+        Pokud si chcete hru z pořadu <em>Videostop</em> jen zahrát a chcete se vyhnout složitému nastavováním, tak doporučujeme hru stáhnout z <a href="https://cs.speccy.cz/games/Videostop_Vodak.zip">cs.speccy</a>. Zde kromě originální verze naleznete i verzi upravenou, kterou lze nahrát samu o sobě a také je hratelná jen za pomocí klávesnice. Tato upravená verze je pojmenovaná <code>Videostop_v1_fixed.tap</code>. V menu této verze se pohybujete za pomocí čísel a hru ovládáte klávesou <code>7</code>. Pokud byste si naopak chtěli zahrát hru s ovladačem/joystickem, tak spusťte verzi s názvem <code>Videostop_v1_fixed_kemp.tap</code>. I zde menu ovládáte za pomocí čísel, ale hru zde ovládáte pomocí Kempston joysticku. (Autor upraveného programu: Roman Bórik)
     </p>
     <p>
         Pro spuštění originální hry z pořadu <em>Videostop</em> budete potřebovat samozřejmě ZX Spectrum (nebo kompatibilní), Kempston interface s ovladačem/joystickem a Basicový interpreter <em><a href="https://spectrumcomputing.co.uk/entry/8997/ZX-Spectrum/YS_MegaBasic">YS MegaBasic</a></em>. Pokud si chcete zahrát hru v emulovaném prostředí, tak budete potřebovat emulátor jenž podporuje i emulaci Kempston Joysticku (např. emulátor <em><a href="https://www.spectaculator.com/">Spectaculator</a></em>) a zmíněný <em>YS MegaBasic</em>. Nakonec budete potřebovat samotnou hru, kterou je možné stáhnout na <a href="https://cs.speccy.cz/index.php">cs.speccy.cz</a> a nebo z našeho inventáře (viz. <a href="#Predmety">Předměty</a>).

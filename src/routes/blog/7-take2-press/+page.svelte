@@ -1,5 +1,12 @@
-<script>
+<script lang="ts">
     import BlogPost from "$lib/BlogPost.svelte";
+    import type { AssetData } from "$src/types";
+    import { data as asset07392_data } from '$src/routes/assets/asset_07392';
+    import { data as asset07393_data } from '$src/routes/assets/asset_07393';
+    import { data as asset07394_data } from '$src/routes/assets/asset_07394';
+    import AssetBox from "$src/lib/AssetBox.svelte";
+
+    let assets: AssetData[] = [asset07392_data, asset07393_data, asset07394_data];
 </script>
 
 <BlogPost
@@ -12,11 +19,9 @@
     <p>Kromě screenshotů z her lze v rámci těchto materiálů nalézt i concept arty, přebaly her, doprovodné texty, powerpoint prezentace apod.
     <p>Kompletní dumpy těchto CDček naleznete zde: 
     
-    <ul>
-        <li><p><a href="https://inventory.herniarchiv.cz/asset/details/?id=7392">Mafia Review Assets - Print Press Exclusive</a>
-        <li><p><a href="https://inventory.herniarchiv.cz/asset/details/?id=7393">Vietcong Assets</a>
-        <li><p><a href="https://inventory.herniarchiv.cz/asset/details/?id=7394">Press Asset Disk 3/6/02</a>
-    </ul>
+    {#each assets as data}
+        <AssetBox {data} />
+    {/each}
 
     <p><small>(Obrázky pochází z Take 2 press materiálů)</small>
 

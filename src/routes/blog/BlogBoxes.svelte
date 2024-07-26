@@ -3,6 +3,60 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/17-rozhovor-vladimir-bezdek"
+    title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
+>
+        SVzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod.
+    </BlogBox>
+
+    <BlogBox href="/blog/16-ops2-magazin"
+    title="PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů"
+>
+        Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
+    </BlogBox>
+
+    <BlogBox href="/blog/15-gta-3-prirucky"
+    title="Do archivu jsme získali vzácnou příručku ke GTA 3"
+>
+        Sérii videoherních příruček u nás vydávala firma STUARE, která u nás překládala "strategy guides" od dvou konkurenčních zahrničních firem - Brady Games (od kterého je příručka na obrázku) a Prima Games. Těchto návodů vyšo celkově 48 (a v archivu nám jich zbývá 9). Tyto návody byli svého času plnohodnotnou součástí mnoha herních zážitků a proto jsme rádi, že máme možnost mít tento vzácnější kousek u nás v archvivu.
+    </BlogBox>
+
+    <BlogBox href="/blog/14-zaznam-retrofestu-2024"
+    title="Záznam streamu Herní historie: RetroFest 2024"
+>
+        Už skoro před půl rokem (ten čas letí) jsme pořádali náš nepravidelný stream RetroFest, na kterém jsme oznamovali novinky ohledně naší činnosti a zároveň jsme si zahráli i nějaké RetroHry. Konečně jsme se dostali k sestříhání tohoto stremu, který celý najdete zde.
+    </BlogBox>
+
+    <BlogBox href="/blog/13-zachraneny-videostop"
+    title="Originální hra z pořadu Videostop"
+>
+        Jak jsme slíbili, tak jsme konečně zdigitalizovali a zveřejnili originální hru z pořadu Videostop. Hra původně neměla být vůbec veřejně distribuovaná a její spuštění a zapojení tedy není úplně triviální. Z tohoto důvodu jsme pro vás připravili stručný návod, který by vás měl seznámit s tím, co vše k hraní potřebujete a jak hru zapnout a ovládat.
+    </BlogBox>
+
+    <BlogBox href="/blog/12-rozhovor-vodak-videostop"
+    title="Rozhovor se Zdeňkem Vodákem, autorem hry z pořadu Videostop"
+>
+        Po asi dvou měsíčním hledáním se nám zadařilo nejen získat kontakt na autora slavné hry z pořadu Videostop, ale také se nám povedlo s ním včera udělat rozhovor a DOKONCE od něj i získat kazetu (nebo přesněji dvě) se samotnou hrou na ZX Spectrum (kterou za nedlouho najdete buď v našem inventáři nebo na cs.speccy).
+    </BlogBox>
+
+    <BlogBox href="/blog/20-prislusenstvi-zxspectrum"
+    title="Přírůstek do sbírky Herního archivu: Příslušenství k mikropočítačům"
+>
+        Velmi často se naše sbírka rozšiřuje o věci ke straým mikropočítačům jako je ZX Spectrum  nebo 8-bitové Atari. Typicky jde o kazety s programy nicméně občas se k nám dostanou i velmi roztomilé, po domácku dělané příslušenství, jako je např. ovladač na obrázku. Ty byly svého času vyráběné ze všeho možného - ze starých zásuvek, tlačítek z telefonů, páček od sprch, krabiček od mýdel apod.. Kdyby náhodou někdo měl podobné dobové příslušenství a byl ochoten ho darovat někomu kdo se o něj postará a využije, tak budeme moc rádi, když nás kontaktujete!
+    </BlogBox>
+
+    <BlogBox href="/blog/19-jrc-letaky"
+    title="Do sbírky Herního archivu nám přibylo několik katalogů od JRC"
+>
+        Do správného archivu videoher samozřejmě nepatří jen samotné hry ale i mnoho věcí kolem - herní časopiy, propagační materiály, merch, ale také distribuční materiály od prodejců jako je např. JRC. Z takovýchto katalogů se dají vyčíst různé zajímavé historické informace, jako co za hry se zde distribuovalo, kolik tyto hry stály nebo kdy se sem vůbec dostaly.
+    </BlogBox>
+
+    <BlogBox href="/blog/18-projekt-citov"
+    title="Úvod k PROJEKTU CÍTOV"
+>
+        Rádi bychom Vám oznámili nový projekt na kterém se podílíme a který si na začátek vyžaduje drobný historický kontext: Jak jistě víte, tak v 80. letech zde byla relativně rozšířená kultura tzv. počítačových klubů. Jedním takovým klubem byl i počítačový klub z Cítova, který byl spoluzaložen Jozefem Havelkou a který fungoval pří místním JZD. Tento klub byl otevřen prakticky každý den, jednou za čas pořádal tzv. „Atari bály“ nebo akce pro pedagogy a zároveň vydával vlastní software pro ZX Spectrum a Atari.
+    </BlogBox>
+
     <BlogBox href="/blog/11-arma-bonusdisk"
     title="Do archivu sháníme bonusdisk k ARMA"
 >

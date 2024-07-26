@@ -1,0 +1,28 @@
+<script>
+    import BlogPost from "$lib/BlogPost.svelte";
+</script>
+
+<BlogPost
+    author_name="Herní historie"
+    date="5. července 2024"
+    title="Záznam streamu Herní historie: RetroFest 2024"
+>
+
+    <p>Už skoro před půl rokem (ten čas letí) jsme pořádali náš nepravidelný stream RetroFest, na kterém jsme oznamovali novinky ohledně naší činnosti a zároveň jsme si zahráli i nějaké RetroHry. Konečně jsme se dostali k sestříhání tohoto stremu, který celý najdete zde:
+    
+    <ul>
+        <li><p><a href="https://www.youtube.com/playlist?list=PLkP4nImCbtQdmr0I8Qay_Yom8zWSRIvmM">Celý stream</a>
+        <li><p><a href="https://www.youtube.com/watch?v=_Tw5BTebPq8">Úvod</a>
+        <li><p><a href="https://www.youtube.com/watch?v=MIFdfWnWwCU">Orální historie a Fotografie</a>
+        <li><p><a href="https://www.youtube.com/watch?v=AhDkeZb1E7o">Hraní Bulánků</a>
+        <li><p><a href="https://www.youtube.com/watch?v=Ru1WALY0kkI">Skenování a katalogizace časopisů</a>
+        <li><p><a href="https://www.youtube.com/watch?v=EhB4-9pIbWg">Hraní FPSCore</a>
+        <li><p><a href="https://www.youtube.com/watch?v=B2X_rZEeF90">Digitalizace kazet a disket</a>
+        <li><p><a href="https://www.youtube.com/watch?v=wQEHMgwcGCw">Hraní na ZX Spectru</a>
+        <li><p><a href="https://www.youtube.com/watch?v=okUjqIcDBQY">Přednáška o místních televizních tenisech</a>
+        <li><p><a href="https://www.youtube.com/watch?v=nqpgn2SkMqw">Hraní UT99</a>
+        <li><p><a href="https://www.youtube.com/watch?v=O6tK0DVflfw">Hraní Diabla</a>
+    </ul>
+
+    <p><img src="/photos/stream_2024.jpg" alt="RetroFest 2024"></p>
+</BlogPost>
