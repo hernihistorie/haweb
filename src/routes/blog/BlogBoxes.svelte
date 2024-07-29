@@ -5,10 +5,16 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/21-mod-chipy"
+    title="Přírůstek do sbírky Herního archivu: Modchipy pro PS1/PS2"
+>
+        Dějiny herního média nejsou jen dějinami velkých společností, AAA her a oficiálně distribuovaných titulů - dějiny videoher jsou i dějinami pirátění, ilegálního šíření ale i modování herních konzolí. Takové modchipy umožňovali hráčstvu (které si jej pečlivě napájelo do své konzole), nejen hrát oficiální hry nepříliš oficiální cestou, ale také jim otevřeli možnost pro danou platformu vytvářet hry nové.
+    </BlogBox>
+
     <BlogBox href="/blog/17-rozhovor-vladimir-bezdek"
     title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
 >
-        SVzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod.
+        Vzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod.
     </BlogBox>
 
     <BlogBox href="/blog/16-ops2-magazin"
@@ -17,13 +23,13 @@
         Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/15-gta-3-prirucky"
     title="Do archivu jsme získali vzácnou příručku ke GTA 3"
 >
         Sérii videoherních příruček u nás vydávala firma STUARE, která u nás překládala "strategy guides" od dvou konkurenčních zahrničních firem - Brady Games (od kterého je příručka na obrázku) a Prima Games. Těchto návodů vyšo celkově 48 (a v archivu nám jich zbývá 9). Tyto návody byli svého času plnohodnotnou součástí mnoha herních zážitků a proto jsme rádi, že máme možnost mít tento vzácnější kousek u nás v archvivu.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/14-zaznam-retrofestu-2024"
     title="Záznam streamu Herní historie: RetroFest 2024"
