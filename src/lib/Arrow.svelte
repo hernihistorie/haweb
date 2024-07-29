@@ -3,7 +3,7 @@
 </script>
 
 <a class="arrow" href="{href}">
-    <img src="/ico/ico_arrow.svg" alt="→">
+    <img src="/ico/ico_arrow.svg" alt="→"> <slot />
 </a>
 
 <style>
@@ -12,6 +12,8 @@
         text-decoration: none;
         font-size: 24px;
         user-select: none;
+        display: flex;
+        gap: 8px;
     }
 
     .arrow img {

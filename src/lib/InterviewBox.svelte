@@ -9,6 +9,7 @@
     <div class="interview { data.complete ? 'complete' : 'incomplete' }">
         <div>
             <h3>
+                <span class="in-progress">nejnovější rozhovor</span><br>
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
                 {#if !data.complete }
                     <br><span class="in-progress">připravujeme</span>

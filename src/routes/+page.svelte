@@ -4,6 +4,11 @@
 	import Box from '$lib/Box.svelte';
     import Loc from '$lib/Loc.svelte';
 	import BlogBoxes from './blog/BlogBoxes.svelte';
+	import Arrow from '$src/lib/Arrow.svelte';
+
+
+    import { data as kopecky_data } from './interviews/lubor-kopecky/interview';
+	import InterviewBox from '$src/lib/InterviewBox.svelte';
 </script>
 
 <Meta title="" />
@@ -24,16 +29,9 @@ lokální stopu v tomto odvětví kultury.
 " en="We are a project of the Herní historie (Game History) association, whose goal is to preserve video game culture within the Czech and Slovak republics. Our main activty is the cataloguing and archiving of all artefacts connected to the history of games, such as magazines, original devices, or media containing video game content. We cooperate with a number of international organizations and our goal is to establish the existence of an official institution housing the local tracks in this branch of culture."
             />
         </p>
+        <Arrow href="/about">Mise a cíle</Arrow>
     </Box>
-    <Box href="/mission">
-        <h3><Loc cs="Mise a cíle" en="Missions and goals" /></h3>
-        <p>
-            <Loc
-                cs="Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás."
-                en="Interactive entertainment remains a very young field. We can watch our understanding of game history deepen every day and it is necessary for organized efforts to start emerging. We believe that the Czech and Slovak Republics deserve representation in international efforts, which we often participate in. This enthusiasm led us to launch a project that will aim to save as much as possible from the beginnings of video game culture in our countries."
-            />
-        </p>
-    </Box>
+    <InterviewBox data={kopecky_data} />
 
     <Box href="/projects">
         <h3><Loc cs="Projekty" en="Projects" /></h3>
