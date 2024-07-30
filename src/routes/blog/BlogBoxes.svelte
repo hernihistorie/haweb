@@ -5,6 +5,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/22-skeny-scenaru"
+    title="Skeny scénářů k pořadu Videostop"
+>
+        Jak jsme oznámili v jenom z předchozích příspěvků, tak jsme dělali rozhovor s Vladimírem Bezděkem, s tvůrcem pořadu Videostop. Ten nám po dokončení rozhovoru zapůjčil scénáře ke dvěma dílům tohoto slavného pořadu - přesněji návrh na první díl (který je doplněný o posudek pořadu a ruční poznámky k úpravě scénáře) a pak scénář k dílu pátému.
+    </BlogBox>
+
     <BlogBox href="/blog/21-mod-chipy"
     title="Přírůstek do sbírky Herního archivu: Modchipy pro PS1/PS2"
 >
@@ -17,13 +23,13 @@
         Vzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/16-ops2-magazin"
     title="PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů"
 >
         Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/15-gta-3-prirucky"
     title="Do archivu jsme získali vzácnou příručku ke GTA 3"
