@@ -11,7 +11,7 @@
 
 <div class="box {box_class}">
     <div class="cross">
-        <img src="/ico/ico_x.svg" alt="x">
+        <img src="/ico/ico_x.svg" alt="">
     </div>
     <div class="content">
         <slot />
