@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { Person } from "$src/types";
+	import Speaker from "./Speaker.svelte";
 
     export let speaker: Person;
 </script>
 
 <div class="question">
-    <strong><span style="color: {speaker.color || 'default'};">{ speaker.shortname }</span>:</strong> <slot />
+    <Speaker {speaker} /> <slot />
 </div>
 
 <style>
