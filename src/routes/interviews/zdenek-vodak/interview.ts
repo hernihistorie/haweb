@@ -35,8 +35,9 @@ export const data: InterviewData = {
             "url": "/projects/videostop/"
         },
         informed_agreement: true,
-        // transcriber: "Rudolf Jan Suchý",
-        // verifier: null
+        transcriber: {name: "Andrea Tinková"},
+        verifier: RS,
+        publication_date: new Date("2024-08-11"),
     },
     complete: true,
     tags: []

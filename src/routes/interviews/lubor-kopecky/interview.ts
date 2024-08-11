@@ -35,6 +35,7 @@ export const data: InterviewData = {
         informed_agreement: true,
         transcriber: {'name': "Alžběta Krejčí"},
         redaction: RS,
+        publication_date: new Date("2024-01-20"),
         // verifier: null
     },
     complete: true,

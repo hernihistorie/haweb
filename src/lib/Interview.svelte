@@ -82,6 +82,10 @@
                 <dd>{ data.interview.redaction.name }</dd>
             {/if}
 
+            {#if data.interview.publication_date }
+                <dt>Datum uveřejnění</dt>
+                <dd>{ data.interview.publication_date.toLocaleDateString("cs-CZ") }</dd>
+            {/if}
         </dl>
 
         {#if data.narrator.bio }
