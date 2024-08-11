@@ -18,7 +18,9 @@
                 { data.narrator.name }
             </strong>
         </div>
-        { data.interview.project }
+        {#if data.interview.project }
+            { data.interview.project.name }
+        {/if}
 
         <hr>
 
@@ -43,7 +45,8 @@
             {#if data.interview.interviewers }
                 <dt>Jméno tazatelů</dt>
                 <dd>
-                    {#each data.interview.interviewers as person}
+                    {#each data.interview.interviewers as person, i}
+                        {#if i > 0},<br>{/if}
                         <NameWithShortname {person} />
                     {/each}
                 </dd>
@@ -57,17 +60,26 @@
             <dt>Délka rozhovoru</dt>
             <dd>{ data.interview.length }</dd>
 
-            <dt>Projekt</dt>
-            <dd>{ data.interview.project }</dd>
+            
+            {#if data.interview.project }
+                <dt>Projekt</dt>
+                <dd>
+                    {#if data.interview.project.url}
+                        <a href={data.interview.project.url}>{ data.interview.project.name }</a>
+                    {:else}
+                        { data.interview.project.name }
+                    {/if}
+                </dd>
+            {/if}
 
             {#if data.interview.transcriber }
                 <dt>Přepis</dt>
-                <dd><NameWithShortname person={data.interview.transcriber} /></dd>
+                <dd>{ data.interview.transcriber.name }</dd>
             {/if}
 
             {#if data.interview.redaction }
                 <dt>Redakce</dt>
-                <dd><NameWithShortname person={data.interview.redaction} /></dd>
+                <dd>{ data.interview.redaction.name }</dd>
             {/if}
 
         </dl>

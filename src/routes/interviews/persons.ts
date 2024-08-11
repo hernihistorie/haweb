@@ -9,5 +9,5 @@ export const RS: Person = {
 export const VS: Person = {
     name: "Vojtěch Straka",
     shortname: "VS",
-    color: "brown"
+    color: "darkgreen"
 }

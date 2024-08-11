@@ -12,7 +12,7 @@
     import InterviewBox from "$src/lib/InterviewBox.svelte";
 
 
-    let interviews: InterviewData[] = [kopecky_data, hrda_data, robinett_data, havelka_data, vodak_data, bezdek_data, hurnikova_data];
+    let interviews: InterviewData[] = [kopecky_data, vodak_data, hrda_data, robinett_data, havelka_data, bezdek_data, hurnikova_data];
 </script>
 
 <div class="thin">

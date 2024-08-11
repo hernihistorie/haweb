@@ -31,7 +31,7 @@ export const data: InterviewData = {
         place: "Dolní Město – Smrčensko (narátorův statek)",
         interviewer: RS,
         length: "1:46:51",
-        project: "Porevoluční videoherní scéna – Sleep Team",
+        project: {name: "Porevoluční videoherní scéna – Sleep Team"},
         informed_agreement: true,
         transcriber: {'name': "Alžběta Krejčí"},
         redaction: RS,

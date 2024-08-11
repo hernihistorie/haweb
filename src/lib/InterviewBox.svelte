@@ -19,9 +19,9 @@
             {/if}
             {#if data.complete }
                 <p>
-                    <strong>Datum:</strong> { data.interview.date.toLocaleDateString("cs-CZ") }
+                    <strong>Datum:</strong> { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
                     &nbsp;&bull;&nbsp;
-                    <strong>Délka:</strong> { data.interview.length }
+                    <strong>Délka:</strong> { data.interview.length || "???" }
                 </p>
             {:else}
                 <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->

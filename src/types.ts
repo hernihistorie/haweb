@@ -29,7 +29,10 @@ export interface InterviewData {
         interviewer?: Person;
         interviewers?: Person[];
         length?: string;
-        project?: string;
+        project?: {
+            name: string;
+            url?: string;
+        };
         informed_agreement: boolean;
         transcriber?: Person;
         redaction?: Person;
