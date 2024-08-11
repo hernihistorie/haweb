@@ -5,6 +5,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/23-prepis-zdenek-vodak"
+    title="Přepis rozhovoru se Zdeňkem Vodákem, autorem hry z Videostopu"
+>
+        Jak jsme minulý Pátek slíbili, tak jsme tak i učinili: interview se Zdeňkem Vodákem jak v textové tak zvukové podobě najdete v rámci našich přepsaných Rozhovorů.
+    </BlogBox>
+
     <BlogBox href="/blog/22-skeny-scenaru"
     title="Skeny scénářů k pořadu Videostop"
 >
@@ -17,13 +23,13 @@
         Dějiny herního média nejsou jen dějinami velkých společností, AAA her a oficiálně distribuovaných titulů - dějiny videoher jsou i dějinami pirátění, ilegálního šíření ale i modování herních konzolí. Takové modchipy umožňovali hráčstvu (které si jej pečlivě napájelo do své konzole), nejen hrát oficiální hry nepříliš oficiální cestou, ale také jim otevřeli možnost pro danou platformu vytvářet hry nové.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/17-rozhovor-vladimir-bezdek"
     title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
 >
         Vzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/16-ops2-magazin"
     title="PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů"
