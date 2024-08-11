@@ -1,9 +1,11 @@
 <script lang="ts">
-    export let speaker: string = "";
+	import type { Person } from "$src/types";
+
+    export let speaker: Person;
 </script>
 
 <div class="answer">
-    <strong>{ speaker }:</strong> <slot />
+    <strong><span style="color: {speaker.color || 'default'};">{ speaker.shortname }</span>:</strong> <slot />
 </div>
 
 <style>

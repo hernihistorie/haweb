@@ -6,31 +6,34 @@ export interface Photo {
     license_text?: string;
 }
 
+export interface Person {
+    name: string;
+    shortname?: string;
+    color?: string;
+    photo?: Photo;
+    bio?: string;
+    birth_year?: string;
+    gender?: Gender;
+}
+
 export interface InterviewData {
     slug: string;
     lang: string;
     title: string;
     audio_file?: string;
     audio_duration?: number;
-    narrator: {
-        name: string;
-        birth_year: string;
-        gender: Gender;
-        photo?: Photo;
-        bio?: string;
-    };
+    narrator: Person;
     interview: {
         date: Date;
         place: string;
-        narrator_abbrev?: string;
-        interviewer: string;
-        interviewer_abbrev?: string;
+        interviewer?: Person;
+        interviewers?: Person[];
         length?: string;
         project?: string;
         informed_agreement: boolean;
-        transcriber?: string;
-        redaction?: string;
-        verifier?: string;
+        transcriber?: Person;
+        redaction?: Person;
+        verifier?: Person;
     };
     complete: boolean;
     tags: string[] | undefined;

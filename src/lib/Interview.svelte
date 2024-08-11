@@ -1,9 +1,10 @@
 <script lang="ts">
-	import type { InterviewChapters, InterviewData, Chapters } from '$src/types';
+	import type { InterviewData } from '$src/types';
     import { tocCrawler } from './TableOfContents/crawler';
 	import Post from './Post.svelte';
 	import InterviewAudio from "./InterviewAudio.svelte";
 	import TableOfContents from './TableOfContents/TableOfContents.svelte';
+	import NameWithShortname from './NameWithShortname.svelte';
     export let data: InterviewData;
 </script>
 
@@ -27,39 +28,46 @@
         <h2>{ data.title }</h2>
         <InterviewAudio {data} />
         <dl>
-            <dt>Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }
-            <dd>{ data.narrator.name }
-                {#if data.interview.narrator_abbrev }
-                    ({ data.interview.narrator_abbrev })
-                {/if}
+            <dt>Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }</dt>
+            <dd><NameWithShortname person={data.narrator} /></dd>
 
-            <dt>Ročník narození
-            <dd>{ data.narrator.birth_year }
+            <dt>Ročník narození</dt>
+            <dd>{ data.narrator.birth_year }</dd>
 
-            <dt>Datum rozhovoru
-            <dd>{ data.interview.date.toLocaleDateString("cs-CZ") }
+            <dt>Datum rozhovoru</dt>
+            <dd>{ data.interview.date.toLocaleDateString("cs-CZ") }</dd>
 
-            <dt>Místo rozhovoru
-            <dd>{ data.interview.place }
+            <dt>Místo rozhovoru</dt>
+            <dd>{ data.interview.place }</dd>
             
-            <dt>Jméno tazatele
-            <dd>{ data.interview.interviewer }
-                {#if data.interview.interviewer_abbrev }
-                    ({ data.interview.interviewer_abbrev })
-                {/if}
+            {#if data.interview.interviewers }
+                <dt>Jméno tazatelů</dt>
+                <dd>
+                    {#each data.interview.interviewers as person}
+                        <NameWithShortname {person} />
+                    {/each}
+                </dd>
+            {/if}
 
-            <dt>Délka rozhovoru
-            <dd>{ data.interview.length }
+            {#if data.interview.interviewer }
+                <dt>Jméno tazatele</dt>
+                <dd><NameWithShortname person={data.interview.interviewer} /></dd>
+            {/if}
 
-            <dt>Projekt
-            <dd>{ data.interview.project }
+            <dt>Délka rozhovoru</dt>
+            <dd>{ data.interview.length }</dd>
 
-            <dt>Přepis
-            <dd>{ data.interview.transcriber }</dd>
+            <dt>Projekt</dt>
+            <dd>{ data.interview.project }</dd>
+
+            {#if data.interview.transcriber }
+                <dt>Přepis</dt>
+                <dd><NameWithShortname person={data.interview.transcriber} /></dd>
+            {/if}
 
             {#if data.interview.redaction }
-                <dt>Redakce
-                <dd>{ data.interview.redaction }</dd>
+                <dt>Redakce</dt>
+                <dd><NameWithShortname person={data.interview.redaction} /></dd>
             {/if}
 
         </dl>
