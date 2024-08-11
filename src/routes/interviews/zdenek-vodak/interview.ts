@@ -36,7 +36,7 @@ export const data: InterviewData = {
         },
         informed_agreement: true,
         transcriber: {name: "Andrea Tinková"},
-        verifier: RS,
+        redaction: RS,
         publication_date: new Date("2024-08-11"),
     },
     complete: true,
