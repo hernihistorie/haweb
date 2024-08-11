@@ -193,7 +193,7 @@
         
             <A speaker={ZV}>To, jak se změny projevily v Československé televizi jsem moc nezaznamenal, protože já jsem si tam zkrátka dělal jenom to svoje. To znamená, že jsem tam přišel, postavil si počítač, odjel jsem pořad a šel jsem domů. Posléze se teda napsala faktura a dostal jsem zaplaceno, což musím tedy říct, že na rozdíl od některých jiných televizí, v tomto ohledu u České televize nikdy nebyl problém. Ale co se týče těch změn, tak to vám toho moc nepovím. Samozřejmě vyhodili vedení, místo kterého tam přišlo jiné vedení, které se několikrát vystřídalo.</A>
         
-            <Q speaker={RS}>A měli třeba ty pořady, na kterých jste dělali nějakou přestávku? Upravovaly se nějak? </Q>
+            <Q speaker={RS}>A měly třeba ty pořady, na kterých jste dělali nějakou přestávku? Upravovaly se nějak? </Q>
         
             <Q speaker={VS}>Nějaké dopady na vaší práci tam nebyly? </Q>
         
