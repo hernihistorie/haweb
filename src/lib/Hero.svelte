@@ -47,7 +47,7 @@
                 </li>
             {/each}
         </ul>
-		<img class="fact-img" src="/illu/illu_01.png" alt="">
+		<enhanced:img class="fact-img" src="/static/illu/illu_01.png" alt="">
     </div>
 </div>
 

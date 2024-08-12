@@ -28,9 +28,9 @@
             {/if}
         </div>
         <div class="photopart">
-            {#if data.narrator.photo }
+            {#if data.narrator.photo && data.narrator.photo.url }
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>
-                    <img src="{ data.narrator.photo.url }" class="narrator-img" alt="">
+                    <enhanced:img src={ '/static' + data.narrator.photo.url } class="narrator-img" alt="">
                 </a>
             {/if}
         </div>

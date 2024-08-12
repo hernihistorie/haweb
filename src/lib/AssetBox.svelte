@@ -13,7 +13,9 @@
             <p>{@html data.description }</p>
         </div>
         <div class="asset-photo">
-            <img src="{ data.picture.url }" class="asset-img" alt="">
+            {#if data.picture.url }
+                <img src="{ '/static/' + data.picture.url }" class="asset-img" alt="">
+            {/if}
         </div>
     </div>
 </Box>

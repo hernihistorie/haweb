@@ -11,7 +11,7 @@
 <Post title={data.title}>
     <div slot="side">
         {#if data.narrator.photo }
-            <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
+            <enhanced:img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
         {/if}
         <div>
             <strong>

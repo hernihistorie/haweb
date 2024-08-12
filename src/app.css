@@ -65,3 +65,8 @@ code {
     background-color: var(--color-secondary-transparent);
     padding: 3px;
 }
+
+img {
+    width: var(--size);
+    height: auto;
+}

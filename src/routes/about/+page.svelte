@@ -25,7 +25,7 @@
         Je jisté, že je to běh na dlouhou trať, ale vidíme v něm smysl. Je vidět, že zájem o hry stále roste a že videohry nabývají na společenské prestiži. Je nám tedy ctí být u tohoto zrodu nového mediálního formátu. Mnoho z nás se hrám věnuje většinu svého života a jsme připraveni věnovat značné usílí tomuto neziskovému projektu. Krom komplexního archivu také zajišťujeme popularizaci historických her a zpřístupňujeme je v autentické podobě v rámci <a href="https://retroherna.org">RetroHerny</a>. Děkujeme za Vaší podporu.
     </p>
 
-    <img src="/photos/elektronika.jpg" alt="Fotka časopisů Elektronika">
+    <enhanced:img src="/static/photos/elektronika.jpg" alt="Fotka časopisů Elektronika">
 </article>
 
 <article class="thin">
@@ -41,7 +41,7 @@
         Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně podílíme na <a href="/projects">rozsáhlých archivačních projektech ve spřátelených institucích</a>. Rádi pomůžeme <strong>právě Vám</strong> zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu. Neváhejte a <a href="/contact"><strong>kontaktujte nás</strong></a>.
     </p>
 
-    <img src="/photos/diskety.jpg" alt="Fotka disket">
+    <enhanced:img src="/static/photos/diskety.jpg" alt="Fotka disket">
 </article>
 
 <article class="thin">

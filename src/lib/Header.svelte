@@ -45,7 +45,7 @@
 <header>
 	<div class="logo">
 		<a href="/" on:click={resetExpandedMenu}>
-			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
+			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu">
 		</a>
 	</div>
 	<div class="menu">
@@ -110,6 +110,9 @@
 </header>
 
 <style>
+	.logo img {
+		height: 64px;
+	}
 	header {
 		max-width: var(--max-width);
 		margin: auto;
