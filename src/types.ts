@@ -25,6 +25,7 @@ export interface InterviewData {
     narrator: Person;
     interview: {
         date: Date;
+        publication_date?: Date;
         place: string;
         interviewer?: Person;
         interviewers?: Person[];
