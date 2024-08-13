@@ -65,3 +65,17 @@ code {
     background-color: var(--color-secondary-transparent);
     padding: 3px;
 }
+
+button, input {
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    padding: 8px 16px;
+    font-size: 22px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+button.active, input.active {
+    background: var(--color-primary);
+    color: white;
+}
