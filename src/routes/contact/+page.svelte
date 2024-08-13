@@ -1,6 +1,6 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
-    import { SOCIAL_MEDIA_LINKS } from "$src/constants";
+    import { DONATE_LINKS, SOCIAL_MEDIA_LINKS } from "$src/constants";
 </script>
 
 <Meta title="Kontaky" />
@@ -33,6 +33,21 @@
 
     <dl>
         {#each Object.entries(SOCIAL_MEDIA_LINKS) as [name, url]}
+            <dt>
+                { name }
+            </dt>
+            <dd>
+                <a href={ url }>{ url }</a>
+            </dd>
+        {/each}
+    </dl>
+
+    <p>
+        Finančně nás můžete podpořit na následujících místech:
+    </p>
+
+    <dl>
+        {#each Object.entries(DONATE_LINKS) as [name, url]}
             <dt>
                 { name }
             </dt>
