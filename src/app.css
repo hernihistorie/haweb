@@ -79,3 +79,13 @@ button.active, input.active {
     background: var(--color-primary);
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    dt, dd {
+        width: 100%;
+    }
+
+    dd {
+        margin-left: 1.75em;
+    }
+}

@@ -37,23 +37,14 @@
                 { name }
             </dt>
             <dd>
-                <a href={ url }>{ url }</a>
+                <a href={ url }>{ url.replace("https://", "") }</a>
             </dd>
         {/each}
     </dl>
+
+    <h3>Finanční podpora</h3>
 
     <p>
-        Finančně nás můžete podpořit na následujících místech:
+        Možnosti podory naleznete na stránce <a href="/support/">Podpořte nás</a>.
     </p>
-
-    <dl>
-        {#each Object.entries(DONATE_LINKS) as [name, url]}
-            <dt>
-                { name }
-            </dt>
-            <dd>
-                <a href={ url }>{ url }</a>
-            </dd>
-        {/each}
-    </dl>
 </article>

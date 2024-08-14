@@ -8,7 +8,7 @@
 	import PriceButton from "./PriceButton.svelte";
 
     const qrCodeOptions = {
-        width: 800,
+        width: 1200,
         color: {light: '#f3f2e7'},
     };
 
@@ -30,36 +30,47 @@
 
         qrcode.toDataURL(spayd(payment), qrCodeOptions).then(url => {
             qrCodeUrl = url;
+        }).catch(err => {
+            console.error(err);
         })
 
-        console.log('foo');
+
         if (typeof document !== 'undefined') {
-            console.log('bar');
             const elCustomValue = document.getElementById('customValue');
-            console.log(elCustomValue.value, value)
-            if (elCustomValue && elCustomValue.value == value) {
-                customValueActive = true;
-            } else {
-                customValueActive = false;
-            }
+            customValueActive = elCustomValue && elCustomValue.value == value;
         }
     })
 
     function clickCustomValue(ev: Event) {
         const el = ev.target as HTMLInputElement;
-        el.value = "";
+        if (el.value == 'Vlastní hodnota' || el.value == '') {
+            el.value = "";
+
+            document.getElementById('currency').style.visibility = 'visible';
+            document.getElementById('currency').style.left = (1 - 15) + "ch";
+        } else {
+            inputValueSet(el);
+        }
+    }
+
+    function inputValueSet(el: HTMLInputElement) {
+        // remove non-numeric characters
+        el.value = el.value.replace(/[^0-9]/g, '');
+        if (parseInt(el.value) > 99000) {
+            el.value = "99000";
+        }
+        if (el.value != '') {
+            amount.set(el.value)
+
+            document.getElementById('currency').style.visibility = 'visible';
+            document.getElementById('currency').style.left = (el.value.length - 15) + "ch";
+        }
     }
     
     function inputCustomValue(ev: Event) {
         const el = ev.target as HTMLInputElement;
         if (el && el.value) {
-            if (parseInt(el.value) > 99000) {
-                el.value = "99000";
-            }
-            amount.set(el.value)
-
-            document.getElementById('currency').style.visibility = 'visible';
-            document.getElementById('currency').style.left = (el.value.length - 15) + "ch";
+            inputValueSet(el);
         }
     }
 </script>
@@ -78,14 +89,14 @@
                 { name }
             </dt>
             <dd>
-                <a href={ url }>{ url }</a>
+                <a href={ url }>{ url.replace("https://", "") }</a>
             </dd>
         {/each}
     </dl>
 
     <h3>Příspěvek na otevřený účet</h3>
     <p>
-        Zvolte si částku, kterou nás chcete podpořit:
+        Zvolte si částku, kterou nás chcete podpořit, a oskenujte kód zapomocí Vaší bankovní aplikace.
     </p>
     <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap;">
         <PriceButton value="100" {amount} />
@@ -100,14 +111,16 @@
                 inputmode="numeric"
                 value="Vlastní hodnota"
                 on:click={clickCustomValue}
+                on:focus={clickCustomValue}
                 on:input={inputCustomValue}
                 style="width: 7.5em;"
 
-                class={customValueActive ? "active" : ""}
+                class="customvalue {customValueActive ? "active" : ""}"
             >
             <div
                 class="currency {customValueActive ? "active" : ""}"
                 id="currency"
+                on:click={() => document.getElementById('customValue')?.focus()}
             >
                 Kč
             </div>
@@ -116,20 +129,35 @@
 
     <div class = "qrcontainer">
         <img src={ qrCodeUrl } alt="QR kód" class="qrcode">
-        <img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" class="qrlogo">
+        <img src="/ico/logo_herni_archiv.svg" alt="" class="qrlogo">
     </div>
+
+    <p style="text-align: center;">
+        Případně můžete sami zaslat částku na náš transparentní účet s číslem<br>
+        <strong>8686868686/0600</strong>
+    </p>
+
+    <p>Děkujeme za vaše příspěvky, které nám pomáhají udržovat a rozšiřovat naše aktivity.
 </article>
 
 <style>
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
     .qrcontainer {
         position: relative;
         display: flex;
         justify-content: center;
+        animation: fadeIn 2s;
+
+        max-width: 400px;
+        margin: 0 auto;
+        aspect-ratio: 1 / 1;
     }
     
     .qrcode {
         width: 400px;
-        height: 400px;
     }
 
     .qrlogo {
@@ -139,7 +167,7 @@
         left: calc(50% - 49px);
         z-index: 1;
         background: var(--color-bg);
-        padding: 9px 7.5px 11.4px 12.5px;
+        padding: 9px 8px 11.4px 12.5px;
     }
 
     .currency {
@@ -151,9 +179,23 @@
         font-size: 22px;
         margin: 9px 0 8px 0;
         left: -12px;
+        cursor: pointer;
+        width: 0;
     }
 
     .currency.active {
         color: white;
+    }
+
+    @media only screen and (max-width: 450px) {
+        .qrlogo {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 210px) {
+        .customvalue {
+            padding-left: 2px;
+        }
     }
 </style>
