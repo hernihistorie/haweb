@@ -14,14 +14,9 @@
     <Box>
         <h3><Loc cs="O nás" en="About us" /></h3>
         <p>
-            <Loc cs="
-Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulruru v rámci
-České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech
-artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo
-média obsahující videoherní obsah. Spolupracujeme s řadou mezinárodních organizací
-a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující
-lokální stopu v tomto odvětví kultury.
-" en="We are a project of the Herní historie (Game History) association, whose goal is to preserve video game culture within the Czech and Slovak republics. Our main activty is the cataloguing and archiving of all artefacts connected to the history of games, such as magazines, original devices, or media containing video game content. We cooperate with a number of international organizations and our goal is to establish the existence of an official institution housing the local tracks in this branch of culture."
+            <Loc
+                cs="Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury."
+                en="We are a project of the Herní historie (Game History) association, whose goal is to preserve video game culture within the Czech and Slovak republics. Our main activty is the cataloguing and archiving of all artefacts connected to the history of games, such as magazines, original devices, or media pertaining to games. We cooperate with a number of international organizations and our goal is to establish the existence of an official institution housing the local tracks in this branch of culture."
             />
         </p>
     </Box>
