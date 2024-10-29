@@ -5,6 +5,48 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/30-bytefest-2024"
+    title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
+    >
+    Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ALDERNEST".
+    </BlogBox>
+
+    <BlogBox href="/blog/29-citov-kazety-atari"
+    title="PROJEKT CÍTOV - Kazety s výukovýmy programy na Atari 800XL/XE, 130XE"
+    >
+    V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. Druhá várka tohoto softwaru, kterou se nám povedlo zachránit, jsou 2 výukové hry na 8-bit Atari distribuovaných na kazetách.
+    </BlogBox>
+
+    <BlogBox href="/blog/28-citov-kazety-spectrum"
+    title="PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum"
+    >
+    V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. První várka tohoto softwaru, kterou se nám povedlo zachránit, je 10 výukových her na ZX Spectrum distribuovaných na kazetách.
+    </BlogBox>
+
+    <BlogBox href="/blog/27-nabidkovy-katalog"
+    title="Oskenovali jsme nabídkový katalog z počátku 90. let"
+    >
+    Nedávno se nám dostala do rukou sbírka návodů (a jiné literatury) pro ZX Spectrum. Mezi těmito návody byl i drobný sešítek nadepsaný "Nabídkový katalog pro počítače ZX SPECTRUM a kompatibilní" z konce roku roku 1990.
+    </BlogBox>
+
+    <BlogBox href="/blog/26-joysticky"
+    title="Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru"
+    >
+    Herní historií nejsou jen hry a oficiální hardware – součástí herní historie (zejména té jenž se odehrávala v rámci bývalého Východního bloku) je i podomácku zbastlené příslušenství, jako např. herní joysticky.
+    </BlogBox>
+
+    <BlogBox href="/blog/25-stehovani-strahov"
+    title="Odstěhovali jsme se ze Školíhcího centra na Strahově"
+>
+        Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku.
+    </BlogBox>
+
+    <BlogBox href="/blog/24-8-disketovka"
+    title="Opravili jsme osmipalcovou disketovku!"
+>
+        Podařilo se nám sehnat a opravit 8" disketovku! Hurá!
+    </BlogBox>
+
     <BlogBox href="/blog/23-prepis-zdenek-vodak"
     title="Přepis rozhovoru se Zdeňkem Vodákem, autorem hry z Videostopu"
 >
