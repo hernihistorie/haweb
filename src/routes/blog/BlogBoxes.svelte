@@ -23,6 +23,8 @@
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. První várka tohoto softwaru, kterou se nám povedlo zachránit, je 10 výukových her na ZX Spectrum distribuovaných na kazetách.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/27-nabidkovy-katalog"
     title="Oskenovali jsme nabídkový katalog z počátku 90. let"
     >
@@ -64,8 +66,6 @@
 >
         Dějiny herního média nejsou jen dějinami velkých společností, AAA her a oficiálně distribuovaných titulů - dějiny videoher jsou i dějinami pirátění, ilegálního šíření ale i modování herních konzolí. Takové modchipy umožňovali hráčstvu (které si jej pečlivě napájelo do své konzole), nejen hrát oficiální hry nepříliš oficiální cestou, ale také jim otevřeli možnost pro danou platformu vytvářet hry nové.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/17-rozhovor-vladimir-bezdek"
     title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
