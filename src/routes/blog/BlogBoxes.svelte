@@ -12,7 +12,7 @@
     <BlogBox href="/blog/30-bytefest-2024"
     title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
     >
-    Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ALDERNEST".
+    Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ADLERNEST".
     </BlogBox>
 
     <BlogBox href="/blog/29-citov-kazety-atari"

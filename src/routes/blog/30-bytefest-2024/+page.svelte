@@ -13,7 +13,7 @@
     title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
 >
 
-    <p>Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ALDERNEST". Tu najdete již tradičně na <a href="https://cs.speccy.cz">cs.speccy.cz</a> a a nebo v našem Inventáři:
+    <p>Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ADLERNEST". Tu najdete již tradičně na <a href="https://cs.speccy.cz">cs.speccy.cz</a> a a nebo v našem Inventáři:
     {#each assets as data}
         <AssetBox {data} />
     {/each}
