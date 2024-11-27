@@ -2,7 +2,11 @@
     import type { InterviewData } from "$src/types";
 	import Box from "./Box.svelte";
 
-    export let data: InterviewData
+    interface Props {
+        data: InterviewData;
+    }
+
+    let { data }: Props = $props();
 </script>
 
 <Box>
@@ -10,14 +14,14 @@
         <div>
             <h3>
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
-                {#if !data.complete }
+                {#if !data.complete}
                     <br><span class="in-progress">připravujeme</span>
                 {/if}
             </h3>
-            {#if data.narrator.bio }
-                <p>{@html data.narrator.bio }</p>
+            {#if data.narrator.bio}
+                <p>{@html data.narrator.bio}</p>
             {/if}
-            {#if data.complete }
+            {#if data.complete}
                 <p>
                     <strong>Datum:</strong> { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
                     &nbsp;&bull;&nbsp;
@@ -28,7 +32,7 @@
             {/if}
         </div>
         <div class="photopart">
-            {#if data.narrator.photo }
+            {#if data.narrator.photo}
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>
                     <img src="{ data.narrator.photo.url }" class="narrator-img" alt="">
                 </a>

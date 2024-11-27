@@ -1,10 +1,20 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    export let href: string | undefined = undefined;
-    export let left: boolean | undefined = undefined;
-    export let right: boolean | undefined = undefined;
+    interface Props {
+        href?: string | undefined;
+        left?: boolean | undefined;
+        right?: boolean | undefined;
+        children?: import('svelte').Snippet;
+    }
 
-    var box_class = "";
+    let {
+        href = undefined,
+        left = undefined,
+        right = undefined,
+        children
+    }: Props = $props();
+
+    var box_class = $state("");
     if (left) box_class = "left";
     if (right) box_class = "right";
 </script>
@@ -14,7 +24,7 @@
         <img src="/ico/ico_x.svg" alt="">
     </div>
     <div class="content">
-        <slot />
+        {@render children?.()}
         {#if href}
             <Arrow {href} />
         {/if}

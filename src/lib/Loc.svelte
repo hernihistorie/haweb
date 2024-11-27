@@ -1,16 +1,20 @@
 <script lang="ts">
 	import { lang } from '../stores.js'
-    export let cs: string;
-    export let en: string;
+    interface Props {
+        cs: string;
+        en: string;
+    }
 
-    let langValue: "en" | "cs";
+    let { cs, en }: Props = $props();
+
+    let langValue: "en" | "cs" = $state();
     lang.subscribe(value => {
         langValue = value;
     })
 </script>
 
-{#if langValue == 'cs' }
-	{ @html cs }
-{:else if langValue == 'en' }
-    { @html en }
+{#if langValue == 'cs'}
+	{@html cs}
+{:else if langValue == 'en'}
+    {@html en}
 {/if}

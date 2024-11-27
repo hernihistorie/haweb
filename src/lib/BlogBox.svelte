@@ -1,7 +1,6 @@
-<script>
+<script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    export let href = undefined;
-    export let title;
+    let { href = undefined, title, children } = $props();
 </script>
 
 <div class="blog-box">
@@ -12,7 +11,7 @@
         </a>
     </h3>
     <p>
-        <slot />
+        {@render children?.()}
     </p>
     <Arrow {href} />
 </div>

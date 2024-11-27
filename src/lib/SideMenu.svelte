@@ -1,9 +1,12 @@
-<script>
-    export let open;
-    export let duration;
-    export let width;
-    export let padding;
-    export let paddingTop;
+<script lang="ts">
+    let {
+        open = $bindable(),
+        duration,
+        width,
+        padding,
+        paddingTop,
+        children
+    } = $props();
 </script>
 
 <style>
@@ -23,6 +26,6 @@
 
 <div id="container" style="width: {width}; right: {open ? '0px' : ('-' + width)}; transition: right {duration}s ease-in-out">
     <div id="menu" style="padding: {padding}; padding-top: {paddingTop};">
-        <slot></slot>
+        {@render children?.()}
     </div>
 </div>

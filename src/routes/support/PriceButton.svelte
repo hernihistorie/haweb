@@ -1,9 +1,13 @@
 <script lang="ts">
 
-    export let value: string;
-    export let amount;
+    interface Props {
+        value: string;
+        amount: any;
+    }
 
-    let active = false;
+    let { value, amount }: Props = $props();
+
+    let active = $state(false);
 
     amount.subscribe((amount_value: string) => {
         active = amount_value == value;
@@ -12,7 +16,7 @@
 </script>
     
 <button
-    on:click={() => amount.set(value)}
+    onclick={() => amount.set(value)}
     class={active ? "active" : ""}
 >
     {value} Kč

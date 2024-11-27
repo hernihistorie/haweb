@@ -35,15 +35,17 @@
 
 <LightboxGallery>
     <!-- Layout-->
-    <svelte:fragment slot="thumbnail">
-        <div class="thumbnails">
-            {#each assets as number, index }
-                <GalleryThumbnail id={index}>
-                    <img src="/gallery/emil-fafek/thumbs/RH{number}.jpg" alt="" class="thumbnail">
-                </GalleryThumbnail>
-            {/each}
-        </div>
-    </svelte:fragment>
+    {#snippet thumbnail()}
+    
+            <div class="thumbnails">
+                {#each assets as number, index }
+                    <GalleryThumbnail id={index}>
+                        <img src="/gallery/emil-fafek/thumbs/RH{number}.jpg" alt="" class="thumbnail">
+                    </GalleryThumbnail>
+                {/each}
+            </div>
+        
+    {/snippet}
     {#each assets as number, index }
         <GalleryImage id={index}>
             <img src="/gallery/emil-fafek/2mb/RH{number}.jpg" alt="">

@@ -34,8 +34,8 @@
 			url: "/contact", cs: "Kontakty", en: "Contacts"
 		}
 	];
-	let burgerMenuOpen = false;
-	let currentExpandedMenu: MenuItem | null = null;
+	let burgerMenuOpen = $state(false);
+	let currentExpandedMenu: MenuItem | null = $state(null);
 
 	let resetExpandedMenu = () => {
 		currentExpandedMenu = null;
@@ -44,7 +44,7 @@
 
 <header>
 	<div class="logo">
-		<a href="/" on:click={resetExpandedMenu}>
+		<a href="/" onclick={resetExpandedMenu}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
 	</div>
@@ -57,7 +57,7 @@
 					</li>
 					{#each menuItems as menuItem}
 						<li>
-							<a href="{menuItem.url}" on:click={() => burgerMenuOpen=false}>
+							<a href="{menuItem.url}" onclick={() => burgerMenuOpen=false}>
 								<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
 							</a>
 						</li>
@@ -75,7 +75,7 @@
 					<li>
 						<a
 							style="cursor: pointer;"
-							on:click={() => currentExpandedMenu = currentExpandedMenu == menuItem ? null : menuItem}
+							onclick={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
 						>
 							<Loc
 								cs="{menuItem.cs} &nbsp;{currentExpandedMenu == menuItem ? '▴' : '▾'}"
@@ -86,7 +86,7 @@
 							<ul class="dropdown" transition:slide>
 								{#each menuItem.submenu as subMenuItem}
 									<li>
-										<a href="{subMenuItem.url}" on:click={resetExpandedMenu}>
+										<a href="{subMenuItem.url}" onclick={resetExpandedMenu}>
 											<Loc cs="{subMenuItem.cs}" en="{subMenuItem.en}" />
 										</a>
 									</li>
@@ -96,7 +96,7 @@
 					</li>
 				{:else}
 					<li>
-						<a href="{menuItem.url}" on:click={resetExpandedMenu}>
+						<a href="{menuItem.url}" onclick={resetExpandedMenu}>
 							<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
 						</a>
 					</li>

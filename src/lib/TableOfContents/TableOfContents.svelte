@@ -7,10 +7,15 @@
 <script lang="ts">
 	import { tocStore, tocActiveId } from './stores.ts';
     
-	/** Set the active permalink ID on load. */
-	export let activeId = '';
+	
+	interface Props {
+		/** Set the active permalink ID on load. */
+		activeId?: string;
+	}
+
+	let { activeId = '' }: Props = $props();
     
-    $: reactiveActiveId = $tocActiveId ? $tocActiveId : activeId.replace('#', '');
+    let reactiveActiveId = $derived($tocActiveId ? $tocActiveId : activeId.replace('#', ''));
 </script>
 
 <div class="table-of-contents">
@@ -24,7 +29,7 @@
 						class="{tocHeading.id === reactiveActiveId
 							? 'active'
 							: 'inactive'}"
-						on:click={() => {
+						onclick={() => {
 							//reactiveActiveId = tocHeading.id;
 						}}
 					>

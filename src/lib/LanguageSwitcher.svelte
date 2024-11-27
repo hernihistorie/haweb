@@ -2,7 +2,7 @@
 	import { lang } from '../stores.js';
 	import { page } from '$app/stores';
 
-    let langValue: "en" | "cs";
+    let langValue: "en" | "cs" = $state();
     lang.subscribe(value => {
         langValue = value;
     })
@@ -18,11 +18,11 @@
 
 <div>
     <!-- Currently only the homepage is localized -->
-    {#if $page.url.pathname == '/' }
+    {#if $page.url.pathname == '/'}
         {#if langValue == 'cs'}
-            <a on:click={setLangEn} on:keyup={setLangEn}>switch to english</a>
+            <a onclick={setLangEn} onkeyup={setLangEn}>switch to english</a>
         {:else}
-            <a on:click={setLangCs} on:keyup={setLangCs}>přepnout do češtiny</a>
+            <a onclick={setLangCs} onkeyup={setLangCs}>přepnout do češtiny</a>
         {/if}
     {/if}
 </div>

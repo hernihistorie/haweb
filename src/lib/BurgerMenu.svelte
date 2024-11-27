@@ -3,15 +3,28 @@
     
     https://github.com/jorisBarkema/svelte-burger-menu
 -->
-<script>
+<script lang="ts">
     import BurgerButton from './BurgerButton.svelte'
     import SideMenu from './SideMenu.svelte'
-    export let open = false;
-    export let duration = 0.4;
-    export let width = '300px';
-    export let padding = '25px';
-    export let paddingTop = '50px';
-    export let backgroundColor = '--var(--color-secondary)';
+    interface Props {
+        open?: boolean;
+        duration?: number;
+        width?: string;
+        padding?: string;
+        paddingTop?: string;
+        backgroundColor?: string;
+        children?: import('svelte').Snippet;
+    }
+
+    let {
+        open = $bindable(false),
+        duration = 0.4,
+        width = '300px',
+        padding = '25px',
+        paddingTop = '50px',
+        backgroundColor = '--var(--color-secondary)',
+        children
+    }: Props = $props();
     let burgerProps = {
         duration: duration
     }
@@ -27,5 +40,5 @@
 <BurgerButton {...burgerProps} bind:open={open}/>
 
 <SideMenu {...menuProps} bind:open={open}>
-    <slot></slot>
+    {@render children?.()}
 </SideMenu>

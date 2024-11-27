@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Meta from './Meta.svelte';
-    export let title: string;
+    interface Props {
+        title: string;
+        side?: import('svelte').Snippet;
+        content?: import('svelte').Snippet;
+    }
+
+    let { title, side, content }: Props = $props();
 </script>
 
 <Meta title={title}/>
 
 <article>
     <div class="side">
-        <slot name="side" />
+        {@render side?.()}
     </div>
     <div class="content">
-        <slot name="content" />
+        {@render content?.()}
     </div>
 </article>
 

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import BlogBox from '$lib/BlogBox.svelte';
 
-    export let all: boolean;
+    interface Props {
+        all: boolean;
+    }
+
+    let { all }: Props = $props();
 </script>
 
 <div class="blogboxes">

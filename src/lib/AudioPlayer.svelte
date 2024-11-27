@@ -5,14 +5,18 @@
 <script lang="ts">
 	import { persisted } from 'svelte-persisted-store'
 
-	export let src: string;
-	export let title: string;
-	export let duration: number = 0;
+	interface Props {
+		src: string;
+		title: string;
+		duration?: number;
+	}
+
+	let { src, title, duration = $bindable(0) }: Props = $props();
 
 	const time = persisted(`playerPosition-${title}`, 0);
-	let paused = true;
-	let volume = 1;
-	let oldVolume = 1;
+	let paused = $state(true);
+	let volume = $state(1);
+	let oldVolume = $state(1);
 	const max_volume = 1;
 
 	function format_time(time: number): string {
@@ -67,20 +71,20 @@
 		bind:paused
 		bind:volume
 		preload="metadata"
-		on:loadeddata={(e) => {
+		onloadeddata={(e) => {
 			// workaround bug of time being reset
 			e.currentTarget.currentTime = $time;
 		}}
-		on:ended={() => {
+		onended={() => {
 			time.set(0);
 		}}
-	/>
+	></audio>
 	
 	<button
 		class="play"
 		aria-label={paused ? 'play' : 'pause'}
-		on:click={() => paused = !paused}
-	/>
+		onclick={() => paused = !paused}
+	></button>
 
 	<div class="info">
 		<div class="description">
@@ -91,9 +95,9 @@
 			<span class="time-text">{format_time($time)}</span>
 			<div
 				class="slider"
-				on:pointerdown={time_pointerdown}
+				onpointerdown={time_pointerdown}
 			>
-				<div class="progress" style="--progress: {$time / duration}" />
+				<div class="progress" style="--progress: {$time / duration}"></div>
 			</div>
 			<span>{format_time(duration)}</span>
 		</div>
@@ -102,7 +106,7 @@
 		<button
 			class="speaker-icon"
 			aria-label="mute"
-			on:click={() => {
+			onclick={() => {
 				if (volume == 0) {
 					volume = oldVolume;
 				} else {
@@ -114,9 +118,9 @@
 		</button>
 		<div
 			class="volume-slider"
-			on:pointerdown={volume_pointerdown}
+			onpointerdown={volume_pointerdown}
 		>
-			<div class="volume-progress" style="--progress: {1-volume}" />
+			<div class="volume-progress" style="--progress: {1-volume}"></div>
 		</div>
 	</div>
 </div>

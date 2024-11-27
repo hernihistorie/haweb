@@ -2,7 +2,11 @@
     import type { AssetData } from "$src/types";
 	import Box from "./Box.svelte";
 
-    export let data: AssetData
+    interface Props {
+        data: AssetData;
+    }
+
+    let { data }: Props = $props();
 </script>
 <Box>
     <div class="asset">
@@ -10,7 +14,7 @@
             <div class="asset-name">
                 <a href="{ data.inventory_url }"> { data.name }</a>
             </div>
-            <p>{@html data.description }</p>
+            <p>{@html data.description}</p>
         </div>
         <div class="asset-photo">
             <img src="{ data.picture.url }" class="asset-img" alt="">

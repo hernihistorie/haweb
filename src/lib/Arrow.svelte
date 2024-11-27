@@ -1,5 +1,5 @@
-<script>
-    export let href;
+<script lang="ts">
+    let { href } = $props();
 </script>
 
 <a class="arrow" href="{href}">

@@ -2,11 +2,16 @@
 	import type { Person } from "$src/types";
 	import Speaker from "./Speaker.svelte";
 
-    export let speaker: Person;
+    interface Props {
+        speaker: Person;
+        children?: import('svelte').Snippet;
+    }
+
+    let { speaker, children }: Props = $props();
 </script>
 
 <div class="question">
-    <Speaker {speaker} /> <slot />
+    <Speaker {speaker} /> {@render children?.()}
 </div>
 
 <style>

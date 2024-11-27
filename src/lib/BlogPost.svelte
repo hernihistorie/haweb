@@ -1,25 +1,39 @@
 <script lang="ts">
 	import Post from "./Post.svelte";
 
-    export let author_name: string;
-    export let date: string;
-    export let title: string;
+    interface Props {
+        author_name: string;
+        date: string;
+        title: string;
+        children?: import('svelte').Snippet;
+    }
+
+    let {
+        author_name,
+        date,
+        title,
+        children
+    }: Props = $props();
 </script>
 
 <Post title={title}>
-    <div slot="side">
-        <!--
-            <img src="" alt="Profilový obrázek" />
-        -->
-        <author>
-            {author_name}
-        </author>
-        <date>
-            {date}
-        </date>
-    </div>
-    <div slot="content">
-        <h2>{title}</h2>
-        <slot />
-    </div>
+    {#snippet side()}
+        <div >
+            <!--
+                <img src="" alt="Profilový obrázek" />
+            -->
+            <author>
+                {author_name}
+            </author>
+            <date>
+                {date}
+            </date>
+        </div>
+    {/snippet}
+    {#snippet content()}
+        <div >
+            <h2>{title}</h2>
+            {@render children?.()}
+        </div>
+    {/snippet}
 </Post>

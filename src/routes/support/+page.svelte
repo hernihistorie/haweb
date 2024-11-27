@@ -14,8 +14,8 @@
 
     const DEFAULT_AMOUNT = '100';
     const amount = writable(DEFAULT_AMOUNT);
-    let customValueActive = false;
-    let qrCodeUrl: string;
+    let customValueActive = $state(false);
+    let qrCodeUrl: string = $state();
 
     let payment = {
         acc: 'CZ6406000000008686868686',
@@ -110,9 +110,9 @@
                 pattern="[0-9]*"
                 inputmode="numeric"
                 value="Vlastní hodnota"
-                on:click={clickCustomValue}
-                on:focus={clickCustomValue}
-                on:input={inputCustomValue}
+                onclick={clickCustomValue}
+                onfocus={clickCustomValue}
+                oninput={inputCustomValue}
                 style="width: 7.5em;"
 
                 class="customvalue {customValueActive ? "active" : ""}"
@@ -120,7 +120,7 @@
             <div
                 class="currency {customValueActive ? "active" : ""}"
                 id="currency"
-                on:click={() => document.getElementById('customValue')?.focus()}
+                onclick={() => document.getElementById('customValue')?.focus()}
             >
                 Kč
             </div>
