@@ -7,9 +7,9 @@
 
     let { cs, en }: Props = $props();
 
-    let langValue: "en" | "cs" = $state();
+    let langValue: "en" | "cs" = $state("cs");
     lang.subscribe(value => {
-        langValue = value;
+        langValue = value as "en" | "cs";
     })
 </script>
 

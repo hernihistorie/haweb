@@ -4,7 +4,6 @@
 </script>
 
 <div class="blog-box">
-    <!-- TODO this should probably be h3 -->
     <h3>
         <a href="{href}">
             {title}

@@ -2,9 +2,9 @@
 	import { lang } from '../stores.js';
 	import { page } from '$app/stores';
 
-    let langValue: "en" | "cs" = $state();
+    let langValue: "en" | "cs" = $state("cs");
     lang.subscribe(value => {
-        langValue = value;
+        langValue = value as "en" | "cs";
     })
 
 	function setLangEn() {
@@ -20,9 +20,9 @@
     <!-- Currently only the homepage is localized -->
     {#if $page.url.pathname == '/'}
         {#if langValue == 'cs'}
-            <a onclick={setLangEn} onkeyup={setLangEn}>switch to english</a>
+            <button class="link" onclick={setLangEn} onkeyup={setLangEn}>switch to english</button>
         {:else}
-            <a onclick={setLangCs} onkeyup={setLangCs}>přepnout do češtiny</a>
+            <button class="link" onclick={setLangCs} onkeyup={setLangCs}>přepnout do češtiny</button>
         {/if}
     {/if}
 </div>
@@ -31,15 +31,17 @@
     div {
         margin-bottom: -12px;
     }
-	a {
+	button {
+        user-select: none;
 		color: inherit;
 		text-transform: uppercase;
 		text-decoration: none;
 		white-space: nowrap;
         cursor: pointer;
+        font-size: 90%;
 	}
 
-    a:hover {
+    button:hover {
         text-decoration: underline;
     }
 </style>

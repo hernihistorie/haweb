@@ -43,8 +43,12 @@
     }
 </style>
 
-<button class:open onclick={() => open = !open}
-    style="transition: color {duration}s ease-in-out; color: {open ? 'var(--color-bg)' : 'var(--color-primary)'};">
+<button
+    class:open
+    onclick={() => open = !open}
+    aria-label="{open ? 'close' : 'open'} menu"
+    style="transition: color {duration}s ease-in-out; color: {open ? 'var(--color-bg)' : 'var(--color-primary)'};"
+>
 	<svg width=32 height=32>
         <line id="top" x1=0 y1=9    x2=32 y2=9    style="transition: transform {duration}s ease-in-out, opacity {duration}s ease-in-out;"/>
 		<line id="mid" x1=0 y1=18.5 x2=32 y2=18.5 style="transition: transform {duration}s ease-in-out, opacity {duration}s ease-in-out;"/>

@@ -6,14 +6,15 @@
 <script lang="ts">
     import IntersectionObserver from "svelte-intersection-observer";
 	import AudioPlayer from './AudioPlayer.svelte';
+	import type { InterviewData } from "$src/types";
     interface Props {
         data: InterviewData;
     }
 
     let { data }: Props = $props();
 
-    let element: HTMLElement = $state();
-    let intersecting: boolean = $state();
+    let element: HTMLElement | undefined = $state();
+    let intersecting: boolean | undefined = $state();
     let threshold: number = 1;
 </script>
 

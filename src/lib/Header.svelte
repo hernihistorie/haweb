@@ -58,7 +58,7 @@
 					{#each menuItems as menuItem}
 						<li>
 							<a href="{menuItem.url}" onclick={() => burgerMenuOpen=false}>
-								<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
+								<Loc cs={menuItem.cs} en={menuItem.en} />
 							</a>
 						</li>
 					{/each}
@@ -73,21 +73,24 @@
 				<!-- XXX this is a temporary hack -->
 				{#if menuItem.submenu}
 					<li>
-						<a
+						<button
+							class="link"
 							style="cursor: pointer;"
 							onclick={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
+							onkeyup={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
+							tabindex="0"
 						>
 							<Loc
 								cs="{menuItem.cs} &nbsp;{currentExpandedMenu == menuItem ? '▴' : '▾'}"
 								en="{menuItem.en} &nbsp;{currentExpandedMenu == menuItem ? '▴' : '▾'}"
 							/>
-						</a>
+						</button>
 						{#if currentExpandedMenu}
 							<ul class="dropdown" transition:slide>
 								{#each menuItem.submenu as subMenuItem}
 									<li>
 										<a href="{subMenuItem.url}" onclick={resetExpandedMenu}>
-											<Loc cs="{subMenuItem.cs}" en="{subMenuItem.en}" />
+											<Loc cs={subMenuItem.cs} en={subMenuItem.en} />
 										</a>
 									</li>
 								{/each}
@@ -97,7 +100,7 @@
 				{:else}
 					<li>
 						<a href="{menuItem.url}" onclick={resetExpandedMenu}>
-							<Loc cs="{menuItem.cs}" en="{menuItem.en}" />
+							<Loc cs={menuItem.cs} en={menuItem.en} />
 						</a>
 					</li>
 				{/if}
@@ -168,15 +171,21 @@
 		border-left: none;
 	}
 
-	a {
+	a, button {
 		color: inherit;
 		text-transform: uppercase;
 		text-decoration: none;
 		white-space: nowrap;
 		user-select: none;
+		border: none;
+		font-size: inherit;
+		padding: 0;
+		margin: 0;	
+		font-weight: normal;
+		font-family: 'Barlow', sans-serif;
 	}
 
-	a:hover {
+	a:hover, button:hover {
 		text-decoration: underline;
 	}
 

@@ -39,10 +39,6 @@
         margin-left: 16px;
         flex-shrink: 0;
     }
-    
-    .asset-photo a {
-        display: block;
-    }
 
     .asset-img {
         margin-left: 32px;
