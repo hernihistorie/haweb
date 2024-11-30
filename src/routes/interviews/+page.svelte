@@ -10,10 +10,13 @@
     import { data as bezdek_data } from './vladimir-bezdek/interview';
     import { data as hurnikova_data } from './kamila-hurnikova/interview';
     import InterviewBox from "$src/lib/InterviewBox.svelte";
+	import Meta from "$src/lib/Meta.svelte";
 
 
     let interviews: InterviewData[] = [vodak_data, kopecky_data, hrda_data, robinett_data, havelka_data, bezdek_data, hurnikova_data];
 </script>
+
+<Meta title="Rozhovory" />
 
 <div class="thin">
     <h2>Rozhovory</h2>
