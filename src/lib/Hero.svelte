@@ -1,5 +1,6 @@
 <script>
     import Loc from '$lib/Loc.svelte';
+	import Arrow from './Arrow.svelte';
 	var facts = [
 		[14, "Členů spolku", "Organization members"],
 		[8, "Let snahy", "Years of effort"],
@@ -27,6 +28,7 @@
                 en="The Czechoslovak Game Archive is an initiative of the nonprofit organization Herní historie, whose goal is to centralize materials surrounding games under a single roof."
             />
         </p>
+        <Arrow href="/collection" />
     </div>
     <div class="right">
         <ul class="facts">
