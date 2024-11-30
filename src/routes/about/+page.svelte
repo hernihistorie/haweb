@@ -2,7 +2,7 @@
 	import Meta from "$lib/Meta.svelte";
 </script>
 
-<Meta title="Mise a cíle" />
+<Meta title="O nás" />
 
 <article class="thin">
     <h2>O nás</h2>
