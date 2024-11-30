@@ -22,14 +22,18 @@
                 cs="Neustále rozšiřujeme sbírku rozhovorů s představiteli české a slovenské herní kultury. Tyto rozhovory se zaměřují primárně na široké životopisné vyprávění."
                 en="We are constantly expanding our collection of interviews with representatives of Czech and Slovak gaming culture. These interviews focus primarily on broad biographical narratives."
             />
-            <InterviewBox data={vodak_data} compact={true} />
+
+            <!-- <InterviewBox data={vodak_data} compact={true} /> -->
         </p>
-        <Arrow href="/interviews" text="Všechny rozhovory" />
+        <p style=";">
+            <strong>Nejnovější rozhovor:</strong> <a href="/interviews/zdenek-vodak/" class="plain">Zdeněk Vodák</a>, autor <i>Videostopu</i>
+        </p>
+        <Arrow href="/interviews" text="Přečíst rozhovory" />
     </Box>
 
 
     <div class="filler">
-        <img src="/photos/sczther_sofa.jpg">
+        <img src="/photos/sczther_sofa_sepia.jpg">
     </div>
     <div class="filler">
         <img src="/photos/pocitac_pritel_cloveka.jpg">
@@ -44,11 +48,11 @@
                 en="TODO"
             />
         </p>
-        <div class="thumbnails">
+        <!-- <div class="thumbnails">
             <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
             <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07179.jpg"></a>
             <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
-        </div>
+        </div> -->
         <Arrow href="/gallery/emil-fafek" text="Prohlédnout Fond Emila Fafka" />
     </Box>
     
@@ -63,8 +67,12 @@
                 en="TODO"
             />
         </p>
+        <p>
+            <strong>Počet předmětů v databázi</strong>: 8123<br>
+            <strong>Nejnovější předmět</strong>: <a href="https://inventory.herniarchiv.cz/asset/8492-color-tv-game-15" class="plain">Herní konzole Color TV-Game 15</a>
+        </p>
         <!-- TODO carousel? -->
-        <div class="thumbnails">
+        <!-- <div class="thumbnails">
             <a href="https://inventory.herniarchiv.cz/asset/646-tesla-xd-8001">
                 <img src="https://inventory.herniarchiv.cz/files/12167/DSC_2234.jpg">
             </a>
@@ -74,8 +82,8 @@
             <a href="https://inventory.herniarchiv.cz/asset/7859">
                 <img src="/assets/asset_7859.jpg">
             </a>
-        </div>
-        <Arrow href="/gallery/emil-fafek" text="Náhlednout do sbírky" />
+        </div> -->
+        <Arrow href="https://inventory.herniarchiv.cz/" text="Náhlednout do sbírky" />
     </Box>
     
 
@@ -94,8 +102,12 @@
                 en="TODO"
             />
         </p>
+        <p>
+            <strong>Počet časopisů</strong>: 11<br>
+            <strong>Naposledy zkompletováno</strong>: <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/2" class="plain">GameStar</a>
+        </p>
         <!-- TODO carousel? -->
-        <div class="thumbnails">
+        <!-- <div class="thumbnails">
             <a href="#">
                 <img src="https://casopisy.herniarchiv.cz/files/12504/level_old.svg">
             </a>
@@ -105,13 +117,16 @@
             <a href="https://inventory.herniarchiv.cz/asset/7859">
                 <img src="https://casopisy.herniarchiv.cz/files/14086/OPSM2.svg">
             </a>
-        </div>
+        </div> -->
         <Arrow href="https://casopisy.herniarchiv.cz/" text="Sledovat vývoj časopisů" />
     </Box>
     
 
 
 </div>
+    <h3>Projekty</h3>
+
+    <p>TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO 
 
     <h3>Blog</h3>
 
@@ -126,16 +141,26 @@
     }
     .boxes > :global(div) {
         width: calc(50% - 16px);
+        margin-bottom: 4em;
 
         /* border-top: 2px solid var(--color-secondary); */
+    }
+
+    :global(.box) :global(h3) {
+        margin-bottom: 1.2em;
+    }
+
+    :global(.box) :global(.arrow) {
+        margin-top: 1em;
     }
 
     .filler {
         display: flex;
     }
+
     .filler img {
-        height: 300px;
-        margin: auto;
+        height: 400px;
+        margin-left: 44px;
     }
     .blogboxes {
         display: flex;

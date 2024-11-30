@@ -62,6 +62,7 @@
         margin-bottom: 128px;
         min-height: 320px;
         justify-content: space-between;
+        
     }
     .hero > div {
         width: calc(50% - 16px);
@@ -70,6 +71,10 @@
 
     .hero .left {
         margin: auto 0 auto 0;
+    }
+
+    .hero .right {
+        max-height: 350px;
     }
 
     h1 {
@@ -100,6 +105,7 @@
         display: flex;
         background: var(--color-bg);
         height: 100%;
+        /* min-height: 2.4em; */
         margin-top: 1px;
         align-content: center;
     }
