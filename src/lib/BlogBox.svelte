@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    let { href = undefined, title, children } = $props();
+    let { href = undefined, title, children, show_arrow=true } = $props();
 </script>
 
 <div class="blog-box">
@@ -12,7 +12,9 @@
     <p>
         {@render children?.()}
     </p>
-    <Arrow {href} />
+    {#if show_arrow}
+        <Arrow {href} />
+    {/if}
 </div>
 
 <style>

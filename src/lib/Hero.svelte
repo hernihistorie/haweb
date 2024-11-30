@@ -28,7 +28,9 @@
                 en="The Czechoslovak Game Archive is an initiative of the nonprofit organization Herní historie, whose goal is to centralize materials surrounding games under a single roof."
             />
         </p>
-        <Arrow href="/collection" />
+        <p>
+            <Arrow href="/about" text="Více o nás" />
+        </p>
     </div>
     <div class="right">
         <ul class="facts">

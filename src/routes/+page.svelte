@@ -4,6 +4,10 @@
 	import Box from '$lib/Box.svelte';
     import Loc from '$lib/Loc.svelte';
 	import BlogBoxes from './blog/BlogBoxes.svelte';
+	import InterviewBox from '$src/lib/InterviewBox.svelte';
+
+    import { data as vodak_data } from './interviews/zdenek-vodak/interview';
+	import Arrow from '$src/lib/Arrow.svelte';
 </script>
 
 <Meta title="" />
@@ -12,60 +16,107 @@
 
 <div class="boxes">
     <Box>
-        <h3><Loc cs="O nás" en="About us" /></h3>
+        <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
         <p>
             <Loc
-                cs="Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury."
-                en="We are a project of the Herní historie (Game History) association, whose goal is to preserve video game culture within the Czech and Slovak republics. Our main activty is the cataloguing and archiving of all artefacts connected to the history of games, such as magazines, original devices, or media pertaining to games. We cooperate with a number of international organizations and our goal is to establish the existence of an official institution housing the local tracks in this branch of culture."
+                cs="Neustále rozšiřujeme sbírku rozhovorů s představiteli české a slovenské herní kultury. Tyto rozhovory se zaměřují primárně na široké životopisné vyprávění."
+                en="We are constantly expanding our collection of interviews with representatives of Czech and Slovak gaming culture. These interviews focus primarily on broad biographical narratives."
             />
+            <InterviewBox data={vodak_data} compact={true} />
         </p>
-    </Box>
-    <Box href="/mission">
-        <h3><Loc cs="Mise a cíle" en="Missions and goals" /></h3>
-        <p>
-            <Loc
-                cs="Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás."
-                en="Interactive entertainment remains a very young field. We can watch our understanding of game history deepen every day and it is necessary for organized efforts to start emerging. We believe that the Czech and Slovak Republics deserve representation in international efforts, which we often participate in. This enthusiasm led us to launch a project that will aim to save as much as possible from the beginnings of video game culture in our countries."
-            />
-        </p>
+        <Arrow href="/interviews" text="Všechny rozhovory" />
     </Box>
 
-    <Box href="/projects">
-        <h3><Loc cs="Projekty" en="Projects" /></h3>
-        <p>
-            <Loc
-                cs="Za naší existence jsme spustili několik projektů, nejenom u nás, ale i v zahraničí ve spolupráci s partnerskými institucemi. O každém z projektů se můžete dozvědět více a sledovat jeho vývoj."
-                en="During our existence we have launched a number of projects, not only locally, but also abroad in cooperation with partner institutions. You can discover more about each project and follow their development (currently only in Czech)."
-            />
-        </p>
-    </Box>
-    <Box href="/services">
-        <h3><Loc cs="Služby a technologie" en="Services and technologies" /></h3>
-        <p>
-            <Loc
-                cs="V rámci našich archivářských činností si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Rádi pomůžeme i Vám zachránit data ze zapomenutých médií, či zorganizovat projekt na digitalizaci celého archivu."
-                en="As a part of our archival activities, we aim to preserve materials and data utilizing the best technologies and highest current standards. We will be happy to help even you recover data from lost media, or to organize a project for the digitalization of your entire archive."
-            />
-        </p>
-    </Box>
 
     <div class="filler">
-		<img src="/illu/illu_03.png" alt="">
+        <img src="/photos/sczther_sofa.jpg">
     </div>
-    <Box href="/collection">
-        <h3><Loc cs="Sbírka" en="Collection" /></h3>
+    <div class="filler">
+        <img src="/photos/pocitac_pritel_cloveka.jpg">
+    </div>
+
+    <Box>
+        <h3><Loc cs="Vizuální materiály" en="Visual materials" /></h3>
+        <!-- Dlouhodobě: -->
         <p>
             <Loc
-                cs="Videohry bereme jako umění a součást lidské kultury, která si zaslouží zachování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch z Česka a Slovenska. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme."
-                en="We understand video games as art and as a part of human culture which deserves to be preserved for future generations. That is why we are building a comprehensive collection of game and computer materials, primarily those from Czechia and Slovakia. In particular, we are focused on collecting written materials, games on original media, and old devices. All objects in our collection are inventoried, sorted, and safely stored."
+                cs="Naše sbírka visuálních materiálů zahrnuje fotografie současné i historické, skeny obalových materiálů, či snímky obrazovky. V současnosti můžete nahlédnout na naše skeny fotografií s tématikou výpočetní techniky od dlouholetého reportéra Emila Fafka."
+                en="TODO"
             />
         </p>
+        <div class="thumbnails">
+            <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
+            <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07179.jpg"></a>
+            <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
+        </div>
+        <Arrow href="/gallery/emil-fafek" text="Prohlédnout Fond Emila Fafka" />
     </Box>
+    
+
+
+    <Box>
+        <h3><Loc cs="Sbírka" en="Collection" /></h3>
+        <!-- Dlouhodobě: -->
+        <p>
+            <Loc
+                cs="V evidenci vedeme v současnosti více než 8000 předmětů zahrnující herní konzole a počítače, periferie, hry na původních nosičích, přepisovatelná média s uživatelskými programy, a literaturu, včetně časopisů a knih souvisejících s hrami či počítači."
+                en="TODO"
+            />
+        </p>
+        <!-- TODO carousel? -->
+        <div class="thumbnails">
+            <a href="https://inventory.herniarchiv.cz/asset/646-tesla-xd-8001">
+                <img src="https://inventory.herniarchiv.cz/files/12167/DSC_2234.jpg">
+            </a>
+            <a href="#">
+                <img src="/photos/ovladac_homebrew7.jpg">
+            </a>
+            <a href="https://inventory.herniarchiv.cz/asset/7859">
+                <img src="/assets/asset_7859.jpg">
+            </a>
+        </div>
+        <Arrow href="/gallery/emil-fafek" text="Náhlednout do sbírky" />
+    </Box>
+    
+
+    <div class="filler">
+        <img src="/photos/tapes_floppies_labels.jpg">
+    </div>
+    <div class="filler">
+        <img src="https://casopisy.herniarchiv.cz/static/magdb/library.jpg">
+    </div>
+    <Box>
+        <h3><Loc cs="Databáze magazínů" en="Magasine database" /></h3>
+        <!-- Dlouhodobě: -->
+        <p>
+            <Loc
+                cs="Tvoříme knihovnu českých a slovenskcýh herních časopisů a aktivně ji digitalizujeme. Nabízíme k prohlédnutí obsahy všech vydaných čísel."
+                en="TODO"
+            />
+        </p>
+        <!-- TODO carousel? -->
+        <div class="thumbnails">
+            <a href="#">
+                <img src="https://casopisy.herniarchiv.cz/files/12504/level_old.svg">
+            </a>
+            <a href="https://inventory.herniarchiv.cz/asset/7859">
+                <img src="https://casopisy.herniarchiv.cz/files/10195/GSLOGO_1.jpg">
+            </a>
+            <a href="https://inventory.herniarchiv.cz/asset/7859">
+                <img src="https://casopisy.herniarchiv.cz/files/14086/OPSM2.svg">
+            </a>
+        </div>
+        <Arrow href="https://casopisy.herniarchiv.cz/" text="Sledovat vývoj časopisů" />
+    </Box>
+    
+
+
 </div>
 
     <h3>Blog</h3>
 
     <BlogBoxes all={false} />
+    <Arrow href="/blog" text="Všechny příspevky blogu" />
 
 <style>
     .boxes {
@@ -75,19 +126,33 @@
     }
     .boxes > :global(div) {
         width: calc(50% - 16px);
+
+        /* border-top: 2px solid var(--color-secondary); */
     }
 
     .filler {
         display: flex;
     }
     .filler img {
-        height: 180px;
+        height: 300px;
         margin: auto;
     }
     .blogboxes {
         display: flex;
         flex-wrap: wrap;
         gap: 64px;
+    }
+
+    .thumbnails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 2em;
+    }
+
+    .thumbnails img {
+        width: 140px;
     }
 
     @media only screen and (max-width: 750px) {

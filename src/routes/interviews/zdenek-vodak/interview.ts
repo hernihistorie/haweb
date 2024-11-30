@@ -11,6 +11,7 @@ const ZV: Person = {
     birth_year: "1962",
     gender: "M",
     bio: "Zdeněk Vodák se narodil roku 1962 ve městě Boskovice. Studoval FEL na ČVUT, kde se poprvé dostal k počítačům a programování. Ještě na vysoké škole sehnal ZX Spectrum, na kterém později dělal hru pro pořad ČST <em>Videostop</em>. K této práci se dostal přes svého tatínka (Zdeňka Vodáka st.), který pracoval v ČST jako technolog. Během 80. let ještě dělal pro ČST různé animace nebo titulky a po revoluci dělal na pořadech jako je <em>Kdo chce být milionářem?</em>, <em>AZ-kvíz</em> nebo <em>Na lovu</em>.",
+    bio_short: "Autor programu pro televizní hru <em>Videostop</em> a porevoluční produkce jako <em>Kdo chce být milionářem?</em> či <em>AZ-kvíz</em>.",
     photo: {
         url: "/interviews/zdenek-vodak.JPG",
     }

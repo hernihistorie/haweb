@@ -4,13 +4,14 @@
 
     interface Props {
         data: InterviewData;
+        compact: boolean;
     }
 
-    let { data }: Props = $props();
+    let { data, compact=false }: Props = $props();
 </script>
 
-<Box>
-    <div class="interview { data.complete ? 'complete' : 'incomplete' }">
+<Box decoration={!compact}>
+    <div class="interview { data.complete ? 'complete' : 'incomplete' } { compact ? 'compact' : '' }">
         <div>
             <h3>
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
@@ -18,17 +19,23 @@
                     <br><span class="in-progress">připravujeme</span>
                 {/if}
             </h3>
-            {#if data.narrator.bio}
-                <p>{@html data.narrator.bio}</p>
-            {/if}
-            {#if data.complete}
-                <p>
-                    <strong>Datum:</strong> { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
-                    &nbsp;&bull;&nbsp;
-                    <strong>Délka:</strong> { data.interview.length || "???" }
-                </p>
+            {#if compact}
+                {#if data.narrator.bio_short}
+                    <p>{@html data.narrator.bio_short}</p>
+                {/if}
             {:else}
-                <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->
+                {#if data.narrator.bio}
+                    <p>{@html data.narrator.bio}</p>
+                {/if}
+                {#if data.complete}
+                    <p>
+                        <strong>Datum:</strong> { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
+                        &nbsp;&bull;&nbsp;
+                        <strong>Délka:</strong> { data.interview.length || "???" }
+                    </p>
+                {:else}
+                    <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->
+                {/if}
             {/if}
         </div>
         <div class="photopart">
@@ -48,19 +55,24 @@
         gap: 12px;
     }
 
+    .compact.interview {
+        flex-direction: row-reverse;
+    }
+
     .photopart {
         width: 200px;
-        margin-right: 4px;
-        margin-left: 16px;
         flex-shrink: 0;
+    }
+    .compact .photopart {
+        width: 100px;
     }
     .photopart a {
         display: block;
     }
 
     .narrator-img {
-        margin-left: 16px;
-        margin-bottom: 12px;
+        /* margin-left: 16px;
+        margin-bottom: 12px; */
         border-radius: 8px;
     }
     .incomplete .narrator-img {
@@ -83,6 +95,10 @@
         vertical-align: middle;
         margin-bottom: 3px;
 
+    }
+
+    .compact h3 {
+        font-size: 1.2em;
     }
 
 

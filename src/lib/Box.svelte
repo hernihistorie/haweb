@@ -5,13 +5,15 @@
         left?: boolean | undefined;
         right?: boolean | undefined;
         children?: import('svelte').Snippet;
+        decoration?: boolean | undefined;
     }
 
     let {
         href = undefined,
         left = undefined,
         right = undefined,
-        children
+        children,
+        decoration = true,
     }: Props = $props();
 
     var box_class = $state("");
@@ -20,11 +22,14 @@
 </script>
 
 <div class="box {box_class}">
-    <div class="cross">
-        <img src="/ico/ico_x.svg" alt="">
-    </div>
+    {#if decoration}
+        <div class="cross">
+            <img src="/ico/ico_x.svg" alt="">
+        </div>
+    {/if}
     <div class="content">
         {@render children?.()}
+        <!-- TODO align arrow to bottom of box if box is taller-->
         {#if href}
             <Arrow {href} />
         {/if}
