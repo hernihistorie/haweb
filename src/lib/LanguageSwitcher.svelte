@@ -17,13 +17,10 @@
 </script>
 
 <div>
-    <!-- Currently only the homepage is localized -->
-    {#if $page.url.pathname == '/'}
-        {#if langValue == 'cs'}
-            <button class="link" onclick={setLangEn} onkeyup={setLangEn}>switch to english</button>
-        {:else}
-            <button class="link" onclick={setLangCs} onkeyup={setLangCs}>přepnout do češtiny</button>
-        {/if}
+    {#if langValue == 'cs'}
+        <button class="link" onclick={setLangEn} onkeyup={setLangEn}>EN</button>
+    {:else}
+        <button class="link" onclick={setLangCs} onkeyup={setLangCs}>CS</button>
     {/if}
 </div>
 
