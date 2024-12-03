@@ -35,7 +35,9 @@
 		text-decoration: none;
 		white-space: nowrap;
         cursor: pointer;
-        font-size: 90%;
+        font-size: 100%;
+        min-width: 1.5em;
+        text-align: right;
 	}
 
     button:hover {

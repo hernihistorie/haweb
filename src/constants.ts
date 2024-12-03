@@ -1,6 +1,7 @@
 export const SOCIAL_MEDIA_LINKS: Record<string, string> = {
     Facebook: "https://www.facebook.com/RetroHerna/",
     Instagram: "https://www.instagram.com/herni.historie/",
+    Twitter: "https://twitter.com/HerniHistorie",
     Bluesky: "https://bsky.app/profile/hernihistorie.bsky.social/",
     YouTube: "https://www.youtube.com/channel/UCJNNkhuJNO5dujOhy9r-jdA",
     Twitch: "https://www.twitch.tv/retroherna_org",

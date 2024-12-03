@@ -48,8 +48,8 @@
     a :global(svg) {
         height: 24px;
         width: 24px;
-        opacity: 0.85;
         color: var(--color-text);
+        opacity: 0.85;
     }
     a :global(svg):hover {
         color: var(--color-primary);

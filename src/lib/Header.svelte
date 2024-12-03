@@ -176,6 +176,9 @@
 	li:first-child {
 		border-left: none;
 	}
+	.language-select li:last-child {
+		padding-right: 0;
+	}
 
 	a, button {
 		color: inherit;
