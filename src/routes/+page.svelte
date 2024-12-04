@@ -8,6 +8,7 @@
 
     import { data as vodak_data } from './interviews/zdenek-vodak/interview';
 	import Arrow from '$src/lib/Arrow.svelte';
+	import ThinBox from '$src/lib/ThinBox.svelte';
 </script>
 
 <Meta title="" />
@@ -26,7 +27,7 @@
             <!-- Dlouhodobě: -->
             <p>
                 <Loc
-                    cs="V evidenci vedeme v současnosti více než 8000 předmětů zahrnující herní konzole a počítače, periferie, hry na původních nosičích, přepisovatelná média s uživatelskými programy, a literaturu, včetně časopisů a knih souvisejících s hrami či počítači."
+                    cs="V evidenci vedeme více než 8000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
                     en="TODO"
                 />
             </p>
@@ -46,8 +47,8 @@
             <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
             <p>
                 <Loc
-                    cs="Neustále rozšiřujeme sbírku rozhovorů s představiteli české a slovenské herní kultury. Tyto rozhovory se zaměřují primárně na široké životopisné vyprávění."
-                    en="We are constantly expanding our collection of interviews with representatives of Czech and Slovak gaming culture. These interviews focus primarily on broad biographical narratives."
+                    cs="Neustále se rozšiřující sbírka rozhovorů s představiteli české a slovenské videoherní kultury. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout."
+                    en="TODO"
                 />
 
                 <!-- <InterviewBox data={vodak_data} compact={true} /> -->
@@ -67,7 +68,7 @@
             <!-- Dlouhodobě: -->
             <p>
                 <Loc
-                    cs="Tvoříme knihovnu českých a slovenskcýh herních časopisů a aktivně ji digitalizujeme. Nabízíme k prohlédnutí obsahy všech vydaných čísel."
+                    cs="Tvoříme knihovnu českých a slovenských videoherních časopisů které postupně digitalizujeme. Také vedeme veřejnou databázi těchto časopisů, ve které si můžete prohlédnout obsahy všech doplněných čísel."
                     en="TODO"
                 />
             </p>
@@ -99,7 +100,7 @@
             <!-- Dlouhodobě: -->
             <p>
                 <Loc
-                    cs="Naše sbírka visuálních materiálů zahrnuje fotografie současné i historické, skeny obalových materiálů, či snímky obrazovky. V současnosti můžete nahlédnout na naše skeny fotografií s tématikou výpočetní techniky od dlouholetého reportéra Emila Fafka."
+                    cs="Naše sbírka vizuálních materiálů zahrnuje historické fotografie, obaly k videohrám, plakáty, letáky a další podobné propagační materiály, fotografie našich sbírkových předmětů nebo videoherní snímky obrazovky."
                     en="TODO"
                 />
             </p>
@@ -117,7 +118,15 @@
 
 <h2>Projekty</h2>
 
-<p>TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO 
+<div class="project-boxes">
+    <ThinBox href="/projects/videostop/" title="Videostop" show_arrow={false}>
+        TODO Bramboro prosím napiš něco.
+    </ThinBox>
+
+    <ThinBox href="#" title="Atari Klub Cítov" show_arrow={false}>
+        TODO Bramboro prosím napiš něco.
+    </ThinBox>
+</div>
 
 <h2>Blog</h2>
 
@@ -144,6 +153,12 @@
 
     .boxes > div > img {
         width: 600px;
+    }
+
+    .project-boxes {
+        display: flex;
+        width: 100%;
+        gap: 64px;
     }
 
     /* .boxes > :global(div) {

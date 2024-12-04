@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BlogBox from '$lib/BlogBox.svelte';
+	import BlogBox from '$src/lib/ThinBox.svelte';
 
     interface Props {
         all: boolean;
