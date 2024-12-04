@@ -41,7 +41,7 @@
     </p>
     <p><img src="/photos/videostop_kazeta.jpg" alt="Původní kazety s programem Videostop"></p>
     <p>
-        Původní program od Ing. Zdeňka Vodáka však získal a zpřístupnil Herní archiv až v roce 2024 a to díky jeho autorovi. Součástí fondu jsou kromě samotných kazetových pásek s <em>Hrou Videostop</em>, dumpy těchto pásek, scénáře k Videostopu a jejich skeny, rozhovory se Zdeňkem Vodákem a Vladimírem Bezděkem st. ad.
+        Původní program od Ing. Zdeňka Vodáka však získal a zpřístupnil Herní archiv až v roce 2024 a to díky jeho autorovi. Součástí fondu jsou kromě samotných kazetových pásek s <em>Hrou Videostop</em>, dumpy těchto pásek, scénáře k Videostopu a jejich skeny nebo rozhovory se Zdeňkem Vodákem a Vladimírem Bezděkem st.
     </p>
 
     <h3 id="Navody">Návody</h3>
