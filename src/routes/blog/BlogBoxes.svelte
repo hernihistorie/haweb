@@ -9,9 +9,15 @@
 </script>
 
 <div class="blogboxes">
-    <BlogBox
-        href="/blog/30-bytefest-2024"
-        title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
+    <BlogBox href="/blog/31-citov-dat-kazety"
+    title="PROJEKT CÍTOV - Digitalizace DAT kazet"
+        show_arrow={all}
+    >
+    Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
+    </BlogBox>
+
+    <BlogBox href="/blog/30-bytefest-2024"
+    title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
         show_arrow={all}
     >
     Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ADLERNEST".
@@ -25,15 +31,13 @@
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. Druhá várka tohoto softwaru, kterou se nám povedlo zachránit, jsou 2 výukové hry na 8-bit Atari distribuovaných na kazetách.
     </BlogBox>
 
-    <BlogBox
-        href="/blog/28-citov-kazety-spectrum"
-        title="PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum"
-        show_arrow={all}
+    {#if all}
+
+    <BlogBox href="/blog/28-citov-kazety-spectrum"
+    title="PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum"
     >
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. První várka tohoto softwaru, kterou se nám povedlo zachránit, je 10 výukových her na ZX Spectrum distribuovaných na kazetách.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/27-nabidkovy-katalog"
     title="Oskenovali jsme nabídkový katalog z počátku 90. let"
