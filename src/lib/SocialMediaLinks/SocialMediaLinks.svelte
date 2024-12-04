@@ -4,12 +4,12 @@
 
 </script>
 <div class="social-media-links">
-    {#each ["Facebook", "Instagram", "Twitter", "Bluesky", "Discord"] as title}
+    {#each ["Facebook", "Instagram", "Bluesky", "YouTube", "Discord"] as title}
         <SocialMediaLink href={SOCIAL_MEDIA_LINKS[title]} title={title} />
     {/each}
-    {#each Object.entries(DONATE_LINKS) as [name, url]}
+    <!-- {#each Object.entries(DONATE_LINKS) as [name, url]}
         <SocialMediaLink href={url} title={name} />
-    {/each}
+    {/each} -->
 </div>
 
 <style>
