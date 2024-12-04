@@ -15,12 +15,12 @@
     let assets: AssetData[] = [asset07859_data, asset07860_data, asset08077_data, asset08107_data];
 </script>
 
-<Meta title="Projekt Videostop" />
+<Meta title="Hra z televizního pořadu Videostop" />
 
 <article class="thin">
-    <h2>Projekt Videostop</h2>
+    <h2>Hra z televizního pořadu Videostop</h2>
     <div>
-        <p><strong>Název projektu</strong>: Videostop
+        <p><strong>Název projektu</strong>: Hra z televizního pořadu Videostop
         <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Karel Ondráček, Vojtěch Straka, Roman Bórik
         <p><strong>Rok dokončení projektu</strong>: 2024
 
