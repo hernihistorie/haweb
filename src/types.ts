@@ -13,6 +13,7 @@ export interface Person {
     photo?: Photo;
     bio?: string;
     birth_year?: string;
+    birth_place?: string;
     gender?: Gender;
 }
 
@@ -24,9 +25,10 @@ export interface InterviewData {
     audio_duration?: number;
     narrator: Person;
     interview: {
+        type?: "interview" | "questionnaire";
         date: Date;
         publication_date?: Date;
-        place: string;
+        place?: string;
         interviewer?: Person;
         interviewers?: Person[];
         length?: string;
@@ -34,7 +36,7 @@ export interface InterviewData {
             name: string;
             url?: string;
         };
-        informed_agreement: boolean;
+        informed_agreement?: boolean;
         transcriber?: Person;
         redaction?: Person;
         verifier?: Person;

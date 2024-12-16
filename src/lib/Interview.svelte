@@ -32,7 +32,9 @@
     {#snippet content()}
         <article>
             <h2>{ data.title }</h2>
-            <InterviewAudio {data} />
+            {#if data.audio_file }
+                <InterviewAudio {data} />
+            {/if}
             <dl>
                 <dt>Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }</dt>
                 <dd><NameWithShortname person={data.narrator} /></dd>
@@ -40,11 +42,18 @@
                 <dt>Ročník narození</dt>
                 <dd>{ data.narrator.birth_year }</dd>
 
+                {#if data.narrator.birth_place }
+                    <dt>Místo narození</dt>
+                    <dd>{ data.narrator.birth_place }</dd>
+                {/if}
+
                 <dt>Datum rozhovoru</dt>
                 <dd>{ data.interview.date.toLocaleDateString("cs-CZ") }</dd>
 
-                <dt>Místo rozhovoru</dt>
-                <dd>{ data.interview.place }</dd>
+                {#if data.interview.place }
+                    <dt>Místo rozhovoru</dt>
+                    <dd>{ data.interview.place }</dd>
+                {/if}
                 
                 {#if data.interview.interviewers }
                     <dt>Jméno tazatelů</dt>
@@ -61,8 +70,10 @@
                     <dd><NameWithShortname person={data.interview.interviewer} /></dd>
                 {/if}
 
-                <dt>Délka rozhovoru</dt>
-                <dd>{ data.interview.length }</dd>
+                {#if data.interview.length }
+                    <dt>Délka rozhovoru</dt>
+                    <dd>{ data.interview.length }</dd>
+                {/if}
 
                 
                 {#if data.interview.project }

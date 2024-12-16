@@ -3,7 +3,7 @@
 	import Speaker from "./Speaker.svelte";
 
     interface Props {
-        speaker: Person;
+        speaker?: Person;
         children?: import('svelte').Snippet;
     }
 
@@ -11,7 +11,8 @@
 </script>
 
 <div class="answer">
-    <Speaker {speaker} /> {@render children?.()}
+    <Speaker {speaker} />
+    {@render children?.()}
 </div>
 
 <style>
