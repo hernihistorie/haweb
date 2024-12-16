@@ -117,14 +117,13 @@
 </div>
 
 <h2>Projekty</h2>
-
 <div class="project-boxes">
     <ThinBox href="/projects/videostop/" title="Videostop" show_arrow={false}>
-        TODO Bramboro prosím napiš něco.
+        Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu.
     </ThinBox>
 
     <ThinBox href="#" title="Atari Klub Cítov" show_arrow={false}>
-        TODO Bramboro prosím napiš něco.
+        Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
     </ThinBox>
 </div>
 
