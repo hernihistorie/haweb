@@ -9,6 +9,18 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/33-citov-kazety-spectrum"
+    title="PROJEKT CÍTOV - Další kazety s výukovými programy na ZX Spectrum"
+    >
+    V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který v současnosti digitalizujeme. Třetí várka tohoto softwaru jsme nedostali pro změnu od pana Havelky - zakladatele klubu - ale od jednoho člověka, jenž nás kontaktoval na sociálních sítítch.
+    </BlogBox>
+
+    <BlogBox href="/blog/32-citov-zpravodaj"
+    title="PROJEKT CÍTOV - Skeny cítovského zpravodaje"
+    >
+    Oskenovali jsme počítačový zpravodaj, který vznikal v 80. letech v rámci činnosti cítovského atari klubu.
+    </BlogBox>
+
     <BlogBox href="/blog/31-citov-dat-kazety"
     title="PROJEKT CÍTOV - Digitalizace DAT kazet"
     >
