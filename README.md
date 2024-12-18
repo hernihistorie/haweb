@@ -11,21 +11,19 @@ This website is written in Sveltekit.
 To set up the project, make a clone of the repository and run:
 
 ```bash
-npm install
+npm install --force
 npm run dev
 ```
 
-## Building
+## Deployment
 
-To create a static production version of this website:
+If you wish to release a new version on herniarchiv.cz, run the deploy script:
 
 ```bash
-npm run build
+./ops/deploy.sh
 ```
 
-You can preview the production build with `npm run preview`.
-
-The `deploy.sh` script is available to make deployment painless for administrators.
+It will ask for your password on the herniarchiv.cz server.
 
 ## Contributing
 

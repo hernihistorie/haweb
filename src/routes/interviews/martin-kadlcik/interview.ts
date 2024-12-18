@@ -9,7 +9,7 @@ export const MK: Person = {
     birth_place: "Uherské Hradiště",
     gender: "M",
     color: "darkblue",
-    bio: 'Martin Kadlčík - narozen roku 1972 v Uherském Hradišti - je tvůrce drobné textovky z 80. let jménem <a href="https://inventory.herniarchiv.cz/asset/8411-kazeta-das-adlernest"><em>das ADLERNEST<em></a>, kterou jsme tento rok zdigitalizovali. Mimo svých osobních projektů po revoluci také pracoval na několika nevydaných titulech v Ilusion Softworks a v současnosti pracuje na volné noze pro různá herní studia a v e-shopu sintech.'
+    bio: 'Martin Kadlčík - narozen roku 1972 v Uherském Hradišti - je tvůrce drobné textovky z 80. let jménem <a href="https://inventory.herniarchiv.cz/asset/8411-kazeta-das-adlernest"><em>das ADLERNEST</em></a>, kterou jsme tento rok zdigitalizovali. Mimo svých osobních projektů po revoluci také pracoval na několika nevydaných titulech v Ilusion Softworks a v současnosti pracuje na volné noze pro různá herní studia a v e-shopu sintech.'
 }
 
 export const data: InterviewData = {
