@@ -140,7 +140,7 @@
     <BlogBox href="/blog/18-projekt-citov"
     title="Úvod k PROJEKTU CÍTOV"
 >
-        Rádi bychom Vám oznámili nový projekt na kterém se podílíme a který si na začátek vyžaduje drobný historický kontext: Jak jistě víte, tak v 80. letech zde byla relativně rozšířená kultura tzv. počítačových klubů. Jedním takovým klubem byl i počítačový klub z Cítova, který byl spoluzaložen Jozefem Havelkou a který fungoval pří místním JZD. Tento klub byl otevřen prakticky každý den, jednou za čas pořádal tzv. „Atari bály“ nebo akce pro pedagogy a zároveň vydával vlastní software pro ZX Spectrum a Atari.
+        Rádi bychom Vám oznámili nový projekt na kterém se podílíme a který si na začátek vyžaduje drobný historický kontext: Jak jistě víte, tak v 80. letech zde byla relativně rozšířená kultura tzv. počítačových klubů. Jedním takovým klubem byl i počítačový klub z Cítova, který byl spoluzaložen Josefem Havelkou a který fungoval pří místním JZD. Tento klub byl otevřen prakticky každý den, jednou za čas pořádal tzv. „Atari bály“ nebo akce pro pedagogy a zároveň vydával vlastní software pro ZX Spectrum a Atari.
     </BlogBox>
 
     <BlogBox href="/blog/11-arma-bonusdisk"

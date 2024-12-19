@@ -4,7 +4,7 @@
     // import { data as bregant_data } from './michal-bregant/interview';
     import { data as kopecky_data } from './lubor-kopecky/interview';
     import { data as hrda_data } from './stanislav-hrda/interview';
-    import { data as havelka_data } from './jozef-havelka/interview';
+    import { data as havelka_data } from './josef-havelka/interview';
     import { data as robinett_data } from './warren-robinett/interview';
     import { data as vodak_data } from './zdenek-vodak/interview';
     import { data as bezdek_data } from './vladimir-bezdek/interview';
