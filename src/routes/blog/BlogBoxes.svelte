@@ -27,6 +27,8 @@
     Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/30-bytefest-2024"
     title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
     >
@@ -38,8 +40,6 @@
     >
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. Druhá várka tohoto softwaru, kterou se nám povedlo zachránit, jsou 2 výukové hry na 8-bit Atari distribuovaných na kazetách.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/28-citov-kazety-spectrum"
     title="PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum"
