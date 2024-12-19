@@ -20,7 +20,7 @@
 			submenu: [
 				{ url: "/projects", cs: "Časová osa", en: "Timeline" },
 				{ url: "/gallery/emil-fafek", cs: "Fotografie Emila Fafka", en: "Emil Fafek photography" },
-				{ url: "/projects/videostop", cs: "Hra z televizního pořadu Videostop", en: "Project Videostop" },
+				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
 			]
 		}, {
 			url: "/interviews", cs: "Rozhovory", en: "Interviews"
