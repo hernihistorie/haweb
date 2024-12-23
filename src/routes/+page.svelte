@@ -4,68 +4,141 @@
 	import Box from '$lib/Box.svelte';
     import Loc from '$lib/Loc.svelte';
 	import BlogBoxes from './blog/BlogBoxes.svelte';
+	import InterviewBox from '$src/lib/InterviewBox.svelte';
+
+    import { data as vodak_data } from './interviews/zdenek-vodak/interview';
+	import Arrow from '$src/lib/Arrow.svelte';
+	import ThinBox from '$src/lib/ThinBox.svelte';
 </script>
 
 <Meta title="" />
 
 <Hero />
 
+<h2>Naše činnost</h2>
+
 <div class="boxes">
-    <Box>
-        <h3><Loc cs="O nás" en="About us" /></h3>
-        <p>
-            <Loc
-                cs="Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury."
-                en="We are a project of the Herní historie (Game History) association, whose goal is to preserve video game culture within the Czech and Slovak republics. Our main activty is the cataloguing and archiving of all artefacts connected to the history of games, such as magazines, original devices, or media pertaining to games. We cooperate with a number of international organizations and our goal is to establish the existence of an official institution housing the local tracks in this branch of culture."
-            />
-        </p>
-    </Box>
-    <Box href="/mission">
-        <h3><Loc cs="Mise a cíle" en="Missions and goals" /></h3>
-        <p>
-            <Loc
-                cs="Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás."
-                en="Interactive entertainment remains a very young field. We can watch our understanding of game history deepen every day and it is necessary for organized efforts to start emerging. We believe that the Czech and Slovak Republics deserve representation in international efforts, which we often participate in. This enthusiasm led us to launch a project that will aim to save as much as possible from the beginnings of video game culture in our countries."
-            />
-        </p>
-    </Box>
 
-    <Box href="/projects">
-        <h3><Loc cs="Projekty" en="Projects" /></h3>
-        <p>
-            <Loc
-                cs="Za naší existence jsme spustili několik projektů, nejenom u nás, ale i v zahraničí ve spolupráci s partnerskými institucemi. O každém z projektů se můžete dozvědět více a sledovat jeho vývoj."
-                en="During our existence we have launched a number of projects, not only locally, but also abroad in cooperation with partner institutions. You can discover more about each project and follow their development (currently only in Czech)."
-            />
-        </p>
-    </Box>
-    <Box href="/services">
-        <h3><Loc cs="Služby a technologie" en="Services and technologies" /></h3>
-        <p>
-            <Loc
-                cs="V rámci našich archivářských činností si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Rádi pomůžeme i Vám zachránit data ze zapomenutých médií, či zorganizovat projekt na digitalizaci celého archivu."
-                en="As a part of our archival activities, we aim to preserve materials and data utilizing the best technologies and highest current standards. We will be happy to help even you recover data from lost media, or to organize a project for the digitalization of your entire archive."
-            />
-        </p>
-    </Box>
-
-    <div class="filler">
-		<img src="/illu/illu_03.png" alt="">
+    <!-- SBIRKA -->
+    <div>
+        <img src="/photos/homepage/sbirka.jpg">
+        <Box>
+            <h3><Loc cs="Sbírka" en="Collection" /></h3>
+            <!-- Dlouhodobě: -->
+            <p>
+                <Loc
+                    cs="V evidenci vedeme více než 8000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
+                    en="TODO"
+                />
+            </p>
+            <p>
+                <strong>Počet předmětů v databázi</strong>: 8381<br>
+                <strong>Nejnovější předmět</strong>: <a href="https://inventory.herniarchiv.cz/asset/8492-color-tv-game-15" class="plain">Herní konzole Color TV-Game 15</a>
+            </p>
+            <Arrow href="https://inventory.herniarchiv.cz/" text="Náhlednout do sbírky" />
+        </Box>
     </div>
-    <Box href="/collection">
-        <h3><Loc cs="Sbírka" en="Collection" /></h3>
-        <p>
-            <Loc
-                cs="Videohry bereme jako umění a součást lidské kultury, která si zaslouží zachování pro další generace. Proto budujeme obsáhlou sbírku herních a počítačových materiálů, a to předně těch z Česka a Slovenska. Zejména se zabýváme shromažďováním psaných materiálů, her na původních nosičích, a dobových strojů. Všechny předměty v naší sbírce inventarizujeme, třídíme, a bezpečně uchováváme."
-                en="We understand video games as art and as a part of human culture which deserves to be preserved for future generations. That is why we are building a comprehensive collection of game and computer materials, primarily those from Czechia and Slovakia. In particular, we are focused on collecting written materials, games on original media, and old devices. All objects in our collection are inventoried, sorted, and safely stored."
-            />
-        </p>
-    </Box>
+
+
+    <!-- ROZHOVORY -->
+    <div>
+        <img src="/photos/homepage/rozhovory.jpg">
+        <Box>
+            <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
+            <p>
+                <Loc
+                    cs="Neustále se rozšiřující sbírka rozhovorů s představiteli české a slovenské videoherní kultury. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout."
+                    en="TODO"
+                />
+
+                <!-- <InterviewBox data={vodak_data} compact={true} /> -->
+            </p>
+            <p style=";">
+                <strong>Nejnovější rozhovor:</strong> <a href="/interviews/zdenek-vodak/" class="plain">Zdeněk Vodák</a>, autor <i>Videostopu</i>
+            </p>
+            <Arrow href="/interviews" text="Přečíst rozhovory" />
+        </Box>
+    </div>
+
+    <!-- DATABAZE MAGAZINU -->
+    <div>
+        <img src="/photos/homepage/magaziny.jpg">
+        <Box>
+            <h3><Loc cs="Databáze magazínů" en="Magasine database" /></h3>
+            <!-- Dlouhodobě: -->
+            <p>
+                <Loc
+                    cs="Tvoříme knihovnu českých a slovenských videoherních časopisů které postupně digitalizujeme. Také vedeme veřejnou databázi těchto časopisů, ve které si můžete prohlédnout obsahy všech doplněných čísel."
+                    en="TODO"
+                />
+            </p>
+            <p>
+                <strong>Počet časopisů</strong>: 11<br>
+                <strong>Naposledy zkompletováno</strong>: <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/2" class="plain">GameStar</a>
+            </p>
+            <!-- TODO carousel? -->
+            <!-- <div class="thumbnails">
+                <a href="#">
+                    <img src="https://casopisy.herniarchiv.cz/files/12504/level_old.svg">
+                </a>
+                <a href="https://inventory.herniarchiv.cz/asset/7859">
+                    <img src="https://casopisy.herniarchiv.cz/files/10195/GSLOGO_1.jpg">
+                </a>
+                <a href="https://inventory.herniarchiv.cz/asset/7859">
+                    <img src="https://casopisy.herniarchiv.cz/files/14086/OPSM2.svg">
+                </a>
+            </div> -->
+            <Arrow href="https://casopisy.herniarchiv.cz/" text="Sledovat vývoj časopisů" />
+        </Box>
+    </div>
+
+    <!-- VIZUALNI MATERIALY -->
+    <div>
+        <img src="/photos/homepage/vizualni_materialy.jpg">
+        <Box>
+            <h3><Loc cs="Vizuální materiály" en="Visual materials" /></h3>
+            <!-- Dlouhodobě: -->
+            <p>
+                <Loc
+                    cs="Naše sbírka vizuálních materiálů zahrnuje historické fotografie, obaly k videohrám, plakáty, letáky a další podobné propagační materiály, fotografie našich sbírkových předmětů nebo videoherní snímky obrazovky."
+                    en="TODO"
+                />
+            </p>
+            <!-- <div class="thumbnails">
+                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
+                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07179.jpg"></a>
+                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
+            </div> -->
+            <Arrow href="/gallery/emil-fafek" text="Prohlédnout Fond Emila Fafka" />
+        </Box>
+    </div>
+
+
 </div>
 
-    <h3>Blog</h3>
+<h2>Projekty</h2>
+<div class="project-boxes">
+    <ThinBox href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
+        Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu.
+    </ThinBox>
 
-    <BlogBoxes all={false} />
+    <!-- <ThinBox href="#" title="Atari Klub Cítov" show_arrow={false}>
+        Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
+    </ThinBox> -->
+
+    <ThinBox href="#" title="Fond Emila Fafka" img="/photos/projects/fafek.jpg" show_arrow={false}>
+        Emil Fafek byl českým reportážním fotografem, který pracoval mezi lety 1945 a 1990 pro Mladou frontu. Fond obsahuje jeho fotografie z 80. let zaměřené na tehdejší československou počítačovou kulturu.
+    </ThinBox>
+
+    <ThinBox href="#" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
+        Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy.
+    </ThinBox>
+</div>
+
+<h2>Blog</h2>
+
+<BlogBoxes all={false} />
+<Arrow href="/blog" text="Všechny příspevky blogu" />
 
 <style>
     .boxes {
@@ -73,21 +146,63 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    .boxes > :global(div) {
-        width: calc(50% - 16px);
+
+    .boxes > div {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        margin-bottom: 4em;
     }
 
-    .filler {
+    .boxes > div:nth-child(even) img {
+        order: 1;
+    }
+
+    .boxes > div > img {
+        width: 600px;
+    }
+
+    .project-boxes {
         display: flex;
+        width: 100%;
+        gap: 64px;
     }
-    .filler img {
-        height: 180px;
-        margin: auto;
+
+    /* .boxes > :global(div) {
+        width: calc(50% - 16px);
+        margin-bottom: 4em;
+
+         border-top: 2px solid var(--color-secondary); 
+    } */
+
+    :global(.box) :global(h3) {
+        margin-bottom: 1.2em;
     }
+
+    :global(.box) :global(.arrow) {
+        margin-top: 1em;
+    }
+
+    .decoration {
+        height: 400px;
+    }
+
     .blogboxes {
         display: flex;
         flex-wrap: wrap;
         gap: 64px;
+    }
+
+    .thumbnails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 2em;
+    }
+
+    .thumbnails img {
+        width: 140px;
     }
 
     @media only screen and (max-width: 750px) {
@@ -95,14 +210,14 @@
             width: 100%;
         }
 
-        .filler img {
+        .decoration img {
             height: 160px;
             margin: auto;
         }
     }
 
     @media only screen and (max-width: 500px) {
-        .filler img {
+        .decoration img {
             height: 120px;
             margin: auto;
         }

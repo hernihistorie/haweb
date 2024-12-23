@@ -4,6 +4,7 @@
     import Loc from '$lib/Loc.svelte';
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
+	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
 
 	type MenuItem = {
 		url: string;
@@ -65,9 +66,14 @@
 				</ul>
 			</BurgerMenu>
 		</div>
-		<div class="language-select">
-			<LanguageSwitcher />
-		</div>
+		<ul class="language-select">
+			<li>
+				<SocialMediaLinks />
+			</li>
+			<li>
+				<LanguageSwitcher />
+			</li>
+		</ul>
 		<ul class="regular-links">
 			{#each menuItems as menuItem, i}
 				<!-- XXX this is a temporary hack -->
@@ -169,6 +175,9 @@
 
 	li:first-child {
 		border-left: none;
+	}
+	.language-select li:last-child {
+		padding-right: 0;
 	}
 
 	a, button {

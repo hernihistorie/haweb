@@ -12,6 +12,7 @@ export interface Person {
     color?: string;
     photo?: Photo;
     bio?: string;
+    bio_short?: string;
     birth_year?: string;
     birth_place?: string;
     gender?: Gender;
