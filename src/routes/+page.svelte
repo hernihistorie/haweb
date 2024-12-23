@@ -217,7 +217,9 @@
 
 <h2>Blog</h2>
 
-<BlogBoxes all={false} />
+<div class="blogboxes">
+    <BlogBoxes all={false} />
+</div>
 <div style="margin-top: 24px;">
     <Arrow href="/blog">
         <Loc
@@ -275,6 +277,10 @@
 
     :global(.box) :global(.arrow) {
         margin-top: 1em;
+    }
+
+    .blogboxes :global(.arrow) {
+        display: none;
     }
 
     @media only screen and (max-width: 800px) {
