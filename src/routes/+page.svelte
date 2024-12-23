@@ -32,7 +32,7 @@
                 />
             </p>
             <p>
-                <strong>Počet předmětů v databázi</strong>: 8123<br>
+                <strong>Počet předmětů v databázi</strong>: 8381<br>
                 <strong>Nejnovější předmět</strong>: <a href="https://inventory.herniarchiv.cz/asset/8492-color-tv-game-15" class="plain">Herní konzole Color TV-Game 15</a>
             </p>
             <Arrow href="https://inventory.herniarchiv.cz/" text="Náhlednout do sbírky" />
@@ -118,12 +118,20 @@
 
 <h2>Projekty</h2>
 <div class="project-boxes">
-    <ThinBox href="/projects/videostop/" title="Videostop" show_arrow={false}>
+    <ThinBox href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
         Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu.
     </ThinBox>
 
-    <ThinBox href="#" title="Atari Klub Cítov" show_arrow={false}>
+    <!-- <ThinBox href="#" title="Atari Klub Cítov" show_arrow={false}>
         Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
+    </ThinBox> -->
+
+    <ThinBox href="#" title="Fond Emila Fafka" img="/photos/projects/fafek.jpg" show_arrow={false}>
+        Emil Fafek byl českým reportážním fotografem, který pracoval mezi lety 1945 a 1990 pro Mladou frontu. Fond obsahuje jeho fotografie z 80. let zaměřené na tehdejší československou počítačovou kulturu.
+    </ThinBox>
+
+    <ThinBox href="#" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
+        Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy.
     </ThinBox>
 </div>
 

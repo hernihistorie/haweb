@@ -1,9 +1,14 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    let { href = undefined, title, children, show_arrow=true } = $props();
+    let { href = undefined, title, children, show_arrow=true, img=undefined } = $props();
 </script>
 
 <div class="blog-box">
+    {#if img}
+        <a href="{href}">
+            <img src={img} alt={title} />
+        </a>
+    {/if}
     <h3>
         <a href="{href}">
             {title}
@@ -20,6 +25,10 @@
 <style>
     .blog-box {
         width: calc(30% - 32px);
+    }
+
+    h3 {
+        margin-top: 0;
     }
 
     a {
