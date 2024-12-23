@@ -33,4 +33,11 @@
 
 		text-transform: uppercase;
     }
+
+    @media screen and (max-width: 800px) {
+        footer {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
 </style>
