@@ -1,13 +1,22 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
+	import Loc from "$src/lib/Loc.svelte";
 </script>
 
 <Meta title="O nás" />
 
 <article class="thin">
-    <h2>O nás</h2>
+    <h2>
+        <Loc
+            cs="O nás"
+            en="About Us"
+        />
+    </h2>
     <p>
-        Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury.
+        <Loc
+            cs="Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury."
+            en="We are a project of the Herní historie association, aimed at preserving gaming culture within the Czech and Slovak Republic. Our main activity is cataloging and archiving all artifacts connected to gaming history, such as magazines, period hardware, or game-related media. We collaborate with numerous international organizations and strive to establish an official institution that would oversee the local footprint in this cultural sector."
+        />
     </p>
 </article>
 

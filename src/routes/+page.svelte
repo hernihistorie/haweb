@@ -238,7 +238,10 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr auto;
+        gap: 62px;
         margin-bottom: 4em;
+
+        align-items: center;
     }
 
     .boxes > div:nth-child(even) img {
@@ -274,43 +277,32 @@
         margin-top: 1em;
     }
 
-    .decoration {
-        height: 400px;
-    }
-
-    .blogboxes {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 64px;
-    }
-
-    .thumbnails {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-        margin-bottom: 2em;
-    }
-
-    .thumbnails img {
-        width: 140px;
-    }
-
-    @media only screen and (max-width: 750px) {
-        .boxes > :global(div) {
-            width: 100%;
+    @media only screen and (max-width: 800px) {
+        .boxes > div {
+            grid-template-columns: 1fr;
+            gap: 32px;
         }
 
-        .decoration img {
-            height: 160px;
+        .boxes > div img {
+            width: 600px;
+            max-width: 100%;
             margin: auto;
+            order: 0 !important;
+        }
+
+        .project-boxes {
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .project-boxes :global(img) {
+            display: block;
+            margin: auto;
+            margin-bottom: 12px;
+            width: 600px;
         }
     }
 
     @media only screen and (max-width: 500px) {
-        .decoration img {
-            height: 120px;
-            margin: auto;
-        }
     }
 </style>
