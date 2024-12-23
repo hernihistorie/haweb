@@ -1,8 +1,13 @@
 <script lang="ts">
     let {
         href,
-        text = undefined
-    } = $props();
+        text = undefined,
+        children
+    }:{
+        href: string,
+        text?: string,
+        children?: import('svelte').Snippet
+    }= $props();
 </script>
 
 <a class="arrow" href="{href}">
@@ -10,6 +15,7 @@
     {#if text}
         {text}
     {/if}
+    {@render children?.()}
 </a>
 
 <style>

@@ -29,7 +29,12 @@
             />
         </p>
         <p>
-            <Arrow href="/about" text="Více o nás" />
+            <Arrow href="/about">
+                <Loc
+                    cs="Více o nás"
+                    en="More about us"
+                />
+            </Arrow>
         </p>
     </div>
     <div class="right">
