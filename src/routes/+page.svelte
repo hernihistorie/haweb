@@ -245,6 +245,10 @@
         order: 1;
     }
 
+    .boxes  img {
+        margin-left: 42px;
+    }
+
     .boxes > div > img {
         width: 600px;
     }
