@@ -126,11 +126,11 @@
         Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
     </ThinBox> -->
 
-    <ThinBox href="#" title="Fond Emila Fafka" img="/photos/projects/fafek.jpg" show_arrow={false}>
+    <ThinBox href="/gallery/emil-fafek/" title="Fond Emila Fafka" img="/photos/projects/fafek.jpg" show_arrow={false}>
         Emil Fafek byl českým reportážním fotografem, který pracoval mezi lety 1945 a 1990 pro Mladou frontu. Fond obsahuje jeho fotografie z 80. let zaměřené na tehdejší československou počítačovou kulturu.
     </ThinBox>
 
-    <ThinBox href="#" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
+    <ThinBox href="https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
         Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy.
     </ThinBox>
 </div>
