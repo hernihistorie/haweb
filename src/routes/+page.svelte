@@ -255,7 +255,7 @@
     }
 
     .boxes > div > img {
-        width: 623px;
+        width: 631px;
     }
 
     .project-boxes {

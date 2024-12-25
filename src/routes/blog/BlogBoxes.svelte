@@ -216,14 +216,13 @@
 <style>
     .blogboxes {
         display: flex;
-        width: 100%;
+        flex-wrap: wrap;
         gap: 64px;
     }
 
-    @media only screen and (max-width: 1225px) {
+    @media only screen and (max-width: 1450px) {
         .blogboxes {
-            flex-wrap: wrap;
-            gap: 63px;
+            gap: 59px;
         }
     }
 </style>
