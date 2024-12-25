@@ -24,9 +24,9 @@
 				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
 			]
 		}, {
-			url: "/interviews", cs: "Rozhovory", en: "Interviews"
-		}, {
 			url: "https://inventory.herniarchiv.cz/", cs: "Sbírka", en: "Collection"
+		}, {
+			url: "/interviews", cs: "Rozhovory", en: "Interviews"
 		}, {
 			url: "https://casopisy.herniarchiv.cz/", cs: "Časopisy", en: "Magazines"
 		}, {
@@ -136,14 +136,14 @@
 
 	.language-select {
 		text-align: right;
-		margin-right: 28px;
+		margin-right: 1px;
 		position: relative;
 		top: -32px;
 	}
 
 	ul {
 		margin: auto;
-
+		margin-right: -27px;
 		list-style: none;
 		display: flex;
 		justify-content: end;

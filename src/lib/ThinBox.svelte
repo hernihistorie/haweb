@@ -26,7 +26,7 @@
 
 <style>
     .blog-box {
-        width: calc(30% - 32px);
+        width: calc(32% - 27px);
     }
 
     .blog-box :global(h3) {

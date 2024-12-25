@@ -237,10 +237,10 @@
     }
 
     .boxes > div {
-        width: 100%;
+        width: calc(96.3% - 84px);
         display: grid;
-        grid-template-columns: 1fr 1fr auto;
-        gap: 62px;
+        grid-template-columns: 52.6% 52.6%;
+        column-gap: 62px;
         margin-bottom: 4em;
 
         align-items: center;
@@ -255,7 +255,7 @@
     }
 
     .boxes > div > img {
-        width: 600px;
+        width: 623px;
     }
 
     .project-boxes {
@@ -283,14 +283,21 @@
         display: none;
     }
 
+    @media only screen and (max-width: 1460px) {
+        .boxes > div img {
+            width: 94%;
+        }
+    }
+    
     @media only screen and (max-width: 800px) {
         .boxes > div {
+            width: 100%;
             grid-template-columns: 1fr;
             gap: 32px;
         }
 
         .boxes > div img {
-            width: 600px;
+            width: 100%;
             max-width: 100%;
             margin: auto;
             order: 0 !important;
