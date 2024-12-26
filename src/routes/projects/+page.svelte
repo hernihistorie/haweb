@@ -3,9 +3,9 @@
 	import Box from '$lib/Box.svelte';
 </script>
 
-<Meta title="Projekty" />
+<Meta title="Projekty"/>
 
-<h3>Projekty</h3>
+<h2>Projekty</h2>
 <div class="projects">
     <div class="timeline-line"></div>
     <Box right>
