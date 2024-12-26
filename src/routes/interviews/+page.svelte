@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { InterviewData } from "$src/types";
     import Box from "$lib/Box.svelte";
-    // import { data as bregant_data } from './michal-bregant/interview';
+    import { data as kadlcik_data } from './martin-kadlcik/interview';
     import { data as kopecky_data } from './lubor-kopecky/interview';
     import { data as hrda_data } from './stanislav-hrda/interview';
     import { data as havelka_data } from './josef-havelka/interview';
@@ -14,7 +14,7 @@
 	import Loc from "$src/lib/Loc.svelte";
 
 
-    let interviews: InterviewData[] = [vodak_data, kopecky_data, hrda_data, robinett_data, havelka_data, bezdek_data, hurnikova_data];
+    let interviews: InterviewData[] = [kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data];
 </script>
 
 <Meta title="Rozhovory" />

@@ -83,10 +83,10 @@
                         en="Latest interview"
                     />:
                 </strong>
-                <a href="/interviews/zdenek-vodak/" class="plain">Zdeněk Vodák</a>, 
+                <a href="/interviews/martin-kadlcik/" class="plain">Martin Kadlčík</a>, 
                     <Loc
-                        cs="autor <i>Videostopu</i>"
-                        en="author of <i>Videostop</i>"
+                        cs="autor <i>das ADLERNEST</i>"
+                        en="author of <i>das ADLERNEST</i>"
                     />
             </p>
             <Arrow href="/interviews">
