@@ -32,7 +32,7 @@ export const data: InterviewData = {
         interviewers: [RS, VS],
         length: "1:48:52",
         project: {
-            "name": "Hra z televizního pořadu Videostop",
+            "name": "Videostop",
             "url": "/projects/videostop/"
         },
         informed_agreement: true,
