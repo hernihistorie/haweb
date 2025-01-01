@@ -65,17 +65,17 @@
         </li><li>Nyní by se vám měla zobrazit samotná hra. Ovládáte ji pomocí joysticku zapojeného do Kempston interface. Vzhledem k tomu, že hra se ovládal jen pomocí jednoho velkého tlačítka, tak by měla jakýkoliv input vždy interpretovat, jako zmáčknutí tohoto tlačítka.
     </ol>
 
-    <h3 id="Predmety">Předměty</h3>
-    {#each assets as data}
-        <AssetBox {data} />
-    {/each}
-
+    <!-- <h3>Články</h3>
+    <p><em>Sem přijdou případné články.</em> -->
+    
     <h3>Rozhovory</h3>
     {#each interviews as data}
         <InterviewBox {data} />
     {/each}
-
-    <!-- <h3>Články</h3>
-    <p><em>Sem přijdou případné články.</em> -->
+    
+    <h3 id="Predmety">Předměty</h3>
+    {#each assets as data}
+        <AssetBox {data} />
+    {/each}
 
 </article>
