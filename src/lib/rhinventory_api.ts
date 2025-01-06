@@ -3,7 +3,7 @@ import type { AssetData } from "$src/types";
 type RHInventoryAPIAsset = {
     id: number;
     name: string;
-    note: string;
+    description: string;
     primary_image_path: string;
     primary_document_path: string;
     primary_dump_path: string;
@@ -25,7 +25,7 @@ export async function loadRHInventoryAssetData(params: {tagId: number, page: num
         return {
             name: APIAsset.name,
             picture: {url: APIAsset.primary_image_path},
-            description: APIAsset.note,
+            description: APIAsset.description,
             inventory_url: `https://inventory.herniarchiv.cz/asset/${APIAsset.id}` /* TODO use slug */
         }
     });
