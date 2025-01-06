@@ -19,7 +19,7 @@ export async function loadRHInventoryAssetData(params: {tagId: number, page: num
     const response = await fetch(url);
     const APIAssets = (await response.json()) as RHInventoryAssetsResponse;
 
-    console.log(APIAssets);
+    console.log(`Loaded ${APIAssets.assets.length} assets from RHInventory API`);
 
     return APIAssets.assets.map(APIAsset => {
         return {

@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { AssetData } from "$src/types";
 	import Box from "./Box.svelte";
+    import SvelteMarkdown from '@humanspeak/svelte-markdown'
 
     interface Props {
         data: AssetData;
@@ -14,7 +15,9 @@
             <div class="asset-name">
                 <a href="{ data.inventory_url }"> { data.name }</a>
             </div>
-            <p>{@html data.description}</p>
+            <p>
+                <SvelteMarkdown source={data.description} />
+            </p>
         </div>
         {#if data.picture.url}
             <div class="asset-photo">

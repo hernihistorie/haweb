@@ -37,6 +37,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@humanspeak/svelte-markdown": "^0.7.7",
     "@svelte-plugins/tooltips": "^3.0.1",
     "qrcode": "^1.5.4",
     "slugify": "^1.6.6",
