@@ -1,6 +1,4 @@
 <script lang="ts">
-	export const prerender = true;
-
 	import { lang } from '../stores.js';
 	import Meta from '$lib/Meta.svelte';
 	import Header from '$lib/Header.svelte';

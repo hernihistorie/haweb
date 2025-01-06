@@ -16,9 +16,11 @@
             </div>
             <p>{@html data.description}</p>
         </div>
-        <div class="asset-photo">
-            <img src="{ data.picture.url }" class="asset-img" alt="">
-        </div>
+        {#if data.picture.url}
+            <div class="asset-photo">
+                <img src="{ data.picture.url }" class="asset-img" alt="">
+            </div>
+        {/if}
     </div>
 </Box>
 

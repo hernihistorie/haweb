@@ -1,16 +1,20 @@
 <script lang="ts">
+	import type { PageData } from './$types';
+
 	import Meta from "$lib/Meta.svelte";
     import type { AssetData, InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
-    import { data as asset07859_data } from '$src/routes/assets/asset_07859';
-    import { data as asset07860_data } from '$src/routes/assets/asset_07860';
-    import { data as asset08107_data } from '$src/routes/assets/asset_08107';
-    import { data as asset08077_data } from '$src/routes/assets/asset_08077';
 	import AssetBox from "$src/lib/AssetBox.svelte";
+	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
+
+	let { pageData }: { pageData: PageData } = $props();
 
     let interviews: InterviewData[] = [havelka_data];
-    let assets: AssetData[] = [asset07859_data, asset07860_data, asset08077_data, asset08107_data];
+
+    let assetPage = $state(0);
+    const assetTagId = 16;
+    let assetsPromise: Promise<AssetData[]> = $derived(loadRHInventoryAssetData({tagId: assetTagId, page: assetPage}))
 </script>
 
 <Meta title="Atari klub Cítov" />
@@ -41,13 +45,20 @@
 
     <h3>Rozhovory</h3>
     {#each interviews as data}
-        <InterviewBox {data} />
+        <InterviewBox {data}/>
     {/each}
 
     <h3 id="Predmety">Předměty</h3>
-    <!-- {#each assets as data}
-        <AssetBox {data} />
-    {/each} -->
+
+    {#await assetsPromise }
+        <p><em>Načítá se...</em></p>
+    {:then assets}
+        {#each assets as asset }
+            <AssetBox data={asset} />
+        {/each}
+    {:catch error}
+        <p><em>Chyba při načítání předmětů: {error.message}</em></p>
+    {/await}
 
     <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->

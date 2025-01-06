@@ -4,7 +4,7 @@
 
     interface Props {
         data: InterviewData;
-        compact: boolean;
+        compact?: boolean;
     }
 
     let { data, compact=false }: Props = $props();
