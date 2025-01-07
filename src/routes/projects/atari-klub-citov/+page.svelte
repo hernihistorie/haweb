@@ -1,14 +1,10 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
 	import Meta from "$lib/Meta.svelte";
     import type { AssetData, InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
-
-	let { pageData }: { pageData: PageData } = $props();
 
     let interviews: InterviewData[] = [havelka_data];
 
