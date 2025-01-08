@@ -1,20 +1,40 @@
 <script lang="ts">
-    import { type AssetData } from "$src/types";
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
+	import AssetListPagination from "./AssetListPagination.svelte";
 
     let props: { assetTagId: number } = $props();
 
-    let assetPage = $state(0);
-    let assetsPromise: Promise<AssetData[]> = $derived(loadRHInventoryAssetData({tagId: props.assetTagId, page: assetPage}))
+    let assetPage = $state(1);
+    let assetsDataPromise = $derived(loadRHInventoryAssetData({tagId: props.assetTagId, page: assetPage}))
+    // We track assetCount separately because we want the pagination to stay
+    // while the assets are loading
+    let assetCount: number | null = $state(null);
+    $effect(() => {
+        assetsDataPromise.then((assetData) => {
+            assetCount = assetData.assetCount;
+        })
+    })
 </script>
 
-{#await assetsPromise }
-    <p><em>Načítá se...</em></p>
-{:then assets}
-{#each assets as asset }
-    <AssetBox data={asset} />
-{/each}
-{:catch error}
-    <p><em>Chyba při načítání předmětů: {error.message}</em></p>
-{/await}
+<div id="assetList" class="assets">
+    <AssetListPagination bind:assetPage bind:assetCount />
+    {#await assetsDataPromise }
+        <!-- TODO placeholder AssetBoxes -->
+        <p><em>Načítá se...</em></p>
+    {:then assetsData}
+        {#each assetsData.assets as asset }
+            <AssetBox data={asset} />
+        {/each}
+    {:catch error}
+        <p><em>Chyba při načítání předmětů: {error.message}</em></p>
+    {/await}
+    <AssetListPagination bind:assetPage bind:assetCount />
+</div>
+
+
+<style>
+    .assets {
+        min-height: 100vh;
+    }
+</style>
