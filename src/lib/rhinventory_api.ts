@@ -34,6 +34,7 @@ export async function loadRHInventoryAssetData(
 
     const assets = apiAssets.assets.map(APIAsset => {
         return {
+            id: APIAsset.id,
             name: APIAsset.name,
             picture: {url: APIAsset.primary_image_path},
             description: APIAsset.description,

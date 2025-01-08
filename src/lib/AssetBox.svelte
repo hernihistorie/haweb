@@ -2,6 +2,7 @@
     import type { AssetData } from "$src/types";
 	import Box from "./Box.svelte";
     import SvelteMarkdown from '@humanspeak/svelte-markdown'
+	import Capsule from "./Capsule.svelte";
 
     interface Props {
         data: AssetData;
@@ -9,20 +10,30 @@
 
     let { data }: Props = $props();
 </script>
+
 <Box>
     <div class="asset">
         <div>
             <div class="asset-name">
-                <a href="{ data.inventory_url }"> { data.name }</a>
+                <a href="{ data.inventory_url }">
+                    {#if data.id}
+                        <Capsule>
+                            HH{data.id}
+                        </Capsule>
+                    {/if}
+                </a>
+                <a href="{ data.inventory_url }">
+                    { data.name }
+                </a>
             </div>
             <p>
                 <SvelteMarkdown source={data.description} />
             </p>
         </div>
         {#if data.picture.url}
-            <div class="asset-photo">
+            <a href="{ data.inventory_url }" class="asset-photo">
                 <img src="{ data.picture.url }" class="asset-img" alt="">
-            </div>
+            </a>
         {/if}
     </div>
 </Box>
@@ -39,7 +50,7 @@
     }
 
     .asset-photo {
-        width: 350px;
+        display: block;
         margin-right: 4px;
         margin-left: 16px;
         flex-shrink: 0;
@@ -52,7 +63,8 @@
         width: 334px;
         height: 200px;
         object-fit: cover;
-    }    
+    }
+
 
     @media only screen and (max-width: 600px) {
         .asset {

@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { InterviewData } from "$src/types";
 	import Box from "./Box.svelte";
+	import Capsule from "./Capsule.svelte";
 
     interface Props {
         data: InterviewData;
@@ -16,7 +17,10 @@
             <h3>
                 <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
                 {#if !data.complete}
-                    <br><span class="in-progress">připravujeme</span>
+                    <br>
+                    <Capsule>
+                        připravujeme
+                    </Capsule>
                 {/if}
             </h3>
             {#if compact}
@@ -80,21 +84,6 @@
     }
     .incomplete a {
         color: black;
-    }
-
-    .in-progress {
-        background-color: var(--color-secondary);
-        color: white;
-        padding: 2px 4px;
-        border-radius: 4px;
-        font-size: 0.9em;
-        margin-left: 8px;
-        font-size: 18px;
-
-        display: inline-block;
-        vertical-align: middle;
-        margin-bottom: 3px;
-
     }
 
     .compact h3 {

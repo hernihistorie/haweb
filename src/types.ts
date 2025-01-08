@@ -47,6 +47,7 @@ export interface InterviewData {
 }
 
 export interface AssetData {
+    id?: string;
     name: string;
     picture: Photo;
     description: string;
