@@ -1,16 +1,11 @@
 <script lang="ts">
 	import Meta from "$lib/Meta.svelte";
-    import type { AssetData, InterviewData } from "$src/types";
+    import type { InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
-	import AssetBox from "$src/lib/AssetBox.svelte";
-	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
+	import AssetList from "$src/lib/AssetList.svelte";
 
     let interviews: InterviewData[] = [havelka_data];
-
-    let assetPage = $state(0);
-    const assetTagId = 16;
-    let assetsPromise: Promise<AssetData[]> = $derived(loadRHInventoryAssetData({tagId: assetTagId, page: assetPage}))
 </script>
 
 <Meta title="Atari klub Cítov" />
@@ -45,16 +40,7 @@
     {/each}
 
     <h3 id="Predmety">Předměty</h3>
-
-    {#await assetsPromise }
-        <p><em>Načítá se...</em></p>
-    {:then assets}
-        {#each assets as asset }
-            <AssetBox data={asset} />
-        {/each}
-    {:catch error}
-        <p><em>Chyba při načítání předmětů: {error.message}</em></p>
-    {/await}
+    <AssetList assetTagId={16} />
 
     <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->
