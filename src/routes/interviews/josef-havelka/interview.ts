@@ -10,7 +10,7 @@ const JH: Person = {
     color: "darkblue",
     birth_year: "1962",
     gender: "M",
-    bio: "<p>Josef Havelka studoval a následně i pracoval v rámci zemědělství. K prvnímu počítači se dostal, když mu první manželka přivezla z Francie počítač značky Sinclair. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku (ke kterému pak zcela utekl od meliorací půdy). Klub byl umístěn v budově, které pan Havelka říkal ,,první škola“ a fungoval od roku 1986 až do revoluce roku 1989. Kromě obecného fungování v prostorech školy, klub dělal i různé akce jako byl „Atari bál“ nebo akce, kde s počítači seznamoval pedagogy.<p>Chtěli bychom také poděkovat <a href='https://www.heroclan.cz'>HERO CLANU</a> za spojení s dobrovolnou přepisovatelkou pro tento rozhovor.",
+    bio: "Josef Havelka studoval a následně i pracoval v rámci zemědělství. K prvnímu počítači se dostal, když mu první manželka přivezla z Francie ZX Spectrum. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku. Klub byl umístěn v budově, které pan Havelka říkal „první škola“ a fungoval od roku 1986 až do revoluce roku 1989.<br>Chtěli bychom poděkovat <a href='https://www.heroclan.cz'>HERO CLANU</a> za spojení s dobrovolnou přepisovatelkou pro tento rozhovor.",
     photo: {
         url: "/interviews/josef-havelka.jpg",
     }
@@ -37,6 +37,6 @@ export const data: InterviewData = {
         publication_date: new Date("2025-01-03"),
         // verifier: null
     },
-    complete: false,
+    complete: true,
     tags: []
 }

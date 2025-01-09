@@ -14,7 +14,7 @@
 	import Loc from "$src/lib/Loc.svelte";
 
 
-    let interviews: InterviewData[] = [kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data, havelka_data];
+    let interviews: InterviewData[] = [havelka_data, kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data];
 </script>
 
 <Meta title="Rozhovory" />
