@@ -9,11 +9,25 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/35-citov-josef-havelka"
+    title="PROJEKT CÍTOV - Rozhovor s Josefem Havelkou, zakladatelem klubu"
+    >
+    První etapu zpracování věcí z Cítovského klubu bychom rádi zakončili rozhoovorem s jeho zakladatelem Josefem Havelkou. Ten povídá o tom, jak klub vznikl, fungoval a jaké jiné aktivity u něj probíhaly.
+    </BlogBox>
+    
+    <BlogBox href="/blog/34-martin-kadlcik"
+    title="Rozhovor s Martinem Kadlčíkem, autorem hry das ADLERNEST"
+    >
+    Po záchraně hry das ADLERNEST na ZX Spectrum jsme položili jeho autorovi - Martinu Kadlčíkovi - i několik otázek ohledně toho, jak hru tvořil, jak se k hrám a počítačům vůbec dostal a co dělá v současnosti.
+    </BlogBox>
+
     <BlogBox href="/blog/33-citov-kazety-spectrum"
     title="PROJEKT CÍTOV - Další kazety s výukovými programy na ZX Spectrum"
     >
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který v současnosti digitalizujeme. Třetí várka tohoto softwaru jsme nedostali pro změnu od pana Havelky - zakladatele klubu - ale od jednoho člověka, jenž nás kontaktoval na sociálních sítítch.
     </BlogBox>
+
+    {#if all}
 
     <BlogBox href="/blog/32-citov-zpravodaj"
     title="PROJEKT CÍTOV - Skeny cítovského zpravodaje"
@@ -26,8 +40,6 @@
     >
     Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/30-bytefest-2024"
     title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
