@@ -83,10 +83,10 @@
                         en="Latest interview"
                     />:
                 </strong>
-                <a href="/interviews/martin-kadlcik/" class="plain">Martin Kadlčík</a>, 
+                <a href="/interviews/josef-havelka/" class="plain">Josef Havelka</a>, 
                     <Loc
-                        cs="autor <i>das ADLERNEST</i>"
-                        en="author of <i>das ADLERNEST</i>"
+                        cs="zakladatel <i>Atari klubu Cítov</i>"
+                        en="founder of <i>Atari club Cítov</i>"
                     />
             </p>
             <Arrow href="/interviews">
