@@ -1,6 +1,6 @@
 import type { AssetData } from "$src/types";
 
-export const PAGE_SIZE = 15
+export const PAGE_SIZE = 20
 
 type RHInventoryAPIAsset = {
     id: number;

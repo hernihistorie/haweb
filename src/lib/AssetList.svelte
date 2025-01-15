@@ -18,7 +18,7 @@
 </script>
 
 <div id="assetList" class="assets">
-    <div style="display: flex; justify-content: space-between;">
+    <div class="heading-pagination" style="display: flex; justify-content: space-between;">
         {#if props.withHeading}
             <h3 id="Predmety">Předměty</h3>
         {/if}
@@ -41,5 +41,11 @@
 <style>
     .assets {
         min-height: 100vh;
+    }
+
+    @media (max-width: 800px) {
+        .heading-pagination {
+            flex-direction: column;
+        }
     }
 </style>
