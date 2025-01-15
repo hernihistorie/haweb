@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
+	import AssetBoxDummy from "./AssetBoxDummy.svelte";
 	import AssetListPagination from "./AssetListPagination.svelte";
 
     let props: { assetTagId: number } = $props();
@@ -18,9 +19,14 @@
 </script>
 
 <div id="assetList" class="assets">
+    <AssetBoxDummy />
     <AssetListPagination bind:assetPage bind:assetCount />
     {#await assetsDataPromise }
         <!-- TODO placeholder AssetBoxes -->
+        <AssetBoxDummy />
+        <AssetBoxDummy />
+        <AssetBoxDummy />
+        <AssetBoxDummy />
         <p><em>Načítá se...</em></p>
     {:then assetsData}
         {#each assetsData.assets as asset }

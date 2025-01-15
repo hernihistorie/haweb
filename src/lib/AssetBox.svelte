@@ -6,9 +6,10 @@
 
     interface Props {
         data: AssetData;
+        dummy?: boolean;
     }
 
-    let { data }: Props = $props();
+    let { data, dummy=false }: Props = $props();
 </script>
 
 <Box>
@@ -30,10 +31,15 @@
                 <SvelteMarkdown source={data.description} />
             </p>
         </div>
-        {#if data.picture.url}
-            <a href="{ data.inventory_url }" class="asset-photo">
-                <img src="{ data.picture.url }" class="asset-img" alt="">
-            </a>
+        {#if dummy}
+            <div style="background: var(--color-secondary);" class="asset-img">
+            </div>
+        {:else}
+            {#if data.picture?.url}
+                <a href="{ data.inventory_url }" class="asset-photo">
+                    <img src="{ data.picture.url }" class="asset-img" alt="">
+                </a>
+            {/if}
         {/if}
     </div>
 </Box>
@@ -62,6 +68,7 @@
         border-radius: 8px;
         width: 334px;
         height: 200px;
+        
         object-fit: cover;
     }
 
