@@ -39,8 +39,7 @@
         <InterviewBox {data}/>
     {/each}
 
-    <h3 id="Predmety">Předměty</h3>
-    <AssetList assetTagId={16} />
+    <AssetList withHeading=true assetTagId={16} />
 
     <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->

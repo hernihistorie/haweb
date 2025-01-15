@@ -28,5 +28,10 @@
     .pagination {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+    }
+
+    button {
+        height: auto;
     }
 </style>

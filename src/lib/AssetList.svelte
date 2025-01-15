@@ -3,7 +3,7 @@
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
 	import AssetListPagination from "./AssetListPagination.svelte";
 
-    let props: { assetTagId: number } = $props();
+    let props: { withHeading?: boolean, assetTagId: number } = $props();
 
     let assetPage = $state(1);
     let assetsDataPromise = $derived(loadRHInventoryAssetData({tagId: props.assetTagId, page: assetPage}))
@@ -18,7 +18,12 @@
 </script>
 
 <div id="assetList" class="assets">
-    <AssetListPagination bind:assetPage bind:assetCount />
+    <div style="display: flex; justify-content: space-between;">
+        {#if props.withHeading}
+            <h3 id="Predmety">Předměty</h3>
+        {/if}
+        <AssetListPagination bind:assetPage bind:assetCount />
+    </div>
     {#await assetsDataPromise }
         <!-- TODO placeholder AssetBoxes -->
         <p><em>Načítá se...</em></p>
