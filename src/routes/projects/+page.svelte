@@ -8,6 +8,12 @@
 <h2>Projekty</h2>
 <div class="projects">
     <div class="timeline-line"></div>
+    <Box left>
+        <h3><span class="year">2024</span> <a href="/projects/atari-klub-citov">Atari klub Cítov</a></h3>
+        <p>
+            Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
+        </p>
+    </Box>
     <Box right>
         <h3><span class="year">2024</span> <a href="/projects/videostop">Videostop</a></h3>
         <p>
