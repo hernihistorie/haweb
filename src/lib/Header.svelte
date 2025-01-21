@@ -22,6 +22,7 @@
 				{ url: "/projects", cs: "Časová osa", en: "Timeline" },
 				{ url: "/gallery/emil-fafek", cs: "Fotografie Emila Fafka", en: "Emil Fafek photography" },
 				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
+				{ url: "/projects/atari-klub-citov", cs: "Atari klub Cítov", en: "Atari club Citov" },
 			]
 		}, {
 			url: "https://inventory.herniarchiv.cz/", cs: "Sbírka", en: "Collection"
