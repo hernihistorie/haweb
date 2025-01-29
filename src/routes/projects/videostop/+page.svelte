@@ -5,14 +5,9 @@
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
     import { data as bezdek_data } from '$src/routes/interviews/vladimir-bezdek/interview';
-    import { data as asset07859_data } from '$src/routes/assets/asset_07859';
-    import { data as asset07860_data } from '$src/routes/assets/asset_07860';
-    import { data as asset08107_data } from '$src/routes/assets/asset_08107';
-    import { data as asset08077_data } from '$src/routes/assets/asset_08077';
-	import AssetBox from "$src/lib/AssetBox.svelte";
+	import AssetList from "$src/lib/AssetList.svelte";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
-    let assets: AssetData[] = [asset07859_data, asset07860_data, asset08077_data, asset08107_data];
 </script>
 
 <Meta title="Videostop" />
@@ -74,8 +69,6 @@
     {/each}
     
     <h3 id="Predmety">Předměty</h3>
-    {#each assets as data}
-        <AssetBox {data} />
-    {/each}
+    <AssetList assetTagId={8} />
 
 </article>
