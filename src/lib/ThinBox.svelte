@@ -50,4 +50,10 @@
 			width: 100%;
 		}
 	}
+
+    @media screen and (max-width: 800px) {
+		.project {
+			width: 100%;
+		}
+	}
 </style>

@@ -77,11 +77,13 @@
         }
     }
     @media only screen and (max-width: 800px) {
-        .main-page {
+        .main-page, .project-page {
+            flex-wrap: flex;
             flex-direction: column;
+            width: 100%;
             gap: 32px;
         }
-        .main-page :global(img) {
+        .main-page :global(img), .project-page :global(img) {
             display: block;
             margin: auto;
             margin-bottom: 12px;
