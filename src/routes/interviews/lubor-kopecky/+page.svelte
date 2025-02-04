@@ -170,13 +170,13 @@
                 <Q speaker={RS}>Byl to takový příjemný symbiotický vztah.</Q>
                 
 
-                <A speaker={LK}>Jo, asi tak. My jsme věděli, že to je součást toho. My sami jsme si samozřejmě nikdy jako originální hry nekupovali. Nedivili jsme se tomu, že si všichni lidi kupujou prostě <span class="c0 c2">Poldu </span><span class="c0">zpirátěnýho, protože my jsme to nedělali jinak. Tehdy jsme ale udělali jednu takovou malou sviňárničku, a to bylo to, že jsme </span><span class="c0 c2">Poldu</span><span class="c0"> na to CDčko umístili šestkrát, aby tam nebylo další místo, a aby prostě nemohli dělat ty piráti kompilace.</span><span class="c3"> </span><span class="c0">Takže prostě oni museli fakt jako vypálit jako CDčko jenom s </span><span class="c0 c2">Poldou</span><span class="c0">, přestože ten </span><span class="c0 c2">Polda </span><span class="c1 c0">sám vo sobě měl jako nějakejch jako sto mega. A my jsme ho tam prostě dali jako šestkrát. A jako…</span></A>
+                <A speaker={LK}>Jo, asi tak. My jsme věděli, že to je součást toho. My sami jsme si samozřejmě nikdy jako originální hry nekupovali. Nedivili jsme se tomu, že si všichni lidi kupujou prostě <i>Poldu</i> zpirátěnýho, protože my jsme to nedělali jinak. Tehdy jsme ale udělali jednu takovou malou sviňárničku, a to bylo to, že jsme <i>Poldu</i> na to CDčko umístili šestkrát, aby tam nebylo další místo, a aby prostě nemohli dělat ty piráti kompilace. Takže prostě oni museli fakt jako vypálit jako CDčko jenom s <i>Poldou</i>, přestože ten <i>Polda</i> sám o sobě měl jako nějakejch jako sto mega. A my jsme ho tam prostě dali jako šestkrát. A jako…</A>
                 
 
                 <Q speaker={RS}>Vydával se <i>Polda</i> vlastně i na disketách, nebo se vydával už jenom na CDčkách?</Q>
                 
 
-                <A speaker={LK}>Jenom na CDčkách, na disketách už by to nešlo kvůli tomu dabingu. Vlastně ten dabing dělal velkou část toho obsahu. Takže my jsme provedli takovouhle prasárničku a říkal jsem si „no tak, jestli teda to mají lidi pirátit, tak ať mají CDčko jenom s <span class="c0 c2">Poldou</span><span class="c1 c0">.” Protože tady bylo úplně normální, že se dělaly kompilace. Že bylo CDčko, na kterým byla hromada her a my jsme řikali: „ne-e.”</span></A>
+                <A speaker={LK}>Jenom na CDčkách, na disketách už by to nešlo kvůli tomu dabingu. Vlastně ten dabing dělal velkou část toho obsahu. Takže my jsme provedli takovouhle prasárničku a říkal jsem si „no tak, jestli teda to mají lidi pirátit, tak ať mají CDčko jenom s <i>Poldou</i>.” Protože tady bylo úplně normální, že se dělaly kompilace. Že bylo CDčko, na kterým byla hromada her a my jsme řikali: „ne-e.”</A>
                 
 
                 <Q speaker={RS}>Jenom <i>Polda</i>.</Q>
@@ -188,10 +188,10 @@
                 <Q speaker={RS}>A pak zjistil, že je špatná.</Q>
                 
 
-                <A speaker={LK}>Jo, jo. <i>Polda</i> tehdy stál šest stovek, což bylo tak akorát na českou hru. Ale jak jsem říkal, že JRC tady tehdy mělo monopol, tak to znamenalo, že JRC od Zimy ty hry odkupovalo za dvě stovky a prodávalo za šest. S tím se nedalo nic dělat. Takže to jsou asi takový poslední pikantnosti k <i>Poldovi</i><span class="c0">. Pak když jsme dodělali </span><span class="c0 c2">Poldu</span><span class="c0">, tak jsme si řekli „jo, super, hotovo, jdeme na další hru, která nás bude fakt bavit a kterou si užijeme.” A šli jsme do toho s tím, že jsme bydleli na kolejích, do školy jsme moc chodit nemuseli, protože jsme to v pohodě zvládali, měli jsme hromadu peněz, takže jsme nemuseli chodit nikam na brigády ani řešit nějaký kapesný. A řekli jsem si „no tak si splníme nějaký sen a uděláme si fakt jako hru, kterou opravdu jako chceme.” A tehdy právě přicházel internet a to najednou dalo úplně nový možnosti, najednou jsme si uvědomili, že my si vlastně můžeme hru distribuovat sami. To bylo do tý doby jako naprosto nemyslitelný. Úplně nový prostor pro příležitosti. A my jsme žili divoký studentský život, a nějak jsme vlastně vůbec neřešili nějaký komerční potenciál tý naší další hry. A tak jsme si řekli: „jo, uděláme prostě nějakou první malou českou hru, která se bude distribuovat po netu, budem jí třeba doplňovat dalšíma přídavkama a bude to totální zhoukanost.” Tak jsme nad tím prostě celý večery dumali jak udělat co nejšílenější hru. A tím se dostáváme k </span><span class="c0 c2">Bulánkům</span><span class="c0">. Samozřejmě, Martin Zima nám to nemohl zapomenout, že nechceme pokračovat v </span><span class="c0 c2">Poldovi</span><span class="c1 c0">, i když to byl taky hezky nastartovaný komerční projekt a do dneška je.</span></A>
+                <A speaker={LK}>Jo, jo. <i>Polda</i> tehdy stál šest stovek, což bylo tak akorát na českou hru. Ale jak jsem říkal, že JRC tady tehdy mělo monopol, tak to znamenalo, že JRC od Zimy ty hry odkupovalo za dvě stovky a prodávalo za šest. S tím se nedalo nic dělat. Takže to jsou asi takový poslední pikantnosti k <i>Poldovi</i>. Pak když jsme dodělali <i>Poldu</i>, tak jsme si řekli „jo, super, hotovo, jdeme na další hru, která nás bude fakt bavit a kterou si užijeme.” A šli jsme do toho s tím, že jsme bydleli na kolejích, do školy jsme moc chodit nemuseli, protože jsme to v pohodě zvládali, měli jsme hromadu peněz, takže jsme nemuseli chodit nikam na brigády ani řešit nějaký kapesný. A řekli jsem si „no tak si splníme nějaký sen a uděláme si fakt jako hru, kterou opravdu jako chceme.” A tehdy právě přicházel internet a to najednou dalo úplně nový možnosti, najednou jsme si uvědomili, že my si vlastně můžeme hru distribuovat sami. To bylo do tý doby jako naprosto nemyslitelný. Úplně nový prostor pro příležitosti. A my jsme žili divoký studentský život, a nějak jsme vlastně vůbec neřešili nějaký komerční potenciál tý naší další hry. A tak jsme si řekli: „jo, uděláme prostě nějakou první malou českou hru, která se bude distribuovat po netu, budem jí třeba doplňovat dalšíma přídavkama a bude to totální zhoukanost.” Tak jsme nad tím prostě celý večery dumali jak udělat co nejšílenější hru. A tím se dostáváme k <i>Bulánkům</i>. Samozřejmě, Martin Zima nám to nemohl zapomenout, že nechceme pokračovat v <i>Poldovi</i>, i když to byl taky hezky nastartovaný komerční projekt a do dneška je.</A>
                 
 
-                <Q speaker={RS}>Ty ses mi jednou mimo rozhovor zmiňoval, že ještě probíhá nějaká komunikace mezi vámi a Zimou ohledně <i>Poldy</i>. Jak to vlastně fungovalo v tý době a jak se to třeba vyvíjelo během času? Protože on potom Zima dělal už <i>Poldy</i>sám, ale podíleli jste se na tom nějak?</Q>
+                <Q speaker={RS}>Ty ses mi jednou mimo rozhovor zmiňoval, že ještě probíhá nějaká komunikace mezi vámi a Zimou ohledně <i>Poldy</i>. Jak to vlastně fungovalo v tý době a jak se to třeba vyvíjelo během času? Protože on potom Zima dělal už <i>Poldy</i> sám, ale podíleli jste se na tom nějak?</Q>
                 
 
                 <A speaker={LK}>Ne. My jsme se pak vlastně dohodli na tom, že pokud chce teda dělat další <i>Poldy</i>… On si myslel, že další <i>Poldy</i> může dělat dál bez nás, a my jsme mu prostřednictvím právníků vysvětlili, že ne. On to pochopil a my mu vlastně poskytli licenci na další pokračování. A furt jsme v kontaktu, a třeba teď jsme řešili – předloni jakoby – remake <i>Poldy</i> pro mobilní zařízení. No a normálně  vycházíme spolu naprosto korektně. Všichni víme, že nám jde o byznys a nikdo to nechce ničím pokazit.</A>
@@ -315,7 +315,7 @@
                 <Q speaker={RS}>Od verze 1.20 <i>Bulánků</i> nebylo na začátku hry logo Centra.cz, ale firmy San Studio. Co to bylo za firmu?</Q>
 
 
-                <A speaker={LK}>To byla moje firma s Kamilou a Jardou, v rámci které jsme dělali deisgn — hlavně weby, reklamy apod.</A>
+                <A speaker={LK}>To byla moje firma s Kamilou a Jardou, v rámci které jsme dělali design — hlavně weby, reklamy apod.</A>
 
 
                 <Q speaker={RS}>A dostávali se k vám — jako k San Studiu — lidi skrze <i>Bulánky</i>?</Q>
@@ -440,7 +440,7 @@
                 <Q speaker={VS}>A psal vám vlastně někdo ze zahraničí ohledně těch <i>Combat Pillows</i>?</Q>
 
 
-                <A speaker={LK}>Minimálně. Občas někdo napsal, ale jinak moc ne. Spíš psali kolem jiných her, co vcházeli na <i>IWannaPlay</i>. Konkrétně ohledně erotických her, které jsme dělali s Jardou Wagnerem. Nicméně tu distribuci erotických her nám hodně zkomplikoval PayPal. PayPal byla jediná cesta jak v té době na internetu něco kupovat a PayPalu to neustále reportovali nějaký lidi, že jde o nevhodný obsah.</A>
+                <A speaker={LK}>Minimálně. Občas někdo napsal, ale jinak moc ne. Spíš psali kolem jiných her, co vycházeli na <i>IWannaPlay</i>. Konkrétně ohledně erotických her, které jsme dělali s Jardou Wagnerem (pozn.: jedná se o hry <i>Under 18: Jenny</i> a <i>Strip Teenis</i> obě z roku 2007). Nicméně tu distribuci erotických her nám hodně zkomplikoval PayPal. PayPal byla jediná cesta jak v té době na internetu něco kupovat a PayPalu to neustále reportovali nějaký lidi, že jde o nevhodný obsah.</A>
                 <hr style="margin-top: 0; margin-bottom: 20px;">
             </Chapter>
             <Chapter title="Bulánci pro tlačítkové telefony">
