@@ -179,9 +179,7 @@
     cs="Projekty"
     en="Projects"
 /></h2>
-<div class="project-boxes">
-    <ProjectBoxes all={false}/>
-</div>
+<ProjectBoxes all={false}/>
 
 <h2>Blog</h2>
 
@@ -226,12 +224,6 @@
         width: 631px;
     }
 
-    .project-boxes {
-        display: flex;
-        width: 100%;
-        gap: 64px;
-    }
-
     /* .boxes > :global(div) {
         width: calc(50% - 16px);
         margin-bottom: 4em;
@@ -269,18 +261,6 @@
             max-width: 100%;
             margin: auto;
             order: 0 !important;
-        }
-
-        .project-boxes {
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .project-boxes :global(img) {
-            display: block;
-            margin: auto;
-            margin-bottom: 12px;
-            width: 600px;
         }
     }
 

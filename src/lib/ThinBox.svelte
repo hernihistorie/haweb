@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
-    let { href = undefined, title = undefined, children, show_arrow=true, img=undefined } = $props();
+    let { href = undefined, title = undefined, children, show_arrow=true, img=undefined, project=false } = $props();
 </script>
 
-<div class="blog-box">
+<div class={project ? "project": "blog-box"}>
     {#if img}
         <a href="{href}">
             <img src={img} alt={title} />
@@ -29,11 +29,15 @@
         width: calc(32% - 24px);
     }
 
-    .blog-box :global(h3) {
+    .project {
+        width: calc(25% - 19px);
+    }
+
+    .blog-box :global(h3), .project :global(h3) {
         margin-top: 0;
     }
 
-    .blog-box :global(h3 a) {
+    .blog-box :global(h3 a),.project :global(h3 a) {
         color: var(--color-black);
         text-decoration-color: var(--color-secondary);
         text-decoration-thickness: 3px;

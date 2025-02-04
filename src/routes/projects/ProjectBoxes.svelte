@@ -9,8 +9,8 @@
     let { all }: Props = $props();
 </script>
 
-<div class="project-boxes">
-    <ThinBox href="/projects/atari-klub-citov/" img="/photos/projects/citov.jpg" show_arrow={false}>
+<div class={all ? "project-page": "main-page"}>
+    <ThinBox project={all} href="/projects/atari-klub-citov/" img="/photos/projects/citov.jpg" show_arrow={false}>
         <h3>
             <a href="/projects/atari-klub-citov/">
                 <Loc
@@ -25,14 +25,14 @@
         /></p>
     </ThinBox>
 
-    <ThinBox href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
+    <ThinBox project={all} href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
         <p><Loc
             cs="Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu."
             en="Videostop was a popular game show broadcast between 1985 and 2000 on Czechoslovak Television. This project gathered materials related to the game that appeared at the end of each episode of the show."
         /></p>
     </ThinBox>
 
-    <ThinBox href="/gallery/emil-fafek/" img="/photos/projects/fafek.jpg" show_arrow={false}>
+    <ThinBox project={all} href="/gallery/emil-fafek/" img="/photos/projects/fafek.jpg" show_arrow={false}>
         <h3>
             <a href="/gallery/emil-fafek/">
                 <Loc
@@ -48,8 +48,7 @@
     </ThinBox>
 
     {#if all}
-
-    <ThinBox href="https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
+    <ThinBox project={true} href="https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
         <p>
             <Loc
                 cs="Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy."
@@ -61,23 +60,32 @@
 </div>
 
 <style> 
-    .project-boxes {
+    .main-page {
+        display: flex;
+        flex-wrap: flex;
+        gap: 40px;
+        width: 103.6%;
+    }
+    .project-page {
         display: flex;
         flex-wrap: wrap;
-        gap: 64px;
+        gap: 25px;
     }
-
+    @media only screen and (max-width: 1200px) {
+        .main-page {
+            width: 100%;
+        }
+    }
     @media only screen and (max-width: 800px) {
-        .project-boxes {
+        .main-page {
             flex-direction: column;
             gap: 32px;
         }
-
-        .project-boxes :global(img) {
+        .main-page :global(img) {
             display: block;
             margin: auto;
             margin-bottom: 12px;
-            width: 600px;
+            width: 100%;
         }
     }
 </style>
