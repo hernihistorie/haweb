@@ -436,12 +436,12 @@
 
                 <A speaker={LK}>No jasně že ne. My neměli šanci soutěžit s největšími hráči, který přišli a všechno převálcovali.</A>
 
-                <p class="appendix">Dodatek ze dne 29.01.2025</p>
+                <!--<p class="appendix">Dodatek ze dne 29.01.2025</p>
                 <Q speaker={VS}>A psal vám vlastně někdo ze zahraničí ohledně těch <i>Combat Pillows</i>?</Q>
 
 
                 <A speaker={LK}>Minimálně. Občas někdo napsal, ale jinak moc ne. Spíš psali kolem jiných her, co vycházeli na <i>IWannaPlay</i>. Konkrétně ohledně erotických her, které jsme dělali s Jardou Wagnerem (pozn.: jedná se o hry <i>Under 18: Jenny</i> a <i>Strip Teenis</i> obě z roku 2007). Nicméně tu distribuci erotických her nám hodně zkomplikoval PayPal. PayPal byla jediná cesta jak v té době na internetu něco kupovat a PayPalu to neustále reportovali nějaký lidi, že jde o nevhodný obsah.</A>
-                <hr style="margin-top: 0; margin-bottom: 20px;">
+                <hr style="margin-top: 0; margin-bottom: 20px;">-->
             </Chapter>
             <Chapter title="Bulánci pro tlačítkové telefony">
 
