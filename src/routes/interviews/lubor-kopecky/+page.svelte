@@ -215,7 +215,7 @@
                 <A speaker={LK}>Ano,  je to tak. Teď co řešíme – a to zas nevím, jestli by to nemělo být mimo záznam – že právě ten tlak fanoušků je tak velký, že by chtěli znovu Poldu: buď jako remaster a nebo jako remake. A my to teď právě řešíme s Jardou a s Radkem, k čemu se přiklonit a jestli vůbec něco z toho. A samozřejmě uděláme port pro Steam, aby to lidi mohli hrát teď na aktuálních PCčkových platformách, ale s tím remasterem nebo remakem hodně váháme. To je velký rozhodnutí a spousta práce a starostí.</A>
 
                 
-                <p class="appendix">Dodatek ze dne 29.01.2025</p>
+                <!--<p class="appendix">Dodatek ze dne 29.01.2025</p>
                 <Q speaker={RS}>Kamila Hurníková říkala, že ten spor mezi vámi a Zimou skončil u soudu, což by z <i>Poldy</i> dělalo asi první hru, která se k soudu dostala. Jak vlastně vypadalo to soudní řízení?</Q>
                 
                 
@@ -274,7 +274,7 @@
 
                 
                 <A speaker={LK}>Ta licence byla jen na značku <i>Polda</i>, práva na postavy a obsah té hry jsme úplně vyřešený neměli.</A>
-                <hr style="margin-top: 0; margin-bottom: 20px;">
+                <hr style="margin-top: 0; margin-bottom: 20px;">-->
 
 
             </Chapter>
