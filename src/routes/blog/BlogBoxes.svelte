@@ -9,6 +9,38 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/40-efgamp"
+    title="Stali jsme se členy EFGAMP"
+    >
+    Oficiálně oznamujeme, že jsme se stali členy European Federation of Game Archives, Museums and Preservation Projects (EFGAMP), který reprezentuje a propojuje více než 20 evropských institucí a organizací, jež se zaměřují na záchranu evropské herní kultury.
+    </BlogBox>
+    
+    <BlogBox href="/blog/39-os2-warp-3-cs"
+    title="Zdigitalizovali jsme českou verzi OS/2 Warp 3"
+    >
+    Nedávno se nám do archivu podařilo získat dvě kompletní krabice s operačním systémem OS/2 od IBM. V jedné  z nich je dokonce česká varianta OS/2 Warp 3 - pravděpodobně nejranější lokalizovaná verze, která u nás vyšla.
+    </BlogBox>
+
+    <BlogBox href="/blog/38-lubor-kopecky-dodatek"
+    title="Doplňkové otázky k rozhovoru s Luborem Kopeckým, autorem prvních Bulánků"
+    >
+    Lubor Kopecký, s kterým jsme dělali rozhovor před necelýma dvěma lety, jsme se doptali na vzpomínky ohledně prvních Bulánků - jak byli propagovaný, jak autorstvo komunikovalo s komunitou a jakým způsobem ji podporovalo a jaký měla hra úspěch v zahraničí.
+    </BlogBox>
+
+    {#if all}
+
+    <BlogBox href="/blog/37-pocitac-tns-xt"
+    title="Dostali jsme osobní počítač TNS-XT"
+    >
+    Dostali jsme do naší sbírky československý počítač TNS-XT i s plně lokalizovanou verzí systému TE-DOS 2.00 jež byl sestaven v legendárních Slušovicích. Po pár úpravách se nám ho konečně povedlo dostat do stavu kdy je prezentovatelný veřejnosti.
+    </BlogBox>
+
+    <BlogBox href="/blog/36-skeny-tipstation"
+    title="Časopis TipStation zcela oskenován a doplněn do naší databáze časopisů"
+    >
+    Po nějaké době jsme oskenovali další časopis který zde vycházel. Časopis Tipstation se objevil na trhu v prosinci 2001 a stojí za ním redakce OPSM, která si po úspěchu "Top secret speciálu" zřejmě uvědomila, že na trhu je dostatek místa pro samostatný časopis specializující se na tipy, návody a cheaty do her pro Playstation.
+    </BlogBox>
+    
     <BlogBox href="/blog/35-citov-josef-havelka"
     title="PROJEKT CÍTOV - Rozhovor s Josefem Havelkou, zakladatelem klubu"
     >
@@ -26,8 +58,6 @@
     >
     V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který v současnosti digitalizujeme. Třetí várka tohoto softwaru jsme nedostali pro změnu od pana Havelky - zakladatele klubu - ale od jednoho člověka, jenž nás kontaktoval na sociálních sítítch.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/32-citov-zpravodaj"
     title="PROJEKT CÍTOV - Skeny cítovského zpravodaje"
