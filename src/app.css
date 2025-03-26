@@ -42,6 +42,15 @@ a.plain {
     text-decoration-thickness: 1px;
 }
 
+details summary {
+    cursor: pointer;
+}
+
+details summary::-webkit-details-marker,
+details summary::marker {
+    color: var(--color-primary);
+}
+
 a.plain:hover {
     color: var(--color-primary);
     text-decoration: underline;
@@ -72,9 +81,17 @@ hr {
     border-style: solid;
 }
 
-code {
+code, .codeblock {
     background-color: var(--color-secondary-transparent);
     padding: 3px;
+}
+
+.codeblock {
+   margin: 0.5em 1em;
+   padding: 1em;
+   overflow-x: scroll;
+   max-height: 80vh;
+   overflow-y: scroll;
 }
 
 button {
