@@ -46,7 +46,7 @@
                         <SvelteMarkdown source={data.description} />
                     </p>
                     {#if data.primary_dump_path}
-                        <a href="https://inventory.herniarchiv.cz/files/{data.primary_dump_path}" class="download">
+                        <a href="{data.primary_dump_path}" class="download">
                             <LucideDownload style="vertical-align: top;" />
                             Stáhnout dump
                             {#if data.primary_dump_size}
