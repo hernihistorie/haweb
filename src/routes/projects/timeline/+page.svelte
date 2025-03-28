@@ -1,13 +1,22 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
 	import Box from '$lib/Box.svelte';
+    import Loc from "$src/lib/Loc.svelte";
 </script>
 
 <Meta title="Projekty"/>
 <!--<h2><a href="/projects">PROJEKTY</a> <div style="float: right">ČASOVÁ OSA</div></h2> -->
 <ul>
-    <li><a href="/projects">Projekty</a>
-    <li>Časová osa
+    <li><a href="/projects">
+            <Loc
+            cs="Projekty"
+            en="Projects"
+            />
+        </a>
+    <li><Loc    
+        cs="Časová osa"
+        en="Timeline"
+        />
 </ul>
 <div class="projects">
     <div class="timeline-line"></div>
