@@ -1,6 +1,7 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
 	import ProjectBoxes from './ProjectBoxes.svelte';
+    import Loc from "$src/lib/Loc.svelte";
 </script>
 
 <Meta title="Projekty"/>
@@ -8,8 +9,16 @@
 <p>Zde naleznete všechny krátkodobé archivářské projekty a osobní fondy, které jsme sami zpracovávali, nebo na jejichž zpracování jsme se podíleli. Tyto projekty jsou zaměřeny na úzce vymezená témata z naší nebo světové videoherní historie, která se snažíme za pomocí námi dostupných technologií a historiografických metod co nejhlouběji prozkoumat, zmapovat a zachránit co možná nejvíce materiálů co se těchto fenoménu týkají.</p>-->
 <!-- <h2>PROJEKTY <a href="timeline" style="float: right">ČASOVÁ OSA</a></h2> -->
 <ul>
-    <li>Projekty
-    <li><a href="timeline">Časová osa</a>
+    <li><Loc
+        cs="Projekty"
+        en="Projects"
+        />
+    <li><a href="timeline">
+            <Loc    
+            cs="Časová osa"
+            en="Timeline"
+            />
+        </a>
 </ul>
 <ProjectBoxes all={true}/>
 
