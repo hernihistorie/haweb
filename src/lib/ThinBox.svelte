@@ -25,6 +25,10 @@
 </div>
 
 <style>
+    img {
+        width: 100%;
+        aspect-ratio: 4/3;
+    }
     .blog-box {
         width: calc(32% - 24px);
     }

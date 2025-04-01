@@ -10,7 +10,7 @@
 </script>
 
 <div class={all ? "project-page": "main-page"}>
-    <!-- <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/bewesoft.jpg" show_arrow={false}>
+    <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/bewesoft.jpg" show_arrow={false}>
         <h3>
             <a href="/projects/bewesoft/">
                 <Loc
@@ -23,7 +23,7 @@
             cs="Jiří Bernášek je bývalým tvůrcem her a programů pro osmibitové počítače Atari. Tento fond obsahuje výběr několika jeho archivních disket obsahující programy a zdrojové kódy k Bernáškově hrám a jinému softwaru."
             en="Jiří Bernášek is a former game and software developer for eight-bit Atari computers. This collection contains a selection of his archival floppy disks containing programs and source codes for Bernášek's games and other software."
         /></p>
-    </ThinBox> -->
+    </ThinBox>
 
     <ThinBox project={all} href="/projects/atari-klub-citov/" img="/photos/projects/citov.jpg" show_arrow={false}>
         <h3>
@@ -47,6 +47,7 @@
         /></p>
     </ThinBox>
 
+    {#if all}
     <ThinBox project={all} href="/gallery/emil-fafek/" img="/photos/projects/fafek.jpg" show_arrow={false}>
         <h3>
             <a href="/gallery/emil-fafek/">
@@ -62,7 +63,6 @@
         /></p>
     </ThinBox>
 
-    {#if all}
     <ThinBox project={true} href="https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
         <p>
             <Loc
