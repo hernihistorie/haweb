@@ -16,7 +16,7 @@
 <article class="thin">
     <h2>Fond Jiřího Bernáška (BeWe Soft)</h2>
     <p><strong>Název fondu</strong>: Jiří Bernášek (BeWe Soft)</p>
-    <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka</p>
+    <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V. Novák</p>
     <p><strong>Rok dokončení</strong>: 2025</p>
 
     <p>V případě otázek či nejasností se nám ozvěte na info@herniarchiv.cz.</p>
@@ -28,6 +28,11 @@
     <p>Bernášek si své běžně používané diskety pro Atari jako mnoho dalších normálně čísloval, vedle toho si ale cca. od roku 1991 schovával i věci nepoužívané, různé útržky softwaru a dat k případnému pozdějšímu použití – odeslaná korespondence, zdrojáky, různé ukázkové či pro mně těžko použitelné programy odjinud – na to měl druhou řadu disket, značených pro odlišení písmeny. Pro digitalizaci a zveřejnění byly vybrány jen diskety se zdrojáky, které asi jediné nesou zajímavá data jinde se nevyskytující. Mezi těmito disketami jsou ovšem přítomny i jiné věci, které Jiří Bernášek ve stejné době archivoval. Sem by patřila i položka "Archív AH" (kterou vzhledem k datové velikosti reálně tvoří celá krabička disket), což jsou zdrojáky Bernáškových největších projektů <strong>BW-DOS</strong> a <strong>B-TAPE</strong> – tyto programy naleznete k dispozici <a href="https://github.com/HolgerJanz/BW-DOS">na GitHubu</a> (na programech se mimojiné stále pracuje).</p>
     
     <p>Diskety jsou ve formátu 360kB se souborovým systémem SpartaDOS, který Jiří Bernášek používal se svou disketovou jednotkou XF551 než přešel na svůj vlastní kompatibilní BW-DOS. Datum a čas vzniku souborů v adresářích je tedy většinou autentické, mimo pár případů kdy autor zřejmě zapomněl hodiny při startu systému nastavit (data starší než 1990), nebo kde jde o datum dodatečné reorganizace (komprimace) dat. Některé věci jsou zabalené v archivech typu <code>.ARCM</code> – je k nim přiložen i Atárkový program <code>UNARC24</code> pro rozbalení. Obsah archivů nicméně datum a čas neuchovává, údaj "28-11-95" je jen default nenastavených hodin v použitém systému.</p>
+
+    <div class="img2">
+        <img src="/files/bewesoft/DOS.png" alt="BW-DOS" />
+        <img src="/files/bewesoft/DOS-MENU.png" alt="BW-DOS MENU" />
+    </div>
 
     <p>Projekty se zpravidla skládají z různých komponent (kód, grafika, fonty, hudba, texty, mapa...), které byly tvořeny jednotlivě různými nástroji. Většinou existoval vždy nějaký "zdrojový" soubor (např. u hry Midnight je soubor <code>PANAK.PIC</code>, tedy obrázek s rozkreslenou animací postavy), pak nějaký narychlo v Atari Basicu slepený program (zde <code>PANAK.BAS</code>), který to konvertuje do formátu navrženého pro konkrétní projekt (zde <code>PANAK.DAT</code> – binární datový blok, který se pak linkuje do spustitelné hry. Někde byly i soubory s příponou <code>.SGM</code> – segmenty ve formátu spustitelného souboru, tedy vlastně totéž jako <code>.COM</code>, <code>.OBJ</code>, nebo dnes <code>.XEX</code>, ale obsahují jen jednotlivý fragment). Většina dalších komponent funguje obdobně, jen třeba pro mapu hry je v Basicu jednoúčelový editor. V uvedeném příkladu lze ještě narazit na <code>PANAK.TST</code> – Basicový program pro testovací zobrazení mimo samotnou hru. Pro celý projekt pak zpravidla existoval dávkový soubor <code>TEST.BAT</code>, pomocí kterého byl během tvorby program opakovaně spouštěn k vyzkoušení po úpravách jednotlivých komponent (jde vlastně o jakýsi provizorní linkovací skript, který přímo na příslušná místa paměti načítá komponenty potřebné ke spuštění programu). Teprve když bylo hotovo, projekt se linkoval dohromady, zpočátku ručně, později Bernáškovým nástrojem <em>Super Packer</em>, který data uměl zároveň i komprimovat (na Atari bylo rozbalení zpravidla rychlejší, než čtení z diskety, chránila se tím integrita kódu, a ještě se šetřilo místo). Všechny zmíněné složky jsou zpravidla v autorově archivu zachovány pro případné pozdější změny a obvykle je přiložen i hotový spustitelný soubor (<code>.COM</code>), tak jak byl vypuštěn mezi lidi. Součástí projektů jsou i ručně psané poznámky na papírech, které zpravidla zahrnují ve více, nebo častěji méně čitelné podobě mapu obsazení paměti, strukturu datových souborů, u her mapu samotné hry, a různé další čmáranice (i tyto materiály většinou fyzicky existují, ale ještě nedošlo ke jejich katalogizaci a digitalizaci).</p>
 
@@ -243,6 +248,11 @@ ZOLIKY   BAS  10149 28-11-95 22:14
     <p><strong>ABBMENU</strong> je menu pro disketový magazín německého klubu <em>ABBUC e.V.</em> Dle Bernáška se jedná o první pokus na dané téma, který se prakticky nepoužil (snad jen v jednom čísle doplňkové řady "Sondermagazínů"). Nezaměnit s druhým projektem z roku 1993.</p>
 
     <p><strong>CODIS</strong> byl neveřejným projektem. Jde o jednoduchý titulkovací systém pro infokanál kabelové televize. Obsahuje i editor zobrazovaných textů. Data k tomuto projektu jsou také na disketě <em>ARCHÍV W</em>.</p>
+
+
+    <div class="img1">
+        <img src="/files/bewesoft/CODIS.png" alt="CODIS" />
+    </div>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -993,6 +1003,18 @@ MENU21   SRC   5376 30-11-92 14:51
 
     <p><strong>FunMusic</strong> je hudební hříčka ovládaná myší, která většinou dává s malým úsilím přijatelný hudební výsledek. Program používá optimalizované tabulky ladění (dle autorova vlastního výzkumu, publikovaného tehdy v magazínu Flop) a byla v něm vytvořena hudba pro ABBUC magazín 54.</p>
 
+    <div class="img2">
+        <img src="/files/bewesoft/FUNMUSIC.png" alt="FUNMUSIC" />
+        <!-- <a href=""> -->
+        <!-- <img src="/files/bewesoft/UNFINISH3.png" alt="UNFINISH" /> -->
+        <video
+            controls
+            poster="/files/bewesoft/UNFINISH3.png"
+        >
+            <source src="/files/bewesoft/UNFINISH.mp4" type="video/mp4" />
+        </video>
+    </div>
+
     <details>
         <summary>Výpis souborů</summary>
         <pre class="codeblock">
@@ -1086,6 +1108,21 @@ FMC7     TXT  14426 11-03-98 21:28
     <p><strong>STRANGE2</strong> je <strong>Strange Mountains Demo II</strong>, malý prográmek s animovanými fonty.</p>
     
     <p><strong>CHEATLD</strong> byly loadery pro crackování komerčních her. To se tehdy dělalo běžně. Jako mnozí další i Jiří Bernášek udělal pár desítek cracků, pod kterými se často podepisoval pomocí smajlíka ":-)". V tomto případě se jedná o dvojici textovek <em>The Pawn</em> a <em>Guild of Thieves</em>, které používají dosti sofistikovaný pseudokód s virtuální pamětí a komprimací obsahu, takže není snadné se do nich nějak vlámat. Proto zde vznikly speciální loadery, které umí hru z kopie originální diskety spustit s potřebnými úpravami.</p>
+
+    <div class="img2">
+        <img src="/files/bewesoft/STRANGE2.png" alt="STRANGE" />
+        <video
+            controls
+            poster="/files/bewesoft/strange2_2.png"
+        >
+            <source src="/files/bewesoft/strange2.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <div class="img2">
+        <img src="/files/bewesoft/CHEATLD.png" alt="CHEATLD" />
+        <img src="/files/bewesoft/CHEATLD2.png" alt="CHEATLD" />
+    </div>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -1240,6 +1277,10 @@ ZNAKY4   PIC   7684 01-08-93 13:45
 
     <p><strong>ZABABA</strong> byl pokus o zkulturnění listingů tištěných na stránkách časopisů. Binární soubory se tehdy ještě v dostupných tiskovinách občas vyskytovaly jako hexadecimální listingy, a třebaže se někdy doplňovaly o kontrolní součty řádků, opisování takového listingu bylo utrpením. Program (pojmenovaný po černokněžníkovi z <em>Pohádek o mašinkách</em>) data kódoval do "slov" (či zaklínadel, chcete-li) ze 6 písmen se střídáním souhláska-samohláska (např. "SASOPU") a s integrovaným kontrolním údajem v každém slově, čímž dosahoval hustoty dat srovnatelné s hexa listingem, při mnohem příznivější ergonomii přepisu do stroje. Přišel však pozdě, v podstatě se tehdy již listingy dál netiskly.</p>
 
+    <div class="img1">
+        <img src="/files/bewesoft/HIDDEN-DEMO.png" alt="HIDDEN-DEMO" />
+    </div>
+
     <details>
         <summary>Výpis souborů</summary>
         <pre class="codeblock">
@@ -1331,6 +1372,15 @@ ZABABGEN BAS   1456 23-07-95 21:43
     <p><strong>CMC Music Set</strong> je v podstatě hitparáda převážně polské herní muziky z první půlky 90. let, inspirovaná podobnými kompilacemi z 80. let (konkrétně <a href="https://a8.fandal.cz/detail.php?files_id=3679">SSMB's Music Kaleidoscope</a>). Protože ale jde v podstatě o výsledky rozsáhlého crackování her, rozhodl jsem se to tenkrát nepodepsat.</p>
 
     <p><strong>INTRO38</strong> je titulní stránka pro ABBUC magazín č. 38. Vznikla tehdy narychlo na výslovné přání předsedy spolku Wolfganga Burgera, dle zadaného tématu příslušného čísla magazínu, když mu adekvátní úvod pro daný magazín chyběl. Hudba je nepůvodní, je zkopírovaná z <em>Mega Magazínu</em> a autorem je zřejmě polský tvůrce <a href="https://demozoo.org/sceners/34551/"><em>Daxey of Waxsoft</em></a>.</p>
+
+    <div class="img1">
+        <video
+            controls
+            poster="/files/bewesoft/INTRO38.png"
+        >
+            <source src="/files/bewesoft/INTRO38.mp4" type="video/mp4" />
+        </video>
+    </div>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -1517,6 +1567,16 @@ PATCH20  MAE  11355 16-01-01 18:31
 
     <p><strong>EASY DEMO</strong> a <strong>KALEIDOSKOP</strong> jsou drobné prográmky reagující na tehdy nový trend demo tvorby pro účast na počítačových srazech, kde se často konaly i soutěže těchto prací a předváděly se často i velmi malá, narychlo vytvořená dílka. Někdy se soutěžilo i v kategoriích s přísně omezenou délkou souboru.</p>
 
+    <div class="img2">
+        <img src="/files/bewesoft/KALEIDO.png" alt="KALEIDO" />
+        <video
+            controls
+            poster="/files/bewesoft/EASY-DEMO.png"
+        >
+            <source src="/files/bewesoft/EASY-DEMO.mp4" type="video/mp4" />
+        </video>
+    </div>
+
     <details>
         <summary>Výpis souborů</summary>
         <pre class="codeblock">
@@ -1639,6 +1699,11 @@ PRAC     ARC  34526 25-07-98 14:54
 
     <p><em>Multi Dash</em> je síťová hra pro až 8 počítačů Atari propojených sériovým kabelem, inspirovaná hrou <a href="https://en.wikipedia.org/wiki/Boulder_Dash_(video_game)"><em>Boulder Dash</em></a> a ranou síťovou hrou <a href="https://a8.fandal.cz/detail.php?files_id=2364"><em>Maze of AGDAgon</em></a>. Hrála se poprvé na Atariádě v Prostějově (2000), herní princip se však příliš neosvědčil, protože nebyl otestovaný s větším počtem skutečných hráčů.</p>
 
+    <div class="img2">
+        <img src="/files/bewesoft/MultiDash2.png" alt="MULTI DASH" />
+        <img src="/files/bewesoft/MultiDash8.png" alt="MULTI DASH" />
+    </div>
+
     <details>
         <summary>Výpis souborů</summary>
         <pre class="codeblock">
@@ -1741,7 +1806,16 @@ X11      MPT   2041 28-11-95 22:14
 
     <em>Multi Race</em> je další síťová hra pro až 8 počítačů Atari, tentokrát s obecněji pojatou fyzickou vrstvou komunikace, cílenou na tvorbu dalších podobných her. Zároveň je program pro autora splněným letitým snem o hře s 3D grafikou.
 
-    <em>Multi Worms</em> je jednoduchá hra určená spíše jen k demonstraci univerzálního komunikačního modulu a jeho použití k tvorbě podobných her. Vznikla společně s hrou Multi Race, byla publikovaná v magazínech <em>ABBUC</em> i <a href="http://flop.atariportal.cz/"><em>FLop</em></a>.
+    <em>Multi Worms</em> je jednoduchá hra určená spíše jen k demonstraci univerzálního komunikačního modulu a jeho použití k tvorbě podobných her. Vznikla společně s hrou Multi Race, byla publikovaná v magazínech <em>ABBUC</em> i <a href="http://flop.atariportal.cz/"><em>Flop</em></a>.
+
+    <div class="img2">
+        <img src="/files/bewesoft/MULTI RACE1.png" alt="MULTI RACE" />
+        <img src="/files/bewesoft/MULTI RACE3.png" alt="MULTI RACE" />
+    </div>
+    <div class="img2">
+        <img src="/files/bewesoft/MULTI WORMS1.png" alt="MULTI WORMS" />
+        <img src="/files/bewesoft/MULTI WORMS2.png" alt="MULTI WORMS" />
+    </div>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -1824,3 +1898,27 @@ NTWGAM3  TXT  16148 10-05-02 14:00
 
 
 </article>
+
+<style>
+    .img1 img, .img1 video {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    .img2 {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .img2 img, .img2 video {
+        width: 100%;
+    }
+    @media (max-width: 600px) {
+        .img2 {
+            flex-direction: column;
+        }
+    }
+</style>
