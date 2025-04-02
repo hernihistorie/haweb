@@ -20,7 +20,7 @@
             </a>
         </h3>
         <p><Loc
-            cs="Jiří Bernášek je bývalým tvůrcem her a programů pro osmibitové počítače Atari. Tento fond obsahuje výběr několika jeho archivních disket obsahující programy a zdrojové kódy k Bernáškově hrám a jinému softwaru."
+            cs="Jiří Bernášek je bývalým tvůrcem her a programů pro osmibitové počítače Atari. Tento fond obsahuje výběr několika jeho archivních disket obsahující programy a zdrojové kódy k Bernáškovým hrám a jinému softwaru."
             en="Jiří Bernášek is a former game and software developer for eight-bit Atari computers. This collection contains a selection of his archival floppy disks containing programs and source codes for Bernášek's games and other software."
         /></p>
     </ThinBox>
