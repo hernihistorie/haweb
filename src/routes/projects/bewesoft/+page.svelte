@@ -11,11 +11,11 @@
 </script>
 
 
-<Meta title="Fond Jiřího Bernáška (BeWe Soft)" />
+<Meta title="Fond Jiřího Bernáška (BeWeSoft)" />
 
 <article class="thin">
-    <h2>Fond Jiřího Bernáška (BeWe Soft)</h2>
-    <p><strong>Název fondu</strong>: Jiří Bernášek (BeWe Soft)</p>
+    <h2>Fond Jiřího Bernáška (BeWeSoft)</h2>
+    <p><strong>Název fondu</strong>: Jiří Bernášek (BeWeSoft)</p>
     <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V. Novák</p>
     <p><strong>Rok dokončení</strong>: 2025</p>
 
