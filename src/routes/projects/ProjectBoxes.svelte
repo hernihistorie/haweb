@@ -14,8 +14,8 @@
         <h3>
             <a href="/projects/bewesoft/">
                 <Loc
-                    cs="Fond Jiřího Bernáška (BeWe Soft)"
-                    en="Jiří Bernášek Collection (BeWe Soft)"
+                    cs="Fond Jiřího Bernáška (BeWe&nbsp;Soft)"
+                    en="Jiří Bernášek Collection (BeWe&nbsp;Soft)"
                 />
             </a>
         </h3>

@@ -251,7 +251,7 @@ ZOLIKY   BAS  10149 28-11-95 22:14
 
 
     <div class="img1">
-        <img src="/files/bewesoft/CODIS.png" alt="CODIS" />
+        <img src="/files/bewesoft/CODIS.png" alt="CODIS"/>
     </div>
 
     <details>
@@ -1278,7 +1278,7 @@ ZNAKY4   PIC   7684 01-08-93 13:45
     <p><strong>ZABABA</strong> byl pokus o zkulturnění listingů tištěných na stránkách časopisů. Binární soubory se tehdy ještě v dostupných tiskovinách občas vyskytovaly jako hexadecimální listingy, a třebaže se někdy doplňovaly o kontrolní součty řádků, opisování takového listingu bylo utrpením. Program (pojmenovaný po černokněžníkovi z <em>Pohádek o mašinkách</em>) data kódoval do "slov" (či zaklínadel, chcete-li) ze 6 písmen se střídáním souhláska-samohláska (např. "SASOPU") a s integrovaným kontrolním údajem v každém slově, čímž dosahoval hustoty dat srovnatelné s hexa listingem, při mnohem příznivější ergonomii přepisu do stroje. Přišel však pozdě, v podstatě se tehdy již listingy dál netiskly.</p>
 
     <div class="img1">
-        <img src="/files/bewesoft/HIDDEN-DEMO.png" alt="HIDDEN-DEMO" />
+        <img src="/files/bewesoft/HIDDEN-DEMO.png" alt="HIDDEN-DEMO"/>
     </div>
 
     <details>
@@ -1903,7 +1903,8 @@ NTWGAM3  TXT  16148 10-05-02 14:00
     .img1 img, .img1 video {
         display: block;
         margin: auto;
-        width: 50%;
+        margin-bottom: 1rem;
+        width: 65%;
     }
     .img2 {
         display: flex;
@@ -1917,6 +1918,9 @@ NTWGAM3  TXT  16148 10-05-02 14:00
         width: 100%;
     }
     @media (max-width: 600px) {
+        .img1 img, .img1 video {
+            width: 100%;
+        }
         .img2 {
             flex-direction: column;
         }
