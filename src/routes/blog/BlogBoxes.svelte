@@ -9,6 +9,32 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/43-ondra-programy"
+    title="Zachráněný software pro Ondra SPO 186"
+    >
+    Jak jsme psali toto úterý, tak se nám povedlo nedávno nejen sehnat počítač Ondra, ale také osm kazet s nezazálohavnými programy pro tento počítač. Díky úžasnému Janu Heřmanovi, už nezazálohované ale nejsou! Jedná se primárně o jednoduché obrázky, ale jde zde taky nalézt vzdělávací programy, kondiciogramy a samozřejmě jednoduché hry.
+    </BlogBox>
+    
+    <BlogBox href="/blog/42-ondra-pocitace"
+    title="Sehnali jsme dva počítače Ondra s nezazálohovanýma hrama!"
+    >
+    Ačkoliv náš archiv obsahuje mnoho strojů, které sehráli měnší či větší roli v rámci československé herní a počítačové historie, tak zde dlouhodobě chyběl zcela zásadní počítač československé výroby - Ondra SPO 186. Nedávno jsme tento nedostatek napravili a nejenže jsme si konečně dva Ondry pořídili, ale dokonce jsme k nim dostali několik kazet s nikde nezazálohovaným softwarem.
+    </BlogBox>
+    
+    <BlogBox href="/blog/41-excalibur-skeny"
+    title="Oskenovali jsme (SKORO) celý časopis Excalibur"
+    >
+    Časopis Excalibur, jehož nulté číslo vyšlo v roce 1990, byl jedním z prvních časopisů o videohrách, který u nás vycházel a v kterém zároveň začínalo mnoho významných osobnostní herní žurnalistiky jako Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek ad. Časopis jsme téměř celý oskenovali a zveřejnili.
+    </BlogBox>
+
+    {#if all}
+    
+    <BlogBox href="/blog/41-excalibur-skeny"
+    title="Oskenovali jsme (SKORO) celý časopis Excalibur"
+    >
+    Časopis Excalibur, jehož nulté číslo vyšlo v roce 1990, byl jedním z prvních časopisů o videohrách, který u nás vycházel a v kterém zároveň začínalo mnoho významných osobnostní herní žurnalistiky jako Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek ad. Časopis jsme téměř celý oskenovali a zveřejnili.
+    </BlogBox>
+
     <BlogBox href="/blog/40-efgamp"
     title="Stali jsme se členy EFGAMP"
     >
@@ -26,8 +52,6 @@
     >
     Lubor Kopecký, s kterým jsme dělali rozhovor před necelýma dvěma lety, jsme se doptali na vzpomínky ohledně prvních Bulánků - jak byli propagovaný, jak autorstvo komunikovalo s komunitou a jakým způsobem ji podporovalo a jaký měla hra úspěch v zahraničí.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/37-pocitac-tns-xt"
     title="Dostali jsme osobní počítač TNS-XT"

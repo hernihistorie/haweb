@@ -52,4 +52,7 @@
 		padding: 0 27px 0 0;
         border-left: none;
 	}
+    @media screen and (max-width: 500px) {
+		li {font-size: 31px;}
+    }
 </style>
