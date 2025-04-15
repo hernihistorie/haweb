@@ -27,13 +27,13 @@
     Ačkoliv náš archiv obsahuje mnoho strojů, které sehráli měnší či větší roli v rámci československé herní a počítačové historie, tak zde dlouhodobě chyběl zcela zásadní počítač československé výroby - Ondra SPO 186. Nedávno jsme tento nedostatek napravili a nejenže jsme si konečně dva Ondry pořídili, ale dokonce jsme k nim dostali několik kazet s nikde nezazálohovaným softwarem.
     </BlogBox>
     
+    {#if all}
+
     <BlogBox href="/blog/41-excalibur-skeny"
     title="Oskenovali jsme (SKORO) celý časopis Excalibur"
     >
     Časopis Excalibur, jehož nulté číslo vyšlo v roce 1990, byl jedním z prvních časopisů o videohrách, který u nás vycházel a v kterém zároveň začínalo mnoho významných osobnostní herní žurnalistiky jako Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek ad. Časopis jsme téměř celý oskenovali a zveřejnili.
     </BlogBox>
-
-    {#if all}
     
     <BlogBox href="/blog/41-excalibur-skeny"
     title="Oskenovali jsme (SKORO) celý časopis Excalibur"
