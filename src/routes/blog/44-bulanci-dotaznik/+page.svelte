@@ -5,7 +5,7 @@
 <BlogPost
     author_name="Rudolf Jan Suchý"
     date="16. dubna 2025"
-    title="Projekt Fanouškovské aktivity kolem hry Bulánci - DOTAZNÍK (testovací kolo)"
+    title="Projekt Fanouškovské aktivity kolem hry Bulánci - DOTAZNÍK"
 >
     <p><img src="/photos/blog-posts/bulanci_dotaznik.jpg" alt="bulanci" width="100%">
     <p>Mnozí z vás jistě vyrůstali na prvních <b>Buláncích</b> - na hře, která několik let v kuse okupovala mnoho školních, firemních a domácích počítačů a která byla hlavní náplní každé hodiny, která probíhala v nějaké počítačové učebně. Narozdíl od jiných významných her československého kánonu si Bulánky moc lidí nepamatuje pro příběh (jako např. Mafii), ani pro hlášky (jako např. Mafii...) ale právě pro sdílený zážitek z jejich hraní. Nicméně právě tyto společenské a komunitní aktivity - jako jsou turnaje, bulánčí klany, tvorba map apod. - a vzpomínky na ně se ztrací vůbec nejrychleji.
