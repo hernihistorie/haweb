@@ -23,7 +23,7 @@
 				{ url: "/gallery/emil-fafek", cs: "Fotografie Emila Fafka", en: "Emil Fafek photography" },
 				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
 				{ url: "/projects/atari-klub-citov", cs: "Atari klub Cítov", en: "Atari club Citov" },
-				{ url: "/projects/bewesoft", cs: "Fond Jiřího Bernáška (BeWeSoft)", en: "Jiří Bernášek Collection (BeWeSoft)" },
+				{ url: "/projects/bewesoft", cs: "Fond Jiřího Bernáška (BeWe Soft)", en: "Jiří Bernášek Collection (BeWe Soft)" },
 				{ url: "/projects/programy-z-cst", cs: "Programy z Československé televize", en: "Programs from Czechoslovak Television" },
 			]
 		}, {
