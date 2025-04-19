@@ -10,6 +10,21 @@
 </script>
 
 <div class={all ? "project-page": "main-page"}>
+    <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/cst.jpg" show_arrow={false}>
+        <h3>
+            <a href="/projects/programy-z-cst/">
+                <Loc
+                    cs="Programy z Československé televize"
+                    en="Programs from Czechoslovak Television"
+                />
+            </a>
+        </h3>
+        <p><Loc
+            cs="V 80. letech Československá televize odvysílala dva pořady v rámci kterých byly distribuované programy pro ZX Spectrum. Tento projekt obsahuje téměř všechny tyto programy."
+            en="In the 1980s, Czechoslovak Television broadcast two programs during which software for the ZX Spectrum was distributed. This project contains almost all of these programs."
+        /></p>
+    </ThinBox>
+
     <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/bewesoft.jpg" show_arrow={false}>
         <h3>
             <a href="/projects/bewesoft/">
@@ -40,6 +55,7 @@
         /></p>
     </ThinBox>
 
+    {#if all}
     <ThinBox project={all} href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
         <p><Loc
             cs="Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu."
@@ -47,7 +63,6 @@
         /></p>
     </ThinBox>
 
-    {#if all}
     <ThinBox project={all} href="/gallery/emil-fafek/" img="/photos/projects/fafek.jpg" show_arrow={false}>
         <h3>
             <a href="/gallery/emil-fafek/">

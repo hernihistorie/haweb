@@ -24,6 +24,7 @@
 				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
 				{ url: "/projects/atari-klub-citov", cs: "Atari klub Cítov", en: "Atari club Citov" },
 				{ url: "/projects/bewesoft", cs: "Fond Jiřího Bernáška (BeWeSoft)", en: "Jiří Bernášek Collection (BeWeSoft)" },
+				{ url: "/projects/programy-z-cst", cs: "Programy z Československé televize", en: "Programs from Czechoslovak Television" },
 			]
 		}, {
 			url: "https://inventory.herniarchiv.cz/", cs: "Sbírka", en: "Collection"
