@@ -10,7 +10,7 @@
 </script>
 
 <div class={all ? "project-page": "main-page"}>
-    <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/cst.jpg" show_arrow={false}>
+    <ThinBox project={all} href="/projects/programy-z-cst/" img="/photos/projects/cst.jpg" show_arrow={false}>
         <h3>
             <a href="/projects/programy-z-cst/">
                 <Loc
