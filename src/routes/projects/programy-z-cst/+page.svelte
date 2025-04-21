@@ -25,15 +25,15 @@
             ]
 </script>
 
-<Meta title="Programy z ČST" />
+<Meta title="Programy z Československé televize" />
 
 <article class="thin">
     <h2><Loc
-        cs="Projekt Programy z ČST"
-        en="Project Programs from Czechoslvak Television"
+        cs="Projekt Programy z Československé televize"
+        en="Project Programs from Czechoslovak Television"
         /></h2>
     <div><Loc
-            cs="<p><strong>Název projektu</strong>: Programy z ČST
+            cs="<p><strong>Název projektu</strong>: Programy z Československé televize
                 <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Lukáš Macura, Karel Ondráček
                 <p><strong>Rok dokončení projektu</strong>: 2025"
             en="<p><strong>Project name</strong>: Programs from Czechoslvak Television
@@ -41,29 +41,37 @@
                 <p><strong>Year of project completion</strong>: 2025"
         />
         <p><Loc
-            cs="V případě otázek či nejasností se nám ozvěte na info@herniarchiv.cz."
-            en="If you have any questions, feel free to contact us at info@herniarchiv.cz."
+            cs="V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz<a>."
+            en="If you have any questions, feel free to contact us at <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz<a>."
             />
+        <hr>
     </div>
-
-    <h3><Loc
-        cs="Úvod"
-        en="Introduction"
-        />
-    </h3>
+    <div class="picture-cite">
+        <p><img src="/photos/cst/krc/krc_computer.png" alt="Ing. David Gruber pracuje na ZX Spectru">
+        <cite><Loc
+            cs="<i>Kurz rychlého čtení,</i> 7. díl (Jan Flak, Československá televize 1986)"
+            en="<i>Kurz rychlého čtení,</i> episode 7 (Jan Flak, Československá televize 1986)"/>
+        </cite>
+    </div>
     <p><Loc
         cs="Na konci 80. let Československá televize vyprodukovala dva zdánlivě nesouvisející pořady – v roce 1986 vytvořila pořad <i>Kurz rychlého čtení</i> a v roce 1988 pak pořad <i>Počítačová dilemata</i>. <i>Kurz rychlého čtení</i> byl desetidílný vzdělávací seriál, který měl – jak název napovídá – diváctvo naučit techniky rychločtení. <i>Počítačová dilemata</i> měla také deset dílů, ale narozdíl od <i>Kurzu</i> se jednalo o popularizační pořad, který se snažil zejména neobeznámenou část diváctva seznámit s tehdejšími dostupnými osobními počítači, jejich funkcemi a možným použitím."
         en="At the end of the 1980s, Czechoslovak Television produced two seemingly unrelated programs – <i>Kurz rychlého čtení</i> (Speed Reading Course) in 1986 and <i>Počítačová dilemata</i> (Computer Dilemmas) in 1988. <i>Kurz rychlého čtení</i> was a ten-part educational series designed to teach viewers speed-reading techniques. <i>Počítačová dilemata</i> also had ten episodes, and it was a popular science program aimed at introducing unfamiliar audiences to the personal computers available at the time, their functions, and potential uses."
         />
     </p>
-    <p><img src="/photos/cst/krc/krc_computer.png" alt="Ing. David Gruber pracuje na ZX Spectru"></p>
     <p><Loc
         cs="Navzdory různým tématům měli tyto dva pořady mnoho společného. Jak <i>Kurz rychlého čtení</i> tak <i>Počítačová dilemata</i> vznikaly v ostravských studiích ČST a na obou pořadech pracoval téměř totožný produkční tým. Oba seriály režíroval Jan Flak a autorem námětu, scénáře a moderátorem těchto pořadů byl Ing. David Gruber. U obou pořadů lze najít i stylistické podobnosti – oba například výrazně pracovaly s počítačovou grafikou a textem. Nejzajímavější však je, že jak u <i>Kurzu rychlého čtení</i> tak u <i>Počítačových dilemat</i> byly během závěrečných titulků vypískávané programy pro ZX Spectrum."
         en="Despite the different topics, these two shows had a lot in common. Both <i>Kurz rychlého čtení</i> and <i>Počítačová dilemata</i> were produced in the Ostrava studios of ČST, and nearly the same production team worked on both. Both series were directed by Jan Flak, and the concept, script, and hosting were done by Ing. David Gruber. There were also stylistic similarities between the two shows – for example, both made extensive use of computer graphics and text. However, the most interesting aspect is that during the closing credits of both <i>Kurz rychlého čtení</i> and <i>Počítačová dilemata</i>, programs for the ZX Spectrum were broadcasted."
     />
-    <p><img src="/photos/cst/pd/pd_magnetofon.png" alt="Výzva k nahrvání"></p>
+    <div class="picture-cite">
+        <p><img src="/photos/cst/pd/pd_magnetofon.png" alt="Výzva k nahrvání">
+        <cite>
+            <Loc
+            cs="<i>Počítačová dilemata,</i> 1. díl (Jan Flak, Československá televize 1988)"
+            en="<i>Počítačová dilemata,</i> episode 1 (Jan Flak, Československá televize 1988)"/>
+        </cite>
+    </div>
     <p><Loc
-        cs="V roce 2023 Herní archiv od České televize zakoupil všechny dostupné kopie dílů pořadů <i>Kurz rychlého čtení</i> a <i>Počítačová dilemata</i> a v roce 2025 převedl a zveřejnil všechny programy pro ZX Spectrum z konců epizod těchto pořadů."
+        cs="V roce 2023 Herní archiv z archivu České televize zakoupil všechny dostupné kopie dílů pořadů <i>Kurz rychlého čtení</i> a <i>Počítačová dilemata</i> a v roce 2025 převedl a zveřejnil všechny programy pro ZX Spectrum z konců epizod těchto pořadů."
         en="In 2023, the Czechoslovak game archive purchased all available copies of the episodes of <i>Kurz rychlého čtení</i> and <i>Počítačová dilemata</i> from Czech Television and in 2025 converted and published all ZX Spectrum programs from the endings of these episodes."
     />
     </p>
@@ -98,12 +106,12 @@
             </div>
             <div class="file-photos">
                 <div class="column">
-                    <a href="/photos/cst/krc/krc_{ krc.id  }_A.png" class="file-photo">
+                    <a href="/photos/cst/krc/krc_{ krc.id  }_A.png">
                         <img src="/photos/cst/krc/krc_{ krc.id  }_A.png" class="file-img" alt="">
                     </a>
                 </div>
                 <div class="column">
-                    <a href="/photos/cst/krc/krc_{ krc.id  }_B.png" class="file-photo" style="margin-left: 16px">
+                    <a href="/photos/cst/krc/krc_{ krc.id  }_B.png" class="photo-second">
                         <img src="/photos/cst/krc/krc_{ krc.id  }_B.png" class="file-img" alt="">
                     </a>
                 </div>
@@ -116,7 +124,7 @@
     />
     </h3>
     <p><Loc
-        cs="<i>Počítačová dilemata</i> se lišila oproti <i>Kurzu rychlého čtení</i> v tom, že během jeho titulků nebyly vysílány krátké samospustitelné programy, nýbrž byl napříč deseti epizodami vysílán jeden velký program rozdělený na devět kusů (hlavní část programu byla vysílaná v 1. a 10. díle). To znamenalo, že pro vlastnictví kompletního programu muselo diváctvo stihnout všechny díly diskutovaného pořadu a zkopírovat si na pásku všechny části programu."
+        cs="<i>Počítačová dilemata</i> se lišila oproti <i>Kurzu rychlého čtení</i> v tom, že během jejich titulků nebyly vysílány krátké samospustitelné programy, nýbrž byl napříč deseti epizodami vysílán jeden velký program rozdělený na devět kusů (hlavní část programu byla vysílaná v 1. a 10. díle). To znamenalo, že pro vlastnictví kompletního programu muselo diváctvo stihnout všechny díly diskutovaného pořadu a zkopírovat si na pásku všechny části programu."
         en="<i>Počítačová dilemata</i> (Computer dilemmas) differed from <i>Kurz rychlého čtení</i> in that, instead of short self-executing programs being broadcast during its credits, a single large program was transmitted across ten episodes, divided into nine parts (the main part of the program was broadcast in episodes 1 and 10). This meant that to own the complete program, viewers had to catch all episodes of the show and copy all parts of the program onto a tape."
     />
     </p>
@@ -126,8 +134,8 @@
     />
     </p>
     <p><Loc
-        cs="Program po spojení pomocí basicového příkazu <code>MERGE</code> bohužel kvůli několika chybám v kódu nefunguje. Díky Lukášovi Macurovi máme ale opravenou <a href='/files/programy-od-cst-krc/PD_final.tzx' download>funkční verzi tohoto programu</a>."
-        en="The program, after being merged using the BASIC command <code>MERGE</code>, unfortunately doesn't work due to several errors in the code. However, thanks to Lukáš Macura, we have a fixed, <a href='/files/programy-od-cst-krc/PD_final.tzx' download>functional version of this program</a>."
+        cs="Program po spojení pomocí basicového příkazu <code>MERGE</code> kvůli několika chybám v kódu nefunguje. Díky Lukášovi Macurovi máme ale opravenou <a href='/files/programy-od-cst-pd/PD_final.tzx' download>funkční verzi tohoto programu</a>. Po nahrání programu a vrácení se zpět do BASICu, program znovuspouštějte pomocí příkazu <code>GOTO 10</code>."
+        en="The program, after being merged using the BASIC command <code>MERGE</code> doesn't work due to several errors in the code. However, thanks to Lukáš Macura, we have a fixed, <a href='/files/programy-od-cst-pd/PD_final.tzx' download>functional version of this program</a>. After loading the program and returning to BASIC, restart the program using the command <code>GOTO 10</code>."
     />
     </p>
     {#each pd as pd (pd.id)}
@@ -151,12 +159,12 @@
             </div>
             <div class="file-photos">
                 <div class="column">
-                    <a href="/photos/cst/pd/pd_{ pd.id  }_A.png" class="file-photo">
+                    <a href="/photos/cst/pd/pd_{ pd.id  }_A.png">
                         <img src="/photos/cst/pd/pd_{ pd.id  }_A.png" class="file-img" alt="">
                     </a>
                 </div>
                 <div class="column">
-                    <a href="/photos/cst/pd/pd_{ pd.id  }_B.png" class="file-photo" style="margin-left: 16px">
+                    <a href="/photos/cst/pd/pd_{ pd.id  }_B.png" class="photo-second">
                         <img src="/photos/cst/pd/pd_{ pd.id  }_B.png" class="file-img" alt="">
                     </a>
                 </div>
@@ -182,11 +190,6 @@
        font-size: 25px;
        font-weight: bold; 
     }
-    .row::after {
-        clear: both;
-        display: table;
-    }
-
     .file-photos {
         width: 100%;
         clear: both;
@@ -196,20 +199,21 @@
         float: left;
         width: 49%;
     }
-    .file-photos::after {
-        clear: both;
-        display: table;
-    }
     .file-img {
         border-radius: 8px;
         object-fit: cover;
         width: 100%;
         aspect-ratio: 4/3;
     }
-
+    .photo-second {
+        margin-left: 16px;
+    }
     @media only screen and (max-width: 680px) {
         .file-photos .column {
-            width: 95%;
+            width: 100%;
+        }
+        .photo-second {
+            margin-left: 0px;
         }
     }
 </style>
