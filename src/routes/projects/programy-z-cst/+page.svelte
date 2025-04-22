@@ -41,8 +41,8 @@
                 <p><strong>Year of project completion</strong>: 2025"
         />
         <p><Loc
-            cs="V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>."
-            en="If you have any questions, feel free to contact us at <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>."
+            cs="V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>"
+            en="If you have any questions, feel free to contact us at <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>"
             />
         <hr>
     </div>
@@ -143,7 +143,7 @@
             <div class="row">
             <div class="file-text">
                 <div class="file-name">
-                    <a href="/files/programy-od-cst-krc/PD_{ pd.id  }.tzx" download>
+                    <a href="/files/programy-od-cst-pd/PD_{ pd.id }.tzx" download>
                         <LucideDownload style="vertical-align: bottom; width: 25px; height: 25px; margin-right: 4px;"/><Loc
                         cs="Počítačová dilemata – { pd.id  }. díl ({ pd.program  })"
                         en="Episode { pd.id } ({ pd.program_en })"
