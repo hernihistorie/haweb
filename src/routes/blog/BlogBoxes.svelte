@@ -9,11 +9,25 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/46-spoluprace-nfa"
+    title="Oznamujeme spolupráci mezi spolkem Herní historie a Pixelarchiv.cz!"
+    >
+    S velikým potěšením oficiálně oznamujeme partnerství mezi naším skromným spolkem a Pixelarchiv.cz z Národního filmovýho archivu. V rámci této spolupráce konzultujeme vývoj archivní stanice stejně jako herní databáze a spolupořádáme workshopy o historii a prezervaci her. Jsme rádi, že existuje ze strany státních institucí snaha zachovat tuto část našeho kulturního dědictví a jsme rádi, že můžeme k těmto snahám nějak přispět!
+    </BlogBox>
+
     <BlogBox href="/blog/44-bulanci-dotaznik"
     title="Projekt Fanouškovské aktivity kolem hry Bulánci - DOTAZNÍK"
     >
     Mnozí z vás jistě vyrůstali na prvních Buláncích - na hře, která několik let v kuse okupovala mnoho školních, firemních a domácích počítačů a která byla hlavní náplní každé hodiny, která probíhala v nějaké počítačové učebně. Narozdíl od jiných významných her československého kánonu si Bulánky moc lidí nepamatuje pro příběh, ani pro hlášky ale právě pro sdílený zážitek z jejich hraní.
     </BlogBox>
+    
+    <BlogBox href="/blog/45-avg-ceska-verze"
+    title="Zdigitalizovali jsme Antivirus AVG v 1.62"
+    >
+    Není nic horšího, než když si na počítači chcete zahrát letní olympiádu a místo ní na vás vybafne virus, který chce sušenku. A proto jsme do archivu pořídili prvotřídní ochranu od AVG - tedy vlastně Anti-Virus Guard, jak se program tehdy jmenoval. Verze 1.62 z listopadu 1991 je nově v našem inventáři a její dump si můžete stáhnout i vy a ochránit své 386ky od pravěkých breberek.
+    </BlogBox>
+        
+    {#if all}
     
     <BlogBox href="/blog/43-ondra-programy"
     title="Zachráněný software pro Ondra SPO 186"
@@ -26,8 +40,6 @@
     >
     Ačkoliv náš archiv obsahuje mnoho strojů, které sehráli měnší či větší roli v rámci československé herní a počítačové historie, tak zde dlouhodobě chyběl zcela zásadní počítač československé výroby - Ondra SPO 186. Nedávno jsme tento nedostatek napravili a nejenže jsme si konečně dva Ondry pořídili, ale dokonce jsme k nim dostali několik kazet s nikde nezazálohovaným softwarem.
     </BlogBox>
-    
-    {#if all}
 
     <BlogBox href="/blog/41-excalibur-skeny"
     title="Oskenovali jsme (SKORO) celý časopis Excalibur"
