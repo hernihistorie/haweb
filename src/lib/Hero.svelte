@@ -24,8 +24,8 @@
         </h1>
         <p>
             <Loc
-                cs="Herní archiv je iniciativou neziskového spolku Herní historie, jehož cílem je centralizovat materiály okolo her pod jednu střechu."
-                en="The Czechoslovak Game Archive is an initiative of the nonprofit organization Herní historie, whose goal is to centralize materials surrounding games under a single roof."
+                cs="Zachováváme tu místní historii, která udělala z našich videoher světový fenomén. Objevte s námi počátky české a slovenské herní kultury."
+                en="We are preserving the local history which shaped our video games into a global phenomenon. Discover the roots of Czech and Slovak gaming culture with us."
             />
         </p>
         <p>
