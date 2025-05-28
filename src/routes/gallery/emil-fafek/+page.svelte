@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Meta from "$lib/Meta.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
     import { LightboxGallery, GalleryImage, GalleryThumbnail, i18n } from 'svelte-lightbox';
 
     let assets = [
@@ -26,6 +27,8 @@
 </script>
 
 <Meta title="Digitalizované fotografie - Fond Emila Fafka" />
+
+<PageLang cs />
 
 <h2>Digitalizované fotografie</h2>
 <h3>Fond Emila Fafka</h3>

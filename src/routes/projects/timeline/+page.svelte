@@ -2,10 +2,12 @@
 	import Meta from "$lib/Meta.svelte";
 	import Box from '$lib/Box.svelte';
     import Loc from "$src/lib/Loc.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <Meta title="Projekty"/>
 <!--<h2><a href="/projects">PROJEKTY</a> <div style="float: right">ČASOVÁ OSA</div></h2> -->
+
 <ul>
     <li><a href="/projects">
             <Loc
@@ -18,6 +20,9 @@
         en="Timeline"
         />
 </ul>
+
+<PageLang cs />
+
 <div class="projects">
     <div class="timeline-line"></div>
     <Box left>

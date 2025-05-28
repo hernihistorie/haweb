@@ -1,11 +1,14 @@
 <script lang="ts">
     import BlogPost from "$lib/BlogPost.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
     import type { InterviewData } from "$src/types";
     import { data as kopecky_data } from '$src/routes/interviews/lubor-kopecky/interview';
     import InterviewBox from "$src/lib/InterviewBox.svelte";
 
     let interviews: InterviewData[] = [kopecky_data];
 </script>
+
+<PageLang cs />
 
 <BlogPost
     author_name="Herní historie"

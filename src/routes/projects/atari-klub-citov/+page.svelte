@@ -4,6 +4,7 @@
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
 	import AssetList from "$src/lib/AssetList.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
 
     let interviews: InterviewData[] = [havelka_data];
 </script>
@@ -11,6 +12,8 @@
 <Meta title="Atari klub Cítov" />
 
 <article class="thin">
+    <PageLang cs />
+    
     <h2>Projekt Atari klub Cítov</h2>
     <div>
         <p><strong>Název projektu</strong>: Atari klub Cítov

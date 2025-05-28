@@ -1,5 +1,6 @@
 <script lang="ts">
     import BlogPost from "$lib/BlogPost.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset07758_data } from '$src/routes/assets/asset_07758';
     import { data as asset07821_data } from '$src/routes/assets/asset_07821';
@@ -10,6 +11,8 @@
 
     let assets: AssetData[] = [asset07758_data, asset07821_data, asset07822_data, asset07823_data, asset07824_data];
 </script>
+
+<PageLang cs />
 
 <BlogPost
     author_name="Herní historie"

@@ -6,6 +6,7 @@
 	import Chapter from "$lib/interviews/Chapter.svelte";
 
     import { data, MK } from "./interview";
+    import PageLang from "$src/lib/PageLang.svelte";
 
     let A = Answer;
     let Q = Question;
@@ -28,6 +29,8 @@
         display: table;
     } 
 </style>
+
+<PageLang cs />
 
 <Interview {data}>
     {#snippet content()}

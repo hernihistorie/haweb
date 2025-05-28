@@ -1,6 +1,9 @@
 <script>
     import BlogPost from "$lib/BlogPost.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
 </script>
+
+<PageLang cs />
 
 <BlogPost
     author_name="Herní historie"

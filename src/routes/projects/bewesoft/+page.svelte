@@ -3,6 +3,7 @@
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import Heading from "$src/lib/Heading.svelte";
 	import Key from "$src/lib/Key.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
 	import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
 
     let assets = loadRHInventoryAssetData({tagId: 26, page: 1, pageSize: 100}).then((value) => {
@@ -14,6 +15,7 @@
 <Meta title="Fond Jiřího Bernáška (BeWeSoft)" />
 
 <article class="thin">
+    <PageLang cs />
 
     <h2>Fond Jiřího Bernáška (BeWeSoft)</h2>
     <p><strong>Název fondu</strong>: Jiří Bernášek (BeWeSoft)</p>

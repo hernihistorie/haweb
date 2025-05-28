@@ -1,7 +1,10 @@
 <script lang="ts">
     import BlogPost from "$lib/BlogPost.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
 	import AssetList from "$src/lib/AssetList.svelte";
 </script>
+
+<PageLang cs />
 
 <BlogPost
     author_name="Herní historie"
