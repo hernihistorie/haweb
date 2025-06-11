@@ -6,6 +6,7 @@
     import spayd from 'spayd';
     import qrcode from 'qrcode';
 	import PriceButton from "./PriceButton.svelte";
+	import Loc from "$src/lib/Loc.svelte";
 
     const qrCodeOptions = {
         width: 1200,
@@ -78,9 +79,17 @@
 <Meta title="Podpořte nás" />
 
 <article class="thin">
-    <h2>Podpořte nás</h2>
+    <h2>
+        <Loc
+            cs="Podpořte nás"
+            en="Support us"
+        />
+    </h2>
     <p>
-        Finančně nás můžete podpořit na následujících místech:
+        <Loc
+            cs="Finančně nás můžete podpořit na následujících místech:"
+            en="You can financially support us at the following places:"
+        />
     </p>
 
     <dl>
@@ -94,9 +103,17 @@
         {/each}
     </dl>
 
-    <h3>Příspěvek na otevřený účet</h3>
+    <h3>
+        <Loc
+            cs="Příspěvek na otevřený účet"
+            en="Contribution to our transparent bank account"
+        />
+    </h3>
     <p>
-        Zvolte si částku, kterou nás chcete podpořit, a oskenujte kód zapomocí Vaší bankovní aplikace.
+        <Loc
+            cs="Zvolte si částku, kterou nás chcete podpořit, a oskenujte kód zapomocí Vaší bankovní aplikace."
+            en="If you have a Czech bank account, you can choose the amount you want to support us with and simply scan the code using your banking app."
+        />
     </p>
     <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap;">
         <PriceButton value="100" {amount} />
@@ -132,12 +149,28 @@
         <img src="/ico/logo_herni_archiv.svg" alt="" class="qrlogo">
     </div>
 
-    <p style="text-align: center;">
-        Případně můžete sami zaslat částku na náš transparentní účet s číslem<br>
-        <strong>8686868686/0600</strong>
+    <p style="">
+        <Loc
+            cs="
+                Případně můžete sami zaslat částku na náš transparentní účet s číslem:<br>
+                <strong>8686868686/0600</strong>
+            "
+            en="
+                Alternatively, you can send your contribution using the following SEPA bank account details:<br>
+                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
+                <strong>BIC:</strong> AGBACZPP<br>
+                <strong>Recipient</strong>: Herní historie, z.s.<br>
+                <strong>Address</strong>: Sportovní 1552/10a, 10100 Praha 10, Czech Republic
+            "
+        />
     </p>
 
-    <p>Děkujeme za vaše příspěvky, které nám pomáhají udržovat a rozšiřovat naše aktivity.
+    <p>
+        <Loc
+            cs="Děkujeme za vaše příspěvky, které nám pomáhají udržovat a rozšiřovat naše aktivity."
+            en="Thank you for your contributions, which help us maintain and expand our activities."
+        />
+    </p>
 </article>
 
 <style>
