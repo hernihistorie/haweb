@@ -60,4 +60,9 @@
 			width: 100%;
 		}
 	}
+    @media screen and (max-width: 470px) {
+		img {
+			width: 10%;
+		}
+	}
 </style>

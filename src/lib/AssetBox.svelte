@@ -117,4 +117,10 @@
             margin-bottom: 16px;
         }
     }
+
+    @media screen and (max-width: 470px) {
+		.asset-photo {
+			width: 90%;
+		}
+	}
 </style>

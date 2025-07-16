@@ -16,7 +16,7 @@ export const LK: Person = {
         details_url: "",
         // license_text: ""
     },
-    bio: "Lubor Kopecký se narodil roku 1978. Studoval na Obchodní akademii, kde potkal své tři kolegy, s kterými v následujících letech utvořili uskupení <em>Sleep Team</em> v rámci kterého udělali svou první hru <em>Polda</em>. Dělal také na hře <em>Bulánci</em>, <em>President: Path to Power</em> nebo <em>Bulánci 2</em>. Stál i u založení GDA, České hry roku a Katedry herního designu na FAMU.<br>Na rozhovor bylo dne <b>29.01.2025</b> navázáno několika doplňujícími otázkami týkající se zejména vývoje <em>Bulánků</em>."
+    bio: 'Lubor Kopecký se narodil roku 1978. Studoval na Obchodní akademii, kde potkal své tři kolegy, s kterými v následujících letech utvořili uskupení <em>Sleep Team</em> v rámci kterého udělali svou první hru <em>Polda</em>. Dělal také na hře <em>Bulánci</em>, <em>President: Path to Power</em> nebo <em>Bulánci 2</em>. Stál i u založení GDA, České hry roku a Katedry herního designu na FAMU. <br>Rozhovor je v současnosti možné získat <b>pouze pro výzkumné účely</b>. Kontaktujte nás na <a href="mailto:rudolf.suchy@herniarchiv.cz">rudolf.suchy@hernihistorie.cz</a>'
 }
 
 export const data: InterviewData = {
@@ -38,6 +38,6 @@ export const data: InterviewData = {
         publication_date: new Date("2024-01-20"),
         // verifier: null
     },
-    complete: true,
+    complete: false,
     tags: []
 }
