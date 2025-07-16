@@ -13,5 +13,5 @@
 >
     <p>Není nic horšího, než když si na počítači chcete zahrát letní olympiádu a místo ní na vás vybafne virus, který chce sušenku.
     <p>A proto jsme do archivu pořídili prvotřídní ochranu od AVG - tedy vlastně Anti-Virus Guard, jak se program tehdy jmenoval. Verze 1.62 z listopadu 1991 je nově v našem inventáři a její dump si můžete stáhnout i vy a ochránit své 386ky od pravěkých breberek:
-    <p><AssetList assetTagId={28}/>
+    <AssetList assetTagId={28}/>
 </BlogPost>
