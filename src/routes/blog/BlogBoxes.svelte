@@ -27,6 +27,8 @@
     Mezi lety 2002 a 2007 vycházel herní časopis KyberMyš, který oproti své konkurenci cílil primárně na mladší čtenářstvo. Celkem vyšlo 68 čísel, první v květnu 2002, poslední v prosinci 2007. Začínal s 36 stranami, ale časem se rozrostl – nejprve na 44, později až na 52 stran. Každé číslo obsahovalo CD-ROM plné herních dem, plných verzí i bonusových programů. Vydával ho Egmont ČR.
     </BlogBox>
 
+    {#if all}
+
     <BlogBox href="/blog/50-hifi-zpravodaje"
     title="Digitalizujeme zpravodaje pražského HiFi klubu"
     >
@@ -68,8 +70,6 @@
     >
     Není nic horšího, než když si na počítači chcete zahrát letní olympiádu a místo ní na vás vybafne virus, který chce sušenku. A proto jsme do archivu pořídili prvotřídní ochranu od AVG - tedy vlastně Anti-Virus Guard, jak se program tehdy jmenoval. Verze 1.62 z listopadu 1991 je nově v našem inventáři a její dump si můžete stáhnout i vy a ochránit své 386ky od pravěkých breberek.
     </BlogBox>
-        
-    {#if all}
     
     <BlogBox href="/blog/43-ondra-programy"
     title="Zachráněný software pro Ondra SPO 186"
