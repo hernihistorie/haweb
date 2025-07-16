@@ -9,6 +9,48 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/53-honza-oprava"
+    title="Opravujeme počítač HONZA"
+    >
+    Dnes jsme vytáhli náš nerozbalený počítač PC16NB “Honza” s účelem jej repasovat na případné výjezdy nebo jiné účely. Honzu jsme vybalili z letitého kartonu a začali diagnostikovat potenciální problémy, abychom mohli počítač po 35 letech konečně spustit.
+    </BlogBox>
+    
+    <BlogBox href="/blog/52-timewarrior"
+    title="Zdigitalizovali jsme anglickou hru Time Warrior"
+    >
+    Time Warrior je hra pro ZX Spectrum z roku 1992 a později pro Amigu z roku 1997, kterou vytvořil anglický autor Frank Oliver. Odehrává ve fantaskním světě inspirované jeho trilogií knih a k příběhům vznikl i hudební soundtrack. Přestože se většinou věnujeme místní tvorbě, tak hru Time Warrior sháněl pro projekt eXoIF kolega z Rakouska a kontaktoval Franka Olivera, tkerý mu poslal CD které vytvořil v roce 2016 s kompilací vlastní tvorby včetně plné verze Time Warriora.
+    </BlogBox>
+    
+    <BlogBox href="/blog/51-kybermys-sken"
+    title="Oskenovali jsme velkou část časopisu KyberMyš!"
+    >
+    Mezi lety 2002 a 2007 vycházel herní časopis KyberMyš, který oproti své konkurenci cílil primárně na mladší čtenářstvo. Celkem vyšlo 68 čísel, první v květnu 2002, poslední v prosinci 2007. Začínal s 36 stranami, ale časem se rozrostl – nejprve na 44, později až na 52 stran. Každé číslo obsahovalo CD-ROM plné herních dem, plných verzí i bonusových programů. Vydával ho Egmont ČR.
+    </BlogBox>
+
+    <BlogBox href="/blog/50-hifi-zpravodaje"
+    title="Digitalizujeme zpravodaje pražského HiFi klubu"
+    >
+    K digitalizaci jsme dostali zapůjčenou slušnou hromádku zpravodajů pražského HiFi klubu z let 1972-1997. Přestože s hrami příliš nesouvisí, je to i tak zajímavý a vzácný materiál. Díky zaměření na spotřební elektroniku obsahuje občas zajímavé postřehy o výpočetní technice a zároveň hrál klub malou roli v prehistorii televizních her u nás.
+    </BlogBox>
+
+    <BlogBox href="/blog/49-podcast-modrak"
+    title="Předseda našeho spolku byl v Modrák & Friends"
+    >
+    Předseda našeho spolku Vojtěch Straka byl v podcastu Jan Modrák. Zde povídal zejména o počátcích naší herní tvorby u nás a o tom, jak v podnicích jako je Tesla vznikaly československé telvizní tenisy.
+    </BlogBox>
+    
+    <BlogBox href="/blog/48-navod-televizni-tenis-tesla"
+    title="Oskenovali jsme návod k Televiznímu tenisu z Tesly"
+    >
+    ong byl na počátcích digitálních her defacto synonymem pro videohru - mnoho západních barů a restaurací si pořídilo do svých prostor arkádu a mnozí si pořizovali televizní tenisy do svých domácností. Domácí Pongy se ale nevyráběly jen na Západě, ale i u nás za železnou oponou a to třeba v závodech Tesla Piešťany.
+    </BlogBox>
+
+    <BlogBox href="/blog/47-ceske-arkady"
+    title="Získali jsme dvě arkády české výroby"
+    >
+    Arkádové kabinety pravděpodobně české výroby jsme získali díky spolupráci s Honzou Ornou a jeho skvělým projektem Arcade Hry. Ten určitě nemusíme představovat a jsme rádi, že tak skvělou a veřejně dostupnou sbírku máme v Čechách k dispozici.
+    </BlogBox>
+    
     <BlogBox href="/blog/46-spoluprace-nfa"
     title="Oznamujeme spolupráci mezi spolkem Herní historie a Pixelarchiv.cz!"
     >
