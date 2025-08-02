@@ -9,12 +9,26 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/56-orna-dopisy"
+    title="Jsme v procesu skenování dopisové komunikace Jana Orny"
+    >
+    Velmi často zdůrazňujeme, že herní historie nejsou jen hry samotné - je to hardware na kterém tyto hry běží, jsou to recenze a časopisy o hrách, jsou to vzpomínky vývojářů i hráčů, ale je to i komunikace ať už mezi vývojáři, tak mezi hráči. Proto jsme byli nadšení, když jsme nedávno od Honzi Orny z Arcade Her dostali (společně s československou arkádou) krabici s jeho dopisovou komunikací.
+    </BlogBox>
+    
+    <BlogBox href="/blog/55-muni-rozhovor"
+    title="Rozhovor s našema dvěma členy na téma digitalizace"
+    >
+    Na posledním Game Accessu byli naši dva členové - Rudolf Jan Suchý a Martin Štochl - osloveni Natalií Čornyjovou z MUNI ohledně rozhovoru na téma digitalizace všeho od nosičů digitálních dat až po archiválie jako jsou třeba časopisy.
+    </BlogBox>
+    
     <BlogBox href="/blog/54-bulanci-paratexty"
     title="Projekt Bulánci: Data o hráčské činnosti od vývojářů Bulánků"
     >
     Nedávno jsme dostali od jednoho z tvůrců Bulánků flashku s hromadou dat k této kultovní hře. Na flashce jsou primárně data k aktivitám kolem hry jako statistiky návštěvnosti oficiálního webu, fanouškovské výtvory jako demo fanouškovské mapy, nebo materiály jako zprávy a data pro potenciální sponzory a mnoho dalšího.
     </BlogBox>
-    
+
+   {#if all}
+
     <BlogBox href="/blog/53-honza-oprava"
     title="Opravujeme počítač HONZA"
     >
@@ -26,8 +40,6 @@
     >
     Time Warrior je hra pro ZX Spectrum z roku 1992 a později pro Amigu z roku 1997, kterou vytvořil anglický autor Frank Oliver. Odehrává ve fantaskním světě inspirované jeho trilogií knih a k příběhům vznikl i hudební soundtrack. Přestože se většinou věnujeme místní tvorbě, tak hru Time Warrior sháněl pro projekt eXoIF kolega z Rakouska a kontaktoval Franka Olivera, tkerý mu poslal CD které vytvořil v roce 2016 s kompilací vlastní tvorby včetně plné verze Time Warriora.
     </BlogBox>
-    
-    {#if all}
 
     <BlogBox href="/blog/51-kybermys-sken"
     title="Oskenovali jsme velkou část časopisu KyberMyš!"
