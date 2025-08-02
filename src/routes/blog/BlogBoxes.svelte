@@ -9,6 +9,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/54-bulanci-paratexty"
+    title="Projekt Bulánci: Data o hráčské činnosti od vývojářů Bulánků"
+    >
+    Nedávno jsme dostali od jednoho z tvůrců Bulánků flashku s hromadou dat k této kultovní hře. Na flashce jsou primárně data k aktivitám kolem hry jako statistiky návštěvnosti oficiálního webu, fanouškovské výtvory jako demo fanouškovské mapy, nebo materiály jako zprávy a data pro potenciální sponzory a mnoho dalšího.
+    </BlogBox>
+    
     <BlogBox href="/blog/53-honza-oprava"
     title="Opravujeme počítač HONZA"
     >
@@ -21,13 +27,13 @@
     Time Warrior je hra pro ZX Spectrum z roku 1992 a později pro Amigu z roku 1997, kterou vytvořil anglický autor Frank Oliver. Odehrává ve fantaskním světě inspirované jeho trilogií knih a k příběhům vznikl i hudební soundtrack. Přestože se většinou věnujeme místní tvorbě, tak hru Time Warrior sháněl pro projekt eXoIF kolega z Rakouska a kontaktoval Franka Olivera, tkerý mu poslal CD které vytvořil v roce 2016 s kompilací vlastní tvorby včetně plné verze Time Warriora.
     </BlogBox>
     
+    {#if all}
+
     <BlogBox href="/blog/51-kybermys-sken"
     title="Oskenovali jsme velkou část časopisu KyberMyš!"
     >
     Mezi lety 2002 a 2007 vycházel herní časopis KyberMyš, který oproti své konkurenci cílil primárně na mladší čtenářstvo. Celkem vyšlo 68 čísel, první v květnu 2002, poslední v prosinci 2007. Začínal s 36 stranami, ale časem se rozrostl – nejprve na 44, později až na 52 stran. Každé číslo obsahovalo CD-ROM plné herních dem, plných verzí i bonusových programů. Vydával ho Egmont ČR.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/50-hifi-zpravodaje"
     title="Digitalizujeme zpravodaje pražského HiFi klubu"

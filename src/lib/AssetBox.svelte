@@ -29,7 +29,7 @@
             <em>Načítám předmět...</em>
         {:then data}
             {#if data}
-                <div class="asset-text">
+                <div>
                     <div class="asset-name">
                         <a href="{ data.inventory_url }">
                             {#if data.id}
@@ -42,18 +42,10 @@
                             { data.name }
                         </a>
                     </div>
-                </div>
-                <div>
-                    {#if data.picture.url}
-                    <a href="{ data.inventory_url }" class="asset-photo">
-                        <img src="{ data.picture.url }" class="asset-img" alt="">
-                    </a>
-                    {/if}
                     <p>
                         <SvelteMarkdown source={data.description} />
                     </p>
                     {#if data.primary_dump_path}
-                        <div>
                         <a href="{data.primary_dump_path}" class="download">
                             <LucideDownload style="vertical-align: top;" />
                             Stáhnout dump
@@ -61,9 +53,13 @@
                                 ({formatFileSize(data.primary_dump_size)})
                             {/if}
                         </a>
-                        </div>
                     {/if}
                 </div>
+                {#if data.picture.url}
+                    <a href="{ data.inventory_url }" class="asset-photo">
+                        <img src="{ data.picture.url }" class="asset-img" alt="">
+                    </a>
+                {/if}
             {:else}
                 <em>Chyba: předmět nebyl dodán.</em>
             {/if}
@@ -81,9 +77,16 @@
        font-size: 25px;
        font-weight: bold; 
     }
+    .asset {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+    }
 
     .asset-photo {
-        float: right;
+        display: block;
+        margin-right: 4px;
+        margin-left: 16px;
         flex-shrink: 0;
     }
 
