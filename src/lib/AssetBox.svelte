@@ -54,6 +54,12 @@
                             {/if}
                         </a>
                     {/if}
+                    {#if data.primary_document_path}
+                        <a href="{data.primary_document_path}" class="download">
+                            <LucideDownload style="vertical-align: top;" />
+                            Stáhnout dokument
+                        </a>
+                    {/if}
                 </div>
                 {#if data.picture.url}
                     <a href="{ data.inventory_url }" class="asset-photo">

@@ -52,6 +52,7 @@ export interface AssetData {
     picture: Photo;
     primary_dump_path?: string;
     primary_dump_size?: number;
+    primary_document_path?: string;
     description: string;
     inventory_url: string;
 }
