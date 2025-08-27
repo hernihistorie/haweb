@@ -60,8 +60,17 @@
 
     <h3>
         <Loc
+            cs="Kde nás najdete"
+            en="Where to find us"
+        />
+    </h3>
+
+    <img src="/images/Kde nás najdete Herní historie-zoom.png" alt="Map of Prague showing the approximate locations of RetroHerna and the Game Archive" />
+
+    <h3>
+        <Loc
             cs="Finanční podpora"
-            en="Support"
+            en="Financial support"
         />
     </h3>
 
