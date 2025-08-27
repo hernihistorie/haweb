@@ -195,6 +195,27 @@
     </Arrow>
 </div>
 
+<h2><Loc
+    cs="Podpořte nás"
+    en="Support us"
+/></h2>
+<p>
+    <Loc
+        cs="
+            Československý herní archiv je projektem neziskového spolku Herní historie.  Jedná se o dobrovolnickou činnost z lásky ke hrám a historii naší kultury.  Vaše podpora nám pomáhá udržovat a rozvíjet naše aktivity.
+        "
+        en="
+            The Czechoslovak Game Archive is a project of the non-profit association Herní historie. It is a volunteer activity born out of love for games and the history of our culture. Your support helps us maintain and develop our activities.
+        "
+    />
+</p>
+<Arrow href="/support">
+    <Loc
+        cs="Podpořte naši činnost"
+        en="Support our activities"
+    />
+</Arrow>
+
 <style>
     .boxes {
         display: flex;
