@@ -23,7 +23,7 @@ export const data: InterviewData = {
     slug: "lubor-kopecky",
     lang: "cs",
     title: "Rozhovor s Luborem Kopeckým",
-    audio_file: "herni-archiv-rozhovor-lubor-kopecky.m4a",
+    // audio_file: "herni-archiv-rozhovor-lubor-kopecky.m4a",
     audio_duration: 51 + 46*60 + 1*60*60,
     narrator: LK,
     interview: {
