@@ -9,6 +9,30 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/63-orna-dopisy-2"
+    title="Druhá várka naskenované dopisové komunikace Jana Orny"
+    >
+    Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.
+    </BlogBox>
+
+    <BlogBox href="/blog/59-orbis-pictus"
+    title="Zaarchivovali jsme Orbis Pictus - němčina"
+    >
+    Nedávno se nám dostaly do rukou dvě kazety s výukovými hrami na ZX Spectrum Orbis Pictus 1 a Orbis Pictus 2. Bohužel obě kazety byly poškozené a i přes značnou snahu data opravit se nám všechny programy na kazetách nepovedlo zcela sprovoznit. Proto moc děkujeme Danielovi Szarázovi že nám poslal kopie svých kazet z kterých jsme následně celý program zkompletovali.
+    </BlogBox>
+    
+    <BlogBox href="/blog/58-poke-navod"
+    title="Oskenovali jsme návod na crackování her"
+    >
+    Všichno kdo hráli v 80. letech hry to znali - dostali jste od kamaráda na kazetě nějakou hru ze západu, která byla úplně nesmyslně těžká. Kopie hry kterou jste ale dostali nebyla jen tak ledajaká kopie, ale byla někým cracklá (často nějakým "Fuxoftem") abyste mohli hru dohrát třeba s nekonečnem životů. V příspěvku najdete návod kde je proces crackování popsán.
+    </BlogBox>
+
+    <BlogBox href="/blog/57-poke-navod"
+    title="Oskenovali jsme návod na crackování her"
+    >
+    Všichno kdo hráli v 80. letech hry to znali - dostali jste od kamaráda na kazetě nějakou hru ze západu, která byla úplně nesmyslně těžká. Kopie hry kterou jste ale dostali nebyla jen tak ledajaká kopie, ale byla někým cracklá (často nějakým "Fuxoftem") abyste mohli hru dohrát třeba s nekonečnem životů. V příspěvku najdete návod kde je proces crackování popsán.
+    </BlogBox>
+    
     <BlogBox href="/blog/56-orna-dopisy"
     title="Jsme v procesu skenování dopisové komunikace Jana Orny"
     >
