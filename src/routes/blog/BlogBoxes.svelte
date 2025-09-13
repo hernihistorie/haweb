@@ -9,10 +9,36 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/65-orna-dopisy-3"
+    title="Do třetice všeho dobrého: Poslední část dopisové komunikace Jana Orny"
+    >
+    Po měsíci usilovného skenování je naše práce u konce - všechny dopisy od Jana Orny jsou zdigitalizovány. V poslední části najdete další seznamy her a nabídkových listů, dopisy od řady tuzemských pirátů a dokonce dopisovou komunikaci obohacenou i o fotografie mezi Janem Ornou a jeho kamarádem, s kterým si začal psát nazákladě inzerátu v časopisu Excalibur.
+    </BlogBox>
+
+    <BlogBox href="/blog/64-commodore-pc-1"
+    title="Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)"
+    >
+    Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.
+    </BlogBox>
+
     <BlogBox href="/blog/63-orna-dopisy-2"
     title="Druhá várka naskenované dopisové komunikace Jana Orny"
     >
     Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.
+    </BlogBox>
+
+    {#if all}
+
+    <BlogBox href="/blog/62-oprava-disketovek"
+    title='Opravili jsme hromadu 5,25" disketovek'
+    >
+    Pro zálohování disket se starými hrami nebo nezazálohovanými daty je v první řadě potřeba mít disketovku. Ačkoliv 5,25" disketovky nejsou zdaleka tak nedostatkové zboží jako ty 8", tak už shání daleko hůře než pár let nazpět.
+    </BlogBox>
+
+    <BlogBox href="/blog/61-oral-history-cost"
+    title="Spolupořádáme workshop o Orální historii"
+    >
+    Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney.
     </BlogBox>
 
     <BlogBox href="/blog/59-orbis-pictus"
@@ -26,13 +52,13 @@
     >
     Všichno kdo hráli v 80. letech hry to znali - dostali jste od kamaráda na kazetě nějakou hru ze západu, která byla úplně nesmyslně těžká. Kopie hry kterou jste ale dostali nebyla jen tak ledajaká kopie, ale byla někým cracklá (často nějakým "Fuxoftem") abyste mohli hru dohrát třeba s nekonečnem životů. V příspěvku najdete návod kde je proces crackování popsán.
     </BlogBox>
-
-    <BlogBox href="/blog/57-poke-navod"
-    title="Oskenovali jsme návod na crackování her"
-    >
-    Všichno kdo hráli v 80. letech hry to znali - dostali jste od kamaráda na kazetě nějakou hru ze západu, která byla úplně nesmyslně těžká. Kopie hry kterou jste ale dostali nebyla jen tak ledajaká kopie, ale byla někým cracklá (často nějakým "Fuxoftem") abyste mohli hru dohrát třeba s nekonečnem životů. V příspěvku najdete návod kde je proces crackování popsán.
-    </BlogBox>
     
+    <BlogBox href="/blog/57-amiga-diskety"
+    title="Zazálohovali jsme diskety s programy pro počítač Amiga"
+    >
+    Kromě her se u nás vyvíjel i užitkový software. U mnoha programů postačovaly překlady nebo dokonce jen návody v češtině, ale občas vznikl úplně nový kousek. Několik pro Amigu jsme získali a zdigitalizovali. Velkým tahákem byla podpora češtiny v operačním systému, najdete tu tak překlad pro Workbench. Stejně tak byly populární výukové programy. Pokud neumíte psát všemi deseti, tak teď máte příležitost to dohnat.
+    </BlogBox>
+
     <BlogBox href="/blog/56-orna-dopisy"
     title="Jsme v procesu skenování dopisové komunikace Jana Orny"
     >
@@ -50,8 +76,6 @@
     >
     Nedávno jsme dostali od jednoho z tvůrců Bulánků flashku s hromadou dat k této kultovní hře. Na flashce jsou primárně data k aktivitám kolem hry jako statistiky návštěvnosti oficiálního webu, fanouškovské výtvory jako demo fanouškovské mapy, nebo materiály jako zprávy a data pro potenciální sponzory a mnoho dalšího.
     </BlogBox>
-
-   {#if all}
 
     <BlogBox href="/blog/53-honza-oprava"
     title="Opravujeme počítač HONZA"
