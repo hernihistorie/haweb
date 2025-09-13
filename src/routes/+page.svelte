@@ -5,11 +5,7 @@
     import Loc from '$lib/Loc.svelte';
 	import BlogBoxes from './blog/BlogBoxes.svelte';
     import ProjectBoxes from './projects/ProjectBoxes.svelte';
-	import InterviewBox from '$src/lib/InterviewBox.svelte';
-
-    import { data as vodak_data } from './interviews/zdenek-vodak/interview';
 	import Arrow from '$src/lib/Arrow.svelte';
-	import ThinBox from '$src/lib/ThinBox.svelte';
 </script>
 
 <Meta title="" />
@@ -41,7 +37,7 @@
                         en="Number of items in database"
                     />
                 </strong>:
-                8381
+                9079
                 <br>
                 <strong>
                     <Loc
@@ -49,10 +45,10 @@
                         en="Recent item"
                     />
                 </strong>:
-                <a href="https://inventory.herniarchiv.cz/asset/8492-color-tv-game-15" class="plain">
+                <a href="https://inventory.herniarchiv.cz/asset/8953-mato" class="plain">
                     <Loc
-                        cs="Herní konzole Color TV-Game 15"
-                        en="Color TV-Game 15 gaming console"
+                        cs="Osobní počítač Maťo"
+                        en="Personal computer Maťo"
                     />
                 </a>
             </p>

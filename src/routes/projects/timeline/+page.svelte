@@ -26,6 +26,18 @@
 <div class="projects">
     <div class="timeline-line"></div>
     <Box left>
+        <h3><span class="year">2025</span> <a href="/projects/atari-klub-citov">Programy z Československé televize</a></h3>
+        <p>
+            Na konci 80. let Československá televize vyprodukovala dva zdánlivě nesouvisející pořady – v roce 1986 vytvořila pořad <i>Kurz rychlého čtení</i> a v roce 1988 pak pořad <i>Počítačová dilemata</i>. Navzdory různým tématům měli tyto dva pořady mnoho společného, zejména, že jak u <i>Kurzu rychlého čtení</i> tak u <i>Počítačových dilemat</i> byly během závěrečných titulků vypískávané programy pro ZX Spectrum. V roce 2023 Herní archiv z archivu České televize zakoupil všechny dostupné kopie dílů pořadů <i>Kurz rychlého čtení</i> a <i>Počítačová dilemata</i> a v roce 2025 převedl a zveřejnil všechny programy pro ZX Spectrum z konců epizod těchto pořadů.
+        </p>
+    </Box>
+    <Box right>
+        <h3><span class="year">2025</span> <a href="/projects/bewesoft">Jiří Bernášek (BeWeSoft)</a></h3>
+        <p>
+            Fond Jiřího Bernáška – dlouholetého majitele a programátora pro počítače Atari – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci vytvořil i doprovodný text, který celou kolekci kontextualizuje.
+        </p>
+    </Box>
+    <Box left>
         <h3><span class="year">2024</span> <a href="/projects/atari-klub-citov">Atari klub Cítov</a></h3>
         <p>
             Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
