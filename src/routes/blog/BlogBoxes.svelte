@@ -9,6 +9,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/67-pong-xd8001-pod-drobnohledem"
+    title="Televizní hra Tesla XD-8001 pod drobnohledem"
+    >
+    Herní konzole ve stylu známého Pongu byly fenoménem 70. let nejen na západě, ale zhruba od přelomu 1976-1977 začaly různé jejich verze vznikat i v tehdejším Československu. Říkalo se jim tu zpravidla Televizní tenis, či prostě Televizní hra, a my se nyní v trojdílné minisérii článků zaměříme po technické stránce na jeden unikát mezi nimi.
+    </BlogBox>
+
     <BlogBox href="/blog/65-orna-dopisy-3"
     title="Do třetice všeho dobrého: Poslední část dopisové komunikace Jana Orny"
     >
