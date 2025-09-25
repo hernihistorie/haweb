@@ -27,13 +27,13 @@
     Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.
     </BlogBox>
 
+   {#if all}
+
     <BlogBox href="/blog/63-orna-dopisy-2"
     title="Druhá várka naskenované dopisové komunikace Jana Orny"
     >
     Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.
     </BlogBox>
-
-    {#if all}
 
     <BlogBox href="/blog/62-oprava-disketovek"
     title='Opravili jsme hromadu 5,25" disketovek'
