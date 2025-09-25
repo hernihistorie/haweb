@@ -129,8 +129,8 @@
     />
     </p>
     <p><Loc
-        cs="Program z <i>Počítačových dilemat</i> byl malou osobní databází. Ta uživatelstvu umožňovala si vést osobní poznámky, seznam kontaktů, půjčených věcí, událostí nebo zásob doma. Program také obsahoval kalendář se všemi svátky a z nějakého důvodu nabízel i možnost si spočítat v jakou hodinu vyjde slunce."
-        en="The program from <i>Počítačová dilemata</i> was a small personal database. It allowed users to keep personal notes, a list of contacts, borrowed items, events, or home supplies. The program also included a calendar with all holidays and, for some reason, even offered the option to calculate the sunrise time."
+        cs="Program z <i>Počítačových dilemat</i> byl malou osobní databází. Ta uživatelstvu umožňovala si vést osobní poznámky, seznam kontaktů, půjčených věcí, událostí nebo zásob doma. Program také obsahoval kalendář se všemi svátky a z nějakého důvodu nabízel i možnost si spočítat v jakou hodinu vyjde slunce. Dle zdrojového kódu je autorem programu Ing. Petr Foniok."
+        en="The program from <i>Počítačová dilemata</i> was a small personal database. It allowed users to keep personal notes, a list of contacts, borrowed items, events, or home supplies. The program also included a calendar with all holidays and, for some reason, even offered the option to calculate the sunrise time. Acording to the source code, the author of the program is Ing. Petr Foniok."
     />
     </p>
     <p><Loc
