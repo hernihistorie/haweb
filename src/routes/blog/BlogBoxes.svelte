@@ -9,6 +9,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/69-pixelarchiv-zeny"
+    title="Příští čtvrtek proběhne akce Pixelarchiv v kině: Ženy v herní kultuře"
+    >
+    Spřátelený projekt Pixelarchiv.cz pořádá příští čtvrtek (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky. O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními drahami.
+    </BlogBox>
+
     <BlogBox href="/blog/67-pong-xd8001-pod-drobnohledem"
     title="Televizní hra Tesla XD-8001 pod drobnohledem"
     >
@@ -21,13 +27,13 @@
     Po měsíci usilovného skenování je naše práce u konce - všechny dopisy od Jana Orny jsou zdigitalizovány. V poslední části najdete další seznamy her a nabídkových listů, dopisy od řady tuzemských pirátů a dokonce dopisovou komunikaci obohacenou i o fotografie mezi Janem Ornou a jeho kamarádem, s kterým si začal psát nazákladě inzerátu v časopisu Excalibur.
     </BlogBox>
 
+   {#if all}
+
     <BlogBox href="/blog/64-commodore-pc-1"
     title="Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)"
     >
     Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.
     </BlogBox>
-
-   {#if all}
 
     <BlogBox href="/blog/63-orna-dopisy-2"
     title="Druhá várka naskenované dopisové komunikace Jana Orny"
