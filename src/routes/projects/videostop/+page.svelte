@@ -39,6 +39,9 @@
         Původní program od Ing. Zdeňka Vodáka však získal a zpřístupnil Herní archiv až v roce 2024 a to díky jeho autorovi. Součástí fondu jsou kromě samotných kazetových pásek s <em>Hrou Videostop</em>, dumpy těchto pásek, scénáře k Videostopu a jejich skeny nebo rozhovory se Zdeňkem Vodákem a Vladimírem Bezděkem st.
     </p>
 
+    <h3>Články a přednášky</h3>
+    <ul><li><b>Přednáška z ByteFESTu 2024</b> s názvem <i>„Historie a prezentace hry z pořadu Videostop"</i> od Rudolfa Jana Suchého (<a href="https://www.youtube.com/watch?v=Ce_lJMa0X6s">ZÁZNAM ZDE</a>)</ul>
+
     <h3 id="Navody">Návody</h3>
     <h4>Návod na spuštění hry Videostop</h4>
     <p>
@@ -59,9 +62,6 @@
         </li><li>Po nahrání hry by se vám mělo zobrazit menu hry. Vyberte pomocí čísel jednu z možností – pro samotnou hru vyberte ZAVERECNE LOSOVANI.
         </li><li>Nyní by se vám měla zobrazit samotná hra. Ovládáte ji pomocí joysticku zapojeného do Kempston interface. Vzhledem k tomu, že hra se ovládal jen pomocí jednoho velkého tlačítka, tak by měla jakýkoliv input vždy interpretovat, jako zmáčknutí tohoto tlačítka.
     </ol>
-
-    <!-- <h3>Články</h3>
-    <p><em>Sem přijdou případné články.</em> -->
     
     <h3>Rozhovory</h3>
     {#each interviews as data}
