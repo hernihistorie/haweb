@@ -9,6 +9,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/70-pong-mas601-pod-mikroskopem"
+    title="Obvody MAS601-603 pro televizní hry pod mikroskopem"
+    >
+    V minulém článku jsme si představili zvenku i zevnitř televizní hru XD-8001, kterou od roku 1979 vyráběla Piešťanská Tesla. Hra je založena na specializovaných čipech MAS601-603, navržených a vyráběných přímo v Piešťanech, což je v rámci tehdejšího východního bloku herní unikát, a i ve světovém měřítku vzácnost. Tento článek je určen pro obzvláště zvídavého a trpělivého čtenáře, neboť půjdeme ještě hlouběji: Nahlédneme přímo do vnitřní struktury zmíněných čipů a pokusíme se rozluštit jejich fungování.
+    </BlogBox>
+
     <BlogBox href="/blog/69-pixelarchiv-zeny"
     title="Příští čtvrtek proběhne akce Pixelarchiv v kině: Ženy v herní kultuře"
     >
@@ -21,13 +27,13 @@
     Herní konzole ve stylu známého Pongu byly fenoménem 70. let nejen na západě, ale zhruba od přelomu 1976-1977 začaly různé jejich verze vznikat i v tehdejším Československu. Říkalo se jim tu zpravidla Televizní tenis, či prostě Televizní hra, a my se nyní v trojdílné minisérii článků zaměříme po technické stránce na jeden unikát mezi nimi.
     </BlogBox>
 
+   {#if all}
+
     <BlogBox href="/blog/65-orna-dopisy-3"
     title="Do třetice všeho dobrého: Poslední část dopisové komunikace Jana Orny"
     >
     Po měsíci usilovného skenování je naše práce u konce - všechny dopisy od Jana Orny jsou zdigitalizovány. V poslední části najdete další seznamy her a nabídkových listů, dopisy od řady tuzemských pirátů a dokonce dopisovou komunikaci obohacenou i o fotografie mezi Janem Ornou a jeho kamarádem, s kterým si začal psát nazákladě inzerátu v časopisu Excalibur.
     </BlogBox>
-
-   {#if all}
 
     <BlogBox href="/blog/64-commodore-pc-1"
     title="Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)"
