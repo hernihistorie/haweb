@@ -1,0 +1,18 @@
+<script lang="ts">
+    import BlogPost from "$lib/BlogPost.svelte";
+    import PageLang from "$src/lib/PageLang.svelte";
+</script>
+
+<PageLang cs />
+
+<BlogPost
+    author_name="Herní historie"
+    date="11. listopadu 2025"
+    title="Opravili jsme konzoli ColecoVision"
+>
+    <p>Z rané éry herního průmyslu asi většina lidí zná zejména Atari VCS, nicméně VCS nebylo jedinou konzolí, která se na americkém trhu tehdy prodávala. Další bylo třeba ColecoVision které se nám po mnoha výjezdech rozbilo. Nakonec ho opraviil Lukáš Nevařil takže nyní se na něj můžete těšit na dalších výjezdech!
+    <p>(Foto od: Rudolf Jan Suchý)
+    <p><img src="/photos/blog-posts/coleco-vision_1.jpg">
+    <p><img src="/photos/blog-posts/coleco-vision_2.jpg">
+    <p><img src="/photos/blog-posts/coleco-vision_3.jpg">
+</BlogPost>

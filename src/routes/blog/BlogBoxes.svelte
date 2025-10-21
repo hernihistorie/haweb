@@ -9,10 +9,54 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/78-oprava-coleco-vision"
+    title="Opravili jsme konzoli ColecoVision"
+    >
+    Z rané éry herního průmyslu asi většina lidí zná zejména Atari VCS, nicméně VCS nebylo jedinou konzolí, která se na americkém trhu tehdy prodávala. Další bylo třeba ColecoVision které se nám po mnoha výjezdech rozbilo. Nakonec ho opraviil Lukáš Nevařil takže nyní se na něj můžete těšit na dalších výjezdech!
+    </BlogBox>
+
+    <BlogBox href="/blog/77-oprava-didaktik-gama"
+    title="Opravili jsme počítač Didaktik Gama"
+    >
+    Ačkoliv je v naší sbírce Didaktiků Gama a Didaktiků M celá řada, tak smutnou pravdou je, že většina z nich se k nám dostala již v nefunkčním stavu. Proto jsme rádi, že Lukáš Nevařil při své návštěvě začal naše Didaktiky opravovat. Toto je jeden z nich.
+    </BlogBox>
+
+    <BlogBox href="/blog/76-oprava-jaguar"
+    title="Opravili jsme naše Atari Jaguary"
+    >
+    Ačkoliv jde o jednu z těch obskurnějších konzolí, tak v naší výjezdové výbavě RetroHerny je dlouho konzole Atari Jaguar. Bohužel oba kousky které vlastníme se nám rozbily a bylo potřeba, aby je opravil šikovný Lukáš Nevařil.
+    </BlogBox>
+
+    {#if all}
+
+    <BlogBox href="/blog/75-oprava-mato-2"
+    title="Opravili jsme herní verzi počítače Maťo"
+    >
+    Nějakou dobu nazpět jsme sdíleli příspěvek o našem opraveném Maťovi. Opravili jsme však dva - jeden který má v sobě ROMku s Basicem a druhý s hrami. Počítač úspěšně zprovoznil Lukáš Nevařil a nyní je vedle svého brášky uložen v našem archivu.
+    </BlogBox>
+
+    <BlogBox href="/blog/74-oprava-mato-1"
+    title="Opravili jsme počítač Maťo"
+    >
+    Již nějakou delší dobu nazpět se nám do rukou dostalo několik kazet s programy a počítač Maťo — stroj slovenské výroby z konce 80. let, který byl klonem PMD 85. Počítač úspěšně zprovoznil Lukáš Nevařil a nyní je uložen v našem archivu.
+    </BlogBox>
+    
+    <BlogBox href="/blog/73-seznam-her"
+    title="Vytvořili jsme s Herním archologem a cs.speccy seznam nezazálohovaných her"
+    >
+    Zdaleka ne všechny hry z naší historie existují ve sbírkách a digitálních repozitářích. Čas od času se stane, že narazíme na nějaký kousek který byl třeba plánovaný, nebo dokonce na něj lidé vzpomínají, ale dostat se k hratelné verzi nedá. Ty je pak dobré někam sepsat a doufat, že se třeba někde vyloupnou. My jsme se rozhodli vytvořit seznam univerzální a doplnit ke každé hře ideálně i zdroje aby šlo v budoucnu zjistit, jak jsme se o hře dozvěděli.
+    </BlogBox>
+    
     <BlogBox href="/blog/72-pong-mas601-pod-lupou"
     title="Obvody MAS601 vs AY-3-8500 pod detektivní lupou"
     >
     V předchozích dvou článcích jsme si podrobně prohlédli unikátní herní konzoli XD-8001 z Piešťanské Tesly, z pohledu uživatele, vnitřku přístroje, i struktury samotných integrovaných obvodů, které celou hru řídí. Tento závěrečný článek uzavře naši dobrodružnou cestu historickou herní technologií několika ukázkami zajímavých nálezů ve struktuře čipů, a konečně i srovnáním kvalit MAS601-603 s podobně zaměřeným, celosvětově dominantním čipem AY-3-8500, jehož zdokumentování se výborně zhostil Cole Johnson.
+    </BlogBox>
+
+    <BlogBox href="/blog/71-rozhovor-retro-hrac"
+    title="Retro Hráč s námi dělal rozhovor"
+    >
+    Kluci z Retro Hráče si nás odchytili na letošním Game Accessu a vyptali se jak se nám daří s RetroHernou i zbytkem projektů. Poprvé jsme se lépe poznali už před mnoha lety na námi spoluorganizovaném ReTripu a od té doby na sebe čas od času narazíme. Dan je skvělý expert na konzolové retro tituly a vrací se teď ke starší sérii Retro Pokec a nám je ctí být součástí nového dílu, kde shrneme nedávnou historii našeho projektu i jaké hry bychom doporučili. Je skvělé, že zájem o historii her je u nás vidět a dokazuje to i existence projektů jako právě Retro Hráč!
     </BlogBox>
 
     <BlogBox href="/blog/70-pong-mas601-pod-mikroskopem"
@@ -27,9 +71,12 @@
     Spřátelený projekt Pixelarchiv.cz pořádá příští čtvrtek (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky. O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními drahami.
     </BlogBox>
 
-
-    {#if all}
-
+    <BlogBox href="/blog/68-videostop-prednaska"
+    title="Byla zveřejněna naše přednáška o Videostopu"
+    >
+    inulý rok měl člen našeho spolku Rudolf Jan Suchý přednášku o historii a archivaci hry z televizního pořadu Videostop. Záznam z této přednášky nyní naleznete na YouTubu ByteFESTu.
+    </BlogBox>
+    
     <BlogBox href="/blog/67-pong-xd8001-pod-drobnohledem"
     title="Televizní hra Tesla XD-8001 pod drobnohledem"
     >

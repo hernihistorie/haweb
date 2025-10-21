@@ -7,7 +7,7 @@
 
 <BlogPost
     author_name="Jiří Bernášek"
-    date="14. října 2025"
+    date="21. října 2025"
     title="Obvody MAS601 vs AY-3-8500 pod detektivní lupou"
 >
     <div class="picture-cite">
