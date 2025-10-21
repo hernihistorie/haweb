@@ -6,7 +6,7 @@
 <PageLang cs />
 
 <BlogPost
-    author_name="Herní historie"
+    author_name="Jiří Bernášek"
     date="14. října 2025"
     title="Obvody MAS601-603 pro televizní hry pod mikroskopem"
 >
