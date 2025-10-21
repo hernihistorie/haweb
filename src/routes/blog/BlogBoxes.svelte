@@ -9,6 +9,12 @@
 </script>
 
 <div class="blogboxes">
+    <BlogBox href="/blog/72-pong-mas601-pod-lupou"
+    title="Obvody MAS601 vs AY-3-8500 pod detektivní lupou"
+    >
+    V předchozích dvou článcích jsme si podrobně prohlédli unikátní herní konzoli XD-8001 z Piešťanské Tesly, z pohledu uživatele, vnitřku přístroje, i struktury samotných integrovaných obvodů, které celou hru řídí. Tento závěrečný článek uzavře naši dobrodružnou cestu historickou herní technologií několika ukázkami zajímavých nálezů ve struktuře čipů, a konečně i srovnáním kvalit MAS601-603 s podobně zaměřeným, celosvětově dominantním čipem AY-3-8500, jehož zdokumentování se výborně zhostil Cole Johnson.
+    </BlogBox>
+
     <BlogBox href="/blog/70-pong-mas601-pod-mikroskopem"
     title="Obvody MAS601-603 pro televizní hry pod mikroskopem"
     >
@@ -21,13 +27,14 @@
     Spřátelený projekt Pixelarchiv.cz pořádá příští čtvrtek (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky. O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními drahami.
     </BlogBox>
 
+
+    {#if all}
+
     <BlogBox href="/blog/67-pong-xd8001-pod-drobnohledem"
     title="Televizní hra Tesla XD-8001 pod drobnohledem"
     >
     Herní konzole ve stylu známého Pongu byly fenoménem 70. let nejen na západě, ale zhruba od přelomu 1976-1977 začaly různé jejich verze vznikat i v tehdejším Československu. Říkalo se jim tu zpravidla Televizní tenis, či prostě Televizní hra, a my se nyní v trojdílné minisérii článků zaměříme po technické stránce na jeden unikát mezi nimi.
     </BlogBox>
-
-   {#if all}
 
     <BlogBox href="/blog/65-orna-dopisy-3"
     title="Do třetice všeho dobrého: Poslední část dopisové komunikace Jana Orny"
