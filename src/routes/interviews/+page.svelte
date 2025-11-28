@@ -10,12 +10,13 @@
     import { data as bezdek_data } from './vladimir-bezdek/interview';
     import { data as hurnikova_data } from './kamila-hurnikova/interview';
     import { data as tomas_bartovsky } from './tomas-bartovsky/interview';
+    import { data as rudolf_pecinovsky } from './rudolf-pecinovsky/interview';
     import InterviewBox from "$src/lib/InterviewBox.svelte";
 	import Meta from "$src/lib/Meta.svelte";
 	import Loc from "$src/lib/Loc.svelte";
 
 
-    let interviews: InterviewData[] = [havelka_data, kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data, tomas_bartovsky];
+    let interviews: InterviewData[] = [havelka_data, kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data, tomas_bartovsky, rudolf_pecinovsky];
 </script>
 
 <Meta title="Rozhovory" />
