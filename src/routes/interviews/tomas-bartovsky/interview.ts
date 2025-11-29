@@ -1,4 +1,7 @@
 import type { InterviewData } from "$src/types";
+import { RS, AT } from "../persons";
+
+export {RS, AT};
 
 export const data: InterviewData = {
     slug: "tomas-bartovsky",
@@ -10,7 +13,7 @@ export const data: InterviewData = {
         name: "Tomáš Bartovký",
         birth_year: "1938",
         gender: "M",
-        bio: "Tomáš Bartovský se narodil roku 1938 v Úpici. Studoval na VŠCHT, kde poté i učil. Skrze modelářský se dostal k Domu pionýrů v Podbabě, kde se seznámil s počítači i programováním. Později se účastnil i aktivit v rámci 602. ZO Svazarmu, v rámci kterého vytvořil i tehdy populární programovací jazyk <i>Karel</i>.",
+        bio: "Tomáš Bartovský se narodil roku 1938 v Úpici. Studoval na VŠCHT, kde poté i učil. Skrze modelářský kroužek se dostal k Domu pionýrů v Podbabě, kde se seznámil s počítači i programováním. Později se účastnil i aktivit v rámci 602. ZO Svazarmu, v rámci kterého vytvořil i tehdy populární programovací jazyk <i>Karel</i>.",
         photo: {
             url: "/interviews/tomas-bartovsky.jpg",
         }
@@ -18,9 +21,9 @@ export const data: InterviewData = {
     interview: {
         date: new Date("2025-11-18"),
         place: "Bistro Andělka",
-        interviewer: "Rudolf Jan Suchý, Agáta Trlidová",
+        interviewers: [RS, AT],
         // length: "",
-        project: "Programy šířené v rámci vysílání Československého rozhlasu",
+        project: {name:"Programy šířené v rámci vysílání Československého rozhlasu"},
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null

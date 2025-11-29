@@ -6,6 +6,12 @@ export const RS: Person = {
     color: "darkred"
 }
 
+export const AT: Person = {
+    name: "Agáta Trlidová",
+    shortname: "AT",
+    color: "red"
+}
+
 export const VS: Person = {
     name: "Vojtěch Straka",
     shortname: "VS",

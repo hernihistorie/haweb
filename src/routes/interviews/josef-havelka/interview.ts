@@ -28,7 +28,7 @@ export const data: InterviewData = {
     interview: {
         date: new Date("2024-05-13"),
         place: "Cítov",
-        interviewer: RS,
+        interviewers: [RS, VS],
         length: "2:35:41",
         project: { name: "Atari klub Cítov" },
         informed_agreement: true,

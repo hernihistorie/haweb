@@ -1,4 +1,7 @@
 import type { InterviewData } from "$src/types";
+import { RS, AT } from "../persons";
+
+export {RS, AT};
 
 export const data: InterviewData = {
     slug: "rudolf-pecinovsky",
@@ -18,9 +21,9 @@ export const data: InterviewData = {
     interview: {
         date: new Date("2025-11-28"),
         place: "Kancelář VŠE",
-        interviewer: "Rudolf Jan Suchý, Agáta Trlidová",
+        interviewers: [RS, AT],
         // length: "",
-        project: "Programy šířené v rámci vysílání Československého rozhlasu",
+        project: {name:"Programy šířené v rámci vysílání Československého rozhlasu"},
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null
