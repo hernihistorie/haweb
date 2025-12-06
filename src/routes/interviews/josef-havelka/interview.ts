@@ -30,7 +30,7 @@ export const data: InterviewData = {
         place: "Cítov",
         interviewers: [RS, VS],
         length: "2:35:41",
-        project: { name: "Atari klub Cítov" },
+        project: { name: "Atari klub Cítov", url: "/projects/atari-klub-citov/" },
         informed_agreement: true,
         transcriber: {name: 'Sabina Adlerová'},
         redaction: RS,
