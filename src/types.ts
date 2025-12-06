@@ -18,6 +18,11 @@ export interface Person {
     gender?: Gender;
 }
 
+export interface Project {
+    name: string;
+    url?: string;
+}
+
 export interface InterviewData {
     slug: string;
     lang: string;
@@ -33,10 +38,7 @@ export interface InterviewData {
         interviewer?: Person;
         interviewers?: Person[];
         length?: string;
-        project?: {
-            name: string;
-            url?: string;
-        };
+        project?: Project;
         informed_agreement?: boolean;
         transcriber?: Person;
         redaction?: Person;

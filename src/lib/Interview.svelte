@@ -1,5 +1,7 @@
 <!-- @migration-task Error while migrating Svelte code: Unexpected block closing tag -->
 <script lang="ts">
+  import ProjectName from './ProjectName.svelte';
+
 	import type { InterviewData } from '$src/types';
     import { tocCrawler } from './TableOfContents/crawler';
 	import Post from './Post.svelte';
@@ -21,7 +23,7 @@
                 </strong>
             </div>
             {#if data.interview.project }
-                { data.interview.project.name }
+                <ProjectName project={data.interview.project} />
             {/if}
 
             <hr>
@@ -79,10 +81,8 @@
                 {#if data.interview.project }
                     <dt>Projekt</dt>
                     <dd>
-                        {#if data.interview.project.url}
-                            <a href={data.interview.project.url}>{ data.interview.project.name }</a>
-                        {:else}
-                            { data.interview.project.name }
+                        {#if data.interview.project }
+                            <ProjectName project={data.interview.project} />
                         {/if}
                     </dd>
                 {/if}
@@ -119,6 +119,11 @@
             </article>
 
             <hr>
+
+            {#if data.interview.project }
+                Tento rozhovor je součástí projektu
+                <ProjectName project={data.interview.project} />.
+            {/if}
 
             {#if data.narrator.photo && data.narrator.photo.license_text }
                 <h4>Fotografie</h4>
