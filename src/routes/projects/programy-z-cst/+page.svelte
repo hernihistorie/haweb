@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import ProjectPage from "$lib/ProjectPage.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
     import Loc from "$src/lib/Loc.svelte";
+    import { projectProgramyZCST } from './project';
 
     let krc = [{id: 1, text: "Program z 1. dílu seriálu generuje n-tice čísel, která se krátce objeví na obrazovce. Na hráčstvu je, aby tato čísla stihlo přečíst.", text_en: "The program from episode 1 of the series generates n-tuples of numbers that briefly appear on the screen. It is up to the player to read these numbers in time."},
                {id: 2, text: "Program z 2. dílu seriálu generuje n-tice znaků, které se krátce objeví na obrazovce. Na hráčstvu je, aby tyto znaky stihlo přečíst.", text_en: "The program from episode 2 of the series generates n-tuples of characters that briefly appear on the screen. It is up to the player to read these characters in time."},
@@ -25,13 +26,7 @@
             ]
 </script>
 
-<Meta title="Programy z Československé televize" />
-
-<article class="thin">
-    <h2><Loc
-        cs="Projekt Programy z Československé televize"
-        en="Project Programs from Czechoslovak Television"
-        /></h2>
+<ProjectPage project={projectProgramyZCST}>
     <div><Loc
             cs="<p><strong>Název projektu</strong>: Programy z Československé televize
                 <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Lukáš Macura, Karel Ondráček
@@ -174,7 +169,7 @@
     <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->
 
-</article>
+</ProjectPage>
 <style>
     .file {
         display: flex;

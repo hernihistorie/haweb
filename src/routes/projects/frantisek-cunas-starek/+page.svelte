@@ -1,21 +1,16 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import ProjectPage from "$lib/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as cunas_data } from '$src/routes/interviews/frantisek-cunas-starek/interview';
 	import AssetList from "$src/lib/AssetList.svelte";
     import Loc from "$src/lib/Loc.svelte";
+    import { projectFrantisekCunasStarek } from './project';
 
     let interviews: InterviewData[] = [cunas_data];
 </script>
 
-<Meta title='Fond Františka „Čuňase“ Stárka' />
-
-<article class="thin">
-    <h2><Loc
-        cs='Fond Františka „Čuňase“ Stárka'
-        en='František „Čuňas“ Stárek Collection'
-        /></h2>
+<ProjectPage project={projectFrantisekCunasStarek}>
     <div><Loc
             cs='<p><strong>Název projektu</strong>: František „Čuňas“ Stárek
                 <p><strong>Jména zpracovatelů</strong>: Jaroslav Švelch, Rudolf Jan Suchý
@@ -55,4 +50,4 @@
     
     <AssetList assetTagId={22} withHeading />
 
-</article>
+</ProjectPage>

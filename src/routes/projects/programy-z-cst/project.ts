@@ -5,6 +5,10 @@ export const projectProgramyZCST: Project = {
         cs: "Programy z Československé televize",
         en: "Programs from Czechoslovak Television"
     },
+    fullname: {
+        cs: "Projekt Programy z Československé televize",
+        en: "Project Programs from Czechoslovak Television"
+    },
     type: "project",
     url: "/projects/programy-z-cst/",
     image: "/photos/projects/cst.jpg",

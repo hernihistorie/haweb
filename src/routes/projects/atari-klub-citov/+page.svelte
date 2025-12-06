@@ -1,20 +1,17 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import ProjectPage from "$lib/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
 	import AssetList from "$src/lib/AssetList.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { projectAtariKlubCitov } from './project';
 
     let interviews: InterviewData[] = [havelka_data];
 </script>
 
-<Meta title="Atari klub Cítov" />
-
-<article class="thin">
+<ProjectPage project={projectAtariKlubCitov}>
     <PageLang cs />
-    
-    <h2>Projekt Atari klub Cítov</h2>
     <div>
         <p><strong>Název projektu</strong>: Atari klub Cítov
         <p><strong>Jména zpracovatelů</strong>: Vojtěch Straka, Rudolf Jan Suchý,  Ladislav Greiner, Tomáš Nestorovic, Kamil Ševeček, Karel Ondráček
@@ -42,9 +39,9 @@
         <InterviewBox {data}/>
     {/each}
 
-    <AssetList withHeading=true assetTagId={16} />
+    <AssetList withHeading={true} assetTagId={16} />
 
     <!-- <h3>Články</h3>
     <p><em>Sem přijdou případné články.</em> -->
 
-</article>
+</ProjectPage>

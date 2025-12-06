@@ -62,6 +62,7 @@ export interface AssetData {
 
 export interface Project {
     name: LocalizedString;
+    fullname?: LocalizedString;
     type: "project" | "fond";
     url?: string;
     image: string;

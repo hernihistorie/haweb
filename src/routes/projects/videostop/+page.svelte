@@ -1,18 +1,18 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import ProjectPage from "$lib/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
     import InterviewBox from "$lib/InterviewBox.svelte";
     import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
     import { data as bezdek_data } from '$src/routes/interviews/vladimir-bezdek/interview';
 	import AssetList from "$src/lib/AssetList.svelte";
+    import { projectVideostop } from './project';
+	import PageLang from "$src/lib/PageLang.svelte";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
 </script>
 
-<Meta title="Videostop" />
-
-<article class="thin">
-    <h2>Projekt Videostop</h2>
+<ProjectPage project={projectVideostop}>
+    <PageLang cs />
     <div>
         <p><strong>Název projektu</strong>: Videostop
         <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Karel Ondráček, Vojtěch Straka, Roman Bórik
@@ -71,4 +71,4 @@
     <h3 id="Predmety">Předměty</h3>
     <AssetList assetTagId={8} />
 
-</article>
+</ProjectPage>

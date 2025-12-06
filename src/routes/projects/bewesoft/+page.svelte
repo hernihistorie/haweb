@@ -1,23 +1,19 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import ProjectPage from "$lib/ProjectPage.svelte";
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import Heading from "$src/lib/Heading.svelte";
 	import Key from "$src/lib/Key.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 	import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
+    import { projectBewesoft } from './project';
 
     let assets = loadRHInventoryAssetData({tagId: 26, page: 1, pageSize: 100}).then((value) => {
         return new Map(value.assets.map(asset => [asset.id, asset]));
     });
 </script>
 
-
-<Meta title="Fond Jiřího Bernáška (BeWeSoft)" />
-
-<article class="thin">
+<ProjectPage project={projectBewesoft}>
     <PageLang cs />
-
-    <h2>Fond Jiřího Bernáška (BeWeSoft)</h2>
     <p><strong>Název fondu</strong>: Jiří Bernášek (BeWeSoft)</p>
     <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V. Novák</p>
     <p><strong>Rok dokončení</strong>: 2025</p>
@@ -1902,7 +1898,7 @@ NTWGAM3  TXT  16148 10-05-02 14:00
     </details>
 
 
-</article>
+</ProjectPage>
 
 <style>
     .img1 img, .img1 video {

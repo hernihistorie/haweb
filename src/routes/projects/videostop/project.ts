@@ -2,6 +2,10 @@ import type { Project } from '$src/types';
 
 export const projectVideostop: Project = {
     name: "Videostop",
+    fullname: {
+        cs: "Projekt Videostop",
+        en: "Project Videostop"
+    },
     type: "project",
     url: "/projects/videostop/",
     image: "/photos/projects/videostop.jpg",

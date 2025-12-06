@@ -5,6 +5,10 @@ export const projectAtariKlubCitov: Project = {
         cs: "Atari klub Cítov",
         en: "Atari club Citov"
     },
+    fullname: {
+        cs: "Projekt Atari klub Cítov",
+        en: "Project Atari club Citov"
+    },
     type: "project",
     url: "/projects/atari-klub-citov/",
     image: "/photos/projects/citov.jpg",
