@@ -1,6 +1,6 @@
 <script lang="ts">
     /* https://docs.google.com/document/d/1EUv8mepuz5gsXFP4tlrr3iypy-hDEpUN/edit */
-	import Interview from "$lib/Interview.svelte";
+	import InterviewPage from "$src/lib/InterviewPage.svelte";
 	import Answer from "$lib/interviews/Answer.svelte"
 	import Question from "$lib/interviews/Question.svelte";
 	import Chapter from "$lib/interviews/Chapter.svelte";
@@ -15,7 +15,7 @@
 
 <PageLang cs />
 
-<Interview data={data}>
+<InterviewPage data={data}>
     {#snippet content()}
         <A speaker={FS}>
             Mně to Spectrum poslal Tigrid – nějakou cestou, kterou ani teď už ani neumím popsat. Určitě bylo pašovaný z Francie. Anténa měl taky jedno. Ten si na to vydělal na brigádě. Byly to to tehdy neuvěřitelný peníze, asi 11 tisíc. To byl docela balík. Ale kupodivu to udělalo docela hodně lidí. Znal jsem ještě z Chomutova Koulu, ten měl ten samý počítač. Najednou se začali objevovat lidi, kteří s tím pracujou a kteří to mají. Tak nás pak napadlo, že by to mohla být budoucnost samizdatu. Asi by bylo, kdyby nedošlo k revoluci. Asi by došlo k tomu, že by samizdaty stěhovaly na počítače. Je to neskonale jednodušší přehrávat textové soubory a kopírovat je počítačem než to přepisovat. Kopírky tehdy vůbec nebyly. Když jo, tak to byl Rank Xerox, a ty byly pro normálního člověka naprosto nedostupné, a navíc byla každá kopie strašně drahá. A4 stála asi 5 Kčs. Výrobní družstvo Fotografia je mělo, ale bylo jich v Praze nesmírně málo. Mohlo se tam přijít a kopírovat, ale stálo to 10 Kčs. Já jsem naštěstí mál známou holku na Smíchově, kde byl obchod Fotokino, kde kopírku měli. Tam byla Viorika, naše známá, a ta nám tam občas něco udělala. Ona taky všechno nemohla, mohla to dělat jenom, když tam byla sama, a hlavně musela našetřit tu kazetu, aby ji pak nechytli, že má málo zaplacených kopií.
@@ -172,4 +172,4 @@
         </center>
         
     {/snippet}
-</Interview>
+</InterviewPage>

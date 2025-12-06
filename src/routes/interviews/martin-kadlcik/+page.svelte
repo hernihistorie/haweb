@@ -1,6 +1,6 @@
 <script lang="ts">
     /* https://docs.google.com/document/d/1jym3l5vMQyDJuwkU3bANHMhsfRxdkE8A/edit */
-	import Interview from "$lib/Interview.svelte";
+	import InterviewPage from "$src/lib/InterviewPage.svelte";
 	import Answer from "$lib/interviews/Answer.svelte"
 	import Question from "$lib/interviews/Question.svelte";
 	import Chapter from "$lib/interviews/Chapter.svelte";
@@ -14,7 +14,7 @@
 
 <PageLang cs />
 
-<Interview {data}>
+<InterviewPage {data}>
     {#snippet content()}
             <div style="padding-bottom: 20px;">
                 <img src="/photos/martin-kadlcik/UMBK.jpg" alt="Basicový kód" style="width:100%">
@@ -60,4 +60,4 @@
             </p>
 
     {/snippet}
-</Interview>
+</InterviewPage>

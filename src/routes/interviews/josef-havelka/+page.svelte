@@ -1,6 +1,6 @@
 <script lang="ts">
     /* https://docs.google.com/document/d/1EUv8mepuz5gsXFP4tlrr3iypy-hDEpUN/edit */
-	import Interview from "$lib/Interview.svelte";
+	import InterviewPage from "$src/lib/InterviewPage.svelte";
 	import Answer from "$lib/interviews/Answer.svelte"
 	import Question from "$lib/interviews/Question.svelte";
 	import Chapter from "$lib/interviews/Chapter.svelte";
@@ -14,7 +14,7 @@
 
 <PageLang cs />
 
-<Interview data={data}>
+<InterviewPage data={data}>
     {#snippet content()}
         <Q speaker={RS}>Moje první otázka je, jestli byste shrnul svoje rodinný zázemí, kam jste třeba chodil na školu apod.?</Q>
 
@@ -125,4 +125,4 @@
         </center>
         
     {/snippet}
-</Interview>
+</InterviewPage>
