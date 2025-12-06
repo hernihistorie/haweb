@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
 	import Meta from "$lib/Meta.svelte";
-	import Box from '$lib/Box.svelte';
     import Loc from "$src/lib/Loc.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import TimelineProjectBox from './TimelineProjectBox.svelte';
+
+    import { projectProgramyZCST } from '../programy-z-cst/project';
+    import { projectBewesoft } from '../bewesoft/project';
+    import { projectAtariKlubCitov } from '../atari-klub-citov/project';
+    import { projectVideostop } from '../videostop/project';
+    import { projectOuya } from '../ouya/project';
 </script>
 
 <Meta title="Projekty"/>
@@ -25,123 +31,64 @@
 
 <div class="projects">
     <div class="timeline-line"></div>
-    <Box left>
-        <h3><span class="year">2025</span> <a href="/projects/programy-z-cst">Programy z Československé televize</a></h3>
-        <p>
-            Na konci 80. let Československá televize vyprodukovala dva zdánlivě nesouvisející pořady – v roce 1986 vytvořila pořad <i>Kurz rychlého čtení</i> a v roce 1988 pak pořad <i>Počítačová dilemata</i>. Navzdory různým tématům měli tyto dva pořady mnoho společného, zejména, že jak u <i>Kurzu rychlého čtení</i> tak u <i>Počítačových dilemat</i> byly během závěrečných titulků vypískávané programy pro ZX Spectrum. V roce 2023 Herní archiv z archivu České televize zakoupil všechny dostupné kopie dílů pořadů <i>Kurz rychlého čtení</i> a <i>Počítačová dilemata</i> a v roce 2025 převedl a zveřejnil všechny programy pro ZX Spectrum z konců epizod těchto pořadů.
-        </p>
-    </Box>
-    <Box right>
-        <h3><span class="year">2025</span> <a href="/projects/bewesoft">Jiří Bernášek (BeWeSoft)</a></h3>
-        <p>
-            Fond Jiřího Bernáška – dlouholetého majitele a programátora pro počítače Atari – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci vytvořil i doprovodný text, který celou kolekci kontextualizuje.
-        </p>
-    </Box>
-    <Box left>
-        <h3><span class="year">2024</span> <a href="/projects/atari-klub-citov">Atari klub Cítov</a></h3>
-        <p>
-            Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.
-        </p>
-    </Box>
-    <Box right>
-        <h3><span class="year">2024</span> <a href="/projects/videostop">Videostop</a></h3>
-        <p>
-            Zábavný soutěžní program <em>Videostop</em> byl původně vysílán mezi lety 1985 a 2000 a testoval soutěžící v jejich znalostech filmové a televizní tvorby. Ve <em>Videostopu</em> se soutěžící pro odpovídání na otázku předháněli v tom, kdo dříve zmáčkne tlačítko, body byli počítané a vykreslované za pomocí počítače a hra na konci byla jednoduchá (avšak napínavá) videohra.  Fascinace interaktivností <em>Videostopu</em> byla ve své době do velké míry reflektovaná i v rámci Slovenské a České herní kultury.  Původní program od Ing. Zdeňka Vodáka získal a zpřístupnil Herní archiv v roce 2024. Součástí fondu, jenž zahrnuje samotné kazetové pásky s <em>Hrou Videostop</em> je také rozhovor se Zdeňkem Vodákem.
-        </p>
-    </Box>
-    <Box left>
-        <h3><span class="year">2023</span> <a href="/interviews/">Orálněhistorické rozhovory</a></h3>
-        <p>
-            Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href="/interviews/">veřejnému prohlížení</a>.
-        </p>
-    </Box>
-    <Box right>
-        <h3><span class="year">2023</span> Digitalizace fotografií</h3>
-        <p>
-            V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny, považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href="/gallery/emil-fafek/">tématických fotografií z pozůstalosti Emila Fafka</a>.
-        </p>
-    </Box>
-    <Box left>
-        <h3><span class="year">2022</span> Zálohování datových nosičů</h3>
-        <p>
-            Nalezli jsme řešení na světové úrovni pro digitalizaci starých datových nosičů, jejihž obsah podléhá zkáze (tzv. <em>bitrot</em>).  Zajistili jsme techniku pro práci s disketami, kazetami, a optickými médii.  Navázali jsme spolupráci s širší komunitou a aktivně zálohujeme unikátní hry a programy českého a slovenkého původu.  Na <a href="http://www.bytefest.cz/novinky/2023/10/17/bytefest-2023i#:~:text=D%C3%A1le%20zde%20bude%20z%C3%A1lohovac%C3%AD%20stanice%20od%20Hern%C3%ADho%20archivu">ByteFestu v roce 2023</a> jsme naši digitalizační stanici poprvé představili na veřejné akci.
-        </p>
-    </Box>
-    <Box right>
-        <h3><span class="year">2021</span> <a href="https://inventory.herniarchiv.cz/">Inventarizace sbírky</a></h3>
-        <p>
-            Započat projekt systématického zadávání předmětů v naší sbírce do vlastního digitálního systému. Do systému inventáře se zadávají metadata o předmětu a jeho původu. Ke kažému předmětu je přiřazena fotografie, dále vytištěn štítek a uložena jeho pozice pro možnosti dohledání. Od roku 2024 je značná část inventáře vedena veřejně a <a href="https://inventory.herniarchiv.cz/">můžete do něj nahlédnout</a>.
-        </p>
-    </Box>
-    <Box left>
-        <h3><span class="year">2021</span> Sbírka Českých a Slovenských her</h3>
-        <p>
-            Snaha ustanovit veřejně přístupnou sbírku fyzických kopií lokálních her, která není v soukromém vlastnictví. Byla již využita pro fotomateriály v rámci digitální výstavy <a href="https://scd.sk/hry/">"8-bit"</a> od Slovenského centra dizajnu.
-        </p>
-    </Box>
+    <TimelineProjectBox project={projectProgramyZCST} year={2025} left />
+    <TimelineProjectBox project={projectBewesoft} year={2025} right />
+    <TimelineProjectBox project={projectAtariKlubCitov} year={2024} left />
+    <TimelineProjectBox project={projectVideostop} year={2024} right />
+    
+    <TimelineProjectBox project={{ name: "Orálněhistorické rozhovory", url: "/interviews/" }} year={2023} left>
+        Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href="/interviews/">veřejnému prohlížení</a>.
+    </TimelineProjectBox>
+    
+    <TimelineProjectBox project={{ name: "Digitalizace fotografií" }} year={2023} right>
+        V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny, považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href="/gallery/emil-fafek/">tématických fotografií z pozůstalosti Emila Fafka</a>.
+    </TimelineProjectBox>
+    
+    <TimelineProjectBox project={{ name: "Zálohování datových nosičů" }} year={2022} left>
+        Nalezli jsme řešení na světové úrovni pro digitalizaci starých datových nosičů, jejihž obsah podléhá zkáze (tzv. <em>bitrot</em>).  Zajistili jsme techniku pro práci s disketami, kazetami, a optickými médii.  Navázali jsme spolupráci s širší komunitou a aktivně zálohujeme unikátní hry a programy českého a slovenkého původu.  Na <a href="http://www.bytefest.cz/novinky/2023/10/17/bytefest-2023i#:~:text=D%C3%A1le%20zde%20bude%20z%C3%A1lohovac%C3%AD%20stanice%20od%20Hern%C3%ADho%20archivu">ByteFestu v roce 2023</a> jsme naši digitalizační stanici poprvé představili na veřejné akci.
+    </TimelineProjectBox>
+    
+    <TimelineProjectBox project={{ name: "Inventarizace sbírky", url: "https://inventory.herniarchiv.cz/" }} year={2021} right>
+        Započat projekt systématického zadávání předmětů v naší sbírce do vlastního digitálního systému. Do systému inventáře se zadávají metadata o předmětu a jeho původu. Ke kažému předmětu je přiřazena fotografie, dále vytištěn štítek a uložena jeho pozice pro možnosti dohledání. Od roku 2024 je značná část inventáře vedena veřejně a <a href="https://inventory.herniarchiv.cz/">můžete do něj nahlédnout</a>.
+    </TimelineProjectBox>
+    
+    <TimelineProjectBox project={{ name: "Sbírka Českých a Slovenských her" }} year={2021} left>
+        Snaha ustanovit veřejně přístupnou sbírku fyzických kopií lokálních her, která není v soukromém vlastnictví. Byla již využita pro fotomateriály v rámci digitální výstavy <a href="https://scd.sk/hry/">"8-bit"</a> od Slovenského centra dizajnu.
+    </TimelineProjectBox>
 
-    <Box right>
-        <h3><span class="year">2020</span> Česko-Slovenská spolupráce</h3>
-        <p>
-            Snaha o rozšíření záběru na Slovenskou Republiku byla posílená úzkou spoluprácí s Univerzitou sv. Cyrila a Metoda v Trnavě, přesněji její <a href="https://fmk.sk/tedi/">Fakultou masmediálnej komunikácie</a>. Společně chceme budovat kvalitní zdroje ohledně herní historie pro využití ve výuce a výzkumu.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Česko-Slovenská spolupráce" }} year={2020} right>
+        Snaha o rozšíření záběru na Slovenskou Republiku byla posílená úzkou spoluprácí s Univerzitou sv. Cyrila a Metoda v Trnavě, přesněji její <a href="https://fmk.sk/tedi/">Fakultou masmediálnej komunikácie</a>. Společně chceme budovat kvalitní zdroje ohledně herní historie pro využití ve výuce a výzkumu.
+    </TimelineProjectBox>
 
-    <Box left>
-        <h3><span class="year">2020</span> Museé Bolo</h3>
-        <p>
-            Navázání vztahů v rámci Evropy a využití získaného know-how v prvním mezinárodním projektu který je pod naším spoluvedením. Spolupráce na organizaci a digitalizaci sbírek Švýcarského muzea informačních technologií <a href="https://www.museebolo.ch/?lang=en">Museé Bolo</a>.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Museé Bolo" }} year={2020} left>
+        Navázání vztahů v rámci Evropy a využití získaného know-how v prvním mezinárodním projektu který je pod naším spoluvedením. Spolupráce na organizaci a digitalizaci sbírek Švýcarského muzea informačních technologií <a href="https://www.museebolo.ch/?lang=en">Museé Bolo</a>.
+    </TimelineProjectBox>
 
-    <Box right>
-        <h3><span class="year">2020</span> Integrované čipy od Tesly</h3>
-        <p>
-            Zajištění technických informací okolo první Československé komerční hry - Televízního tenisu. Unikátní návrh herního hardwaru od Tesly Piěšťany byl <a href="http://www.seanriddle.com/tesla/">nasnímán mikroskopem</a> a probíhají snahy o převedení do simulátoru.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Integrované čipy od Tesly" }} year={2020} right>
+        Zajištění technických informací okolo první Československé komerční hry - Televízního tenisu. Unikátní návrh herního hardwaru od Tesly Piěšťany byl <a href="http://www.seanriddle.com/tesla/">nasnímán mikroskopem</a> a probíhají snahy o převedení do simulátoru.
+    </TimelineProjectBox>
 
-    <Box left>
-        <h3><span class="year">2019</span> <a href="https://www.vice.com/en_us/article/qv7x4p/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear">Projekt Ouya</a></h3>
-        <p>
-            Digitální obchod herní konzole Ouya byl ke konci roku ukončen. Naši členové rozběhli komunitní snahu o reverzní inženýrství serverů, které se díky mnoha nadšeným lidem podařilo a celá platforma tak unikla předčasné smrti.
-        </p>
-    </Box>
+    <TimelineProjectBox project={projectOuya} year={2019} left />
 
-    <Box right>
-        <h3><span class="year">2019</span> <a href="https://www.gameinformer.com/2019/12/05/video-game-history-foundation-keeping-history-alive">Projekt Game Informer</a></h3>
-        <p>
-            Výjezd našeho předsedy jako dobrovolníka v rámci aktivit Americké <a href="https://gamehistory.org/">Video Game History Foundation</a>. Bezprecedentní snaha masově digitalizovat herní materiály z archivů redakce herního časopisu Game Informer.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Projekt Game Informer", url: "https://www.gameinformer.com/2019/12/05/video-game-history-foundation-keeping-history-alive" }} year={2019} right>
+        Výjezd našeho předsedy jako dobrovolníka v rámci aktivit Americké <a href="https://gamehistory.org/">Video Game History Foundation</a>. Bezprecedentní snaha masově digitalizovat herní materiály z archivů redakce herního časopisu Game Informer.
+    </TimelineProjectBox>
 
-    <Box left>
-        <h3><span class="year">2018</span> <a href="https://retrip.cz">ReTrip</a></h3>
-        <p>
-            První akce spoluorganizovaná naším spolkem, která dala prostor Českým vývojářům promluvit o jejich zkušenostech. Oslava lokální herní historie za sebou má dva úspěšné ročníky.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "ReTrip", url: "https://retrip.cz" }} year={2018} left>
+        První akce spoluorganizovaná naším spolkem, která dala prostor Českým vývojářům promluvit o jejich zkušenostech. Oslava lokální herní historie za sebou má dva úspěšné ročníky.
+    </TimelineProjectBox>
 
-    <Box right>
-        <h3><span class="year">2017</span> <a href="https://casopisy.herniarchiv.cz/">Sbírka herních tiskovin</a></h3>
-        <p>
-            Archiv tištěných materiálů, které jsou skvělým primárním zdrojem. Později jsme se zaměřili na její kompletaci jako náš první velký cíl. V současnosti se jedná pravděpodobně o nejobsáhlejší sbírku u nás.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Sbírka herních tiskovin", url: "https://casopisy.herniarchiv.cz/" }} year={2017} right>
+        Archiv tištěných materiálů, které jsou skvělým primárním zdrojem. Později jsme se zaměřili na její kompletaci jako náš první velký cíl. V současnosti se jedná pravděpodobně o nejobsáhlejší sbírku u nás.
+    </TimelineProjectBox>
 
-    <Box left>
-        <h3><span class="year">2016</span> <a href="https://www.nm.cz/">Národní Muzeum</a></h3>
-        <p>
-            Zapůjčili jsme výbavu do výstavy "Retro". Spolupráci stále udržujeme a naši členové se podílí na herním obsahu v dalších expozicích.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "Národní Muzeum", url: "https://www.nm.cz/" }} year={2016} left>
+        Zapůjčili jsme výbavu do výstavy "Retro". Spolupráci stále udržujeme a naši členové se podílí na herním obsahu v dalších expozicích.
+    </TimelineProjectBox>
 
-    <Box right>
-        <h3><span class="year">2015</span> <a href="https://retroherna.org">RetroHerna</a></h3>
-        <p>
-            Spolek, který zajišťuje Herní archiv, začal svojí aktivitu skrze interaktivní muzeum RetroHerna. Více informací najdete na <a href="https://retroherna.org">webu projektu</a>.
-        </p>
-    </Box>
+    <TimelineProjectBox project={{ name: "RetroHerna", url: "https://retroherna.org" }} year={2015} right>
+        Spolek, který zajišťuje Herní archiv, začal svojí aktivitu skrze interaktivní muzeum RetroHerna. Více informací najdete na <a href="https://retroherna.org">webu projektu</a>.
+    </TimelineProjectBox>
 </div>
 
 <style>
