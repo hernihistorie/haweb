@@ -12,24 +12,6 @@
     let Q = Question;
 </script>
 
-<style>
-    .column {
-        float: left;
-        width: 48%;
-        padding-right: 8px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        font-size: 17px;
-        font-style: italic;
-    }
-
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    } 
-</style>
-
 <PageLang cs />
 
 <Interview {data}>
