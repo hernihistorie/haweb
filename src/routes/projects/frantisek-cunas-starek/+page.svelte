@@ -30,17 +30,23 @@
             />
         <hr>
     </div>
-    <p>
-        <div class="picture-cite">
-            <p><img src="/photos/frantisek-starek/frantisek_starek_1.jpg" alt="Pavel Lašák u počítače ZX Spectrum+">
-            <cite><Loc
-                cs="Pavel Lašák u počítače ZX Spectrum+ (Zdroj: František Stárek)"
-                en="Pavel Lašák working on ZX Spectrum+ (Source: František Stárek)"/>
-            </cite>
-        </div>
+    <div class="picture-cite">
+        <p><img src="/photos/frantisek-starek/frantisek_starek_1.jpg" alt="Pavel Lašák u počítače ZX Spectrum+">
+        <cite><Loc
+            cs="Pavel Lašák u počítače ZX Spectrum+ (Zdroj: František Stárek)"
+            en="Pavel Lašák working on ZX Spectrum+ (Source: František Stárek)"/>
+        </cite>
+    </div>
     <p>Československá počítačová kultura 80. let je zejména spojovaná s aktivitami hobbyistů a počítačových klubů. Tyto aktivity byly státem podporované, tolerované nebo alespoň ignorované nicméně osobní počítače se dostali i mezi takové, kteří byli režimem aktivně stíháni. Mezi takové patřila i redakce časopisu <i>Vokno</i>, zejména pak neformální uskupení „výzkumný ústav samizdatový“, složený z programátorů Jiřího Včeláka a Pavla Lašáka a šéfredaktora <i>Vokna</i> Františka „Čuňase“ Stárka. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
-	<p>Stárek, Lašák i Včelák byli majitelé osobního počítače ZX Spectrum, které používali od druhé poloviny 80. let zejména k tvorbě cyklostylových šablon, které měly usnadnit tisk samizdatového časopisu. Počítač také sloužil k výrobě grafiky pro <i>Videomagazín Vokna</i>, který byl šířen od roku 1988 na videokazetách. Stárkovi Spectrum také sloužilo jako forma bezpečného uchovávání databáze odběratelů Vokna – jména předplatitelů napsal v <i>D-Textu</i>, tato data uložil na kazetu a pískávý signál schoval mezi hudební skladby. „Výzkumný ústav“ měl také ambice vyvinout program, který by se dnes dal přirovnat k současným čtečkám. Program, který se jmenoval <i>Kniha</i>, byl „ústavem“ vyvinut na konci 80. let pro účely šíření semizdatové literatury, nicméně kvůli Stárkově uvěznění v roce 1989 a Sametové revoluci, pro program nikdy nevznikl žádný obsah a nikdy se nedostal do oběhu. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
-	<p>V roce 2024 Herní archiv převzal od Jaroslava Švelcha na digitalizaci kazety Fratiška Stárka s programy pro ZX Spectrum. Z těchto kazet se kromě cizí tvorby podařilo zdigitalizovat program Kniha (na kazetách: ), grafiku k Videomagazínu Vokna (na kazetách: ) a soubory s adresami odběratelů Vokna. Obsah kazet stejně jako rozhovor s Františkem Stárkem byl zveřejněn roku 2025.
+    <p>Stárek, Lašák i Včelák byli majitelé osobního počítače ZX Spectrum, které používali od druhé poloviny 80. let zejména k tvorbě cyklostylových šablon, které měly usnadnit tisk samizdatového časopisu. Počítač také sloužil k výrobě grafiky pro <i>Videomagazín Vokna</i>, který byl šířen od roku 1988 na videokazetách. Stárkovi Spectrum také sloužilo jako forma bezpečného uchovávání databáze odběratelů Vokna – jména předplatitelů napsal v <i>D-Textu</i>, tato data uložil na kazetu a pískávý signál schoval mezi hudební skladby. „Výzkumný ústav“ měl také ambice vyvinout program, který by se dnes dal přirovnat k současným čtečkám. Program, který se jmenoval <i>Kniha</i>, byl „ústavem“ vyvinut na konci 80. let pro účely šíření semizdatové literatury, nicméně kvůli Stárkově uvěznění v roce 1989 a Sametové revoluci, pro program nikdy nevznikl žádný obsah a nikdy se nedostal do oběhu. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
+	<div class="picture-cite">
+        <p><img src="/photos/frantisek-starek/videomagazin_vokno.png" alt="Pavel Lašák u počítače ZX Spectrum+">
+        <cite><Loc
+            cs="Grafika z <i>Videomagazínu Vokna</i> (Zdroj: František Stárek)"
+            en="Grafick from <i>Videomagazín Vokno</i> (Source: František Stárek)"/>
+        </cite>
+    </div>
+    <p>V roce 2024 Herní archiv převzal od Jaroslava Švelcha na digitalizaci kazety Fratiška Stárka s programy pro ZX Spectrum. Z těchto kazet se kromě cizí tvorby podařilo zdigitalizovat program <i>Kniha</i>, grafiku k <i>Videomagazínu Vokna</i>, soubory s adresami odběratelů <i>Vokna</i> a program pro jejich tisk. Obsah kazet stejně jako rozhovor s Františkem Stárkem byl zveřejněn roku 2025.
 
     <h3>Rozhovory</h3>
     {#each interviews as data}
