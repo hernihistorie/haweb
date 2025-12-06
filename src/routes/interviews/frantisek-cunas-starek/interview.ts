@@ -1,5 +1,4 @@
 import type { InterviewData, Person } from "$src/types";
-import { RS, VS } from "../persons";
 
 // https://docs.google.com/document/d/1NszQitd-hCDAidkszwpgGAmKLrdlv8x9/edit
 // https://drive.google.com/drive/folders/1_yluW8sETIBgv9y4130_Q2vszjlQm_Zn
@@ -16,9 +15,9 @@ export const FS: Person = {
     color: "darkblue",
     birth_year: "1952",
     gender: "M",
-    bio: "TODO",
+    bio: "František „Čuňas“ Stárek, narozen roku 1952, byl disident, signatář Charty 77 a přední osobností československého undergroundu. V roce 1979 spoluzaložil kulturní semizdatové periodikum <i>Vokno</i>. Společně s kolegy Pavlem Lašákem a Jiřím Včelákem založili „výzkumný ústav samizdatový“, v rámci kterého experimentovali s novými technologiemi, včetně osmibitových počítačů. Po revoluci pracoval v BIS a v současnosti pracuje v ÚSTR.",
     photo: {
-        url: "/interviews/todo.jpg",
+        url: "/interviews/frantisek-cunas-starek.jpg",
     }
 }
 
@@ -30,11 +29,12 @@ export const data: InterviewData = {
     // audio_duration: 7266, // duration must be correct
     narrator: FS,
     interview: {
-        date: new Date("2000-01-01"),
+        date: new Date("2016-01-05"),
+        length: "N/A",
         place: "TODO",
         interviewer: JS,
         informed_agreement: true,
-        publication_date: new Date("2000-01-01"),
+        publication_date: new Date("2026-01-01"),
         // verifier: null
     },
     complete: true,
