@@ -176,6 +176,14 @@
     en="Projects"
 /></h2>
 <ProjectBoxes all={false}/>
+<div style="margin-top: 24px;">
+    <Arrow href="/projects">
+        <Loc
+            cs="Všechny projekty"
+            en="All projects"
+        />
+    </Arrow>
+</div>
 
 <h2>Blog</h2>
 
