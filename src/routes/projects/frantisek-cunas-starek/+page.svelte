@@ -37,8 +37,8 @@
             en="Pavel Lašák working on ZX Spectrum+ (Source: František Stárek)"/>
         </cite>
     </div>
-    <p>Československá počítačová kultura 80. let je zejména spojovaná s aktivitami hobbyistů a počítačových klubů. Tyto aktivity byly státem podporované, tolerované nebo alespoň ignorované nicméně osobní počítače se dostali i mezi takové, kteří byli režimem aktivně stíháni. Mezi takové patřila i redakce časopisu <i>Vokno</i>, zejména pak neformální uskupení „výzkumný ústav samizdatový“, složený z programátorů Jiřího Včeláka a Pavla Lašáka a šéfredaktora <i>Vokna</i> Františka „Čuňase“ Stárka. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
-    <p>Stárek, Lašák i Včelák byli majitelé osobního počítače ZX Spectrum, které používali od druhé poloviny 80. let zejména k tvorbě cyklostylových šablon, které měly usnadnit tisk samizdatového časopisu. Počítač také sloužil k výrobě grafiky pro <i>Videomagazín Vokna</i>, který byl šířen od roku 1988 na videokazetách. Stárkovi Spectrum také sloužilo jako forma bezpečného uchovávání databáze odběratelů Vokna – jména předplatitelů napsal v <i>D-Textu</i>, tato data uložil na kazetu a pískávý signál schoval mezi hudební skladby. „Výzkumný ústav“ měl také ambice vyvinout program, který by se dnes dal přirovnat k současným čtečkám. Program, který se jmenoval <i>Kniha</i>, byl „ústavem“ vyvinut na konci 80. let pro účely šíření semizdatové literatury, nicméně kvůli Stárkově uvěznění v roce 1989 a Sametové revoluci, pro program nikdy nevznikl žádný obsah a nikdy se nedostal do oběhu. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
+    <p>Československá počítačová kultura 80. let je zejména spojovaná s aktivitami hobbyistů a počítačových klubů. Tyto aktivity byly státem podporované, tolerované nebo alespoň ignorované, nicméně osobní počítače se dostaly i mezi takové, kteří byli režimem aktivně stíháni. Mezi ně patřila i redakce časopisu <strong><i>Vokno</i></strong>, zejména pak neformální uskupení „výzkumný ústav samizdatový“, složený z programátorů <strong>Jiřího Včeláka</strong> a <strong>Pavla Lašáka</strong> a šéfredaktora <i>Vokna</i> <strong>Františka „Čuňase“ Stárka</strong>. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
+    <p>Stárek, Lašák i Včelák byli majitelé osobního počítače ZX Spectrum, které používali od druhé poloviny 80. let zejména k tvorbě cyklostylových šablon, které měly usnadnit tisk samizdatového časopisu. Počítač také sloužil k výrobě grafiky pro <i>Videomagazín Vokna</i>, který byl šířen od roku 1988 na videokazetách. Stárkovi Spectrum také sloužilo jako forma bezpečného uchovávání citlivé databáze odběratelů Vokna – jména předplatitelů napsal v <i>D-Textu</i>, tato data uložil na kazetu a pískávý signál schoval mezi hudební skladby. „Výzkumný ústav“ měl také ambice vyvinout program, který by se dnes dal přirovnat k současným čtečkám. Program, který se jmenoval <i>Kniha</i>, byl „ústavem“ vyvinut na konci 80. let pro účely šíření semizdatové literatury, nicméně kvůli Stárkově uvěznění v roce 1989 a Sametové revoluci, pro program nikdy nevznikl žádný obsah a nikdy se nedostal do oběhu. (<i>Jak obehrát železnou oponu</i>, Jaroslav Švelch, 2021)
 	<div class="picture-cite">
         <p><img src="/photos/frantisek-starek/videomagazin_vokno.png" alt="Grafika z Videomagazínu Vokna">
         <cite><Loc
@@ -53,7 +53,6 @@
         <InterviewBox {data} />
     {/each}
     
-    <h3 id="Predmety">Předměty</h3>
-    <AssetList assetTagId={22} />
+    <AssetList assetTagId={22} withHeading />
 
 </article>

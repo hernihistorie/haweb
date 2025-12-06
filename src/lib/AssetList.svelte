@@ -21,6 +21,8 @@
     <div class="heading-pagination" style="display: flex; justify-content: space-between;">
         {#if props.withHeading}
             <h3 id="Predmety">Předměty</h3>
+        {:else}
+            <div></div>
         {/if}
         <AssetListPagination bind:assetPage bind:assetCount />
     </div>
