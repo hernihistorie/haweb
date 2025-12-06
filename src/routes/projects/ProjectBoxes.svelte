@@ -1,92 +1,35 @@
 <script lang="ts">
 	import ThinBox from '$src/lib/ThinBox.svelte';
     import Loc from "$src/lib/Loc.svelte";
+    import type { Project } from '$src/types';
 
+    import { projectProgramyZCST } from './programy-z-cst/project';
+    import { projectBewesoft } from './bewesoft/project';
+    import { projectAtariKlubCitov } from './atari-klub-citov/project';
+    import { projectVideostop } from './videostop/project';
+    import { projectEmilFafek } from '../gallery/emil-fafek/project';
+    import { projectOuya } from './ouya/project';
     interface Props {
         all: boolean;
     }
 
     let { all }: Props = $props();
+
+    const mainProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov];
+    const allProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
 </script>
 
 <div class={all ? "project-page": "main-page"}>
-    <ThinBox project={all} href="/projects/programy-z-cst/" img="/photos/projects/cst.jpg" show_arrow={false}>
-        <h3>
-            <a href="/projects/programy-z-cst/">
-                <Loc
-                    cs="Programy z Československé televize"
-                    en="Programs from Czechoslovak Television"
-                />
-            </a>
-        </h3>
-        <p><Loc
-            cs="V 80. letech Československá televize odvysílala dva pořady v rámci kterých byly distribuované programy pro ZX Spectrum. Tento projekt obsahuje téměř všechny tyto programy."
-            en="In the 1980s, Czechoslovak Television broadcast two programs during which software for the ZX Spectrum was distributed. This project contains almost all of these programs."
-        /></p>
-    </ThinBox>
-
-    <ThinBox project={all} href="/projects/bewesoft/" img="/photos/projects/bewesoft.jpg" show_arrow={false}>
-        <h3>
-            <a href="/projects/bewesoft/">
-                <Loc
-                    cs="Fond Jiřího Bernáška (BeWeSoft)"
-                    en="Jiří Bernášek Collection (BeWeSoft)"
-                />
-            </a>
-        </h3>
-        <p><Loc
-            cs="Jiří Bernášek je bývalým tvůrcem her a programů pro osmibitové počítače Atari. Tento fond obsahuje výběr několika jeho archivních disket obsahující programy a zdrojové kódy k Bernáškovým hrám a jinému softwaru."
-            en="Jiří Bernášek is a former game and software developer for eight-bit Atari computers. This collection contains a selection of his archival floppy disks containing programs and source codes for Bernášek's games and other software."
-        /></p>
-    </ThinBox>
-
-    <ThinBox project={all} href="/projects/atari-klub-citov/" img="/photos/projects/citov.jpg" show_arrow={false}>
-        <h3>
-            <a href="/projects/atari-klub-citov/">
-                <Loc
-                    cs="Atari klub Cítov"
-                    en="Atari club Citov"
-                />
-            </a>
-        </h3>
-        <p><Loc
-            cs="Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu."
-            en="Computer club Citov operated from 1986 until the revolution in 1989. This project collects materials related to the activities of the club as well as the activities of its members after the club's disbandment."
-        /></p>
-    </ThinBox>
-
-    {#if all}
-    <ThinBox project={all} href="/projects/videostop/" title="Videostop" img="/photos/projects/videostop.jpg" show_arrow={false}>
-        <p><Loc
-            cs="Videostop byl populární soutěžní pořad vysílaný mezi lety 1985 a 2000 na ČST. V rámci projektu byly shromážděny materiály týkající se hry, která figurovala na konci každého dílu pořadu."
-            en="Videostop was a popular game show broadcast between 1985 and 2000 on Czechoslovak Television. This project gathered materials related to the game that appeared at the end of each episode of the show."
-        /></p>
-    </ThinBox>
-
-    <ThinBox project={all} href="/gallery/emil-fafek/" img="/photos/projects/fafek.jpg" show_arrow={false}>
-        <h3>
-            <a href="/gallery/emil-fafek/">
-                <Loc
-                    cs="Fond Emila Fafka"
-                    en="Emil Fafek Collection"
-                />
-            </a>
-        </h3>
-        <p><Loc
-            cs="Emil Fafek byl českým reportážním fotografem, který pracoval mezi lety 1945 a 1990 pro Mladou frontu. Fond obsahuje jeho fotografie z 80. let zaměřené na tehdejší československou počítačovou kulturu."
-            en="Emil Fafek was a Czech photojournalist who worked for Mladá fronta between 1945 and 1990. The collection contains his photographs from the 1980s focusing on the Czechoslovak computer culture of that time."
-        /></p>
-    </ThinBox>
-
-    <ThinBox project={true} href="https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/" title="Ouya" img="/photos/projects/ouya.jpg" show_arrow={false}>
-        <p>
-            <Loc
-                cs="Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy."
-                en="Ouya was an unsuccessful gaming console manufactured between 2013 and 2015. This project was conducted before the closure of Ouya's online storefront in 2019 and was an effort to archive the digital library of this platform."
-            />
-        </p>
-    </ThinBox>
-    {/if}
+    {#each (all ? allProjects : mainProjects) as project}
+        <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
+            <h3>
+                <a href={project.url}>
+                    <Loc text={project.name} />
+                </a>
+            </h3>
+            <p><Loc text={project.description} /></p>
+        </ThinBox>
+    {/each}
 </div>
 
 <style> 

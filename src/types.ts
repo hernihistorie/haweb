@@ -1,3 +1,9 @@
+export type LanguageCode = 'cs' | 'en';
+
+export type LocalizedString = string | {
+    [K in LanguageCode]: string;
+}
+
 type Gender = 'M' | 'F';
 
 export interface Photo {
@@ -16,11 +22,6 @@ export interface Person {
     birth_year?: string;
     birth_place?: string;
     gender?: Gender;
-}
-
-export interface Project {
-    name: string;
-    url?: string;
 }
 
 export interface InterviewData {
@@ -57,4 +58,12 @@ export interface AssetData {
     primary_document_path?: string;
     description: string;
     inventory_url: string;
+}
+
+export interface Project {
+    name: LocalizedString;
+    type: "project" | "fond";
+    url?: string;
+    image: string;
+    description: LocalizedString;
 }
