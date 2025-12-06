@@ -21,7 +21,12 @@
 
 <IntersectionObserver threshold={threshold} {element} bind:intersecting>
     <div bind:this={element} class="audio-container" class:intersecting>
-        <AudioPlayer src="/interviews/{data.audio_file}" duration={data.audio_duration} title={data.title} />
+        <AudioPlayer
+            src="/interviews/{data.audio_file}"
+            duration={data.audio_duration}
+            title={data.title}
+            slug={data.slug}
+        />
     </div>
 </IntersectionObserver>
 

@@ -20,7 +20,10 @@ export const MK: Person = {
 export const data: InterviewData = {
     slug: "martin-kadlcik",
     lang: "cs",
-    title: "Dotazník: Martin Kadlčík",
+    title: {
+        cs: "Dotazník: Martin Kadlčík",
+        en: "Questionnaire: Martin Kadlčík"
+    },
     narrator: MK,
     interview: {
         length: "N/A",

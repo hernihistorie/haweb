@@ -8,6 +8,7 @@
 	import InterviewAudio from "./InterviewAudio.svelte";
 	import TableOfContents from './TableOfContents/TableOfContents.svelte';
 	import NameWithShortname from './NameWithShortname.svelte';
+	import Loc from './Loc.svelte';
     export let data: InterviewData;
 </script>
 
@@ -33,7 +34,12 @@
     {/snippet}
     {#snippet content()}
         <article>
-            <h2>{ data.title }</h2>
+            <a href="/interviews" class="return-link">
+                <Loc cs="Rozhovory Herního archivu" en="Czechoslovak Game Archive Interviews" />
+            </a>
+            <h2>
+                <Loc text={data.title} />
+            </h2>
             {#if data.audio_file }
                 <InterviewAudio {data} />
             {/if}
@@ -136,7 +142,12 @@
 </Post>
 
 <style>
+    .return-link {
+        text-decoration: none;
+    }
+    
     h2 {
+        margin-top: 0.25em;
         margin-bottom: 0;
     }
 

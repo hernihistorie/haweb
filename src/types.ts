@@ -27,7 +27,7 @@ export interface Person {
 export interface InterviewData {
     slug: string;
     lang: string;
-    title: string;
+    title: LocalizedString;
     audio_file?: string;
     audio_duration?: number;
     narrator: Person;

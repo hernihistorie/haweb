@@ -3,7 +3,10 @@ import type { InterviewData } from "$src/types";
 export const data: InterviewData = {
     slug: "kamila-hurnikova",
     lang: "cs",
-    title: "Rozhovor s Kamilou Hurníkovou",
+    title: {
+        cs: "Rozhovor s Kamilou Hurníkovou",
+        en: "Interview with Kamila Hurníková"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: {

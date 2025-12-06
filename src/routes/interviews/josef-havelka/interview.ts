@@ -21,7 +21,10 @@ export {JH, RS, VS};
 export const data: InterviewData = {
     slug: "josef-havelka",
     lang: "cs",
-    title: "Rozhovor s Josefem Havelkou",
+    title: {
+        cs: "Rozhovor s Josefem Havelkou",
+        en: "Interview with Josef Havelka"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: JH,

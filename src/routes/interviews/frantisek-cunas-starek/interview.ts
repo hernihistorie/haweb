@@ -24,7 +24,10 @@ export const FS: Person = {
 export const data: InterviewData = {
     slug: "frantisek-cunas-starek",
     lang: "cs",
-    title: "Rozhovor s Františkem „Čuňasem“ Stárkem",
+    title: {
+        cs: "Rozhovor s Františkem „Čuňasem“ Stárkem",
+        en: "Interview with František „Čuňas“ Stárek"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: FS,

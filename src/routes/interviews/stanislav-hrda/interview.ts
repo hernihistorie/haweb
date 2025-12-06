@@ -3,7 +3,10 @@ import type { InterviewData } from "$src/types";
 export const data: InterviewData = {
     slug: "stanislav-hrda",
     lang: "cs",
-    title: "Rozhovor se Stanislavem Hrdou",
+    title: {
+        cs: "Rozhovor se Stanislavem Hrdou",
+        en: "Interview with Stanislav Hrda"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: {

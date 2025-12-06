@@ -22,7 +22,10 @@ export {ZV, RS, VS};
 export const data: InterviewData = {
     slug: "zdenek-vodak",
     lang: "cs",
-    title: "Rozhovor se Zdeňkem Vodákem",
+    title: {
+        cs: "Rozhovor se Zdeňkem Vodákem",
+        en: "Interview with Zdeněk Vodák"
+    },
     audio_file: "herni-archiv-rozhovor-zdenek-vodak.m4a",
     audio_duration: 6532,
     narrator: ZV,

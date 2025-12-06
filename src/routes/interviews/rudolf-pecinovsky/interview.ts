@@ -6,7 +6,10 @@ export {RS, AT};
 export const data: InterviewData = {
     slug: "rudolf-pecinovsky",
     lang: "cs",
-    title: "Rozhovor s Rudolfem Pecinovským",
+    title: {
+        cs: "Rozhovor s Rudolfem Pecinovským",
+        en: "Interview with Rudolf Pecinovský"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: {

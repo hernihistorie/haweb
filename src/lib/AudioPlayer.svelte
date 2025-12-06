@@ -3,17 +3,20 @@
     Under MIT license
 -->
 <script lang="ts">
+	import type { LocalizedString } from '$src/types';
 	import { persisted } from 'svelte-persisted-store'
+	import Loc from './Loc.svelte';
 
 	interface Props {
 		src: string;
-		title: string;
+		slug: string;
+		title: LocalizedString;
 		duration?: number;
 	}
 
-	let { src, title, duration = $bindable(0) }: Props = $props();
+	let { src, slug, title, duration = $bindable(0) }: Props = $props();
 
-	const time = persisted(`playerPosition-${title}`, 0);
+	const time = persisted(`playerPosition-${slug}`, 0);
 	let paused = $state(true);
 	let volume = $state(1);
 	let oldVolume = $state(1);
@@ -88,7 +91,9 @@
 
 	<div class="info">
 		<div class="description">
-			<strong>{title}</strong>
+			<strong>
+				<Loc text={title} />
+			</strong>
 		</div>
 
 		<div class="time">

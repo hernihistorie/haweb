@@ -2,6 +2,7 @@
     import type { InterviewData } from "$src/types";
 	import Box from "./Box.svelte";
 	import Capsule from "./Capsule.svelte";
+	import Loc from "./Loc.svelte";
 
     interface Props {
         data: InterviewData;
@@ -15,7 +16,9 @@
     <div class="interview { data.complete ? 'complete' : 'incomplete' } { compact ? 'compact' : '' }">
         <div>
             <h3>
-                <a href={data.complete ? "/interviews/" + data.slug : undefined}>{ data.title }</a>
+                <a href={data.complete ? "/interviews/" + data.slug : undefined}>
+                    <Loc text={ data.title } />
+                </a>
                 {#if !data.complete}
                     <br>
                     <Capsule>

@@ -3,7 +3,10 @@ import type { InterviewData } from "$src/types";
 export const data: InterviewData = {
     slug: "warren-robinett",
     lang: "en",
-    title: "Rozhovor s Warennem Robinettem",
+    title: {
+        cs: "Rozhovor s Warennem Robinettem",
+        en: "Interview with Warren Robinett"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: {

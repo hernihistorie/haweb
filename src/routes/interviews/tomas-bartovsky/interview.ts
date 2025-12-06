@@ -6,7 +6,10 @@ export {RS, AT};
 export const data: InterviewData = {
     slug: "tomas-bartovsky",
     lang: "cs",
-    title: "Rozhovor s Tomášem Bartovským",
+    title: {
+        cs: "Rozhovor s Tomášem Bartovským",
+        en: "Interview with Tomáš Bartovský"
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: {
