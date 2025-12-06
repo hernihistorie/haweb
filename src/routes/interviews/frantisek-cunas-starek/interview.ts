@@ -35,6 +35,10 @@ export const data: InterviewData = {
         interviewer: JS,
         informed_agreement: true,
         publication_date: new Date("2026-01-01"),
+        project: {
+            "name": "Fond Františka „Čuňase“ Stárka",
+            "url": "/projects/frantisek-cunas-starek/"
+        },
         // verifier: null
     },
     complete: true,
