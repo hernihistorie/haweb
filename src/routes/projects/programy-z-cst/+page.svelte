@@ -35,10 +35,6 @@
                 <p><strong>Names of the involved archivists</strong>: Rudolf Jan Suchý, Lukáš Macura, Karel Ondráček
                 <p><strong>Year of project completion</strong>: 2025"
         />
-        <p><Loc
-            cs="V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>"
-            en="If you have any questions, feel free to contact us at <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>"
-            />
         <hr>
     </div>
     <div class="picture-cite">

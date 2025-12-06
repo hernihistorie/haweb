@@ -17,9 +17,6 @@
         <p><strong>Název projektu</strong>: Videostop
         <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Karel Ondráček, Vojtěch Straka, Roman Bórik
         <p><strong>Rok dokončení projektu</strong>: 2024
-
-        <p>V případě otázek či nejasností se nám ozvěte na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>
-        <hr>
     </div>
     <div class="picture-cite">
         <p><img src="/photos/videostop_porad.jpg" alt="Záběr hry v samotném pořadu">

@@ -22,6 +22,13 @@
         <Loc text={project.fullname ?? project.name} />
     </h2>
     {@render children?.()}
+    <hr>
+    <p>
+        <Loc
+            cs="V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>."
+            en="If you have any questions, feel free to contact us at <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>."
+        />
+    </p>
 </article>
 
 <style>

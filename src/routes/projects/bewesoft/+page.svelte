@@ -18,9 +18,8 @@
     <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V. Novák</p>
     <p><strong>Rok dokončení</strong>: 2025</p>
 
-    <p>V případě otázek či nejasností se nám ozvěte na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a></p>
-
     <hr>
+    
     <p><img src="/photos/projects/bewesoft-thin.jpg" alt="Diskety a Atari XE"></p>
 
     <p><strong>Fond Jiřího Bernáška</strong> – dlouholetého majitele a programátora pro počítače Atari – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci vytvořil i tento doprovodný text, který následně upravil Rudolf Jan Suchý.</p>

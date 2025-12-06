@@ -16,9 +16,6 @@
         <p><strong>Název projektu</strong>: Atari klub Cítov
         <p><strong>Jména zpracovatelů</strong>: Vojtěch Straka, Rudolf Jan Suchý,  Ladislav Greiner, Tomáš Nestorovic, Kamil Ševeček, Karel Ondráček
         <p><strong>Rok dokončení projektu</strong>: Projekt stále probíhá
-
-        <p>V případě otázek či nejasností se nám ozvěte na <a href='mailto:info@herniarchiv.cz'>info@herniarchiv.cz</a>
-    
     </div>
 
     <h3>Úvod</h3>
