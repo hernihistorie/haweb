@@ -6,7 +6,7 @@ export const blogPost58: BlogPost = {
     title: {
         cs: 'Oskenovali jsme návod na crackování her'
     },
-    date_text: '19. srpna 2025',
+    date: new Date(2025, 7, 19),
     author_name: 'Herní historie',
     description_html: `
         Všichno kdo hráli v 80. letech hry to znali - dostali jste od kamaráda na kazetě nějakou hru ze západu, která byla úplně nesmyslně těžká. Kopie hry kterou jste ale dostali nebyla jen tak ledajaká kopie, ale byla někým cracklá (často nějakým "Fuxoftem") abyste mohli hru dohrát třeba s nekonečnem životů. V příspěvku najdete návod kde je proces crackování popsán.

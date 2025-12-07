@@ -6,7 +6,7 @@ export const blogPost75: BlogPost = {
     title: {
         cs: 'Opravili jsme herní verzi počítače Maťo'
     },
-    date_text: '31. října 2025',
+    date: new Date(2025, 9, 31),
     author_name: 'Herní historie',
     description_html: `
         Nějakou dobu nazpět jsme sdíleli příspěvek o našem opraveném Maťovi. Opravili jsme však dva - jeden který má v sobě ROMku s Basicem a druhý s hrami. Počítač úspěšně zprovoznil Lukáš Nevařil a nyní je vedle svého brášky uložen v našem archivu.

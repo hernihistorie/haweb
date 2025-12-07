@@ -6,7 +6,7 @@ export const blogPost35: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Rozhovor s Josefem Havelkou, zakladatelem klubu'
     },
-    date_text: '10. ledna 2025',
+    date: new Date(2025, 0, 10),
     author_name: 'Herní historie',
     description_html: `
         První etapu zpracování věcí z Cítovského klubu bychom rádi zakončili rozhoovorem s jeho zakladatelem Josefem Havelkou. Ten povídá o tom, jak klub vznikl, fungoval a jaké jiné aktivity u něj probíhaly.

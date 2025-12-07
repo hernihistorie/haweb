@@ -6,7 +6,7 @@ export const blogPost28: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum'
     },
-    date_text: '23. září 2024',
+    date: new Date(2024, 8, 23),
     author_name: 'Herní historie',
     description_html: `
         V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. První várka tohoto softwaru, kterou se nám povedlo zachránit, je 10 výukových her na ZX Spectrum distribuovaných na kazetách.

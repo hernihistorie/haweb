@@ -6,7 +6,7 @@ export const blogPost3: BlogPost = {
     title: {
         cs: 'Novinky na počátku roku 2024'
     },
-    date_text: '1. března 2024',
+    date: new Date(2024, 2, 1),
     author_name: 'Herní historie',
     description_html: `
         Začátkem tohoto roku jsme vypustili (a na streamu oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali. V tomto článku se o nich můžete dozvědět.

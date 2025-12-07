@@ -74,7 +74,7 @@ export interface BlogPost {
     slug: string;
     image?: string;
     title: LocalizedString;
-    date_text?: string;
+    date?: Date;
     author_name?: string;
     description_html?: string;
 }

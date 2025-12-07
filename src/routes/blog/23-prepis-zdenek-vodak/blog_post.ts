@@ -6,7 +6,7 @@ export const blogPost23: BlogPost = {
     title: {
         cs: 'Přepis rozhovoru se Zdeňkem Vodákem, autorem hry z Videostopu'
     },
-    date_text: '11. srpna 2024',
+    date: new Date(2024, 7, 11),
     author_name: 'Herní historie',
     description_html: `
         Jak jsme minulý Pátek slíbili, tak jsme tak i učinili: interview se Zdeňkem Vodákem jak v textové tak zvukové podobě najdete v rámci našich přepsaných Rozhovorů.

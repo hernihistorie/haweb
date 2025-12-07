@@ -6,7 +6,7 @@ export const blogPost64: BlogPost = {
     title: {
         cs: 'Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)'
     },
-    date_text: '9. září 2025',
+    date: new Date(2025, 8, 9),
     author_name: 'Herní historie',
     description_html: `
         Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.

@@ -6,7 +6,7 @@ export const blogPost61: BlogPost = {
     title: {
         cs: 'Spolupořádáme workshop o Orální historii'
     },
-    date_text: '29. srpna 2025',
+    date: new Date(2025, 7, 29),
     author_name: 'Herní historie',
     description_html: `
         Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney.

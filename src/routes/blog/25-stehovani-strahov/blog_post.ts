@@ -6,7 +6,7 @@ export const blogPost25: BlogPost = {
     title: {
         cs: 'Odstěhovali jsme se ze Školíhcího centra na Strahově'
     },
-    date_text: '23. srpna 2024',
+    date: new Date(2024, 7, 23),
     author_name: 'Herní historie',
     description_html: `
         Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku.

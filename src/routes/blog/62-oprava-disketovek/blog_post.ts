@@ -6,7 +6,7 @@ export const blogPost62: BlogPost = {
     title: {
         cs: 'Opravili jsme hromadu 5,25" disketovek'
     },
-    date_text: '2. září 2025',
+    date: new Date(2025, 8, 2),
     author_name: 'Herní historie',
     description_html: `
         Pro zálohování disket se starými hrami nebo nezazálohovanými daty je v první řadě potřeba mít disketovku. Ačkoliv 5,25" disketovky nejsou zdaleka tak nedostatkové zboží jako ty 8", tak už shání daleko hůře než pár let nazpět.

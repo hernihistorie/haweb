@@ -26,11 +26,24 @@
     {:else if blogPost.description_html}
         {@html blogPost.description_html}
     {/if}
-    {#if show_arrow}
-        <div style="margin-top: 16px;">
-            <Arrow href={url} />
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+        <div>
+            {#if show_arrow}
+                <Arrow href={url} />
+            {/if}
         </div>
-    {/if}
+        <div>
+            <author>
+                {blogPost.author_name ?? ''}
+            </author>
+            <span style="padding: 0 0.2em;">&bull;</span>
+            <date>
+                {#if blogPost.date}
+                    {blogPost.date.getDate()}. {blogPost.date.getMonth() + 1}. {blogPost.date.getFullYear()}
+                {/if}
+            </date>
+        </div>
+    </div>
 </div>
 
 <style>
