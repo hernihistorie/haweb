@@ -6,6 +6,8 @@ export const blogPost55: BlogPost = {
     title: {
         cs: 'Rozhovor s našema dvěma členy na téma digitalizace'
     },
+    date_text: '4. srpna 2025',
+    author_name: 'Herní historie',
     description_html: `
         Na posledním Game Accessu byli naši dva členové - Rudolf Jan Suchý a Martin Štochl - osloveni Natalií Čornyjovou z MUNI ohledně rozhovoru na téma digitalizace všeho od nosičů digitálních dat až po archiválie jako jsou třeba časopisy.
     `

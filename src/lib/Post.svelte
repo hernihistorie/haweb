@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Meta from './Meta.svelte';
+    import type { LocalizedString } from '$src/types';
+
     interface Props {
-        title: string;
+        title: LocalizedString;
         side?: import('svelte').Snippet;
         content?: import('svelte').Snippet;
     }

@@ -1,16 +1,13 @@
 <!-- @migration-task Error while migrating Svelte code: `<p>` is invalid inside `<p>` -->
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost16 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="19. července 2024"
-    title="PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů"
->
+<BlogPostPage post={blogPost16}>
 
     <p>Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout:
     <ul>

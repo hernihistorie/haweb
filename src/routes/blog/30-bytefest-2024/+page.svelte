@@ -1,6 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost30 } from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset08411_data } from '$src/routes/assets/asset_08411';
     import AssetBox from "$src/lib/AssetBox.svelte";
@@ -10,11 +11,7 @@
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="1. listopadu 2024"
-    title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
->
+<BlogPostPage post={blogPost30}>
 
     <p>Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ADLERNEST". Tu najdete již tradičně na <a href="https://cs.speccy.cz">cs.speccy.cz</a> a a nebo v našem Inventáři:
     {#each assets as data}

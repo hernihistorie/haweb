@@ -6,6 +6,8 @@ export const blogPost26: BlogPost = {
     title: {
         cs: 'Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru'
     },
+    date_text: '26. srpna 2024',
+    author_name: 'Herní historie',
     description_html: `
         Herní historií nejsou jen hry a oficiální hardware – součástí herní historie (zejména té jenž se odehrávala v rámci bývalého Východního bloku) je i podomácku zbastlené příslušenství, jako např. herní joysticky.
     `

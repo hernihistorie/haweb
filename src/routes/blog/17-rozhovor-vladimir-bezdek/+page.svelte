@@ -1,15 +1,12 @@
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost17 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="15. července 2024"
-    title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
->
+<BlogPostPage post={blogPost17}>
 
     <p>Vzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod. Zároveň jsme od pana Bezděka dostali i nějaké materiály na oskenování, konkrétně první scénáře od této televizní soutěže. Záznam rozhovoru je v současnosti dostupný na zažádání a později bude jeho přepis přístupný online na stránkách Herního archivu.
 

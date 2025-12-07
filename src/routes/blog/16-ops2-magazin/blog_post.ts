@@ -6,6 +6,8 @@ export const blogPost16: BlogPost = {
     title: {
         cs: 'PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů'
     },
+    date_text: '19. července 2024',
+    author_name: 'Herní historie',
     description_html: `
         Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
     `

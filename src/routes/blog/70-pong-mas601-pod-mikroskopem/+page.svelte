@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost70 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Jiří Bernášek"
-    date="14. října 2025"
-    title="Obvody MAS601-603 pro televizní hry pod mikroskopem"
->
+<BlogPostPage post={blogPost70}>
     <div class="picture-cite">
         <p><img src="/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg">
         <cite>Obr. 1: Čip MAS601 po vybalení z černého pouzdra (Foto: Sean Riddle)</cite>

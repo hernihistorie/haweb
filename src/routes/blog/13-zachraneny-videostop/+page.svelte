@@ -1,6 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost13 } from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset07859_data } from '$src/routes/assets/asset_07859';
     import { data as asset07860_data } from '$src/routes/assets/asset_07860';
@@ -11,11 +12,7 @@
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="28. června 2024"
-    title="Originální hra z pořadu Videostop"
->
+<BlogPostPage post={blogPost13}>
 
     <p>Jak jsme slíbili, tak jsme konečně zdigitalizovali a zveřejnili originální hru z pořadu Videostop. Hra původně neměla být vůbec veřejně distribuovaná a její spuštění a zapojení tedy není úplně triviální. Z tohoto důvodu jsme pro vás připravili stručný <a href="https://herniarchiv.cz/projects/videostop/">návod</a>, který by vás měl seznámit s tím, co vše k hraní potřebujete a jak hru zapnout a ovládat. Na tomto odkazu budeme později doplňovat i další věci týkající se tohoto projektu (jako jsou rozhovory, další předměty apod.).
     <p><img src="/photos/videostop_screenshot.jpg" alt="Videostop"></p>

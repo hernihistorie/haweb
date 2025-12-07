@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost39 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="12. února 2025"
-    title="Zdigitalizovali jsme českou verzi OS/2 Warp 3"
->
+<BlogPostPage post={blogPost39}>
 
     <p>Nedávno se nám do archivu podařilo získat dvě kompletní krabice s operačním systémem OS/2 od IBM. V jedné  z nich je dokonce česká varianta OS/2 Warp 3 - pravděpodobně nejranější lokalizovaná verze, která u nás vyšla. A protože jsme ji nenašli nikde na Internetu, rovnou jsme ji  nasdíleli pro užitek všem. Tak tedy kupředu na Internet Archive ať můžete vyzkoušet ty tucty her, co na tento systém vyšly!
     

@@ -1,15 +1,12 @@
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost5 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="11. března 2024"
-    title="Nově zachráněný program MATEMATIKA od Petra Stasiaka"
->
+<BlogPostPage post={blogPost5}>
 
     <p>Jeden z programů/her, které se nám v rámci digitalizační činnosti spolku povedlo zachránit je výukový program Matematika pro ZX Spectrum/Didaktik/Delta. Program na programoval Petr Stasiak a distribuovala firma Pelos.
     <p>Dump programu naleznete v našem <a href="https://inventory.herniarchiv.cz/asset/details/?id=1128">Inventáři</a>.

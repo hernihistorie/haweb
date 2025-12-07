@@ -1,15 +1,12 @@
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost2 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="23. ledna 2024"
-    title="RetroFest 2024 streamuje do vašich obýváků"
->
+<BlogPostPage post={blogPost2}>
 
     <p><img src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_banner.jpg"></p>
 

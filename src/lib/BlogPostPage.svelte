@@ -1,38 +1,36 @@
 <script lang="ts">
 	import Post from "./Post.svelte";
+    import Loc from "./Loc.svelte";
+    import type { BlogPost } from "$src/types";
 
     interface Props {
-        author_name: string;
-        date: string;
-        title: string;
+        post: BlogPost;
         children?: import('svelte').Snippet;
     }
 
     let {
-        author_name,
-        date,
-        title,
+        post,
         children
     }: Props = $props();
 </script>
 
-<Post title={title}>
+<Post title={post.title}>
     {#snippet side()}
         <div >
             <!--
                 <img src="" alt="Profilový obrázek" />
             -->
             <author>
-                {author_name}
+                {post.author_name ?? ''}
             </author>
             <date>
-                {date}
+                {post.date_text ?? ''}
             </date>
         </div>
     {/snippet}
     {#snippet content()}
         <div >
-            <h2>{title}</h2>
+            <h2><Loc text={post.title} /></h2>
             {@render children?.()}
         </div>
     {/snippet}

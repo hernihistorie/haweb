@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost61 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="29. srpna 2025"
-    title="Spolupořádáme workshop o Orální historii"
->
+<BlogPostPage post={blogPost61}>
     <p>Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney. Workshop vzniknul v rámci projektu <a href="https://costgrade.eu/">Grassroots of Digital Europe</a> na vědecké platformě COST.
     <p>(Foto od: Ladislav Huttl)
     <p><img src="/photos/blog-posts/cost_1.jpg">

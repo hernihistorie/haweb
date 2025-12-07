@@ -6,6 +6,8 @@ export const blogPost65: BlogPost = {
     title: {
         cs: 'Do třetice všeho dobrého: Poslední část dopisové komunikace Jana Orny'
     },
+    date_text: '16. září 2025',
+    author_name: 'Herní historie',
     description_html: `
         Po měsíci usilovného skenování je naše práce u konce - všechny dopisy od Jana Orny jsou zdigitalizovány. V poslední části najdete další seznamy her a nabídkových listů, dopisy od řady tuzemských pirátů a dokonce dopisovou komunikaci obohacenou i o fotografie mezi Janem Ornou a jeho kamarádem, s kterým si začal psát nazákladě inzerátu v časopisu Excalibur.
     `

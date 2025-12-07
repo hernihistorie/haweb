@@ -6,6 +6,8 @@ export const blogPost39: BlogPost = {
     title: {
         cs: 'Zdigitalizovali jsme českou verzi OS/2 Warp 3'
     },
+    date_text: '12. února 2025',
+    author_name: 'Herní historie',
     description_html: `
         Nedávno se nám do archivu podařilo získat dvě kompletní krabice s operačním systémem OS/2 od IBM. V jedné  z nich je dokonce česká varianta OS/2 Warp 3 - pravděpodobně nejranější lokalizovaná verze, která u nás vyšla.
     `

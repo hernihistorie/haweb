@@ -6,6 +6,8 @@ export const blogPost24: BlogPost = {
     title: {
         cs: 'Opravili jsme osmipalcovou disketovku!'
     },
+    date_text: '19. srpna 2024',
+    author_name: 'Herní historie',
     description_html: `
         Podařilo se nám sehnat a opravit 8" disketovku! Hurá!
     `

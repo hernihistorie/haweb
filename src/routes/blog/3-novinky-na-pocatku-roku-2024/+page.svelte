@@ -1,15 +1,12 @@
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost3 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="1. března 2024"
-    title="Novinky na počátku roku 2024"
->
+<BlogPostPage post={blogPost3}>
 
     <p>Začátkem tohoto roku jsme vypustili (a na <a href="/blog/2-retrofest-2024">streamu</a> oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali.
 

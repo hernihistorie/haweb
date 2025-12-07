@@ -1,6 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost9 } from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset07760_data } from '$src/routes/assets/asset_07760';
     import { data as asset07761_data } from '$src/routes/assets/asset_07761';
@@ -12,11 +13,7 @@
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="3. května 2024"
-    title="PLAYBOY2 a RISKUJ!"
->
+<BlogPostPage post={blogPost9}>
 
     <p>Kromě toho, že jsme u sběratele Filip Reichert  před dvěma týdny zdigitalizovali několik kazet s hrami na ZX Spectrum, tak jsme také zvládli zdigitalizovat řadu videoher na CDčkách a Disketách (a něco jsme stihli i naskenovat!). Za zmínku stojí zejména dva tituly a to nikde nezdigitalizovaný Playboy 2 a Datadisk k riskuj. Dumpy k oběma hrám naleznete v našem inventáři zde:
     

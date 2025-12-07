@@ -6,6 +6,8 @@ export const blogPost68: BlogPost = {
     title: {
         cs: 'Byla zveřejněna naše přednáška o Videostopu'
     },
+    date_text: '2. října 2025',
+    author_name: 'Herní historie',
     description_html: `
         inulý rok měl člen našeho spolku Rudolf Jan Suchý přednášku o historii a archivaci hry z televizního pořadu Videostop. Záznam z této přednášky nyní naleznete na YouTubu ByteFESTu.
     `

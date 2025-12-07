@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost67 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Jiří Bernášek"
-    date="26. září 2025"
-    title="Televizní hra Tesla XD-8001 pod drobnohledem"
->
+<BlogPostPage post={blogPost67}>
 <div class="picture-cite">
     <p><img src="/photos/pong/1-XD-8001.jpg" alt="TV hra XD-8001">
     <cite>Obr. 1: TV hra XD-8001 (Foto: Herní archiv)</cite>

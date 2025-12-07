@@ -6,6 +6,8 @@ export const blogPost32: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Skeny cítovského zpravodaje'
     },
+    date_text: '9. prosince 2024',
+    author_name: 'Herní historie',
     description_html: `
         Oskenovali jsme počítačový zpravodaj, který vznikal v 80. letech v rámci činnosti cítovského atari klubu.
     `

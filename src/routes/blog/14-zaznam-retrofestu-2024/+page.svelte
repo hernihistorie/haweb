@@ -1,16 +1,13 @@
 <!-- @migration-task Error while migrating Svelte code: `<p>` is invalid inside `<p>` -->
-<script>
+<script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost14 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="5. července 2024"
-    title="Záznam streamu Herní historie: RetroFest 2024"
->
+<BlogPostPage post={blogPost14}>
 
     <p>Už skoro před půl rokem (ten čas letí) jsme pořádali náš nepravidelný stream RetroFest, na kterém jsme oznamovali novinky ohledně naší činnosti a zároveň jsme si zahráli i nějaké RetroHry. Konečně jsme se dostali k sestříhání tohoto stremu, který celý najdete zde:
     

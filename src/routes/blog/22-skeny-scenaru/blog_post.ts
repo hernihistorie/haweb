@@ -6,6 +6,8 @@ export const blogPost22: BlogPost = {
     title: {
         cs: 'Skeny scénářů k pořadu Videostop'
     },
+    date_text: '2. srpna 2024',
+    author_name: 'Herní historie',
     description_html: `
         Jak jsme oznámili v jenom z předchozích příspěvků, tak jsme dělali rozhovor s Vladimírem Bezděkem, s tvůrcem pořadu Videostop. Ten nám po dokončení rozhovoru zapůjčil scénáře ke dvěma dílům tohoto slavného pořadu - přesněji návrh na první díl (který je doplněný o posudek pořadu a ruční poznámky k úpravě scénáře) a pak scénář k dílu pátému.
     `

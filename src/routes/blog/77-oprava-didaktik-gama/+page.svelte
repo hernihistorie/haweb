@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost77 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="7. listopadu 2025"
-    title="Opravili jsme počítač Didaktik Gama"
->
+<BlogPostPage post={blogPost77}>
     <p>Ačkoliv je v naší sbírce Didaktiků Gama a Didaktiků M celá řada, tak smutnou pravdou je, že většina z nich se k nám dostala již v nefunkčním stavu. Proto jsme rádi, že Lukáš Nevařil při své návštěvě začal naše Didaktiky opravovat. Toto je jeden z nich.
     <p>(Foto od: Rudolf Jan Suchý)
     <p><img src="/photos/blog-posts/oprava-gama_1.jpg">

@@ -6,6 +6,8 @@ export const blogPost31: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Digitalizace DAT kazet'
     },
+    date_text: '2. prosince 2024',
+    author_name: 'Herní historie',
     description_html: `
         Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     `

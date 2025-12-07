@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+    import { blogPost25 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Herní historie"
-    date="23. srpna 2024"
-    title="Odstěhovali jsme se ze Školíhcího centra na Strahově"
->
+<BlogPostPage post={blogPost25}>
 
     <p>Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku. Chceme moc poděkovat Silicon Hillu a všem spoluokupantům Školícího centra (zejména pak AVC), že nás tam po těch několik let tolerovali a několikrát s námi navázali i profesní spolupráci. Bude nám školítko moc chybět    
 
