@@ -30,6 +30,7 @@
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "svelte-intersection-observer": "^0.10.1",
+    "svelte-lazy": "^1.2.11",
     "svelte-lightbox": "^1.1.2",
     "tslib": "^2.4.1",
     "typescript": "^5.5.0",

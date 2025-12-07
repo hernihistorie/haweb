@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Lazy from 'svelte-lazy';
 	import Arrow from '$lib/Arrow.svelte';
 	import type { BlogPost } from '$src/types';
 	import type { Snippet } from 'svelte';
@@ -11,7 +12,9 @@
 <div class="blog-box">
     <a href="{url}">
         {#if blogPost.image}
-            <img src={blogPost.image} />
+            <Lazy height={"8em"} keep={true}>
+                <img src={blogPost.image} />
+            </Lazy>
         {:else}
             <!-- <div class="img-placeholder">
             </div> -->
@@ -53,6 +56,7 @@
     img, .img-placeholder {
         /* width: 100%; */
         /* aspect-ratio: 10/3; */
+        box-sizing: border-box;
         width: 100%;
         height: 8em;
         object-fit: cover;

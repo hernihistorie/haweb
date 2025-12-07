@@ -20,7 +20,4 @@
         justify-content: center;
         padding-top: 1px;
     }
-    .social-media-links a svg {
-        height: 24px;
-    }
 </style>
