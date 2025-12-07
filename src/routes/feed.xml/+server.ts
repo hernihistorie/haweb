@@ -1,13 +1,21 @@
 import type { RequestHandler } from './$types';
 import { generateAtomFeed, createFeedResponse } from '$lib/feed';
+import { getLocale } from '$src/lib/paraglide/runtime';
 
 export const GET: RequestHandler = async () => {
-    const feed = generateAtomFeed({
-        lang: 'cs',
-        title: 'Herní archiv - Blog',
-        subtitle: 'Novinky z Československého herního archivu',
-        feedPath: '/feed.xml'
-    });
+    const feed = generateAtomFeed(
+        getLocale() == 'cs' ? {
+            lang: 'cs',
+            title: 'Herní archiv - Blog',
+            subtitle: 'Novinky z Československého herního archivu',
+            feedPath: '/feed.xml'
+        } : {
+            lang: 'en',
+            title: 'Gaming Archive - Blog',
+            subtitle: 'News from the Czechoslovak Gaming Archive',
+            feedPath: '/en/feed.xml'
+        }
+    );
     
     return createFeedResponse(feed);
 };

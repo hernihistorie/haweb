@@ -3,6 +3,7 @@
     import Loc from "./Loc.svelte";
     import type { BlogPost } from "$src/types";
 	import type { Snippet } from "svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         post: BlogPost;
@@ -42,7 +43,7 @@
     {/snippet}
     {#snippet content()}
         <div>
-            <a href="/blog" class="backlink">
+            <a href={localizeHref("/blog")} class="backlink">
                 <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
             </a>
             <h2>

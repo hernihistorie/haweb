@@ -6,6 +6,7 @@
 	import BlogBoxes from './blog/BlogBoxes.svelte';
     import ProjectBoxes from './projects/ProjectBoxes.svelte';
 	import Arrow from '$src/lib/Arrow.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <Meta title="" />
@@ -80,7 +81,7 @@
                         en="Latest interview"
                     />:
                 </strong>
-                <a href="/interviews/josef-havelka/" class="plain">Josef Havelka</a>, 
+                <a href={localizeHref("/interviews/josef-havelka/")} class="plain">Josef Havelka</a>, 
                     <Loc
                         cs="zakladatel <i>Atari klubu Cítov</i>"
                         en="founder of <i>Atari club Cítov</i>"
@@ -155,9 +156,9 @@
                 />
             </p>
             <!-- <div class="thumbnails">
-                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
-                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07179.jpg"></a>
-                <a href="/gallery/emil-fafek"><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
+                <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
+                <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07179.jpg"></a>
+                <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
             </div> -->
             <Arrow href="/gallery/emil-fafek">
                 <Loc

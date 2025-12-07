@@ -1,26 +1,21 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { slide } from 'svelte/transition';
-	import { lang } from '../stores.js'
 	import Arrow from './Arrow.svelte';
+	import { getLocale } from './paraglide/runtime';
     interface Props {
         cs?: boolean;
         en?: boolean;
     }
 
     let { cs, en }: Props = $props();
-
-    let langValue: "en" | "cs" = $state("cs");
-    lang.subscribe(value => {
-        langValue = value as "en" | "cs";
-    })
 </script>
 
-{#if langValue == 'cs' && !cs}
+{#if getLocale() == 'cs' && !cs}
     <div class="page-lang-notice">
         <p>Tato stránka je v současnosti dostupná pouze v angličtině.</p>
     </div>
-{:else if langValue == 'en' && !en}
+{:else if getLocale() == 'en' && !en}
     <div class="page-lang-notice">
         <p>
             🇨🇿 This page is currently only available in Czech.

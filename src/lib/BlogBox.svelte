@@ -4,13 +4,15 @@
 	import type { BlogPost } from '$src/types';
 	import type { Snippet } from 'svelte';
 	import Loc from './Loc.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
     let { blogPost, children, show_arrow=true }: { blogPost: BlogPost, children?: Snippet, show_arrow?: boolean } = $props();
 
     let url = `/blog/${blogPost.id}-${blogPost.slug}`;
+    let localizedUrl = $derived(localizeHref(url));
 </script>
 
 <div class="blog-box">
-    <a href="{url}">
+    <a href="{localizedUrl}">
         {#if blogPost.image}
             <Lazy height={"8em"} keep={true}>
                 <img src={blogPost.image} />
@@ -22,7 +24,7 @@
     </a>
     {#if blogPost.title}
         <h3>
-            <a href="{url}">
+            <a href="{localizedUrl}">
                 <Loc text={blogPost.title} />
             </a>
         </h3>

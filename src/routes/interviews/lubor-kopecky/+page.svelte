@@ -4,6 +4,7 @@
 	import Answer from "$lib/interviews/Answer.svelte"
 	import Question from "$lib/interviews/Question.svelte";
 	import Chapter from "$lib/interviews/Chapter.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     import { data, RS, LK, VS } from "./interview";
     import PageLang from "$src/lib/PageLang.svelte";
@@ -31,7 +32,7 @@
         <div >
             
             <p>
-                Tento rozhovor v současnosti není dostupný.  V případě zájmu o obsah rozhovoru z badatelských důvodů nás prosím <a href="/contact">kontaktujte</a>.
+                Tento rozhovor v současnosti není dostupný.  V případě zájmu o obsah rozhovoru z badatelských důvodů nás prosím <a href={localizeHref("/contact")}>kontaktujte</a>.
             </p>
             
         </div>

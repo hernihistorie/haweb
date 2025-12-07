@@ -1,11 +1,12 @@
 <script>
     import Loc from '$lib/Loc.svelte';
+    import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
     <div>
-        <a href="/contact">Kontaktujte nás</a>
+        <a href={localizeHref("/contact")}>Kontaktujte nás</a>
     </div>
     <div>
         <p><Loc

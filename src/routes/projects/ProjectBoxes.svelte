@@ -2,6 +2,7 @@
 	import ThinBox from '$src/lib/ThinBox.svelte';
     import Loc from "$src/lib/Loc.svelte";
     import type { Project } from '$src/types';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     import { projectProgramyZCST } from './programy-z-cst/project';
     import { projectBewesoft } from './bewesoft/project';
@@ -23,7 +24,7 @@
     {#each (all ? allProjects : mainProjects) as project}
         <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
             <h3>
-                <a href={project.url}>
+                <a href={project.url && project.url.startsWith('/') ? localizeHref(project.url) : project.url}>
                     <Loc text={project.name} />
                 </a>
             </h3>

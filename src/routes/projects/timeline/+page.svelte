@@ -3,6 +3,7 @@
     import Loc from "$src/lib/Loc.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import TimelineProjectBox from './TimelineProjectBox.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     import { projectProgramyZCST } from '../programy-z-cst/project';
     import { projectBewesoft } from '../bewesoft/project';
@@ -15,7 +16,7 @@
 <!--<h2><a href="/projects">PROJEKTY</a> <div style="float: right">ČASOVÁ OSA</div></h2> -->
 
 <ul>
-    <li><a href="/projects">
+    <li><a href={localizeHref("/projects")}>
             <Loc
             cs="Projekty"
             en="Projects"
@@ -37,11 +38,11 @@
     <TimelineProjectBox project={projectVideostop} year={2024} right />
     
     <TimelineProjectBox project={{ name: "Orálněhistorické rozhovory", url: "/interviews/" }} year={2023} left>
-        Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href="/interviews/">veřejnému prohlížení</a>.
+        Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href={localizeHref("/interviews/")}>veřejnému prohlížení</a>.
     </TimelineProjectBox>
     
     <TimelineProjectBox project={{ name: "Digitalizace fotografií" }} year={2023} right>
-        V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny, považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href="/gallery/emil-fafek/">tématických fotografií z pozůstalosti Emila Fafka</a>.
+        V rámci archivce dobové dokumentace vzniká sekce pro digitalizaci audiovizuálních médií. Záznamy herních akcí, interakce s hrami, nebo prostředí, kde jsou vyvíjeny, považujeme za opomíjenou, ale podstatnou součást paratextů. Prvotní motivací bylo získání většího množství <a href={localizeHref("/gallery/emil-fafek/")}>tématických fotografií z pozůstalosti Emila Fafka</a>.
     </TimelineProjectBox>
     
     <TimelineProjectBox project={{ name: "Zálohování datových nosičů" }} year={2022} left>

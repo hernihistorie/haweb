@@ -3,6 +3,7 @@
     import type { Snippet } from "svelte";
 	import Meta from "./Meta.svelte";
 	import Loc from "./Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         project: Project;
@@ -15,7 +16,7 @@
 <Meta title={project.fullname ?? project.name} />
 
 <article class="thin">
-    <a href="/projects" style="margin-bottom: -12px;">
+    <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
         <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
     </a>
     <h2>

@@ -1,17 +1,20 @@
 <script lang="ts">
 	import Arrow from '$lib/Arrow.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
     let { href = undefined, title = undefined, children, show_arrow=true, img=undefined, project=false } = $props();
+
+    let localizedHref = $derived(href && href.startsWith('/') && !href.startsWith('//') ? localizeHref(href) : href);
 </script>
 
 <div class="project">
     {#if img}
-        <a href="{href}">
+        <a href="{localizedHref}">
             <img src={img} alt={title} />
         </a>
     {/if}
     {#if title}
         <h3>
-            <a href="{href}">
+            <a href="{localizedHref}">
                 {title}
             </a>
         </h3>
@@ -19,7 +22,7 @@
     {@render children?.()}
     {#if show_arrow}
         <div style="margin-top: 16px;">
-            <Arrow {href} />
+            <Arrow href={href} />
         </div>
     {/if}
 </div>

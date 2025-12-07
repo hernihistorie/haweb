@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { localizeHref } from '$lib/paraglide/runtime';
     let {
         href,
         text = undefined,
@@ -8,9 +9,12 @@
         text?: string,
         children?: import('svelte').Snippet
     }= $props();
+
+    // Localize internal links (starting with /), but not external links or anchor links
+    let localizedHref = $derived(href.startsWith('/') && !href.startsWith('//') ? localizeHref(href) : href);
 </script>
 
-<a class="arrow" href="{href}">
+<a class="arrow" href="{localizedHref}">
     <img src="/ico/ico_arrow.svg" alt="→">
     {#if text}
         {text}

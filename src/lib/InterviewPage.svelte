@@ -9,6 +9,7 @@
 	import TableOfContents from './TableOfContents/TableOfContents.svelte';
 	import NameWithShortname from './NameWithShortname.svelte';
 	import Loc from './Loc.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
     export let data: InterviewData;
 </script>
 
@@ -34,7 +35,7 @@
     {/snippet}
     {#snippet content()}
         <article>
-            <a href="/interviews" class="return-link">
+            <a href={localizeHref("/interviews")} class="return-link">
                 <Loc cs="Rozhovory Herního archivu" en="Czechoslovak Game Archive Interviews" />
             </a>
             <h2>

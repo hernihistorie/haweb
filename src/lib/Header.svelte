@@ -5,6 +5,7 @@
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
 	type MenuItem = {
 		url: string;
@@ -48,7 +49,7 @@
 
 <header>
 	<div class="logo">
-		<a href="/" onclick={resetExpandedMenu}>
+		<a href={localizeHref("/")} onclick={resetExpandedMenu}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
 	</div>
@@ -61,7 +62,7 @@
 					</li>
 					{#each menuItems as menuItem}
 						<li>
-							<a href="{menuItem.url}" onclick={() => burgerMenuOpen=false}>
+							<a href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url} onclick={() => burgerMenuOpen=false}>
 								<Loc cs={menuItem.cs} en={menuItem.en} />
 							</a>
 						</li>
@@ -98,7 +99,7 @@
 							<ul class="dropdown" transition:slide>
 								{#each menuItem.submenu as subMenuItem}
 									<li>
-										<a href="{subMenuItem.url}" onclick={resetExpandedMenu}>
+										<a href={subMenuItem.url.startsWith('/') ? localizeHref(subMenuItem.url) : subMenuItem.url} onclick={resetExpandedMenu}>
 											<Loc cs={subMenuItem.cs} en={subMenuItem.en} />
 										</a>
 									</li>
@@ -108,7 +109,7 @@
 					</li>
 				{:else}
 					<li>
-						<a href="{menuItem.url}" onclick={resetExpandedMenu}>
+						<a href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url} onclick={resetExpandedMenu}>
 							<Loc cs={menuItem.cs} en={menuItem.en} />
 						</a>
 					</li>

@@ -3,6 +3,7 @@
 	import Box from "./Box.svelte";
 	import Capsule from "./Capsule.svelte";
 	import Loc from "./Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         data: InterviewData;
@@ -16,7 +17,7 @@
     <div class="interview { data.complete ? 'complete' : 'incomplete' } { compact ? 'compact' : '' }">
         <div>
             <h3>
-                <a href={data.complete ? "/interviews/" + data.slug : undefined}>
+                <a href={data.complete ? localizeHref("/interviews/" + data.slug) : undefined}>
                     <Loc text={ data.title } />
                 </a>
                 {#if !data.complete}
@@ -47,7 +48,7 @@
         </div>
         <div class="photopart">
             {#if data.narrator.photo}
-                <a href={data.complete ? "/interviews/" + data.slug : undefined}>
+                <a href={data.complete ? localizeHref("/interviews/" + data.slug) : undefined}>
                     <img src="{ data.narrator.photo.url }" class="narrator-img" alt="">
                 </a>
             {/if}

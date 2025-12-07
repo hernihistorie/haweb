@@ -2,6 +2,7 @@
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import { blogPost70 } from "./blog_post";
+    import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <PageLang cs />
@@ -11,7 +12,7 @@
         <p><img src="/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg">
         <cite>Obr. 1: Čip MAS601 po vybalení z černého pouzdra (Foto: Sean Riddle)</cite>
     </div>
-    <p>V <a href="/blog/67-pong-xd8001-pod-drobnohledem/">minulém článku</a> jsme si představili zvenku i zevnitř televizní hru XD-8001, kterou od roku 1979 vyráběla Piešťanská Tesla. Hra je založena na specializovaných čipech MAS601-603, navržených a vyráběných přímo v Piešťanech, což je v rámci tehdejšího východního bloku herní unikát, a i ve světovém měřítku vzácnost. Tento článek je určen pro obzvláště zvídavého a trpělivého čtenáře, neboť půjdeme ještě hlouběji: Nahlédneme přímo do vnitřní struktury zmíněných čipů a pokusíme se rozluštit jejich fungování. Zkusíme si také odpovědět na otázky ze závěru minulého článku: Proč rozdělení na 3 obvody? Proč napětí -18V? Proč je půlka hry analogová?
+    <p>V <a href={localizeHref("/blog/67-pong-xd8001-pod-drobnohledem/")}>minulém článku</a> jsme si představili zvenku i zevnitř televizní hru XD-8001, kterou od roku 1979 vyráběla Piešťanská Tesla. Hra je založena na specializovaných čipech MAS601-603, navržených a vyráběných přímo v Piešťanech, což je v rámci tehdejšího východního bloku herní unikát, a i ve světovém měřítku vzácnost. Tento článek je určen pro obzvláště zvídavého a trpělivého čtenáře, neboť půjdeme ještě hlouběji: Nahlédneme přímo do vnitřní struktury zmíněných čipů a pokusíme se rozluštit jejich fungování. Zkusíme si také odpovědět na otázky ze závěru minulého článku: Proč rozdělení na 3 obvody? Proč napětí -18V? Proč je půlka hry analogová?
     
     <p>Jak se vlastně dá takový integrovaný obvod zkoumat? Ve světě existují machři, kteří umí na "brouka" zaútočit kyselinou, zvolna odkrývat jednotlivé jeho vrstvy a detailně je fotografovat přes mikroskop. A tak zatímco v minulosti se údajně na východě Evropy podobně zkoumaly čipy západního původu, nyní si z iniciativy spolku <a href="https://hernihistorie.cz/">Herní historie</a> udělaly výlet za oceán naopak čipy MAS60x. Procesu obvykle zvaného "decap" se ujal <a href="https://seanriddle.com/decap.html">Sean Riddle</a> a výsledkem jsou <a href="https://seanriddle.com/tesla/">snímky</a> všech tří čipů v doslova obrovském rozlišení.
     

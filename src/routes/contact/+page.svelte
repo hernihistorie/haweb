@@ -2,6 +2,7 @@
 	import Meta from "$lib/Meta.svelte";
     import { DONATE_LINKS, SOCIAL_MEDIA_LINKS } from "$src/constants";
 	import Loc from "$src/lib/Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <Meta title="Kontaky" />
@@ -76,8 +77,8 @@
 
     <p>
         <Loc
-            cs="Možnosti podpory naleznete na stránce <a href='/support/'>Podpořte nás</a>."
-            en="You can support our activities on <a href='/support/'>Support Us</a> page."
+            cs={`Možnosti podpory naleznete na stránce <a href='${localizeHref('/support/')}'>Podpořte nás</a>.`}
+            en={`You can support our activities on <a href='${localizeHref('/support/')}'>Support Us</a> page.`}
         />
     </p>
 </article>

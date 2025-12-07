@@ -2,6 +2,7 @@
 	import Meta from "$lib/Meta.svelte";
 	import ProjectBoxes from './ProjectBoxes.svelte';
     import Loc from "$src/lib/Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <Meta title="Projekty"/>
@@ -13,7 +14,7 @@
         cs="Projekty"
         en="Projects"
         />
-    <li><a href="timeline">
+    <li><a href={localizeHref("/projects/timeline")}>
             <Loc    
             cs="Časová osa"
             en="Timeline"

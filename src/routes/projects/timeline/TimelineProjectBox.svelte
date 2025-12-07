@@ -3,6 +3,7 @@
     import type { Snippet } from "svelte";
     import Box from '$lib/Box.svelte';
     import Loc from "$src/lib/Loc.svelte";
+    import { localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         project: Project;
@@ -13,10 +14,13 @@
     }
 
     let { project, year, left = false, right = false, children }: Props = $props();
+    
+    // Localize internal URLs (starting with /)
+    let localizedUrl = $derived(project.url && project.url.startsWith('/') && !project.url.startsWith('//') ? localizeHref(project.url) : project.url);
 </script>
 
 <Box {left} {right}>
-    <h3><span class="year">{year}</span> <a href={project.url}><Loc text={project.name} /></a></h3>
+    <h3><span class="year">{year}</span> <a href={localizedUrl}><Loc text={project.name} /></a></h3>
     <p>
         {#if children}
             {@render children()}

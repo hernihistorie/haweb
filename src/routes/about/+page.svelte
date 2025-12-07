@@ -1,6 +1,7 @@
 <script>
 	import Meta from "$lib/Meta.svelte";
 	import Loc from "$src/lib/Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <Meta title="O nás" />
@@ -73,8 +74,8 @@
     </p>
     <p>
         <Loc
-            cs="Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně podílíme na <a href='/projects'>rozsáhlých archivačních projektech</a>. Rádi pomůžeme právě Vám zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu. Neváhejte a <a href='/contact'>kontaktujte nás</a>."
-            en="We approach each individual item with the utmost care and are also regularly involved in <a href='/projects'>extensive archival projects</a>. We are happy to help you rescue data from obscure media or organize a project for digitizing an entire archive. Feel free to <a href='/contact'>contact us</a>."
+            cs={`Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně podílíme na <a href='${localizeHref('/projects')}'>rozsáhlých archivačních projektech</a>. Rádi pomůžeme právě Vám zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu. Neváhejte a <a href='${localizeHref('/contact')}'>kontaktujte nás</a>.`}
+            en={`We approach each individual item with the utmost care and are also regularly involved in <a href='${localizeHref('/projects')}'>extensive archival projects</a>. We are happy to help you rescue data from obscure media or organize a project for digitizing an entire archive. Feel free to <a href='${localizeHref('/contact')}'>contact us</a>.`}
         />
     </p>
 
@@ -89,7 +90,7 @@
         />
     </h2>
     <p>
-        <a href="/contact">
+        <a href={localizeHref("/contact")}>
             <Loc
                 cs="Kontaktní informace naleznete zde"
                 en="Contact information can be found here"
