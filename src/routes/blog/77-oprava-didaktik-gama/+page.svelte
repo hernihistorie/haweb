@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="7. listopadu 2025"
     title="Opravili jsme počítač Didaktik Gama"
@@ -15,4 +15,4 @@
     <p><img src="/photos/blog-posts/oprava-gama_1.jpg">
     <p><img src="/photos/blog-posts/oprava-gama_2.jpg">
     <p><img src="/photos/blog-posts/oprava-gama_3.jpg">
-</BlogPost>
+</BlogPostPage>

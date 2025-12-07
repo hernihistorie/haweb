@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset07859_data } from '$src/routes/assets/asset_07859';
@@ -11,7 +11,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="28. června 2024"
     title="Originální hra z pořadu Videostop"
@@ -25,4 +25,4 @@
         <AssetBox {data} />
     {/each}
     <p>Pokud byste si nevěděli s čímkoliv rady tak se nesotýchejte ozvat.
-</BlogPost>
+</BlogPostPage>

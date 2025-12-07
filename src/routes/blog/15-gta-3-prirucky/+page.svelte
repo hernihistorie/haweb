@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="15. července 2024"
     title="Do archivu jsme získali vzácnou příručku ke GTA 3"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/gta_3_prirucka.jpg" alt="Příručka ke GTA 3"></p>
 
-</BlogPost>
+</BlogPostPage>

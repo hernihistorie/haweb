@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="28. června 2024"
     title="Rozhovor se Zdeňkem Vodákem, autorem hry z pořadu Videostop"
@@ -19,4 +19,4 @@
 
     <p><img src="/photos/vodak_blog.jpg" alt="Zdeněk Vodák"></p>
 
-</BlogPost>
+</BlogPostPage>

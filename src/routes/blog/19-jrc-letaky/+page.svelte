@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="24. května 2024"
     title="Do sbírky Herního archivu nám přibylo několik katalogů od JRC"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/jrc_letak.jpg" alt="JRC Leták"></p>
 
-</BlogPost>
+</BlogPostPage>

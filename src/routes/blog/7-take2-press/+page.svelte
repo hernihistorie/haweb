@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset07392_data } from '$src/routes/assets/asset_07392';
@@ -12,7 +12,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="1. dubna 2024"
     title="Dumpy press CD firmy Take2"
@@ -31,4 +31,4 @@
     <p><img src="/photos/mafia_poster.jpg" alt="Plakát ke hře Mafia"></p>
     <p><img src="/photos/mafia_cd.jpg" alt="Grafika k Mafii"></p>
     <p><img src="/photos/vietcong_doc.jpg" alt="Press dokument ke hře Vietcong"></p>
-</BlogPost>
+</BlogPostPage>

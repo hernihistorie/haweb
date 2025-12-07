@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Jiří Bernášek"
     date="26. září 2025"
     title="Televizní hra Tesla XD-8001 pod drobnohledem"
@@ -77,4 +77,4 @@
 <li>4-6. Vlastní kresby (s použitím skenu plošného spoje který najdete <a href="http://www.litildivil.cz/sbirka/ruzne/TV_hra_tesla.htm">zde</a>)
 </ul>
 
-</BlogPost>
+</BlogPostPage>

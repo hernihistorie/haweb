@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset08411_data } from '$src/routes/assets/asset_08411';
@@ -10,7 +10,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="1. listopadu 2024"
     title="Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)"
@@ -23,4 +23,4 @@
     <p>Také jsme měli na ByteFestu přednášku o dějinách a záchraně původní hry z pořadu Videostop, kterou jste si u nás mohli i zahrát. Moc děkujeme za všechny pozitivní reakce a zvídavé otázky které jste kladli - moc nás těší Váš zájem, kterým jste naší snahu hru záchranit zahrnuli. Pokud byste chtěli podobnou činnost podpořit, tak můžete skrze naše <a href="https://herohero.co/hernihistorie">HeroHero</a>.
     <p><img src="/photos/prednaska.jpg" alt="Přednáška"></p>
     <p><img src="/photos/videostop_photo.jpg" alt="Videostop"></p>
-</BlogPost>
+</BlogPostPage>

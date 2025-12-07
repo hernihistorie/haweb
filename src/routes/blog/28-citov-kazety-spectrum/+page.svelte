@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset08376_data } from '$src/routes/assets/asset_08376';
@@ -19,7 +19,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="23. září 2024"
     title="PROJEKT CÍTOV - Kazety s výukovými hrami na ZX Spectrum"
@@ -30,4 +30,4 @@
         <AssetBox {data} />
     {/each}
     <p>K dumpům kazet postupně přibudou i skeny veškerých materiálů, které byli ke kazetám přibaleny (tzn. návodů, obalů apod.).
-</BlogPost>
+</BlogPostPage>

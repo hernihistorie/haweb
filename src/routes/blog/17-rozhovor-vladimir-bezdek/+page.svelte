@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="15. července 2024"
     title="Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/vladimir_bezdek_blogpost.jpg" alt="Vladimír Bezděk"></p>
 
-</BlogPost>
+</BlogPostPage>

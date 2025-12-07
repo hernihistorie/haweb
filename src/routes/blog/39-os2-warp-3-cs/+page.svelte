@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="12. února 2025"
     title="Zdigitalizovali jsme českou verzi OS/2 Warp 3"
@@ -17,4 +17,4 @@
     <p><img src="/photos/os2_warp_3/os2_1.jpg" alt="Krabice OS/2 Warp 3">
     <p><img src="/photos/os2_warp_3/os2_3.png" alt="OS/2 Warp 3" width="100%">
     <p><img src="/photos/os2_warp_3/os2_2.jpg" alt="OS/2 Warp 3" width="100%">
-</BlogPost>
+</BlogPostPage>

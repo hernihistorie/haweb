@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="1. března 2024"
     title="Novinky na počátku roku 2024"
@@ -25,4 +25,4 @@
     
     <p>Tyto projekty hodláme v roce 2024 nadále rozvíjet a nemůžeme se dočkat, až vám budeme moci představit více.  Děkujeme za vaši podporu i v tomto roce.
 
-</BlogPost>
+</BlogPostPage>

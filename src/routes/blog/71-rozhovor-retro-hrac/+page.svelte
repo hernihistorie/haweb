@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="17. října 2025"
     title="Retro Hráč s námi dělal rozhovor"
@@ -14,4 +14,4 @@
     <p>Rozhovor najdete <a href="https://www.youtube.com/watch?v=O6DZSGkZ5Ck">ZDE</a>.
     <p><img src="/photos/blog-posts/rozhovor-retro-hrac.jpg">
     <p>(Obrázek je screenshot z videa)
-</BlogPost>
+</BlogPostPage>

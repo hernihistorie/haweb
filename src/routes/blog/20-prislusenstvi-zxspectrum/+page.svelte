@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="21. června 2024"
     title="Přírůstek do sbírky Herního archivu: Příslušenství k mikropočítačům"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/prislusenstvi_zxspectrum.jpg" alt="Příslušenství k ZX Spectru"></p>
 
-</BlogPost>
+</BlogPostPage>

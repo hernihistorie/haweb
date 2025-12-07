@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Jiří Bernášek"
     date="14. října 2025"
     title="Obvody MAS601-603 pro televizní hry pod mikroskopem"
@@ -248,4 +248,4 @@
 <li>Ing. Vladimír Áč: Rozhovor pro spolek Herní historie (2025)
 <li>Sada integrovaných obvodů ke konstrukci televizních her MAS601, MAS602, MAS603 (Technické zprávy, Tesla Rožnov, 1979)
 <li>Videozáznam hry (online na https://www.youtube.com/watch?v=80nm31Uwf0g)</ul>
-</BlogPost>
+</BlogPostPage>

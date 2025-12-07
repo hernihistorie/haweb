@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="6. květen 2024"
     title="Nový přírůstek do Herního Archivu: Magazín POKÉMON: Hraj si s námi"
@@ -18,4 +18,4 @@
 
     <p><img src="/photos/pokemon_hraj.jpg" alt="Pokémon: Hraj si s námi"></p>
 
-</BlogPost>
+</BlogPostPage>

@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Jiří Bernášek"
     date="21. října 2025"
     title="Obvody MAS601 vs AY-3-8500 pod detektivní lupou"
@@ -97,4 +97,4 @@
     <li>Kalna Stanislav, Dejczö Peter, Uličný Rudolf: Meranie frekvencie riadk. synchropulsov pomocou čítača a tel. prijímača (Přihláška zlepšovacího návrhu, 1979, archiv Trnava)
     <li>Televizní hry s AY-3-8500 "Pong" (https://www.nostalcomp.cz/ay8500.php)
     <li>Grant Searle: 70's TV game recreation using an Arduino (Atmel ATmega328/168) processor (http://searle.x10host.com/AVRPong/index.html)</ul>
-</BlogPost>
+</BlogPostPage>

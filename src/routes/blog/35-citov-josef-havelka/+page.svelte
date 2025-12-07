@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { InterviewData } from "$src/types";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
@@ -10,7 +10,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="10. ledna 2025"
     title="PROJEKT CÍTOV - Rozhovor s Josefem Havelkou, zakladatelem klubu"
@@ -22,4 +22,4 @@
     {#each interviews as data}
         <InterviewBox {data} />
     {/each}
-</BlogPost>
+</BlogPostPage>

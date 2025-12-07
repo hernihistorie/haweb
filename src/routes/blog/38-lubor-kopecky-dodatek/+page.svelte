@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { InterviewData } from "$src/types";
     import { data as kopecky_data } from '$src/routes/interviews/lubor-kopecky/interview';
@@ -10,7 +10,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="4. února 2025"
     title="Doplňkové otázky k rozhovoru s Luborem Kopeckým, autorem prvních Bulánků"
@@ -20,4 +20,4 @@
     {#each interviews as data}
         <InterviewBox {data} />
     {/each}
-</BlogPost>
+</BlogPostPage>

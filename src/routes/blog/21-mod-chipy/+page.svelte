@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="29. července 2024"
     title="Přírůstek do sbírky Herního archivu: Modchipy pro PS1/PS2"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/modchipy_ps.jpg" alt="Modchipy k PS1 a PS2"></p>
 
-</BlogPost>
+</BlogPostPage>

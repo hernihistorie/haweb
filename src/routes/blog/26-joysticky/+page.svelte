@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="26. srpna 2024"
     title="Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru"
@@ -22,4 +22,4 @@
     <p><img src="/photos/ovladac_homebrew5.jpg" alt="Ovladač"></p>
     <p><img src="/photos/ovladac_homebrew6.jpg" alt="Ovladač"></p>
     <p><img src="/photos/ovladac_homebrew7.jpg" alt="Ovladač"></p>
-</BlogPost>
+</BlogPostPage>

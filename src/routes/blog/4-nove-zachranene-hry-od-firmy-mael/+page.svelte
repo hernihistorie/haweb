@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset07758_data } from '$src/routes/assets/asset_07758';
@@ -14,7 +14,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="20. dubna 2024"
     title="Nově zachráněné hry od firmy Mael"
@@ -36,4 +36,4 @@
 
     <p><img src="/photos/mael/mael3.jpg" alt="Kazeta MAEL 01 zezadu"></p>
 
-</BlogPost>
+</BlogPostPage>

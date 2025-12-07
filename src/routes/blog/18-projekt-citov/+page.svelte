@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="20. května 2024"
     title="Úvod k PROJEKTU CÍTOV"
@@ -21,4 +21,4 @@
 
     <p><img src="/photos/citov_blogpost.jpg" alt="Cítov"></p>
 
-</BlogPost>
+</BlogPostPage>

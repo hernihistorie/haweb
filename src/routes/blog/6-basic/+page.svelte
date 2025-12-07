@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="25. března 2024"
     title="Nově zachráněné kompilátory BASICu"
@@ -18,4 +18,4 @@
 
     <p><img src="/photos/basic_interpreter.jpg" alt="Kazeta Kompilátor BASIC"></p>
 
-</BlogPost>
+</BlogPostPage>

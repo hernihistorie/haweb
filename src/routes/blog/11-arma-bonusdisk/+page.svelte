@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="13. května 2024"
     title="Do archivu sháníme bonusdisk k ARMA"
@@ -17,4 +17,4 @@
 
     <p><img src="/photos/arma_sheet.jpg" alt="ARMA"></p>
 
-</BlogPost>
+</BlogPostPage>

@@ -1,12 +1,12 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 	import AssetList from "$src/lib/AssetList.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="8. srpna 2025"
     title="Jsme v procesu skenování dopisové komunikace Jana Orny"
@@ -15,4 +15,4 @@
     <p>Pokud doma máte náhodou podobnou sbírku - ať už dopisové nebo již digitální komunikace - o kterou byste byli ochotni se podělit tak nám dejte určitě vědět!
     <p><b>DOPISY MOHOU BÝT DLE DOMLUVY JEN ULOŽENY DO ARCHIVU A JEJICH SKENY NEMUSÍ BÝT ZVEŘEJNĚNY</b>
     <AssetList assetTagId={33}/>
-</BlogPost>
+</BlogPostPage>

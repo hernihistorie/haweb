@@ -1,12 +1,12 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 	import AssetList from "$src/lib/AssetList.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="5. září 2025"
     title="Druhá várka naskenované dopisové komunikace Jana Orny"
@@ -15,4 +15,4 @@
     <p>Pokud doma máte náhodou podobnou sbírku - ať už papírové nebo již digitální komunikace - o kterou byste byli ochotni se podělit tak nám dejte určitě vědět na mail <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
     <p><b>DOPISY MOHOU BÝT DLE DOMLUVY JEN ULOŽENY DO ARCHIVU A JEJICH SKENY NEMUSÍ BÝT ZVEŘEJNĚNY</b>
     <AssetList assetTagId={38}/>
-</BlogPost>
+</BlogPostPage>

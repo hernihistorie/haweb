@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="19. dubna 2024"
     title="Rozhovor s Pavlem Šuchmannem a Nabídka spolupráce!"
@@ -19,4 +19,4 @@
 
     <p><img src="/photos/pavel_suchmann.jpg" alt="Pavel Šuchmann"></p>
 
-</BlogPost>
+</BlogPostPage>

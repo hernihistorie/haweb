@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Čápa"
     date="28. dubna 2021"
     title="Švýcarské dobrodružství"
@@ -65,4 +65,4 @@
 
     <p>No a pak už nás čekalo jen loučení a téměř 1000 km cesty skrz srdce Evropy. Cesta byla plná vášnivých diskusí na téma, co přinese budoucnost. Asi mluvím za všechny, když řeknu, že tahle cesta do nás vlila obrovské množství pozitivní energie a motivace k tomu, věnovat se nyní více archivářské činnosti. Pro mě osobně, tohle byl ten bod v životě, který mi ukázal, že tahle práce má opravdu smysl a že je nutné se ji věnovat, protože se jí věnuje málo lidí a naše historie i kultura se nám tu pod rukama pomalu a jistě ztrácí. Herní historie, je odteď neodstranitelná část mého života. A moc se těším, na další podobná dobrodružství! Díky pánové, že jste mě vzali mezi sebe. Pokračování, snad někdy brzy :)
 
-</BlogPost>
+</BlogPostPage>

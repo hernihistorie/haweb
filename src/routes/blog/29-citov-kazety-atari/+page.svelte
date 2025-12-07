@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset08385_data } from '$src/routes/assets/asset_08385';
@@ -11,7 +11,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="30. září 2024"
     title="PROJEKT CÍTOV - Kazety s výukovýmy programy na Atari 800XL/XE, 130XE"
@@ -24,4 +24,4 @@
     {/each}
 
     <p>Vzhledem k tomu, že je celý program nahraný v nestadardním Turbu, tak je možné, že se Vám ho (zejména v emulátoru) napovede spustit na první dobrou. Pokud se tak stane, tak si projděte <a href="http://oldcomp.cz/viewtopic.php?f=25&t=12937">samotné vlákno</a> ve kterém je jeho digitalizace probíraná
-</BlogPost>
+</BlogPostPage>

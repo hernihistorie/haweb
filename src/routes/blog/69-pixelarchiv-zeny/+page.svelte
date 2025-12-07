@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="6. října 2025"
     title="Příští čtvrtek proběhne akce Pixelarchiv v kině: Ženy v herní kultuře"
@@ -14,4 +14,4 @@
     <p><a href="https://fb.me/e/6m6PhDg5v">Událost naleznete zde.</a>
     <p>(Obrázek je oficiální propagací akce)   
     <p><img src="/photos/blog-posts/pixelarchiv_zeny.jpg">
-</BlogPost>
+</BlogPostPage>

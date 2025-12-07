@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="8. července 2025"
     title="Oskenovali jsme velkou část časopisu KyberMyš!"
@@ -16,4 +16,4 @@
     <p>A všechna tato čísla doplnili do naší <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/14">Databáze časopisů</a>.
     <p>Vzhledem k tomu, že nám chybí více než polovina KyberMyší, tak budeme rádi, pokud se nám ozvete v případě, že byste byli ochotni nám nějaké číslo věnovat na zdigitalizování.
     <p><img src="/photos/blog-posts/kybermys_sken.jpg" width="100%">
-</BlogPost>
+</BlogPostPage>

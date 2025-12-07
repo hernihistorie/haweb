@@ -1,12 +1,12 @@
 <!-- @migration-task Error while migrating Svelte code: `<p>` is invalid inside `<p>` -->
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="5. července 2024"
     title="Záznam streamu Herní historie: RetroFest 2024"
@@ -40,4 +40,4 @@
     </ul>
 
     <p><img src="/photos/stream_2024.jpg" alt="RetroFest 2024"></p>
-</BlogPost>
+</BlogPostPage>

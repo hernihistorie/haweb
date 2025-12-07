@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="4. března 2025"
     title="Oskenovali jsme (SKORO) celý časopis Excalibur"
@@ -16,4 +16,4 @@
     <p>Oskenované Excalibury najdete všechny na <a href="https://archive.org/details/excalibur-magazine">Internet Archive</a>.
     <p>A databázi s Excalibury zase v naší <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/13">Databázi časopisů</a>.
     <p><img src="/photos/blog-posts/excalibur.jpg" alt="Excalibur">
-</BlogPost>
+</BlogPostPage>

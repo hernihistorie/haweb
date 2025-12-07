@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { InterviewData } from "$src/types";
     import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
@@ -10,7 +10,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="11. srpna 2024"
     title="Přepis rozhovoru se Zdeňkem Vodákem, autorem hry z Videostopu"
@@ -21,4 +21,4 @@
     {#each interviews as data}
         <InterviewBox {data} />
     {/each}
-</BlogPost>
+</BlogPostPage>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
     import type { AssetData } from "$src/types";
     import { data as asset08395_data } from '$src/routes/assets/asset_08395';
@@ -10,7 +10,7 @@
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="20. září 2024"
     title="Oskenovali jsme nabídkový katalog z počátku 90. let"
@@ -20,4 +20,4 @@
     {#each assets as data}
         <AssetBox {data} />
     {/each}
-</BlogPost>
+</BlogPostPage>

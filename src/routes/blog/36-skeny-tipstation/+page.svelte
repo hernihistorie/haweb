@@ -1,11 +1,11 @@
 <script lang="ts">
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="14. ledna 2025"
     title="Časopis TipStation zcela oskenován a doplněn do naší databáze časopisů"
@@ -15,4 +15,4 @@
     <p>Skeny časopisu naleznete na <a href="https://archive.org/details/tipstation-cz">Internet archivu</a>.
     <p>A seznam všech čísle najde v <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/12">naší databázi</a>.
     <p><img src="/photos/tipstation_casopis.jpg" alt="Časopis Tipstation">
-</BlogPost>
+</BlogPostPage>

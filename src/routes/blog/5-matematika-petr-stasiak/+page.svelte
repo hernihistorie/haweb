@@ -1,11 +1,11 @@
 <script>
-    import BlogPost from "$lib/BlogPost.svelte";
+    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
 </script>
 
 <PageLang cs />
 
-<BlogPost
+<BlogPostPage
     author_name="Herní historie"
     date="11. března 2024"
     title="Nově zachráněný program MATEMATIKA od Petra Stasiaka"
@@ -18,4 +18,4 @@
 
     <p><img src="/photos/matematika.jpg" alt="Kazeta MATEMATIKA"></p>
 
-</BlogPost>
+</BlogPostPage>
