@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Lazy from 'svelte-lazy';
     import type { AssetData } from "$src/types";
 	import Box from "./Box.svelte";
     import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
@@ -68,7 +69,9 @@
                 </div>
                 {#if data.picture.url}
                     <a href="{ data.inventory_url }" class="asset-photo">
-                        <img src="{ data.picture.url }" class="asset-img" alt="">
+                        <Lazy height={200} keep={true}>
+                            <img src="{ data.picture.url }" class="asset-img" alt="">
+                        </Lazy>
                     </a>
                 {/if}
             {:else}
