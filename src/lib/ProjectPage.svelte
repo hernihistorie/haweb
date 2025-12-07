@@ -7,15 +7,16 @@
 
     interface Props {
         project: Project;
+        thin?: boolean;
         children: Snippet;
     }
 
-    let { project, children }: Props = $props();
+    let { project, thin = true, children }: Props = $props();
 </script>
 
 <Meta title={project.fullname ?? project.name} />
 
-<article class="thin">
+<article class={thin ? "thin" : ""}>
     <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
         <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
     </a>

@@ -1,23 +1,30 @@
 <script lang="ts">
     import type { LocalizedString } from '$src/types';
-	import { getLocale } from './paraglide/runtime.js';
+    import type { Snippet } from 'svelte';
+    import { getLocale } from './paraglide/runtime.js';
 
     interface Props {
-        cs?: string;
-        en?: string;
+        cs?: string | Snippet;
+        en?: string | Snippet;
         text?: LocalizedString;
     }
 
     let { cs, en, text }: Props = $props();
 
-    function getLocalizedText(): string {
+    function getLocalizedContent(): string | Snippet | undefined {
         if (text !== undefined) {
             if (typeof text === 'string') return text;
             // Try requested language first, then fall back to any available language
             return text[getLocale()] ?? text['cs'] ?? text['en'] ?? '';
         }
-        return getLocale() === 'cs' ? (cs ?? '') : (en ?? '');
+        return getLocale() === 'cs' ? cs : en;
     }
+
+    let content = $derived(getLocalizedContent());
 </script>
 
-{@html getLocalizedText()}
+{#if typeof content === 'string'}
+    {@html content}
+{:else if content}
+    {@render content()}
+{/if}
