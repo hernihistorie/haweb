@@ -9,7 +9,8 @@
 	import TableOfContents from './TableOfContents/TableOfContents.svelte';
 	import NameWithShortname from './NameWithShortname.svelte';
 	import Loc from './Loc.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { loc } from './loc';
     export let data: InterviewData;
 </script>
 
@@ -17,7 +18,7 @@
     {#snippet side()}
         <div class="side">
             {#if data.narrator.photo }
-                <img src="{ data.narrator.photo.url }" alt="Fotografie narátora" />
+                <img src="{ data.narrator.photo.url }" alt={loc({cs: "Fotografie narátora", en: "Photograph of the narrator"})} />
             {/if}
             <div>
                 <strong>
@@ -45,27 +46,36 @@
                 <InterviewAudio {data} />
             {/if}
             <dl>
-                <dt>Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }</dt>
+                <dt>
+                    <Loc>
+                        {#snippet cs()}
+                            Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }
+                        {/snippet}
+                        {#snippet en()}
+                            Narrator's name
+                        {/snippet}
+                    </Loc>
+                </dt>
                 <dd><NameWithShortname person={data.narrator} /></dd>
 
-                <dt>Ročník narození</dt>
+                <dt><Loc cs="Ročník narození" en="Year of birth" /></dt>
                 <dd>{ data.narrator.birth_year }</dd>
 
                 {#if data.narrator.birth_place }
-                    <dt>Místo narození</dt>
+                    <dt><Loc cs="Místo narození" en="Place of birth" /></dt>
                     <dd>{ data.narrator.birth_place }</dd>
                 {/if}
 
-                <dt>Datum rozhovoru</dt>
+                <dt><Loc cs="Datum rozhovoru" en="Interview date" /></dt>
                 <dd>{ data.interview.date.toLocaleDateString("cs-CZ") }</dd>
 
                 {#if data.interview.place }
-                    <dt>Místo rozhovoru</dt>
+                    <dt><Loc cs="Místo rozhovoru" en="Interview place" /></dt>
                     <dd>{ data.interview.place }</dd>
                 {/if}
                 
                 {#if data.interview.interviewers }
-                    <dt>Jméno tazatelů</dt>
+                    <dt><Loc cs="Jméno tazatelů" en="Interviewers' names" /></dt>
                     <dd>
                         {#each data.interview.interviewers as person, i}
                             {#if i > 0},<br>{/if}
@@ -75,18 +85,18 @@
                 {/if}
 
                 {#if data.interview.interviewer }
-                    <dt>Jméno tazatele</dt>
+                    <dt><Loc cs="Jméno tazatele" en="Interviewer's name" /></dt>
                     <dd><NameWithShortname person={data.interview.interviewer} /></dd>
                 {/if}
 
                 {#if data.interview.length }
-                    <dt>Délka rozhovoru</dt>
+                    <dt><Loc cs="Délka rozhovoru" en="Interview length" /></dt>
                     <dd>{ data.interview.length }</dd>
                 {/if}
 
                 
                 {#if data.interview.project }
-                    <dt>Projekt</dt>
+                    <dt><Loc cs="Projekt" en="Project" /></dt>
                     <dd>
                         {#if data.interview.project }
                             <ProjectName project={data.interview.project} />
@@ -95,18 +105,24 @@
                 {/if}
 
                 {#if data.interview.transcriber }
-                    <dt>Přepis</dt>
+                    <dt><Loc cs="Přepis" en="Transcription" /></dt>
                     <dd>{ data.interview.transcriber.name }</dd>
                 {/if}
 
                 {#if data.interview.redaction }
-                    <dt>Redakce</dt>
+                    <dt><Loc cs="Redakce" en="Redaction" /></dt>
                     <dd>{ data.interview.redaction.name }</dd>
                 {/if}
 
                 {#if data.interview.publication_date }
-                    <dt>Datum uveřejnění</dt>
-                    <dd>{ data.interview.publication_date.toLocaleDateString("cs-CZ") }</dd>
+                    <dt><Loc cs="Datum uveřejnění" en="Publication date" /></dt>
+                    <dd>
+                        {
+                            data.interview.publication_date.toLocaleDateString(
+                                getLocale() == 'cs' ? "cs-CZ" : "en-GB"
+                            ) 
+                        }
+                    </dd>
                 {/if}
             </dl>
 
@@ -115,7 +131,15 @@
             {/if}
 
             {#if data.interview.redaction }
-                <p>Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+                <p>
+                    <Loc>
+                        {#snippet cs()}
+                            Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+                        {/snippet}
+                        {#snippet en()}
+                            Note: The text below is an edited version of the complete interview transcript. If you are interested in the full transcript for research or other purposes, please contact us at <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> or <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+                        {/snippet}
+                    </Loc>
                 </p>
             {/if}
 
@@ -128,12 +152,12 @@
             <hr>
 
             {#if data.interview.project }
-                Tento rozhovor je součástí projektu
+                <Loc cs="Tento rozhovor je součástí projektu" en="This interview is part of the project" />
                 <ProjectName project={data.interview.project} />.
             {/if}
 
             {#if data.narrator.photo && data.narrator.photo.license_text }
-                <h4>Fotografie</h4>
+                <h4><Loc cs="Fotografie" en="Photograph" /></h4>
                 <a href="{ data.narrator.photo.details_url }">
                     { data.narrator.photo.license_text }
                 </a>
