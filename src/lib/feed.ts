@@ -65,7 +65,10 @@ ${latestPosts.map(post => {
         <id>${url}</id>
         <published>${date}</published>
         <updated>${date}</updated>
-        <summary>${description}</summary>
+        <summary>
+            ${post.image ? `<p><img src="${SITE_URL}${post.image}" /></p>` : ''}
+            ${description}
+        </summary>
     </entry>`;
 }).join('\n')}
 </feed>`;

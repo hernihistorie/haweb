@@ -11,8 +11,8 @@ export const GET: RequestHandler = async () => {
             feedPath: '/feed.xml'
         } : {
             lang: 'en',
-            title: 'Gaming Archive - Blog',
-            subtitle: 'News from the Czechoslovak Gaming Archive',
+            title: 'Game Archive - Blog',
+            subtitle: 'News from the Czechoslovak Game Archive',
             feedPath: '/en/feed.xml'
         }
     );
