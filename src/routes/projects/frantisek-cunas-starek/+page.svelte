@@ -13,10 +13,10 @@
 <ProjectPage project={projectFrantisekCunasStarek}>
     <div><Loc
             cs='<p><strong>Název projektu</strong>: František „Čuňas“ Stárek
-                <p><strong>Jména zpracovatelů</strong>: Jaroslav Švelch, Rudolf Jan Suchý
+                <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Jaroslav Švelch
                 <p><strong>Rok dokončení projektu</strong>: 2025'
             en='<p><strong>Project name</strong>: František „Čuňas“ Stárek
-                <p><strong>Names of the involved archivists</strong>: Jaroslav Švelch, Rudolf Jan Suchý
+                <p><strong>Names of the involved archivists</strong>: Rudolf Jan Suchý, Jaroslav Švelch
                 <p><strong>Year of project completion</strong>: 2025'
         />
         <hr>

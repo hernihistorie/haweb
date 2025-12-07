@@ -5,7 +5,7 @@ import type { InterviewData, Person } from "$src/types";
 
 export const JS: Person = {
     name: "Jaroslav Švelch",
-    shortname: "JS",
+    shortname: "JŠ",
     color: "darkred",
 }
 
@@ -15,7 +15,7 @@ export const FS: Person = {
     color: "darkblue",
     birth_year: "1952",
     gender: "M",
-    bio: "František „Čuňas“ Stárek, narozen roku 1952, byl disident, signatář Charty 77 a přední osobností československého undergroundu. V roce 1979 spoluzaložil kulturní semizdatové periodikum <i>Vokno</i>. Společně s kolegy Pavlem Lašákem a Jiřím Včelákem založili „výzkumný ústav samizdatový“, v rámci kterého experimentovali s novými technologiemi, včetně osmibitových počítačů. Po revoluci pracoval v BIS a v současnosti pracuje v ÚSTR.",
+    bio: "František „Čuňas“ Stárek, narozen roku 1952, byl disident, signatář Charty 77 a přední osobnost československého undergroundu. V roce 1979 spoluzaložil kulturní semizdatové periodikum <i>Vokno</i>. Společně s kolegy Pavlem Lašákem a Jiřím Včelákem založili „výzkumný ústav samizdatový“, v rámci kterého experimentovali s novými technologiemi, včetně osmibitových počítačů. Po revoluci pracoval v BIS a v současnosti pracuje v ÚSTR.",
     photo: {
         url: "/interviews/frantisek-cunas-starek.jpg",
     }
@@ -33,8 +33,8 @@ export const data: InterviewData = {
     narrator: FS,
     interview: {
         date: new Date("2016-01-05"),
-        length: "N/A",
-        place: "TODO",
+        length: "0:51:00",
+        place: "Kancelář ÚSTR, Praha 3",
         interviewer: JS,
         informed_agreement: true,
         publication_date: new Date("2026-01-01"),
