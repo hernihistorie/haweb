@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { AssetData } from "$src/types";
 	import Box from "./Box.svelte";
-    import SvelteMarkdown from '@humanspeak/svelte-markdown'
+    import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
 	import Capsule from "./Capsule.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
 
@@ -21,6 +21,11 @@
 		}
 		return `${bytes.toFixed(1)} ${units[i]}`;
 	}
+
+    const markdownRenderers =  {
+        ...defaultRenderers,
+        html: allowHtmlOnly(['strong', 'em', 'a', 'b', 'i', 'u', 'br', 'p', 'ul', 'ol', 'li'] )
+    }
 </script>
 
 <Box>
@@ -43,7 +48,7 @@
                         </a>
                     </div>
                     <p>
-                        <SvelteMarkdown source={data.description} />
+                        <SvelteMarkdown source={data.description} renderers={markdownRenderers}/>
                     </p>
                     {#if data.primary_dump_path}
                         <a href="{data.primary_dump_path}" class="download">

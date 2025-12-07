@@ -39,7 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@humanspeak/svelte-markdown": "^0.7.7",
+		"@humanspeak/svelte-markdown": "^0.8.13",
 		"@lucide/svelte": "^0.484.0",
 		"@svelte-plugins/tooltips": "^3.0.1",
 		"copy-to-clipboard": "^3.3.3",
