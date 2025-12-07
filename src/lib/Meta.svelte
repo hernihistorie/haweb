@@ -20,4 +20,11 @@
 
 <svelte:head>
    <title>{localizedTitle ? localizedTitle + " - Herní archiv" : "Herní archiv"}</title>
+   <link
+      rel="alternate"
+      type="application/atom+xml"
+      title={
+         langValue === 'en' ? "Czechoslovak Game Archive - Blog" : "Herní archiv - Blog"
+      }
+      href={langValue === 'en' ? "/en/feed.xml" : "/feed.xml"} />
 </svelte:head>
