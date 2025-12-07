@@ -9,11 +9,14 @@
 </script>
 
 <div class="blog-box">
-    {#if blogPost.image}
-        <a href="{url}">
+    <a href="{url}">
+        {#if blogPost.image}
             <img src={blogPost.image} />
-        </a>
-    {/if}
+        {:else}
+            <!-- <div class="img-placeholder">
+            </div> -->
+        {/if}
+    </a>
     {#if blogPost.title}
         <h3>
             <a href="{url}">
@@ -47,10 +50,19 @@
 </div>
 
 <style>
-    img {
+    img, .img-placeholder {
+        /* width: 100%; */
+        /* aspect-ratio: 10/3; */
         width: 100%;
-        aspect-ratio: 4/3;
+        height: 8em;
+        object-fit: cover;
+        border: 2px solid var(--color-secondary);
     }
+
+    /* .img-placeholder {
+        border: 2px solid var(--color-secondary);
+    } */
+
     .blog-box {
         width: calc(32% - 24px);
     }

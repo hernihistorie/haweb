@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost52: BlogPost = {
     id: 52,
     slug: 'timewarrior',
+    image: '/photos/blog-posts/timewarrior.jpg',
     title: {
         cs: 'Zdigitalizovali jsme anglickou hru Time Warrior'
     },

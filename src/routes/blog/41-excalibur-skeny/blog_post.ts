@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost41: BlogPost = {
     id: 41,
     slug: 'excalibur-skeny',
+    image: '/photos/blog-posts/excalibur.jpg',
     title: {
         cs: 'Oskenovali jsme (SKORO) celý časopis Excalibur'
     },

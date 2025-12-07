@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost8: BlogPost = {
     id: 8,
     slug: 'rozhovor-pavel-suchmann',
+    image: '/photos/pavel_suchmann.jpg',
     title: {
         cs: 'Rozhovor s Pavlem Šuchmannem a Nabídka spolupráce!'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost6: BlogPost = {
     id: 6,
     slug: 'basic',
+    image: '/photos/basic_interpreter.jpg',
     title: {
         cs: 'Nově zachráněné kompilátory BASICu'
     },

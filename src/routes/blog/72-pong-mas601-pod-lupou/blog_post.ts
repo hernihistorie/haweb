@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost72: BlogPost = {
     id: 72,
     slug: 'pong-mas601-pod-lupou',
+    image: '/photos/pong/blog-post-3/1-kolaz-AY-MAS-lupa.jpg',
     title: {
         cs: 'Obvody MAS601 vs AY-3-8500 pod detektivní lupou'
     },

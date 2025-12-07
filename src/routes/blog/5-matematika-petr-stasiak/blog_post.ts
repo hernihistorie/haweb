@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost5: BlogPost = {
     id: 5,
     slug: 'matematika-petr-stasiak',
+    image: '/photos/matematika.jpg',
     title: {
         cs: 'Nově zachráněný program MATEMATIKA od Petra Stasiaka'
     },

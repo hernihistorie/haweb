@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost10: BlogPost = {
     id: 10,
     slug: 'pokemon-hraj-si-s-nami',
+    image: '/photos/pokemon_hraj.jpg',
     title: {
         cs: 'Nový přírůstek do Herního Archivu: Magazín POKÉMON: Hraj si s námi'
     },

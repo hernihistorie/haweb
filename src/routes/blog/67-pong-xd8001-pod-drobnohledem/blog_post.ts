@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost67: BlogPost = {
     id: 67,
     slug: 'pong-xd8001-pod-drobnohledem',
+    image: '/photos/pong/1-XD-8001.jpg',
     title: {
         cs: 'Televizní hra Tesla XD-8001 pod drobnohledem'
     },

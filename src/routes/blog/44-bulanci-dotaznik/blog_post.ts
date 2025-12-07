@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost44: BlogPost = {
     id: 44,
     slug: 'bulanci-dotaznik',
+    image: '/photos/blog-posts/bulanci_dotaznik.jpg',
     title: {
         cs: 'Projekt Fanouškovské aktivity kolem hry Bulánci - DOTAZNÍK'
     },

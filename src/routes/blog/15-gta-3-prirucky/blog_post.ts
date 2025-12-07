@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost15: BlogPost = {
     id: 15,
     slug: 'gta-3-prirucky',
+    image: '/photos/gta_3_prirucka.jpg',
     title: {
         cs: 'Do archivu jsme získali vzácnou příručku ke GTA 3'
     },

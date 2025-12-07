@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost13: BlogPost = {
     id: 13,
     slug: 'zachraneny-videostop',
+    image: '/photos/videostop_screenshot.jpg',
     title: {
         cs: 'Originální hra z pořadu Videostop'
     },

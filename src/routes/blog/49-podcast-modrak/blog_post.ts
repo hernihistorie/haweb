@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost49: BlogPost = {
     id: 49,
     slug: 'podcast-modrak',
+    image: '/photos/homepage/sbirka.jpg',
     title: {
         cs: 'Předseda našeho spolku byl v Modrák & Friends'
     },

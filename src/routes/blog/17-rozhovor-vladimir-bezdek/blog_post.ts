@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost17: BlogPost = {
     id: 17,
     slug: 'rozhovor-vladimir-bezdek',
+    image: '/photos/vladimir_bezdek_blogpost.jpg',
     title: {
         cs: 'Rozhovor s Vladimírem Bezděkem st., autorem pořadu Videostop'
     },

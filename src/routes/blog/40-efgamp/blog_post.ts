@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost40: BlogPost = {
     id: 40,
     slug: 'efgamp',
+    image: '/photos/efgamp.jpg',
     title: {
         cs: 'Stali jsme se členy EFGAMP'
     },

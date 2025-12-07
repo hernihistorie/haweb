@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost37: BlogPost = {
     id: 37,
     slug: 'pocitac-tns-xt',
+    image: '/photos/tns_xt/tns-xt_1.jpg',
     title: {
         cs: 'Dostali jsme osobní počítač TNS-XT'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost24: BlogPost = {
     id: 24,
     slug: '8-disketovka',
+    image: '/photos/8disketovka.jpg',
     title: {
         cs: 'Opravili jsme osmipalcovou disketovku!'
     },

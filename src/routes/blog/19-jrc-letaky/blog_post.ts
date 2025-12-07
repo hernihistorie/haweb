@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost19: BlogPost = {
     id: 19,
     slug: 'jrc-letaky',
+    image: '/photos/jrc_letak.jpg',
     title: {
         cs: 'Do sbírky Herního archivu nám přibylo několik katalogů od JRC'
     },

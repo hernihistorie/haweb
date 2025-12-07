@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost2: BlogPost = {
     id: 2,
     slug: 'retrofest-2024',
+    image: 'https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_banner.jpg',
     title: {
         cs: 'RetroFest 2024 streamuje do vašich obýváků'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost20: BlogPost = {
     id: 20,
     slug: 'prislusenstvi-zxspectrum',
+    image: '/photos/prislusenstvi_zxspectrum.jpg',
     title: {
         cs: 'Přírůstek do sbírky Herního archivu: Příslušenství k mikropočítačům'
     },

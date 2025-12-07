@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost11: BlogPost = {
     id: 11,
     slug: 'arma-bonusdisk',
+    image: '/photos/arma_sheet.jpg',
     title: {
         cs: 'Do archivu sháníme bonusdisk k ARMA'
     },

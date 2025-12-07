@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost70: BlogPost = {
     id: 70,
     slug: 'pong-mas601-pod-mikroskopem',
+    image: '/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg',
     title: {
         cs: 'Obvody MAS601-603 pro televizní hry pod mikroskopem'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost26: BlogPost = {
     id: 26,
     slug: 'joysticky',
+    image: '/photos/ovladac_homebrew1.jpg',
     title: {
         cs: 'Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru'
     },

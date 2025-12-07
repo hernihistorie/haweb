@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost69: BlogPost = {
     id: 69,
     slug: 'pixelarchiv-zeny',
+    image: '/photos/blog-posts/pixelarchiv_zeny.jpg',
     title: {
         cs: 'Příští čtvrtek proběhne akce Pixelarchiv v kině: Ženy v herní kultuře'
     },

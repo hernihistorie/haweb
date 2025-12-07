@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost78: BlogPost = {
     id: 78,
     slug: 'oprava-coleco-vision',
+    image: '/photos/blog-posts/coleco-vision_1.jpg',
     title: {
         cs: 'Opravili jsme konzoli ColecoVision'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost4: BlogPost = {
     id: 4,
     slug: 'nove-zachranene-hry-od-firmy-mael',
+    image: '/photos/mael/mael1.jpg',
     title: {
         cs: 'Nově zachráněné hry od firmy Mael'
     },

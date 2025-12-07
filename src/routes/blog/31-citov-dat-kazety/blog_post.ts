@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost31: BlogPost = {
     id: 31,
     slug: 'citov-dat-kazety',
+    image: '/photos/dat_kazety_1.jpg',
     title: {
         cs: 'PROJEKT CÍTOV - Digitalizace DAT kazet'
     },

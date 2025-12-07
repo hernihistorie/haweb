@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost1: BlogPost = {
     id: 1,
     slug: 'svycarske-dobrodruzstvi',
+    image: '/photos/svycarske-dobrodruzstvi/luxus.jpg',
     title: {
         cs: 'Švýcarské dobrodružství',
         en: 'Swiss Adventure'

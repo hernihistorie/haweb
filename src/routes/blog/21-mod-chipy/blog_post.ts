@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost21: BlogPost = {
     id: 21,
     slug: 'mod-chipy',
+    image: '/photos/modchipy_ps.jpg',
     title: {
         cs: 'Přírůstek do sbírky Herního archivu: Modchipy pro PS1/PS2'
     },

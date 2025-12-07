@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost42: BlogPost = {
     id: 42,
     slug: 'ondra-pocitace',
+    image: '/photos/blog-posts/ondra_1.jpg',
     title: {
         cs: 'Sehnali jsme dva počítače Ondra s nezazálohovanýma hrama!'
     },

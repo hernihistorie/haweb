@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost47: BlogPost = {
     id: 47,
     slug: 'ceske-arkady',
+    image: '/photos/blog-posts/arkady_orna.jpg',
     title: {
         cs: 'Získali jsme dvě arkády české výroby'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost30: BlogPost = {
     id: 30,
     slug: 'bytefest-2024',
+    image: '/photos/prednaska.jpg',
     title: {
         cs: 'Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost46: BlogPost = {
     id: 46,
     slug: 'spoluprace-nfa',
+    image: '/photos/blog-posts/nfa_spoluprace.jpg',
     title: {
         cs: 'Oznamujeme spolupráci mezi spolkem Herní historie a Pixelarchiv.cz!'
     },

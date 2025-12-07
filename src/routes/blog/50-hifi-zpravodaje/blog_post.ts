@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost50: BlogPost = {
     id: 50,
     slug: 'hifi-zpravodaje',
+    image: '/photos/blog-posts/hifi_zpravodaje.jpg',
     title: {
         cs: 'Digitalizujeme zpravodaje pražského HiFi klubu'
     },

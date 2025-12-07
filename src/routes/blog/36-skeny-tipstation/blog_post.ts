@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost36: BlogPost = {
     id: 36,
     slug: 'skeny-tipstation',
+    image: '/photos/tipstation_casopis.jpg',
     title: {
         cs: 'Časopis TipStation zcela oskenován a doplněn do naší databáze časopisů'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost39: BlogPost = {
     id: 39,
     slug: 'os2-warp-3-cs',
+    image: '/photos/os2_warp_3/os2_1.jpg',
     title: {
         cs: 'Zdigitalizovali jsme českou verzi OS/2 Warp 3'
     },

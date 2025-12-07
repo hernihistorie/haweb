@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost61: BlogPost = {
     id: 61,
     slug: 'oral-history-cost',
+    image: '/photos/blog-posts/cost_1.jpg',
     title: {
         cs: 'Spolupořádáme workshop o Orální historii'
     },

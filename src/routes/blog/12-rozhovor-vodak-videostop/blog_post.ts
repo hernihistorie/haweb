@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost12: BlogPost = {
     id: 12,
     slug: 'rozhovor-vodak-videostop',
+    image: '/photos/vodak_blog.jpg',
     title: {
         cs: 'Rozhovor se Zdeňkem Vodákem, autorem hry z pořadu Videostop'
     },

@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost14: BlogPost = {
     id: 14,
     slug: 'zaznam-retrofestu-2024',
+    image: '/photos/stream_2024.jpg',
     title: {
         cs: 'Záznam streamu Herní historie: RetroFest 2024'
     },

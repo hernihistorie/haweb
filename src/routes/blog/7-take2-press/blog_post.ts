@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost7: BlogPost = {
     id: 7,
     slug: 'take2-press',
+    image: '/photos/mafia_poster.jpg',
     title: {
         cs: 'Dumpy press CD firmy Take2'
     },

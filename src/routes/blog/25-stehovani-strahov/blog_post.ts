@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost25: BlogPost = {
     id: 25,
     slug: 'stehovani-strahov',
+    image: '/photos/stehovani_strahov.jpg',
     title: {
         cs: 'Odstěhovali jsme se ze Školíhcího centra na Strahově'
     },

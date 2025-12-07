@@ -3,6 +3,7 @@ import type { BlogPost } from '$src/types';
 export const blogPost51: BlogPost = {
     id: 51,
     slug: 'kybermys-sken',
+    image: '/photos/blog-posts/kybermys_sken.jpg',
     title: {
         cs: 'Oskenovali jsme velkou část časopisu KyberMyš!'
     },
