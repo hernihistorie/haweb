@@ -25,16 +25,19 @@
 
 <Post title={post.title}>
     {#snippet side()}
-        <div >
+        <div class="side">
             <!--
                 <img src="" alt="Profilový obrázek" />
             -->
-            <author>
-                {post.author_name ?? ''}
-            </author>
-            <date>
-                {formatDate(post.date)}
-            </date>
+            <img src="/images/ha_logo.png" alt="Logo Herního archivu" class="profile-photo-standin">
+            <div class="author-date">
+                <author>
+                    <strong>{post.author_name ?? ''}</strong>
+                </author>
+                <date>
+                    {formatDate(post.date)}
+                </date>
+            </div>
         </div>
     {/snippet}
     {#snippet content()}
@@ -51,10 +54,31 @@
 </Post>
 
 <style>
+    .profile-photo-standin {
+        height: 6em;
+        padding: 1em;
+    }
     .backlink {
         text-decoration: none; 
     }
     h2 {
         margin-top: 0.2em;
+    }
+
+    @media (max-width: 1200px) {
+        .side {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .profile-photo-standin {
+            padding: 0.1em;
+        }
+
+        .author-date {
+            width: 12em;
+        }
     }
 </style>
