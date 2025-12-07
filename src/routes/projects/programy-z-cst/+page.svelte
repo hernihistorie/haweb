@@ -188,7 +188,7 @@
     }
     .file-photos .column {
         float: left;
-        width: 49%;
+        width: 47%;
     }
     .file-img {
         border-radius: 8px;
