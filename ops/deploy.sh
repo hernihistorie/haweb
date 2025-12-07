@@ -5,7 +5,8 @@ ssh -t herniarchiv.cz "
     echo 'Please enter password for $USER@herniarchiv.cz' &&
     sudo -u deploy -i bash -c '
         cd /home/deploy/haweb &&
-        git pull &&
+        git fetch origin master &&
+        git reset --hard origin/master &&
         npm install --force &&
         npm run build
     ' &&
