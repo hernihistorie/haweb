@@ -18,7 +18,8 @@
     function getLocalizedText(): string {
         if (text !== undefined) {
             if (typeof text === 'string') return text;
-            return text[langValue];
+            // Try requested language first, then fall back to any available language
+            return text[langValue] ?? text['cs'] ?? text['en'] ?? '';
         }
         return langValue === 'cs' ? (cs ?? '') : (en ?? '');
     }

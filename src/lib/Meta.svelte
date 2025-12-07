@@ -14,7 +14,7 @@
    });
 
    let localizedTitle = $derived(
-      typeof title === 'string' ? title : title[langValue]
+      typeof title === 'string' ? title : (title[langValue] ?? title['cs'] ?? title['en'] ?? '')
    );
 </script>
 

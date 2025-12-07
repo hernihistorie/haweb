@@ -1,8 +1,8 @@
 export type LanguageCode = 'cs' | 'en';
 
 export type LocalizedString = string | {
-    [K in LanguageCode]: string;
-}
+    [K in LanguageCode]?: string;
+} & ({ cs: string } | { en: string })
 
 type Gender = 'M' | 'F';
 
@@ -67,4 +67,14 @@ export interface Project {
     url?: string;
     image?: string;
     description?: LocalizedString;
+}
+
+export interface BlogPost {
+    id: number;
+    slug: string;
+    image?: string;
+    title: LocalizedString;
+    date_text?: string;
+    author_name?: string;
+    description_html?: string;
 }
