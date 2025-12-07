@@ -1,15 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/BlogPostPage.svelte";
     import PageLang from "$src/lib/PageLang.svelte";
+	import { blogPost72 } from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage
-    author_name="Jiří Bernášek"
-    date="21. října 2025"
-    title="Obvody MAS601 vs AY-3-8500 pod detektivní lupou"
->
+<BlogPostPage post={blogPost72}>
     <div class="picture-cite">
         <p><img src="/photos/pong/blog-post-3/1-kolaz-AY-MAS-lupa.jpg">
     </div>
