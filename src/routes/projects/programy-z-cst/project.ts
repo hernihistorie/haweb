@@ -2,11 +2,11 @@ import type { Project } from '$src/types';
 
 export const projectProgramyZCST: Project = {
     name: {
-        cs: "Programy z Československé televize",
-        en: "Programs from Czechoslovak Television"
+        cs: "Programy z Česko&shy;slovenské televize",
+        en: "Programs from Czecho&shy;&shy;slovak Television"
     },
     fullname: {
-        cs: "Projekt Programy z Československé televize",
+        cs: "Projekt Programy z Česko&shy;slovenské televize",
         en: "Project Programs from Czechoslovak Television"
     },
     type: "project",
