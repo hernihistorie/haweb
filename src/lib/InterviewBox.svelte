@@ -4,6 +4,7 @@
 	import Capsule from "./Capsule.svelte";
 	import Loc from "./Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import BulletPoint from "./BulletPoint.svelte";
 
     interface Props {
         data: InterviewData;
@@ -23,23 +24,28 @@
                 {#if !data.complete}
                     <br>
                     <Capsule>
-                        připravujeme
+                        <Loc cs="připravujeme" en="in progress" />
                     </Capsule>
                 {/if}
             </h3>
             {#if compact}
                 {#if data.narrator.bio_short}
-                    <p>{@html data.narrator.bio_short}</p>
+                    <p><Loc text={data.narrator.bio_short} /></p>
                 {/if}
             {:else}
                 {#if data.narrator.bio}
-                    <p>{@html data.narrator.bio}</p>
+                    <p><Loc text={data.narrator.bio} /></p>
                 {/if}
                 {#if data.complete}
                     <p>
-                        <strong>Datum:</strong> { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
-                        &nbsp;&bull;&nbsp;
-                        <strong>Délka:</strong> { data.interview.length || "???" }
+                        <strong>
+                            <Loc cs="Datum" en="Date" />:
+                        </strong> 
+                        { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
+                        <BulletPoint />
+                        <strong>
+                            <Loc cs="Délka" en="Length" />:
+                        </strong> { data.interview.length || "???" }
                     </p>
                 {:else}
                     <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->

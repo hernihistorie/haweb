@@ -17,8 +17,8 @@ export interface Person {
     shortname?: string;
     color?: string;
     photo?: Photo;
-    bio?: string;
-    bio_short?: string;
+    bio?: LocalizedString;
+    bio_short?: LocalizedString;
     birth_year?: string;
     birth_place?: string;
     gender?: Gender;

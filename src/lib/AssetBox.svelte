@@ -5,6 +5,7 @@
     import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
 	import Capsule from "./Capsule.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
+	import Loc from './Loc.svelte';
 
     interface Props {
         data: AssetData | Promise<AssetData | undefined>;
@@ -32,7 +33,7 @@
 <Box>
     <div class="asset">
         {#await data}
-            <em>Načítám předmět...</em>
+            <em><Loc cs="Načítá se předmět..." en="Loading item..." /></em>
         {:then data}
             {#if data}
                 <div>
@@ -56,7 +57,7 @@
                     {#if data.primary_dump_path}
                         <a href="{data.primary_dump_path}" class="download">
                             <LucideDownload style="vertical-align: top;" />
-                            Stáhnout dump
+                            <Loc cs="Stáhnout dump" en="Download dump" />
                             {#if data.primary_dump_size}
                                 ({formatFileSize(data.primary_dump_size)})
                             {/if}
@@ -65,7 +66,7 @@
                     {#if data.primary_document_path}
                         <a href="{data.primary_document_path}" class="download">
                             <LucideDownload style="vertical-align: top;" />
-                            Stáhnout dokument
+                            <Loc cs="Stáhnout dokument" en="Download document" />
                         </a>
                     {/if}
                 </div>
@@ -77,11 +78,11 @@
                     </a>
                 {/if}
             {:else}
-                <em>Chyba: předmět nebyl dodán.</em>
+                <em><Loc cs="Chyba: předmět nebyl dodán." en="Error: item was not provided." /></em>
             {/if}
         {:catch error}
             <div>
-                <em>Chyba při načítání předmětu.</em>
+                <em><Loc cs="Chyba při načítání předmětu." en="Error loading item." /></em>
                 <div style="color: #888;">{error}</div>
             </div>
         {/await}

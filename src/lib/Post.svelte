@@ -6,14 +6,15 @@
         title: LocalizedString;
         side?: import('svelte').Snippet;
         content?: import('svelte').Snippet;
+        class?: string;
     }
 
-    let { title, side, content }: Props = $props();
+    let { title, side, content, class: className }: Props = $props();
 </script>
 
 <Meta title={title}/>
 
-<article>
+<article class={className}>
     <div class="side">
         {@render side?.()}
     </div>

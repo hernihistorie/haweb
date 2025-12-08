@@ -2,6 +2,7 @@
 	import AssetBox from "$src/lib/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
 	import AssetListPagination from "./AssetListPagination.svelte";
+	import Loc from "./Loc.svelte";
 
     let props: { withHeading?: boolean, assetTagId: number } = $props();
 
@@ -20,7 +21,7 @@
 <div id="assetList" class="assets">
     <div class="heading-pagination" style="display: flex; justify-content: space-between;">
         {#if props.withHeading}
-            <h3 id="Predmety">Předměty</h3>
+            <h3 id="Predmety"><Loc cs="Předměty" en="Items" /></h3>
         {:else}
             <div></div>
         {/if}
@@ -28,13 +29,13 @@
     </div>
     {#await assetsDataPromise }
         <!-- TODO placeholder AssetBoxes -->
-        <p><em>Načítá se...</em></p>
+        <p><em><Loc cs="Načítá se..." en="Loading..." /></em></p>
     {:then assetsData}
         {#each assetsData.assets as asset }
             <AssetBox data={asset} />
         {/each}
     {:catch error}
-        <p><em>Chyba při načítání předmětů: {error.message}</em></p>
+        <p><em><Loc cs="Chyba při načítání předmětů: {error.message}" en="Error loading items: {error.message}" /></em></p>
     {/await}
     <AssetListPagination bind:assetPage bind:assetCount />
 </div>

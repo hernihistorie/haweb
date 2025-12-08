@@ -5,6 +5,7 @@
 	import type { Snippet } from 'svelte';
 	import Loc from './Loc.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import BulletPoint from './BulletPoint.svelte';
     let { blogPost, children, show_arrow=true }: { blogPost: BlogPost, children?: Snippet, show_arrow?: boolean } = $props();
 
     let url = `/blog/${blogPost.id}-${blogPost.slug}`;
@@ -44,7 +45,7 @@
             <author>
                 {blogPost.author_name ?? ''}
             </author>
-            <span style="padding: 0 0.2em;">&bull;</span>
+            <BulletPoint />
             <date>
                 {#if blogPost.date}
                     {blogPost.date.getDate()}. {blogPost.date.getMonth() + 1}. {blogPost.date.getFullYear()}

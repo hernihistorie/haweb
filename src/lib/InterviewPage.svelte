@@ -11,10 +11,11 @@
 	import Loc from './Loc.svelte';
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 	import { loc } from './loc';
+	import BulletPoint from './BulletPoint.svelte';
     export let data: InterviewData;
 </script>
 
-<Post title={data.title}>
+<Post title={data.title} class="interview-page">
     {#snippet side()}
         <div class="side">
             {#if data.narrator.photo }
@@ -26,7 +27,7 @@
                 </strong>
             </div>
             {#if data.interview.project }
-                <ProjectName project={data.interview.project} />
+                <ProjectName project={data.interview.project} class="return-link" />
             {/if}
 
             <hr>
@@ -39,6 +40,10 @@
             <a href={localizeHref("/interviews")} class="return-link">
                 <Loc cs="Rozhovory Herního archivu" en="Czechoslovak Game Archive Interviews" />
             </a>
+            {#if data.interview.project }    
+                <BulletPoint />
+                <ProjectName project={data.interview.project} class="return-link" />
+            {/if}
             <h2>
                 <Loc text={data.title} />
             </h2>
@@ -127,7 +132,7 @@
             </dl>
 
             {#if data.narrator.bio }
-                <p>{@html data.narrator.bio }</p>
+                <p><Loc text={data.narrator.bio} /></p>
             {/if}
 
             {#if data.interview.redaction }
@@ -167,7 +172,7 @@
 </Post>
 
 <style>
-    .return-link {
+    :global(.interview-page) :global(.return-link) {
         text-decoration: none;
     }
     
