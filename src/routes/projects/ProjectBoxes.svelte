@@ -16,12 +16,12 @@
 
     let { all }: Props = $props();
 
-    const mainProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov];
+    const homepageProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop];
     const allProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
 </script>
 
 <div class={all ? "project-page": "main-page"}>
-    {#each (all ? allProjects : mainProjects) as project}
+    {#each (all ? allProjects : homepageProjects) as project}
         <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
             <h3>
                 <a href={project.url && project.url.startsWith('/') ? localizeHref(project.url) : project.url}>

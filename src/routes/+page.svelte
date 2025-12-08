@@ -194,7 +194,7 @@
 <div style="margin-top: 24px;">
     <Arrow href="/blog">
         <Loc
-            cs="Všechny příspevky blogu"
+            cs="Všechny blogové příspěvky"
             en="All blog posts"
         />
     </Arrow>
