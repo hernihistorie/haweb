@@ -37,8 +37,8 @@
     .main-page {
         display: flex;
         flex-wrap: flex;
-        gap: 40px;
-        width: 103.6%;
+        gap: 25px;
+        width: 100%;
     }
     .project-page {
         display: flex;
