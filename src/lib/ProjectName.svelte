@@ -9,7 +9,7 @@
 {#if project.url}
     <a href={project.url.startsWith('/') ? localizeHref(project.url) : project.url} class={className}>
         {#if full}
-            <Loc text={project.fullname} />
+            <Loc text={project.fullname ?? project.name} />
         {:else}
             <Loc text={project.name} />
         {/if}
@@ -17,7 +17,7 @@
 {:else}
     <span class={className}>
         {#if full}
-            <Loc text={project.fullname} />
+            <Loc text={project.fullname ?? project.name} />
         {:else}
             <Loc text={project.name} />
         {/if}
