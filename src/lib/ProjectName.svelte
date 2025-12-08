@@ -3,13 +3,23 @@
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import Loc from "./Loc.svelte";
 
-    let { project, class: className }: { project: Project; class?: string } = $props();
+    let { project, class: className , full=false}: { project: Project; class?: string; full?: boolean } = $props();
 </script>
 
 {#if project.url}
     <a href={project.url.startsWith('/') ? localizeHref(project.url) : project.url} class={className}>
-        <Loc text={project.name} />
+        {#if full}
+            <Loc text={project.fullname} />
+        {:else}
+            <Loc text={project.name} />
+        {/if}
     </a>
 {:else}
-    <span class={className}><Loc text={project.name} /></span>
+    <span class={className}>
+        {#if full}
+            <Loc text={project.fullname} />
+        {:else}
+            <Loc text={project.name} />
+        {/if}
+    </span>
 {/if}

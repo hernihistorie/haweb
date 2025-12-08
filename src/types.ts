@@ -1,4 +1,4 @@
-export type LanguageCode = 'cs' | 'en';
+export type LanguageCode = 'cs' | 'sk' | 'en';
 
 export type LocalizedString = string | {
     [K in LanguageCode]?: string;
@@ -24,6 +24,11 @@ export interface Person {
     gender?: Gender;
 }
 
+export interface Language {
+    code: LanguageCode;
+    name: LocalizedString;
+}
+
 export interface InterviewData {
     slug: string;
     lang: string;
@@ -35,10 +40,12 @@ export interface InterviewData {
         type?: "interview" | "questionnaire";
         date: Date;
         publication_date?: Date;
-        place?: string;
+        english_translation_publication_date?: Date;
+        place?: LocalizedString;
         interviewer?: Person;
         interviewers?: Person[];
         length?: string;
+        languages?: Language[];
         project?: Project;
         informed_agreement?: boolean;
         transcriber?: Person;

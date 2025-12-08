@@ -1,3 +1,4 @@
+import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
 import { RS, VS } from "../persons";
 
@@ -32,6 +33,7 @@ export const data: InterviewData = {
         date: new Date("2024-05-13"),
         place: "Cítov",
         interviewers: [RS, VS],
+        languages: [czech],
         length: "2:35:41",
         project: { name: "Atari klub Cítov", url: "/projects/atari-klub-citov/" },
         informed_agreement: true,

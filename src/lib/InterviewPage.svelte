@@ -27,7 +27,7 @@
                 </strong>
             </div>
             {#if data.interview.project }
-                <ProjectName project={data.interview.project} class="return-link" />
+                <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
 
             <hr>
@@ -42,7 +42,7 @@
             </a>
             {#if data.interview.project }    
                 <BulletPoint />
-                <ProjectName project={data.interview.project} class="return-link" />
+                <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
             <h2>
                 <Loc text={data.title} />
@@ -68,7 +68,7 @@
 
                 {#if data.narrator.birth_place }
                     <dt><Loc cs="Místo narození" en="Place of birth" /></dt>
-                    <dd>{ data.narrator.birth_place }</dd>
+                    <dd><Loc text={ data.narrator.birth_place } /></dd>
                 {/if}
 
                 <dt><Loc cs="Datum rozhovoru" en="Interview date" /></dt>
@@ -76,7 +76,7 @@
 
                 {#if data.interview.place }
                     <dt><Loc cs="Místo rozhovoru" en="Interview place" /></dt>
-                    <dd>{ data.interview.place }</dd>
+                    <dd><Loc text={ data.interview.place } /></dd>
                 {/if}
                 
                 {#if data.interview.interviewers }
@@ -97,6 +97,26 @@
                 {#if data.interview.length }
                     <dt><Loc cs="Délka rozhovoru" en="Interview length" /></dt>
                     <dd>{ data.interview.length }</dd>
+                {/if}
+
+                {#if data.interview.languages }
+                    {#if getLocale() == 'cs' && data.interview.languages.length == 1 && data.interview.languages[0].code == 'cs' }
+                        <!-- Do not show anything if the interview is only in Czech and the page is in Czech -->
+                    {:else}
+                        <dt>
+                            {#if data.interview.languages.length == 1}
+                                <Loc cs="Jazyk rozhovoru" en="Interview language" />
+                            {:else}
+                                <Loc cs="Jazyky rozhovoru" en="Interview languages" />
+                            {/if}
+                        </dt>
+                        <dd>
+                            {#each data.interview.languages as language, i}
+                                {#if i > 0},{/if}
+                                <Loc text={language.name} />
+                            {/each}
+                        </dd>
+                    {/if}
                 {/if}
 
                 
@@ -124,6 +144,17 @@
                     <dd>
                         {
                             data.interview.publication_date.toLocaleDateString(
+                                getLocale() == 'cs' ? "cs-CZ" : "en-GB"
+                            ) 
+                        }
+                    </dd>
+                {/if}
+
+                {#if data.interview.english_translation_publication_date && getLocale() == 'en' }
+                    <dt><Loc cs="…anglického překladu" en="…of English translation" /></dt>
+                    <dd>
+                        {
+                            data.interview.english_translation_publication_date.toLocaleDateString(
                                 getLocale() == 'cs' ? "cs-CZ" : "en-GB"
                             ) 
                         }

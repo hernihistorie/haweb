@@ -1,3 +1,4 @@
+import { czech, slovak } from "$src/data/languages";
 import type { InterviewData } from "$src/types";
 
 export const data: InterviewData = {
@@ -21,6 +22,7 @@ export const data: InterviewData = {
     interview: {
         date: new Date("2023-11-10"),
         place: "Bratislava",
+        languages: [czech, slovak],
         interviewer: "Rudolf Jan Suchý",
         // length: "",
         // project: "",

@@ -1,3 +1,4 @@
+import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
 import { RS, VS } from "../persons";
 
@@ -34,6 +35,7 @@ export const data: InterviewData = {
         place: "Dolní Město – Smrčensko (narátorův statek)",
         interviewer: RS,
         length: "1:46:51",
+        languages: [czech],
         project: {name: "Porevoluční videoherní scéna – Sleep Team"},
         informed_agreement: true,
         transcriber: {'name': "Alžběta Krejčí"},

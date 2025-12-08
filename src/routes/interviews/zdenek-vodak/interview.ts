@@ -1,3 +1,5 @@
+import { czech } from "$src/data/languages";
+import { projectVideostop } from "$src/routes/projects/videostop/project";
 import type { InterviewData, Person } from "$src/types";
 import { RS, VS } from "../persons";
 
@@ -31,13 +33,11 @@ export const data: InterviewData = {
     narrator: ZV,
     interview: {
         date: new Date("2024-06-27"),
-        place: "Café Standard, Praha",
+        place: {cs: "Café Standard, Praha", en: "Café Standard, Prague"},
+        languages: [czech],
         interviewers: [RS, VS],
         length: "1:48:52",
-        project: {
-            "name": "Videostop",
-            "url": "/projects/videostop/"
-        },
+        project: projectVideostop,
         informed_agreement: true,
         transcriber: {name: "Andrea Tinková"},
         redaction: RS,

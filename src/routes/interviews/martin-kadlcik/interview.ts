@@ -1,3 +1,4 @@
+import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
 
 // https://docs.google.com/document/d/1jym3l5vMQyDJuwkU3bANHMhsfRxdkE8A/edit
@@ -28,6 +29,7 @@ export const data: InterviewData = {
     interview: {
         length: "N/A",
         type: "questionnaire",
+        languages: [czech],
         date: new Date("2024-12-13"),
         project: {name: "Tvůrci z 80. let"},
         publication_date: new Date("2024-12-18"),
