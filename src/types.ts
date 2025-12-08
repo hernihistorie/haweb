@@ -56,7 +56,7 @@ export interface AssetData {
     primary_dump_path?: string;
     primary_dump_size?: number;
     primary_document_path?: string;
-    description: string;
+    description: string | null;
     inventory_url: string;
 }
 

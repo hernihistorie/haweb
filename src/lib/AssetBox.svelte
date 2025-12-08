@@ -49,7 +49,9 @@
                         </a>
                     </div>
                     <p>
-                        <SvelteMarkdown source={data.description} renderers={markdownRenderers}/>
+                        {#if data.description}
+                            <SvelteMarkdown source={data.description} renderers={markdownRenderers}/>
+                        {/if}
                     </p>
                     {#if data.primary_dump_path}
                         <a href="{data.primary_dump_path}" class="download">
@@ -69,7 +71,7 @@
                 </div>
                 {#if data.picture.url}
                     <a href="{ data.inventory_url }" class="asset-photo">
-                        <Lazy height={200} keep={true}>
+                        <Lazy height={200} width={334} keep={true}>
                             <img src="{ data.picture.url }" class="asset-img" alt="">
                         </Lazy>
                     </a>
@@ -101,6 +103,8 @@
         display: block;
         margin-right: 4px;
         margin-left: 16px;
+        width: 334px;
+        height: 200px;
         flex-shrink: 0;
     }
 
