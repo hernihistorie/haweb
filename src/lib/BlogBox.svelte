@@ -41,14 +41,14 @@
                 <Arrow href={url} />
             {/if}
         </div>
-        <div>
+        <div class="author-date">
             <author>
                 {blogPost.author_name ?? ''}
             </author>
             <BulletPoint />
             <date>
                 {#if blogPost.date}
-                    {blogPost.date.getDate()}. {blogPost.date.getMonth() + 1}. {blogPost.date.getFullYear()}
+                    {blogPost.date.getDate()}.&nbsp;{blogPost.date.getMonth() + 1}.&nbsp;{blogPost.date.getFullYear()}
                 {/if}
             </date>
         </div>
@@ -85,6 +85,9 @@
         text-transform: uppercase;
     }
 
+    .author-date {
+        margin-left: 8px;
+    }
 
 	@media screen and (max-width: 1200px) {
 		.blog-box {
@@ -92,9 +95,4 @@
 		}
 	}
 
-    @media screen and (max-width: 470px) {
-		img {
-			width: 10%;
-		}
-	}
 </style>
