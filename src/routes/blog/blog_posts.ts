@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 // Import all blog posts

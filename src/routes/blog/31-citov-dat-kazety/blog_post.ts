@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost31: BlogPost = {
@@ -7,7 +9,7 @@ export const blogPost31: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Digitalizace DAT kazet'
     },
-    date: new Date(2024, 11, 2),
+    date: new Temporal.PlainDate(2024, 12, 2),
     author_name: 'Herní historie',
     description_html: `
         Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.

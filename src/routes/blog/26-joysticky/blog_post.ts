@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost26: BlogPost = {
@@ -7,7 +9,7 @@ export const blogPost26: BlogPost = {
     title: {
         cs: 'Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru'
     },
-    date: new Date(2024, 7, 26),
+    date: new Temporal.PlainDate(2024, 8, 26),
     author_name: 'Herní historie',
     description_html: `
         Herní historií nejsou jen hry a oficiální hardware – součástí herní historie (zejména té jenž se odehrávala v rámci bývalého Východního bloku) je i podomácku zbastlené příslušenství, jako např. herní joysticky.

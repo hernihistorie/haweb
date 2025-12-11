@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost63: BlogPost = {
@@ -6,7 +8,7 @@ export const blogPost63: BlogPost = {
     title: {
         cs: 'Druhá várka naskenované dopisové komunikace Jana Orny'
     },
-    date: new Date(2025, 8, 5),
+    date: new Temporal.PlainDate(2025, 9, 5),
     author_name: 'Herní historie',
     description_html: `
         Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.

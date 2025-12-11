@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost41: BlogPost = {
@@ -8,8 +10,8 @@ export const blogPost41: BlogPost = {
         cs: 'Oskenovali jsme (SKORO) celý časopis Excalibur',
         en: 'We digitized (ALMOST) the entire Excalibur magazine'
     },
-    date: new Date(2025, 2, 4),
-    // english_translation_date: new Date(2025, 12, 11),
+    date: new Temporal.PlainDate(2025, 3, 4),
+    // english_translation_date: new Temporal.PlainDate(2025, 12, 11),
     author_name: 'Herní historie',
     description_html: {
         cs: `

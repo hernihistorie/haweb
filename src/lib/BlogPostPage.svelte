@@ -14,14 +14,6 @@
         post,
         children
     }: Props = $props();
-
-    function formatDate(date: Date | undefined): string {
-        if (!date) return '';
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${day}. ${month}. ${year}`;
-    }
 </script>
 
 <Post title={post.title}>
@@ -35,13 +27,15 @@
                 <author>
                     <strong>{post.author_name ?? ''}</strong>
                 </author>
-                <date>
-                    {formatDate(post.date)}
-                </date>
+                {#if post.date}
+                    <date>
+                        {post.date.day}.&nbsp;{post.date.month}.&nbsp;{post.date.year}
+                    </date>
+                {/if}
                 {#if getLocale() == 'en' && post.english_translation_date}
                     <br />
                     Translation:<br>
-                    {formatDate(post.english_translation_date)}
+                    {post.english_translation_date.day}.&nbsp;{post.english_translation_date.month}.&nbsp;{post.english_translation_date.year}
                 {/if}
             </div>
         </div>

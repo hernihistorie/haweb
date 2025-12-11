@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost64: BlogPost = {
@@ -7,7 +9,7 @@ export const blogPost64: BlogPost = {
     title: {
         cs: 'Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)'
     },
-    date: new Date(2025, 8, 9),
+    date: new Temporal.PlainDate(2025, 9, 9),
     author_name: 'Herní historie',
     description_html: `
         Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.

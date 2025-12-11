@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost47: BlogPost = {
@@ -7,7 +9,7 @@ export const blogPost47: BlogPost = {
     title: {
         cs: 'Získali jsme dvě arkády české výroby'
     },
-    date: new Date(2025, 3, 29),
+    date: new Temporal.PlainDate(2025, 4, 29),
     author_name: 'Herní historie',
     description_html: `
         Arkádové kabinety pravděpodobně české výroby jsme získali díky spolupráci s Honzou Ornou a jeho skvělým projektem Arcade Hry. Ten určitě nemusíme představovat a jsme rádi, že tak skvělou a veřejně dostupnou sbírku máme v Čechách k dispozici.

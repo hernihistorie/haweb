@@ -48,7 +48,7 @@
             <BulletPoint />
             <date>
                 {#if blogPost.date}
-                    {blogPost.date.getDate()}.&nbsp;{blogPost.date.getMonth() + 1}.&nbsp;{blogPost.date.getFullYear()}
+                    {blogPost.date.day}.&nbsp;{blogPost.date.month}.&nbsp;{blogPost.date.year}
                 {/if}
             </date>
         </div>

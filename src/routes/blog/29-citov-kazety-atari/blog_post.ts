@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 import type { BlogPost } from '$src/types';
 
 export const blogPost29: BlogPost = {
@@ -6,7 +8,7 @@ export const blogPost29: BlogPost = {
     title: {
         cs: 'PROJEKT CÍTOV - Kazety s výukovýmy programy na Atari 800XL/XE, 130XE'
     },
-    date: new Date(2024, 8, 30),
+    date: new Temporal.PlainDate(2024, 9, 30),
     author_name: 'Herní historie',
     description_html: `
         V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. Druhá várka tohoto softwaru, kterou se nám povedlo zachránit, jsou 2 výukové hry na 8-bit Atari distribuovaných na kazetách.

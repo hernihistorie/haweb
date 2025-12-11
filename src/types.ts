@@ -1,3 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
+
 export type LanguageCode = 'cs' | 'sk' | 'en';
 
 export type LocalizedString = string | {
@@ -81,8 +83,8 @@ export interface BlogPost {
     slug: string;
     image?: string;
     title: LocalizedString;
-    date?: Date;
-    english_translation_date?: Date;
+    date?: Temporal.PlainDate;
+    english_translation_date?: Temporal.PlainDate;
     author_name?: string;
     description_html?: LocalizedString;
 }
