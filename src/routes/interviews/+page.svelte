@@ -19,7 +19,10 @@
     let interviews: InterviewData[] = [havelka_data, kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data, tomas_bartovsky, rudolf_pecinovsky];
 </script>
 
-<Meta title="Rozhovory" />
+<Meta title={{
+    cs: "Rozhovory",
+    en: "Interviews"
+}} />
 
 <div class="thin">
     <h2>

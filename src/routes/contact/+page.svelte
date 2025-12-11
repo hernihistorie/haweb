@@ -5,7 +5,10 @@
 	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
-<Meta title="Kontaky" />
+<Meta title={{
+    cs: "Kontakty",
+    en: "Contacts"
+}} />
 
 <article class="thin">
     <h2>

@@ -12,7 +12,7 @@
     import { projectOuya } from '../ouya/project';
 </script>
 
-<Meta title="Projekty"/>
+<Meta title={{cs: "Projekty", en: "Projects"}} />
 <!--<h2><a href="/projects">PROJEKTY</a> <div style="float: right">ČASOVÁ OSA</div></h2> -->
 
 <ul>

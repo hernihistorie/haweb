@@ -11,10 +11,14 @@
    let localizedTitle = $derived(
       typeof title === 'string' ? title : (title[getLocale()] ?? title['cs'] ?? title['en'] ?? '')
    );
+
+   let localizedSuffix = $derived(
+      getLocale() === 'en' ? "Czechoslovak Game Archive" : "Herní archiv"
+   );
 </script>
 
 <svelte:head>
-   <title>{localizedTitle ? localizedTitle + " - Herní archiv" : "Herní archiv"}</title>
+   <title>{localizedTitle ? localizedTitle + " - " + localizedSuffix : localizedSuffix}</title>
    <link
       rel="alternate"
       type="application/atom+xml"

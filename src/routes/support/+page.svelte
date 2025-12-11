@@ -76,7 +76,7 @@
     }
 </script>
 
-<Meta title="Podpořte nás" />
+<Meta title={{cs: "Podpořte nás", en: "Support us"}} />
 
 <article class="thin">
     <h2>
