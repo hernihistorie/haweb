@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { czech, english } from "$src/data/languages";
 import type { InterviewData } from "$src/types";
 
@@ -20,7 +21,7 @@ export const data: InterviewData = {
         }
     },
     interview: {
-        date: new Date("2023-11-10"),
+        date: Temporal.PlainDate.from("2023-11-10"),
         place: "Brno",
         languages: [english],
         interviewer: "TODO TODO TODO TODO TODO TODO",

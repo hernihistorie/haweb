@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { czech } from "$src/data/languages";
 import { projectFrantisekCunasStarek } from "$src/routes/projects/frantisek-cunas-starek/project";
 import type { InterviewData, Person } from "$src/types";
@@ -37,14 +38,14 @@ export const data: InterviewData = {
     // audio_duration: 7266, // duration must be correct
     narrator: FS,
     interview: {
-        date: new Date("2016-01-05"),
+        date: Temporal.PlainDate.from("2016-01-05"),
         length: "0:51:00",
         place: {cs: "Kancelář ÚSTR, Praha 3", en: "ÚSTR Office, Prague 3"},
         languages: [czech],
         interviewer: JS,
         informed_agreement: true,
-        publication_date: new Date("2026-01-01"),
-        english_translation_publication_date: new Date("2026-01-01"),
+        publication_date: Temporal.PlainDate.from("2026-01-01"),
+        english_translation_publication_date: Temporal.PlainDate.from("2026-01-01"),
         project: projectFrantisekCunasStarek
         // verifier: null
     },

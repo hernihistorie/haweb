@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
 import { RS, VS } from "../persons";
@@ -30,7 +31,7 @@ export const data: InterviewData = {
     // audio_duration: 7266, // duration must be correct
     narrator: JH,
     interview: {
-        date: new Date("2024-05-13"),
+        date: Temporal.PlainDate.from("2024-05-13"),
         place: "Cítov",
         interviewers: [RS, VS],
         languages: [czech],
@@ -39,7 +40,7 @@ export const data: InterviewData = {
         informed_agreement: true,
         transcriber: {name: 'Sabina Adlerová'},
         redaction: RS,
-        publication_date: new Date("2025-01-03"),
+        publication_date: Temporal.PlainDate.from("2025-01-03"),
         // verifier: null
     },
     complete: true,

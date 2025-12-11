@@ -72,7 +72,7 @@
                 {/if}
 
                 <dt><Loc cs="Datum rozhovoru" en="Interview date" /></dt>
-                <dd>{ data.interview.date.toLocaleDateString("cs-CZ") }</dd>
+                <dd>{ data.interview.date.toLocaleString("cs-CZ") }</dd>
 
                 {#if data.interview.place }
                     <dt><Loc cs="Místo rozhovoru" en="Interview place" /></dt>
@@ -143,7 +143,7 @@
                     <dt><Loc cs="Datum uveřejnění" en="Publication date" /></dt>
                     <dd>
                         {
-                            data.interview.publication_date.toLocaleDateString(
+                            data.interview.publication_date.toLocaleString(
                                 getLocale() == 'cs' ? "cs-CZ" : "en-GB"
                             ) 
                         }
@@ -154,7 +154,7 @@
                     <dt><Loc cs="…anglického překladu" en="…of English translation" /></dt>
                     <dd>
                         {
-                            data.interview.english_translation_publication_date.toLocaleDateString(
+                            data.interview.english_translation_publication_date.toLocaleString(
                                 getLocale() == 'cs' ? "cs-CZ" : "en-GB"
                             ) 
                         }

@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import type { InterviewData } from "$src/types";
 
 export const data: InterviewData = {
@@ -19,7 +20,7 @@ export const data: InterviewData = {
         }
     },
     interview: {
-        date: new Date("2023-05-03"),
+        date: Temporal.PlainDate.from("2023-05-03"),
         place: "TODO TODO TODO TODO",
         interviewer: "Rudolf Jan Suchý",
         // length: "",

@@ -41,7 +41,7 @@
                         <strong>
                             <Loc cs="Datum" en="Date" />:
                         </strong> 
-                        { data.interview.date ? data.interview.date.toLocaleDateString("cs-CZ") : "???" }
+                        { data.interview.date ? data.interview.date.toLocaleString("cs-CZ") : "???" }
                         <BulletPoint />
                         <strong>
                             <Loc cs="Délka" en="Length" />:

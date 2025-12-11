@@ -40,9 +40,9 @@ export interface InterviewData {
     narrator: Person;
     interview: {
         type?: "interview" | "questionnaire";
-        date: Date;
-        publication_date?: Date;
-        english_translation_publication_date?: Date;
+        date: Temporal.PlainDate;
+        publication_date?: Temporal.PlainDate;
+        english_translation_publication_date?: Temporal.PlainDate;
         place?: LocalizedString;
         interviewer?: Person;
         interviewers?: Person[];

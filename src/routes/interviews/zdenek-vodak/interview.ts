@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { czech } from "$src/data/languages";
 import { projectVideostop } from "$src/routes/projects/videostop/project";
 import type { InterviewData, Person } from "$src/types";
@@ -32,7 +33,7 @@ export const data: InterviewData = {
     audio_duration: 6532,
     narrator: ZV,
     interview: {
-        date: new Date("2024-06-27"),
+        date: Temporal.PlainDate.from("2024-06-27"),
         place: {cs: "Café Standard, Praha", en: "Café Standard, Prague"},
         languages: [czech],
         interviewers: [RS, VS],
@@ -41,7 +42,7 @@ export const data: InterviewData = {
         informed_agreement: true,
         transcriber: {name: "Andrea Tinková"},
         redaction: RS,
-        publication_date: new Date("2024-08-11"),
+        publication_date: Temporal.PlainDate.from("2024-08-11"),
     },
     complete: true,
     tags: []
