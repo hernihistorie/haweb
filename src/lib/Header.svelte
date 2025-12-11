@@ -6,6 +6,7 @@
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import { beforeNavigate } from '$app/navigation';
 
 	type MenuItem = {
 		url: string;
@@ -45,6 +46,11 @@
 	let resetExpandedMenu = () => {
 		currentExpandedMenu = null;
 	}
+
+	beforeNavigate(() => {
+		currentExpandedMenu = null;
+		burgerMenuOpen = false;
+	});
 </script>
 
 <header>
