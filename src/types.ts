@@ -82,6 +82,7 @@ export interface BlogPost {
     image?: string;
     title: LocalizedString;
     date?: Date;
+    english_translation_date?: Date;
     author_name?: string;
-    description_html?: string;
+    description_html?: LocalizedString;
 }

@@ -3,7 +3,7 @@
     import Loc from "./Loc.svelte";
     import type { BlogPost } from "$src/types";
 	import type { Snippet } from "svelte";
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         post: BlogPost;
@@ -38,6 +38,11 @@
                 <date>
                     {formatDate(post.date)}
                 </date>
+                {#if getLocale() == 'en' && post.english_translation_date}
+                    <br />
+                    Translation:<br>
+                    {formatDate(post.english_translation_date)}
+                {/if}
             </div>
         </div>
     {/snippet}

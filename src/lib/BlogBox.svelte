@@ -33,7 +33,7 @@
     {#if children}
         {@render children?.()}
     {:else if blogPost.description_html}
-        {@html blogPost.description_html}
+        <Loc text={blogPost.description_html} />
     {/if}
     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
         <div>
@@ -43,7 +43,7 @@
         </div>
         <div class="author-date">
             <author>
-                {blogPost.author_name ?? ''}
+                <Loc text={blogPost.author_name ?? ''} />
             </author>
             <BulletPoint />
             <date>
