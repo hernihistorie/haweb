@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { blogPosts } from '$src/routes/blog/blog_posts';
 import type { LanguageCode } from '$src/types';
 
@@ -32,15 +33,22 @@ interface FeedConfig {
     feedPath: string;
 }
 
+function plainDateToISOString(date: Temporal.PlainDate): string {
+    // Convert PlainDate to full ISO datetime string (midnight UTC)
+    return `${date.toString()}T00:00:00Z`;
+}
+
 export function generateAtomFeed(config: FeedConfig): string {
     const { lang, title, subtitle, feedPath } = config;
     
     const latestPosts = [...blogPosts]
         .filter(post => post.date)
-        .sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0))
+        .sort((a, b) => Temporal.PlainDate.compare(b.date!, a.date!))
         .slice(0, 10);
 
-    const lastUpdated = latestPosts[0]?.date?.toISOString() ?? new Date().toISOString();
+    const lastUpdated = latestPosts[0]?.date 
+        ? plainDateToISOString(latestPosts[0].date) 
+        : new Date().toISOString();
 
     return `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -56,8 +64,13 @@ export function generateAtomFeed(config: FeedConfig): string {
 ${latestPosts.map(post => {
     const postTitle = escapeXml(getTitle(post, lang));
     const url = `${SITE_URL}/blog/${post.id}-${post.slug}`;
-    const description = post.description_html ? escapeXml(stripHtml(post.description_html)) : '';
-    const date = post.date?.toISOString() ?? new Date().toISOString();
+    const descriptionHtml = typeof post.description_html === 'string' 
+        ? post.description_html 
+        : (lang === 'en' 
+            ? (post.description_html?.en ?? post.description_html?.cs ?? '') 
+            : (post.description_html?.cs ?? post.description_html?.en ?? ''));
+    const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : '';
+    const date = post.date ? plainDateToISOString(post.date) : new Date().toISOString();
     
     return `    <entry>
         <title>${postTitle}</title>
