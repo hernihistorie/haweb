@@ -56,6 +56,7 @@
 <style>
     .profile-photo-standin {
         height: 6em;
+        width: 6em;
         padding: 1em;
     }
     .backlink {

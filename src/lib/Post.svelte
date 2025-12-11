@@ -31,11 +31,19 @@
         margin-top: 108px;
     }
     .side {
+        position: sticky;
+        top: 2em;
+
+        max-height: calc(100vh - 4em);
+        padding-right: 8px;
+        padding-bottom: 4em;
+        overflow-y: scroll;
+        
         margin-left: 100px;
         max-width: 260px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: end;
         text-align: center;
     }
 

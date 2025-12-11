@@ -212,16 +212,6 @@
         margin-bottom: 0;
     }
 
-    div.side {
-        position: sticky;
-        top: 2em;
-
-        max-height: calc(100vh - 4em);
-        padding-right: 8px;
-        padding-bottom: 4em;
-        overflow-y: scroll;
-    }
-
     div.side img {
         border-radius: 8px;
     }

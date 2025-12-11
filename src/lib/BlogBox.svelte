@@ -15,7 +15,7 @@
 <div class="blog-box">
     <a href="{localizedUrl}">
         {#if blogPost.image}
-            <Lazy height={"8em"} keep={true}>
+            <Lazy height={"calc(8em + 4px)"} keep={true}>
                 <img src={blogPost.image} />
             </Lazy>
         {:else}
