@@ -183,12 +183,6 @@
 
 
     @media only screen and (max-width: 450px) {
-        .fact-img {
-            top: -32px;
-        }
-    }
-
-    @media only screen and (max-width: 400px) {
         .right {
             margin-top: 128px;
         }
