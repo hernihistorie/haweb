@@ -76,12 +76,14 @@
 	@media screen and (max-width: 1200px) {
 		article {
             display: block;
+            margin-top: 1em;
         }
 
         .side {
-            position: auto;
+            position: static;
             margin: auto;
-            margin-bottom: 32px;
+            margin-bottom: 0.2em;
+            padding-bottom: 2em;
             text-align: center;
             width: 100%;
         }
