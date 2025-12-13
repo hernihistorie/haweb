@@ -217,7 +217,7 @@
     }
 
     .currency.active {
-        color: white;
+        color: var(--color-primary-contrast);
     }
 
     @media only screen and (max-width: 450px) {

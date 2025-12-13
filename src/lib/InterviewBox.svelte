@@ -93,7 +93,7 @@
         filter: sepia(1);
     }
     .incomplete a {
-        color: black;
+        color: var(--color-black);
     }
 
     .compact h3 {

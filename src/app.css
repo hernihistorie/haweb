@@ -2,8 +2,10 @@
     --color-bg: #f3f2e7;
     --color-text: #000;
     --color-primary: #ef4d37;
+    --color-primary-contrast: #fff;
     --color-secondary: #b5a26d;
     --color-secondary-transparent: #b5a26d60;
+    --color-secondary-contrast: #fff;
     --max-width: 1400px;
 }
 
@@ -11,8 +13,10 @@
     --color-bg: #18170c;
     --color-text: #fff;
     --color-primary: #ef4d37;
+    --color-primary-contrast: #fff;
     --color-secondary: #927f49;
     --color-secondary-transparent: #927f4960;
+    --color-secondary-contrast: #fff;
 }
 
 /* Invert logo text in dark mode while preserving the red color */
@@ -169,7 +173,7 @@ button:not(.link), input {
 
 button:not(.link).active, input.active {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-primary-contrast);
 }
 
 @media only screen and (max-width: 600px) {

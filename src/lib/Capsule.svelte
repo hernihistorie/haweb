@@ -12,7 +12,7 @@
 <style>
     .capsule {
         background-color: var(--color-secondary);
-        color: white;
+        color: var(--color-secondary-contrast);
         padding: 2px 4px;
         border-radius: 4px;
         font-size: 0.9em;
