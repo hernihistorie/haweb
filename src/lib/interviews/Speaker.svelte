@@ -4,14 +4,18 @@
 
     interface Props {
         speaker?: Person;
+        withColon?: boolean;
     }
 
-    let { speaker }: Props = $props();
+    let { speaker, withColon = true }: Props = $props();
 </script>
 
 {#if speaker}
-    <strong><span use:tooltip={{ content: speaker.name }} style="color: {speaker.color || 'default'};">{ speaker.shortname }</span>:</strong>
+    <strong><span use:tooltip={{ content: speaker.name }} style="color: {speaker.color || 'default'};">{ speaker.shortname }</span>{withColon ? ':' : ''}</strong>
 {/if}
 
 <style>
+    :root[data-theme="dark"] span {
+        filter: invert(1) hue-rotate(180deg);
+    }
 </style>

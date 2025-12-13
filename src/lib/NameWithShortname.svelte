@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Person } from '$src/types';
+	import Speaker from './interviews/Speaker.svelte';
 
     interface Props {
         person: Person;
@@ -12,5 +13,5 @@
 
 { person.name }
 {#if person.shortname}
-    (<span style="color: {person.color || 'default'};">{ person.shortname }</span>)
+    (<Speaker speaker={person} withColon={false} />)
 {/if}
