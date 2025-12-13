@@ -2,6 +2,22 @@
 <html lang="%paraglide.lang%">
 	<head>
 		<meta charset="utf-8" />
+		<script>
+			// Prevent flash of wrong theme
+			(function() {
+				const stored = localStorage.getItem('theme');
+				let effective;
+				if (stored === 'dark') {
+					effective = 'dark';
+				} else if (stored === 'light') {
+					effective = 'light';
+				} else {
+					// 'auto' or not set - use system preference
+					effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				}
+				document.documentElement.dataset.theme = effective;
+			})();
+		</script>
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 

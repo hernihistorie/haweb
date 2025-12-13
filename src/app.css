@@ -7,9 +7,33 @@
     --max-width: 1400px;
 }
 
+:root[data-theme="dark"] {
+    --color-bg: #18170c;
+    --color-text: #fff;
+    --color-primary: #ef4d37;
+    --color-secondary: #927f49;
+    --color-secondary-transparent: #927f4960;
+}
+
+/* Invert logo text in dark mode while preserving the red color */
+:root[data-theme="dark"] .logo img {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Smooth transition for theme changes */
+html {
+    color-scheme: light;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
 body {
     background: var(--color-bg);
     color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     font-family: 'Barlow', sans-serif;
     font-size: 120%;

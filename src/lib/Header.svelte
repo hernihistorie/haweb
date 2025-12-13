@@ -5,6 +5,7 @@
 	import BurgerMenu from '$lib/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { beforeNavigate } from '$app/navigation';
 
@@ -63,8 +64,9 @@
 		<div class="burger-menu">
 			<BurgerMenu padding={'25px'} bind:open={burgerMenuOpen}>
 				<ul class="burger-links">
-					<li>
+					<li class="burger-top-row">
 						<LanguageSwitcher />
+						<ThemeToggle />
 					</li>
 					{#each menuItems as menuItem}
 						<li>
@@ -79,6 +81,9 @@
 		<ul class="language-select">
 			<li>
 				<SocialMediaLinks />
+			</li>
+			<li>
+				<ThemeToggle />
 			</li>
 			<li>
 				<LanguageSwitcher />
@@ -221,6 +226,13 @@
 	.burger-links li {
 		padding-left: 0;
 		padding-bottom: 32px;
+	}
+
+	.burger-links li.burger-top-row {
+		display: flex;
+		align-items: center;
+		
+		gap: 16px;
 	}
 
 	.burger-links a {

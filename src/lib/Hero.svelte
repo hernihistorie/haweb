@@ -109,6 +109,7 @@
     .facts li {
         display: flex;
         background: var(--color-bg);
+        transition: background-color 0.3s ease, color 0.3s ease;
         height: 100%;
         /* min-height: 2.4em; */
         margin-top: 1px;

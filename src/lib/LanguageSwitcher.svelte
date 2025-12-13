@@ -12,7 +12,10 @@
 
 <style>
     div {
-        margin-bottom: -12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
 	button {
         user-select: none;
