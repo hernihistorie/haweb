@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { locales, localizeHref } from '$lib/paraglide/runtime';
-	import Meta from '$lib/Meta.svelte';
-	import Header from '$lib/Header.svelte';
-	import Footer from '$lib/Footer.svelte';
+	import { locales, localizeHref } from '$lib/components/paraglide/runtime';
+	import Meta from '$lib/components/Meta.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import '../app.css';
-	import { setLocale } from '$src/lib/paraglide/runtime';
+	import { setLocale } from '$lib/components/paraglide/runtime';
 	import { page } from '$app/state';
 	interface Props {
 		children?: import('svelte').Snippet;

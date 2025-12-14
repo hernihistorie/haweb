@@ -9,8 +9,8 @@
 	import TableOfContents from './TableOfContents/TableOfContents.svelte';
 	import NameWithShortname from './NameWithShortname.svelte';
 	import Loc from './Loc.svelte';
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
-	import { loc } from './loc';
+	import { getLocale, localizeHref } from '$lib/components/paraglide/runtime';
+	import { loc } from '$lib/loc';
 	import BulletPoint from './BulletPoint.svelte';
     export let data: InterviewData;
 </script>

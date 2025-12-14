@@ -1,7 +1,7 @@
 <script>
-	import Meta from "$lib/Meta.svelte";
-	import Loc from "$src/lib/Loc.svelte";
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import Meta from "$lib/components/Meta.svelte";
+	import Loc from "$lib/components/Loc.svelte";
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 </script>
 
 <Meta title={{

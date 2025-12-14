@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
+	import Meta from "$lib/components/Meta.svelte";
     import { DONATE_LINKS } from "$src/constants";
     import { writable } from 'svelte/store';
 
     import spayd from 'spayd';
     import qrcode from 'qrcode';
 	import PriceButton from "./PriceButton.svelte";
-	import Loc from "$src/lib/Loc.svelte";
+	import Loc from "$lib/components/Loc.svelte";
 
     const qrCodeOptions = {
         width: 1200,

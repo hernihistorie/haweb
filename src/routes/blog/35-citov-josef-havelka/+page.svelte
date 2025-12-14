@@ -1,10 +1,10 @@
 <script lang="ts">
-    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
-    import PageLang from "$src/lib/PageLang.svelte";
+    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
+    import PageLang from "$lib/components/PageLang.svelte";
     import { blogPost35 } from "./blog_post";
     import type { InterviewData } from "$src/types";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
-    import InterviewBox from "$src/lib/InterviewBox.svelte";
+    import InterviewBox from "$lib/components/InterviewBox.svelte";
 
     let interviews: InterviewData[] = [havelka_data];
 </script>

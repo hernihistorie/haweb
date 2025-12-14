@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ProjectPage from "$lib/ProjectPage.svelte";
-	import AssetBox from "$src/lib/AssetBox.svelte";
-	import Heading from "$src/lib/Heading.svelte";
-	import Key from "$src/lib/Key.svelte";
-    import PageLang from "$src/lib/PageLang.svelte";
+	import ProjectPage from "$lib/components/ProjectPage.svelte";
+	import AssetBox from "$lib/components/AssetBox.svelte";
+	import Heading from "$lib/components/Heading.svelte";
+	import Key from "$lib/components/Key.svelte";
+    import PageLang from "$lib/components/PageLang.svelte";
 	import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
     import { projectBewesoft } from './project';
 

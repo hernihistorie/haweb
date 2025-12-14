@@ -1,4 +1,4 @@
-import { getLocale } from "./paraglide/runtime";
+import { getLocale } from "./components/paraglide/runtime";
 
 // Use this function if you have a simple string to localize.
 // Use the Loc Svelte component for more complex content.

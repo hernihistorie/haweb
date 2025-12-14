@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import { generateAtomFeed, createFeedResponse } from '$lib/feed';
-import { getLocale } from '$src/lib/paraglide/runtime';
+import { getLocale } from '$lib/components/paraglide/runtime';
 
 export const GET: RequestHandler = async () => {
     const feed = generateAtomFeed(

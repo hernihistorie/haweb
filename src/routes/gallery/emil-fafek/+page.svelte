@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ProjectPage from "$src/lib/ProjectPage.svelte";
+	import ProjectPage from "$lib/components/ProjectPage.svelte";
     import { LightboxGallery, GalleryImage, GalleryThumbnail, i18n } from 'svelte-lightbox';
 	import { projectEmilFafek } from "./project";
-	import Loc from "$src/lib/Loc.svelte";
-	import { getLocale } from "$src/lib/paraglide/runtime";
+	import Loc from "$lib/components/Loc.svelte";
+	import { getLocale } from "$lib/components/paraglide/runtime";
 
     let assets = [
         "07140",

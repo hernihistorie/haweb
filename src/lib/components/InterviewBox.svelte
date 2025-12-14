@@ -3,7 +3,7 @@
 	import Box from "./Box.svelte";
 	import Capsule from "./Capsule.svelte";
 	import Loc from "./Loc.svelte";
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 	import BulletPoint from "./BulletPoint.svelte";
 
     interface Props {

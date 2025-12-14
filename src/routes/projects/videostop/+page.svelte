@@ -1,12 +1,12 @@
 <script lang="ts">
-	import ProjectPage from "$lib/ProjectPage.svelte";
+	import ProjectPage from "$lib/components/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
-    import InterviewBox from "$lib/InterviewBox.svelte";
+    import InterviewBox from "$lib/components/InterviewBox.svelte";
     import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
     import { data as bezdek_data } from '$src/routes/interviews/vladimir-bezdek/interview';
-	import AssetList from "$src/lib/AssetList.svelte";
+	import AssetList from "$lib/components/AssetList.svelte";
     import { projectVideostop } from './project';
-	import PageLang from "$src/lib/PageLang.svelte";
+	import PageLang from "$lib/components/PageLang.svelte";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
 </script>

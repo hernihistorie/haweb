@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ProjectPage from "$lib/ProjectPage.svelte";
+	import ProjectPage from "$lib/components/ProjectPage.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
-    import Loc from "$src/lib/Loc.svelte";
+    import Loc from "$lib/components/Loc.svelte";
     import { projectProgramyZCST } from './project';
 
     let krc = [{id: 1, text: "Program z 1. dílu seriálu generuje n-tice čísel, která se krátce objeví na obrazovce. Na hráčstvu je, aby tato čísla stihlo přečíst.", text_en: "The program from episode 1 of the series generates n-tuples of numbers that briefly appear on the screen. It is up to the player to read these numbers in time."},

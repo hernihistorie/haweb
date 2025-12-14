@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Project } from "$src/types";
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 	import Loc from "./Loc.svelte";
 
     let { project, class: className , full=false}: { project: Project; class?: string; full?: boolean } = $props();

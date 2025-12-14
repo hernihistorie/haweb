@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ProjectPage from "$lib/ProjectPage.svelte";
+	import ProjectPage from "$lib/components/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
-    import InterviewBox from "$lib/InterviewBox.svelte";
+    import InterviewBox from "$lib/components/InterviewBox.svelte";
     import { data as cunas_data } from '$src/routes/interviews/frantisek-cunas-starek/interview';
-	import AssetList from "$src/lib/AssetList.svelte";
-    import Loc from "$src/lib/Loc.svelte";
+	import AssetList from "$lib/components/AssetList.svelte";
+    import Loc from "$lib/components/Loc.svelte";
     import { projectFrantisekCunasStarek } from './project';
 	import { loc } from "$src/lib/loc";
 

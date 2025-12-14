@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition'
 
-    import Loc from '$lib/Loc.svelte';
-	import BurgerMenu from '$lib/BurgerMenu.svelte';
+    import Loc from '$lib/components/Loc.svelte';
+	import BurgerMenu from '$lib/components/BurgerMenu.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 	import { beforeNavigate } from '$app/navigation';
 
 	type MenuItem = {

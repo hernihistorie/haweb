@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Arrow from '$lib/Arrow.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import Arrow from '$lib/components/Arrow.svelte';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
     let { href = undefined, title = undefined, children, show_arrow=true, img=undefined, project=false } = $props();
 
     let localizedHref = $derived(href && href.startsWith('/') && !href.startsWith('//') ? localizeHref(href) : href);

@@ -1,6 +1,6 @@
 <script>
-    import Loc from '$lib/Loc.svelte';
-    import { localizeHref } from '$lib/paraglide/runtime';
+    import Loc from '$lib/components/Loc.svelte';
+    import { localizeHref } from '$lib/components/paraglide/runtime';
 </script>
 
 <!-- TODO make sure a linebreak isn't put in the name -->

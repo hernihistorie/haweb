@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ThinBox from '$src/lib/ThinBox.svelte';
-    import Loc from "$src/lib/Loc.svelte";
+	import ThinBox from '$lib/components/ThinBox.svelte';
+    import Loc from "$lib/components/Loc.svelte";
     import type { Project } from '$src/types';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 
     import { projectProgramyZCST } from './programy-z-cst/project';
     import { projectBewesoft } from './bewesoft/project';

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
-    import PageLang from "$src/lib/PageLang.svelte";
+    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
+    import PageLang from "$lib/components/PageLang.svelte";
     import { blogPost74 } from "./blog_post";
 </script>
 

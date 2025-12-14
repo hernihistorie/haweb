@@ -1,5 +1,5 @@
 <script>
-    import Loc from '$lib/Loc.svelte';
+    import Loc from '$lib/components/Loc.svelte';
 	import Arrow from './Arrow.svelte';
 	var facts = [
 		[18, "Členů spolku", "Organization members"],

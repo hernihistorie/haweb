@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Meta from "$lib/Meta.svelte";
-    import Loc from "$src/lib/Loc.svelte";
-    import PageLang from "$src/lib/PageLang.svelte";
+	import Meta from "$lib/components/Meta.svelte";
+    import Loc from "$lib/components/Loc.svelte";
+    import PageLang from "$lib/components/PageLang.svelte";
     import TimelineProjectBox from './TimelineProjectBox.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { localizeHref } from '$lib/components/paraglide/runtime';
 
     import { projectProgramyZCST } from '../programy-z-cst/project';
     import { projectBewesoft } from '../bewesoft/project';

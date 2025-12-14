@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AssetBox from "$src/lib/AssetBox.svelte";
+	import AssetBox from "$lib/components/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
 	import AssetListPagination from "./AssetListPagination.svelte";
 	import Loc from "./Loc.svelte";

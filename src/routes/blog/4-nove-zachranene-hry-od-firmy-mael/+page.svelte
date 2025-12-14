@@ -1,6 +1,6 @@
 <script lang="ts">
-    import BlogPostPage from "$src/lib/BlogPostPage.svelte";
-    import PageLang from "$src/lib/PageLang.svelte";
+    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
+    import PageLang from "$lib/components/PageLang.svelte";
     import { blogPost4 } from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset07758_data } from '$src/routes/assets/asset_07758';
@@ -8,7 +8,7 @@
     import { data as asset07822_data } from '$src/routes/assets/asset_07822';
     import { data as asset07823_data } from '$src/routes/assets/asset_07823';
     import { data as asset07824_data } from '$src/routes/assets/asset_07824';
-    import AssetBox from "$src/lib/AssetBox.svelte";
+    import AssetBox from "$lib/components/AssetBox.svelte";
 
     let assets: AssetData[] = [asset07758_data, asset07821_data, asset07822_data, asset07823_data, asset07824_data];
 </script>

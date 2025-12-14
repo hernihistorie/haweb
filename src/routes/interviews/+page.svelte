@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { InterviewData } from "$src/types";
-    import Box from "$lib/Box.svelte";
+    import Box from "$lib/components/Box.svelte";
     import { data as kadlcik_data } from './martin-kadlcik/interview';
     import { data as kopecky_data } from './lubor-kopecky/interview';
     import { data as hrda_data } from './stanislav-hrda/interview';
@@ -11,9 +11,9 @@
     import { data as hurnikova_data } from './kamila-hurnikova/interview';
     import { data as tomas_bartovsky } from './tomas-bartovsky/interview';
     import { data as rudolf_pecinovsky } from './rudolf-pecinovsky/interview';
-    import InterviewBox from "$src/lib/InterviewBox.svelte";
-	import Meta from "$src/lib/Meta.svelte";
-	import Loc from "$src/lib/Loc.svelte";
+    import InterviewBox from "$lib/components/InterviewBox.svelte";
+	import Meta from "$lib/components/Meta.svelte";
+	import Loc from "$lib/components/Loc.svelte";
 
 
     let interviews: InterviewData[] = [havelka_data, kadlcik_data, vodak_data, kopecky_data, hrda_data, robinett_data, bezdek_data, hurnikova_data, tomas_bartovsky, rudolf_pecinovsky];

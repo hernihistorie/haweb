@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setLocale, getLocale } from '$lib/paraglide/runtime';
+	import { setLocale, getLocale } from '$lib/components/paraglide/runtime';
 </script>
 
 <div>
