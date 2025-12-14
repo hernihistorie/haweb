@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Meta from "$lib/components/Meta.svelte";
+	import Meta from "$src/lib/components/layout/Meta.svelte";
     import { DONATE_LINKS } from "$src/constants";
     import { writable } from 'svelte/store';
 

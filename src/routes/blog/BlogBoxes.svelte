@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BlogBox from '$lib/components/BlogBox.svelte';
+	import BlogBox from '$src/lib/components/blog/BlogBox.svelte';
 	import { blogPosts } from './blog_posts';
 
 	interface Props {

@@ -1,8 +1,8 @@
 <script lang="ts">
-    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { blogPost58 } from "./blog_post";
-	import AssetList from "$lib/components/AssetList.svelte";
+	import AssetList from "$src/lib/components/asset/AssetList.svelte";
 </script>
 
 <PageLang cs />

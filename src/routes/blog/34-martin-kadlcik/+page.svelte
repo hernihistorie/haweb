@@ -1,10 +1,10 @@
 <script lang="ts">
-    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { blogPost34 } from "./blog_post";
     import type { InterviewData } from "$src/types";
     import { data as vodak_data } from '$src/routes/interviews/martin-kadlcik/interview';
-    import InterviewBox from "$lib/components/InterviewBox.svelte";
+    import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
 
     let interviews: InterviewData[] = [vodak_data];
 </script>

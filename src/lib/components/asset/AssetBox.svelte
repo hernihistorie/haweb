@@ -1,11 +1,11 @@
 <script lang="ts">
     import Lazy from 'svelte-lazy';
     import type { AssetData } from "$src/types";
-	import Box from "./Box.svelte";
+	import Box from "../Box.svelte";
     import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
-	import Capsule from "./Capsule.svelte";
+	import Capsule from "../Capsule.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
-	import Loc from './Loc.svelte';
+	import Loc from '../Loc.svelte';
 
     interface Props {
         data: AssetData | Promise<AssetData | undefined>;

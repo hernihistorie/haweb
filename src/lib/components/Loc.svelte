@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { LocalizedString } from '$src/types';
     import type { Snippet } from 'svelte';
-    import { getLocale } from './paraglide/runtime.js';
+    import { getLocale } from '$lib/paraglide/runtime.js';
 
     interface Props {
         cs?: string | Snippet;

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ProjectPage from "$lib/components/ProjectPage.svelte";
+	import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
-    import InterviewBox from "$lib/components/InterviewBox.svelte";
+    import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
     import { data as havelka_data } from '$src/routes/interviews/josef-havelka/interview';
-	import AssetList from "$lib/components/AssetList.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+	import AssetList from "$src/lib/components/asset/AssetList.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { projectAtariKlubCitov } from './project';
 
     let interviews: InterviewData[] = [havelka_data];

@@ -3,7 +3,7 @@
     import type { Snippet } from "svelte";
     import Box from '$lib/components/Box.svelte';
     import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from '$lib/components/paraglide/runtime';
+    import { localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         project: Project;

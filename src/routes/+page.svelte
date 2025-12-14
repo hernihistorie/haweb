@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Meta from '$lib/components/Meta.svelte';
+	import Meta from '$src/lib/components/layout/Meta.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Box from '$lib/components/Box.svelte';
     import Loc from '$lib/components/Loc.svelte';
 	import BlogBoxes from './blog/BlogBoxes.svelte';
     import ProjectBoxes from './projects/ProjectBoxes.svelte';
-	import Arrow from '$lib/components/Arrow.svelte';
-	import { localizeHref } from '$lib/components/paraglide/runtime';
+	import Arrow from '$src/lib/components/Arrow.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <Meta title="" />

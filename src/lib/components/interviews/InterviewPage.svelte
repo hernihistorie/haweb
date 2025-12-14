@@ -1,17 +1,17 @@
 <!-- @migration-task Error while migrating Svelte code: Unexpected block closing tag -->
 <script lang="ts">
-  import ProjectName from './ProjectName.svelte';
+    import ProjectName from '$lib/components/project/ProjectName.svelte';
 
 	import type { InterviewData } from '$src/types';
-    import { tocCrawler } from './TableOfContents/crawler';
-	import Post from './Post.svelte';
-	import InterviewAudio from "./InterviewAudio.svelte";
-	import TableOfContents from './TableOfContents/TableOfContents.svelte';
-	import NameWithShortname from './NameWithShortname.svelte';
-	import Loc from './Loc.svelte';
-	import { getLocale, localizeHref } from '$lib/components/paraglide/runtime';
+    import { tocCrawler } from '$lib/components/TableOfContents/crawler';
+	import Post from '$lib/components/Post.svelte';
+	import InterviewAudio from "$lib/components/interviews/InterviewAudio.svelte";
+	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
+	import NameWithShortname from '$src/lib/components/interviews/NameWithShortname.svelte';
+	import Loc from '$lib/components/Loc.svelte';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 	import { loc } from '$lib/loc';
-	import BulletPoint from './BulletPoint.svelte';
+	import BulletPoint from '$lib/components/BulletPoint.svelte';
     export let data: InterviewData;
 </script>
 

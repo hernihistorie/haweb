@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Person } from '$src/types';
-	import Speaker from './interviews/Speaker.svelte';
+	import Speaker from './Speaker.svelte';
 
     interface Props {
         person: Person;

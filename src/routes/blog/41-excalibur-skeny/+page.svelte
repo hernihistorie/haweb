@@ -1,7 +1,7 @@
 <script lang="ts">
-    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
+    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$lib/components/Loc.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { blogPost41 } from "./blog_post";
 </script>
 

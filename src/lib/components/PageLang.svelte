@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import { slide } from 'svelte/transition';
 	import Arrow from './Arrow.svelte';
-	import { getLocale } from './paraglide/runtime';
+	import { getLocale } from '$lib/paraglide/runtime';
     interface Props {
         cs?: boolean;
         en?: boolean;

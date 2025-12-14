@@ -2,7 +2,7 @@
 	import ThinBox from '$lib/components/ThinBox.svelte';
     import Loc from "$lib/components/Loc.svelte";
     import type { Project } from '$src/types';
-	import { localizeHref } from '$lib/components/paraglide/runtime';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
     import { projectProgramyZCST } from './programy-z-cst/project';
     import { projectBewesoft } from './bewesoft/project';

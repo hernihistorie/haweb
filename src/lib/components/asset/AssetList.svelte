@@ -1,8 +1,8 @@
 <script lang="ts">
-	import AssetBox from "$lib/components/AssetBox.svelte";
+	import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
 	import { loadRHInventoryAssetData } from '$src/lib/rhinventory_api';
 	import AssetListPagination from "./AssetListPagination.svelte";
-	import Loc from "./Loc.svelte";
+	import Loc from "../Loc.svelte";
 
     let props: { withHeading?: boolean, assetTagId: number } = $props();
 

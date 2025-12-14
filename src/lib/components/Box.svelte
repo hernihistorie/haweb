@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Arrow from '$lib/components/Arrow.svelte';
+	import Arrow from '$src/lib/components/Arrow.svelte';
     interface Props {
         href?: string | undefined;
         left?: boolean | undefined;

@@ -1,11 +1,11 @@
 <script lang="ts">
     import Lazy from 'svelte-lazy';
-	import Arrow from '$lib/components/Arrow.svelte';
+	import Arrow from '$src/lib/components/Arrow.svelte';
 	import type { BlogPost } from '$src/types';
 	import type { Snippet } from 'svelte';
-	import Loc from './Loc.svelte';
-	import { localizeHref } from '$lib/components/paraglide/runtime';
-	import BulletPoint from './BulletPoint.svelte';
+	import Loc from '../Loc.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
+	import BulletPoint from '../BulletPoint.svelte';
     let { blogPost, children, show_arrow=true }: { blogPost: BlogPost, children?: Snippet, show_arrow?: boolean } = $props();
 
     let url = `/blog/${blogPost.id}-${blogPost.slug}`;

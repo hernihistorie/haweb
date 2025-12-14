@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProjectPage from "$lib/components/ProjectPage.svelte";
+	import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
 	import LucideDownload from "@lucide/svelte/icons/download";
     import Loc from "$lib/components/Loc.svelte";
     import { projectProgramyZCST } from './project';

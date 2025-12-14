@@ -1,12 +1,12 @@
 <script lang="ts">
-    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { blogPost7 } from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset07392_data } from '$src/routes/assets/asset_07392';
     import { data as asset07393_data } from '$src/routes/assets/asset_07393';
     import { data as asset07394_data } from '$src/routes/assets/asset_07394';
-    import AssetBox from "$lib/components/AssetBox.svelte";
+    import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
 
     let assets: AssetData[] = [asset07392_data, asset07393_data, asset07394_data];
 </script>

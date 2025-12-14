@@ -5,7 +5,7 @@
 
 <script lang="ts">
     import IntersectionObserver from "svelte-intersection-observer";
-	import AudioPlayer from './AudioPlayer.svelte';
+	import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 	import type { InterviewData } from "$src/types";
     interface Props {
         data: InterviewData;

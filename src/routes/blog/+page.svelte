@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Meta from '$lib/components/Meta.svelte';
+	import Meta from '$src/lib/components/layout/Meta.svelte';
 	import BlogBoxes from './BlogBoxes.svelte';
-	import PageLang from "$lib/components/PageLang.svelte";
+	import PageLang from "$src/lib/components/PageLang.svelte";
 </script>
 
 <PageLang cs />

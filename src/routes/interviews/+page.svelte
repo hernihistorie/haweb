@@ -11,8 +11,8 @@
     import { data as hurnikova_data } from './kamila-hurnikova/interview';
     import { data as tomas_bartovsky } from './tomas-bartovsky/interview';
     import { data as rudolf_pecinovsky } from './rudolf-pecinovsky/interview';
-    import InterviewBox from "$lib/components/InterviewBox.svelte";
-	import Meta from "$lib/components/Meta.svelte";
+    import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
+	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 
 

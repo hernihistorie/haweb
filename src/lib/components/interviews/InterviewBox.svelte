@@ -1,11 +1,10 @@
 <script lang="ts">
     import type { InterviewData } from "$src/types";
-	import Box from "./Box.svelte";
-	import Capsule from "./Capsule.svelte";
-	import Loc from "./Loc.svelte";
-	import { localizeHref } from '$lib/components/paraglide/runtime';
-	import BulletPoint from "./BulletPoint.svelte";
-
+	import Box from "$lib/components/Box.svelte";
+	import Capsule from "$lib/components/Capsule.svelte";
+	import Loc from "$lib/components/Loc.svelte";
+	import { localizeHref } from '$lib/paraglide/runtime';
+	import BulletPoint from "$lib/components/BulletPoint.svelte";
     interface Props {
         data: InterviewData;
         compact?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Meta from './Meta.svelte';
+	import Meta from './layout/Meta.svelte';
     import type { LocalizedString } from '$src/types';
 
     interface Props {

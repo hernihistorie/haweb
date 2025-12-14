@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Post from "./Post.svelte";
-    import Loc from "./Loc.svelte";
+	import Post from "../Post.svelte";
+    import Loc from "../Loc.svelte";
     import type { BlogPost } from "$src/types";
 	import type { Snippet } from "svelte";
-	import { getLocale, localizeHref } from '$lib/components/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 
     interface Props {
         post: BlogPost;

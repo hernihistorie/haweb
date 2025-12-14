@@ -1,7 +1,7 @@
 <!-- @migration-task Error while migrating Svelte code: `<p>` is invalid inside `<p>` -->
 <script lang="ts">
-    import BlogPostPage from "$lib/components/BlogPostPage.svelte";
-    import PageLang from "$lib/components/PageLang.svelte";
+    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
+    import PageLang from "$src/lib/components/PageLang.svelte";
     import { blogPost14 } from "./blog_post";
 </script>
 
