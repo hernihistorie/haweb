@@ -19,7 +19,7 @@ export const FS: Person = {
     birth_year: "1952",
     gender: "M",
     bio: {
-        cs: "František „Čuňas“ Stárek, narozen roku 1952, byl disident, signatář Charty 77 a přední osobnost československého undergroundu. V roce 1979 spoluzaložil kulturní semizdatové periodikum <i>Vokno</i>. Společně s kolegy Pavlem Lašákem a Jiřím Včelákem založili „výzkumný ústav samizdatový“, v rámci kterého experimentovali s novými technologiemi, včetně osmibitových počítačů. Po revoluci pracoval v BIS a v současnosti pracuje v ÚSTR.",
+        cs: "František „Čuňas“ Stárek, narozen roku 1952, byl disident, signatář Charty 77 a přední osobnost československého undergroundu. V roce 1979 spoluzaložil kulturní samizdatové periodikum <i>Vokno</i>. Společně s kolegy Pavlem Lašákem a Jiřím Včelákem založili „výzkumný ústav samizdatový“, v rámci kterého experimentovali s novými technologiemi, včetně osmibitových počítačů. Po revoluci pracoval v BIS a v současnosti pracuje v ÚSTR.",
         en: "František „Čuňas“ Stárek, born in 1952, was a dissident, a signatory of Charter 77, and a leading figure of the Czechoslovak underground. In 1979, he co-founded the cultural samizdat periodical <i>Vokno</i>. Together with colleagues Pavel Lašák and Jiří Včelák, they established a 'samizdat research institute', where they experimented with new technologies, including 8-bit microcomputers. After the revolution, he worked at BIS and currently works at ÚSTR."
     },
     photo: {
