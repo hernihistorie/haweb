@@ -7,6 +7,7 @@
     import Loc from "$lib/components/Loc.svelte";
     import { projectFrantisekCunasStarek } from './project';
 	import { loc } from "$src/lib/loc";
+	import LucideDownload from "@lucide/svelte/icons/download";
 
     let interviews: InterviewData[] = [cunas_data];
 </script>
@@ -60,7 +61,13 @@
             {/snippet}
         </Loc>
     </p>
-
+    <h3>
+        <a href="/files/starek/archiv_starek.zip" class="download">
+            <LucideDownload/>
+            <Loc cs="Archiv originálních programů" en="Archive of original programs" />
+        </a>
+    </h3>
+    <p>Zde můžete stáhnout vybrané programy od kolektivu samizdatového časopisu <i>Vokno</i>. Archiv obsahuje program <i>Kniha</i> a k němu doprovodný program <i>K-Úvod</i>, program na tisk adres, program na tisk a kopírování screen filů a několik animací a obrázků vyrobených zejména pro <i>Videomagazín Vokna</i>.</p>
     <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
     {#each interviews as data}
         <InterviewBox {data} />
@@ -69,3 +76,13 @@
     <AssetList assetTagId={22} withHeading />
 
 </ProjectPage>
+
+<style>
+    .download {
+        text-decoration: none;
+    }
+
+    .download:hover {
+        text-decoration: underline;
+    }
+</style>
