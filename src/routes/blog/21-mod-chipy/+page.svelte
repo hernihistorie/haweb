@@ -5,7 +5,7 @@
     import { blogPost21 } from "./blog_post";
 </script>
 
-<PageLang cs />
+<PageLang cs en />
 
 <BlogPostPage post={blogPost21}>
 
