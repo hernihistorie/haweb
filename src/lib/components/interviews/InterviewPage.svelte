@@ -183,10 +183,10 @@
                 <p>
                     <Loc>
                         {#snippet cs()}
-                            Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+                            Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>.
                         {/snippet}
                         {#snippet en()}
-                            Note: The text below is an edited version of the complete interview transcript. If you are interested in the full transcript for research or other purposes, please contact us at <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> or <a href="mailto:sucharmail@gmail.com">sucharmail@gmail.com</a>.
+                            Note: The text below is an edited version of the complete interview transcript. If you are interested in the full transcript for research or other purposes, please contact us at <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> or <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>.
                         {/snippet}
                     </Loc>
                 </p>
@@ -200,46 +200,46 @@
                         {#if data.status === "in-progress"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem s námi spolupracovat na jeho dokončení, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently being transcribed and edited. If you are interested in collaborating with us to complete it, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently being transcribed and edited. If you are interested in an audio recording for research, artistic, or official purposes, or if you would like to collaborate with us to complete the transcript, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "being-transcribed"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o urychlený přístup z badatelských důvodů, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently being transcribed and edited.  If you are interested in expedited access for research purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently being transcribed and edited. If you are interested in an audio recording for research, artistic, or official purposes, or if you would like to collaborate with us to complete the transcript, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "request-only"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor v současnosti není dostupný.  Pokud máte zájem o přístup z badatelských důvodů, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                    Tento rozhovor v současnosti není dostupný.  Pokud máte zájem o přístup pro badatelské, umělecké nebo úřední účely, tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently not available.  If you are interested in access for research purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently not available.  If you are interested in access for research, artistic, or official purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "unavailable-for-duration"}
                             <Loc>
                                 {#snippet cs()}
                                     {#if data.available_date }
-                                        Publikace tohoto rozhovoru bude umožněna po datu
+                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna po datu
                                         { data.available_date.toLocaleString("cs-CZ") }.
                                     {:else}
-                                        Publikace tohoto rozhovoru bude umožněna teprve v budoucnosti.
+                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna teprve v budoucnosti.
                                     {/if}
                                 {/snippet}
                                 {#snippet en()}
                                     {#if data.available_date }
-                                        The publication of this interview will be enabled after
+                                        The publication and access of this interview will be enabled after
                                         { data.available_date.toLocaleString("en-GB") }.
                                     {:else}
-                                        The publication of this interview will be enabled in the future.
+                                        The publication and access of this interview will be enabled in the future.
                                     {/if}
                                 {/snippet}
                             </Loc>
