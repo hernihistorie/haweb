@@ -15,6 +15,10 @@
 {/if}
 
 <style>
+    img {
+        border-radius: 8px;
+    }
+    
     .sepia {
         filter: sepia(1);
     }

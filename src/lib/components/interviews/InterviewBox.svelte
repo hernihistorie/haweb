@@ -89,12 +89,6 @@
         display: block;
     }
 
-    .narrator-img {
-        /* margin-left: 16px;
-        margin-bottom: 12px; */
-        border-radius: 8px;
-    }
-
     .interview:not(.interview-status-published) a {
         color: var(--color-secondary);
     }
