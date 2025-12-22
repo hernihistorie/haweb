@@ -11,7 +11,7 @@
     let Q = Question;
 </script>
 
-<PageLang cs />
+<PageLang cs en />
 
 <InterviewPage data={data}>
 </InterviewPage>
