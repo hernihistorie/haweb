@@ -4,37 +4,12 @@
 	import Answer from "$lib/components/interviews/Answer.svelte"
 	import Question from "$lib/components/interviews/Question.svelte";
 	import Chapter from "$lib/components/interviews/Chapter.svelte";
-	import { localizeHref } from '$lib/paraglide/runtime';
 
     import { data, RS, LK, VS } from "./interview";
-    import PageLang from "$src/lib/components/PageLang.svelte";
 
     let A = Answer;
     let Q = Question;
 </script>
 
-<style>
-    .c2 {
-        font-style: italic
-    }
-    .appendix {
-        font-weight: bold;
-        text-align: left;
-        background-color: #b5a26d;
-        margin-top: 0px;
-    }
-</style>
-
-<PageLang cs />
-
 <InterviewPage data={data}>
-    {#snippet content()}
-        <div >
-            
-            <p>
-                Tento rozhovor v současnosti není dostupný.  V případě zájmu o obsah rozhovoru z badatelských důvodů nás prosím <a href={localizeHref("/contact")}>kontaktujte</a>.
-            </p>
-            
-        </div>
-    {/snippet}
 </InterviewPage>
