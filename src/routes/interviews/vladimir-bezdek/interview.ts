@@ -23,7 +23,7 @@ export const data: InterviewData = {
         }
     },
     interview: {
-        date: Temporal.PlainDate.from("2023-11-10"),
+        date: Temporal.PlainDate.from("2024-07-16"),
         place: "Kavárna Liberál, Praha",
         interviewer: RS,
         length: "2:16:59",

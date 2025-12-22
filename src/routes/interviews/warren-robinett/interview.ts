@@ -27,7 +27,7 @@ export const data: InterviewData = {
         }
     },
     interview: {
-        date: Temporal.PlainDate.from("2023-11-10"),
+        date: Temporal.PlainDate.from("2023-06-04"),
         place: "Brno",
         interviewers: [RS, VS],
         length: "1:43:45",
