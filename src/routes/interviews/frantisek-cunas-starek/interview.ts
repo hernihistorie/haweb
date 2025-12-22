@@ -49,6 +49,6 @@ export const data: InterviewData = {
         project: projectFrantisekCunasStarek
         // verifier: null
     },
-    complete: true,
+    status: "published",
     tags: []
 }

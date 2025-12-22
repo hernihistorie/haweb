@@ -44,6 +44,6 @@ export const data: InterviewData = {
         publication_date: Temporal.PlainDate.from("2024-01-20"),
         // verifier: null
     },
-    complete: false,
+    status: "request-only",
     tags: []
 }

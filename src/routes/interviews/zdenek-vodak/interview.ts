@@ -44,6 +44,6 @@ export const data: InterviewData = {
         redaction: RS,
         publication_date: Temporal.PlainDate.from("2024-08-11"),
     },
-    complete: true,
+    status: "published",
     tags: []
 }

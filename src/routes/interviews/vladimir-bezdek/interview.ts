@@ -1,5 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 import type { InterviewData } from "$src/types";
+import { RS } from '../persons';
 
 export const data: InterviewData = {
     slug: "vladimir-bezdek",
@@ -22,13 +23,13 @@ export const data: InterviewData = {
     interview: {
         date: Temporal.PlainDate.from("2023-11-10"),
         place: "Bratislava",
-        interviewer: "Rudolf Jan Suchý",
+        interviewer: RS,
         // length: "",
         // project: "",
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null
     },
-    complete: false,
+    status: "in-progress",
     tags: []
 }

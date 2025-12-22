@@ -1,10 +1,12 @@
 <script lang="ts">
+    import Lazy from 'svelte-lazy';
     import type { InterviewData } from "$src/types";
 	import Box from "$lib/components/Box.svelte";
-	import Capsule from "$lib/components/Capsule.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import BulletPoint from "$lib/components/BulletPoint.svelte";
+	import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
+	import PersonImage from "./PersonImage.svelte";
     interface Props {
         data: InterviewData;
         compact?: boolean;
@@ -14,18 +16,14 @@
 </script>
 
 <Box decoration={!compact}>
-    <div class="interview { data.complete ? 'complete' : 'incomplete' } { compact ? 'compact' : '' }">
+    <div class="interview interview-status-{ data.status } { compact ? 'compact' : '' }">
         <div>
             <h3>
-                <a href={data.complete ? localizeHref("/interviews/" + data.slug) : undefined}>
+                <a href={localizeHref("/interviews/" + data.slug)}>
                     <Loc text={ data.title } />
                 </a>
-                {#if !data.complete}
-                    <br>
-                    <Capsule>
-                        <Loc cs="připravujeme" en="in progress" />
-                    </Capsule>
-                {/if}
+                <br>
+                <InterviewStatusCapsule status={data.status} />
             </h3>
             {#if compact}
                 {#if data.narrator.bio_short}
@@ -35,26 +33,34 @@
                 {#if data.narrator.bio}
                     <p><Loc text={data.narrator.bio} /></p>
                 {/if}
-                {#if data.complete}
-                    <p>
+                <p>
+                    {#if data.interview.date}
                         <strong>
                             <Loc cs="Datum" en="Date" />:
                         </strong> 
-                        { data.interview.date ? data.interview.date.toLocaleString("cs-CZ") : "???" }
+                        <date>
+                            { data.interview.date.toLocaleString("cs-CZ") }
+                        </date>
+                    {/if}
+                    {#if data.interview.length}
                         <BulletPoint />
                         <strong>
                             <Loc cs="Délka" en="Length" />:
                         </strong> { data.interview.length || "???" }
-                    </p>
-                {:else}
-                    <!-- <p>Redakci tohoto proběhlého rozhovoru pro vás teprve připravujeme.</p> -->
-                {/if}
+                    {/if}
+                </p>
             {/if}
         </div>
         <div class="photopart">
             {#if data.narrator.photo}
-                <a href={data.complete ? localizeHref("/interviews/" + data.slug) : undefined}>
-                    <img src="{ data.narrator.photo.url }" class="narrator-img" alt="">
+                <a href={localizeHref("/interviews/" + data.slug)}>
+                    <Lazy keep>
+                        <PersonImage
+                            image={data.narrator.photo}
+                            sepia={data.status !== "published"}
+                            alt={data.narrator.name}
+                        />
+                    </Lazy>
                 </a>
             {/if}
         </div>
@@ -88,11 +94,9 @@
         margin-bottom: 12px; */
         border-radius: 8px;
     }
-    .incomplete .narrator-img {
-        filter: sepia(1);
-    }
-    .incomplete a {
-        color: var(--color-black);
+
+    .interview:not(.interview-status-published) a {
+        color: var(--color-secondary);
     }
 
     .compact h3 {

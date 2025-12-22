@@ -24,13 +24,13 @@ export const data: InterviewData = {
         date: Temporal.PlainDate.from("2023-11-10"),
         place: "Brno",
         languages: [english],
-        interviewer: "TODO TODO TODO TODO TODO TODO",
+        // interviewer: "TODO TODO TODO TODO TODO TODO",
         // length: "",
         // project: "",
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null
     },
-    complete: false,
+    status: "in-progress",
     tags: []
 }

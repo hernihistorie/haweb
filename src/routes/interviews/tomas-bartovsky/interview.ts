@@ -34,6 +34,6 @@ export const data: InterviewData = {
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null
     },
-    complete: false,
+    status: "in-progress",
     tags: []
 }

@@ -8,8 +8,9 @@ export type LocalizedString = string | {
 
 type Gender = 'M' | 'F';
 
-export interface Photo {
+export interface Image {
     url: string;
+    alt?: string;
     details_url?: string;
     license_text?: string;
 }
@@ -18,7 +19,7 @@ export interface Person {
     name: string;
     shortname?: string;
     color?: string;
-    photo?: Photo;
+    photo?: Image;
     bio?: LocalizedString;
     bio_short?: LocalizedString;
     birth_year?: string;
@@ -30,6 +31,8 @@ export interface Language {
     code: LanguageCode;
     name: LocalizedString;
 }
+
+export type InterviewStatus = "in-progress" | "being-transcribed" | "request-only" | "unavailable-for-duration" | "published";
 
 export interface InterviewData {
     slug: string;
@@ -54,14 +57,15 @@ export interface InterviewData {
         redaction?: Person;
         verifier?: Person;
     };
-    complete: boolean;
+    status: InterviewStatus;
+    available_date?: Temporal.PlainDate;
     tags: string[] | undefined;
 }
 
 export interface AssetData {
     id?: string;
     name: string;
-    picture: Photo;
+    picture: Image;
     primary_dump_path?: string;
     primary_dump_size?: number;
     primary_document_path?: string;

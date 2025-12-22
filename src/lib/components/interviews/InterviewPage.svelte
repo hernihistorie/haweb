@@ -12,6 +12,9 @@
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 	import { loc } from '$lib/loc';
 	import BulletPoint from '$lib/components/BulletPoint.svelte';
+	import { tocStore } from '../TableOfContents/stores';
+	import InterviewStatusCapsule from './InterviewStatusCapsule.svelte';
+	import PersonImage from './PersonImage.svelte';
     export let data: InterviewData;
 </script>
 
@@ -19,7 +22,12 @@
     {#snippet side()}
         <div class="side">
             {#if data.narrator.photo }
-                <img src="{ data.narrator.photo.url }" alt={loc({cs: "Fotografie narátora", en: "Photograph of the narrator"})} />
+                <PersonImage
+                    image={data.narrator.photo}
+                    sepia={data.status !== "published"}
+                    alt={data.narrator.name}
+                    width="260px"
+                />
             {/if}
             <div>
                 <strong>
@@ -30,7 +38,9 @@
                 <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
 
-            <hr>
+            {#if $tocStore.length}
+                <hr>
+            {/if}
 
             <TableOfContents />
         </div>
@@ -46,6 +56,7 @@
             {/if}
             <h2>
                 <Loc text={data.title} />
+                <InterviewStatusCapsule status={data.status} />
             </h2>
             {#if data.audio_file }
                 <InterviewAudio {data} />
@@ -63,8 +74,10 @@
                 </dt>
                 <dd><NameWithShortname person={data.narrator} /></dd>
 
-                <dt><Loc cs="Ročník narození" en="Year of birth" /></dt>
-                <dd>{ data.narrator.birth_year }</dd>
+                {#if data.narrator.birth_year }
+                    <dt><Loc cs="Ročník narození" en="Year of birth" /></dt>
+                    <dd>{ data.narrator.birth_year }</dd>
+                {/if}
 
                 {#if data.narrator.birth_place }
                     <dt><Loc cs="Místo narození" en="Place of birth" /></dt>
@@ -180,6 +193,60 @@
             {/if}
 
             <hr>
+
+            {#if data.status != "published" }
+                <p>
+                    <em>
+                        {#if data.status === "in-progress"}
+                            <Loc>
+                                {#snippet cs()}
+                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem s námi spolupracovat na jeho dokončení, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                {/snippet}
+                                {#snippet en()}
+                                    This interview is currently being transcribed and edited. If you are interested in collaborating with us to complete it, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                {/snippet}
+                            </Loc>
+                        {:else if data.status === "being-transcribed"}
+                            <Loc>
+                                {#snippet cs()}
+                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o urychlený přístup z badatelských důvodů, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                {/snippet}
+                                {#snippet en()}
+                                    This interview is currently being transcribed and edited.  If you are interested in expedited access for research purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                {/snippet}
+                            </Loc>
+                        {:else if data.status === "request-only"}
+                            <Loc>
+                                {#snippet cs()}
+                                    Tento rozhovor v současnosti není dostupný.  Pokud máte zájem o přístup z badatelských důvodů, ozvěte se nám skrze <a href="{localizeHref('/contact')}">naše kontakty</a>.
+                                {/snippet}
+                                {#snippet en()}
+                                    This interview is currently not available.  If you are interested in access for research purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                {/snippet}
+                            </Loc>
+                        {:else if data.status === "unavailable-for-duration"}
+                            <Loc>
+                                {#snippet cs()}
+                                    {#if data.available_date }
+                                        Publikace tohoto rozhovoru bude umožněna po datu
+                                        { data.available_date.toLocaleString("cs-CZ") }.
+                                    {:else}
+                                        Publikace tohoto rozhovoru bude umožněna teprve v budoucnosti.
+                                    {/if}
+                                {/snippet}
+                                {#snippet en()}
+                                    {#if data.available_date }
+                                        The publication of this interview will be enabled after
+                                        { data.available_date.toLocaleString("en-GB") }.
+                                    {:else}
+                                        The publication of this interview will be enabled in the future.
+                                    {/if}
+                                {/snippet}
+                            </Loc>
+                        {/if}
+                    </em>
+                </p>
+            {/if}
             
             <article id="tocTarget" use:tocCrawler={{ mode: 'generate' }}>
                 <slot name="content"/>

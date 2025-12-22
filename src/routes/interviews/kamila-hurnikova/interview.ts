@@ -1,5 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 import type { InterviewData } from "$src/types";
+import { RS } from '../persons';
 
 export const data: InterviewData = {
     slug: "kamila-hurnikova",
@@ -12,7 +13,7 @@ export const data: InterviewData = {
     // audio_duration: 7266, // duration must be correct
     narrator: {
         name: "Kamila Hurníková",
-        birth_year: "TODO TODO TODO TODO",
+        // birth_year: null,
         gender: "F",
         bio: "Kamila Hurníková se narodila roku 1978. Studovala na Obchodní akademii, kde se potkala svými třemi kolegy, s kterými v následujících letech založila společnost <em>Sleep Team</em> v rámci které se podílela na první hře <em>Polda</em>. Po <em>Poldovi</em> dělala na hře <em>Bulánci</em>, na několika malých hříčkách distribuovaných v rámci platformy IWannaPlay nebo na <em>Buláncích 2</em>. Zároveň stála u založení GDA, České hry roku, GDS apod.",
         photo: {
@@ -21,14 +22,14 @@ export const data: InterviewData = {
     },
     interview: {
         date: Temporal.PlainDate.from("2023-05-03"),
-        place: "TODO TODO TODO TODO",
-        interviewer: "Rudolf Jan Suchý",
+        // place: "TODO TODO TODO TODO",
+        interviewer: RS,
         // length: "",
-        project: "Počítačové kluby v ČSR",
+        //project: null,
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
         // verifier: null
     },
-    complete: false,
+    status: "request-only",
     tags: []
 }
