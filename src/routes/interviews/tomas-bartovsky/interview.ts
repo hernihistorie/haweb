@@ -25,13 +25,15 @@ export const data: InterviewData = {
     },
     interview: {
         date: Temporal.PlainDate.from("2025-11-18"),
-        place: "Bistro Andělka",
+        place: "Bistro Andělka, Praha",
         languages: [czech],
         interviewers: [RS, AT],
-        // length: "",
-        project: {name:"Programy šířené v rámci vysílání Československého rozhlasu"},
+        length: "0:54:15",
+        project: {name:"Programy z Československého rozhlasu"},
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
+        // redaction: RS,
+        // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
     status: "in-progress",

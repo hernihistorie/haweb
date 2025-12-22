@@ -23,13 +23,15 @@ export const data: InterviewData = {
     },
     interview: {
         date: Temporal.PlainDate.from("2023-11-10"),
-        place: "Bratislava",
-        languages: [czech, slovak],
+        place: "Red Café, Bratislava",
         interviewer: RS,
-        // length: "",
+        length: "2:06:08",
+        languages: [czech, slovak],
         // project: "",
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
+        // redaction: RS,
+        // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
     status: "in-progress",

@@ -1,6 +1,9 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { czech, english } from "$src/data/languages";
 import type { InterviewData } from "$src/types";
+import { RS, VS } from "../persons";
+
+export { RS, VS };
 
 export const data: InterviewData = {
     slug: "warren-robinett",
@@ -26,12 +29,13 @@ export const data: InterviewData = {
     interview: {
         date: Temporal.PlainDate.from("2023-11-10"),
         place: "Brno",
+        interviewers: [RS, VS],
+        length: "1:43:45",
         languages: [english],
-        // interviewer: "TODO TODO TODO TODO TODO TODO",
-        // length: "",
         // project: "",
         informed_agreement: true,
         // transcriber: "Rudolf Jan Suchý",
+        // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
     status: "in-progress",

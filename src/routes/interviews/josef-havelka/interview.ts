@@ -32,7 +32,7 @@ export const data: InterviewData = {
     narrator: JH,
     interview: {
         date: Temporal.PlainDate.from("2024-05-13"),
-        place: "Cítov",
+        place: "Narátorův dům, Cítov",
         interviewers: [RS, VS],
         languages: [czech],
         length: "2:35:41",

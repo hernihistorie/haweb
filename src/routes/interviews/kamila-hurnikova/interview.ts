@@ -1,6 +1,9 @@
 import { Temporal } from '@js-temporal/polyfill';
+import { czech } from "$src/data/languages";
 import type { InterviewData } from "$src/types";
-import { RS } from '../persons';
+import { RS, VS } from "../persons";
+
+export { RS, VS };
 
 export const data: InterviewData = {
     slug: "kamila-hurnikova",
@@ -22,12 +25,15 @@ export const data: InterviewData = {
     },
     interview: {
         date: Temporal.PlainDate.from("2023-05-03"),
-        // place: "TODO TODO TODO TODO",
-        interviewer: RS,
-        // length: "",
-        //project: null,
+        place: "Café Standard, Praha",
+        interviewers: [RS, VS],
+        length: "3:08:08",
+        languages: [czech],
+        project: {name: "Porevoluční videoherní scéna – Sleep Team"},
         informed_agreement: true,
-        // transcriber: "Rudolf Jan Suchý",
+        transcriber: {'name': "Matúš Nagy, Rudolf Jan Suchý"},
+        // redaction: RS,
+        // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
     status: "request-only",

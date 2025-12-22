@@ -33,15 +33,15 @@ export const data: InterviewData = {
     narrator: LK,
     interview: {
         date: Temporal.PlainDate.from("2023-07-31"),
-        place: "Dolní Město – Smrčensko (narátorův statek)",
+        place: "Narátorův statek, Dolní Město – Smrčensko",
         interviewer: RS,
         length: "1:46:51",
         languages: [czech],
         project: {name: "Porevoluční videoherní scéna – Sleep Team"},
         informed_agreement: true,
         transcriber: {'name': "Alžběta Krejčí"},
-        redaction: RS,
-        publication_date: Temporal.PlainDate.from("2024-01-20"),
+        // redaction: RS,
+        // publication_date: Temporal.PlainDate.from("2024-01-20"),
         // verifier: null
     },
     status: "request-only",
