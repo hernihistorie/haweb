@@ -3,18 +3,23 @@
     import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
-<!-- TODO make sure a linebreak isn't put in the name -->
 <footer>
     <div>
-        <a href={localizeHref("/contact")}>Kontaktujte nás</a>
+        <a href={localizeHref("/contact")}>
+            <Loc cs="Kontaktujte nás" en="Contact us" />
+        </a>
     </div>
     <div>
-        <p><Loc
-            cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-            en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-        />
+        <p>
+            <Loc
+                cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
+                en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
+            />
+        </p>
 
-        <p>Webdesign: <a href="https://naymi.cz/">Nay Mi</a>
+        <p>
+            Webdesign: <a href="https://naymi.cz/">Nay Mi</a>
+        </p>
     </div>
 </footer>
 
