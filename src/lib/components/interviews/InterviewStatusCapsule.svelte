@@ -27,3 +27,9 @@
         </Capsule>
     </div>
 {/if}
+
+<style>
+    div {
+        text-transform: none;
+    }
+</style>
