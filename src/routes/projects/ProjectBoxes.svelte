@@ -10,14 +10,15 @@
     import { projectVideostop } from './videostop/project';
     import { projectEmilFafek } from '../gallery/emil-fafek/project';
     import { projectOuya } from './ouya/project';
+    import { projectFrantisekCunasStarek } from './frantisek-cunas-starek/project';
     interface Props {
         all: boolean;
     }
 
     let { all }: Props = $props();
 
-    const homepageProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop];
-    const allProjects: Project[] = [projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
+    const homepageProjects: Project[] = [projectFrantisekCunasStarek, projectProgramyZCST, projectBewesoft, projectAtariKlubCitov];
+    const allProjects: Project[] = [projectFrantisekCunasStarek, projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
 </script>
 
 <div class={all ? "project-page": "main-page"}>
