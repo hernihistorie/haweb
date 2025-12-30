@@ -110,7 +110,6 @@
     }
 
     .asset-img {
-        margin-left: 32px;
         margin-bottom: 12px;
         border-radius: 8px;
         width: 334px;
