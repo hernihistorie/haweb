@@ -14,14 +14,14 @@
 
 <ProjectPage project={projectFrantisekCunasStarek}>
     <div><Loc
-            cs='<p><strong>Název projektu</strong>: František „Čuňas“ Stárek
+            cs='<p><strong>Název fondu</strong>: František „Čuňas“ Stárek
                 <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Jaroslav Švelch
-                <p><strong>Rok dokončení projektu</strong>: 2025'
-            en='<p><strong>Project name</strong>: František „Čuňas“ Stárek
+                <p><strong>Rok dokončení projektu</strong>: 2026'
+            en='<p><strong>Collection name</strong>: František „Čuňas“ Stárek
                 <p><strong>Names of the involved archivists</strong>: Rudolf Jan Suchý, Jaroslav Švelch
-                <p><strong>Year of project completion</strong>: 2025'
+                <p><strong>Year of collection completion</strong>: 2026'
         />
-        <hr>
+    <hr>
     </div>
     <div class="picture-cite">
         <p><img src="/photos/frantisek-starek/frantisek_starek_1.jpg" alt="Pavel Lašák u počítače ZX Spectrum+">

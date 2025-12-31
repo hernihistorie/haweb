@@ -18,6 +18,7 @@
         <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Karel Ondráček, Vojtěch Straka, Roman Bórik
         <p><strong>Rok dokončení projektu</strong>: 2024
     </div>
+    <hr>
     <div class="picture-cite">
         <p><img src="/photos/videostop_porad.jpg" alt="Záběr hry v samotném pořadu">
         <cite><i>Videostop</i> (Ivo Paukert, Česká televize 1996)</cite>

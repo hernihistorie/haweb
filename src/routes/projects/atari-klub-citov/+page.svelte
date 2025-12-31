@@ -17,8 +17,7 @@
         <p><strong>Jména zpracovatelů</strong>: Vojtěch Straka, Rudolf Jan Suchý,  Ladislav Greiner, Tomáš Nestorovic, Kamil Ševeček, Karel Ondráček
         <p><strong>Rok dokončení projektu</strong>: Projekt stále probíhá
     </div>
-
-    <h3>Úvod</h3>
+    <hr>
     <p>
         Během 80. let začali na území Československé socialistické republiky vznikat první počítačové kluby, v rámci kterých se měli děti a mladiství seznámit a naučit s užíváním tehdejších osobních počítačů a programováním. Tyto kluby vznikaly zejména pod Svazem pro spolupráci s armádou (Svazarm), nicméně Okresní klub vědeckotechnické činnosti mládeže v Cítově (neboli Atari klub Cítov) vznikl poněkud netradičně při zdejším JZD.
     </p>
