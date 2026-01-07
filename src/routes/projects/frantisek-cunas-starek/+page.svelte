@@ -67,7 +67,16 @@
             <Loc cs="Archiv originálních programů" en="Archive of original programs" />
         </a>
     </h3>
-    <p>Zde můžete stáhnout vybrané programy od kolektivu samizdatového časopisu <i>Vokno</i>. Archiv obsahuje program <i>Kniha</i> a k němu doprovodný program <i>K-Úvod</i>, program na tisk adres, program na tisk a kopírování screen filů a několik animací a obrázků vyrobených zejména pro <i>Videomagazín Vokna</i>.</p>
+    <p>
+        <Loc>
+            {#snippet cs()}
+                Zde můžete stáhnout vybrané programy od kolektivu samizdatového časopisu <i>Vokno</i>. Archiv obsahuje program <i>Kniha</i> a k němu doprovodný program <i>K-Úvod</i>, program na tisk adres, program na tisk a kopírování screen filů a několik animací a obrázků vyrobených zejména pro <i>Videomagazín Vokna</i>.
+            {/snippet}
+            {#snippet en()}
+                Here you can download selected programs from the samizdat magazine <i>Vokno</i>. The archive contains the program <i>Kniha</i> (Book) and its accompanying program <i>K-Úvod</i> (K-Introduction), a program for printing addresses, a program for printing and copying screen files, and several animations and images created primarily for <i>Videomagazín Vokno</i>.
+            {/snippet}
+        </Loc>
+    </p>
     <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
     {#each interviews as data}
         <InterviewBox {data} />
