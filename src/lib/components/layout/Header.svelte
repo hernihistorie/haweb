@@ -28,6 +28,7 @@
 				{ url: "/projects/atari-klub-citov", cs: "Atari klub Cítov", en: "Atari club Citov" },
 				{ url: "/projects/bewesoft", cs: "Fond Jiřího Bernáška (BeWe Soft)", en: "Jiří Bernášek Collection (BeWe Soft)" },
 				{ url: "/projects/programy-z-cst", cs: "Programy z Československé televize", en: "Programs from Czechoslovak Television" },
+				{ url: "/projects/frantisek-cunas-starek", cs: "Fond Františka Stárka Čuňase", en: "František Stárek Čuňas Collection" },
 			]
 		}, {
 			url: "https://inventory.herniarchiv.cz/", cs: "Sbírka", en: "Collection"
