@@ -12,12 +12,13 @@
     import { data as tomas_bartovsky } from './tomas-bartovsky/interview';
     import { data as rudolf_pecinovsky } from './rudolf-pecinovsky/interview';
     import { data as stefan_kratochvil } from './stefan-kratochvil/interview';
+    import { data as cunas_data } from './frantisek-cunas-starek/interview';
     import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
 	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 
 
-    let interviews_public: InterviewData[] = [havelka_data, kadlcik_data, vodak_data];
+    let interviews_public: InterviewData[] = [cunas_data, havelka_data, kadlcik_data, vodak_data];
     let interviews_unpublished: InterviewData[] = [robinett_data, kopecky_data, hrda_data, hurnikova_data, bezdek_data, tomas_bartovsky, rudolf_pecinovsky, stefan_kratochvil];
 </script>
 

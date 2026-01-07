@@ -44,8 +44,8 @@ export const data: InterviewData = {
         languages: [czech],
         interviewer: JS,
         informed_agreement: true,
-        publication_date: Temporal.PlainDate.from("2026-01-01"),
-        english_translation_publication_date: Temporal.PlainDate.from("2026-01-01"),
+        publication_date: Temporal.PlainDate.from("2026-01-08"),
+        english_translation_publication_date: Temporal.PlainDate.from("2026-01-08"),
         project: projectFrantisekCunasStarek
         // verifier: null
     },
