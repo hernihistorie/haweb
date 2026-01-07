@@ -2,8 +2,8 @@ import type { Project } from '$src/types';
 
 export const projectFrantisekCunasStarek: Project = {
     name: {
-        cs: 'Fond Františka „Čuňase“ Stárka',
-        en: 'František „Čuňas“ Stárek Collection'
+        cs: 'Fond Františka Stárka Čuňase',
+        en: 'František Stárek Čuňas Collection'
     },
     type: "fond",
     url: "/projects/frantisek-cunas-starek/",
