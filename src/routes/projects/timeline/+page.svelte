@@ -10,7 +10,7 @@
     import { projectAtariKlubCitov } from '../atari-klub-citov/project';
     import { projectVideostop } from '../videostop/project';
     import { projectOuya } from '../ouya/project';
-    import { projectFrantisekCunasStarek } from '../frantisek-cunas-starek/project';
+    import { projectFrantisekStarekCunas } from '../frantisek-starek-cunas/project';
 </script>
 
 <Meta title={{cs: "Projekty", en: "Projects"}} />
@@ -33,7 +33,7 @@
 
 <div class="projects">
     <div class="timeline-line"></div>
-    <TimelineProjectBox project={projectFrantisekCunasStarek} year={2026} right />
+    <TimelineProjectBox project={projectFrantisekStarekCunas} year={2026} right />
     <TimelineProjectBox project={projectProgramyZCST} year={2025} left />
     <TimelineProjectBox project={projectBewesoft} year={2025} right />
     <TimelineProjectBox project={projectAtariKlubCitov} year={2024} left />

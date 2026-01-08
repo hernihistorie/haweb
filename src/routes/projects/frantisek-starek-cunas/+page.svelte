@@ -2,17 +2,17 @@
 	import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import type { InterviewData } from "$src/types";
     import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
-    import { data as cunas_data } from '$src/routes/interviews/frantisek-cunas-starek/interview';
+    import { data as cunas_data } from '$src/routes/interviews/frantisek-starek-cunas/interview';
 	import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import Loc from "$lib/components/Loc.svelte";
-    import { projectFrantisekCunasStarek } from './project';
+    import { projectFrantisekStarekCunas } from '../frantisek-starek-cunas/project';
 	import { loc } from "$src/lib/loc";
 	import LucideDownload from "@lucide/svelte/icons/download";
 
     let interviews: InterviewData[] = [cunas_data];
 </script>
 
-<ProjectPage project={projectFrantisekCunasStarek}>
+<ProjectPage project={projectFrantisekStarekCunas}>
     <div><Loc
             cs='<p><strong>Název fondu</strong>: František Stárek Čuňas
                 <p><strong>Jména zpracovatelů</strong>: Rudolf Jan Suchý, Jaroslav Švelch

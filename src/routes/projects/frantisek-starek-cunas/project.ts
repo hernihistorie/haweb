@@ -1,12 +1,12 @@
 import type { Project } from '$src/types';
 
-export const projectFrantisekCunasStarek: Project = {
+export const projectFrantisekStarekCunas: Project = {
     name: {
         cs: 'Fond Františka Stárka Čuňase',
         en: 'František Stárek Čuňas Collection'
     },
     type: "fond",
-    url: "/projects/frantisek-cunas-starek/",
+    url: "/projects/frantisek-starek-cunas/",
     image: "/photos/projects/starek.jpg",
     description: {
         cs: "Redakce samizdatového časopisu <i>Vokno</i> začala v 80. letech v rámci své činnosti experimentovat s osobními počítači. Fond obsahuje kazety šéfredaktora <i>Vokna</i> Františka Stárka s originálními programy od redakce.",
