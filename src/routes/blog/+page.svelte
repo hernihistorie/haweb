@@ -2,6 +2,8 @@
 	import Meta from '$src/lib/components/layout/Meta.svelte';
 	import BlogBoxes from './BlogBoxes.svelte';
 	import PageLang from "$src/lib/components/PageLang.svelte";
+
+	let { data } = $props();
 </script>
 
 <PageLang cs />
@@ -10,4 +12,4 @@
 
 <h2>Blog</h2>
 
-<BlogBoxes all={true}/>
+<BlogBoxes posts={data.blogPosts}/>

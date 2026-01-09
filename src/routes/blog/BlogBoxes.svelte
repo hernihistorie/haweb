@@ -1,19 +1,16 @@
 <script lang="ts">
 	import BlogBox from '$src/lib/components/blog/BlogBox.svelte';
-	import { blogPosts } from './blog_posts';
+	import type { BlogPost } from '$src/types';
 
 	interface Props {
-		all: boolean;
+		posts: BlogPost[];
 	}
 
-	let { all }: Props = $props();
-
-	// Show posts in reverse order (newest first), only first 3 if not showing all
-	const displayedPosts = $derived(all ? blogPosts.toReversed() : blogPosts.toReversed().slice(0, 3));
+	let { posts }: Props = $props();
 </script>
 
 <div class="blogboxes">
-	{#each displayedPosts as post (post.id)}
+	{#each posts as post (post.id)}
 		<BlogBox blogPost={post} />
 	{/each}
 </div>
