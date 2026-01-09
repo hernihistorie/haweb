@@ -2,8 +2,15 @@
 	import Post from "../Post.svelte";
     import Loc from "../Loc.svelte";
     import type { BlogPost } from "$src/types";
-	import type { Snippet } from "svelte";
+	import { getContext, setContext, type Snippet } from "svelte";
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+    import { FootnoteHolder, getFootnoteContext, setFootnoteContext } from '../footnote/context';
+	import Footnotes from "../footnote/Footnotes.svelte";
+
+    const footnotes = setFootnoteContext(new FootnoteHolder());
+
+	setContext('article', {footnotes: []});
+    const articleContext = getContext('article');
 
     interface Props {
         post: BlogPost;
@@ -49,6 +56,10 @@
                 <Loc text={post.title} />
             </h2>
             {@render children?.()}
+            {#if footnotes.footnotes.length > 0}
+                <hr>
+                <Footnotes />
+            {/if}
         </div>
     {/snippet}
 </Post>
