@@ -6,6 +6,8 @@
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
     import { FootnoteHolder, getFootnoteContext, setFootnoteContext } from '../footnote/context';
 	import Footnotes from "../footnote/Footnotes.svelte";
+	import AuthorMedaillon from "./AuthorMedaillon.svelte";
+	import BulletPoint from "../BulletPoint.svelte";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -23,17 +25,29 @@
     }: Props = $props();
 </script>
 
+{#snippet backlinks()}
+    <a href={localizeHref("/blog")} class="backlink">
+        <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
+    </a>
+    {#if !post.author.noBacklink }
+        <BulletPoint />
+        <a href={localizeHref(`/blog/authors/${post.author.slug}`)} class="backlink">
+            <Loc
+                cs={`Blogové příspěvky od ${post.author.nameGenitive}`}
+                en={`Blog posts from ${post.author.name}`}
+            />
+        </a>
+    {/if}
+{/snippet}
+
 <Post title={post.title}>
     {#snippet side()}
         <div class="side">
             <!--
                 <img src="" alt="Profilový obrázek" />
             -->
-            <img src="/images/ha_logo.png" alt="Logo Herního archivu" class="profile-photo-standin">
             <div class="author-date">
-                <author>
-                    <strong>{post.author.name}</strong>
-                </author>
+                <AuthorMedaillon author={post.author} />
                 {#if post.date}
                     <date>
                         {post.date.day}.&nbsp;{post.date.month}.&nbsp;{post.date.year}
@@ -49,9 +63,7 @@
     {/snippet}
     {#snippet content()}
         <div>
-            <a href={localizeHref("/blog")} class="backlink">
-                <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
-            </a>
+            {@render backlinks() }
             <h2>
                 <Loc text={post.title} />
             </h2>
@@ -61,6 +73,8 @@
                 <Footnotes />
             {/if}
         </div>
+        <hr>
+        {@render backlinks() }
     {/snippet}
 </Post>
 

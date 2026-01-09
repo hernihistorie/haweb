@@ -96,5 +96,7 @@ export interface BlogPost {
 export interface Author {
     slug: string;
     name: LocalizedString;
+    nameGenitive: string;
     image?: Image
+    noBacklink?: boolean;
 }
