@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost68: BlogPost = {
     id: 68,
@@ -10,7 +11,7 @@ export const blogPost68: BlogPost = {
         cs: 'Byla zveřejněna naše přednáška o Videostopu'
     },
     date: new Temporal.PlainDate(2025, 10, 2),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         inulý rok měl člen našeho spolku Rudolf Jan Suchý přednášku o historii a archivaci hry z televizního pořadu Videostop. Záznam z této přednášky nyní naleznete na YouTubu ByteFESTu.
     `

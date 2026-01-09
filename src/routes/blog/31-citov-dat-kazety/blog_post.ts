@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost31: BlogPost = {
     id: 31,
@@ -10,7 +11,7 @@ export const blogPost31: BlogPost = {
         cs: 'PROJEKT CÍTOV - Digitalizace DAT kazet'
     },
     date: new Temporal.PlainDate(2024, 12, 2),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     `

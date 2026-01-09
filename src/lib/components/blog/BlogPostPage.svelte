@@ -32,7 +32,7 @@
             <img src="/images/ha_logo.png" alt="Logo Herního archivu" class="profile-photo-standin">
             <div class="author-date">
                 <author>
-                    <strong>{post.author_name ?? ''}</strong>
+                    <strong>{post.author.name}</strong>
                 </author>
                 {#if post.date}
                     <date>

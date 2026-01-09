@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost24: BlogPost = {
     id: 24,
@@ -10,7 +11,7 @@ export const blogPost24: BlogPost = {
         cs: 'Opravili jsme osmipalcovou disketovku!'
     },
     date: new Temporal.PlainDate(2024, 8, 19),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Podařilo se nám sehnat a opravit 8" disketovku! Hurá!
     `

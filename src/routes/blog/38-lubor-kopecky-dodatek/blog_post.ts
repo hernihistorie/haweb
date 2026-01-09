@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost38: BlogPost = {
     id: 38,
@@ -9,7 +10,7 @@ export const blogPost38: BlogPost = {
         cs: 'Doplňkové otázky k rozhovoru s Luborem Kopeckým, autorem prvních Bulánků'
     },
     date: new Temporal.PlainDate(2025, 2, 4),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Lubor Kopecký, s kterým jsme dělali rozhovor před necelýma dvěma lety, jsme se doptali na vzpomínky ohledně prvních Bulánků - jak byli propagovaný, jak autorstvo komunikovalo s komunitou a jakým způsobem ji podporovalo a jaký měla hra úspěch v zahraničí.
     `

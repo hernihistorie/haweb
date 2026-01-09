@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost19: BlogPost = {
     id: 19,
@@ -10,7 +11,7 @@ export const blogPost19: BlogPost = {
         cs: 'Do sbírky Herního archivu nám přibylo několik katalogů od JRC'
     },
     date: new Temporal.PlainDate(2024, 5, 24),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Do správného archivu videoher samozřejmě nepatří jen samotné hry ale i mnoho věcí kolem - herní časopiy, propagační materiály, merch, ale také distribuční materiály od prodejců jako je např. JRC. Z takovýchto katalogů se dají vyčíst různé zajímavé historické informace, jako co za hry se zde distribuovalo, kolik tyto hry stály nebo kdy se sem vůbec dostaly.
     `

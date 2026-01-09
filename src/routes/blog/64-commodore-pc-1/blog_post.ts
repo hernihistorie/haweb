@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost64: BlogPost = {
     id: 64,
@@ -10,7 +11,7 @@ export const blogPost64: BlogPost = {
         cs: 'Opravili jsme Commodore PC-1 (Jen aby se mu hned rozbila disketovka)'
     },
     date: new Temporal.PlainDate(2025, 9, 9),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Lukáš Nevařil při své opravovací návštěvě opravil i Commodore PC-1. Mimo to mu přidělal také speaker. Commodore se hned po opravách s námi podíval na EuroPython, kde se mu ale po intenzivním používání rozbila disketovka.
     `

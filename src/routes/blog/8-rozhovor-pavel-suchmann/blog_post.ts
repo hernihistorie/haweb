@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost8: BlogPost = {
     id: 8,
@@ -10,7 +11,7 @@ export const blogPost8: BlogPost = {
         cs: 'Rozhovor s Pavlem Šuchmannem a Nabídka spolupráce!'
     },
     date: new Temporal.PlainDate(2024, 4, 19),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: `
         Včera jsme udělali rozhovor s Pavlem Šuchmannem - tvůrcem her na počítač Sharp - ke kterému jsme se dostali skrze blog Herního Archeologa. Povídali jsme si o jeho vzpomínkách na počítačový klub v Kutné Hoře, o studiu na ČVUTu, o revoluci a samozřejmě o jeho hrách a herních zkušenostech. Záznam rozhovoru je dostupný na zažádání.
     `

@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/lib/data/authors';
 
 export const blogPost40: BlogPost = {
     id: 40,
@@ -12,7 +13,7 @@ export const blogPost40: BlogPost = {
     },
     date: new Temporal.PlainDate(2025, 2, 19),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: {
         cs: `
             Oficiálně oznamujeme, že jsme se stali členy European Federation of Game Archives, Museums and Preservation Projects (EFGAMP), který reprezentuje a propojuje více než 20 evropských institucí a organizací, jež se zaměřují na záchranu evropské herní kultury.
