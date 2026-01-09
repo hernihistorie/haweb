@@ -43,4 +43,18 @@
         gap: 24px;
         margin-bottom: 32px;
     }
+    .author-medaillon {
+        flex-shrink: 0;
+    }
+
+
+    @media (max-width: 600px) {
+        .author-header {
+            flex-direction: column;
+            align-items: center;
+        }
+        .author-medaillon {
+            margin-bottom: 16px;
+        }
+    }
 </style>
