@@ -3,6 +3,7 @@
 	import Footnote from "$src/lib/components/footnote/Footnote.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
+	import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import { blogPost79 } from "./blog_post";
 </script>
 
@@ -102,6 +103,6 @@
             </figure>
         {/snippet}
 
-        <!-- TODO předmět v inventáři -- který dostane i tag na blog post -->
     </Loc>
+    <AssetList assetTagId={43} withHeading />
 </BlogPostPage>
