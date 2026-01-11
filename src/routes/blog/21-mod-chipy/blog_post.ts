@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/data/authors';
 
 export const blogPost21: BlogPost = {
     id: 21,
@@ -12,7 +13,7 @@ export const blogPost21: BlogPost = {
     },
     date: new Temporal.PlainDate(2024, 7, 29),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: {
         cs:`
             Dějiny herního média nejsou jen dějinami velkých společností, AAA her a oficiálně distribuovaných titulů - dějiny videoher jsou i dějinami pirátění, ilegálního šíření ale i modování herních konzolí. Takové modchipy umožňovali hráčstvu (které si jej pečlivě napájelo do své konzole), nejen hrát oficiální hry nepříliš oficiální cestou, ale také jim otevřeli možnost pro danou platformu vytvářet hry nové.

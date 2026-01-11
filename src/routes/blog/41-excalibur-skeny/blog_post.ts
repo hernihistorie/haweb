@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/data/authors';
 
 export const blogPost41: BlogPost = {
     id: 41,
@@ -12,7 +13,7 @@ export const blogPost41: BlogPost = {
     },
     date: new Temporal.PlainDate(2025, 3, 4),
     // english_translation_date: new Temporal.PlainDate(2025, 12, 11),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: {
         cs: `
             Časopis Excalibur, jehož nulté číslo vyšlo v roce 1990, byl jedním z prvních časopisů o videohrách, který u nás vycházel a v kterém zároveň začínalo mnoho významných osobnostní herní žurnalistiky jako Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek ad. Časopis jsme téměř celý oskenovali a zveřejnili.

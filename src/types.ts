@@ -89,6 +89,15 @@ export interface BlogPost {
     title: LocalizedString;
     date?: Temporal.PlainDate;
     english_translation_date?: Temporal.PlainDate;
-    author_name?: string;
+    author: Author;
     description_html?: LocalizedString;
+}
+
+export interface Author {
+    slug: string;
+    name: LocalizedString;
+    nameGenitive: string;
+    bio?: LocalizedString;
+    image?: Image
+    isDefault?: boolean;
 }

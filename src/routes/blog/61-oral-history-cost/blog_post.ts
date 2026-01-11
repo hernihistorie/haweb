@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/data/authors';
 
 export const blogPost61: BlogPost = {
     id: 61,
@@ -12,7 +13,7 @@ export const blogPost61: BlogPost = {
     },
     date: new Temporal.PlainDate(2025, 8, 29),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: {
         cs: `
             Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney.

@@ -54,7 +54,7 @@
         <div class="photopart">
             {#if data.narrator.photo}
                 <a href={localizeHref("/interviews/" + data.slug)}>
-                    <Lazy keep>
+                    <Lazy keep width="200px" height="266px">
                         <PersonImage
                             image={data.narrator.photo}
                             sepia={data.status !== "published"}

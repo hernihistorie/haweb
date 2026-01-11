@@ -43,7 +43,7 @@
         </div>
         <div class="author-date">
             <author>
-                <Loc text={blogPost.author_name ?? ''} />
+                <Loc text={blogPost.author.name} />
             </author>
             <BulletPoint />
             <date>

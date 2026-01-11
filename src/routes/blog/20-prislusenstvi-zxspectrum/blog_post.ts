@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
+import { authors } from '$src/data/authors';
 
 export const blogPost20: BlogPost = {
     id: 20,
@@ -12,7 +13,7 @@ export const blogPost20: BlogPost = {
     },
     date: new Temporal.PlainDate(2024, 6, 21),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author_name: 'Herní historie',
+    author: authors.HerniHistorie,
     description_html: {
         cs:`
             Velmi často se naše sbírka rozšiřuje o věci ke straým mikropočítačům jako je ZX Spectrum  nebo 8-bitové Atari. Typicky jde o kazety s programy nicméně občas se k nám dostanou i velmi roztomilé, po domácku dělané příslušenství, jako je např. ovladač na obrázku. Ty byly svého času vyráběné ze všeho možného - ze starých zásuvek, tlačítek z telefonů, páček od sprch, krabiček od mýdel apod.. Kdyby náhodou někdo měl podobné dobové příslušenství a byl ochoten ho darovat někomu kdo se o něj postará a využije, tak budeme moc rádi, když nás kontaktujete!

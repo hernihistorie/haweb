@@ -176,6 +176,15 @@ button:not(.link).active, input.active {
     color: var(--color-primary-contrast);
 }
 
+figure {
+    text-align: center;
+}
+
+figcaption {
+    text-align: right;
+    font-size: 90%;
+}
+
 @media only screen and (max-width: 600px) {
     dt, dd {
         width: 100%;

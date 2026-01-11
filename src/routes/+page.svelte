@@ -7,6 +7,8 @@
     import ProjectBoxes from './projects/ProjectBoxes.svelte';
 	import Arrow from '$src/lib/components/Arrow.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
+
+	let { data } = $props();
 </script>
 
 <Meta title="" />
@@ -189,7 +191,7 @@
 <h2>Blog</h2>
 
 <div class="blogboxes">
-    <BlogBoxes all={false} />
+    <BlogBoxes posts={data.latestBlogPosts} />
 </div>
 <div style="margin-top: 24px;">
     <Arrow href="/blog">

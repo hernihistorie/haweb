@@ -1,6 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { czech } from "$src/data/languages";
-import { projectFrantisekCunasStarek } from "$src/routes/projects/frantisek-cunas-starek/project";
+import { projectFrantisekStarekCunas } from "$src/routes/projects/frantisek-starek-cunas/project";
 import type { InterviewData, Person } from "$src/types";
 
 // https://docs.google.com/document/d/1NszQitd-hCDAidkszwpgGAmKLrdlv8x9/edit
@@ -28,7 +28,7 @@ export const FS: Person = {
 }
 
 export const data: InterviewData = {
-    slug: "frantisek-cunas-starek",
+    slug: "frantisek-starek-cunas",
     lang: "cs",
     title: {
         cs: "Rozhovor s Františkem Stárkem Čuňasem",
@@ -46,7 +46,7 @@ export const data: InterviewData = {
         informed_agreement: true,
         publication_date: Temporal.PlainDate.from("2026-01-08"),
         english_translation_publication_date: Temporal.PlainDate.from("2026-01-08"),
-        project: projectFrantisekCunasStarek
+        project: projectFrantisekStarekCunas
         // verifier: null
     },
     status: "published",

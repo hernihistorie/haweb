@@ -6,16 +6,17 @@
         title: LocalizedString;
         side?: import('svelte').Snippet;
         content?: import('svelte').Snippet;
+        stickySide?: boolean;
         class?: string;
     }
 
-    let { title, side, content, class: className }: Props = $props();
+    let { title, side, content, stickySide=false, class: className }: Props = $props();
 </script>
 
 <Meta title={title}/>
 
 <article class={className}>
-    <div class="side">
+    <div class="side" class:sticky={stickySide}>
         {@render side?.()}
     </div>
     <div class="content">
@@ -30,8 +31,10 @@
         justify-content: center;
         margin-top: 108px;
     }
-    .side {
+    .sticky {
         position: sticky;
+    }
+    .side {
         top: 2em;
 
         max-height: calc(100vh - 4em);

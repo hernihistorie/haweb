@@ -43,7 +43,7 @@
 
 <style>
     .assets {
-        min-height: 100vh;
+        min-height: 50vh;
     }
 
     @media (max-width: 800px) {
