@@ -8,6 +8,7 @@
 	import Footnotes from "../footnote/Footnotes.svelte";
 	import AuthorMedaillon from "./AuthorMedaillon.svelte";
 	import BulletPoint from "../BulletPoint.svelte";
+	import AuthorBio from "./AuthorBio.svelte";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -29,7 +30,7 @@
     <a href={localizeHref("/blog")} class="backlink">
         <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
     </a>
-    {#if !post.author.noBacklink }
+    {#if !post.author.isDefault }
         <BulletPoint />
         <a href={localizeHref(`/blog/authors/${post.author.slug}`)} class="backlink">
             <Loc
@@ -43,9 +44,6 @@
 <Post title={post.title}>
     {#snippet side()}
         <div class="side">
-            <!--
-                <img src="" alt="Profilový obrázek" />
-            -->
             <div class="author-date">
                 <AuthorMedaillon author={post.author} />
                 {#if post.date}
@@ -67,40 +65,44 @@
             <h2>
                 <Loc text={post.title} />
             </h2>
+            <div class="inline-author">
+                <AuthorMedaillon author={post.author} date={post.date} inline />
+            </div>
             {@render children?.()}
             {#if footnotes.footnotes.length > 0}
                 <hr>
                 <Footnotes />
             {/if}
         </div>
-        <hr>
-        {@render backlinks() }
+        <hr style="margin: 2em 0;">
+        {#if !post.author.isDefault }
+            <AuthorBio author={post.author} secondary />
+        {:else}
+            {@render backlinks() }
+        {/if}
     {/snippet}
 </Post>
 
 <style>
-    .profile-photo-standin {
-        height: 6em;
-        width: 6em;
-        padding: 1em;
-    }
     .backlink {
         text-decoration: none; 
     }
     h2 {
         margin-top: 0.2em;
+        margin-bottom: 0.4em;
+    }
+
+    .inline-author {
+        display: none;
     }
 
     @media (max-width: 1200px) {
         .side {
-            display: flex;
-            flex-direction: row;
-            gap: 16px;
-            align-items: center;
+            display: none;
         }
 
-        .profile-photo-standin {
-            padding: 0.1em;
+        .inline-author {
+            display: block;
         }
 
         .author-date {

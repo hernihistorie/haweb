@@ -99,5 +99,5 @@ export interface Author {
     nameGenitive: string;
     bio?: LocalizedString;
     image?: Image
-    noBacklink?: boolean;
+    isDefault?: boolean;
 }

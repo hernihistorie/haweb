@@ -10,7 +10,7 @@ export const authors: Record<string, Author> = {
             url: '/images/ha_logo.png',
             alt: 'Logo Herní historie'
         },
-        noBacklink: true
+        isDefault: true
     },
     Capa: {
         slug: "capa",

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import AuthorBio from '../../../../lib/components/blog/AuthorBio.svelte';
+
 	import Meta from '$src/lib/components/layout/Meta.svelte';
 	import BlogBoxes from '../../BlogBoxes.svelte';
 	import PageLang from "$src/lib/components/PageLang.svelte";
@@ -11,27 +13,7 @@
 
 <Meta title={`Blog - ${data.author.name}`} />
 
-<section class="author-header">
-    <div class="author-medaillon">
-        <AuthorMedaillon author={data.author} />
-    </div>
-    <div class="bio">
-        <a href={localizeHref("/blog")} class="backlink">
-            <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
-        </a>
-        <h2>
-            <Loc
-                cs={`Blogové příspěvky od ${data.author.nameGenitive}`}
-                en={`Blog posts from ${data.author.name}`}
-            />
-        </h2>
-        <p>
-            {#if data.author.bio}
-                <Loc text={data.author.bio} />
-            {/if}
-        </p>
-    </div>
-</section>
+<AuthorBio author={data.author} />
 
 <BlogBoxes posts={data.authorBlogPosts} />
 
