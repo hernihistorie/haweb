@@ -21,7 +21,7 @@
     const allProjects: Project[] = [projectFrantisekCunasStarek, projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
 </script>
 
-<div class={all ? "project-page": "main-page"}>
+<div class=project-box>
     {#each (all ? allProjects : homepageProjects) as project}
         <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
             <h3>
@@ -35,30 +35,20 @@
 </div>
 
 <style> 
-    .main-page {
-        display: flex;
-        flex-wrap: flex;
-        gap: 25px;
-        width: 100%;
-    }
-    .project-page {
+    .project-box {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         gap: 25px;
     }
-    @media only screen and (max-width: 1200px) {
-        .main-page {
-            width: 100%;
-        }
-    }
     @media only screen and (max-width: 800px) {
-        .main-page, .project-page {
+        .project-box {
             flex-wrap: flex;
             flex-direction: column;
             width: 100%;
             gap: 32px;
         }
-        .main-page :global(img), .project-page :global(img) {
+        .project-box :global(img) {
             display: block;
             margin: auto;
             margin-bottom: 12px;

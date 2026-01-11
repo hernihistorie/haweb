@@ -48,7 +48,18 @@
         text-transform: uppercase;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
+		.project {
+			width: calc(33% - 13px);
+		}
+	}
+    @media screen and (max-width: 1145px) {
+		.project {
+			width: calc(50% - 13px);
+		}
+	}
+
+    @media screen and (max-width: 850px) {
 		.project {
 			width: 100%;
 		}
