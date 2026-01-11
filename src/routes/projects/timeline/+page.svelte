@@ -140,4 +140,7 @@
 		padding: 0 27px 0 0;
         border-left: none;
 	}
+    @media screen and (max-width: 515px) {
+		li {font-size: 30px;}
+    }
 </style>

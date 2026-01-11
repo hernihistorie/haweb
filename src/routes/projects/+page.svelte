@@ -42,9 +42,7 @@
 	}
     
     li > a { 
-    /* font-weight: normal; */
     color: var(--color-black);
-    /* text-decoration: none; */
     text-decoration-color: var(--color-secondary);
     text-decoration-thickness: 3px;
     }
@@ -53,7 +51,7 @@
 		padding: 0 27px 0 0;
         border-left: none;
 	}
-    @media screen and (max-width: 500px) {
-		li {font-size: 31px;}
+    @media screen and (max-width: 515px) {
+		li {font-size: 30px;}
     }
 </style>
