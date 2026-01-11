@@ -25,6 +25,11 @@
                 en={`Blog posts from ${data.author.name}`}
             />
         </h2>
+        <p>
+            {#if data.author.bio}
+                <Loc text={data.author.bio} />
+            {/if}
+        </p>
     </div>
 </section>
 

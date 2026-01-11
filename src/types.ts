@@ -97,6 +97,7 @@ export interface Author {
     slug: string;
     name: LocalizedString;
     nameGenitive: string;
+    bio?: LocalizedString;
     image?: Image
     noBacklink?: boolean;
 }
