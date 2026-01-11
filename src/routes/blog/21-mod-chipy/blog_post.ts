@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
-import { authors } from '$src/lib/data/authors';
+import { authors } from '$src/data/authors';
 
 export const blogPost21: BlogPost = {
     id: 21,

@@ -1,4 +1,4 @@
-import { authorsBySlug } from '$src/lib/data/authors';
+import { authorsBySlug } from '$src/data/authors';
 import { error } from '@sveltejs/kit';
 import { blogPosts } from '../../blog_posts';
 import type { PageServerLoad } from './$types';
