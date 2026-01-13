@@ -8,6 +8,7 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { beforeNavigate } from '$app/navigation';
+	import SearchLink from './SearchLink.svelte';
 
 	type MenuItem = {
 		url: string;
@@ -66,8 +67,9 @@
 			<BurgerMenu padding={'25px'} bind:open={burgerMenuOpen}>
 				<ul class="burger-links">
 					<li class="burger-top-row">
-						<LanguageSwitcher />
+						<SearchLink />
 						<ThemeToggle />
+						<LanguageSwitcher />
 					</li>
 					{#each menuItems as menuItem}
 						<li>
@@ -82,6 +84,9 @@
 		<ul class="language-select">
 			<li>
 				<SocialMediaLinks />
+			</li>
+			<li>
+				<SearchLink />
 			</li>
 			<li>
 				<ThemeToggle />
