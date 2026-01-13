@@ -15,6 +15,7 @@
 			`${'/'}pagefind/pagefind.js`
 		);
 		pagefind.init();
+        searchValue = page.url.searchParams.get('q') || '';
 	});
  
 	async function fetchSearchResults(val: string) {
@@ -28,7 +29,7 @@
 		return [];
 	}
  
-	let searchValue = $state(page.url.searchParams.get('q') || '');
+	let searchValue = $state('');
 	let searchResults = $derived(fetchSearchResults(searchValue));
 </script>
 
