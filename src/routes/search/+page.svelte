@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from '$app/state'
     import type { Pagefind } from "vite-plugin-pagefind/types";
 	import { onMount } from 'svelte';
 	import Loc from "$src/lib/components/Loc.svelte";
@@ -27,7 +28,7 @@
 		return [];
 	}
  
-	let searchValue = $state('');
+	let searchValue = $state(page.url.searchParams.get('q') || '');
 	let searchResults = $derived(fetchSearchResults(searchValue));
 </script>
 
@@ -39,7 +40,7 @@
             <IconSearch />
             <input
                 type="text"
-                placeholder=""
+                autofocus
                 bind:value={searchValue}
             />
         </div>
@@ -75,6 +76,9 @@
 
     input {
         width: 100%;
+    }
+    input:focus {
+        outline: none;
     }
 
     .result-link {
