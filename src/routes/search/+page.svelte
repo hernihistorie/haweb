@@ -5,6 +5,7 @@
 	import Loc from "$src/lib/components/Loc.svelte";
 	import Box from "$src/lib/components/Box.svelte";
 	import IconSearch from "@lucide/svelte/icons/search";
+	import Meta from '$src/lib/components/layout/Meta.svelte';
  
 	let pagefind: Pagefind;
  
@@ -28,10 +29,16 @@
 		}
 		return [];
 	}
+
+    function stripTitle(title: string) {
+        return title.replace(/ - (Herní archiv|Czechoslovak Game Archive)$/, '');
+    }
  
 	let searchValue = $state('');
 	let searchResults = $derived(fetchSearchResults(searchValue));
 </script>
+
+<Meta title={{cs: "Vyhledávání", en: "Search"}} />
 
 <div class="thin">
     <h2><Loc cs="Vyhledávání" en="Search" /></h2>
@@ -54,7 +61,7 @@
             {#each results as result (result.url)}
                 <Box>
                     <a href={result.url.replace('.html', '')} class="result-link">
-                        <strong>{result.meta.title}</strong>
+                        <strong>{stripTitle(result.meta.title)}</strong>
                     </a>
                     {@html result.excerpt}
                 </Box>
