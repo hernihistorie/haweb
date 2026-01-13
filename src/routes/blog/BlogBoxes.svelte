@@ -9,7 +9,7 @@
 	let { posts }: Props = $props();
 </script>
 
-<div class="blogboxes">
+<div class="blogboxes" data-pagefind-ignore>
 	{#each posts as post (post.id)}
 		<BlogBox blogPost={post} />
 	{/each}
