@@ -18,7 +18,7 @@
         {#snippet en()}
             <p>We have received the opportunity to participate in the exhibition <strong>Disc Cannot Be Read</strong> (in Czech: <em>Disk nelze načíst</em>) - an exhibition by the Vašulka Kitchen team focusing on the history of analog, (pre) digital technologies, media, and artistic experiments from around the early 1990s. We have contributed our computers with the games Myst and Samorost to the exhibition.</p>
             <p>The exhibition takes place at the House of Arts in Brno from December 10, 2025 to February 8, 2026.</p>
-            <p>Web pages of the exhibition: <a href="https://www.dum-umeni.cz/disk-nelze-nacist/t9978">Disc Cannot Be Read</a></p>
+            <p>Web pages of the exhibition: <a href="https://www.dum-umeni.cz/en/disc-cannot-be-read/t9978">Disc Cannot Be Read</a></p>
         {/snippet}
     </Loc>
     <Figure src="/images/blog/80-vystava-disk-nelze-nacist/photo1.jpg" />
