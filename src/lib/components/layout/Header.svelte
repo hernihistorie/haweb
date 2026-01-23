@@ -56,7 +56,7 @@
 	});
 </script>
 
-<header>
+<header data-pagefind-ignore>
 	<div class="logo">
 		<a href={localizeHref("/")} onclick={resetExpandedMenu}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>

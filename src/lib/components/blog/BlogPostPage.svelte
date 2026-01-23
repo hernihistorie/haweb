@@ -27,12 +27,12 @@
 </script>
 
 {#snippet backlinks()}
-    <a href={localizeHref("/blog")} class="backlink">
+    <a href={localizeHref("/blog")} class="backlink" data-pagefind-ignore>
         <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
     </a>
     {#if !post.author.isDefault }
         <BulletPoint />
-        <a href={localizeHref(`/blog/authors/${post.author.slug}`)} class="backlink">
+        <a href={localizeHref(`/blog/authors/${post.author.slug}`)} class="backlink" data-pagefind-ignore>
             <Loc
                 cs={`Blogové příspěvky od ${post.author.nameGenitive}`}
                 en={`Blog posts from ${post.author.name}`}

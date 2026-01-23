@@ -3,7 +3,7 @@
     import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
-<footer>
+<footer data-pagefind-ignore>
     <div>
         <a href={localizeHref("/contact")}>
             <Loc cs="Kontaktujte nás" en="Contact us" />

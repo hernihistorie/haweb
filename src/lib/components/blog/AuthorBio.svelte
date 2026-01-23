@@ -13,7 +13,7 @@
         <AuthorMedaillon author={author} />
     </div>
     <div class="bio">
-        <a href={localizeHref("/blog")} class="backlink">
+        <a href={localizeHref("/blog")} class="backlink" data-pagefind-ignore>
             <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
         </a>
         {#if !secondary}
@@ -25,7 +25,7 @@
             </h2>
         {:else}
             <h3>
-                <a href={localizeHref(`/blog/authors/${author.slug}`)} class="backlink">
+                <a href={localizeHref(`/blog/authors/${author.slug}`)} class="backlink" data-pagefind-ignore>
                     <Loc
                         cs={`Blogové příspěvky od ${author.nameGenitive}`}
                         en={`Blog posts from ${author.name}`}
