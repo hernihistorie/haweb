@@ -2,9 +2,7 @@ import { Temporal } from '@js-temporal/polyfill';
 
 export type LanguageCode = 'cs' | 'sk' | 'en';
 
-export type LocalizedString = string | {
-    [K in LanguageCode]?: string;
-} & ({ cs: string } | { en: string })
+export type LocalizedString = string | ({ cs: string } | { en: string }) | { cs: string; en: string };
 
 type Gender = 'M' | 'F';
 

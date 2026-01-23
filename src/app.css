@@ -178,6 +178,7 @@ button:not(.link).active, input.active {
 
 figure {
     text-align: center;
+    margin: 1.25em 0;
 }
 
 figcaption {
