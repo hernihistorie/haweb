@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost17 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost17}>
+<BlogPostPage post={blogPost}>
 
     <p>Vzhledem k tomu, že už máme za sebou digitalizaci hry z pořadu ,,Videostop" i rozhovor s autorem hry z pořadu ,,Videostop", tak jsme to třetice všeho dobrého i zlého udělali rozhovor i se samotným vynálezcem pořadu, Vladimírem Bezděkem. Ten v rozhovoru povídal zejména o tom, jak probíhalo natáčení pořadu, jak přišel k samotnému jeho konceptu apod. Zároveň jsme od pana Bezděka dostali i nějaké materiály na oskenování, konkrétně první scénáře od této televizní soutěže. Záznam rozhovoru je v současnosti dostupný na zažádání a později bude jeho přepis přístupný online na stránkách Herního archivu.
 

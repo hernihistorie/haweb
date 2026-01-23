@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost1: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 1,
     slug: 'svycarske-dobrodruzstvi',
     image: '/photos/svycarske-dobrodruzstvi/prace.jpg',
@@ -17,3 +18,5 @@ export const blogPost1: BlogPost = {
     date: new Temporal.PlainDate(2021, 4, 28),
     author: authors.Capa
 };
+
+export default blogPost;

@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost62: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 62,
     slug: 'oprava-disketovek',
     image: '/photos/blog-posts/disketovky_1.jpg',
@@ -16,3 +17,5 @@ export const blogPost62: BlogPost = {
         Pro zálohování disket se starými hrami nebo nezazálohovanými daty je v první řadě potřeba mít disketovku. Ačkoliv 5,25" disketovky nejsou zdaleka tak nedostatkové zboží jako ty 8", tak už shání daleko hůře než pár let nazpět.
     `
 };
+
+export default blogPost;

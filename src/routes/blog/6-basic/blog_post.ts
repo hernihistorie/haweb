@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost6: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 6,
     slug: 'basic',
     image: '/photos/basic_interpreter.jpg',
@@ -16,3 +17,5 @@ export const blogPost6: BlogPost = {
         Kazeta na obrázku níže byla do nedávna plná nezazálohovaných a do češtiny/slovenštiny přeložených programů na kompilaci jazyku BASICu. Všechny programy jsou pro počítač ZX Spectrum/Didaktik/Delta a patří mezi ně: COLT, MCCODER2, TOBOS PF a HiSoft BASIC.
     `
 };
+
+export default blogPost;

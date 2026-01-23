@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost53: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 53,
     slug: 'honza-oprava',
     image: '/photos/blog-posts/honza_oprava.jpg',
@@ -16,3 +17,5 @@ export const blogPost53: BlogPost = {
         Dnes jsme vytáhli náš nerozbalený počítač PC16NB "Honza" s účelem jej repasovat na případné výjezdy nebo jiné účely. Honzu jsme vybalili z letitého kartonu a začali diagnostikovat potenciální problémy, abychom mohli počítač po 35 letech konečně spustit.
     `
 };
+
+export default blogPost;

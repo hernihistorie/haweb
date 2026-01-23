@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost51 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost51}>
+<BlogPostPage post={blogPost}>
     <p>Mezi lety 2002 a 2007 vycházel herní časopis KyberMyš, který oproti své konkurenci cílil primárně na mladší čtenářstvo. Celkem vyšlo 68 čísel, první v květnu 2002, poslední v prosinci 2007.
     <p>Začínal s 36 stranami, ale časem se rozrostl – nejprve na 44, později až na 52 stran. Každé číslo obsahovalo CD-ROM plné herních dem, plných verzí i bonusových programů. Vydával ho Egmont ČR.
     <p>25 čísel tohoto časopisu jsme naskenovali a nahráli na <a href="https://archive.org/details/kybermys">archive.org</a>

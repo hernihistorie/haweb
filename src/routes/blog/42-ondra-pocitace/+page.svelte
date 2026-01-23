@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost42 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost42}>
+<BlogPostPage post={blogPost}>
 
     <p>Ačkoliv náš archiv obsahuje mnoho strojů, které sehráli měnší či větší roli v rámci československé herní a počítačové historie, tak zde dlouhodobě chyběl zcela zásadní počítač československé výroby - Ondra SPO 186. Nedávno jsme tento sběratelský nedostatek konečně napravili a nejenže jsme si Ondru konečně pořídili, ale dokonce jsme si pořídili dva a k němu i několik kazet s nikde nezazálohovanými programy a hrami. Na jejich digitalizaci teď pracujeme s šikovným Janem Heřmanem, které po té plánujeme vydat společně s rozhovorem s bývalým majitelem těchto počítačů. Takže pozorně sledujte, ať vám ani jedna z těchto novinek neunikne!
     <p><img src="/photos/blog-posts/ondra_1.jpg" alt="Ondra">

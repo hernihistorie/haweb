@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-	import { blogPost72 } from "./blog_post";
+	import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost72}>
+<BlogPostPage post={blogPost}>
     <div class="picture-cite">
         <p><img src="/photos/pong/blog-post-3/1-kolaz-AY-MAS-lupa.jpg">
     </div>

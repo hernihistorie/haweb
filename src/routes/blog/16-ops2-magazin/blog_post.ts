@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost16: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 16,
     slug: 'ops2-magazin',
     title: {
@@ -15,3 +16,5 @@ export const blogPost16: BlogPost = {
         Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
     `
 };
+
+export default blogPost;

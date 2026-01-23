@@ -1,7 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost4 } from "./blog_post";
+    import blogPost from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset07758_data } from '$src/routes/assets/asset_07758';
     import { data as asset07821_data } from '$src/routes/assets/asset_07821';
@@ -15,7 +15,7 @@
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost4}>
+<BlogPostPage post={blogPost}>
 
     <p>Tento pátek (20.4.2024) jsme byli na základě iniciativy ze strany <a href="https://www.facebook.com/karel.ondracek.5">Karla Ondráčka</a> (aka Solarise z Česko-Slovenského Speccy Archivu) u sběratele Filip Reichert zdigitalizovat některé předměty z jeho sbírky. Nejdůležitějším předmětem co jsme zdigitalizovali byly do teď nezachráněné hry (a jeden "propagační prográmek") na ZX Spectrum od firmy MAEL. Jedná se o hry: Defender of the Gold, Bomba a Katastrofa. Hry si budete moct za nedlouhou stáhnout ze <a href="https://cs.speccy.cz/">https://cs.speccy.cz/</a> nebo z našeho inventáře kde najdete i skeny obalu a návodů k těmto hrám:
 

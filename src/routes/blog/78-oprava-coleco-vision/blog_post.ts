@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost78: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 78,
     slug: 'oprava-coleco-vision',
     image: '/photos/blog-posts/coleco-vision_1.jpg',
@@ -23,3 +24,5 @@ export const blogPost78: BlogPost = {
         `
     }
 };
+
+export default blogPost;

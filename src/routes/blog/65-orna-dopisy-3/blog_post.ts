@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost65: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 65,
     slug: 'orna-dopisy-3',
     title: {
@@ -15,3 +16,5 @@ export const blogPost65: BlogPost = {
         Po měsíci usilovného skenování je naše práce u konce - všechny dopisy od Jana Orny jsou zdigitalizovány. V poslední části najdete další seznamy her a nabídkových listů, dopisy od řady tuzemských pirátů a dokonce dopisovou komunikaci obohacenou i o fotografie mezi Janem Ornou a jeho kamarádem, s kterým si začal psát nazákladě inzerátu v časopisu Excalibur.
     `
 };
+
+export default blogPost;

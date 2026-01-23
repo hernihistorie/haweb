@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost68: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 68,
     slug: 'videostop-prednaska',
     image: '/photos/prednaska.jpg',
@@ -16,3 +17,5 @@ export const blogPost68: BlogPost = {
         inulý rok měl člen našeho spolku Rudolf Jan Suchý přednášku o historii a archivaci hry z televizního pořadu Videostop. Záznam z této přednášky nyní naleznete na YouTubu ByteFESTu.
     `
 };
+
+export default blogPost;

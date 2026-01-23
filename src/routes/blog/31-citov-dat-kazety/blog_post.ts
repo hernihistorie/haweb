@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost31: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 31,
     slug: 'citov-dat-kazety',
     image: '/photos/dat_kazety_1.jpg',
@@ -16,3 +17,5 @@ export const blogPost31: BlogPost = {
         Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     `
 };
+
+export default blogPost;

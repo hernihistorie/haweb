@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost24 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost24}>
+<BlogPostPage post={blogPost}>
 
     <p>Pro digitalizaci disket je nepřekvapivě třeba disketovky. Ty se dělaly různých tvarů a velikostí - dělaly se disketovky 8″, 5¼″ a 3½″, disketovky jednostranné a nebo dvoustranné případně disketovky singledensity, doubledensity a highdensity. Obecně platí, že čím je disketovka novější tím snažší je ji sehnat - 3½″ disketovek je stále k sehnání relativně dost, naopak sehnat funkční 8" disketovku už může být relativně oříšek. Nám se alespoň podařilo sehnat pár nefunkčních maďarských 8" disketovek, které nám posléze opravil Lukáš Nevařil. Hurá!
     

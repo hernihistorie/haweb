@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost5: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 5,
     slug: 'matematika-petr-stasiak',
     image: '/photos/matematika.jpg',
@@ -16,3 +17,5 @@ export const blogPost5: BlogPost = {
         Jeden z programů/her, které se nám v rámci digitalizační činnosti spolku povedlo zachránit je výukový program Matematika pro ZX Spectrum/Didaktik/Delta. Program na programoval Petr Stasiak a distribuovala firma Pelos.
     `
 };
+
+export default blogPost;

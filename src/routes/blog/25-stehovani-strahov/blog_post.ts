@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost25: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 25,
     slug: 'stehovani-strahov',
     image: '/photos/stehovani_strahov.jpg',
@@ -16,3 +17,5 @@ export const blogPost25: BlogPost = {
         Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku.
     `
 };
+
+export default blogPost;

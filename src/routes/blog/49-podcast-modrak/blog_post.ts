@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost49: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 49,
     slug: 'podcast-modrak',
     image: '/photos/homepage/sbirka.jpg',
@@ -16,3 +17,5 @@ export const blogPost49: BlogPost = {
         Předseda našeho spolku Vojtěch Straka byl v podcastu Jan Modrák. Zde povídal zejména o počátcích naší herní tvorby u nás a o tom, jak v podnicích jako je Tesla vznikaly československé telvizní tenisy.
     `
 };
+
+export default blogPost;

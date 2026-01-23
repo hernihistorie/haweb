@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost75: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 75,
     slug: 'oprava-mato-2',
     image: '/photos/blog-posts/mato_2_1.jpg',
@@ -16,3 +17,5 @@ export const blogPost75: BlogPost = {
         Nějakou dobu nazpět jsme sdíleli příspěvek o našem opraveném Maťovi. Opravili jsme však dva - jeden který má v sobě ROMku s Basicem a druhý s hrami. Počítač úspěšně zprovoznil Lukáš Nevařil a nyní je vedle svého brášky uložen v našem archivu.
     `
 };
+
+export default blogPost;

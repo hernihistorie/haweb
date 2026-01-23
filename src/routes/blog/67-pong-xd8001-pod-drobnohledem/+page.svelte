@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost67 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost67}>
+<BlogPostPage post={blogPost}>
 <div class="picture-cite">
     <p><img src="/photos/pong/1-XD-8001.jpg" alt="TV hra XD-8001">
     <cite>Obr. 1: TV hra XD-8001 (Foto: Herní archiv)</cite>

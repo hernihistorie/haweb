@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost74: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 74,
     slug: 'oprava-mato-1',
     image: '/photos/blog-posts/mato_1_1.png',
@@ -16,3 +17,5 @@ export const blogPost74: BlogPost = {
         Již nějakou delší dobu nazpět se nám do rukou dostalo několik kazet s programy a počítač Maťo — stroj slovenské výroby z konce 80. let, který byl klonem PMD 85. Počítač úspěšně zprovoznil Lukáš Nevařil a nyní je uložen v našem archivu.
     `
 };
+
+export default blogPost;

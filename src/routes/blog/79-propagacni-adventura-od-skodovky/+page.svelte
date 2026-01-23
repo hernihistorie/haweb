@@ -4,13 +4,13 @@
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
 	import AssetList from "$src/lib/components/asset/AssetList.svelte";
-    import { blogPost79 } from "./blog_post";
+    import blogPost from "./blog_post";
 	import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost79}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <Figure

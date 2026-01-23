@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost43: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 43,
     slug: 'ondra-programy',
     title: {
@@ -15,3 +16,5 @@ export const blogPost43: BlogPost = {
         Jak jsme psali toto úterý, tak se nám povedlo nedávno nejen sehnat počítač Ondra, ale také osm kazet s nezazálohavnými programy pro tento počítač. Díky úžasnému Janu Heřmanovi, už nezazálohované ale nejsou! Jedná se primárně o jednoduché obrázky, ale jde zde taky nalézt vzdělávací programy, kondiciogramy a samozřejmě jednoduché hry.
     `
 };
+
+export default blogPost;

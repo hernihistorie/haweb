@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost76: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 76,
     slug: 'oprava-jaguar',
     image: '/photos/blog-posts/oprava-jaguar_1_1.jpg',
@@ -16,3 +17,5 @@ export const blogPost76: BlogPost = {
         Ačkoliv jde o jednu z těch obskurnějších konzolí, tak v naší výjezdové výbavě RetroHerny je dlouho konzole Atari Jaguar. Bohužel oba kousky které vlastníme se nám rozbily a bylo potřeba, aby je opravil šikovný Lukáš Nevařil.
     `
 };
+
+export default blogPost;

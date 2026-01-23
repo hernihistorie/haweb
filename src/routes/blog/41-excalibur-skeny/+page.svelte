@@ -2,12 +2,12 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost41 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost41}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <p>Časopis Excalibur, jehož nulté číslo vyšlo v roce 1990, byl jedním z prvních časopisů o videohrách, který u nás vycházel a v kterém zároveň začínalo mnoho významných osobnostní herní žurnalistiky jako Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek ad.</p>

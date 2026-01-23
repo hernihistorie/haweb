@@ -1,7 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost28 } from "./blog_post";
+    import blogPost from "./blog_post";
     import type { AssetData } from "$src/types";
     import { data as asset08376_data } from '$src/routes/assets/asset_08376';
     import { data as asset08378_data } from '$src/routes/assets/asset_08378';
@@ -20,7 +20,7 @@
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost28}>
+<BlogPostPage post={blogPost}>
 
     <p>Po trapně dlouhé odmlce (za kterou se velice omlouváme všem, jenž čekali jak tento projekt pokročí) konečně přinášíme nějaké první prezentovatelné výsledky týkající se Projektu Cítov. Pro ty co náš původní příspěvek nepostřehli, zapomněli na něj, nebo si potřebují osvěžit paměť, tak Cítov je obec ve Středočeském kraji, ve které pod JZD v 80. letech fungoval počítačový klub zaměřující se primárně na počítače Atari. V rámci činnosti tohoto klubu pak dokonce začal v 90. letech vznikat komerčně distribuovaný výukový software, který právě v současnosti digitalizujeme. První várka tohoto softwaru, kterou se nám povedlo zachránit, je 10 výukových her na ZX Spectrum distribuovaných na kazetách. Těmito hrami jsou jazykové programy Člověče nezlob se, Kouzelný svět pohádek a Zábavná střelnice, které všechny vyšly v několika jazykových mutacích (např. Angličtina, Španělština apod.). Všechny tyto programy samozřejmě najdete na <a href="https://cs.speccy.cz">cs.speccy.cz</a> mezi "Programy" nebo v našem inventáři:
     {#each assets as data}

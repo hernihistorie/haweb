@@ -2,12 +2,12 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost61 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost61}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <p>Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney. Workshop vzniknul v rámci projektu <a href="https://costgrade.eu/">Grassroots of Digital Europe</a> na vědecké platformě COST.</p>

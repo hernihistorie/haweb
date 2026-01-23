@@ -1,13 +1,13 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost3 } from "./blog_post";
+    import blogPost from "./blog_post";
     import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost3}>
+<BlogPostPage post={blogPost}>
 
     <p>Začátkem tohoto roku jsme vypustili (a na <a href={localizeHref("/blog/2-retrofest-2024")}>streamu</a> oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali.
 

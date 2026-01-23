@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost33: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 33,
     slug: 'citov-kazety-spectrum',
     title: {
@@ -15,3 +16,5 @@ export const blogPost33: BlogPost = {
         V rámci činnosti Cítovského klubu začal v 90. letech vznikat komerčně distribuovaný výukový software, který v současnosti digitalizujeme. Třetí várka tohoto softwaru jsme nedostali pro změnu od pana Havelky - zakladatele klubu - ale od jednoho člověka, jenž nás kontaktoval na sociálních sítítch.
     `
 };
+
+export default blogPost;

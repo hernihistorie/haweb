@@ -2,12 +2,12 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost39 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost39}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <p>Nedávno se nám do archivu podařilo získat dvě kompletní krabice s operačním systémem OS/2 od IBM. V jedné  z nich je dokonce česká varianta OS/2 Warp 3 - pravděpodobně nejranější lokalizovaná verze, která u nás vyšla. A protože jsme ji nenašli nikde na Internetu, rovnou jsme ji  nasdíleli pro užitek všem. Tak tedy kupředu na Internet Archive ať můžete vyzkoušet ty tucty her, co na tento systém vyšly!</p>

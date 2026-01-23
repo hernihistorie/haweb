@@ -1,12 +1,12 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost2 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost2}>
+<BlogPostPage post={blogPost}>
 
     <p><img src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_banner.jpg"></p>
 

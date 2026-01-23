@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost63: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 63,
     slug: 'orna-dopisy-2',
     title: {
@@ -15,3 +16,5 @@ export const blogPost63: BlogPost = {
         Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.
     `
 };
+
+export default blogPost;

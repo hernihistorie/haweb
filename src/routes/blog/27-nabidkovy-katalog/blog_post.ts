@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost27: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 27,
     slug: 'nabidkovy-katalog',
     title: {
@@ -15,3 +16,5 @@ export const blogPost27: BlogPost = {
         Nedávno se nám dostala do rukou sbírka návodů (a jiné literatury) pro ZX Spectrum. Mezi těmito návody byl i drobný sešítek nadepsaný "Nabídkový katalog pro počítače ZX SPECTRUM a kompatibilní" z konce roku roku 1990.
     `
 };
+
+export default blogPost;

@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost35: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 35,
     slug: 'citov-josef-havelka',
     title: {
@@ -15,3 +16,5 @@ export const blogPost35: BlogPost = {
         První etapu zpracování věcí z Cítovského klubu bychom rádi zakončili rozhoovorem s jeho zakladatelem Josefem Havelkou. Ten povídá o tom, jak klub vznikl, fungoval a jaké jiné aktivity u něj probíhaly.
     `
 };
+
+export default blogPost;

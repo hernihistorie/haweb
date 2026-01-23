@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost26: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 26,
     slug: 'joysticky',
     image: '/photos/ovladac_homebrew1.jpg',
@@ -16,3 +17,5 @@ export const blogPost26: BlogPost = {
         Herní historií nejsou jen hry a oficiální hardware – součástí herní historie (zejména té jenž se odehrávala v rámci bývalého Východního bloku) je i podomácku zbastlené příslušenství, jako např. herní joysticky.
     `
 };
+
+export default blogPost;

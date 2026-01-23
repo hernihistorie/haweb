@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost20: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 20,
     slug: 'prislusenstvi-zxspectrum',
     image: '/photos/prislusenstvi_zxspectrum.jpg',
@@ -23,3 +24,5 @@ export const blogPost20: BlogPost = {
         `
     }
 };
+
+export default blogPost;

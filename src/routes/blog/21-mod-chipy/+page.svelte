@@ -2,12 +2,12 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost21 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost21}>
+<BlogPostPage post={blogPost}>
 
     <Loc>
         {#snippet cs()}

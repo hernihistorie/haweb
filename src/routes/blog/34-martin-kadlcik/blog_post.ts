@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost34: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 34,
     slug: 'martin-kadlcik',
     title: {
@@ -15,3 +16,5 @@ export const blogPost34: BlogPost = {
         Po záchraně hry das ADLERNEST na ZX Spectrum jsme položili jeho autorovi - Martinu Kadlčíkovi - i několik otázek ohledně toho, jak hru tvořil, jak se k hrám a počítačům vůbec dostal a co dělá v současnosti.
     `
 };
+
+export default blogPost;

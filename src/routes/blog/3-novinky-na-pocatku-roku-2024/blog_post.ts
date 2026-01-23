@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost3: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 3,
     slug: 'novinky-na-pocatku-roku-2024',
     title: {
@@ -15,3 +16,5 @@ export const blogPost3: BlogPost = {
         Začátkem tohoto roku jsme vypustili (a na streamu oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali. V tomto článku se o nich můžete dozvědět.
     `
 };
+
+export default blogPost;

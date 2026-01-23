@@ -2,12 +2,12 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost78 } from "./blog_post";
+    import blogPost from "./blog_post";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost78}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <p>Z rané éry herního průmyslu asi většina lidí zná zejména Atari VCS, nicméně VCS nebylo jedinou konzolí, která se na americkém trhu tehdy prodávala. Další bylo třeba ColecoVision které se nám po mnoha výjezdech rozbilo. Nakonec ho opravil Lukáš Nevařil takže nyní se na něj můžete těšit na dalších výjezdech!</p>

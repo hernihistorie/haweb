@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost4: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 4,
     slug: 'nove-zachranene-hry-od-firmy-mael',
     image: '/photos/mael/mael1.jpg',
@@ -16,3 +17,5 @@ export const blogPost4: BlogPost = {
         Tento pátek (20.4.2024) jsme byli na základě iniciativy ze strany <a href="https://www.facebook.com/karel.ondracek.5">Karla Ondráčka</a> (aka Solarise z Česko-Slovenského Speccy Archivu) u sběratele Filip Reichert zdigitalizovat některé předměty z jeho sbírky. Nejdůležitějším předmětem co jsme zdigitalizovali byly do teď nezachráněné hry (a jeden "propagační prográmek") na ZX Spectrum od firmy MAEL.
     `
 };
+
+export default blogPost;

@@ -2,13 +2,13 @@
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost80 } from "./blog_post";
+    import blogPost from "./blog_post";
 	import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs en />
 
-<BlogPostPage post={blogPost80}>
+<BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
             <p>Dostali jsme příležitost podílet se na výstavě <strong>Disk nelze načíst</strong> - výstava od týmu Vašulka Kitchen zaměřující se na historii analogových, (před) digitálních technologií, nosičů a uměleckých experimentů zhruba od začátku 90. let. My jsme do výstavy přispěli našimi počítači se hrou Myst a Samorost.</p>

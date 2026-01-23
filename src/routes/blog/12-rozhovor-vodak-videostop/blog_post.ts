@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost12: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 12,
     slug: 'rozhovor-vodak-videostop',
     image: '/photos/vodak_blog.jpg',
@@ -16,3 +17,5 @@ export const blogPost12: BlogPost = {
         Po asi dvou měsíčním hledáním se nám zadařilo nejen získat kontakt na autora slavné hry z pořadu Videostop, ale také se nám povedlo s ním včera udělat rozhovor a DOKONCE od něj i získat kazetu (nebo přesněji dvě) se samotnou hrou na ZX Spectrum (kterou za nedlouho najdete buď v našem inventáři nebo na cs.speccy).
     `
 };
+
+export default blogPost;

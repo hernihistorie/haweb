@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost8: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 8,
     slug: 'rozhovor-pavel-suchmann',
     image: '/photos/pavel_suchmann.jpg',
@@ -16,3 +17,5 @@ export const blogPost8: BlogPost = {
         Včera jsme udělali rozhovor s Pavlem Šuchmannem - tvůrcem her na počítač Sharp - ke kterému jsme se dostali skrze blog Herního Archeologa. Povídali jsme si o jeho vzpomínkách na počítačový klub v Kutné Hoře, o studiu na ČVUTu, o revoluci a samozřejmě o jeho hrách a herních zkušenostech. Záznam rozhovoru je dostupný na zažádání.
     `
 };
+
+export default blogPost;

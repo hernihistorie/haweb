@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost36: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 36,
     slug: 'skeny-tipstation',
     image: '/photos/tipstation_casopis.jpg',
@@ -16,3 +17,5 @@ export const blogPost36: BlogPost = {
         Po nějaké době jsme oskenovali další časopis který zde vycházel. Časopis Tipstation se objevil na trhu v prosinci 2001 a stojí za ním redakce OPSM, která si po úspěchu "Top secret speciálu" zřejmě uvědomila, že na trhu je dostatek místa pro samostatný časopis specializující se na tipy, návody a cheaty do her pro Playstation.
     `
 };
+
+export default blogPost;

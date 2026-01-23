@@ -1,13 +1,13 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { blogPost70 } from "./blog_post";
+    import blogPost from "./blog_post";
     import { localizeHref } from '$lib/paraglide/runtime';
 </script>
 
 <PageLang cs />
 
-<BlogPostPage post={blogPost70}>
+<BlogPostPage post={blogPost}>
     <div class="picture-cite">
         <p><img src="/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg">
         <cite>Obr. 1: Čip MAS601 po vybalení z černého pouzdra (Foto: Sean Riddle)</cite>

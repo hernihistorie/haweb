@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost23: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 23,
     slug: 'prepis-zdenek-vodak',
     title: {
@@ -15,3 +16,5 @@ export const blogPost23: BlogPost = {
         Jak jsme minulý Pátek slíbili, tak jsme tak i učinili: interview se Zdeňkem Vodákem jak v textové tak zvukové podobě najdete v rámci našich přepsaných Rozhovorů.
     `
 };
+
+export default blogPost;

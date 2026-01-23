@@ -3,7 +3,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost32: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 32,
     slug: 'citov-zpravodaj',
     title: {
@@ -15,3 +16,5 @@ export const blogPost32: BlogPost = {
         Oskenovali jsme počítačový zpravodaj, který vznikal v 80. letech v rámci činnosti cítovského atari klubu.
     `
 };
+
+export default blogPost;

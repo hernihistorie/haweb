@@ -3,14 +3,16 @@ import { Temporal } from '@js-temporal/polyfill';
 import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
-export const blogPost79: BlogPost = {
+const blogPost: BlogPost = {
+    published: true,
     id: 79,
     slug: 'propagacni-adventura-od-skodovky',
-    image: '/photos/blog-posts/79-propagacni-adventura-od-skodovky/skoda_cd.jpg',
+    image: '/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd.jpg',
     title: {
         cs: 'Propagační adventura od Škodovky, aneb „Neruš mé kruhy!“',
         en: "Škoda's promotional adventure game, or \"Don't disturb my circles!\""
     },
+    published: false,
     date: new Temporal.PlainDate(2026, 1, 9), /* TODO */
     english_translation_date: new Temporal.PlainDate(2026, 1, 9), /* TODO */
     author: authors.JakubSkrdla,
@@ -23,3 +25,5 @@ export const blogPost79: BlogPost = {
         `
     }
 };
+
+export default blogPost;
