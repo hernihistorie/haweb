@@ -34,7 +34,7 @@
 
 <Footer />
 
-<div style="display:none">
+<div style="display:none" data-pagefind-ignore>
 	<a href="/en">/en</a>
 	<a href="/en/feed.xml">/en/feed.xml</a>
 	{#each locales as locale}
