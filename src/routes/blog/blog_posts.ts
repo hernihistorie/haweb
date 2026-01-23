@@ -79,6 +79,7 @@ import { blogPost75 } from './75-oprava-mato-2/blog_post';
 import { blogPost76 } from './76-oprava-jaguar/blog_post';
 import { blogPost77 } from './77-oprava-didaktik-gama/blog_post';
 import { blogPost78 } from './78-oprava-coleco-vision/blog_post';
+import { blogPost80 } from './80-vystava-disk-nelze-nacist/blog_post';
 
 // All blog posts sorted by id ascending (oldest first)
 export const blogPosts: BlogPost[] = [
@@ -92,5 +93,5 @@ export const blogPosts: BlogPost[] = [
 	blogPost50, blogPost51, blogPost52, blogPost53, blogPost54, blogPost55, blogPost56,
 	blogPost57, blogPost58, blogPost59, blogPost61, blogPost62, blogPost63, blogPost64,
 	blogPost65, blogPost67, blogPost68, blogPost69, blogPost70, blogPost71, blogPost72,
-	blogPost73, blogPost74, blogPost75, blogPost76, blogPost77, blogPost78
+	blogPost73, blogPost74, blogPost75, blogPost76, blogPost77, blogPost78, blogPost80
 ];
