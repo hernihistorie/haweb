@@ -4,7 +4,6 @@ import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
 const blogPost: BlogPost = {
-    published: true,
     id: 79,
     slug: 'propagacni-adventura-od-skodovky',
     image: '/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd.jpg',
@@ -12,9 +11,9 @@ const blogPost: BlogPost = {
         cs: 'Propagační adventura od Škodovky, aneb „Neruš mé kruhy!“',
         en: "Škoda's promotional adventure game, or \"Don't disturb my circles!\""
     },
-    published: false,
-    date: new Temporal.PlainDate(2026, 1, 9), /* TODO */
-    english_translation_date: new Temporal.PlainDate(2026, 1, 9), /* TODO */
+    published: true,
+    date: new Temporal.PlainDate(2026, 1, 26),
+    english_translation_date: new Temporal.PlainDate(2026, 1, 26),
     author: authors.JakubSkrdla,
     description_html: {
         cs: `
