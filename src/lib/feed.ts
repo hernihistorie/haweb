@@ -76,11 +76,12 @@ ${latestPosts.map(post => {
         <title>${postTitle}</title>
         <link href="${url}" rel="alternate" type="text/html"/>
         <id>${url}</id>
+        <author>${post.author.name}</author>
         <published>${date}</published>
         <updated>${date}</updated>
         <summary>
             ${post.image ? `<p><img src="${SITE_URL}${post.image}" /></p>` : ''}
-            ${description}
+            <p>${description}</p>
         </summary>
     </entry>`;
 }).join('\n')}
