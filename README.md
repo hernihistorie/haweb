@@ -12,6 +12,7 @@ To set up the project, make a clone of the repository and run:
 
 ```bash
 npm install --force
+npm run build # necessary on first run to set up pagefind
 npm run dev
 ```
 
