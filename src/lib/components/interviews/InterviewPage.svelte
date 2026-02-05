@@ -209,7 +209,7 @@
                         {:else if data.status === "being-transcribed"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
+                                    Tento rozhovor teprve prochází přepisem a úpravou. Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
                                     This interview is currently being transcribed and edited. If you are interested in an audio recording for research, artistic, or official purposes, or if you would like to collaborate with us to complete the transcript, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
@@ -218,10 +218,10 @@
                         {:else if data.status === "request-only"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor v současnosti není dostupný.  Pokud máte zájem o přístup pro badatelské, umělecké nebo úřední účely, tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
+                                    Tento rozhovor není v současnosti veřejně dostupný. Pokud máte zájem o rozhovor pro badatelské, umělecké nebo úřední účely, tak nás prosím kontaktujte na <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently not available.  If you are interested in access for research, artistic, or official purposes, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently not available. If you are interested in access for research, artistic, or official purposes, please reach out to us through <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "unavailable-for-duration"}

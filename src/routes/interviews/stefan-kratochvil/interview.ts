@@ -39,6 +39,6 @@ export const data: InterviewData = {
         // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
-    status: "in-progress",
+    status: "request-only",
     tags: []
 }
