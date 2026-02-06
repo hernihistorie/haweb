@@ -6,6 +6,11 @@
     --color-secondary: #b5a26d;
     --color-secondary-transparent: #b5a26d60;
     --color-secondary-contrast: #fff;
+
+    --color-success: #1e7821;
+    --color-error: #f44336;
+    --color-warning: #d78100;
+
     --max-width: 1400px;
 }
 
@@ -17,6 +22,10 @@
     --color-secondary: #927f49;
     --color-secondary-transparent: #927f4960;
     --color-secondary-contrast: #fff;
+
+    --color-success: #5eea63;
+    --color-error: #f44336;
+    --color-warning: #f39200;
 }
 
 /* Invert logo text in dark mode while preserving the red color */
@@ -55,7 +64,7 @@ h3 {
     font-size: 30px;
 }
 
-article.thin, div.thin {
+article.thin, div.thin, section.thin {
     max-width: 800px;
     margin: auto;
 }
@@ -176,6 +185,15 @@ button:not(.link).active, input.active {
     color: var(--color-primary-contrast);
 }
 
+button.link {
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button.link:hover {
+    text-decoration: underline;
+}
+
 figure {
     text-align: center;
     margin: 1.25em 0;
@@ -194,4 +212,19 @@ figcaption {
     dd {
         margin-left: 1.75em;
     }
+}
+
+ul.unstyled {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+ul.styled li::marker {
+    content: "×  ";
+    color: var(--color-secondary);
 }

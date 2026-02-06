@@ -5,7 +5,8 @@
         left?: boolean | undefined;
         right?: boolean | undefined;
         children?: import('svelte').Snippet;
-        decoration?: boolean | undefined;
+        decoration?: boolean | 'hidden' | undefined;
+        class?: string | undefined;
     }
 
     let {
@@ -14,6 +15,7 @@
         right = undefined,
         children,
         decoration = true,
+        class: _class = undefined
     }: Props = $props();
 
     var box_class = $state("");
@@ -21,9 +23,9 @@
     if (right) box_class = "right";
 </script>
 
-<div class="box {box_class}">
+<div class="box {box_class} {_class}">
     {#if decoration}
-        <div class="cross">
+        <div class="cross" class:hidden={decoration === 'hidden'}>
             <img src="/ico/ico_x.svg" alt="">
         </div>
     {/if}
@@ -44,6 +46,11 @@
         margin-bottom: 38px;
     }
 
+    .box.no-margin{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
     .box .cross {
         margin-top: 8px;
         width: 44px;
@@ -55,8 +62,20 @@
         width: 15px;
     }
 
+    .cross.hidden {
+        visibility: hidden;
+    }
+
     .box :global(h3) {
         margin-top: 0;
+    }
+
+    .box :global(h4) {
+        margin-top: 0.35em;
+    }
+
+    .box :global(h5) {
+        margin-top: 0.5em;
     }
 
     .box :global(.year)::after {
