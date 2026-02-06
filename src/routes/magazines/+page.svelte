@@ -18,8 +18,8 @@
 <article class="thin">
     <h2>
         <Loc
-            cs="Vítejte v databázi československých herních časopisů!"
-            en="Welcome to the Czechoslovak Game Magazines Database!"
+            cs="Databáze československých<br> herních časopisů"
+            en="Czechoslovak Game Magazines Database"
         />
     </h2>
     <p>

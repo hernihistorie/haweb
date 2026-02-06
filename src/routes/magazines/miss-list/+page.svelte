@@ -25,8 +25,8 @@ import Loc from '$src/lib/components/Loc.svelte';
 <section class="thin">
     <h2>
         <Loc
-            cs="Chybí nám"
-            en="Miss List"
+            cs="Chybí nám z časopisů"
+            en="Magazine Miss List"
         />
     </h2>
     <p>

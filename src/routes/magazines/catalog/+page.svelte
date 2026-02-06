@@ -12,16 +12,16 @@ import Loc from '$src/lib/components/Loc.svelte';
 </script>
 
 <Meta title={{
-    cs: "Přehled časopisů - Databáze časopisů",
-    en: "Overview of magazines - Magazines Database"
+    cs: "Katalog časopisů - Databáze časopisů",
+    en: "Magazine Catalog - Magazines Database"
 }} />
 
 <MagazinesMenu />
 
 <h2>
     <Loc
-        cs="Přehled časopisů"
-        en="Overview of magazines"
+        cs="Katalog časopisů"
+        en="Magazine Catalog"
     />
 </h2>
 

@@ -11,15 +11,15 @@
         <a href={localizeHref("/magazines/")} class:active={pathnameMatches("/magazines/")}>
             <Loc
                 cs="Databáze časopisů"
-                en="Maganizes database"
+                en="Magazine database"
             />
         </a>
     </li>
     <li>
         <a href={localizeHref("/magazines/catalog")} class:active={pathnameStartswith("/magazines/catalog")}>
             <Loc    
-                cs="Přehled časopisů"
-                en="Overview of magazines"
+                cs="Katalog"
+                en="Catalog"
             />
         </a>
     </li>
