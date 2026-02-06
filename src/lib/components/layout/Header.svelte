@@ -9,6 +9,7 @@
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { beforeNavigate } from '$app/navigation';
 	import SearchLink from './SearchLink.svelte';
+	import { page } from '$app/state';
 
 	type MenuItem = {
 		url: string;
@@ -74,7 +75,11 @@
 					</li>
 					{#each menuItems as menuItem}
 						<li>
-							<a href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url} onclick={() => burgerMenuOpen=false}>
+							<a
+								href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url}
+								onclick={() => burgerMenuOpen=false}
+								class:active={page.url.pathname.startsWith(menuItem.url)}
+							>
 								<Loc cs={menuItem.cs} en={menuItem.en} />
 							</a>
 						</li>
@@ -103,7 +108,7 @@
 					<li>
 						<button
 							class="link"
-							style="cursor: pointer;"
+							class:active={page.url.pathname.startsWith(menuItem.url)}
 							onclick={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
 							onkeyup={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
 							tabindex="0"
@@ -127,7 +132,11 @@
 					</li>
 				{:else}
 					<li>
-						<a href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url} onclick={resetExpandedMenu}>
+						<a
+							href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url}
+							onclick={resetExpandedMenu}
+							class:active={page.url.pathname.startsWith(menuItem.url)}
+						>
 							<Loc cs={menuItem.cs} en={menuItem.en} />
 						</a>
 					</li>
@@ -175,6 +184,10 @@
 	li {
 		padding: 0 27px 0 27px;
 		border-left: 1px solid var(--color-secondary);
+	}
+
+	.active {
+		font-weight: bold;
 	}
 
 	.dropdown {
