@@ -45,6 +45,7 @@
 
     .magazine-logo-wrapper {
         height: 100px;
+        /* width: 160px; */
         display: flex;
         align-items: center;
     }

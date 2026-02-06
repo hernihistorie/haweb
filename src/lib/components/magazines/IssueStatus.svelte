@@ -9,7 +9,7 @@
     const { status }: {status: IssueStatus} = $props();
 </script>
 
-<span class="status status-{status.toLowerCase()}">
+<span class="status status-{status?.toLowerCase()}">
     {#if status === 'have'}
         <IconCheck />
     {:else if status === 'dont_have'}

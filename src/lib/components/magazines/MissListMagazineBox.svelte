@@ -32,8 +32,8 @@
             {#if !showAllIssues}
                 <button class="link show-more" onclick={() => showAllIssues = true}>
                     <Loc
-                        cs={`Ukázat všech ${magazine.missing_issues.length} čísel`}
-                        en={`Show all ${magazine.missing_issues.length} issues`}
+                        cs={`Prohlédnout všech ${magazine.missing_issues.length} čísel`}
+                        en={`View all ${magazine.missing_issues.length} issues`}
                     />
                 </button>
             {/if}

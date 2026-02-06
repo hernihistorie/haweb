@@ -4,7 +4,8 @@ export type IssueStatus =
   | "have"
   | "dont_have"
   | "problems"
-  | "existence_unconfirmed";
+  | "existence_unconfirmed"
+  | null;
 
 export type Logo = {
   url: string;
