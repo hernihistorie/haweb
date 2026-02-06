@@ -42,7 +42,7 @@
 		border-left: none;
 	}
 
-    ul > :global(li.active) {
+    ul > :global(li.active), ul > :global(li a.active)  {
         font-weight: bold;
     }
 

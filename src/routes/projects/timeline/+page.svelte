@@ -11,23 +11,13 @@
     import { projectVideostop } from '../videostop/project';
     import { projectOuya } from '../ouya/project';
     import { projectFrantisekStarekCunas } from '../frantisek-starek-cunas/project';
+	import ProjectsMenu from "$src/lib/components/project/ProjectsMenu.svelte";
 </script>
 
 <Meta title={{cs: "Projekty", en: "Projects"}} />
 <!--<h2><a href="/projects">PROJEKTY</a> <div style="float: right">ČASOVÁ OSA</div></h2> -->
 
-<ul>
-    <li><a href={localizeHref("/projects")}>
-            <Loc
-            cs="Projekty"
-            en="Projects"
-            />
-        </a>
-    <li><Loc    
-        cs="Časová osa"
-        en="Timeline"
-        />
-</ul>
+<ProjectsMenu />
 
 <PageLang cs />
 
@@ -111,35 +101,6 @@
             left: calc(4px);
         }
     }
-    ul {
-		padding-left: 0px;
-        list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-        text-align: left;
-        margin-bottom: 29.8px;
-	}
-
-	li {
-		padding: 0 27px 0 27px;
-		border-left: 3px solid var(--color-secondary);
-        text-transform: uppercase;
-        font-size: 36px;
-        font-weight: bold;
-	}
-    
-    li > a { 
-    /* font-weight: normal; */
-    color: var(--color-black);
-    /* text-decoration: none; */
-    text-decoration-color: var(--color-secondary);
-    text-decoration-thickness: 3px;
-    }
-
-    li:first-child {
-		padding: 0 27px 0 0;
-        border-left: none;
-	}
     @media screen and (max-width: 515px) {
 		li {font-size: 30px;}
     }

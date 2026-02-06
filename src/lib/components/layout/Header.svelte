@@ -10,6 +10,7 @@
 	import { beforeNavigate } from '$app/navigation';
 	import SearchLink from './SearchLink.svelte';
 	import { page } from '$app/state';
+	import { pathnameStartswith } from '$src/lib/util';
 
 	type MenuItem = {
 		url: string;
@@ -78,7 +79,7 @@
 							<a
 								href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url}
 								onclick={() => burgerMenuOpen=false}
-								class:active={page.url.pathname.startsWith(menuItem.url)}
+								class:active={pathnameStartswith(menuItem.url)}
 							>
 								<Loc cs={menuItem.cs} en={menuItem.en} />
 							</a>
@@ -108,7 +109,7 @@
 					<li>
 						<button
 							class="link"
-							class:active={page.url.pathname.startsWith(menuItem.url)}
+							class:active={pathnameStartswith(menuItem.url)}
 							onclick={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
 							onkeyup={() => currentExpandedMenu = currentExpandedMenu?.url == menuItem.url ? null : menuItem}
 							tabindex="0"
@@ -135,7 +136,7 @@
 						<a
 							href={menuItem.url.startsWith('/') ? localizeHref(menuItem.url) : menuItem.url}
 							onclick={resetExpandedMenu}
-							class:active={page.url.pathname.startsWith(menuItem.url)}
+							class:active={pathnameStartswith(menuItem.url)}
 						>
 							<Loc cs={menuItem.cs} en={menuItem.en} />
 						</a>
