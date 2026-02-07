@@ -42,6 +42,10 @@
         white-space: nowrap;
     }
 
+    .status-text {
+        margin-bottom: 6px;
+    }
+
     .status-have {
         color: var(--color-success);
     }
