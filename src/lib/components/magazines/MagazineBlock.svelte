@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { MagazineInfo, MissListMagazine } from "$src/lib/magdb";
+	import type { CatalogMagazine, MagazineInfo, MissListMagazine } from "$src/lib/magdb";
 	import { localizeHref } from "$src/lib/paraglide/runtime";
 	import MagazineLogo from "./MagazineLogo.svelte";
 
-    const { magazine, makeLinkProminent = true }: {magazine: MagazineInfo | MissListMagazine, makeLinkProminent?: boolean} = $props();
+    const { magazine, makeLinkProminent = true }: {magazine: CatalogMagazine | MagazineInfo | MissListMagazine, makeLinkProminent?: boolean} = $props();
 </script>
 
 <a

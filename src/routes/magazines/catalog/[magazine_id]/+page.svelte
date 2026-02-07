@@ -8,9 +8,7 @@
 	import Meta from '$src/lib/components/layout/Meta.svelte';
     import Loc from '$src/lib/components/Loc.svelte';
 	import MagazineIssueBox from '$src/lib/components/magazines/MagazineIssueBox.svelte';
-	import MagazineLogo from '$src/lib/components/magazines/MagazineLogo.svelte';
 	import MagazinesMenu from '$src/lib/components/magazines/MagazinesMenu.svelte';
-	import PipeList from '$src/lib/components/PipeList.svelte';
 	import type { PageProps } from './$types';
 	import BulletPoint from "$src/lib/components/BulletPoint.svelte";
 	import { building } from "$app/environment";
@@ -23,8 +21,8 @@
 </script>
 
 <Meta title={{
-    cs: `${data.magazine.title} - Databáze časopisů`,
-    en: `${data.magazine.title} - Magazines Database`
+    cs: `Časopis ${data.magazine.title}`,
+    en: `Magazine ${data.magazine.title}`
 }} />
 
 <MagazinesMenu />
