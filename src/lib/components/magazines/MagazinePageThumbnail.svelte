@@ -29,6 +29,7 @@
         min-width: 160px;
         display: flex;
         justify-content: center;
+        flex-shrink: 0;
     }
     img {
         box-sizing: border-box;
