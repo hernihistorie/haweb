@@ -71,10 +71,22 @@ export type MagazineIssue = {
   versions: MagazineVersion[];
 };
 
+export type MagazineLinks = {
+  archive_org: string | null;
+  ndk_cz: string | null;
+  dikda_sk: string | null;
+  level_archiv: string | null;
+  wikipedia: string | null;
+  wikidata: string | null;
+  arbitrary: string | null;
+  arbitrary_title: string | null;
+}
+
 export type MagazineInfo = {
   id: number;
   title: string;
   description: string;
+  links: MagazineLinks;
   logos?: Logo[];
 };
 

@@ -34,6 +34,17 @@
     {/if}
 </p> -->
 
+{#if data.magazine.links.archive_org && data.magazine.links.archive_org.trim() !== ''}
+    <Loc>
+        {#snippet cs()}
+            <p>Skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.</p>
+        {/snippet}
+        {#snippet en()}
+            <p>Scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.</p>
+        {/snippet}
+    </Loc>
+{/if}
+
 {#snippet magazineNavigation()}
     <div class="logo-years">
         <div class="magazine-logo-wrapper">
