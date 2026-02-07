@@ -111,4 +111,10 @@
         grid-template-columns: 3.75fr 10fr;
         gap: 0.1em;
     }
+    
+    @media (max-width: 800px) {
+        .issue {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

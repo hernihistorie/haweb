@@ -92,4 +92,19 @@
         margin: 0.2em 0;
         font-size: 0.95em;
     }
+
+    @media (max-width: 620px) {
+        .version {
+            grid-template-columns: 1fr;
+        }
+        .pages {
+            overflow-x: scroll;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .pages {
+            gap: 0.1em;
+        }
+    }
 </style>

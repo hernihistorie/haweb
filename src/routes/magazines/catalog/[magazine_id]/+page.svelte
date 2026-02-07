@@ -1,4 +1,6 @@
 <script lang="ts">
+  import MagazineYearNavigation from '../../../../lib/components/magazines/MagazineYearNavigation.svelte';
+
     import IconQuote from "@lucide/svelte/icons/quote";
     import IconBookOpenText from "@lucide/svelte/icons/book-open-text";
     import IconGlobe from "@lucide/svelte/icons/globe";
@@ -85,39 +87,7 @@
     </p>
 {/if}
 
-{#snippet magazineNavigation()}
-    <div class="logo-years">
-        <div class="magazine-logo-wrapper">
-            {#if data.magazine.logos && data.magazine.logos.length > 0}
-                <MagazineLogo logo={data.magazine.logos[0]} magazine={data.magazine} />
-            {/if}
-        </div>
-        <div class="years {displayedYear ? 'with-selected' : ''}">
-            {#if data.issues_by_year}
-                <div class="year-text">
-                    <Loc cs="ročník" en="year" />
-                </div>
-                <PipeList>
-                    {#each Object.keys(data.issues_by_year) as year}
-                        <li class="year" class:active={displayedYear === year}>
-                            <a href={displayedYear === year ? `?` : `?year=${year}`}>
-                                {#if year === 'None'}
-                                    <Loc cs="zbytek" en="the rest" />
-                                {:else if year === 'Speciály'}
-                                    <Loc cs="speciály" en="specials" />
-                                {:else}
-                                    {year}
-                                {/if}
-                            </a>
-                        </li>
-                    {/each}
-                </PipeList>
-            {/if}
-        </div>
-    </div>
-{/snippet}
-
-{@render magazineNavigation() }
+<MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
 
 {#if displayedYear}
     <section class="thin">
@@ -129,7 +99,7 @@
             {/each}
         </ul>
     </section>
-    {@render magazineNavigation() }
+    <MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
 {:else}
     <div class="guide">
         <small>
@@ -143,37 +113,6 @@
 {/if}
 
 <style>
-    .logo-years {
-        display: flex;
-        gap: 2em;
-        align-items: center;
-    }
-
-    .year-text {
-        /* color: var(--color-secondary); */
-        /* font-weight: bold; */
-        user-select: none;
-        display: flex;
-        align-items: center;
-    }
-
-    .magazine-logo-wrapper {
-        width: 300px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .years {
-        display: flex;
-        gap: 1.5em;
-    }
-
-    .years.with-selected .year:not(.active) a {
-        color: var(--color-secondary);
-    }
-
     .issues {
         margin: 4em 0;
     }
@@ -183,9 +122,16 @@
         font-size: 1.2em;
         color: var(--color-secondary);
         user-select: none;
+        white-space: nowrap;
     }
     .arrow {
         font-size: 1.5em;
         margin-left: 0.5em;
+    }
+
+    @media (max-width: 700px) {
+        .guide {
+            margin: 1em 2em;
+        }
     }
 </style>

@@ -54,4 +54,11 @@
     .show-more {
         color: var(--color-primary);
     }
+
+    @media (max-width: 620px) {
+        .miss-list-entry {
+            grid-template-columns: 1fr;
+            gap: 1em;
+        }
+    }
 </style>
