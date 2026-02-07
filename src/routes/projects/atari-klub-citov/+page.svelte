@@ -13,9 +13,9 @@
 <ProjectPage project={projectAtariKlubCitov}>
     <PageLang cs />
     <div>
-        <p><strong>Název projektu</strong>: Atari klub Cítov
-        <p><strong>Jména zpracovatelů</strong>: Vojtěch Straka, Rudolf Jan Suchý,  Ladislav Greiner, Tomáš Nestorovic, Kamil Ševeček, Karel Ondráček
-        <p><strong>Rok dokončení projektu</strong>: Projekt stále probíhá
+        <p><strong>Název projektu</strong>: Atari klub Cítov</p>
+        <p><strong>Jména zpracovatelů</strong>: Vojtěch Straka, Rudolf Jan Suchý,  Ladislav Greiner, Tomáš Nestorovic, Kamil Ševeček, Karel Ondráček</p>
+        <p><strong>Rok dokončení projektu</strong>: Projekt stále probíhá</p>
     </div>
     <hr>
     <p>

@@ -9,6 +9,7 @@
         children: Snippet
     } = $props();
 
+    // svelte-ignore state_referenced_locally
     const index = footnotes.add(children);
 </script>
 

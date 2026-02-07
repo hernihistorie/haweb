@@ -16,6 +16,7 @@
 
 	let { src, slug, title, duration = $bindable(0) }: Props = $props();
 
+	// svelte-ignore state_referenced_locally
 	const time = persisted(`playerPosition-${slug}`, 0);
 	let paused = $state(true);
 	let volume = $state(1);

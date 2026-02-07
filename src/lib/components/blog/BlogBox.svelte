@@ -8,7 +8,7 @@
 	import BulletPoint from '../BulletPoint.svelte';
     let { blogPost, children, show_arrow=true }: { blogPost: BlogPost, children?: Snippet, show_arrow?: boolean } = $props();
 
-    let url = `/blog/${blogPost.id}-${blogPost.slug}`;
+    let url = $derived(`/blog/${blogPost.id}-${blogPost.slug}`);
     let localizedUrl = $derived(localizeHref(url));
 </script>
 
@@ -16,7 +16,7 @@
     <a href="{localizedUrl}">
         {#if blogPost.image}
             <Lazy height={"calc(8em + 4px)"} keep={true}>
-                <img src={blogPost.image} />
+                <img src={blogPost.image} alt="" />
             </Lazy>
         {:else}
             <!-- <div class="img-placeholder">
@@ -56,7 +56,7 @@
 </div>
 
 <style>
-    img, .img-placeholder {
+    img {
         /* width: 100%; */
         /* aspect-ratio: 10/3; */
         box-sizing: border-box;

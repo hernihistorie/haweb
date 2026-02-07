@@ -62,14 +62,14 @@
                 <A speaker={FS}>
                     Samozřejmě. Ne že bychom je měli – museli jsme si je půjčit. My jsme měli v podstatě jednu VHSku k dispozici. Tu měl na Smíchově jeden kluk koupenou. Vždycky, když jsme to dělali, tak jsme si museli půjčit Betu a na té jsme dělali ten master. Pak jsme to na ty VHSky z té Bety roztáčeli. Roztáčení tehdy bylo spíše průběžné. Říkali jsme těm našim abonentům: Dodejte si kazetu – my nemáme peníze, abychom si koupili kazetu. My jsme těch kazet měli třeba deset. Jedna VHSka stála šest set korun a to byla třetina mého topičského platu. To byly enormní částky. Když už jsme měli obraz a zvuk, potřebovali jsme ještě titulky. A tam přichází Sinclair Spectrum. Jak je tady vývod do televize, tak bylo jednoduché to pustit místo do televize do videa. Tak jsme to pustili do videa a to, co by se objevilo na obrazovce, jsme nahráli. Teď šlo o to udělat takový program, aby to rolovalo ty písmena. Takže ve videomagazínu <i>Vokna</i> text roluje. Náš majstrštyk bylo to, že ti naši kluci – Včelák s Anténou – udělali diakritiku. Takže my jsme byli schopni dělat titulky česky. 
                     <div class="row">
-                        <div class="column">
+                        <figure class="column">
                             <img src="/photos/frantisek-starek/videomagazin_vokna_1.gif" alt="Basicový kód" style="width:100%">
                             <figcaption>Grafika k Videomagazínu Vokna</figcaption>
-                        </div>
-                        <div class="column">
+                        </figure>
+                        <figure class="column">
                             <img src="/photos/frantisek-starek/videomagazin_vokna_2.gif" alt="Pixelart autora" style="width:100%">
                             <figcaption>Grafika k Videomagazínu Vokna</figcaption>
-                        </div>
+                        </figure>
                     </div>
                     <p>Jediný videomagazín, který se tehdy dělal, dělal Kyncl v Londýně. On to titulkoval přímo kamerou – měl tam titulkovací zařízení, ale anglický. Titulkoval tedy česky, ale bez háčků a čárek, jako telegram. Říkali mu, že dělá telegramy.
                     <p>Vydali jsme dva videomagazíny, ale byly to tříhodinové kazety. Každý rok jsme vydali jeden. Nebylo to ke každému <i>Voknu</i>, protože to by bylo moc drahé. Vydali jsme úplně první český videomagazín na jaře 1987 a pak druhý na jaře 1988. To už ale dělala skupina kolem Rumla a Havla <em>Originální videožurnál</em>. Oni měli prachy, takže to dělali častějš a měli kamery. Nás podporoval Pavel Tigrid. Ten první videomagazín jsme udělali úplně bez kamery. Jenom jsme měli na jedno odpoledne půjčenou kameru i s kameramanem – byl to Honza Kašpar, co hrál u Cimrmanů a dělal i <em>Originální videožurnál</em>. Jedno odpoledne jsem na Střeleckém ostrově namluvil úvodník a natočil nám animaci naší znělky, kterou udělal náš výtvarník Martin Frynt. Filip Topol nám do toho nahrál jingly na varhany. Na Betě jsme to stočili a pod titulky jsme dali Filipovy varhany.
@@ -217,14 +217,14 @@
                 <A speaker={FS}>
                     Of course. Not that we had them – we had to borrow them. We basically had one VHS available. One lad at Smíchov had bought one. Whenever we did it, we had to borrow a Beta and on that we made the master. Then we distributed from that Beta to VHS tapes. Distribution back then was more of an ongoing thing. We told our subscribers: Bring your own tape – we don't have the money to buy a tape. We had maybe ten of those tapes. One VHS tape cost six hundred crowns, and that was a third of my stoker's salary. Those were enormous amounts. Once we had picture and sound, we still needed subtitles. And that's where the Sinclair Spectrum comes in. Since there's a TV output, it was simple to send it to video instead of the TV. So we sent it to video and what would appear on the screen, we recorded. Now the task was to make a program that would scroll the letters. So in the <i>Vokno</i> video magazine, the text scrolls. Our masterpiece was that our guys – Včelák and Anténa – made diacritics. So we were able to make titles in Czech.
                     <div class="row">
-                        <div class="column">
+                        <figure class="column">
                             <img src="/photos/frantisek-starek/videomagazin_vokna_1.gif" alt="BASIC code" style="width:100%">
                             <figcaption>Graphics for Vokno Video Magazine</figcaption>
-                        </div>
-                        <div class="column">
+                        </figure>
+                        <figure class="column">
                             <img src="/photos/frantisek-starek/videomagazin_vokna_2.gif" alt="Author's pixel art" style="width:100%">
                             <figcaption>Graphics for Vokno Video Magazine</figcaption>
-                        </div>
+                        </figure>
                     </div>
                     <p>The only video magazine being made at the time was by Kyncl in London. He did titles directly with a camera – he had a titling device, but an English one. So he did titles in Czech, but without diacritics, like a telegram. They would say he was making telegrams.
                     <p>We released two video magazines, but they were three-hour tapes. We released one every year. It wasn't for every issue of <i>Vokno</i>, because that would be too expensive. We released the very first Czech video magazine in spring 1987 and then the second in spring 1988. But by then the group around Ruml and Havel was doing <em>Videožurnál</em>. They had money, so they did it more often and had cameras. We were supported by Pavel Tigrid. We made that first video magazine completely without a camera. We only had a camera borrowed for one afternoon along with a cameraman – it was Honza Kašpar, who acted with Cimrman and also did Videožurnál. One afternoon on the Střelecký island [in Prague] I recorded the editorial and he filmed the animation of our jingle, which was made by our artist Martin Frynt. Filip Topol recorded jingles for us on the organ. We edited it on Beta and put Filip's organ below the titles.
@@ -242,14 +242,14 @@
                 </A>
                 
                 <div class="row">
-                        <div class="column">
-                            <img src="/photos/frantisek-starek/kniha_scr.jpg" alt="Kniha program loading screen" style="width:100%">
-                            <figcaption>Kniha program loading screen</figcaption>
-                        </div>
-                        <div class="column">
-                            <img src="/photos/frantisek-starek/kniha_prog.jpg" alt="Kniha program" style="width:100%">
-                            <figcaption>Kniha program</figcaption>
-                        </div>
+                    <figure class="column">
+                        <img src="/photos/frantisek-starek/kniha_scr.jpg" alt="Kniha program loading screen" style="width:100%">
+                        <figcaption>Kniha program loading screen</figcaption>
+                    </figure>
+                    <figure class="column">
+                        <img src="/photos/frantisek-starek/kniha_prog.jpg" alt="Kniha program" style="width:100%">
+                        <figcaption>Kniha program</figcaption>
+                    </figure>
                 </div>
                 
                 <Q speaker={JS}>

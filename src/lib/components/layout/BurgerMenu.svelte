@@ -25,16 +25,17 @@
         backgroundColor = '--var(--color-secondary)',
         children
     }: Props = $props();
-    let burgerProps = {
+    let burgerProps = $derived({
         duration: duration
-    }
-    let menuProps = {
+    });
+
+    let menuProps = $derived({
         duration: duration,
         width: width,
         padding: padding,
         paddingTop: paddingTop,
         backgroundColor: backgroundColor
-    }
+    });
 </script>
 
 <BurgerButton {...burgerProps} bind:open={open}/>

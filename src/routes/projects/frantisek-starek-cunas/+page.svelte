@@ -46,6 +46,7 @@
                 src="/photos/frantisek-starek/videomagazin_vokno.png"
                 alt={loc({cs: "Grafika z Videomagazínu Vokna", en: "Graphics from Videomagazín Vokna"})}
             >
+        </p>
         <cite><Loc
             cs="Grafika z <i>Videomagazínu Vokna</i> (Zdroj: František Stárek)"
             en="Graphics from <i>Videomagazín Vokno</i> (Source: František Stárek)"/>

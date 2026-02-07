@@ -18,9 +18,7 @@
         class: _class = undefined
     }: Props = $props();
 
-    var box_class = $state("");
-    if (left) box_class = "left";
-    if (right) box_class = "right";
+    var box_class = $derived(left ? 'left' : right ? 'right' : '');
 </script>
 
 <div class="box {box_class} {_class}">
