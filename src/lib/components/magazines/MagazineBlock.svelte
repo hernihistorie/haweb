@@ -3,7 +3,15 @@
 	import { localizeHref } from "$src/lib/paraglide/runtime";
 	import MagazineLogo from "./MagazineLogo.svelte";
 
-    const { magazine, makeLinkProminent = true }: {magazine: CatalogMagazine | MagazineInfo | MissListMagazine, makeLinkProminent?: boolean} = $props();
+    const {
+        magazine,
+        makeLinkProminent = true,
+        withTitle = true
+    }: {
+        magazine: CatalogMagazine | MagazineInfo | MissListMagazine,
+        makeLinkProminent?: boolean,
+        withTitle?: boolean
+    } = $props();
 </script>
 
 <a
@@ -11,7 +19,9 @@
     class:makeLinkProminent
     href={localizeHref(`/magazines/catalog/${magazine.slug ?? magazine.id}`)}
 >
-    <h3 class="magazine-title">{magazine.title}</h3>
+    {#if withTitle}
+        <h3 class="magazine-title">{magazine.title}</h3>
+    {/if}
     <div class="magazine-logo-wrapper">
         {#if magazine.logos && magazine.logos.length > 0}
             <MagazineLogo logo={magazine.logos[0]} {magazine} />

@@ -3,18 +3,20 @@
     let {
         href,
         text = undefined,
-        children
+        children,
+        small = false
     }:{
         href: string,
         text?: string,
-        children?: import('svelte').Snippet
+        children?: import('svelte').Snippet,
+        small?: boolean
     }= $props();
 
     // Localize internal links (starting with /), but not external links or anchor links
     let localizedHref = $derived(href.startsWith('/') && !href.startsWith('//') ? localizeHref(href) : href);
 </script>
 
-<a class="arrow" href="{localizedHref}">
+<a class="arrow" class:small href="{localizedHref}">
     <img src="/ico/ico_arrow.svg" alt="→">
     {#if text}
         {text}
@@ -38,6 +40,12 @@
         vertical-align: middle;
     }
 
-    .arrow {
+    .arrow.small img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .arrow.small {
+        font-size: 1em;
     }
 </style>

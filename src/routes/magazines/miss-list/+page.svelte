@@ -1,15 +1,8 @@
 <script lang="ts">
-	import Box from '$src/lib/components/Box.svelte';
-	import BulletPoint from '$src/lib/components/BulletPoint.svelte';
 	import Meta from '$src/lib/components/layout/Meta.svelte';
-import Loc from '$src/lib/components/Loc.svelte';
-	import IssueStatus from '$src/lib/components/magazines/IssueStatus.svelte';
-	import MagazineBlock from '$src/lib/components/magazines/MagazineBlock.svelte';
-	import MagazineIssueVersionNameSuffix from '$src/lib/components/magazines/MagazineIssueVersionNameSuffix.svelte';
-	import MagazineLogo from '$src/lib/components/magazines/MagazineLogo.svelte';
+    import Loc from '$src/lib/components/Loc.svelte';
 	import MagazinesMenu from '$src/lib/components/magazines/MagazinesMenu.svelte';
 	import MissListMagazineBox from '$src/lib/components/magazines/MissListMagazineBox.svelte';
-	import { localizeHref } from '$src/lib/paraglide/runtime';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

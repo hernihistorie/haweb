@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
+	import type { PageProps } from './$types';
 	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import PageLang from "$src/lib/components/PageLang.svelte";
 	import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
+	import SelectedMagazineBox from "$src/lib/components/magazines/SelectedMagazineBox.svelte";
+	import Arrow from '$src/lib/components/Arrow.svelte';
+
+	let { data }: PageProps = $props();
 </script>
 
 <Meta title={{
@@ -41,5 +46,16 @@
         TODO<br>
         TODO<br>
     </p>
+
+    {#each data.selectedMagazines as magazine}
+        <SelectedMagazineBox {magazine} />
+    {/each}
+
+    <Arrow href="/magazines/catalog/">
+        <Loc cs="Prohlédnout katalog časopisů" en="View magazine catalog" />
+    </Arrow>
+
+    <div style="margin-bottom: 3em;"></div>
+
     <img src="https://casopisy.herniarchiv.cz/static/magdb/library.jpg" alt="Fotografie knihovny s magazíny Level">
 </article>
