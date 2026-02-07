@@ -7,6 +7,15 @@ export type IssueStatus =
   | "existence_unconfirmed"
   | null;
 
+export type MagazinePeriodicity = 
+  | "w" // weekly
+  | "bw" // biweekly
+  | "m" // monthly
+  | "bm" // bimonthly
+  | "q" // quarterly
+  | "a" // annually
+  | "np" // non_periodical
+
 export type Logo = {
   url: string;
 };
@@ -55,6 +64,10 @@ export type MagazineIssue = {
   published_day: number | null;
   published_month: number | null;
   published_year: number | null;
+  periodicity: MagazinePeriodicity | null;
+  page_count: number | null;
+  note: string | null;
+  issuer: string | null;
   versions: MagazineVersion[];
 };
 

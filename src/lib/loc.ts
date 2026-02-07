@@ -14,6 +14,20 @@ export function loc(string: LocalizedString): string {
     }
 }
 
+export function czechPlural(count: number, singular: string, pluralNominative: string, pluralGenitive: string): string {
+    if (count === 1) {
+        return singular;
+    } else if (count >= 2 && count <= 4) {
+        return pluralNominative;
+    } else {
+        return pluralGenitive;
+    }
+}
+
+export function englishPlural(count: number, singular: string, plural: string): string {
+    return count === 1 ? singular : plural;
+}
+
 export function localizedMonthName(month: number): string {
     const monthNames: { [key: string]: string[] } = {
         en: [
