@@ -4,8 +4,8 @@
     import { getLocale } from '$lib/paraglide/runtime.js';
 
     interface Props {
-        cs?: string | Snippet;
-        en?: string | Snippet;
+        cs?: string | Snippet | null;
+        en?: string | Snippet | null;
         text?: LocalizedString;
     }
 

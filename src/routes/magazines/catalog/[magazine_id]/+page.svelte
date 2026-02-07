@@ -1,4 +1,7 @@
 <script lang="ts">
+    import IconQuote from "@lucide/svelte/icons/quote";
+    import IconBookOpenText from "@lucide/svelte/icons/book-open-text";
+    import IconGlobe from "@lucide/svelte/icons/globe";
 	import { page } from '$app/state';
 	import Meta from '$src/lib/components/layout/Meta.svelte';
     import Loc from '$src/lib/components/Loc.svelte';
@@ -7,6 +10,7 @@
 	import MagazinesMenu from '$src/lib/components/magazines/MagazinesMenu.svelte';
 	import PipeList from '$src/lib/components/PipeList.svelte';
 	import type { PageProps } from './$types';
+	import BulletPoint from "$src/lib/components/BulletPoint.svelte";
 
 	let { data }: PageProps = $props();
 
@@ -28,21 +32,58 @@
     <Loc cs="Časopis" en="Magazine" /> <em>{data.magazine.title}</em>
 </h2>
 
-<!-- <p>
-    {#if data.magazine.description}
-        {data.magazine.description}
-    {/if}
-</p> -->
+{#if data.magazine.blurb.cs || data.magazine.blurb.en}
+    <blockquote class="blurb">
+        <IconQuote class="text-secondary" />
+        <Loc cs={data.magazine.blurb.cs} en={data.magazine.blurb.en} />
+    </blockquote>
+{/if}
+
+<p>
+    <Loc cs={data.magazine.description.cs} en={data.magazine.description.en} />
+</p>
 
 {#if data.magazine.links.archive_org && data.magazine.links.archive_org.trim() !== ''}
-    <Loc>
-        {#snippet cs()}
-            <p>Skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.</p>
-        {/snippet}
-        {#snippet en()}
-            <p>Scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.</p>
-        {/snippet}
-    </Loc>
+    <p>
+        <IconBookOpenText class="text-secondary" />
+        <Loc>
+            {#snippet cs()}
+                Skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+            {/snippet}
+            {#snippet en()}
+                Scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+            {/snippet}
+        </Loc>
+    </p>
+{/if}
+
+{#if Object.entries(data.magazine.links).some(([key, link]) => key != 'archive_org' && link && link.trim() !== '')}
+    <p>
+        <IconGlobe class="text-secondary" />
+        <Loc cs="Další informace:" en="More information:" />
+        {#each Object.entries(data.magazine.links).filter(([key, link]) => key != 'archive_org' && link && link.trim() !== '') as [key, link], i}
+            {#if i > 0}
+                &nbsp;<BulletPoint class="text-secondary" />
+            {/if}
+            <a href={link}>
+                {#if key === 'wikipedia_cs'}
+                    <Loc cs="Wikipedie" en="Czech Wikipedia" />
+                {:else if key === 'wikipedia_en'}
+                    <Loc cs="Anglická Wikipedie" en="English Wikipedia" />
+                {:else if key === 'oldgames_sk'}
+                    OldGames.sk
+                {:else if key === 'ndk_cz'}
+                    <Loc cs="Národní digitální knihovna" en="Czech National Digital Library" />
+                {:else if key === 'dikda_sk'}
+                    <Loc cs="Digitálna knižnica a digitálny archív" en="Slovak Digital Library and Digital Archive" />
+                {:else if key === 'level_archiv'}
+                    <Loc cs="Level Archiv" en="Level Archiv" />
+                {:else}
+                    {key}
+                {/if}
+            </a>
+        {/each}
+    </p>
 {/if}
 
 {#snippet magazineNavigation()}

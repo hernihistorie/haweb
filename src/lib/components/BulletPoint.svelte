@@ -1,4 +1,8 @@
-<span>&bull;</span>
+<script lang="ts">
+    const {class: class_}: {class?: string} = $props();
+</script>
+
+<span class={class_}>&bull;</span>
 
 <style>
     span {

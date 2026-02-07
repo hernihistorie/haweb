@@ -233,3 +233,15 @@ ul.styled li::marker {
     vertical-align: middle;
     margin-bottom: 4px;
 }
+
+blockquote {
+    font-style: italic;
+}
+
+blockquote > .lucide-icon {
+    margin-right: 8px;
+}
+
+p > .lucide-icon {
+    margin-right: 4px;
+}

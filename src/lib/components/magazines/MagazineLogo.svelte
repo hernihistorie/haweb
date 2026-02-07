@@ -20,6 +20,7 @@
         background: rgb(154, 154, 154);
         padding: 0.5em;
         border-radius: 0.5em;
+        max-height: 100px;
         /* filter: grayscale(100%) contrast(20000%); */
     }
 </style>

@@ -1,5 +1,7 @@
 // common
 
+import type { LocalizedString } from "$src/types";
+
 export type IssueStatus = 
   | "have"
   | "dont_have"
@@ -74,6 +76,7 @@ export type MagazineIssue = {
 
 export type MagazineLinks = {
   archive_org: string | null;
+  oldgames_sk: string | null;
   ndk_cz: string | null;
   dikda_sk: string | null;
   level_archiv: string | null;
@@ -87,7 +90,8 @@ export type MagazineInfo = {
   id: number;
   slug: string | null;
   title: string;
-  description: string;
+  description: {cs: string | null; en: string | null};
+  blurb: {cs: string | null; en: string | null};
   links: MagazineLinks;
   logos?: Logo[];
 };
