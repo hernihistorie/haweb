@@ -11,14 +11,13 @@
 	import PipeList from '$src/lib/components/PipeList.svelte';
 	import type { PageProps } from './$types';
 	import BulletPoint from "$src/lib/components/BulletPoint.svelte";
+	import { building } from "$app/environment";
 
 	let { data }: PageProps = $props();
-
-	let displayedYear: string | null = $derived(page.url.searchParams.get('year'));
-
-    if (Object.keys(data.issues_by_year).length == 1) {
-        displayedYear = Object.keys(data.issues_by_year)[0];
-    }
+    
+    let displayedYear: string | null = $derived.by(() => 
+        (building ? null : page.url.searchParams.get('year')) ?? (Object.keys(data.issues_by_year).length == 1 ? Object.keys(data.issues_by_year)[0] : null)
+    );
 </script>
 
 <Meta title={{
