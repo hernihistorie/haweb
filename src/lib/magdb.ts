@@ -34,6 +34,7 @@ export type Price = {
 
 export type CatalogMagazine = {
   id: number;
+  slug: string | null;
   title: string;
   description: string;
   logos?: Logo[];
@@ -84,6 +85,7 @@ export type MagazineLinks = {
 
 export type MagazineInfo = {
   id: number;
+  slug: string | null;
   title: string;
   description: string;
   links: MagazineLinks;
@@ -111,6 +113,7 @@ export type MissingIssue = {
 
 export type MissListMagazine = {
   id: number;
+  slug: string | null;
   title: string;
   logos?: Logo[];
   missing_issues: MissingIssue[];

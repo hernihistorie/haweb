@@ -9,7 +9,7 @@
 <a
     class="magazine-block"
     class:makeLinkProminent
-    href={localizeHref(`/magazines/catalog/${magazine.id}`)}
+    href={localizeHref(`/magazines/catalog/${magazine.slug ?? magazine.id}`)}
 >
     <h3 class="magazine-title">{magazine.title}</h3>
     <div class="magazine-logo-wrapper">
