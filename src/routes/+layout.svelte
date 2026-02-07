@@ -6,6 +6,7 @@
 	import '../app.css';
 	import { setLocale } from '$lib/paraglide/runtime';
 	import { page } from '$app/state';
+	import NavigatingIndicator from '$src/lib/components/layout/NavigatingIndicator.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -33,6 +34,8 @@
 </main>
 
 <Footer />
+
+<NavigatingIndicator />
 
 <div style="display:none" data-pagefind-ignore>
 	<a href="/en">/en</a>
