@@ -47,10 +47,10 @@
         <IconBookOpenText class="text-secondary" />
         <Loc>
             {#snippet cs()}
-                Skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+                Naše skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
             {/snippet}
             {#snippet en()}
-                Scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+                Our scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
             {/snippet}
         </Loc>
     </p>

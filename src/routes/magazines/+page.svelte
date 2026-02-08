@@ -3,7 +3,6 @@
 	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
-	import PageLang from "$src/lib/components/PageLang.svelte";
 	import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
 	import SelectedMagazineBox from "$src/lib/components/magazines/SelectedMagazineBox.svelte";
 	import Arrow from '$src/lib/components/Arrow.svelte';
@@ -31,10 +30,10 @@
                 Časopisy o hrách nabízí unikátní okno do minulosti: dozvíme se z nich na čem se hrálo, jaké hry byly oblíbené a nejvíce očekávané, a více o dalších technologických trendech a fenoménech doby.  Jejich zlatá éra začala v 90tých letech a množství publikací vzrostlo s příchodem doby multimediální, kdy díky technologii CD začalo být možné distribuovat poměrně velké objemy dat do rukou hráčů a uživatelů, kteří si tak mohli spolu s počtením užít plných her, vyzkoušet dema, nebo díky aplikacím vyždímat ze svých strojů maximum.  Rychlejší internetová připojení a nárůst online služeb jako jsou Steam a Youtube způsobily, že pro hráče už není běžné kupovat si zájmové magazíny u novinového stánku, ačkoliv pro fanoušky čtení jsou stále dostupné kvalitní české herní časopisy za předplatné, což je ve světě poměrně výjimečné.
             </p>
             <p>
-                Časopisy jsou cenným zdrojem pro historiky a proto je mít kompletní knihovnu v <a href={localizeHref("/about")}>Herním archivu</a> je jedním z hlavních cílů spolku.  V současnosti se nám podařilo zajistit kopii skoro všech vydání časopisů, o kterých víme, že v Česku a na Slovensku vycházely.  Projekt <strong>databáze časopisů</strong> jsme spustili v roce 2023 a jedná se o snahu veřejně katalogizovat všechna jednotlivá vydání časopisů v našem archivu.  Můžete si všimnout, že některé časopisy jsou označené za chybějící.  Plný seznam publikací, které do archivu stále hledáme, naleznete na seznamu <a href={localizeHref('/magazines/miss-list/')}>Chybí nám</a>.  Budeme vděční, pokud nám pomůžete naši kolekci doplnit.
+                Časopisy jsou cenným zdrojem pro historiky a proto mít kompletní knihovnu v <a href={localizeHref("/about")}>Herním archivu</a> je jedním z hlavních cílů spolku.  V současnosti se nám podařilo zajistit kopii skoro všech vydání časopisů, o kterých víme, že v Česku a na Slovensku vycházely.  Projekt <strong>databáze časopisů</strong> jsme spustili v roce 2023 a jedná se o snahu veřejně katalogizovat všechna jednotlivá vydání časopisů v našem archivu.  Můžete si všimnout, že některé časopisy jsou označené za chybějící.  Plný seznam publikací, které do archivu stále hledáme, naleznete na seznamu <a href={localizeHref('/magazines/miss-list/')}>Chybí nám</a>.  Budeme vděční, pokud nám pomůžete naši kolekci doplnit.
             </p>
             <p>
-                Soustavně s touto databází usilovně pracujeme na skenování a digitalizaci časopisů v naší sbírce.  V rámci možností zajišťujeme přístup ke skenům veřejnosti to skrze projekt <strong>Internet Archive</strong>, na nějž naleznete odkazy na stránkách jednotlivých časopisů.
+                Soustavně s touto databází usilovně pracujeme na skenování a digitalizaci časopisů v naší sbírce.  V rámci možností zajišťujeme přístup ke skenům veřejnosti skrze projekt <strong>Internet Archive</strong>, na nějž naleznete odkazy na stránkách jednotlivých časopisů.
             </p>
         {/snippet}
         {#snippet en()}
