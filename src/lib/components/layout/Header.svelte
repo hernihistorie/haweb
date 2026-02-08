@@ -64,6 +64,9 @@
 		<a href={localizeHref("/")} onclick={resetExpandedMenu}>
 			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
 		</a>
+		{#if page.url.hostname === 'localhost' || page.url.hostname === '127.0.0.1'}
+			<div class="localhost">LOCALHOST</div>
+		{/if}
 	</div>
 	<div class="menu">
 		<div class="burger-menu">
@@ -263,6 +266,18 @@
 
 	.menu-break { 
 		display: none;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.localhost {
+		color: var(--color-secondary);
+		font-weight: bold;
+
 	}
 
 	@media screen and (max-width: 1300px) {
