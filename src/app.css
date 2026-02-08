@@ -245,3 +245,10 @@ blockquote > .lucide-icon {
 p > .lucide-icon {
     margin-right: 4px;
 }
+
+.tooltip {
+    font-weight: normal;
+    font-size: 90%;
+    color: var(--color-secondary-contrast) !important;
+    --tooltip-color: var(--color-secondary) !important;
+}

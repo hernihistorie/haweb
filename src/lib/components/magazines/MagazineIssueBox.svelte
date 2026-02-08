@@ -4,12 +4,18 @@
     import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconNotebookText from "@lucide/svelte/icons/notebook-text";
     import IconBookCopy from "@lucide/svelte/icons/book-copy";
-	import { czechPlural, englishPlural, localizedMonthName } from "$src/lib/loc";
+    import IconAsterisk from "@lucide/svelte/icons/asterisk";
+	import { czechPlural, englishPlural, loc } from "$src/lib/loc";
 	import type { MagazineIssue } from "$src/lib/magdb";
 	import Box from "../Box.svelte";
 	import Loc from "../Loc.svelte";
 	import MagazineIssueVersionBox from "./MagazineIssueVersionBox.svelte";
+	import { formatPartialDate, parsePartialDate, parseCalendarId, isPartialDateDifferentOrMorePrecise } from "$src/lib/datetime";
+	import Tooltip from "sv-tooltip";
     const { issue }: {issue: MagazineIssue} = $props();
+
+    const publishedDate = $derived(parsePartialDate(issue.published_day, issue.published_month, issue.published_year));
+    const calendarDate = $derived(parseCalendarId(issue.calendar_id));
 </script>
 
 <Box>
@@ -27,16 +33,15 @@
             <div>
                 <IconCalendar class="text-secondary" />
                 <date>
-                    <!-- TODO use LocalizedDate component -->
-                    {#if issue.published_day && issue.published_month && issue.published_year}
-                        {issue.published_day}.
-                        {issue.published_month}.
-                        {issue.published_year}
-                    {:else if issue.published_month && issue.published_year}
-                        {localizedMonthName(issue.published_month)}
-                        {issue.published_year}
-                    {:else if issue.published_year}
-                        {issue.published_year}
+                    {#if calendarDate}
+                        {formatPartialDate(calendarDate)}
+                        {#if publishedDate && isPartialDateDifferentOrMorePrecise(calendarDate, publishedDate)}
+                            <Tooltip tip={`${loc({ cs: "datum vydání", en: "publication date" })}: ${formatPartialDate(publishedDate)}`} top>
+                                <IconAsterisk class="text-secondary" />
+                            </Tooltip>
+                        {/if}
+                    {:else if publishedDate}
+                        {formatPartialDate(publishedDate)}
                     {:else}
                         <small class="text-secondary"><Loc cs="datum vydání neznámé" en="publication date unknown" /></small>
                     {/if}
