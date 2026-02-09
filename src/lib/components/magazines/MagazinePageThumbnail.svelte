@@ -13,22 +13,22 @@
 
 <div class="page-wrapper">
     {#if page}
-        <Lazy keep={true} height="204px">
-            <Lightbox>
-                {#snippet thumbnail()}
+        <Lightbox>
+            {#snippet thumbnail()}
+                <Lazy keep={true} height="204px">
                     <img src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
-                {/snippet}
-                <img src={"https://casopisy.herniarchiv.cz/" + page.path} alt="" />
-                <a class="open-in-new-window" href={"https://casopisy.herniarchiv.cz/" + page.path} target="_blank" >
-                    <IconExternalLink />
-                </a>
-            </Lightbox>
-            <!--
-                <a href={"https://casopisy.herniarchiv.cz/" + page.path} target="_blank" >
-                    <img src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
-                </a>
-            -->
-        </Lazy>
+                </Lazy>
+            {/snippet}
+            <img src={"https://casopisy.herniarchiv.cz/" + page.path} alt="" />
+            <a class="open-in-new-window" href={"https://casopisy.herniarchiv.cz/" + page.path} target="_blank" >
+                <IconExternalLink />
+            </a>
+        </Lightbox>
+        <!--
+            <a href={"https://casopisy.herniarchiv.cz/" + page.path} target="_blank" >
+                <img src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
+            </a>
+        -->
     {:else}
         <img
             src="https://casopisy.herniarchiv.cz/static/magdb/missing-a4.png"
