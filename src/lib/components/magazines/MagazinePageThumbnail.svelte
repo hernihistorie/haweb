@@ -16,7 +16,7 @@
         <Lightbox>
             {#snippet thumbnail()}
                 <Lazy keep={true} height="204px">
-                    <img src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
+                    <img class="thumb" src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
                 </Lazy>
             {/snippet}
             <img src={"https://casopisy.herniarchiv.cz/" + page.path} alt="" />
@@ -45,7 +45,7 @@
         justify-content: center;
         flex-shrink: 0;
     }
-    img {
+    .thumb {
         box-sizing: border-box;
         height: 200px;
         border: 2px solid var(--color-secondary);
