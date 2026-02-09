@@ -25,7 +25,7 @@
 		}, {
 			url: "/projects", cs: "Projekty", en: "Projects",
 			submenu: [
-				{ url: "/projects", cs: "<b>Naše projekty</b>", en: "<b>Our projects</>" },
+				{ url: "/projects", cs: "<b>Naše projekty</b>", en: "<b>Our projects</b>" },
 				{ url: "/gallery/emil-fafek", cs: "Fotografie Emila Fafka", en: "Emil Fafek photography" },
 				{ url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
 				{ url: "/projects/atari-klub-citov", cs: "Atari klub Cítov", en: "Atari club Citov" },
