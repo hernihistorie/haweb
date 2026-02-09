@@ -32,7 +32,7 @@
     {:else}
         <img
             src="https://casopisy.herniarchiv.cz/static/magdb/missing-a4.png"
-            class="missing-scan"
+            class="thumb missing-scan"
             alt={loc({cs:"nemáme sken", en:"no scan"})}
         />
     {/if}
