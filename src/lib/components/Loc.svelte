@@ -17,7 +17,7 @@
             // Try requested language first, then fall back to any available language
             return text[getLocale()] ?? text['cs'] ?? text['en'] ?? '';
         }
-        return getLocale() === 'cs' ? cs : en;
+        return getLocale() === 'cs' ? cs ?? en : en ?? cs;
     }
 
     let content = $derived(getLocalizedContent());
