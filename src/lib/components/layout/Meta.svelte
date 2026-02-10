@@ -4,9 +4,10 @@
 
    interface Props {
       title?: string | LocalizedString;
+      noindex?: boolean;
    }
 
-   let { title = "" }: Props = $props();
+   let { title = "", noindex = false }: Props = $props();
 
    let localizedTitle = $derived(
       typeof title === 'string' ? title : (title[getLocale()] ?? title['cs'] ?? title['en'] ?? '')
@@ -26,4 +27,7 @@
          getLocale() === 'en' ? "Czechoslovak Game Archive - Blog" : "Herní archiv - Blog"
       }
       href={getLocale() === 'en' ? "/en/feed.xml" : "/feed.xml"} />
+   {#if noindex}
+      <meta name="robots" content="noindex" />
+   {/if}
 </svelte:head>

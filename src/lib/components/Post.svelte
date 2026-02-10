@@ -4,18 +4,23 @@
 
     interface Props {
         title: LocalizedString;
+        published?: boolean;
         side?: import('svelte').Snippet;
         content?: import('svelte').Snippet;
         stickySide?: boolean;
         class?: string;
     }
 
-    let { title, side, content, stickySide=false, class: className }: Props = $props();
+    let { title, published, side, content, stickySide=false, class: className }: Props = $props();
 </script>
 
-<Meta title={title}/>
+{#if published}
+    <Meta title={title}/>
+{:else}
+    <Meta title={""} noindex={true} />
+{/if}
 
-<article class={className}>
+<article class={className} data-pagefind-ignore={published ? undefined : "true"}>
     <div class="side" class:sticky={stickySide}>
         {@render side?.()}
     </div>

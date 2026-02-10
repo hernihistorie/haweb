@@ -41,7 +41,7 @@
     {/if}
 {/snippet}
 
-<Post title={post.title}>
+<Post title={post.title} published={post.published}>
     {#snippet side()}
         <div class="side">
             <div class="author-date">
