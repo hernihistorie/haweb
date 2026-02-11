@@ -4,6 +4,7 @@
     import PageLang from "$src/lib/components/PageLang.svelte";
     import blogPost from "./blog_post";
 	import Figure from "$src/lib/components/Figure.svelte";
+	import Arrow from "$src/lib/components/Arrow.svelte";
 </script>
 
 <PageLang cs />
@@ -11,8 +12,8 @@
 <BlogPostPage post={blogPost}>
     <Loc>
         {#snippet cs()}
-            <p>Na webu přibylo nové vylepšení - vylepšili jsme naši databázi herních časopisů. Nová databáze má samozřejmě lepší a přehlednější uživatelské rozhraní, ale hlavně v ni najdete odkaz na oskenované časopisy (a to jak od nás, tak od jiných subjektů.)</p>
-            <p>Novou databázi naleznete <a href="https://herniarchiv.cz/magazines/">ZDE</a>.</p>
+            <p>Na webu přibylo nové vylepšení - dali jsme naší databázi herních časopisů nový kabát. Teď má databáze samozřejmě lepší a přehlednější uživatelské rozhraní, a také se v ní zobrazuje více informací než předtím, ale hlavně v ní najdete odkazy na oskenované časopisy (a to jak od nás, tak od jiných subjektů.)</p>
+            <Arrow href="https://herniarchiv.cz/magazines/">Prohlédnout vylepšenou databázi časopisů</Arrow>
         {/snippet}
     </Loc>
     <Figure src="/photos/homepage/magaziny.jpg" />
