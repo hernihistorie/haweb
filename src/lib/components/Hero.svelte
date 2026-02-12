@@ -56,7 +56,7 @@
                 </li>
             {/each}
         </ul>
-		<img class="fact-img" src="/illu/illu_01.png" alt="">
+		<img class="fact-img" src="/illu/illu_01_sm.png" alt="">
     </div>
 </div>
 
