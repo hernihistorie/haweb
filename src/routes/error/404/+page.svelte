@@ -5,7 +5,7 @@
 
 <Meta title="404 Page not found" />
 
-<article class="thin">
+<article class="thin" data-pagefind-ignore>
     <h2>
         Error 404
     </h2>
