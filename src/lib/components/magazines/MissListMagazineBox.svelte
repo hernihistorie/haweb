@@ -23,7 +23,11 @@
                         <BulletPoint />
                     </span>
                     <span>
-                        <MagazineIssueVersionNameSuffix nameSuffix={issue.name_suffix} />
+                        {#if issue.name_suffix.toLowerCase() == 'standard'}
+                            verze časopisu bez přílohy
+                        {:else}
+                            <MagazineIssueVersionNameSuffix nameSuffix={issue.name_suffix} />
+                        {/if}
                     </span>
                     <br>
                     <IssueStatus status={issue.status} />
