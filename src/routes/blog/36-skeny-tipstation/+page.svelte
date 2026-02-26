@@ -1,6 +1,7 @@
 <script lang="ts">
     import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
+	import { localizeHref } from "$src/lib/paraglide/runtime";
     import blogPost from "./blog_post";
 </script>
 
@@ -10,6 +11,6 @@
 
     <p>Po nějaké době jsme oskenovali další časopis který zde vycházel. Časopis Tipstation se objevil na trhu v prosinci 2001 a stojí za ním redakce OPSM, která si po úspěchu "Top secret speciálu" zřejmě uvědomila, že na trhu je dostatek místa pro samostatný časopis specializující se na tipy, návody a cheaty do her pro Playstation. Prvních 6 čísel vycházelo měsíčně a časopis měl 68 stran. Od čísla 7 potom vycházel 4x ročně a měl 164 stran. Celkem do konce roku 2005 vyšlo 20 čísel.
     <p>Skeny časopisu naleznete na <a href="https://archive.org/details/tipstation-cz">Internet archivu</a>.
-    <p>A seznam všech čísle najde v <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/12">naší databázi</a>.
+    <p>A seznam všech čísle najde v <a href={localizeHref("/magazines/catalog/tipstation/")}>naší databázi</a>.
     <p><img src="/photos/tipstation_casopis.jpg" alt="Časopis Tipstation">
 </BlogPostPage>

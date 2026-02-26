@@ -122,7 +122,7 @@
                         cs="Naposledy zkompletováno"
                         en="Last completed"
                     />
-                </strong>: <a href="https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/2" class="plain">GameStar</a>
+                </strong>: <a href={localizeHref("/magazines/catalog/gamestar/")} class="plain">GameStar</a>
             </p>
             <!-- TODO carousel? -->
             <!-- <div class="thumbnails">

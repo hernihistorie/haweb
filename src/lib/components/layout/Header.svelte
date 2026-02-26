@@ -38,8 +38,8 @@
 		}, {
 			url: "/interviews", cs: "Rozhovory", en: "Interviews"
 		}, {
-			url: "https://casopisy.herniarchiv.cz/public-magdb/", cs: "Časopisy", en: "Magazines"
-			// url: "/magazines", cs: "Časopisy", en: "Magazines"
+			// url: "https://casopisy.herniarchiv.cz/public-magdb/", cs: "Časopisy", en: "Magazines"
+			url: "/magazines", cs: "Časopisy", en: "Magazines"
 		}, {
 			url: "/blog", cs: "Blog", en: "Blog"
 		}, {
