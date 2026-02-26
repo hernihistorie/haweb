@@ -24,6 +24,7 @@
             en="Czech and Slovak Game Magazines Database"
         />
     </h2>
+    <img src="/photos/magazine-shelf.jpg" alt="" class="heading-image" />
     <Loc>
         {#snippet cs()}
             <p>
@@ -64,3 +65,10 @@
 
     <img src="https://casopisy.herniarchiv.cz/static/magdb/library.jpg" alt="Fotografie knihovny s magazíny Level">
 </article>
+
+<style>
+    .heading-image{
+        margin-top: -1em;
+        margin-bottom: -0.5em;
+    }
+</style>
