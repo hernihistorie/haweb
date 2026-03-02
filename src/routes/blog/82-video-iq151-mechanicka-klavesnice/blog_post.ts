@@ -4,7 +4,7 @@ import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
 const blogPost: BlogPost = {
-    published: false,
+    published: true,
     id: 82,
     slug: 'video-iq151-mechanicka-klavesnice',
     image: '/photos/blog-posts/iq151_mechanicka_klavesnice.png',
