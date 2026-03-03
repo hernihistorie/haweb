@@ -4,7 +4,7 @@ import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
 const blogPost: BlogPost = {
-    published: false,
+    published: true,
     id: 83,
     slug: 'vylepseni-magdb',
     image: '/photos/homepage/magaziny.jpg',
@@ -12,7 +12,7 @@ const blogPost: BlogPost = {
         cs: 'Dali jsme databázi herních časopisů nový kabát',
         en: 'We gave our game magazine database a new look'
         },
-    date: new Temporal.PlainDate(2026, 3, 4),
+    date: new Temporal.PlainDate(2026, 3, 3),
     // english_translation_date: new Temporal.PlainDate(2026, 1, 22),
     author: authors.HerniHistorie,
     description_html: {
