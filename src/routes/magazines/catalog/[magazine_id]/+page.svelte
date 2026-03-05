@@ -92,7 +92,7 @@
         <ul class="issues unstyled">
             {#each data.issues_by_year[displayedYear] as issue}
                 <li>
-                    <MagazineIssueBox {issue} />
+                    <MagazineIssueBox {issue} issueScanTemplate={data.magazine.url_issue_scan_template} />
                 </li>
             {/each}
         </ul>

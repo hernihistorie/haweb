@@ -12,10 +12,19 @@
 	import MagazineIssueVersionBox from "./MagazineIssueVersionBox.svelte";
 	import { formatPartialDate, parsePartialDate, parseCalendarId, isPartialDateDifferentOrMorePrecise } from "$src/lib/datetime";
 	import Tooltip from "sv-tooltip";
-    const { issue }: {issue: MagazineIssue} = $props();
+	import Arrow from "../Arrow.svelte";
+    const { issue, issueScanTemplate }: {issue: MagazineIssue, issueScanTemplate: string | null} = $props();
 
     const publishedDate = $derived(parsePartialDate(issue.published_day, issue.published_month, issue.published_year));
     const calendarDate = $derived(parseCalendarId(issue.calendar_id));
+    const scanUrl = $derived(
+        issueScanTemplate
+        ? issueScanTemplate
+            .replace("%Y", issue.published_year?.toString() ?? "")
+            .replace("%M", issue.published_month?.toString().padStart(2, "0") ?? "")
+            .replace("%N", issue.issue_number?.toString() ?? "")
+        : null
+    );
 </script>
 
 <Box>
@@ -77,6 +86,9 @@
                     <span class="text-secondary"><Loc cs="Poznámka" en="Note" />:</span><br>
                     {issue.note}
                 </div>
+            {/if}
+            {#if scanUrl}
+                <Arrow href={scanUrl} small><Loc cs="Otevřít sken" en="Open scan" /></Arrow>
             {/if}
         </div>
         <div class="versions">

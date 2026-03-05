@@ -100,6 +100,7 @@ export type MagazineInfo = {
   description: {cs: string | null; en: string | null};
   blurb: {cs: string | null; en: string | null};
   links: MagazineLinks;
+  url_issue_scan_template: string | null;
   logos?: Logo[];
 };
 
