@@ -1,4 +1,3 @@
-import yaml from "yaml";
 import type { PageLoad } from "./$types";
 import type { MagazineDetail } from "$src/lib/magdb";
 
@@ -8,8 +7,8 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const selectedMagazines = await Promise.all(
 		selectedMagazineSlugs.map(
 			slug =>
-				fetch(`https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/${slug}.yaml`)
-				.then(async response => (yaml.parse(await response.text()) as MagazineDetail).magazine)
+				fetch(`https://casopisy.herniarchiv.cz/public-magdb/catalog/magazine-detail/${slug}.json`)
+				.then(async response => (await response.json() as MagazineDetail).magazine)
 		)
 	);
 	return { selectedMagazines };
