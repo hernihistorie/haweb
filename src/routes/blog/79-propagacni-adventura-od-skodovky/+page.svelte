@@ -27,7 +27,7 @@
             <p>Devadesátá léta byla obdobím neústupné inovace na poli konzumní technologie. Internet, který s sebou nesl i hypertext a standardy jako HTML a VRML, se v roce 1997 setkával s nárůstem uživatelů i u nás, ale stále bylo k internetu připojeno jenom asi 2% domácností.<Footnote><a href="https://www.earchiv.cz/b13/b0402001.php3">Jaký byl Internet v roce 1998?</a>, Jiří Peterka, earchiv.cz</Footnote> Distribuce katalogů a marketingových materiálů tedy využívala i fyzická média v podobě datových kompaktních disků. Byť CD-ROM nebyla zdaleka nová technologie, snižování cen lisování cédéček v druhé polovině devadesátých let umožnilo velmi snadno distribuovat velké objemy dat do rukou uživatelů, aniž by museli platit za internetové připojení. Snad proto je možné vysvětlit boom „interaktivních multimediálních CD-ROMů“, které spojovaly technologický idealismus svojí doby do jakési CD-ROM bubliny. V tomto kontextu nás nejspíš nepřekvapí, že i Škoda Auto vyprodukovala propagační CD, avšak co se vysvětluje hůř, je jeho obsah.</p>
             <p>První věc, kterou po spuštění uvidíte, je propagační video se záběry s různými modely aut značky Škoda, proložené ukázkami závodů rallye, prací v montážní hale a pražskými památkami. Nakonec video prolne přímo do interaktivní scény, která se ovládá podobně jako běžné point-and-click adventury. Zatímco v pozadí hraje Smetanova <em>Vltava</em>, před našima očima se nachází věž Staroměstské radnice, vedle které je moderní autosalon značky Škoda. Automobilka je tu tedy okatě prezentovaná jako něco ryze českého. Snad v reakci na vstup do koncernu Volkswagen, který touto dobou vlastnil už i většinu jejích akcií?</p>
             <Figure
-                src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_game_world_panorama__200px.png"
+                src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_from_the_heart_of_europe.png"
                 alt="Screenshot ze hry obsahující text 'From the heart of Europe', v pozadí panorama Pražského hradu"
                 caption="Obrázek 2. Škoda jako vrchol češství"
             />
@@ -36,20 +36,20 @@
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_future_car.png"
                 alt="Screenshot ze hry zobrazující automobil budoucnosti"
-                caption="Obrázek 4. Jak budeme jezdit v roce 2100"
+                caption="Obrázek 3. Jak budeme jezdit v roce 2100"
             />
             <p>Po odcestování Orlojem do roku 1100 se ocitneme před palisádou, která po interakci přehraje klip z jakéhosi černobílého filmu o husitech (netrefili se o pár set let). Opodál též narazíme na milíře, které přehrají podobný klip s výjevy z běžného života ve středověku. Až sem sahá historie automobilky Škoda? Na druhou stranu, nemusíme cestovat jen do minulosti. Po přesunu do roku 2100, se autosalon Škoda promění na fontánu a auta která se v této utopické budoucnosti vyrábí v hale M13 jsou křesla uzavřená v průhledné kouli. Po návratu do (v té době nedaleké budoucnosti) roku 2000, můžeme narazit i na moji oblíbenou absurditu, v podobě víka od kanálu, které se po kliknutí otevře a z útrob kanálu se vynoří temná osoba se slovy: „Nōlī turbāre circulōs meōs!“. Proč náhodný kanální gauner pokřikuje poslední Archimédova slova (<em>Neruš mé kruhy!</em>), je mi stále záhadou. Netuším, jestli mi jenom uniká jakási reference, nebo jestli bylo skutečným cílem vývojářů šířit zmatení a chaos.</p>
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_felicia_fun_3d.png"
                 alt="Screenshot ze hry zobrazující 3D render automobilu Škoda Felicia Fun"
-                caption="Obrázek 5. Felicia Fun se vyrobilo jenom 4216 kusů"
+                caption="Obrázek 4. Felicia Fun se vyrobilo jenom 4216 kusů"
             />
             <p>Překvapivě je možné narazit i na sekce renderované ve 3D. První z nich je závodní hra, ve které hráč stojí proti červené Škodě Octavia. Je to velmi jednoduchá minihra s rovinkami a zatáčkami ala Pole Position, ale překvapivě nejedete po každém zapnutí stejný závod. Trať a její okolí jsou pravděpodobně vždy náhodně sestaveny, takže očividně vývojářům záleželo na replayability. Druhá část CD-ROMu, která využívá ranou 3D grafiku je samotný autosalon Škoda. Jde o pětipatrovou budovu, kde se můžete pohybovat mezi poschodími pomocí eskalátorů s texturou květin. V každém patře narazíte na 3D model auta na točně, přičemž v každém patře je jiný model. Můžete nahlédnout do technické tabulky pro každý z modelů, ale to je tak vše, co autosalon nabízí.</p>
             <p>Myslím, že skutečně není jiná doba, ze které by mohl podobný počin vzejít. Konec devadesátých let, kdy módní slova jako „multimédia“ a „interaktivita“ měly v porovnání s dneškem mnohem větší dopad na to, jestli dostanete peníze na svůj šílený projekt. Kdo byl tedy pověřen vývojem tohoto díla? Takzvaný Multimedia Team Škoda (dále jen MM tým). Šlo o tým sestavený z devíti designérů, programátorů a umělců, společně s dalšími šesti webaři. Nepodařilo se mi dohledat mnoho informací o tom, na čem všem MM tým pracoval, ale z dostupných zdrojů byli zodpovědní za webové stránky značky a za tyto CD-ROMy. Schválně jsem použil množné číslo, poněvadž na internetu jsou zmínky o dalších discích, které měly propagovat konkrétní modely aut od Škodovky. Netuším, jestli jsou zdaleka tak propracované jako naše dnešní téma, ale tak jako tak to vypovídá hodně o MM týmu. Banda kreativních lidí na průsečíku marketingu, PR, IT a gamedevu. Během pár let se rétorika spojená s novou technologií začala měnit a ve stejné době mizí i poslední zmínky o MM týmu automobilky Škoda. Ať už byl osud MM týmu jakýkoli, jedno je jasné – už nikdy se nevrátili k tvoření ujetého propagačního softwaru, a to nejunikátnější co z jejich kanceláře vzešlo, bylo ke dnešnímu dni zaneseno do našeho archivu…</p>
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_mm_team.jpg"
                 alt="Fotografie kanceláře ve které pracoval tým MM"
-                caption="Obrázek 6. MM tým ve svém přirozeném prostředí"
+                caption="Obrázek 5. MM tým ve svém přirozeném prostředí"
             />
         {/snippet}
         {#snippet en()}
@@ -76,20 +76,20 @@
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_future_car.png"
                 alt="Screenshot from the game showing a car of the future"
-                caption="Image 4. How we'll be driving in the year 2100"
+                caption="Image 3. How we'll be driving in the year 2100"
             />
             <p>After traveling via the Astronomical Clock to the year 1100, we find ourselves before a palisade, which upon interaction plays a clip from some black-and-white film about Hussites (they missed by a few hundred years). Nearby, we also encounter milestones that play a similar clip with scenes from everyday life in the Middle Ages. Does Škoda's history reach this far back? On the other hand, we don't have to travel only to the past. After moving to the year 2100, the Škoda showroom transforms into a fountain and the cars being produced in the M13 hall in this utopian future are chairs enclosed in transparent spheres. Upon returning to the (at that time not-so-distant future) year 2000, we can also encounter my favorite absurdity in the form of a manhole cover, which when clicked opens and from the bowels of the sewer emerges a dark figure with the words: "Nōlī turbāre circulōs meōs!". Why a random sewer rascal is shouting Archimedes' last words (<em>Don't disturb my circles!</em>), remains a mystery to me. I don't know if I'm just missing some reference or if the developers' real goal was to spread confusion and chaos.</p>
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_felicia_fun_3d.png"
                 alt="Screenshot from the game showing a 3D render of a Škoda Felicia Fun car"
-                caption="Image 5. Only 4216 units of the Felicia Fun were produced"
+                caption="Image 4. Only 4216 units of the Felicia Fun were produced"
             />
             <p>Surprisingly, you can also encounter sections rendered in 3D. The first of them is a racing game where the player faces off against a red Škoda Octavia. It's a very simple minigame with straights and turns à la Pole Position, but surprisingly, you don't drive the same race every time you start. The track and its surroundings are probably always randomly assembled, so clearly the developers cared about replayability. The second part of the CD-ROM that uses early 3D graphics is the Škoda showroom itself. It's a five-story building where you can move between floors using escalators with flower textures. On each floor, you'll find a 3D model of a car on a turntable, with a different model on each floor. You can look at the technical specifications for each of the models, but that's all the showroom offers.</p>
             <p>I think there really is no other era from which such a creation could emerge. The late 1990s, when buzzwords like "multimedia" and "interactivity" had much more impact on whether you'd get funding for your crazy project compared to today. So who was tasked with developing this work? The so-called Multimedia Team Škoda (hereafter MM team). It was a team assembled from nine designers, programmers, and artists, along with six additional web developers. I couldn't find much information about everything the MM team worked on, but from available sources, they were responsible for the brand's websites and these CD-ROMs. I deliberately used the plural because there are mentions online of other discs that were meant to promote specific car models from Škoda. I don't know if they're anywhere near as elaborate as today's subject, but either way it says a lot about the MM team. A bunch of creative people at the intersection of marketing, PR, IT, and gamedev. Within a few years, the rhetoric associated with new technology began to change, and around the same time, the last mentions of Škoda's MM team also disappear. Whatever the fate of the MM team, one thing is clear – they never returned to creating quirky promotional software, and the most unique thing that came from their office has now been archived to this day…</p>
             <Figure
                 src="/images/blog/79-propagacni-adventura-od-skodovky/skoda_cd_mm_team.jpg"
                 alt="Photo of the office where the MM team worked"
-                caption="Image 6. Team MM in their natural habitat"
+                caption="Image 5. Team MM in their natural habitat"
             />
         {/snippet}
 
