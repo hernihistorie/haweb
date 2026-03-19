@@ -4,6 +4,6 @@
 	const { data } = $props();
 </script>
 
-<BlogPostPage post={data.blogPost}>
+<BlogPostPage post={data.blogPost} series={data.series}>
     <data.blogPostComponent />
 </BlogPostPage>

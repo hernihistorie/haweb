@@ -2,14 +2,13 @@ import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
 import type { Component } from 'svelte';
+import type { SeriesSlug } from './series';
 
 // Auto-discover all blog posts using Vite's glob import
 const blogPostModules = import.meta.glob<{ default: BlogPost }>(
 	'./blog/*/blog_post.ts',
 	{ eager: true }
 );
-
-const blogPostComponents = import.meta.glob<{ default: Component }>('./blog/*/+page.svelte', { eager: true });
 
 // Extract blog posts from modules and sort by publication date ascending (oldest first)
 export const blogPosts: BlogPost[] = Object.values(blogPostModules)

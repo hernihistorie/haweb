@@ -2,6 +2,7 @@ import { error, redirect } from '@sveltejs/kit';
 import { blogPostsById } from '$src/data/blog_posts';
 import type { PageServerLoad } from './$types';
 import { localizeHref } from '$src/lib/paraglide/runtime';
+import { seriesByBlogPostId, seriesBySlug } from '$src/data/series';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const blogPost = blogPostsById[Number(params.id)];
@@ -17,9 +18,10 @@ export const load: PageServerLoad = async ({ params }) => {
 		return redirect(301, localizeHref(`/blog/${blogPost.id}-${expectedSlug}`));
 	}
 
-	// TODO handle series
+	const series = seriesByBlogPostId[blogPost.id] || null;
 
 	return {
-		blogPost
+		blogPost,
+		series
 	};
 };

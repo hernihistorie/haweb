@@ -42,9 +42,6 @@
 </section>
 
 <style>
-    .backlink {
-        text-decoration: none; 
-    }
     h2, h3 {
         margin-top: 0.2em;
         margin-bottom: 0.4em;

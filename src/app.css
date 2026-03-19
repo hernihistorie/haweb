@@ -64,6 +64,18 @@ h3 {
     font-size: 30px;
 }
 
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.backlink {
+    text-decoration: none; 
+}
+
+.backlink + h2, .backlink + h3, .backlink + h4, .backlink + h5 {
+    margin-top: 0.2em;
+}
+
 article.thin, div.thin, section.thin {
     max-width: 800px;
     margin: auto;

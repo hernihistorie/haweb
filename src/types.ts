@@ -1,4 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
+import type { SeriesSlug } from './data/series';
 
 export type LanguageCode = 'cs' | 'sk' | 'en';
 
@@ -86,17 +87,17 @@ export interface BlogPost {
     image?: string;
     published?: boolean;
     title: LocalizedString;
+    series_slug?: SeriesSlug;
     date?: Temporal.PlainDate;
     english_translation_date?: Temporal.PlainDate;
     author: Author;
     description_html?: LocalizedString;
-    series?: BlogPostSeries | null;
 }
 
 export interface BlogPostSeries {
-    slug: string;
+    slug: SeriesSlug;
     title: LocalizedString;
-    description: LocalizedString;
+    description?: LocalizedString;
     blogPosts: BlogPost[];
 }
 
