@@ -87,7 +87,6 @@ export interface BlogPost {
     image?: string;
     published?: boolean;
     title: LocalizedString;
-    series_slug?: SeriesSlug;
     date?: Temporal.PlainDate;
     english_translation_date?: Temporal.PlainDate;
     author: Author;

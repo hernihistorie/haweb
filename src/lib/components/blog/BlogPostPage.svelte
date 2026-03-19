@@ -129,6 +129,22 @@
         margin: 2em 0;
     }
 
+    .series-info h3 {
+        margin-bottom: 0.5em;
+    }
+
+    .series-info ol {
+        margin: 0.5em 0;
+    }
+
+    .series-info ol li {
+        margin-bottom: 0.5em;
+    }
+
+    .series-info a {
+        text-decoration: none;
+    }
+
     @media (max-width: 1200px) {
         .side {
             display: none;
