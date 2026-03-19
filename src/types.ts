@@ -90,6 +90,14 @@ export interface BlogPost {
     english_translation_date?: Temporal.PlainDate;
     author: Author;
     description_html?: LocalizedString;
+    series?: BlogPostSeries | null;
+}
+
+export interface BlogPostSeries {
+    slug: string;
+    title: LocalizedString;
+    description: LocalizedString;
+    blogPosts: BlogPost[];
 }
 
 export interface Author {

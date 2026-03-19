@@ -3,7 +3,7 @@
 	import BlogBoxes from './BlogBoxes.svelte';
 	import PageLang from "$src/lib/components/PageLang.svelte";
 
-	let { data } = $props();
+	const { data } = $props();
 </script>
 
 <PageLang cs />
