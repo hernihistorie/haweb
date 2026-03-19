@@ -3,22 +3,27 @@
 	import { slide } from 'svelte/transition';
 	import Arrow from './Arrow.svelte';
 	import { getLocale } from '$lib/paraglide/runtime';
+	import type { Snippet } from 'svelte';
     interface Props {
         cs?: boolean;
         en?: boolean;
+        notice?: string;
     }
 
-    let { cs, en }: Props = $props();
+    let { cs, en, notice }: Props = $props();
 </script>
 
 {#if getLocale() == 'cs' && !cs}
     <div class="page-lang-notice">
-        <p>Tato stránka je v současnosti dostupná pouze v angličtině.</p>
+        <p>
+            {notice ?? "Tato stránka je v současnosti dostupná pouze v angličtině."}
+        </p>
     </div>
 {:else if getLocale() == 'en' && !en}
     <div class="page-lang-notice">
         <p>
-            🇨🇿 This page is currently only available in Czech.
+            🇨🇿 
+            {notice ?? "This page is currently only available in Czech."}
             <a href="https://herniarchiv-cz.translate.goog{page.url.pathname}?_x_tr_sl=cs&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp">View with Google Translate</a>
         </p>
     </div>

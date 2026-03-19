@@ -6,7 +6,7 @@
 	const { data } = $props();
 </script>
 
-<PageLang cs />
+<PageLang cs notice="Most blog posts are only available in Czech." />
 
 <Meta title="Blog" />
 
