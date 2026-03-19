@@ -81,15 +81,15 @@
     <h4>Zdroje:</h4>
     <ul><li>Ing. Vladimír Áč: Technická dokumentace MAS600/601-603 (nepublikovaná pracovní verze, asi 1977-1978)
     <li>Ing. Vladimír Áč: Rozhovor pro spolek Herní historie (2025)
-    <li>Sean Riddle: Fotodokumentace čipů MAS601-603 (online na https://seanriddle.com/tesla/)
+    <li>Sean Riddle: <a href="https://seanriddle.com/tesla/">Fotodokumentace čipů MAS601-603</a>
     <li>Sada integrovaných obvodů ke konstrukci televizních her MAS601, MAS602, MAS603 (Technické zprávy, Tesla Rožnov, 1979)
     <li>Katalogový list AY-3-8500 (General Instrument)
-    <li>Nathaniel Lockhart: An Interview With Duncan Harrower (“Pong-In-A-Chip” Inventor) (https://www.gamingalexandria.com/wp/2022/01/gilbert-interview/)
-    <li>Cole Johnson: Games and Field Generation in the AY-3-8500 (https://nerdstuffbycole.blogspot.com/2018/09/games-and-field-generation-in-ay-3-8500.html)
-    <li>Cole Johnson: Control and Sync Generation in the AY-3-8500 (https://nerdstuffbycole.blogspot.com/2018/08/control-and-sync-generation-in-ay-3-8500.html)
-    <li>Cole Johnson: Shifting bits: How a PONG chip generates on-screen scores (https://nerdstuffbycole.blogspot.com/2018/09/shifting-bits-how-pong-chip-generates.html)
-    <li>Cole Johnson: Shooter game in silicon: inside the AY-3-8605 chip (https://nerdstuffbycole.blogspot.com/2019/10/shooter-game-in-silicon-inside-ay-3.html)
+<li>Nathaniel Lockhart: <a href="https://www.gamingalexandria.com/wp/2022/01/gilbert-interview/">An Interview With Duncan Harrower ("Pong-In-A-Chip" Inventor)</a>
+    <li>Cole Johnson: <a href="https://nerdstuffbycole.blogspot.com/2018/09/games-and-field-generation-in-ay-3-8500.html">Games and Field Generation in the AY-3-8500</a>
+    <li>Cole Johnson: <a href="https://nerdstuffbycole.blogspot.com/2018/08/control-and-sync-generation-in-ay-3-8500.html">Control and Sync Generation in the AY-3-8500</a>
+    <li>Cole Johnson: <a href="https://nerdstuffbycole.blogspot.com/2018/09/shifting-bits-how-pong-chip-generates.html">Shifting bits: How a PONG chip generates on-screen scores</a>
+    <li>Cole Johnson: <a href="https://nerdstuffbycole.blogspot.com/2019/10/shooter-game-in-silicon-inside-ay-3.html">Shooter game in silicon: inside the AY-3-8605 chip</a>
     <li>Kalna Stanislav, Dejczö Peter, Uličný Rudolf: Meranie frekvencie riadk. synchropulsov pomocou čítača a tel. prijímača (Přihláška zlepšovacího návrhu, 1979, archiv Trnava)
-    <li>Televizní hry s AY-3-8500 "Pong" (https://www.nostalcomp.cz/ay8500.php)
-    <li>Grant Searle: 70's TV game recreation using an Arduino (Atmel ATmega328/168) processor (http://searle.x10host.com/AVRPong/index.html)</ul>
+    <li><a href="https://www.nostalcomp.cz/ay8500.php">Televizní hry s AY-3-8500 "Pong"</a>
+    <li>Grant Searle: <a href="http://searle.x10host.com/AVRPong/index.html">70's TV game recreation using an Arduino (Atmel ATmega328/168) processor</a></ul>
 </section>

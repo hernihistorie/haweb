@@ -239,9 +239,9 @@
 </table>
 <p>
 <h4>Zdroje:</h4>
-<ul><li>Sean Riddle: Fotodokumentace čipů MAS601-603 (online na https://seanriddle.com/tesla/)
+<ul><li><a href="https://seanriddle.com/tesla/">Sean Riddle: Fotodokumentace čipů MAS601-603</a>
 <li>Ing. Vladimír Áč: Technická dokumentace MAS600/601-603 (nepublikovaná pracovní verze, asi 1977-1978)
 <li>Ing. Vladimír Áč: Rozhovor pro spolek Herní historie (2025)
 <li>Sada integrovaných obvodů ke konstrukci televizních her MAS601, MAS602, MAS603 (Technické zprávy, Tesla Rožnov, 1979)
-<li>Videozáznam hry (online na https://www.youtube.com/watch?v=80nm31Uwf0g)</ul>
+<li><a href="https://www.youtube.com/watch?v=80nm31Uwf0g">Videozáznam hry</a></ul>
 </section>
