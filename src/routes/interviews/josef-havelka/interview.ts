@@ -14,7 +14,7 @@ const JH: Person = {
     gender: "M",
     bio: "Josef Havelka studoval a následně i pracoval v rámci zemědělství. K prvnímu počítači se dostal, když mu první manželka přivezla z Francie ZX Spectrum. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku. Klub byl umístěn v budově, které pan Havelka říkal „první škola“ a fungoval od roku 1986 až do revoluce roku 1989.<br>Chtěli bychom poděkovat <a href='https://www.heroclan.cz'>HERO CLANU</a> za spojení s dobrovolnou přepisovatelkou pro tento rozhovor.",
     photo: {
-        url: "/interviews/josef-havelka.jpg",
+        url: "/static/interviews/josef-havelka.jpg",
     }
 }
 

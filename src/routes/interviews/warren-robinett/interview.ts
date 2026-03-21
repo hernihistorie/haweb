@@ -23,7 +23,7 @@ export const data: InterviewData = {
             en: "Warren Robinett was born in 1951 in Springfield, Missouri. He studied undergraduate at Rice University and graduate at Berkeley, from where he went to work for <em>Atari</em> after graduation. There, he made three games (<em>Slot Racer</em>, <em>BASIC Programming</em>, <em>Adventure</em>) before leaving due to disagreements with management. He later co-founded <em>The Learning Company</em>."
         },
         photo: {
-            url: "/interviews/warren-robinett.jpg",
+            url: "/static/interviews/warren-robinett.jpg",
         }
     },
     interview: {

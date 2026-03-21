@@ -23,7 +23,7 @@ export const data: InterviewData = {
             en: "Štefan Kratochvíl was born in 1956. Thanks to his interest in electronics, he got involved with the Young Technicians Station in Podbaba in the early 1980s. Later, he also participated in activities within the 602nd and 666th ZO Svazarm, as well as the Center for Youth and Electrical Engineering."
         },
         photo: {
-            url: "/interviews/stefan-kratochvil.jpg",
+            url: "/static/interviews/stefan-kratochvil.jpg",
         }
     },
     interview: {

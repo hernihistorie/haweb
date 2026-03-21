@@ -19,7 +19,7 @@ export const data: InterviewData = {
         gender: "M",
         bio: "Vladimír Bezděk se narodil roku 1941 ve Zdíkově u Vimperka. Studoval FEL na ČVUT, odkud pak přešel do ČST kde začal pracovat jako technik. V první polovině 80. let začal nabízet některým dramaturgům ČST námět na pořad <em>Videostop</em>. Ten nakonec zaujal dramaturgyni Oldřišku Cebrovskou, s kterou pořad v roce 1985 začal tvořit. Na <em>Videostopu</em> dělal až do jeho konce v roce 2000.",
         photo: {
-            url: "/interviews/vladimir-bezdek.JPG",
+            url: "/static/interviews/vladimir-bezdek.JPG",
         }
     },
     interview: {

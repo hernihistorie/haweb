@@ -23,7 +23,7 @@ export const FS: Person = {
         en: "František Stárek Čuňas, born in 1952, was a dissident, a signatory of Charter 77, and a leading figure of the Czechoslovak underground. In 1979, he co-founded the cultural samizdat periodical <i>Vokno</i>. Together with colleagues Pavel Lašák and Jiří Včelák, they established a 'samizdat research institute', where they experimented with new technologies, including 8-bit microcomputers. After the revolution, he worked at BIS and currently works at ÚSTR."
     },
     photo: {
-        url: "/interviews/frantisek-cunas-starek.jpg",
+        url: "/static/interviews/frantisek-cunas-starek.jpg",
     }
 }
 

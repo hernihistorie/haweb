@@ -14,7 +14,7 @@ export const LK: Person = {
     gender: "M",
     color: "darkblue",
     photo: {
-        url: "/interviews/lubor-kopecky.jpg",
+        url: "/static/interviews/lubor-kopecky.jpg",
         details_url: "",
         // license_text: ""
     },

@@ -12,7 +12,7 @@ export const MK: Person = {
     gender: "M",
     color: "darkblue",
     photo: {
-        url: "/interviews/martin-kadlcik.JPG",
+        url: "/static/interviews/martin-kadlcik.JPG",
         details_url: "",
         // license_text: ""
     },

@@ -18,7 +18,7 @@ export const data: InterviewData = {
         gender: "M",
         bio: "Stanislav Hrda se narodil roku 1971. Na střední škole s kamarády založil „firmu” <em>Sybilasoft</em> v rámci které až do sametové revoluce dělali hry pro ZX Spectrum. Po pádu železné opony spoluzaložil s Ľudovítem Wittekem firmu <em>Ultrasoft</em>, která na území Československa začala distribuovat hry pro ZX Spectrum (a kompatibilní) a zároveň vydávala jeden z prvních místních herních časopisů <em>Bit</em>. V současnosti se věnuje popularizaci normalizační a porevoluční videoherní tvorby na území Česka a Slovenska.",
         photo: {
-            url: "/interviews/stanislav-hrda.jpg",
+            url: "/static/interviews/stanislav-hrda.jpg",
         }
     },
     interview: {
