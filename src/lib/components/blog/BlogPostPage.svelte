@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Post from "../Post.svelte";
     import Loc from "../Loc.svelte";
-    import type { BlogPost } from "$src/types";
+    import type { BlogPost, BlogPostSeries } from "$src/types";
 	import { getContext, setContext, type Snippet } from "svelte";
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
-    import { FootnoteHolder, getFootnoteContext, setFootnoteContext } from '../footnote/context';
+    import { FootnoteHolder, setFootnoteContext } from '../footnote/context';
 	import Footnotes from "../footnote/Footnotes.svelte";
 	import AuthorMedaillon from "./AuthorMedaillon.svelte";
 	import BulletPoint from "../BulletPoint.svelte";
@@ -17,11 +17,13 @@
 
     interface Props {
         post: BlogPost;
+        series: BlogPostSeries[] | null;
         children?: Snippet;
     }
 
     let {
         post,
+        series,
         children
     }: Props = $props();
 </script>
@@ -69,6 +71,34 @@
                 <AuthorMedaillon author={post.author} date={post.date} inline />
             </div>
             {@render children?.()}
+            {#each series as s (s.slug)}
+                <div class="series-info">
+                    <span class="backlink">
+                        <Loc cs="Série příspěvků" en="Blog post series" />
+                    </span>
+                    <h3 class="text-uppercase"><Loc text={s.title} /></h3>
+                    {#if s.description}
+                        <p>
+                            <Loc text={s.description} />
+                        </p>
+                    {/if}
+                    <ol>
+                        {#each s.blogPosts as blogPost (blogPost.id)}
+                            <li>
+                                {#if blogPost.id === post.id}
+                                    <strong>
+                                        <Loc text={post.title} />
+                                    </strong>
+                                {:else}
+                                    <a href={localizeHref(`/blog/${blogPost.id}-${blogPost.slug}`)}>
+                                        <Loc text={blogPost.title} />
+                                    </a>
+                                {/if}
+                            </li>
+                        {/each}
+                    </ol>
+                </div>
+            {/each}
             {#if footnotes.footnotes.length > 0}
                 <hr>
                 <Footnotes />
@@ -84,9 +114,6 @@
 </Post>
 
 <style>
-    .backlink {
-        text-decoration: none; 
-    }
     h2 {
         margin-top: 0.2em;
         margin-bottom: 0.4em;
@@ -94,6 +121,28 @@
 
     .inline-author {
         display: none;
+    }
+
+    .series-info {
+        border: 2px solid var(--color-secondary);
+        padding: 1em;
+        margin: 2em 0;
+    }
+
+    .series-info h3 {
+        margin-bottom: 0.5em;
+    }
+
+    .series-info ol {
+        margin: 0.5em 0;
+    }
+
+    .series-info ol li {
+        margin-bottom: 0.5em;
+    }
+
+    .series-info a {
+        text-decoration: none;
     }
 
     @media (max-width: 1200px) {

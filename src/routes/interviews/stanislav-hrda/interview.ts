@@ -29,11 +29,11 @@ export const data: InterviewData = {
         languages: [czech, slovak],
         // project: "",
         informed_agreement: true,
-        // transcriber: "Rudolf Jan Suchý",
+        transcriber: {'name': "Matúš Nagy"},
         // redaction: RS,
         // publication_date: Temporal.PlainDate.from("????-??-??"),
         // verifier: null
     },
-    status: "in-progress",
+    status: "request-only",
     tags: []
 }

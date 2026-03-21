@@ -1,0 +1,19 @@
+<script lang="ts">
+    import PageLang from "$src/lib/components/PageLang.svelte";
+    import type { InterviewData } from "$src/types";
+    import { data as vodak_data } from '$src/routes/interviews/zdenek-vodak/interview';
+    import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
+
+    let interviews: InterviewData[] = [vodak_data];
+</script>
+
+<PageLang cs />
+
+<section>
+
+    <p>Jak jsme minulý pátek slíbili, tak jsme tak i učinili: interview se Zdeňkem Vodákem jak v textové tak zvukové podobě najdete v rámci našich přepsaných <a href="https://herniarchiv.cz/interviews/">Rozhovorů</a>.
+    <p>V rozhovoru Zdeněk Vodák nemluví jen o tom, jak se podílel na Videostopu, ale také o tom, jak studoval FEL na ČVUT, kde se poprvé dostal k počítačům a programování, o tom kde sehnal své ZX Spectrum, nebo o tom, jak po revoluci dělal na pořadech jako je „Kdo chce být milionářem?", „AZ-kvíz" nebo „Na lovu."
+    {#each interviews as data}
+        <InterviewBox {data} />
+    {/each}
+</section>

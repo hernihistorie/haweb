@@ -1,6 +1,6 @@
 import { authorsBySlug } from '$src/data/authors';
 import { error } from '@sveltejs/kit';
-import { blogPosts } from '../../blog_posts';
+import { blogPosts } from '../../../../data/blog_posts';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {

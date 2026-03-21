@@ -4,7 +4,7 @@
 	import Meta from '$lib/components/layout/Meta.svelte';
 	import BlogBoxes from '../../BlogBoxes.svelte';
 
-	let { data } = $props();
+	const { data } = $props();
 </script>
 
 <Meta title={`Blog - ${data.author.name}`} />

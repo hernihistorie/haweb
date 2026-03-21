@@ -3,10 +3,10 @@
 	import BlogBoxes from './BlogBoxes.svelte';
 	import PageLang from "$src/lib/components/PageLang.svelte";
 
-	let { data } = $props();
+	const { data } = $props();
 </script>
 
-<PageLang cs />
+<PageLang cs notice="Most blog posts are only available in Czech." />
 
 <Meta title="Blog" />
 

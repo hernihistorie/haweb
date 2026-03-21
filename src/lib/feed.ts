@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { blogPosts } from '$src/routes/blog/blog_posts';
+import { blogPosts } from '$src/data/blog_posts';
 import type { LanguageCode } from '$src/types';
 
 const SITE_URL = 'https://herniarchiv.cz';
