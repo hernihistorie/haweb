@@ -36,7 +36,7 @@
 /* Smooth transition for theme changes */
 html {
     color-scheme: light;
-    scrollbar-color: var(--color-secondary) var(--color-secondary-transparent);
+    scrollbar-color: var(--color-secondary) var(--color-bg);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
