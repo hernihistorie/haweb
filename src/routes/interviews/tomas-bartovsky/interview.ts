@@ -20,7 +20,7 @@ export const data: InterviewData = {
         gender: "M",
         bio: "Tomáš Bartovský se narodil roku 1938 v Úpici. Studoval na VŠCHT, kde poté i učil. Skrze modelářský kroužek se dostal k Domu pionýrů v Podbabě, kde se seznámil s počítači i programováním. Později se účastnil i aktivit v rámci 602. ZO Svazarmu, v rámci kterého vytvořil i tehdy populární programovací jazyk <i>Karel</i>.",
         photo: {
-            url: "/interviews/tomas-bartovsky.jpg",
+            url: "/static/interviews/tomas-bartovsky.jpg",
         }
     },
     interview: {

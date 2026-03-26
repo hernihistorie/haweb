@@ -20,7 +20,7 @@ export const data: InterviewData = {
         gender: "F",
         bio: "Kamila Hurníková se narodila roku 1978. Studovala na Obchodní akademii, kde se potkala svými třemi kolegy, s kterými v následujících letech založila společnost <em>Sleep Team</em> v rámci které se podílela na první hře <em>Polda</em>. Po <em>Poldovi</em> dělala na hře <em>Bulánci</em>, na několika malých hříčkách distribuovaných v rámci platformy IWannaPlay nebo na <em>Buláncích 2</em>. Zároveň stála u založení GDA, České hry roku, GDS apod.",
         photo: {
-            url: "/interviews/kamila-hurnikova.jpg",
+            url: "/static/interviews/kamila-hurnikova.jpg",
         }
     },
     interview: {
