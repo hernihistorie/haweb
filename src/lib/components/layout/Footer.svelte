@@ -1,12 +1,17 @@
 <script>
     import Loc from '$lib/components/Loc.svelte';
     import { localizeHref } from '$lib/paraglide/runtime';
+	import BulletPoint from '../BulletPoint.svelte';
 </script>
 
 <footer data-pagefind-ignore>
     <div>
         <a href={localizeHref("/contact")}>
             <Loc cs="Kontaktujte nás" en="Contact us" />
+        </a>
+        <BulletPoint />
+        <a href={localizeHref("/support")}>
+            <Loc cs="Podpořte nás" en="Support us" />
         </a>
     </div>
     <div>
