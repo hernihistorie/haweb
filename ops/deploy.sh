@@ -2,7 +2,7 @@
 set -e
 echo 'Launching deploy script for haweb'
 
-DEPLOY_BRANCH="adapter-node"
+DEPLOY_BRANCH="master"
 
 ssh -t hhbox.hernihistorie.cz "
     echo 'Please enter password for $USER@hhbox.hernihistorie.cz' &&
