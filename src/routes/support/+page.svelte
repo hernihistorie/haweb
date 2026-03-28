@@ -153,10 +153,20 @@
         <Loc>
             {#snippet cs()}
                 Případně můžete sami zaslat částku na náš transparentní účet s číslem:<br>
-                <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong>
+                <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong><br>
+                <br>
+                Údaje pro mezinárodní platbu:<br>
+                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
+                <strong>BIC:</strong> AGBACZPP<br>
+                <strong>Příjemce</strong>: Herní historie, z.s.<br>
+                <strong>Adresa</strong>: Sportovní 1552/10a, 10100 Praha 10, Czech Republic
+                <br>
             {/snippet}
             {#snippet en()}
                 Alternatively, you can send your contribution using the following SEPA bank account details:<br>
+                <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong><br>
+                <br>
+                International(SEPA) transfer details:<br>
                 <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
                 <strong>BIC:</strong> AGBACZPP<br>
                 <strong>Recipient</strong>: Herní historie, z.s.<br>
