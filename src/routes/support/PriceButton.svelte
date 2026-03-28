@@ -2,10 +2,11 @@
 
     interface Props {
         value: string;
+        currencyName: string;
         amount: any;
     }
 
-    let { value, amount }: Props = $props();
+    let { value, currencyName, amount }: Props = $props();
 
     let active = $state(false);
 
@@ -19,5 +20,5 @@
     onclick={() => amount.set(value)}
     class={active ? "active" : ""}
 >
-    {value} Kč
+    {value} {currencyName}
 </button>

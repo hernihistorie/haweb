@@ -7,6 +7,7 @@
     import qrcode from 'qrcode';
 	import PriceButton from "./PriceButton.svelte";
 	import Loc from "$lib/components/Loc.svelte";
+	import { loc } from "$src/lib/loc";
 
     const qrCodeOptions = {
         width: 1200,
@@ -16,7 +17,9 @@
     const DEFAULT_AMOUNT = '100';
     const amount = writable(DEFAULT_AMOUNT);
     let customValueActive = $state(false);
-    let qrCodeUrl: string = $state();
+    let qrCodeUrl: string | undefined = $state();
+    let customValueText = loc({cs: "Vlastní hodnota", en: "Custom value"});
+    let currencyName = loc({cs: "Kč", en: "CZK"});
 
     let payment = {
         acc: 'CZ6406000000008686868686',
@@ -44,7 +47,7 @@
 
     function clickCustomValue(ev: Event) {
         const el = ev.target as HTMLInputElement;
-        if (el.value == 'Vlastní hodnota' || el.value == '') {
+        if (el.value == customValueText || el.value == '') {
             el.value = "";
 
             document.getElementById('currency').style.visibility = 'visible';
@@ -116,17 +119,17 @@
         />
     </p>
     <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap;">
-        <PriceButton value="100" {amount} />
-        <PriceButton value="300" {amount} />
-        <PriceButton value="600" {amount} />
-        <PriceButton value="1000" {amount} />
+        <PriceButton value="100" {currencyName} {amount} />
+        <PriceButton value="300" {currencyName} {amount} />
+        <PriceButton value="600" {currencyName} {amount} />
+        <PriceButton value="1000" {currencyName} {amount} />
         <div style="display: flex;">
             <input
                 id="customValue"
                 type="text"
                 pattern="[0-9]*"
                 inputmode="numeric"
-                value="Vlastní hodnota"
+                value={customValueText}
                 onclick={clickCustomValue}
                 onfocus={clickCustomValue}
                 oninput={inputCustomValue}
@@ -139,7 +142,7 @@
                 id="currency"
                 onclick={() => document.getElementById('customValue')?.focus()}
             >
-                Kč
+                {currencyName}
             </div>
         </div>
     </div>
@@ -163,10 +166,10 @@
                 <br>
             {/snippet}
             {#snippet en()}
-                Alternatively, you can send your contribution using the following SEPA bank account details:<br>
+                Alternatively, you can send your contribution to our transparent bank account with number:<br>
                 <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong><br>
                 <br>
-                International(SEPA) transfer details:<br>
+                International (SEPA) bank transfer details:<br>
                 <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
                 <strong>BIC:</strong> AGBACZPP<br>
                 <strong>Recipient</strong>: Herní historie, z.s.<br>
