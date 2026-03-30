@@ -3,7 +3,7 @@
 	"version": "0.2.0",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && pagefind --site build",
+		"build": "vite build && pagefind --site build --output-subdir client/pagefind",
 		"preview": "vite preview",
 		"serve-static": "python -m http.server build",
 		"test": "playwright test",
