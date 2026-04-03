@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { blogPosts } from '$src/data/blog_posts';
 import type { LanguageCode } from '$src/types';
+import { toPlainDateTime } from './datetime';
 
 const SITE_URL = 'https://herniarchiv.cz';
 
@@ -33,8 +34,10 @@ interface FeedConfig {
     feedPath: string;
 }
 
-function plainDateToISOString(date: Temporal.PlainDate): string {
-    // Convert PlainDate to full ISO datetime string (midnight UTC)
+function dateToISOString(date: Temporal.PlainDate | Temporal.PlainDateTime): string {
+    if (date instanceof Temporal.PlainDateTime) {
+        return `${date.toString()}Z`;
+    }
     return `${date.toString()}T00:00:00Z`;
 }
 
@@ -43,11 +46,11 @@ export function generateAtomFeed(config: FeedConfig): string {
     
     const latestPosts = [...blogPosts]
         .filter(post => post.date)
-        .sort((a, b) => Temporal.PlainDate.compare(b.date!, a.date!))
+        .sort((a, b) => Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)))
         .slice(0, 10);
 
     const lastUpdated = latestPosts[0]?.date 
-        ? plainDateToISOString(latestPosts[0].date) 
+        ? dateToISOString(latestPosts[0].date) 
         : new Date().toISOString();
 
     return `<?xml version="1.0" encoding="utf-8"?>
@@ -70,7 +73,7 @@ ${latestPosts.map(post => {
             ? (post.description_html?.en ?? post.description_html?.cs ?? '') 
             : (post.description_html?.cs ?? post.description_html?.en ?? ''));
     const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : '';
-    const date = post.date ? plainDateToISOString(post.date) : new Date().toISOString();
+    const date = post.date ? dateToISOString(post.date) : new Date().toISOString();
     
     return `    <entry>
         <title>${postTitle}</title>

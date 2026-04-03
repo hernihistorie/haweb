@@ -99,3 +99,10 @@ export function isPartialDateDifferentOrMorePrecise(
 
     return false;
 }
+export function toPlainDateTime(date: Temporal.PlainDate | Temporal.PlainDateTime): Temporal.PlainDateTime {
+	if (date instanceof Temporal.PlainDateTime) return date;
+	return date.toPlainDateTime();
+}export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
+	return Temporal.PlainDateTime.compare(toPlainDateTime(date), Temporal.Now.plainDateTimeISO()) <= 0;
+}
+
