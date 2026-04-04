@@ -1,7 +1,7 @@
 <script lang="ts">
-  import LegacyEmbed from '$src/lib/components/RHInventoryEmbed.svelte';
-  
-  const { data } = $props();
+    import LegacyEmbed from '$src/lib/components/RHInventoryEmbed.svelte';
+
+    const { data } = $props();
 </script>
 
 <svelte:head>

@@ -3,6 +3,8 @@ const RHINVENTORY_URL = 'https://inventory.herniarchiv.cz/';
 import { error } from '@sveltejs/kit';
 import { parse } from 'node-html-parser';
 
+export const prerender = false;
+
 export async function load({ params, url }) {
     // remove trailing slash from path
     const path = params.path.endsWith('/') ? params.path.slice(0, -1) : params.path;
@@ -12,7 +14,7 @@ export async function load({ params, url }) {
     console.log(`Fetching from rhinventory: ${target.href}`);
 
     const res = await fetch(target);
-    
+
     if (!res.ok) {
         if (res.status === 404) {
             return error(404, 'Page not found');
