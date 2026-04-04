@@ -1,9 +1,9 @@
 <script lang="ts">
-  const { html } = $props();
+    const { html } = $props();
 
-  let host: HTMLElement | undefined = $state();
+    let host: HTMLElement | undefined = $state();
 
-  const shadowContent = (html: string) => `
+    const shadowContent = (html: string) => `
     <link href="https://inventory.herniarchiv.cz/static/admin/bootstrap/bootstrap2/swatch/default/bootstrap.min.css?v=2.3.2" rel="stylesheet">
     <link href="https://inventory.herniarchiv.cz/static/admin/bootstrap/bootstrap2/css/bootstrap-responsive.css?v=2.3.2" rel="stylesheet">
     <link href="https://inventory.herniarchiv.cz/static/admin/admin/css/bootstrap2/admin.css?v=1.1.1" rel="stylesheet">
@@ -13,31 +13,34 @@
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"><\/script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <style>
-      .glyphicon.fa::before { content: ""; }
-      .faded { opacity: 0.15; }
-      .plain { border: none; background: none; }
-      .ha-header { display: none !important; }
-      #rhinventory-html { font-size: 80%; }
-      #selected { display: none; }
+        .glyphicon.fa::before { content: ""; }
+        .faded { opacity: 0.15; }
+        .plain { border: none; background: none; }
+        .ha-header { display: none !important; }
+        #rhinventory-html { font-size: 80%; }
+        #selected { display: none; }
+        .rhinventory-login-link { display: none; }
     <\/style>
     <div id="rhinventory-html">${html}</div>
-  `;
+    `;
     let initialized = false;
 
-  $effect(() => {
-    const content = shadowContent(html);
-    if (!host || !initialized) {
-      initialized = true;
-      return;
-    }
-    const shadow = host.shadowRoot ?? host.attachShadow({ mode: 'open' });
-    const existing = shadow.getElementById('rhinventory-html');
-    if (existing) {
-      existing.innerHTML = html; // only swap the content, not the stylesheets
-    } else {
-      shadow.innerHTML = content; // first time $effect takes over without a shadowRoot
-    }
-  });
+    $effect(() => {
+        const content = shadowContent(html);
+        if (!host) return;
+        if (!initialized) {
+            initialized = true;
+            if (host.shadowRoot) return; // declarative shadow DOM handled it, don't touch
+            // no shadowRoot means we're on a back navigation — fall through and create it
+        }
+        const shadow = host.shadowRoot ?? host.attachShadow({ mode: 'open' });
+        const existing = shadow.getElementById('rhinventory-html');
+        if (existing) {
+            existing.innerHTML = html;
+        } else {
+            shadow.innerHTML = content;
+        }
+    });
 </script>
 
 <div bind:this={host}>
