@@ -6,6 +6,7 @@
 	import LogoBlock from "$src/lib/components/LogoBlock.svelte";
 	import type { Logo } from "$src/lib/logo";
 	import H4Anchor from "$src/lib/components/H4Anchor.svelte";
+	import H2Anchor from "$src/lib/components/H2Anchor.svelte";
 
     const partners: {title: string; logo?: Logo; url: string}[] = [
         {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
@@ -30,12 +31,7 @@
 }} />
 
 <article class="thin">
-    <h2>
-        <Loc
-            cs="O nás"
-            en="About Us"
-        />
-    </h2>
+    <H2Anchor text={loc({cs: "O nás", en: "About Us"})} />
     <p>
         <Loc>
             {#snippet cs()}
@@ -53,12 +49,7 @@
 </article>
 
 <article class="thin">
-    <h2>
-        <Loc
-            cs="Mise a cíle"
-            en="Missions and goals"
-        />
-    </h2>
+    <H2Anchor text={loc({cs: "Mise a cíle", en: "Missions and goals"})} />
     <Loc>
         {#snippet cs()}
             <p>
@@ -102,12 +93,7 @@
 </article>
 
 <article class="thin">
-    <h2>
-        <Loc
-            cs="Spolupracující instituce a projekty"
-            en="Collaborating institutions and projects"
-        />
-    </h2>
+    <H2Anchor text={loc({cs: "Spolupracující instituce a projekty", en: "Collaborating institutions and projects"})} />
 
     <Loc>
         {#snippet cs()}
@@ -130,12 +116,7 @@
 </article>
 
 <article class="thin qa">
-    <h2>
-        <Loc
-            cs="Q&A"
-            en="Q&A"
-        />
-    </h2>
+    <H2Anchor text="Q&A" />
 
     <Loc>
         {#snippet cs()}

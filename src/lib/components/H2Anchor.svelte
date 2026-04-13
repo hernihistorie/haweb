@@ -9,4 +9,4 @@
     const { text, ...restProps }: Props = $props();
 </script>
 
-<HeadingAnchor tag="h4" {text} {...restProps} />
+<HeadingAnchor tag="h2" {text} {...restProps} />
