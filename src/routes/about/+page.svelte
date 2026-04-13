@@ -5,6 +5,7 @@
 	import { loc } from "$src/lib/loc";
 	import LogoBlock from "$src/lib/components/LogoBlock.svelte";
 	import type { Logo } from "$src/lib/logo";
+	import H4Anchor from "$src/lib/components/H4Anchor.svelte";
 
     const partners: {title: string; logo?: Logo; url: string}[] = [
         {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
@@ -138,13 +139,13 @@
 
     <Loc>
         {#snippet cs()}
-            <h4>Mám materiály týkající se her – mohu vám je věnovat?</h4>
+            <H4Anchor text="Mám materiály týkající se her – mohu vám je věnovat?" />
             <p>
                 Ano! Ačkoliv nemáme kapacitu přijímat všechny materiály týkající se her tak nás můžete zkusit kontaktovat na email <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>, jestli bychom o obsah vaší sbírky neměli zájem.
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>I have materials related to games – can I donate them to you?</h4>
+            <H4Anchor text="I have materials related to games – can I donate them to you?" />
             <p>
                 Yes! Although we don't have the capacity to accept all game-related materials, you can try contacting us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a> to see if we would be interested in the contents of your collection.
             </p>
@@ -152,13 +153,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Mohu navštívit váš fyzický archiv?</h4>
+            <H4Anchor text="Mohu navštívit váš fyzický archiv?" />
             <p>
                 V současnosti je naše fyzická sbírka přístupná pouze pro badatele. Pokud máte zájem o návštěvu archivu za badatelským účelem, kontaktujte nás na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>Can I visit your physical archive?</h4>
+            <H4Anchor text="Can I visit your physical archive?" />
             <p>
                 Currently, our physical collection is only accessible to researchers. If you are interested in visiting the archive for research purposes, please contact us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
@@ -166,13 +167,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Mohu vás nějak podpořit?</h4>
+            <H4Anchor text="Mohu vás nějak podpořit?" />
             <p>
                 Můžete nás podpořit například odběrem na <a href="https://herohero.co/hernihistorie">HeroHero</a> nebo příspěvkem na <a href={localizeHref('/support')}>náš transparentní účet</a>. Podporovatelé na HeroHero navíc získávají předčasný přístup k některému obsahu, který pro ostatní zveřejňujeme o několik týdnů později. A ačkoliv díky tomu nedostanete předběžný přístup k našemu obsahu, tak budeme moc rádi i když si nastavíte pravidelné příspěvky na náš účet. Jakákoliv pravidelná podpora, i když jde jen o drobné částky, nám totiž pomáhá s dlouhodobým plánováním našeho rozpočtu a investic. 
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>Can I support you somehow?</h4>
+            <H4Anchor text="Can I support you somehow?" />
             <p>
                 You can support us, for example, by subscribing on <a href="https://herohero.co/hernihistorie">HeroHero</a> or by contributing to <a href={localizeHref('/support')}>our transparent bank account</a>. HeroHero supporters also get early access to some content that we publish to others a few weeks later. And although it won't give you early access to our content, we would also be very happy if you set up regular contributions to our account. Any regular support, even small amounts, helps us with long-term budget and investment planning.
             </p>
@@ -180,7 +181,7 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Jak se můžu zapojit?</h4>
+            <H4Anchor text="Jak se můžu zapojit?" />
             <p>
                 Pomoci nám může kdokoliv – dobrovolnická činnost u nás nevyžaduje žádné speciální schopnosti ani znalosti, ale jen chuť se učit nové věci a zapojit se. Dobrovolníci nám pomáhají s celou řadou věcí, například inventarizací a údržbou sbírky, digitalizací herních materiálů, vývojem softwaru, opravou historického hardwaru, přepisem rozhovorů, překladem našich materiálů, pomáhají nám s PR, komunikací nebo administrativou. Tohle ale zdaleka není všechno – jsme otevření i vašim nápadům a tomu, co by vás konkrétně bavilo.
             </p>
@@ -189,7 +190,7 @@
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>How can I get involved?</h4>
+            <H4Anchor text="How can I get involved?" />
             <p>
                 Anyone can help – volunteering with us doesn't require any special skills or knowledge, just a willingness to learn new things and get involved. Volunteers help us with a wide range of tasks, such as inventorying and maintaining the collection, digitizing gaming materials, software development, repairing historical hardware, transcribing interviews, translating our materials, and helping with PR, communications, or administration. But this is far from everything – we are also open to your ideas and what specifically interests you.  Although most of the materials we work with are in the Czech and Slovak languages, we welcome and accomodate members who speak with us in English.
             </p>
@@ -200,13 +201,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Mohu k vám na stáž nebo praxi?</h4>
+            <H4Anchor text="Mohu k vám na stáž nebo praxi?" />
             <p>
                 Určitě! Oceníme pomoc každého šikovného stážisty nebo stážistky. Pokud máte zájem o stáž či praxi v našem spolku tak nás kontaktujte na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>Can I do an internship or work placement with you?</h4>
+            <H4Anchor text="Can I do an internship or work placement with you?" />
             <p>
                 Absolutely! We appreciate the help of every capable intern. If you are interested in an internship or work placement with our association, please contact us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
@@ -214,13 +215,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Kde vás mohu sledovat?</h4>
+            <H4Anchor text="Kde vás mohu sledovat?" />
             <p>
                 Hned na několika místech – máme vlastní <a href="https://www.facebook.com/RetroHerna">Facebook</a>, <a href="https://www.instagram.com/herni.historie/">Instagram</a>, <a href="https://bsky.app/profile/hernihistorie.cz">Bluesky</a>, <a href="https://www.linkedin.com/company/herni-historie">LinkedIn</a>, <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a> a <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. Všude zpravidla týdně postujeme co se nového děje ve spolku. Také máme <a href={localizeHref('/blog')}>vlastní blog</a> nebo se můžete připojit na náš <a href="https://discord.gg/9cJsyrqg">Discord</a>.
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>Where can I follow you?</h4>
+            <H4Anchor text="Where can I follow you?" />
             <p>
                 In many places – we have our own <a href="https://www.facebook.com/RetroHerna">Facebook</a>, <a href="https://www.instagram.com/herni.historie/">Instagram</a>, <a href="https://bsky.app/profile/hernihistorie.cz">Bluesky</a>, <a href="https://www.linkedin.com/company/herni-historie">LinkedIn</a>, <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a>, and <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. We generally post weekly updates about what's happening in the association. We also have <a href={localizeHref('/blog')}>our own blog</a>, or you can join our <a href="https://discord.gg/9cJsyrqg">Discord</a>.
             </p>
@@ -228,13 +229,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Ve vaší databázi časopisů chybí skeny nebo záznamy. Proč?</h4>
+            <H4Anchor text="Ve vaší databázi časopisů chybí skeny nebo záznamy. Proč?" />
             <p>
                 Digitalizace časopisů je dlouhý proces, proto skeny přidáváme postupně. Často také nemůžeme naskenovat vše, protože nám některá čísla časopisů chybí. Pokud v naší databázi naleznete nějaký časopis, ke kterému nám chybí sken či záznam a který byste nám chtěli věnovat, tak budeme rádi když se nám ozvete na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>Your magazine database is missing scans or records. Why?</h4>
+            <H4Anchor text="Your magazine database is missing scans or records. Why?" />
             <p>
                 Digitizing magazines is a long process, so we add scans gradually. We also often cannot scan everything because we are missing some magazine issues. If you find a magazine in our database for which we are missing a scan or record and you would like to donate it, we would be happy to hear from you at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
             </p>
@@ -242,13 +243,13 @@
     </Loc>
     <Loc>
         {#snippet cs()}
-            <h4>Mám i jiné otázky. Kde vás mohu kontaktovat?</h4>
+            <H4Anchor text="Mám i jiné otázky. Kde vás mohu kontaktovat?" />
             <p>
                 <a href={localizeHref('/contact')}>Kontaktní informace naleznete zde.</a>
             </p>
         {/snippet}
         {#snippet en()}
-            <h4>I have other questions. Where can I contact you?</h4>
+            <H4Anchor text="I have other questions. Where can I contact you?" />
             <p>
                 <a href={localizeHref('/contact')}>You can find our contact information here.</a>
             </p>
@@ -269,7 +270,7 @@
     }
     
 
-    .qa h4 {
+    .qa :global(h4) {
         margin-bottom: 0;
 
         border-bottom: 2px solid var(--color-secondary);
