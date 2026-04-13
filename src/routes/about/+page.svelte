@@ -2,6 +2,7 @@
 	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import { loc } from "$src/lib/loc";
 </script>
 
 <Meta title={{
@@ -17,10 +18,18 @@
         />
     </h2>
     <p>
-        <Loc
-            cs="Jsme projekt spolku Herní historie, jehož cílem je zachovávat herní kulturu v rámci České a Slovenské republiky. Naší hlavní činností je katalogizace a archivace všech artefaktů spojených s historií her, jako například časopisy, dobová zařízení nebo média týkající se her. Spolupracujeme s řadou mezinárodních organizací a chceme se zasloužit o to, aby u nás existovala oficiální instituce zastřešující lokální stopu v tomto odvětví kultury."
-            en="We are a project of the Herní historie association, aimed at preserving gaming culture within the Czech and Slovak Republic. Our main activity is cataloging and archiving all artifacts connected to gaming history, such as magazines, period hardware, or game-related media. We collaborate with numerous international organizations and strive to establish an official institution that would oversee the local footprint in this cultural sector."
-        />
+        <Loc>
+            {#snippet cs()}
+                <p>
+                    Jsme projektem spolku Herní historie, jehož cílem je zachovávat herní kulturu v České a Slovenské republice. Naší hlavní činností je katalogizace, archivace a digitalizace artefaktů spojených s historií her – ať už jde o samotné hry, média jako časopisy, dobová zařízení či další související historické artefakty. Věříme, že herní historie nejsou jen dějiny slavných her a velkých vývojářů, ale že tato historie patří nám všem a že i drobné projekty, zapomenuté experimenty a zdánlivě okrajové hry si zaslouží být zachovány.
+                </p>
+            {/snippet}
+            {#snippet en()}
+                <p>
+                    We are a project of the <em>Herní historie</em> (Game History) association, aimed at preserving gaming culture within the Czech and Slovak Republic. Our main activities are cataloging, archiving, and digitizing artifacts connected to gaming history – whether it's the games themselves, media such as magazines, period hardware, or other related historical artifacts. We believe that gaming history is not just about famous games and major developers, but that this history belongs to all of us, and that even small projects, forgotten experiments, and seemingly marginal games deserve to be preserved.
+                </p>
+            {/snippet}
+        </Loc>
     </p>
 </article>
 
@@ -31,73 +40,230 @@
             en="Missions and goals"
         />
     </h2>
-    <p>
-        <Loc
-            cs="Interaktivní zábava je pořád velmi mladý obor. Můžeme sledovat, jak se každým dnem prohlubuje naše poznání herní historie a je potřeba, aby začaly vznikat organizované snahy s cílem prezervace této historie. Věříme, že Česká a Slovenská Republika si zaslouží reprezentaci v mezinárodních snahách, na kterých se často podílíme. Toto nadšení nás vedlo ke spuštění projektu, který se bude snažit zachránit co nejvíce z počátků videoherní kultury u nás."
-            en="Interactive entertainment is still a very young field. We can observe how our understanding of gaming history deepens every day, and it is necessary to make organized efforts aimed at preserving this history. We believe that the Czech and Slovak Republics deserve representation in the international efforts we often contribute to. This enthusiasm has led us to launch a project that will strive to save as much as possible from the early days of gaming culture in our region."
-        />
-    </p>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                Ačkoliv se interaktivní zábava stala zásadní součástí kulturního života téměř poloviny z nás, stále jde o poměrně mladý obor. Navzdory své kulturní relevanci se proto videohrám nedostává stejné péče jako jiným oblastem kultury, například filmu, literatuře nebo výtvarnému umění.
+            </p>
+            
+            <p>
+                Potřeba archivace herní historie přitom není dána jen její kulturní hodnotou, ale také technologickou povahou tohoto média. Digitální data nejsou trvalá. Optické i pevné disky, diskety, audiokazety a další média postupně degradují a mohou přicházet o uložená data. U specializovaných zálohovacích technologií, jako jsou například datové kazety, se navíc postupně vytrácí podpora hardwaru, který je dokáže přečíst. A i v případech, kdy se digitální nosič zachová, může být obnovení dat ze zastaralých formátů technicky velmi náročné.
+            </p>
+            <p>
+                Dějiny her však přesahují samotné médium videoher. Proto je důležité nejen archivovat a zálohovat samotné hry, ale také digitalizovat časopisy, herní literaturu a vizuální materiály, zaznamenávat rozhovory s autory a dalšími pamětníky nebo schraňovat vývojářské materiály.
+            </p>
+            <p>
+                Stejně důležité je také herní historii a snahu o její zachování aktivně popularizovat, navazovat kontakty s podobnými organizacemi a vytvářet podmínky, které usnadní archivaci i navazujícím snahám. Do budoucna bude potřeba, aby vznikla oficiální instituce, která by systematicky zastřešovala naši kulturní stopu v oblasti herní kultury. Jak bude vypadat je otázkou, ale do té doby se budeme snažit prošlapat jí cestu.
+            </p>
+            <p>
+                Z tohoto důvodu se snažíme již dnes historická data shromažďovat, systematicky digitalizovat a vytvářet jejich nové archivní kopie. Nejde nám pouze o to, aby šlo zarchivované hry hrát teď a tady, ale aby si je mohly užívat i budoucí generace. 
+            </p>
 
-    <p>
-        <Loc
-            cs="Časem bude potřeba, aby vznikla oficiální instituce zastřešující naší kulturní stopu v rámci herní kultury. Jak bude vypadat je otázkou, ale do té doby se budeme snažit prošlapat jí cestu. Veškeré materiály a informace schraňujeme kvůli tomu, aby byly přístupné dalším snahám v oboru. Náš záběr je velký, krom fyzické i digitální archivace je potřeba mluvit s autory, získávat vývojářské materiály, budovat kontakty s podobnými organizacemi i zajišťovat, aby tato práce byla jednodušší pro nově vznikající hry."
-            en="Over time, it will be necessary to establish an official institution to represent our cultural footprint within gaming culture. What it will look like is still a question, but until then, we will strive to pave the way for it. We collect all materials and information to ensure they are accessible for future efforts in the field. Our scope is broad: in addition to physical and digital archiving, it is also necessary to talk to creators, acquire development materials, build connections with similar organizations, and ensure this work becomes easier for newly emerging games."
-        />
-    </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                Although interactive entertainment has become a fundamental part of the cultural life of almost half of us, it is still a relatively young field. Despite their cultural relevance, video games do not receive the same care as other areas of culture, such as film, literature, or visual arts.
+            </p>
+            <p>
+                The need to archive gaming history is driven not only by its cultural value, but also by the technological nature of this medium. Digital data is not permanent. Optical disks, hard drives, floppy disks, audio cassettes, and other media gradually degrade and may lose their stored data. For specialized backup technologies, such as data tapes, hardware support for reading them is gradually disappearing. And even when a digital medium is preserved, recovering data from outdated formats can be technically very challenging.
+            </p>
+            <p>
+                The history of games extends beyond the medium of video games itself. Therefore, it is important not only to archive and back up the games themselves, but also to digitize magazines, gaming literature, and visual materials, record interviews with authors and other witnesses, and collect developer materials.
+            </p>
+            <p>
+                Equally important is to actively popularize gaming history and the effort to preserve it, build contacts with similar organizations, and create conditions that facilitate archiving and follow-up efforts. In the future, an official institution will need to be established to systematically oversee our cultural footprint in the field of game culture. What it will look like is an open question, but until then, we will try to pave the way for it.
+            </p>
+            <p>
+                For this reason, we are already working to collect historical data, systematically digitize it, and create new archival copies. Our goal is not only to make archived games playable here and now, but to ensure that future generations can enjoy them too.
+            </p>
+        {/snippet}
+    </Loc>
 
-    <p>
-        <Loc
-            cs="Je jisté, že je to běh na dlouhou trať, ale vidíme v něm smysl. Je vidět, že zájem o hry stále roste a že videohry nabývají na společenské prestiži. Je nám tedy ctí být u tohoto zrodu nového mediálního formátu. Mnoho z nás se hrám věnuje většinu svého života a jsme připraveni věnovat značné usílí tomuto neziskovému projektu. Krom komplexního archivu také zajišťujeme popularizaci historických her a zpřístupňujeme je v autentické podobě v rámci <a href='https://retroherna.org'>RetroHerny</a>."
-            en="It is certain that this is a long-term endeavor, but we see its value. It's clear that interest in games continues to grow and that video games are gaining social prestige. We are proud to be at the emergence of this new media format. Many of us have dedicated most of our lives to gaming, and we are ready to put significant effort into this non-profit project. Alongside maintaining a comprehensive archive, we also work to popularize historical games and make them accessible in their authentic form through <a href='https://retroherna.org'>RetroHerna</a>."
-        />
-    </p>
-
-    <img src="/photos/elektronika.jpg" alt="Fotka časopisů Elektronika">
+    <img src="/photos/elektronika.jpg" alt={loc({cs: "Fotka časopisů Elektronika", en: "Photo of Elektronika magazines"})} />
 </article>
 
 <article class="thin">
     <h2>
         <Loc
-            cs="Služby a technologie"
-            en="Services and technologies"
+            cs="Spolupracující instituce a projekty"
+            en="Collaborating institutions and projects"
         />
     </h2>
-    <p>
-        <Loc
-            cs="V rámci naší archivářské činnosti si klademe za cíl uchovávat materiály a data za pomocí těch nejlepších technologií a nejvyšších současných standardů. Klademe důraz na zálohování nejen dat, ale i metadat, jako je zvolená metoda archivace a další okolnosti. Fyzické materiály skenujeme v nejlepší možné kvalitě a bez ztrátové komprese. Analogová a digitální média zálohujeme pomocí specializovaného hardwaru a dokonce se podílíme na testování a vývoji nových řešení. Kde je to na místě přispíváme výsledky naší činnosti do mezinárodních databází jako je <a href='http://redump.org/'>Redump</a> či <a href='https://no-intro.org/'>No-Intro</a>. Všechny původní kopie a fyzické artefakty uchováváme v inventarizovaném archivu v suchu a za stabilizované teploty."
-            en="As part of our archival activities, we aim to preserve materials and data using the best technologies and the highest current standards. We place emphasis on backing up not only data but also metadata, such as the chosen archiving method and other contextual details. Physical materials are scanned at the highest possible quality and without lossy compression. Analog and digital media are backed up using specialized hardware, and we even contribute to testing and developing new solutions. Where appropriate, we share the results of our work with international databases such as <a href='http://redump.org/'>Redump</a> and <a href='https://no-intro.org/'>No-Intro</a>. All original copies and physical artifacts are stored in a inventoried archive, kept dry and at a stabilized temperature."
-        />
-    </p>
 
-    <p>
-        <Loc
-            cs="Žádné médium není dlouhodobě udržitelné a vhodné na archivaci. Média jako optické mechaniky a pevné disky v průběhu času ztrácejí data; u dedikovaných zálohovacích technologií jako jsou kazety se ztrácí podpora hardwaru, který jej umí číst; a i v případě zachovalých digitálních nosičů může být obnovení dat ze zastaralých formátů složité. Dnes je ten nejvyšší čas data zdigitalizovat a vytvořit nové kopie."
-            en="No medium is sustainable or suitable for long-term archiving. Media such as optical drives and hard disks lose data over time; dedicated backup technologies like tapes lose hardware support for reading them; and even with preserved digital carriers, recovering data from outdated formats can be challenging. Today is the perfect time to digitize the data and create new copies."
-        />
-    </p>
-    <p>
-        <Loc
-            cs={`Ke každému jednotlivému artiklu přistupujeme s největší pečlivostí, a zároveň se běžně podílíme na <a href='${localizeHref('/projects')}'>rozsáhlých archivačních projektech</a>. Rádi pomůžeme právě Vám zachránit data z obskurních médií, či zorganizovat projekt na digitalizaci celého archivu. Neváhejte a <a href='${localizeHref('/contact')}'>kontaktujte nás</a>.`}
-            en={`We approach each individual item with the utmost care and are also regularly involved in <a href='${localizeHref('/projects')}'>extensive archival projects</a>. We are happy to help you rescue data from obscure media or organize a project for digitizing an entire archive. Feel free to <a href='${localizeHref('/contact')}'>contact us</a>.`}
-        />
-    </p>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                Vnímáme jako důležité budovat kontakty a sdílet znalosti a metody s organizacemi, které mají podobné cíle jako ta naše. Spolupracujeme s řadou tuzemských i mezinárodních organizací a dlouhodobě usilujeme o to, aby i u nás vznikla oficiální instituce, která bude systematicky zastřešovat a uchovávat lokální stopu tohoto významného kulturního odvětví.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                We consider it important to build contacts and share knowledge and methods with organizations that have similar goals to ours. We collaborate with numerous domestic and international organizations and continuously strive to establish an official institution that would systematically oversee and preserve the local footprint of this significant cultural sector.
+            </p>
+        {/snippet}
+    </Loc>
 
-    <img src="/photos/diskety.jpg" alt="Fotka disket">
+    <!-- TODO logos -->
+
+    <img src="/photos/diskety.jpg" alt={loc({cs: "Fotka disket", en: "Photo of floppy disks"})} />
 </article>
 
 <article class="thin">
     <h2>
         <Loc
-            cs="Kontakty"
-            en="Contacts"
+            cs="Q&A"
+            en="Q&A"
         />
     </h2>
-    <p>
-        <a href={localizeHref("/contact")}>
-            <Loc
-                cs="Kontaktní informace naleznete zde"
-                en="Contact information can be found here"
-            />
-        </a>
-    </p>
+
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Mám materiály týkající se her – mohu vám je věnovat?</strong>
+            </p>
+            <p>
+                Ano! Ačkoliv nemáme kapacitu přijímat všechny materiály týkající se her tak nás můžete zkusit kontaktovat na email <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>, jestli bychom o obsah vaší sbírky neměli zájem.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>I have materials related to games – can I donate them to you?</strong>
+            </p>
+            <p>
+                Yes! Although we don't have the capacity to accept all game-related materials, you can try contacting us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a> to see if we would be interested in the contents of your collection.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Mohu navštívit váš fyzický archiv?</strong>
+            </p>
+            <p>
+                V současnosti je naše fyzická sbírka přístupná pouze pro badatele. Pokud máte zájem o návštěvu archivu za badatelským účelem, kontaktujte nás na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>Can I visit your physical archive?</strong>
+            </p>
+            <p>
+                Currently, our physical collection is only accessible to researchers. If you are interested in visiting the archive for research purposes, please contact us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Mohu vás nějak podpořit?</strong>
+            </p>
+            <p>
+                Můžete nás podpořit například odběrem na <a href="https://herohero.co/hernihistorie">HeroHero</a> nebo příspěvkem na <a href={localizeHref('/support')}>náš transparentní účet</a>. Podporovatelé na HeroHero navíc získávají předčasný přístup k některému obsahu, který pro ostatní zveřejňujeme o několik týdnů později. A ačkoliv díky tomu nedostanete předběžný přístup k našemu obsahu, tak budeme moc rádi i když si nastavíte pravidelné příspěvky na náš účet. Jakákoliv pravidelná podpora, i když jde jen o drobné částky, nám totiž pomáhá s dlouhodobým plánováním našeho rozpočtu a investic. 
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>Can I support you somehow?</strong>
+            </p>
+            <p>
+                You can support us, for example, by subscribing on <a href="https://herohero.co/hernihistorie">HeroHero</a> or by contributing to <a href={localizeHref('/support')}>our transparent bank account</a>. HeroHero supporters also get early access to some content that we publish to others a few weeks later. And although it won't give you early access to our content, we would also be very happy if you set up regular contributions to our account. Any regular support, even small amounts, helps us with long-term budget and investment planning.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Jak se můžu zapojit?</strong>
+            </p>
+            <p>
+                Pomoci nám může kdokoliv – dobrovolnická činnost u nás nevyžaduje žádné speciální schopnosti ani znalosti, ale jen chuť se učit nové věci a zapojit se. Dobrovolníci nám pomáhají s celou řadou věcí, například inventarizací a údržbou sbírky, digitalizací herních materiálů, vývojem softwaru, opravou historického hardwaru, přepisem rozhovorů, překladem našich materiálů, pomáhají nám s PR, komunikací nebo administrativou. Tohle ale zdaleka není všechno – jsme otevření i vašim nápadům a tomu, co by vás konkrétně bavilo.
+            </p>
+            <p>
+                Chcete se k nám připojit? Kontaktujte nás na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a> nebo se připojte na náš <a href="https://discord.gg/9cJsyrqg">Discord</a>.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>How can I get involved?</strong>
+            </p>
+            <p>
+                Anyone can help – volunteering with us doesn't require any special skills or knowledge, just a willingness to learn new things and get involved. Volunteers help us with a wide range of tasks, such as inventorying and maintaining the collection, digitizing gaming materials, software development, repairing historical hardware, transcribing interviews, translating our materials, and helping with PR, communications, or administration. But this is far from everything – we are also open to your ideas and what specifically interests you.  Although most of the materials we work with are in the Czech and Slovak languages, we welcome and accomodate members who speak with us in English.
+            </p>
+            <p>
+                Want to join us? Contact us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a> or join our <a href="https://discord.gg/9cJsyrqg">Discord</a>.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Mohu k vám na stáž nebo praxi?</strong>
+            </p>
+            <p>
+                Určitě! Oceníme pomoc každého šikovného stážisty nebo stážistky. Pokud máte zájem o stáž či praxi v našem spolku tak nás kontaktujte na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>Can I do an internship or work placement with you?</strong>
+            </p>
+            <p>
+                Absolutely! We appreciate the help of every capable intern. If you are interested in an internship or work placement with our association, please contact us at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Kde vás mohu sledovat?</strong>
+            </p>
+            <p>
+                Hned na několika místech – máme vlastní <a href="https://www.facebook.com/RetroHerna">Facebook</a>, <a href="https://www.instagram.com/herni.historie/">Instagram</a>, <a href="https://bsky.app/profile/hernihistorie.cz">Bluesky</a>, <a href="https://www.linkedin.com/company/herni-historie">LinkedIn</a>, <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a> a <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. Všude zpravidla týdně postujeme co se nového děje ve spolku. Také máme <a href={localizeHref('/blog')}>vlastní blog</a> nebo se můžete připojit na náš <a href="https://discord.gg/9cJsyrqg">Discord</a>.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>Where can I follow you?</strong>
+            </p>
+            <p>
+                In many places – we have our own <a href="https://www.facebook.com/RetroHerna">Facebook</a>, <a href="https://www.instagram.com/herni.historie/">Instagram</a>, <a href="https://bsky.app/profile/hernihistorie.cz">Bluesky</a>, <a href="https://www.linkedin.com/company/herni-historie">LinkedIn</a>, <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a>, and <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. We generally post weekly updates about what's happening in the association. We also have <a href={localizeHref('/blog')}>our own blog</a>, or you can join our <a href="https://discord.gg/9cJsyrqg">Discord</a>.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Ve vaší databázi časopisů chybí skeny nebo záznamy. Proč?</strong>
+            </p>
+            <p>
+                Digitalizace časopisů je dlouhý proces, proto skeny přidáváme postupně. Často také nemůžeme naskenovat vše, protože nám některá čísla časopisů chybí. Pokud v naší databázi naleznete nějaký časopis, ke kterému nám chybí sken či záznam a který byste nám chtěli věnovat, tak budeme rádi když se nám ozvete na <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>Your magazine database is missing scans or records. Why?</strong>
+            </p>
+            <p>
+                Digitizing magazines is a long process, so we add scans gradually. We also often cannot scan everything because we are missing some magazine issues. If you find a magazine in our database for which we are missing a scan or record and you would like to donate it, we would be happy to hear from you at <a href="mailto:info@herniarchiv.cz">info@herniarchiv.cz</a>.
+            </p>
+        {/snippet}
+    </Loc>
+    <Loc>
+        {#snippet cs()}
+            <p>
+                <strong>Mám i jiné otázky. Kde vás mohu kontaktovat?</strong>
+            </p>
+            <p>
+                <a href={localizeHref('/contact')}>Kontaktní informace naleznete zde.</a>
+            </p>
+        {/snippet}
+        {#snippet en()}
+            <p>
+                <strong>I have other questions. Where can I contact you?</strong>
+            </p>
+            <p>
+                <a href={localizeHref('/contact')}>You can find our contact information here.</a>
+            </p>
+        {/snippet}
+    </Loc>
 </article>
