@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CatalogMagazine, MagazineInfo, MissListMagazine } from "$src/lib/magdb";
 	import { localizeHref } from "$src/lib/paraglide/runtime";
-	import MagazineLogo from "./MagazineLogo.svelte";
+	import Logo from "../Logo.svelte";
 
     const {
         magazine,
@@ -24,7 +24,7 @@
     {/if}
     <div class="magazine-logo-wrapper">
         {#if magazine.logos && magazine.logos.length > 0}
-            <MagazineLogo logo={magazine.logos[0]} {magazine} />
+            <Logo logo={magazine.logos[0]} title={magazine.title} />
         {/if}
     </div>
     <!-- TODO year range -->

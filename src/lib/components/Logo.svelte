@@ -2,19 +2,19 @@
     import Lazy from 'svelte-lazy';
 	import type { Logo } from "$src/lib/magdb";
 
-    const data: {logo: Logo, magazine: {title: string}} = $props();
+    const data: {logo: Logo, title: string} = $props();
 </script>
 
 <Lazy keep={true}>
     <img
         src={"https://casopisy.herniarchiv.cz/" + data.logo.url}
-        alt={data.magazine.title + " - Logo"}
-        class={`magazine-logo magazine-logo-bg-${data.logo.background_color}`}
+        alt={data.title + " - Logo"}
+        class={`logo logo-bg-${data.logo.background_color}`}
     >
 </Lazy>
 
 <style>
-    .magazine-logo {
+    .logo {
         box-sizing: border-box;
         /* filter: drop-shadow(-3px -3px 0 #eee) drop-shadow(3px -3px 0 #eee) drop-shadow(-3px 3px 0 #eee) drop-shadow(3px 3px 0 #eee); */
         /* background: rgb(154, 154, 154); */
@@ -25,15 +25,15 @@
         transition: background-color 0.3s;
     }
 
-    :global(html[data-theme="dark"]) .magazine-logo-bg-light {
+    :global(html[data-theme="dark"]) .logo-bg-light {
         background-color: #fff;
     }
 
-    :global(html[data-theme="light"]) .magazine-logo-bg-dark {
+    :global(html[data-theme="light"]) .logo-bg-dark {
         background-color: #000;
     }
 
-    .magazine-logo-bg-gray {
+    .logo-bg-gray {
         background-color: #999;
     }
 </style>

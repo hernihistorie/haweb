@@ -1,6 +1,6 @@
 <script lang="ts">
     import Loc from '$src/lib/components/Loc.svelte';
-	import MagazineLogo from '$src/lib/components/magazines/MagazineLogo.svelte';
+	import Logo from '$src/lib/components/Logo.svelte';
 	import PipeList from '$src/lib/components/PipeList.svelte';
 	import type { MagazineInfo } from '$src/lib/magdb';
 
@@ -11,7 +11,7 @@
 <div class="logo-years">
     <div class="magazine-logo-wrapper">
         {#if magazine.logos && magazine.logos.length > 0}
-            <MagazineLogo logo={magazine.logos[0]} magazine={magazine} />
+            <Logo logo={magazine.logos[0]} title={magazine.title} />
         {/if}
     </div>
     <div class="years {displayedYear ? 'with-selected' : ''}">

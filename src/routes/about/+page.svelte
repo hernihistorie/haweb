@@ -104,8 +104,6 @@
     </Loc>
 
     <!-- TODO logos -->
-
-    <img src="/photos/diskety.jpg" alt={loc({cs: "Fotka disket", en: "Photo of floppy disks"})} />
 </article>
 
 <article class="thin">
@@ -266,4 +264,6 @@
             </p>
         {/snippet}
     </Loc>
+
+    <img src="/photos/diskety.jpg" alt={loc({cs: "Fotka disket", en: "Photo of floppy disks"})} />
 </article>
