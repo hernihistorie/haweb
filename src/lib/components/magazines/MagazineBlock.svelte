@@ -13,7 +13,7 @@
 
     $effect(() => {
         magazine.logos?.forEach(logo => {
-            logo.url = `https://casopisy.herniarchiv.cz/${logo.url}`;
+            logo.url = logo.url.startsWith('/') ? `https://casopisy.herniarchiv.cz/${logo.url}` : logo.url;
         });
     });
 </script>
