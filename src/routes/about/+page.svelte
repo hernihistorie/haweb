@@ -8,7 +8,7 @@
 
     const partners: {title: string; logo?: Logo; url: string}[] = [
         {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
-        {title: "Pixelarchiv.cz", logo: {url: "/images/logos/pixelarchiv.svg", background_color: 'dark'}, url: "https://nfa.cz/pixelarchiv/home"},
+        {title: "Pixelarchiv.cz", logo: {url: "/images/logos/pixelarchiv.svg", background_color: 'dark'}, url: "https://nfa.cz/pixelarchiv/cs"},
         {title: "EFGAMP", logo: {url: "/images/logos/logo-efgamp-white.png", background_color: 'dark'}, url: "https://efgamp.eu/"},
         {title: "Česko-Slovenský Speccy Archiv", url: "https://cs.speccy.cz/"},
         {title: "Herní archeolog", url: "https://www.herniarcheolog.cz/"},
