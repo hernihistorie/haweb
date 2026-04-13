@@ -1,6 +1,7 @@
 // common
 
 import type { LocalizedString } from "$src/types";
+import type { Logo } from "./logo";
 
 export type IssueStatus = 
   | "have"
@@ -17,17 +18,6 @@ export type MagazinePeriodicity =
   | "q" // quarterly
   | "a" // annually
   | "np" // non_periodical
-
-export type LogoBackgroundColor =
-  | "light"
-  | "dark"
-  | "gray"
-  | null;
-
-export type Logo = {
-  url: string;
-  background_color: LogoBackgroundColor;
-};
 
 export type MagDBFile = {
   path: string;

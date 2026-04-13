@@ -1,8 +1,26 @@
-<script>
+<script lang="ts">
 	import Meta from "$src/lib/components/layout/Meta.svelte";
 	import Loc from "$lib/components/Loc.svelte";
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { loc } from "$src/lib/loc";
+	import LogoBlock from "$src/lib/components/LogoBlock.svelte";
+	import type { Logo } from "$src/lib/logo";
+
+    const partners: {title: string; logo?: Logo; url: string}[] = [
+        {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
+        {title: "Pixelarchiv.cz", logo: {url: "/images/logos/pixelarchiv.svg", background_color: 'dark'}, url: "https://nfa.cz/pixelarchiv/home"},
+        {title: "EFGAMP", logo: {url: "/images/logos/logo-efgamp-white.png", background_color: 'dark'}, url: "https://efgamp.eu/"},
+        {title: "Česko-Slovenský Speccy Archiv", url: "https://cs.speccy.cz/"},
+        {title: "Herní archeolog", url: "https://www.herniarcheolog.cz/"},
+        {title: "Gaming Alexandria", logo: {url: "/images/logos/gaming-alexandria.png", background_color: 'light'}, url: "https://www.gamingalexandria.com/"},
+        {title: "VGHF", logo: {url: "/images/logos/Video_Game_History_Foundation_logo.svg", background_color: 'dark'}, url: "https://gamehistory.org/"},
+        // {title: "Oldgames.sk*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
+        // {title: "Visiongame*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
+        // {title: "Arcadehry*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
+        // {title: "Oldcomp.cz*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
+        // {title: "Bytefest", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
+
+    ];
 </script>
 
 <Meta title={{
@@ -103,7 +121,11 @@
         {/snippet}
     </Loc>
 
-    <!-- TODO logos -->
+    <div class="logos">
+        {#each partners as partner}
+            <LogoBlock entity={partner} />
+        {/each}
+    </div>
 </article>
 
 <article class="thin">
@@ -267,3 +289,14 @@
 
     <img src="/photos/diskety.jpg" alt={loc({cs: "Fotka disket", en: "Photo of floppy disks"})} />
 </article>
+
+<style>
+    .logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5em;
+        justify-content: flex-start;
+        flex-grow: 0;
+        margin: auto;
+    }
+</style>

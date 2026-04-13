@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368.5 56.69">
+<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg"  width="368.5mm" height="56.69mm" viewBox="0 0 368.5 56.69">
   <defs>
-    <style>
+    <style> 
       .cls-1 {
         fill: #ffffff;
       }

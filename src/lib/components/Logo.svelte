@@ -1,13 +1,13 @@
 <script lang="ts">
     import Lazy from 'svelte-lazy';
-	import type { Logo } from "$src/lib/magdb";
+	import type { Logo } from "$src/lib/logo";
 
     const data: {logo: Logo, title: string} = $props();
 </script>
 
 <Lazy keep={true}>
     <img
-        src={"https://casopisy.herniarchiv.cz/" + data.logo.url}
+        src={data.logo.url}
         alt={data.title + " - Logo"}
         class={`logo logo-bg-${data.logo.background_color}`}
     >
