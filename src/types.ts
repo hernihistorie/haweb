@@ -91,6 +91,7 @@ export interface BlogPost {
     english_translation_date?: Temporal.PlainDate | Temporal.PlainDateTime;
     author: Author;
     description_html?: LocalizedString;
+    bufferPostId?: string;
 }
 
 export interface BlogPostSeries {

@@ -94,7 +94,7 @@ async function getToken(): Promise<string> {
 
 // ── Blog post generation ───────────────────────────────────────────────────
 
-function generateBlogPostTs(id: number, slug: string, title: string, description: string, dueAt: string | null, imageUrl?: string): string {
+function generateBlogPostTs(id: number, slug: string, title: string, description: string, dueAt: string | null, bufferPostId: string, imageUrl?: string): string {
     const date = dueAt ? new Date(dueAt) : new Date();
     const y = date.getFullYear();
     const m = date.getMonth() + 1;
@@ -118,6 +118,7 @@ const blogPost: BlogPost = {
     date: new Temporal.PlainDateTime(${y}, ${m}, ${d}, ${h}, ${min}),
     author: authors.HerniHistorie,
     description_html: ${JSON.stringify(description)},
+    bufferPostId: '${bufferPostId}',
 };
 
 export default blogPost;
@@ -278,7 +279,7 @@ async function main() {
 
     writeFileSync(
         join(postDir, 'blog_post.ts'),
-        generateBlogPostTs(nextId, slug, title, description, post.dueAt, mainImage)
+        generateBlogPostTs(nextId, slug, title, description, post.dueAt, post.id, mainImage)
     );
 
     writeFileSync(join(postDir, '+page.svelte'), generatePageSvelte(post.text, downloadedImages));
