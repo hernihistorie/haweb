@@ -12,7 +12,7 @@
         {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
         {title: "Pixelarchiv.cz", logo: {url: "/images/logos/pixelarchiv.svg", background_color: 'dark'}, url: "https://nfa.cz/pixelarchiv/cs"},
         {title: "EFGAMP", logo: {url: "/images/logos/logo-efgamp-white.png", background_color: 'dark'}, url: "https://efgamp.eu/"},
-        {title: "Česko-Slovenský Speccy Archiv", url: "https://cs.speccy.cz/"},
+        {title: "Česko-Slovenský Speccy Archiv", logo: {url: "/images/logos/cs.speccy.cz.png"}, url: "https://cs.speccy.cz/"},
         {title: "Herní archeolog", url: "https://www.herniarcheolog.cz/"},
         {title: "Gaming Alexandria", logo: {url: "/images/logos/gaming-alexandria.png", background_color: 'light'}, url: "https://www.gamingalexandria.com/"},
         {title: "VGHF", logo: {url: "/images/logos/Video_Game_History_Foundation_logo.svg", background_color: 'dark'}, url: "https://gamehistory.org/"},
