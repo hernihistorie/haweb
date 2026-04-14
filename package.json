@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@inlang/paraglide-js": "^2.5.0",
+		"@inquirer/prompts": "^8.4.1",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.39.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -23,8 +24,10 @@
 		"@sveltejs/kit": "^2.12.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/cookie": "^0.5.1",
+		"@types/node": "^25.6.0",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
+		"dotenv": "^17.4.2",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.45.1",

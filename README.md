@@ -29,3 +29,9 @@ It will ask for your password on the herniarchiv.cz server.
 ## Contributing
 
 If you think you can improve our website, feel free to open an issue or discuss matters with us on the [RetroHerna + Herní archiv Discord server](https://discord.gg/9jajeqZ).
+
+## Scripts
+CLI to convert scheduled Facebook posts on [https://buffer.com/](Buffer) into blog post source code.  Please edit the source code afterwards to ensure a good fit for the formal style we are using on our blog, and embellish it with components such as `<Arrow />`.
+```bash
+npx tsx scripts/buffer_to_blog.ts
+```
