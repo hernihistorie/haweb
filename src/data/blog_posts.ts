@@ -28,6 +28,14 @@ export const blogPostsById: Record<number, BlogPost> = blogPosts.reduce((acc, po
 	return acc;
 }, {} as Record<number, BlogPost>);
 
+// All blog posts including unpublished/future, for dev preview
+export const allBlogPostsById: Record<number, BlogPost> = Object.values(blogPostModules)
+	.map((module) => module.default)
+	.reduce((acc, post) => {
+		acc[post.id] = post;
+		return acc;
+	}, {} as Record<number, BlogPost>);
+
 export const blogYears: number[] = [...new Set(
 	blogPosts
 		.filter((post) => post.date)

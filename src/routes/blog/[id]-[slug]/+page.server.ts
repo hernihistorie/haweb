@@ -1,11 +1,13 @@
 import { error, redirect } from '@sveltejs/kit';
-import { blogPostsById } from '$src/data/blog_posts';
+import { blogPostsById, allBlogPostsById } from '$src/data/blog_posts';
+import { dev } from '$app/environment';
 import type { PageServerLoad } from './$types';
 import { localizeHref } from '$src/lib/paraglide/runtime';
 import { seriesByBlogPostId, seriesBySlug } from '$src/data/series';
 
 export const load: PageServerLoad = async ({ params }) => {
-	const blogPost = blogPostsById[Number(params.id)];
+	const lookup = dev ? allBlogPostsById : blogPostsById;
+	const blogPost = lookup[Number(params.id)];
 
 	if (!blogPost) {
 		error(404, {

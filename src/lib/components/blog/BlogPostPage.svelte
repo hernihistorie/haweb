@@ -9,6 +9,7 @@
 	import AuthorMedaillon from "./AuthorMedaillon.svelte";
 	import BulletPoint from "../BulletPoint.svelte";
 	import AuthorBio from "./AuthorBio.svelte";
+	import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
 	import { Temporal } from '@js-temporal/polyfill';
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
@@ -73,6 +74,12 @@
     {#snippet content()}
         <div>
             {@render backlinks() }
+            {#if !post.published || (post.date && Temporal.PlainDateTime.compare(post.date, Temporal.Now.plainDateTimeISO()) > 0)}
+                <div class="unpublished-notice">
+                    <CircleAlertIcon />
+                    <Loc cs="Tento příspěvek zatím není publikován." en="This post is not published yet." />
+                </div>
+            {/if}
             <h2>
                 <Loc text={post.title} />
             </h2>
@@ -166,5 +173,13 @@
         .author-date {
             width: 12em;
         }
+    }
+
+    .unpublished-notice {
+        border: 2px solid var(--color-text);
+        padding: 0.5em 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-weight: bold;
     }
 </style>
