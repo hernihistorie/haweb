@@ -9,6 +9,7 @@
 	import AuthorMedaillon from "./AuthorMedaillon.svelte";
 	import BulletPoint from "../BulletPoint.svelte";
 	import AuthorBio from "./AuthorBio.svelte";
+	import { Temporal } from '@js-temporal/polyfill';
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -26,11 +27,19 @@
         series,
         children
     }: Props = $props();
+
+    const postYear = $derived(post.date?.year);
+    const isOlderThanAYear = $derived(post.date
+        ? Temporal.PlainDate.from(post.date).until(Temporal.Now.plainDateISO()).total('days') > 365
+        : false);
+    const blogHref = $derived(isOlderThanAYear && postYear
+        ? localizeHref(`/blog/${postYear}`)
+        : localizeHref('/blog'));
 </script>
 
 {#snippet backlinks()}
-    <a href={localizeHref("/blog")} class="backlink" data-pagefind-ignore>
-        <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />
+    <a href={blogHref} class="backlink" data-pagefind-ignore>
+        <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
     </a>
     {#if !post.author.isDefault }
         <BulletPoint />
