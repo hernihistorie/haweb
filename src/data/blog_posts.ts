@@ -27,3 +27,9 @@ export const blogPostsById: Record<number, BlogPost> = blogPosts.reduce((acc, po
 	acc[post.id] = post;
 	return acc;
 }, {} as Record<number, BlogPost>);
+
+export const blogYears: number[] = [...new Set(
+	blogPosts
+		.filter((post) => post.date)
+		.map((post) => post.date!.year)
+)].sort((a, b) => b - a);

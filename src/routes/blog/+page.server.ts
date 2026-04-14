@@ -1,11 +1,11 @@
-import { blogPosts } from '$src/data/blog_posts';
+import { blogPosts, blogYears } from '$src/data/blog_posts';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	// Return all blog posts in reverse order (newest first)
-	const allBlogPosts = blogPosts.toReversed();
+	const latestBlogPosts = blogPosts.toReversed().slice(0, 3*6);
 
 	return {
-		blogPosts: allBlogPosts
+		blogPosts: latestBlogPosts,
+		blogYears
 	};
 };
