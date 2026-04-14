@@ -110,7 +110,7 @@
 
     <div class="logos">
         {#each partners as partner}
-            <LogoBlock entity={partner} />
+            <LogoBlock entity={partner} target="_blank" />
         {/each}
     </div>
 </article>

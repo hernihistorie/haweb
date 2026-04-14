@@ -6,11 +6,13 @@
     const {
         entity,
         href,
+        target,
         makeLinkProminent = true,
         withTitle = true
     }: {
         entity: {title: string, logos?: LogoType[], logo?: LogoType, url?: string},
         href?: string,
+        target?: string,
         makeLinkProminent?: boolean,
         withTitle?: boolean
     } = $props();
@@ -20,6 +22,7 @@
     class="block"
     class:makeLinkProminent
     href={href ? localizeHref(href) : entity.url ? entity.url : undefined}
+    target={target}
 >
     {#if withTitle}
         <h3 class="title">{entity.title}</h3>
