@@ -259,4 +259,11 @@
         margin-left: 2em;
         margin-top: 0.2em;
     }
+
+    @media (max-width: 600px) {
+        .logos {
+            justify-content: center;
+            gap: 0;
+        }
+    }
 </style>
