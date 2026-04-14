@@ -1,5 +1,7 @@
 <script lang="ts">
     import { localizeHref } from '$lib/paraglide/runtime';
+	import type { LocalizedString } from '$src/types';
+	import { loc } from '../loc';
     let {
         href,
         text = undefined,
@@ -7,7 +9,7 @@
         small = false
     }:{
         href: string,
-        text?: string,
+        text?: LocalizedString,
         children?: import('svelte').Snippet,
         small?: boolean
     }= $props();
@@ -19,7 +21,7 @@
 <a class="arrow" class:small href="{localizedHref}">
     <img src="/ico/ico_arrow.svg" alt="→">
     {#if text}
-        {text}
+        {loc(text)}
     {/if}
     {@render children?.()}
 </a>

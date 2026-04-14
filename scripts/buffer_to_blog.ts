@@ -289,7 +289,7 @@ async function main() {
     if (downloadedImages.length > 0) {
         console.log(`  ${downloadedImages.length} image(s) downloaded to static${imageDir}/`);
     }
-    console.log(`\nView (if you have a dev server running): http://localhost:5174/blog/${slug}`);
+    console.log(`\nView (if you have a dev server running): http://localhost:5174/blog/${dirName}`);
     console.log(`\nNote: The post is created with published: false.`);
     console.log(`Edit the files and set published to true when ready.`);
 }
