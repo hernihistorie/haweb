@@ -109,7 +109,7 @@ import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
 const blogPost: BlogPost = {
-    published: false,
+    published: true,
     id: ${id},
     slug: '${slug}',${imageLine}
     title: {
@@ -291,8 +291,7 @@ async function main() {
         console.log(`  ${downloadedImages.length} image(s) downloaded to static${imageDir}/`);
     }
     console.log(`\nView (if you have a dev server running): http://localhost:5174/blog/${dirName}`);
-    console.log(`\nNote: The post is created with published: false.`);
-    console.log(`Edit the files and set published to true when ready.`);
+    console.log(`\nNote: The post is created with published: true and the scheduled due date.`);
 }
 
 main().catch((err) => {

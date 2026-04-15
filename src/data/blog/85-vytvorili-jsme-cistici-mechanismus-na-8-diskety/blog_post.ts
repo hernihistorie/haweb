@@ -4,7 +4,7 @@ import type { BlogPost } from '$src/types';
 import { authors } from '$src/data/authors';
 
 const blogPost: BlogPost = {
-    published: false,
+    published: true,
     id: 85,
     slug: 'vytvorili-jsme-cistici-mechanismus-na-8-diskety',
     image: '/photos/blog-posts/vytvorili-jsme-cistici-mechanismus-na-8-diskety/vytvorili-jsme-cistici-mechanismus-na-8-diskety_1.jpg',
