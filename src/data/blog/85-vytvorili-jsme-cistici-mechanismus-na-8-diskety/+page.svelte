@@ -3,6 +3,7 @@
     import Figure from "$src/lib/components/Figure.svelte";
 	import Arrow from "$src/lib/components/Arrow.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
+	import Youtube from "svelte-youtube-embed";
 </script>
 
 <PageLang cs en />
@@ -31,6 +32,8 @@
             {/snippet}
         </Loc>
     </p>
+
+    <Youtube id="qM-knfoRGWg" />
     
     <p>
         <Loc>
