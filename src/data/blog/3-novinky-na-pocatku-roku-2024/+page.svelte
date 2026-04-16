@@ -15,7 +15,7 @@
         
     <p>V rámci digitalizace se samozřejmě neomezujeme jen na paměťová média pro osobní počítače. Dlouho dobu se totiž také zabýváme skenováním a digitalizací různých tiskovin – zejména pak herních časopisů, ale také např. <a href={localizeHref("/gallery/emil-fafek/")}>historických fotografií</a>.
         
-    <p>Kromě skenování časopisů jsme také dávali dohromady <a href="https://casopisy.herniarchiv.cz/">jejich databázi</a>.
+    <p>Kromě skenování časopisů jsme také dávali dohromady <a href={localizeHref("/magazines/")}>jejich databázi</a>.
         
     <p>Posledním projektem, na kterém jsme minulý rok začali dělat, byly historické rozhovory s pamětníky z videoherní a počítačové kultury. První rozhovor, který můžete na stránkách Herního archivu nalézt je <a href={localizeHref("/interviews/lubor-kopecky/")}>rozhovor s Luborem Kopeckým</a> – jedním z tvůrců prvního Poldy nebo prvních Bulánků.
     

@@ -136,7 +136,7 @@
                     <img src="https://casopisy.herniarchiv.cz/files/14086/OPSM2.svg">
                 </a>
             </div> -->
-            <Arrow href="https://casopisy.herniarchiv.cz/">
+            <Arrow href={localizeHref("/magazines/")}>
                 <Loc
                     cs="Sledovat vývoj časopisů"
                     en="Track magazine progress"

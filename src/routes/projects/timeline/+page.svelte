@@ -29,7 +29,7 @@
     <TimelineProjectBox project={projectAtariKlubCitov} year={2024} left />
     <TimelineProjectBox project={projectVideostop} year={2024} right />
     
-    <TimelineProjectBox project={{ name: "Orálněhistorické rozhovory", url: "/interviews/" }} year={2023} left>
+    <TimelineProjectBox project={{ name: "Orálněhistorické rozhovory", url: localizeHref("/interviews/") }} year={2023} left>
         Přibíráme mezi archivační techniky i metodu orálněhistorických rozhovorů. Vznikají dle metodiky Národního filmového archivu a naši členové prošli půlročním kurzem. Cílem je zaznamenat od dotazovaného i širší kontext jeho života a směřovat ho jen lehce, aby se ukázala i přirozenost jeho projevu. Hotové rozhovory ještě vyžadují přepis a redakci, ale poté jsou umístěny k <a href={localizeHref("/interviews/")}>veřejnému prohlížení</a>.
     </TimelineProjectBox>
     
@@ -71,7 +71,7 @@
         První akce spoluorganizovaná naším spolkem, která dala prostor Českým vývojářům promluvit o jejich zkušenostech. Oslava lokální herní historie za sebou má dva úspěšné ročníky.
     </TimelineProjectBox>
 
-    <TimelineProjectBox project={{ name: "Sbírka herních tiskovin", url: "https://casopisy.herniarchiv.cz/" }} year={2017} right>
+    <TimelineProjectBox project={{ name: "Sbírka herních tiskovin", url: localizeHref("/magazines/") }} year={2017} right>
         Archiv tištěných materiálů, které jsou skvělým primárním zdrojem. Později jsme se zaměřili na její kompletaci jako náš první velký cíl. V současnosti se jedná pravděpodobně o nejobsáhlejší sbírku u nás.
     </TimelineProjectBox>
 
