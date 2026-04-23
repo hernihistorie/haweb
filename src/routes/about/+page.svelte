@@ -8,20 +8,24 @@
 	import H4Anchor from "$src/lib/components/H4Anchor.svelte";
 	import H2Anchor from "$src/lib/components/H2Anchor.svelte";
 
-    const partners: {title: string; logo?: Logo; url: string}[] = [
+    type Partner = {title: string; logo?: Logo; url: string};
+
+    const partners_cs: Partner[] = [
         {title: "RetroHerna", logo: {url: "/images/logos/retroherna.png"}, url: "https://retroherna.cz/"},
         {title: "Pixelarchiv.cz", logo: {url: "/images/logos/pixelarchiv.svg", background_color: 'dark'}, url: "https://nfa.cz/pixelarchiv/cs"},
-        {title: "EFGAMP", logo: {url: "/images/logos/logo-efgamp-white.png", background_color: 'dark'}, url: "https://efgamp.eu/"},
         {title: "Česko-Slovenský Speccy Archiv", logo: {url: "/images/logos/cs.speccy.cz.png"}, url: "https://cs.speccy.cz/"},
         {title: "Herní archeolog", url: "https://www.herniarcheolog.cz/"},
+        {title: "ByteFEST", logo: {url: "/images/logos/logo-bytefest.png", background_color: 'light'}, url: "https://www.bytefest.cz/"}
+        // {title: "Oldgames.sk*", logo: {url: "/images/logos/TODO.png"}, url: "https://TODO"},
+        // {title: "Visiongame*", logo: {url: "/images/logos/TODO.png"}, url: "https://TODO"},
+        // {title: "Arcadehry*", logo: {url: "/images/logos/TODO.png"}, url: "https://TODO"},
+        // {title: "Oldcomp.cz*", logo: {url: "/images/logos/TODO.png"}, url: "https://TODO"},
+    ];
+
+    const partners_international: Partner[] = [
+        {title: "EFGAMP", logo: {url: "/images/logos/logo-efgamp-white.png", background_color: 'dark'}, url: "https://efgamp.eu/"},
         {title: "Gaming Alexandria", logo: {url: "/images/logos/gaming-alexandria.png", background_color: 'light'}, url: "https://www.gamingalexandria.com/"},
         {title: "VGHF", logo: {url: "/images/logos/Video_Game_History_Foundation_logo.svg", background_color: 'dark'}, url: "https://gamehistory.org/"},
-        // {title: "Oldgames.sk*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
-        // {title: "Visiongame*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
-        // {title: "Arcadehry*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
-        // {title: "Oldcomp.cz*", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
-        // {title: "Bytefest", logo: {url: "/images/logos/pixelarchiv.png"}, url: "https://pixelarchiv.cz/"},
-
     ];
 </script>
 
@@ -109,8 +113,16 @@
         {/snippet}
     </Loc>
 
+    <H4Anchor text={loc({cs: "Místní", en: "Local"})} />
     <div class="logos">
-        {#each partners as partner}
+        {#each partners_cs as partner}
+            <LogoBlock entity={partner} target="_blank" />
+        {/each}
+    </div>
+
+    <H4Anchor text={loc({cs: "Mezinárodní", en: "International"})} />
+    <div class="logos">
+        {#each partners_international as partner}
             <LogoBlock entity={partner} target="_blank" />
         {/each}
     </div>
