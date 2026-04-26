@@ -3,6 +3,7 @@
 	import LucideDownload from "@lucide/svelte/icons/download";
     import Loc from "$lib/components/Loc.svelte";
     import { projectProgramyZCST } from './project';
+	import Meta from "$src/lib/components/layout/Meta.svelte";
 
     let krc = [{id: 1, text: "Program z 1. dílu seriálu generuje n-tice čísel, která se krátce objeví na obrazovce. Na hráčstvu je, aby tato čísla stihlo přečíst.", text_en: "The program from episode 1 of the series generates n-tuples of numbers that briefly appear on the screen. It is up to the player to read these numbers in time."},
                {id: 2, text: "Program z 2. dílu seriálu generuje n-tice znaků, které se krátce objeví na obrazovce. Na hráčstvu je, aby tyto znaky stihlo přečíst.", text_en: "The program from episode 2 of the series generates n-tuples of characters that briefly appear on the screen. It is up to the player to read these characters in time."},
@@ -25,6 +26,8 @@
               {id: 10, program: "Hlavní část programu", program_en: "The main part of the program", text: "Část programu z 10. epizody je stejná jako část vysílaná v první epizodě.", text_en: "The program part from last episode serves as the foundation for the entire program — it holds everything together and also provides the main menu."}
             ]
 </script>
+
+<Meta title={{cs: "Projekt Programy z Československé televize", en: "Project Programs from Czechoslovak Television"}} />
 
 <ProjectPage project={projectProgramyZCST}>
     <div><Loc
