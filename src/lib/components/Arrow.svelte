@@ -20,18 +20,25 @@
 
 <a class="arrow" class:small href="{localizedHref}">
     <img src="/ico/ico_arrow.svg" alt="→">
-    {#if text}
-        {loc(text)}
-    {/if}
-    {@render children?.()}
+    <span class="text">
+        {#if text}
+            {loc(text)}
+        {/if}
+        {@render children?.()}
+    </span>
 </a>
 
 <style>
     .arrow {
-        display: inline-block;
+        display: block;
         text-decoration: none;
         font-size: 24px;
         user-select: none;
+        margin-bottom: 0.3em;
+    }
+
+    .arrow:hover .text {
+        text-decoration: underline;
     }
 
     .arrow img {

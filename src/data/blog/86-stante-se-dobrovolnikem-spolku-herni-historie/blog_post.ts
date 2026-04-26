@@ -12,7 +12,7 @@ const blogPost: BlogPost = {
         cs: "Staňte se dobrovolníkem spolku Herní historie!",
         en: "Become a volunteer for the Herní historie association!"
     },
-    date: new Temporal.PlainDateTime(2026, 4, 29, 8, 25),
+    date: new Temporal.PlainDateTime(2026, 4, 28, 8, 25),
     author: authors.HerniHistorie,
     description_html: {
         cs: "V našem spolku už 11 let pracujeme na popularizaci a zachování tuzemské i zahraniční herní historie. Naše činnost je z podstaty nezisková, a proto se dlouhodobě spoléháme na pomoc dobrovolníků, kteří se aktivitám spolku věnují ve svém volném čase. A právě teď se k nám můžete připojit i vy!",

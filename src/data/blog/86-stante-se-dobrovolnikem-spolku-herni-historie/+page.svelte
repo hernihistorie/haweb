@@ -2,6 +2,7 @@
     import PageLang from "$src/lib/components/PageLang.svelte";
     import Figure from "$src/lib/components/Figure.svelte";
 	import Loc from "$src/lib/components/Loc.svelte";
+	import Arrow from "$src/lib/components/Arrow.svelte";
 </script>
 
 <PageLang cs en />
@@ -22,6 +23,10 @@
             </ul>
             <p>Chcete se zapojit nebo máte otázky? Ozvěte se nám na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a>.</p>
             <p>Budeme rádi za každého, kdo chce pomoct zachovat herní historii pro budoucí generace.</p>
+
+            <Arrow href="mailto:info@hernihistorie.cz">Napište nám email na info@hernihistorie.cz</Arrow>
+            <Arrow href="https://discord.gg/9AwRUfShX5">Přidejte se na náš Discord</Arrow>
+
         {/snippet}
         {#snippet en()}
             <p>
@@ -56,6 +61,9 @@
             </ul>
             <p>Want to get involved or have questions? Get in touch at <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a>.</p>
             <p>We're grateful for anybody who'd like to help preserve game history for future generations.</p>
+
+            <Arrow href="mailto:info@hernihistorie.cz">Send us an email at info@hernihistorie.cz</Arrow>
+            <Arrow href="https://discord.gg/9AwRUfShX5">Join our Discord</Arrow>
         {/snippet}
         </Loc>
 </section>
