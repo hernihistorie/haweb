@@ -131,7 +131,7 @@ function generatePageSvelte(text: string, imagePaths: string[]): string {
         .split(/\n\n+/)
         .map((p) => p.trim())
         .filter(Boolean)
-        .map((p) => `    <p>${p.replace(/\n/g, '<br/>')}</p>`)
+        .map((p) => `            <p>${p.replace(/\n/g, '<br/>')}</p>`)
         .join('\n');
 
     const figures = imagePaths
@@ -141,6 +141,7 @@ function generatePageSvelte(text: string, imagePaths: string[]): string {
     const needsFigure = imagePaths.length > 0;
     const imports = [
         '    import PageLang from "$src/lib/components/PageLang.svelte";',
+        '    import Loc from "$src/lib/components/Loc.svelte";',
         ...(needsFigure ? ['    import Figure from "$src/lib/components/Figure.svelte";'] : []),
     ].join('\n');
 
@@ -151,7 +152,11 @@ ${imports}
 <PageLang cs />
 
 <section>
+    <Loc>
+        {#snippet cs()}
 ${paragraphs}
+        {/snippet}
+    </Loc>
 ${figures ? '\n' + figures + '\n' : ''}</section>
 `;
 }

@@ -27,8 +27,6 @@
             ]
 </script>
 
-<Meta title={{cs: "Projekt Programy z Československé televize", en: "Project Programs from Czechoslovak Television"}} />
-
 <ProjectPage project={projectProgramyZCST}>
     <div><Loc
             cs="<p><strong>Název projektu</strong>: Programy z Československé televize

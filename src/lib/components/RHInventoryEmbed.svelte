@@ -43,6 +43,6 @@
     });
 </script>
 
-<div bind:this={host}>
+<div bind:this={host} id="rhinventory-root">
   {@html `<template shadowrootmode="open">${shadowContent(html)}</template>`}
 </div>
