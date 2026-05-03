@@ -11,6 +11,7 @@
 	import AuthorBio from "./AuthorBio.svelte";
 	import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
 	import { Temporal } from '@js-temporal/polyfill';
+	import { loc } from "$src/lib/loc";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -52,6 +53,19 @@
         </a>
     {/if}
 {/snippet}
+
+<svelte:head>
+    <meta property="og:title" content="{loc(post.title)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:author" content="{loc(post.author.name)}" />
+    {#if post.date}
+        <meta property="og:article:published_time" content="{post.date.toString()}" />
+    {/if}
+    {#if post.description_html}
+        <meta property="og:description" content="{loc(post.description_html)}" />
+    {/if}
+    <meta property="og:locale" content="{getLocale()}" />
+</svelte:head>
 
 <Post title={post.title} published={post.published}>
     {#snippet side()}

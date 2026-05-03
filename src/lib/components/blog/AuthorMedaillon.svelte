@@ -4,7 +4,7 @@
 	import { localizeHref } from '$src/lib/paraglide/runtime';
 	import type { Temporal } from '@js-temporal/polyfill';
 	import BulletPoint from '../BulletPoint.svelte';
-    let { author, date, inline = false }: { author: Author; date?: Temporal.PlainDate; inline?: boolean } = $props();
+    let { author, date, inline = false }: { author: Author; date?: Temporal.PlainDate | Temporal.PlainDateTime; inline?: boolean } = $props();
 </script>
 
 <div class:inline={inline}>
