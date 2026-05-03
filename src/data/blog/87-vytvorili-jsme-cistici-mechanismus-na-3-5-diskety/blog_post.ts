@@ -11,7 +11,7 @@ const blogPost: BlogPost = {
     title: {
         cs: "Vytvořili jsme čistící mechanismus na 3,5″ diskety",
     },
-    date: new Temporal.PlainDateTime(2026, 5, 3, 8, 15),
+    date: new Temporal.PlainDateTime(2026, 5, 5, 8, 15),
     author: authors.HerniHistorie,
     description_html: "Vytvořili jsme čistící mechanismus na 3,5″ diskety Stejně jako u 8″ disketovek tak i k 3,5″ disketetám jsme ve spolupráci s Birdbrain vytvořili mechanismus na jejich čištění.",
     bufferPostId: '69f3eb99639a311a400956a2',
