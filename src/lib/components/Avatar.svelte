@@ -32,7 +32,7 @@
         height: 150px;
         border-radius: 50%;
         object-fit: cover;
-        margin-bottom: 8px;
+        /* margin-bottom: 8px; */
         border: 4px solid var(--color-secondary);
         background: var(--color-bg);
     }
