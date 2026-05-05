@@ -18,7 +18,7 @@
     export let data: InterviewData;
 </script>
 
-<Post title={data.title} stickySide class="interview-page">
+<Post title={data.title} stickySide class="interview-page" published={true}>
     {#snippet side()}
         <div class="side">
             {#if data.narrator.photo }

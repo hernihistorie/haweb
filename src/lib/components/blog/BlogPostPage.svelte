@@ -67,7 +67,7 @@
     <meta property="og:locale" content="{getLocale()}" />
 </svelte:head>
 
-<Post title={post.title} published={post.published}>
+<Post title={post.title} published={post.published ?? false}>
     {#snippet side()}
         <div class="side">
             <div class="author-date">

@@ -4,7 +4,7 @@
 
     interface Props {
         title: LocalizedString;
-        published?: boolean;
+        published: boolean;
         side?: import('svelte').Snippet;
         content?: import('svelte').Snippet;
         stickySide?: boolean;
