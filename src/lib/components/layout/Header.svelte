@@ -91,7 +91,7 @@
 			</BurgerMenu>
 		</div>
 		<ul class="language-select">
-			<li>
+			<li class="social-media-links">
 				<SocialMediaLinks />
 			</li>
 			<li>
@@ -187,6 +187,10 @@
 	li {
 		padding: 0 27px 0 27px;
 		border-left: 1px solid var(--color-secondary);
+	}
+
+	.social-media-links {
+		padding-top: 0.4em;
 	}
 
 	.active {

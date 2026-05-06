@@ -110,4 +110,8 @@
     section {
         padding: 1em;
     }
+
+    section :global(dl) {
+        margin: 0;
+    }
 </style>

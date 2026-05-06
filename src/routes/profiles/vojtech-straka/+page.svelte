@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Meta from "$lib/components/layout/Meta.svelte";
     import SocialMediaLink from "$lib/components/layout/SocialMediaLinks/SocialMediaLink.svelte";
 	import Arrow from "$src/lib/components/Arrow.svelte";
+	import SocialMediaLinks from "$src/lib/components/layout/SocialMediaLinks/SocialMediaLinks.svelte";
     import ProfilePage, { type ProfileData } from "$src/lib/components/ProfilePage.svelte";
 
     const profile: ProfileData = {
@@ -17,12 +17,12 @@
         <dt>Nick</dt>
         <dd>sCZther</dd>
         <dt>Email</dt>
-        <dd><a href="mailto:me@sanqui.net" class="email">vojstraka@gmail.com</a></dd>
+        <dd><a href="mailto:vojstraka@gmail.com" class="email">vojstraka@gmail.com</a></dd>
         <dt>Odkazy</dt>
         <dd>
-            <div class="social-media-icons">
+            <SocialMediaLinks>
                 <SocialMediaLink href="https://bsky.app/profile/sczther.bsky.social" title="Bluesky" />
-            </div>
+            </SocialMediaLinks>
         </dd>
     </dl>
     <hr>
@@ -32,15 +32,3 @@
         <Arrow href="/">Přečíst životopis (TODO)</Arrow>
     {/snippet}
 </ProfilePage>
-
-
-<style>
-    .social-media-icons {
-        display: flex;
-        gap: 8px;
-    }
-
-    dl {
-        margin: 0;
-    }
-</style>
