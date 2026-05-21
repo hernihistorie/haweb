@@ -1,7 +1,9 @@
 # Jak rozjet haweb na Windowsech
+V tomto dokumentu se dozvíme jak rozchodit vývojové prostředí pro naše webové stránky na zařízení s operačním systémem Windows.
+
 ## Terminologický slovník (glosář)
 - haweb
-	- Web Herního archivu
+	- Web Herního archivu (https://herniarchiv.cz/)
 	- Repozitář se nachází na https://github.com/hernihistorie/haweb (proteď)
 - Svelte
 	- JavaScriptový framework na tvorbu dynamických webových komponent
@@ -22,7 +24,7 @@
 	1. Nainstalujeme nvm-windows z [GitHub - coreybutler/nvm-windows: A node.js version management utility for Windows. Ironically written in Go. · GitHub](https://github.com/coreybutler/nvm-windows#installation--upgrades):
 		1. Stáhjeme a nainstalujeme instalátor [nvm-setup.exe](https://github.com/coreybutler/nvm-windows/releases/download/1.2.2/nvm-setup.exe)
 2. V PowerShellu nainstalujeme verzi `nvm` co používá haweb zapomocí příkazu `nvm install 22`
-3. Nastavíme používání této verzi: `nvm use 22`
+3. Nastavíme používání této verze: `nvm use 22`
 
 ### Rozjetí projetku ve VS Code
 1. Stáhneme, nainstalujeme, a pustíme [VS Code](https://code.visualstudio.com/)  
@@ -40,6 +42,7 @@
 13. Pokud nám vyskočí vpravo dole okýnko "The Svelte for VS Code extension now contains a TypeScript plugin", povolíme ho.
 14. Nad řádek `<Hero />` vepíšeme text "Ahoj světe!" a pomocí Ctrl+S stránku uložíme.
 15. Přepneme do prohlížeče a měli bychom vidět jak se nový text sám objeví na stránce.
+
 🎉 Máme funkční vývojové prostředí pro haweb.
 
 ## Další kroky
