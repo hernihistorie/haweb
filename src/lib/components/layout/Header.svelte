@@ -6,11 +6,12 @@
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import SocialMediaLinks from './SocialMediaLinks/SocialMediaLinks.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 	import { beforeNavigate } from '$app/navigation';
 	import SearchLink from './SearchLink.svelte';
 	import { page } from '$app/state';
 	import { pathnameStartswith } from '$src/lib/util';
+	import { loc } from '$src/lib/loc';
 
 	type MenuItem = {
 		url: string;
@@ -61,7 +62,17 @@
 <header data-pagefind-ignore>
 	<div class="logo">
 		<a href={localizeHref("/")} onclick={resetExpandedMenu}>
-			<img src="/ico/logo_herni_archiv.svg" alt="Logo Herního archivu" height=62>
+			<img
+				src={
+					getLocale() == 'cs'
+					? "/ico/logo_herni_archiv.svg"
+					: "/ico/logo_czechoslovak_game_archive.svg"
+				}
+				alt={
+					loc({cs: "Herní archiv", en: "Czechoslovak Game Archive"})
+				}
+				height=62
+			>
 		</a>
 		{#if page.url.hostname === 'localhost' || page.url.hostname === '127.0.0.1'}
 			<div class="localhost">LOCALHOST</div>
@@ -275,11 +286,14 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
+		position: relative;
 	}
 
 	.localhost {
 		color: var(--color-secondary);
 		font-weight: bold;
+		position: absolute;
+		left: 240px;
 
 	}
 
