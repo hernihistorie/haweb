@@ -1,7 +1,7 @@
 import type { PageLoad } from '../catalog/$types';
-import type { Catalog } from "$src/lib/magdb";
+import { MAGDB_BASE_URL, type Catalog } from "$src/lib/magdb";
 
 export const load: PageLoad = async ({ fetch, params }) => {
-	const response = await fetch("https://casopisy.herniarchiv.cz/public-magdb/catalog.json");
+	const response = await fetch(`${MAGDB_BASE_URL}/catalog.json`);
 	return await response.json() as Catalog;
 };

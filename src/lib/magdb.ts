@@ -3,6 +3,9 @@
 import type { LocalizedString } from "$src/types";
 import type { Logo } from "./logo";
 
+export const MAGDB_ORIGIN = "https://casopisy.herniarchiv.cz";
+export const MAGDB_BASE_URL = `${MAGDB_ORIGIN}/public-magdb`;
+
 export type IssueStatus = 
   | "have"
   | "dont_have"

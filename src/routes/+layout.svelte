@@ -6,6 +6,9 @@
 	import '../app.css';
 	import { setLocale } from '$lib/paraglide/runtime';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
+	import { invalidate } from '$app/navigation';
+	import { MAGDB_ORIGIN } from '$src/lib/magdb';
 	import NavigatingIndicator from '$src/lib/components/layout/NavigatingIndicator.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -21,6 +24,11 @@
 			setLocale(url_lang);
 		}
 	}
+
+	// Pick up fresh remote data after hydration
+	onMount(() => {
+		invalidate((url) => url.origin === MAGDB_ORIGIN);
+	});
 
 	// export const prerender = true;
 </script>
