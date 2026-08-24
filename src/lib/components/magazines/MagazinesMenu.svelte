@@ -7,7 +7,7 @@
 </script>
 
 <PipeList>
-    <li>
+    <li class="data-pagefind-ignore">
         <a href={localizeHref("/magazines/")} class:active={pathnameMatches("/magazines/")}>
             <Loc
                 cs="Databáze časopisů"
@@ -15,7 +15,7 @@
             />
         </a>
     </li>
-    <li>
+    <li class="data-pagefind-ignore">
         <a href={localizeHref("/magazines/catalog")} class:active={pathnameStartswith("/magazines/catalog")}>
             <Loc    
                 cs="Katalog"
@@ -23,7 +23,7 @@
             />
         </a>
     </li>
-    <li>
+    <li class="data-pagefind-ignore">
         <a href={localizeHref("/magazines/miss-list")} class:active={pathnameStartswith("/magazines/miss-list")}>
             <Loc    
                 cs="Chybí nám"
