@@ -12,10 +12,11 @@ To set up the project, make a clone of the repository and run:
 
 ```bash
 # set up submodules
-git submodule init -- ./src/data/bulanci-map-sorter
+./update_submodules.sh
 
 # install dependencies
 npm install --force
+
 # run dev server
 npm run dev
 ```

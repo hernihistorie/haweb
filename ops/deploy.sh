@@ -10,6 +10,7 @@ ssh -t hhbox.hernihistorie.cz "
         cd /home/deploy/haweb &&
         git fetch origin $DEPLOY_BRANCH &&
         git reset --hard origin/$DEPLOY_BRANCH &&
+        ./update_submodules.sh &&
         docker build -t haweb .
     ' &&
     sudo systemctl restart haweb.service
