@@ -11,8 +11,12 @@ This website is written in Sveltekit.
 To set up the project, make a clone of the repository and run:
 
 ```bash
+# set up submodules
+git submodule init -- ./src/data/bulanci-map-sorter
+
+# install dependencies
 npm install --force
-npm run build # necessary on first run to set up pagefind
+# run dev server
 npm run dev
 ```
 

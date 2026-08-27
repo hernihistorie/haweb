@@ -1,0 +1,3 @@
+[submodule "src/data/bulanci-map-sorter"]
+	path = src/data/bulanci-map-sorter
+	url = https://github.com/hernihistorie/bulanci-map-sorter
