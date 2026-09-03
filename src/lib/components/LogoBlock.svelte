@@ -8,13 +8,15 @@
         href,
         target,
         makeLinkProminent = true,
-        withTitle = true
+        withTitle = true,
+        origin
     }: {
         entity: {title: string, logos?: LogoType[], logo?: LogoType, url?: string},
         href?: string,
         target?: string,
         makeLinkProminent?: boolean,
         withTitle?: boolean
+        origin?: string
     } = $props();
 </script>
 
@@ -29,9 +31,9 @@
     {/if}
     <div class="logo-wrapper">
         {#if entity.logos && entity.logos.length > 0}
-            <Logo logo={entity.logos[0]} title={entity.title} />
+            <Logo logo={entity.logos[0]} {origin} title={entity.title} />
         {:else if entity.logo}
-            <Logo logo={entity.logo} title={entity.title} />
+            <Logo logo={entity.logo} {origin} title={entity.title} />
         {:else}
             <div class="logo-placeholder">{entity.title}</div>
         {/if}

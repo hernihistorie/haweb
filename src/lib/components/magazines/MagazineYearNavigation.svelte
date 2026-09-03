@@ -1,22 +1,18 @@
 <script lang="ts">
+    import { MAGDB_ORIGIN } from "$src/lib/magdb";
     import Loc from '$src/lib/components/Loc.svelte';
 	import Logo from '$src/lib/components/Logo.svelte';
 	import PipeList from '$src/lib/components/PipeList.svelte';
 	import type { MagazineInfo } from '$src/lib/magdb';
 
 	let { magazine, years, displayedYear }: { magazine: MagazineInfo, years: string[] | null, displayedYear: string | null } = $props();
-    $effect(() => {
-        magazine.logos?.forEach(logo => {
-            logo.url = logo.url.startsWith('/') ? `https://casopisy.herniarchiv.cz/${logo.url}` : logo.url;
-        });
-    });
     
 </script>
 
 <div class="logo-years">
     <div class="magazine-logo-wrapper">
         {#if magazine.logos && magazine.logos.length > 0}
-            <Logo logo={magazine.logos[0]} title={magazine.title} />
+            <Logo logo={magazine.logos[0]} origin={MAGDB_ORIGIN} title={magazine.title} />
         {/if}
     </div>
     <div class="years {displayedYear ? 'with-selected' : ''}">

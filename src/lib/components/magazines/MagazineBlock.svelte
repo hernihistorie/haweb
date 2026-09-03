@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CatalogMagazine, MagazineInfo, MissListMagazine } from "$src/lib/magdb";
+    import { MAGDB_ORIGIN } from "$src/lib/magdb";
 	import { localizeHref } from "$src/lib/paraglide/runtime";
-	import Logo from "../Logo.svelte";
 	import LogoBlock from "../LogoBlock.svelte";
 
     const {
@@ -10,16 +10,11 @@
     }: {
         magazine: CatalogMagazine | MagazineInfo | MissListMagazine,
     } = $props();
-
-    $effect(() => {
-        magazine.logos?.forEach(logo => {
-            logo.url = logo.url.startsWith('/') ? `https://casopisy.herniarchiv.cz/${logo.url}` : logo.url;
-        });
-    });
 </script>
 
 <LogoBlock
     entity={magazine}
     href={localizeHref(`/magazines/catalog/${magazine.slug}`)}
+    origin={MAGDB_ORIGIN}
     {...restProps}
 />
