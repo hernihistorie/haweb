@@ -18,12 +18,14 @@
     const publishedDate = $derived(parsePartialDate(issue.published_day, issue.published_month, issue.published_year));
     const calendarDate = $derived(parseCalendarId(issue.calendar_id));
     const scanUrl = $derived(
-        issueScanTemplate
-        ? issueScanTemplate
-            .replace("%Y", issue.published_year?.toString() ?? "")
-            .replace("%M", issue.published_month?.toString().padStart(2, "0") ?? "")
-            .replace("%N", issue.issue_number?.toString() ?? "")
-        : null
+        issue.scan_url ?? (
+            issueScanTemplate
+            ? issueScanTemplate
+                .replace("%Y", issue.published_year?.toString() ?? "")
+                .replace("%M", issue.published_month?.toString().padStart(2, "0") ?? "")
+                .replace("%N", issue.issue_number?.toString() ?? "")
+            : null
+        )
     );
 </script>
 

@@ -71,6 +71,7 @@ export type MagazineIssue = {
   page_count: number | null;
   note: string | null;
   issuer: string | null;
+  scan_url?: string | null;
   versions: MagazineVersion[];
 };
 
