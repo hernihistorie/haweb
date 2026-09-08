@@ -102,7 +102,12 @@ export function isPartialDateDifferentOrMorePrecise(
 export function toPlainDateTime(date: Temporal.PlainDate | Temporal.PlainDateTime): Temporal.PlainDateTime {
 	if (date instanceof Temporal.PlainDateTime) return date;
 	return date.toPlainDateTime();
-}export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
-	return Temporal.PlainDateTime.compare(toPlainDateTime(date), Temporal.Now.plainDateTimeISO()) <= 0;
+}
+
+export const SITE_TIME_ZONE = 'Europe/Prague';
+
+export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
+	const now = Temporal.Now.plainDateTimeISO(SITE_TIME_ZONE);
+	return Temporal.PlainDateTime.compare(toPlainDateTime(date), now) <= 0;
 }
 

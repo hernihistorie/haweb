@@ -3,7 +3,8 @@
 	"version": "0.2.0",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && pagefind --site build/prerendered --output-subdir ../client/pagefind",
+		"build": "vite build && npm run build:search-index",
+		"build:search-index": "rm -rf build-search && BUILD_SEARCH_INDEX=1 BUILD_OUT=build-search vite build && pagefind --site build-search/prerendered --output-path build/client/pagefind && rm -rf build-search",
 		"preview": "vite preview",
 		"serve-static": "python -m http.server build",
 		"test": "playwright test",

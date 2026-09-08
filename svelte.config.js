@@ -9,7 +9,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			out: 'build',
+			out: process.env.BUILD_OUT || 'build',
 			precompress: false,
 		}),
 		alias: {

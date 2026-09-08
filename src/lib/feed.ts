@@ -1,6 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { blogPosts } from '$src/data/blog_posts';
-import type { LanguageCode } from '$src/types';
+import { getBlogPosts } from '$src/data/blog_posts';
+import type { BlogPost, LanguageCode } from '$src/types';
 import { toPlainDateTime } from './datetime';
 
 const SITE_URL = 'https://herniarchiv.cz';
@@ -18,7 +18,7 @@ function stripHtml(html: string): string {
     return html.replace(/<[^>]*>/g, '').trim();
 }
 
-function getTitle(post: typeof blogPosts[0], lang: LanguageCode): string {
+function getTitle(post: BlogPost, lang: LanguageCode): string {
     if (typeof post.title === 'string') {
         return post.title;
     }
@@ -44,7 +44,7 @@ function dateToISOString(date: Temporal.PlainDate | Temporal.PlainDateTime): str
 export function generateAtomFeed(config: FeedConfig): string {
     const { lang, title, subtitle, feedPath } = config;
     
-    const latestPosts = [...blogPosts]
+    const latestPosts = getBlogPosts()
         .filter(post => post.date)
         .sort((a, b) => Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)))
         .slice(0, 10);

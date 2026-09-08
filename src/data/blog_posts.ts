@@ -1,8 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
-import type { Component } from 'svelte';
-import type { SeriesSlug } from './series';
 import { isDateInPast, toPlainDateTime } from '$src/lib/datetime';
 
 // Auto-discover all blog posts using Vite's glob import
@@ -11,33 +9,41 @@ const blogPostModules = import.meta.glob<{ default: BlogPost }>(
 	{ eager: true }
 );
 
-// Extract blog posts from modules, filter unpublished and future posts,
-// and sort by publication date ascending (oldest first)
-export const blogPosts: BlogPost[] = Object.values(blogPostModules)
+// All blog posts, including unpublished and future ones,
+// sorted by publication date ascending (oldest first)
+const allBlogPosts: BlogPost[] = Object.values(blogPostModules)
 	.map((module) => module.default)
-	.filter((post) => post.published)
-	.filter((post) => !post.date || isDateInPast(post.date))
 	.sort((a, b) => {
 		if (!a.date) return -1;
 		if (!b.date) return 1;
 		return Temporal.PlainDateTime.compare(toPlainDateTime(a.date), toPlainDateTime(b.date));
 	});
 
-export const blogPostsById: Record<number, BlogPost> = blogPosts.reduce((acc, post) => {
-	acc[post.id] = post;
-	return acc;
-}, {} as Record<number, BlogPost>);
+// The published set depends on the current time, so it has to be computed per request.
+export function getBlogPosts(): BlogPost[] {
+	return allBlogPosts
+		.filter((post) => post.published)
+		.filter((post) => !post.date || isDateInPast(post.date));
+}
+
+export function getBlogPostsById(): Record<number, BlogPost> {
+	return getBlogPosts().reduce((acc, post) => {
+		acc[post.id] = post;
+		return acc;
+	}, {} as Record<number, BlogPost>);
+}
 
 // All blog posts including unpublished/future, for dev preview
-export const allBlogPostsById: Record<number, BlogPost> = Object.values(blogPostModules)
-	.map((module) => module.default)
+export const allBlogPostsById: Record<number, BlogPost> = allBlogPosts
 	.reduce((acc, post) => {
 		acc[post.id] = post;
 		return acc;
 	}, {} as Record<number, BlogPost>);
 
-export const blogYears: number[] = [...new Set(
-	blogPosts
-		.filter((post) => post.date)
-		.map((post) => post.date!.year)
-)].sort((a, b) => b - a);
+export function getBlogYears(): number[] {
+	return [...new Set(
+		getBlogPosts()
+			.filter((post) => post.date)
+			.map((post) => post.date!.year)
+	)].sort((a, b) => b - a);
+}

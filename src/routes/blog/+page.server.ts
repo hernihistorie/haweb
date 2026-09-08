@@ -1,11 +1,14 @@
-import { blogPosts, blogYears } from '$src/data/blog_posts';
+import { getBlogPosts, getBlogYears } from '$src/data/blog_posts';
+import { prerenderForSearch } from '$lib/prerender.server';
 import type { PageServerLoad } from './$types';
 
+export const prerender = prerenderForSearch;
+
 export const load: PageServerLoad = async () => {
-	const latestBlogPosts = blogPosts.toReversed().slice(0, 3*6);
+	const latestBlogPosts = getBlogPosts().toReversed().slice(0, 3*6);
 
 	return {
 		blogPosts: latestBlogPosts,
-		blogYears
+		blogYears: getBlogYears()
 	};
 };

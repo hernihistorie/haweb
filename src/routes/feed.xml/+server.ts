@@ -20,4 +20,4 @@ export const GET: RequestHandler = async () => {
     return createFeedResponse(feed);
 };
 
-export const prerender = true;
+export const prerender = false;
