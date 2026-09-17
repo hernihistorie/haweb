@@ -13,11 +13,14 @@ export const PT: Person = {
     gender: "M",
     color: "green",
     photo: {
-        url: "/static/interviews/petr-tucek.jpg",
+        url: "/images/petr-tucek/petr-tucek-predit.png",
         details_url: "",
         // license_text: ""
     },
-    bio: 'TODO TODO TODO TODO'
+    bio: {
+        cs: "Petr Tuček - narozen roku 1970 v Praze - je tvůrce několika drobných her pro ZX Spectrum z konce 80. let, které jsme v roce 2026 zdigitalizovali. V současnosti narátor pracuje jako softwarový analytik. Rozhovor je doplněn o screenshoty narátorových her.",
+        en: "Petr Tuček - born in 1970 in Prague - is the creator of several small games for the ZX Spectrum from the late 1980s, which we digitized in 2026. Currently, the narrator works as a software analyst. The interview is accompanied by screenshots of the narrator's games."
+    }
 }
 
 export const data: InterviewData = {
@@ -34,7 +37,7 @@ export const data: InterviewData = {
         date: Temporal.PlainDate.from("2026-05-04"),
         project: projectTvurci80,
         publication_date: Temporal.PlainDate.from("2026-09-17"),
-        // publication_date: Temporal.PlainDate.from(""),
+        english_translation_publication_date: Temporal.PlainDate.from("2026-09-17"),
         // verifier: null
     },
     status: "published",
