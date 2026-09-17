@@ -18,6 +18,7 @@
 <style>
     .question {
         /* font-size: larger; */
+        font-weight: 500;
         text-align: left;
         margin-left: 60px;
         margin-bottom: 20px;

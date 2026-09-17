@@ -1,6 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
+import { projectTvurci80 } from '$src/routes/projects/tvurci-z-80tych-let/project';
 
 // https://docs.google.com/document/d/1jym3l5vMQyDJuwkU3bANHMhsfRxdkE8A/edit
 
@@ -28,11 +29,10 @@ export const data: InterviewData = {
     },
     narrator: MK,
     interview: {
-        length: "N/A",
         type: "questionnaire",
         languages: [czech],
         date: Temporal.PlainDate.from("2024-12-13"),
-        project: {name: "Tvůrci z 80. let"},
+        project: projectTvurci80,
         publication_date: Temporal.PlainDate.from("2024-12-18"),
         // publication_date: Temporal.PlainDate.from(""),
         // verifier: null

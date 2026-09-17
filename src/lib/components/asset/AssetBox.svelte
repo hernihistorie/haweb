@@ -4,25 +4,14 @@
 	import Box from "../Box.svelte";
     import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
 	import Capsule from "../Capsule.svelte";
-	import LucideDownload from "@lucide/svelte/icons/download";
 	import Loc from '../Loc.svelte';
+	import DownloadLink from '../DownloadLink.svelte';
 
     interface Props {
         data: AssetData | Promise<AssetData | undefined>;
     }
 
     let { data }: Props = $props();
-
-	function formatFileSize(bytes?: number | null): string {
-		if (!bytes) return 'unknown size';
-		const units = ['B', 'KiB', 'MiB', 'GiB'];
-		let i = 0;
-		while (bytes >= 1024 && i < units.length - 1) {
-			bytes /= 1024;
-			i++;
-		}
-		return `${bytes.toFixed(1)} ${units[i]}`;
-	}
 
     const markdownRenderers =  {
         ...defaultRenderers,
@@ -55,19 +44,17 @@
                         {/if}
                     </p>
                     {#if data.primary_dump_path}
-                        <a href="{data.primary_dump_path}" class="download">
-                            <LucideDownload style="vertical-align: top;" />
-                            <Loc cs="Stáhnout dump" en="Download dump" />
-                            {#if data.primary_dump_size}
-                                ({formatFileSize(data.primary_dump_size)})
-                            {/if}
-                        </a>
+                        <DownloadLink
+                            title={{cs: 'dump', en: 'dump'}}
+                            url={data.primary_dump_path}
+                            filesize={data.primary_dump_size}
+                        />
                     {/if}
                     {#if data.primary_document_path}
-                        <a href="{data.primary_document_path}" class="download">
-                            <LucideDownload style="vertical-align: top;" />
-                            <Loc cs="Stáhnout dokument" en="Download document" />
-                        </a>
+                        <DownloadLink
+                            title={{cs: 'dokument', en: 'document'}}
+                            url={data.primary_document_path}
+                        />
                     {/if}
                 </div>
                 {#if data.picture.url}
@@ -115,14 +102,6 @@
         width: 334px;
         height: 200px;
         object-fit: cover;
-    }
-
-    .download {
-        text-decoration: none;
-    }
-
-    .download:hover {
-        text-decoration: underline;
     }
 
 

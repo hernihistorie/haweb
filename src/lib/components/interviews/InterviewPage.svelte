@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Unexpected block closing tag -->
 <script lang="ts">
     import ProjectName from '$lib/components/project/ProjectName.svelte';
 
@@ -15,7 +14,8 @@
 	import { tocStore } from '../TableOfContents/stores';
 	import InterviewStatusCapsule from './InterviewStatusCapsule.svelte';
 	import PersonImage from './PersonImage.svelte';
-    export let data: InterviewData;
+
+    const { data, toc = true }: { data: InterviewData, toc?: boolean } = $props();
 </script>
 
 <Post title={data.title} stickySide class="interview-page" published={true}>
@@ -38,11 +38,13 @@
                 <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
 
-            {#if $tocStore.length}
-                <hr>
-            {/if}
+            {#if toc}
+                {#if $tocStore.length}
+                    <hr>
+                {/if}
 
-            <TableOfContents />
+                <TableOfContents />
+            {/if}
         </div>
     {/snippet}
     {#snippet content()}
