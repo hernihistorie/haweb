@@ -168,20 +168,19 @@ i {
    overflow-y: scroll;
 }
 
-.column {
-    float: left;
-    width: 48.5%;
-    margin-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 17px;
-    font-style: italic;
+.row {
+    margin: 1.25em 0;
+    display: flex;
+    gap: 0.5em;
 }
 
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+.column {
+    margin-right: 10px;
+}
+
+figcaption {
+    font-size: 17px;
+    font-style: italic;
 }
 
 button {
@@ -218,6 +217,11 @@ button.link:hover {
 figure {
     text-align: center;
     margin: 1.25em 0;
+}
+
+.row figure {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 figcaption {

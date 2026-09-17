@@ -8,6 +8,7 @@
     import PageLang from "$src/lib/components/PageLang.svelte";
 	import Box from "$src/lib/components/Box.svelte";
 	import DownloadLink from "$src/lib/components/DownloadLink.svelte";
+	import Figure from "$src/lib/components/Figure.svelte";
 
     let A = Answer;
     let Q = Question;
@@ -94,7 +95,22 @@
                 </ul>
 
                 <Box>
-                    <h4>Housenka</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/39001/ZX-Spectrum/Housenka">Housenka</a></h4>
+                    <div class="row">
+                        <Figure
+                            src="/images/petr-tucek/housenka_1.png"
+                            alt={{
+                                cs: "Titulní obrazovka hry Housenka.  Text: (c) 1987/90",
+                                en: "Title screen of the Housenka game.  Text: (c) 1987/90"
+                            }}
+                        />
+                        <Figure 
+                            src="/images/petr-tucek/housenka_2.png"
+                            alt={{
+                                cs: "Herní obrazovka hry Housenka.  Text: Zóna-1 Obtížnost-1"
+                            }}
+                        />
+                    </div>
                     <p>
                         S tématem hry přišel Roman Žák. Byl to první program, co jsem tvořil. Hru jsem dlouho upravoval a tuším, že námět vychází z PacMana. Romanovi se prostě líbilo něco, co žere. Housenka se pohybuje bludištěm a další levely jsou jednak o složitosti bludiště a jednak o rychlosti pohybu. Roman vymyslel, že to bude červ, který se sbíráním zelí postupně prodlužuje. Podobně jako v hadovi se zároveň musí vyhýbat překážkám, které jsou zde ve formě lebek.
                     </p>
@@ -112,7 +128,21 @@
                 </Box>
 
                 <Box>
-                    <h4>Nádražák</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/45416/ZX-Spectrum/N%C3%A1dra%C5%BE%C3%A1k">Nádražák</a></h4>
+                    <div class="row">
+                        <Figure
+                            src="/images/petr-tucek/nadrazak_1.png"
+                            alt={{
+                                cs: "Titulní obrazovka hry Nádražák.  Text: (c) 1988",
+                            }}
+                        />
+                        <Figure 
+                            src="/images/petr-tucek/nadrazak_2.png"
+                            alt={{
+                                cs: "Herní obrazovka hry Housenka.  Text: Vrátnice",
+                            }}
+                        />
+                    </div>
                     <p>
                         V druhém ročníku střední školy jsme byli na praxi. Nebylo tam moc co dělat, takže jsme chodili za spolužáky, kteří měli počítač Commodore s hrami. A tam jsem viděl Sokoban. Obkreslil jsem si všechny levely a tak vzniknul námět hry <em>Nádražák</em>. Nespokojil jsem se s pouhou kopií. Tou dobou jsem jednak měl v oblibě bludiště, takže vše je zasazeno do velice komplikovaného bludiště propojujícího jednotlivé místnosti. A jednak jsem měl v oblibě písničky Šípa a Uhlíře. Téma a název je tedy odvozen od písničky „Šel nádražák na mlíčí“. Proto jsou jednotlivé místnosti z nádražní budovy a okolí. Úvodní písnička je právě tato. Hra je zase naprogramovaná v jazyce Basic.
                     </p>
@@ -123,7 +153,11 @@
                 </Box>
 
                 <Box>
-                    <h4>Business</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/45417/ZX-Spectrum/Business">Business</a></h4>
+                    <div class="row">
+                        <Figure src="/images/petr-tucek/business_1.png" />
+                        <Figure src="/images/petr-tucek/business_2.png" />
+                    </div>
                     <p>
                         Hra je znovu programovaná v Basicu a je inspirovaná hrou <em>Monopoly</em> a její českou variantou Dostihy a sázky. Často jsme ji doma hráli, takže jsem se jí inspiroval při tvorbě další videohry. Další námět bylo tedy toto. Je to prakticky nehratelné, protože převod do počítačové hry není dobrý nápad. Úvodní písnička je „Zelená vlna Hvězdy“, kterou nazpíval Luděk Sobota.
                     </p>
@@ -134,7 +168,11 @@
                 </Box>
 
                 <Box>
-                    <h4>Školák neboli Školní akce</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/45415/ZX-Spectrum/%C5%A0kol%C3%A1k">Školák neboli Školní akce</a></h4>
+                    <div class="row">
+                        <Figure src="/images/petr-tucek/skolak_1.png" />
+                        <Figure src="/images/petr-tucek/skolak_2.png" />
+                    </div>
                     <p>
                         To byl další rok praxe, další setkání s hrou na Commodore. Tentokrát spolužák hrál takovou průzkumnou hru, kdy se chodí po bludišti, něco se hledá, najde, přinese jinam a použije. Námětem je vlastní škola, tehdejší Gymnázium Vysočany. Jednotlivé místnosti jsou nakreslené a uložené v datech. Zobrazují se 4 x zvětšené. Zobrazení mi naprogramoval Martin Žampach. Ke každé místnosti se zobrazují 4 různé texty nápovědy (místnost je rozdělená na 4 sektory). Dva jsou konstantní a zobrazují se ve všech místnostech, dva jsou proměnlivé, pro každou místnost jiné a ty napovídají, co se má stát. Úvodní písnička je „Meliorační“, Šíp, Uhlíř.
                     </p>
@@ -145,7 +183,11 @@
                 </Box>
 
                 <Box>
-                    <h4>ArtHudba</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/45485/ZX-Spectrum/Art_Hudba">ArtHudba</a></h4>
+                    <div class="row">
+                        <Figure src="/images/petr-tucek/arthudba_1.png" />
+                        <Figure src="/images/petr-tucek/arthudba_2.png" />
+                    </div>
                     <p>
                         Název je parafrází na ArtStudio. Námět přinesl spolužák ze střední školy Michal Zintl a také se podílel na realizaci. Líbil se nám profesionální program <em>Wham The Music Box</em>, který měl jeden nedostatek: hudba se dala spustit, ale nedala se používat při běhu programu. Chtěli jsme tak připravit podobně uživatelsky přívětivý program pro práci s basicovým příkazem BEEP, který je normálně nesrozumitelný. Společně jsme ladili tvář programu, obsluhu kláves a výstupy jsem pak už dělal sám. Úvodní obrázek jsme kreslili společně – <em>ArtStudio</em> umožňovalo merge dvou obrázků do jednoho, tak jsme spojovali své části, co jsme kreslili.
                     </p>
@@ -156,7 +198,11 @@
                 </Box>
 
                 <Box>
-                    <h4>Predit (Profesionální editor)</h4>
+                    <h4><a href="https://spectrumcomputing.co.uk/entry/45486/ZX-Spectrum/Profesion%C3%A1ln%C3%AD_editor">Predit (Profesionální editor)</a></h4>
+                    <div class="row">
+                        <Figure src="/images/petr-tucek/predit_1.png" />
+                        <Figure src="/images/petr-tucek/predit_2.png" />
+                    </div>
                     <p>
                         Ve všech výše zmíněných programech jsem potřeboval nakreslit postavičky, předměty ve formátu znaku 8x8. To se na ZX Spectru ukládá do tzv. grafických znaků uložených na konci paměti. Nejprve jsem si na to napsal jednoduchý editor, kterému jsem říkal Grazny. Poté přišly na trh tiskárny – jednojehličkové BT100. A pro ně… to už byla další rozšíření, bylo třeba definovat celé abecedy. A tak jsem původní Grazny rozšířil a umožnil nakreslit celou abecedu a dokonce volit velikost rastru. Myslím, že obslužný program je v zkompilovaném Basicu do asslembleru.
                     </p>
@@ -169,6 +215,8 @@
                     />
                 </Box>
             </A>
+
+            <hr>
 
             <Q>
                 Šířil jste tyto programy posléze nějak?
