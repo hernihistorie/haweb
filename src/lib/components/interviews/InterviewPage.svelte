@@ -18,6 +18,22 @@
     const { data, toc = true }: { data: InterviewData, toc?: boolean } = $props();
 </script>
 
+<svelte:head>
+    <meta property="og:title" content="{loc(data.title)}" />
+    <meta property="og:article:author" content={loc({cs: "Herní archiv", en: "Czechoslovak Game Archive"})} />
+    <meta property="og:type" content="article" />
+    {#if data.interview.publication_date}
+        <meta property="og:article:published_time" content="{data.interview.publication_date.toString()}" />
+    {/if}
+    {#if data.narrator.bio}
+        <meta property="og:description" content="{loc(data.narrator.bio)}" />
+    {/if}
+    {#if data.narrator.photo?.url}
+        <meta property="og:image" content="{data.narrator.photo?.url}" />
+    {/if}
+    <meta property="og:locale" content="{getLocale()}" />
+</svelte:head>
+
 <Post title={data.title} stickySide class="interview-page" published={true}>
     {#snippet side()}
         <div class="side">
