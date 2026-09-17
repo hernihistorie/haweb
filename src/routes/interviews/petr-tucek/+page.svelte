@@ -10,6 +10,7 @@
 	import Box from "$src/lib/components/Box.svelte";
 	import DownloadLink from "$src/lib/components/DownloadLink.svelte";
 	import Figure from "$src/lib/components/Figure.svelte";
+	import AssetList from "$src/lib/components/asset/AssetList.svelte";
 
     let A = Answer;
     let Q = Question;
@@ -484,5 +485,7 @@
                     {/snippet}
                 </Loc>
             </A>
+
+            <AssetList withHeading={true} assetTagId={57} />
     {/snippet}
 </InterviewPage>

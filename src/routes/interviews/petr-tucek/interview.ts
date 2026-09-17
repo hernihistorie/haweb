@@ -24,7 +24,7 @@ export const PT: Person = {
 }
 
 export const data: InterviewData = {
-    slug: "pets-tucek",
+    slug: "petr-tucek",
     lang: "cs",
     title: {
         cs: "Dotazník: Petr Tuček",
