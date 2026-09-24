@@ -1,0 +1,12 @@
+.pswp__caption {
+    position: absolute;
+    left: 50%;
+    bottom: 1em;
+    transform: translateX(-50%);
+    max-width: min(60em, calc(100% - 2em));
+    padding: 0.5em 1em;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}

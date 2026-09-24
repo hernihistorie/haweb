@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { LocalizedString } from "$src/types";
 	import type { ArticleImage } from "$src/lib/articleImages";
+	import { openLightbox } from "$src/lib/lightbox";
 	import { loc } from "../loc";
 
     interface Props {
         /** A plain image URL */
         src?: string;
-        /** An image from `articleImages()`: shows build-time thumbnails, links to the original */
+        /** An image from `articleImages()`: shows build-time thumbnails, opens the original in a lightbox */
         image?: ArticleImage;
         caption?: LocalizedString;
         alt?: LocalizedString;
@@ -15,30 +16,32 @@
 
     const props: Props = $props();
     const alt = props.alt ?? props.caption ?? "";
-    const href = $derived(props.href ?? props.image?.original);
 
 </script>
 
-{#snippet img()}
+<figure>
     {#if props.image}
-        <enhanced:img src={props.image.picture} sizes="(min-width: 1400px) 1400px, 100vw" alt={loc(alt)} />
+        <a
+            href={props.image.original}
+            target="_blank"
+            aria-label={loc(alt) || loc({ cs: "Zvětšit obrázek", en: "Enlarge image" })}
+            data-pswp-width={props.image.width}
+            data-pswp-height={props.image.height}
+            onclick={openLightbox}
+        >
+            <enhanced:img src={props.image.picture} sizes="(min-width: 1400px) 1400px, 100vw" alt={loc(alt)} />
+        </a>
+    {:else if props.href}
+        <a href={props.href} target="_blank">
+            <img src={props.src} alt={loc(alt)} />
+        </a>
     {:else}
         <img src={props.src} alt={loc(alt)} />
     {/if}
-{/snippet}
-
-<figure>
-    {#if href}
-        <a href={href} target="_blank">
-            {@render img()}
-        </a>
-    {:else}
-        {@render img()}
-    {/if}
     {#if props.caption}
         <figcaption>
-            {#if href}
-                <a href={href} target="_blank">{loc(props.caption)}</a>
+            {#if props.href}
+                <a href={props.href} target="_blank">{loc(props.caption)}</a>
             {:else}
                 {loc(props.caption)}
             {/if}

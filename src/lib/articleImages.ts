@@ -5,16 +5,21 @@ export interface ArticleImage {
     picture: Picture;
     /** URL of the untouched original */
     original: string;
+    /** Dimensions of the original, needed by the lightbox */
+    width: number;
+    height: number;
 }
 
 export function articleImages(
     pictures: Record<string, unknown>,
-    originals: Record<string, unknown>
+    originals: Record<string, unknown>,
+    sizes: Record<string, unknown>
 ): Record<string, ArticleImage> {
     const images: Record<string, ArticleImage> = {};
     for (const [path, picture] of Object.entries(pictures)) {
         const filename = path.split('/').pop()!;
-        images[filename] = { picture: picture as Picture, original: originals[path] as string };
+        const { width, height } = sizes[path] as { width: number; height: number };
+        images[filename] = { picture: picture as Picture, original: originals[path] as string, width, height };
     }
     return images;
 }
