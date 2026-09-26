@@ -12,6 +12,7 @@
 	import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
 	import { Temporal } from '@js-temporal/polyfill';
 	import { loc } from "$src/lib/loc";
+	import { data } from "$src/routes/assets/asset_07392";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -63,6 +64,9 @@
     {/if}
     {#if post.description_html}
         <meta property="og:description" content="{loc(post.description_html)}" />
+    {/if}
+    {#if post.image}
+        <meta property="og:image" content="{post.image}" />
     {/if}
     <meta property="og:locale" content="{getLocale()}" />
 </svelte:head>
