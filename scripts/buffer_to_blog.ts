@@ -20,7 +20,6 @@ import type { Organization, Channel } from './buffer/buffer.js';
 const BASE_PATH = join(import.meta.dirname, '..');
 const ENV_PATH = join(BASE_PATH, '.env');
 const BLOG_DIR = join(BASE_PATH, 'src/data/blog');
-const STATIC_DIR = join(BASE_PATH, 'static');
 
 const NUM_POSTS = 6; // Number of recent posts to fetch from Buffer
 
@@ -94,19 +93,20 @@ async function getToken(): Promise<string> {
 
 // ── Blog post generation ───────────────────────────────────────────────────
 
-function generateBlogPostTs(id: number, slug: string, title: string, description: string, dueAt: string | null, bufferPostId: string, imageUrl?: string): string {
+function generateBlogPostTs(id: number, slug: string, title: string, description: string, dueAt: string | null, bufferPostId: string, mainImage?: string): string {
     const date = dueAt ? new Date(dueAt) : new Date();
     const y = date.getFullYear();
     const m = date.getMonth() + 1;
     const d = date.getDate();
     const h = date.getHours();
     const min = date.getMinutes();
-    const imageLine = imageUrl ? `\n    image: '${imageUrl}',` : '';
+    const imageImport = mainImage ? `\nimport img01 from "./img/${mainImage}?w=1200&format=jpg&imagetools";\n` : '';
+    const imageLine = mainImage ? `\n    image: img01,` : '';
 
     return `import { Temporal } from '@js-temporal/polyfill';
 
 import type { BlogPost } from '$src/types';
-import { authors } from '$src/data/authors';
+import { authors } from '$src/data/authors';${imageImport}
 
 const blogPost: BlogPost = {
     published: true,
@@ -125,7 +125,7 @@ export default blogPost;
 `;
 }
 
-function generatePageSvelte(text: string, imagePaths: string[]): string {
+function generatePageSvelte(text: string, imageFilenames: string[]): string {
     // Convert double newlines in the Buffer text to paragraph breaks
     const paragraphs = text
         .split(/\n\n+/)
@@ -134,15 +134,24 @@ function generatePageSvelte(text: string, imagePaths: string[]): string {
         .map((p) => `            <p>${p.replace(/\n/g, '<br/>')}</p>`)
         .join('\n');
 
-    const figures = imagePaths
-        .map((p) => `    <Figure src="${p}" />`)
+    const figures = imageFilenames
+        .map((f) => `    <Figure image={img["${f}"]} />`)
         .join('\n');
 
-    const needsFigure = imagePaths.length > 0;
+    const needsFigure = imageFilenames.length > 0;
     const imports = [
         '    import PageLang from "$src/lib/components/PageLang.svelte";',
         '    import Loc from "$src/lib/components/Loc.svelte";',
-        ...(needsFigure ? ['    import Figure from "$src/lib/components/Figure.svelte";'] : []),
+        ...(needsFigure ? [
+            '    import Figure from "$src/lib/components/Figure.svelte";',
+            '    import { articleImages } from "$src/lib/articleImages";',
+            '',
+            '    const img = articleImages(',
+            "        import.meta.glob('./img/*', { eager: true, query: '?w=1600;800&enhanced', import: 'default' }),",
+            "        import.meta.glob('./img/*', { eager: true, import: 'default' }),",
+            "        import.meta.glob('./img/*', { eager: true, query: '?as=meta:width;height', import: 'default' }),",
+            '    );',
+        ] : []),
     ].join('\n');
 
     return `<script lang="ts">
@@ -249,10 +258,9 @@ async function main() {
     const postDir = join(BLOG_DIR, dirName);
     mkdirSync(postDir, { recursive: true });
 
-    // Download images
+    // Download images into img/ next to the blog post
     const imageAssets = post.assets?.filter((a) => a.mimeType?.startsWith('image/')) ?? [];
-    const imageDir = `/photos/blog-posts/${slug}`;
-    const imageDirAbs = join(STATIC_DIR, imageDir);
+    const imageDirAbs = join(postDir, 'img');
     const downloadedImages: string[] = [];
 
     if (imageAssets.length > 0) {
@@ -263,14 +271,13 @@ async function main() {
             console.log(url);
             if (!url) continue;
             const ext = extFromMime(asset.mimeType);
-            const filename = imageAssets.length === 1 ? `${slug}${ext}` : `${slug}_${i + 1}${ext}`;
-            const webPath = `${imageDir}/${filename}`;
+            const filename = `${String(i + 1).padStart(2, '0')}${ext}`;
             const absPath = join(imageDirAbs, filename);
             console.log(`  Downloading image ${i + 1}/${imageAssets.length}...`);
             try {
                 await downloadImage(url, absPath);
-                downloadedImages.push(webPath);
-                console.log(`    → static${webPath}`);
+                downloadedImages.push(filename);
+                console.log(`    → src/data/blog/${dirName}/img/${filename}`);
             } catch (e) {
                 console.error(`    Failed: ${(e as Error).message}`);
             }
@@ -293,7 +300,7 @@ async function main() {
     console.log(`  src/data/blog/${dirName}/blog_post.ts`);
     console.log(`  src/data/blog/${dirName}/+page.svelte`);
     if (downloadedImages.length > 0) {
-        console.log(`  ${downloadedImages.length} image(s) downloaded to static${imageDir}/`);
+        console.log(`  ${downloadedImages.length} image(s) downloaded to src/data/blog/${dirName}/img/`);
     }
     console.log(`\nView (if you have a dev server running): http://localhost:5174/blog/${dirName}`);
     console.log(`\nNote: The post is created with published: true and the scheduled due date.`);
