@@ -60,10 +60,20 @@
         {:then results}
             {#each results as result (result.url)}
                 <Box>
-                    <a href={result.url.replace('.html', '')} class="result-link">
-                        <strong>{stripTitle(result.meta.title)}</strong>
-                    </a>
-                    {@html result.excerpt}
+                    <div class="result">
+                        {#if result.meta.image}
+                            <img
+                                src={result.meta.image}
+                                alt={result.meta.image_alt ?? ''}
+                                class="result-image"
+                                loading="lazy"
+                            />
+                        {/if}
+                        <a href={result.url.replace('.html', '')} class="result-link">
+                            <strong>{stripTitle(result.meta.title)}</strong>
+                        </a>
+                        {@html result.excerpt}
+                    </div>
                 </Box>
             {/each}
         {/await}
@@ -87,6 +97,17 @@
     }
     input:focus {
         outline: none;
+    }
+
+    .result {
+        display: flow-root;
+    }
+    .result-image {
+        float: right;
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+        margin: 0 0 8px 12px;
     }
 
     .result-link {

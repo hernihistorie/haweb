@@ -66,7 +66,7 @@
         <meta property="og:description" content="{loc(post.description_html)}" />
     {/if}
     {#if post.image}
-        <meta property="og:image" content="{post.image}" />
+        <meta property="og:image" content="{post.image}" data-pagefind-meta="image[content]" />
     {/if}
     <meta property="og:locale" content="{getLocale()}" />
 </svelte:head>

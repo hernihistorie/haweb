@@ -29,7 +29,7 @@
         <meta property="og:description" content="{loc(data.narrator.bio)}" />
     {/if}
     {#if data.narrator.photo?.url}
-        <meta property="og:image" content="{data.narrator.photo?.url}" />
+        <meta property="og:image" content="{data.narrator.photo?.url}" data-pagefind-meta="image[content]" />
     {/if}
     <meta property="og:locale" content="{getLocale()}" />
 </svelte:head>
