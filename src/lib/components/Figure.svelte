@@ -29,14 +29,14 @@
             data-pswp-height={props.image.height}
             onclick={openLightbox}
         >
-            <enhanced:img src={props.image.picture} sizes="(min-width: 1400px) 1400px, 100vw" alt={loc(alt)} />
+            <enhanced:img src={props.image.picture} sizes="(min-width: 1400px) 1400px, 100vw" alt={loc(alt)} loading="lazy" decoding="async" />
         </a>
     {:else if props.href}
         <a href={props.href} target="_blank">
-            <img src={props.src} alt={loc(alt)} />
+            <img src={props.src} alt={loc(alt)} loading="lazy" decoding="async" />
         </a>
     {:else}
-        <img src={props.src} alt={loc(alt)} />
+        <img src={props.src} alt={loc(alt)} loading="lazy" decoding="async" />
     {/if}
     {#if props.caption}
         <figcaption>
