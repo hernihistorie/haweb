@@ -1,5 +1,6 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs />
@@ -8,5 +9,5 @@
     <p>Spřátelený projekt <a href="https://nfa.cz/pixelarchiv/cs">Pixelarchiv.cz</a> pořádá příští čtvrtek (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky. O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními drahami.
     <p><a href="https://fb.me/e/6m6PhDg5v">Událost naleznete zde.</a>
     <p>(Obrázek je oficiální propagací akce)   
-    <p><img src="/photos/blog-posts/pixelarchiv_zeny.jpg">
+    <Figure src="/photos/blog-posts/pixelarchiv_zeny.jpg" />
 </section>

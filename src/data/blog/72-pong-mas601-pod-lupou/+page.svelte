@@ -1,13 +1,12 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs />
 
 <section>
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-3/1-kolaz-AY-MAS-lupa.jpg">
-    </div>
+    <Figure src="/photos/pong/blog-post-3/1-kolaz-AY-MAS-lupa.jpg" />
     <p>V předchozích dvou článcích jsme si podrobně prohlédli unikátní herní konzoli XD-8001 z Piešťanské Tesly, z pohledu uživatele, vnitřku přístroje, i struktury samotných integrovaných obvodů, které celou hru řídí. Tento závěrečný článek uzavře naši dobrodružnou cestu historickou herní technologií několika ukázkami zajímavých nálezů ve struktuře čipů, a konečně i srovnáním kvalit MAS601-603 s podobně zaměřeným, celosvětově dominantním čipem AY-3-8500, jehož zdokumentování se výborně zhostil <a href="https://nerdstuffbycole.blogspot.com/">Cole Johnson</a>. Nutno ale hned zkraje říci, že zde budeme nahlížet do detailů i drobných bolístek obou projektů, které sice přinášejí zajímavý pohled na způsob jejich vzniku a styl práce autorů, nelze je však chápat negativně. Každý projekt je totiž přirozeně různými obtížemi a chybičkami doprovázen, což se s příchodem stále komplikovanějších systémů rozhodně nezlepšuje, a průkopníkům, schopným již před půlstoletím s tehdejšími omezenými možnostmi navrhovat takovéto čipy, patří rozhodně moje poklona.
 
     <p>Srovnání her s MAS60x vs. AY-3-8500 z uživatelského hlediska jsme se již podrobně věnovali v prvním článku. Jak jsme zjistili, jsou víceméně srovnatelné, avšak existují mezi nimi i rozdíly, jako jsou odrazy míče od pálek a středové sítě, větší odlišení fotbalu od ostatních her, rozdíly v podání míče, zhasínání zobrazeného skóre a další detaily. Nemáme také hry se světelnou puškou.
@@ -20,19 +19,13 @@
 
     <p>V podobném duchu se nesou i rozdíly v základu časování obou čipů. AY-3-8500 používá pouhé dva čítače (horizontální a vertikální), implementované v tehdy oblíbeném zjednodušení jako <a href="https://cs.wikipedia.org/wiki/Posuvn%C3%BD_registr_s_line%C3%A1rn%C3%AD_zp%C4%9Btnou_vazbou">posuvné registry</a>. Takový obvod sice nepočítá v klasické binární posloupnosti, je však znatelně jednodušší - zdánlivě tedy AY-3-8500 boduje značným zjednodušením. Jenže ouvej! Zatímco výstupy kaskády různorodých čítačů v MAS601 mohou díky dobrému přizpůsobení celé struktury přímo řídit různé části herní logiky, v případě AY jsou ke zvládnutí výstupu čítačů nutné ještě dekodéry, takže výsledná bilance již tak růžová není. Výhodou AY-3-8500 nicméně zůstává možnost pružnější volby časování jen malými změnami v dekodéru, díky čemuž má výstupní signál AY skutečně správných 312 řádků, a mohly být snadno prováděny i změny v pozdějších revizích obvodu, např. verze s 262 řádky pro export do zemí s 60Hz televizním standardem (AY-3-8500-1).
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-3/2-logika-hry.jpg">
-        <cite>Obr. 2: Schéma herní logiky z minulého článku (původně ing. Vladimír Áč, výběr s doplněním)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-3/2-logika-hry.jpg" caption="Obr. 2: Schéma herní logiky z minulého článku (původně ing. Vladimír Áč, výběr s doplněním)" />
 
     <p>Nechtěl bych před sobě podobnými zvědavci zatajit ani okrajovější zajímavosti, proto se nyní zkusme chopit oné pomyslné lupy z titulu článku, a podívat se na stopy po různých změnách na čipu MAS601. Jde o červeně zakreslené rozdíly na obrázku 2, který opakuji z minulého článku. Když si zopakujeme v trochu jiné podobě i další obrázek (obr. 3), najde detektivní oko drobné stopy po změnách: Pravděpodobné původní trasy (podél přerušovaných čar) prozrazuje jednou cesta nezvykle přetažená za obrys tranzistoru, podruhé nadbytečné vybočení cesty směrem nahoru, navíc v místech, kde se i schéma zdá být pozměněno. V oválu úplně vpravo je pak nepochybně bývalý vstupní tranzistor (z pinu 10), který byl umrtven odstraněním "modré" vrstvy, a nahoře propojen paralelně k jinému tranzistoru vlevo.
 
     <p>Tuto změnu jsem na schématu naznačil variantou s oddělenými signály podání AS a AS*. V takovém zapojení by bylo možno vstupem přes pin 10 podání pouze zablokovat (pozastavit hru), nikoliv však urychlit - vždy by bylo třeba čekat na pokyn automatiky. Jak jsme však viděli, byl samostatný vstupní tranzistor částečně vymazán, a oba signály propojeny přes minule zmiňovaný odpor do signálu jediného, takže nakonec lze ruční podání tlačítkem provést i okamžitě po gólu. Zdá se však, že to mělo vliv i na další části hry.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-3/3-patrani-po-zmenach.jpg">
-        <cite>Obr. 3: Příklady pravděpodobných změn ve struktuře čipu (levé foto: Sean Riddle)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-3/3-patrani-po-zmenach.jpg" caption="Obr. 3: Příklady pravděpodobných změn ve struktuře čipu (levé foto: Sean Riddle)" />
     
     <p>V technické zprávě publikované Teslou v roce 1979, tedy při uvedení obvodů MAS60x, najdeme drobnou poznámku: "U her TENIS a FOTBAL není na závadu zvýšení skóre levé strany po ukončení hry o 1 bod (při Us=Uih)." Příčinou je patrně právě výše zmíněná úprava podání. Hra se totiž po dosažení 15 bodů zastaví tím, že signál KH již nedovolí návrat míče na hřiště - ovšem nově přidaná možnost okamžitého ručního podání (úrovní H na pinu 10) reaguje na vznik gólu tak rychle, že dokáže míč vrátit ještě před zastavením hry. Jak ukazuje schéma, levá strana hřiště tomu čelí vypnutím gólové čáry (těžko říci, zda i toto není změna), na straně pravé však stejná úprava chybí (naznačil jsem ve schématu přerušovaně), na čipu by si ostatně její provedení vyžádalo větší zásah. Není-li tedy pravá strana hřiště uzavřena mantinelem (při hrách pro jednoho), může zde teoreticky i po skončení hry ještě padnout poslední neviditelný gól.
 
@@ -42,10 +35,7 @@
 
     <p>Abychom si mohli znázornit, v čem vlastně zmíněná oprava čítačů skóre spočívala, ukážeme si dílčí schéma na úrovni jednotlivých tranzistorů. Třebaže kompletní schéma celého čipu nejspíš nikdy nakresleno nebylo, jednotlivé funkční bloky pochopitelně v originální dokumentaci podrobná schémata mají. Používaly se jako více či méně unifikované stavební kameny - je to vlastně trochu podobné používání knihoven v moderním programování, a přináší to ovšem i podobná úskalí: Moduly mohou být například pro konkrétní účel zbytečně komplikované, nebo zas jejich vzájemné vazby mohou přinášet nečekaná překvapení. Na obrázku 4 vidíme srovnání pěti různých obvodů, které všechny vykonávají tutéž funkci - bistabilní klopný obvod, obvykle tvořící jeden bit binárního čítače.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-3/4-srovnani-citacu.jpg">
-        <cite>Obr. 4: Srovnání čítačů skóre</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-3/4-srovnani-citacu.jpg" caption="Obr. 4: Srovnání čítačů skóre" />
 
     <p>Vlevo nahoře máme jednoduchou verzi bez nulování, použitou v čítači C obvodu MAS601. Klopný obvod ze dvou tranzistorů uprostřed obrázku lze překlápět spojením jedné či druhé strany do země přes postranní tranzistory. To je řízeno dvojicí navzájem invertovaných hodinových signálů T: Při aktivním signálu /T se stav obou výstupů přes ležaté tranzistory překopíruje na hradla spodních stojatých tranzistorů, které svým sepnutím vytvoří vlastně jejich inverzi. Po vystřídání hodinových signálů (aktivní signál T) pak tato inverze (tam kde jde o úroveň země) skrz tranzistory nad nimi překlopí vlastní klopný obvod. V době této akce jsou již sice hradla spodních tranzistorů odpojena, protože však fungují jako malé kondenzátory, předchozí stav si na okamžik podrží. Obvod je tedy sice statický, avšak v momentě překlápění využívá přechodně i princip dynamické paměti k přidržení předchozího stavu. Hradla tranzistorů se po překlopení sice časem vybijí (a tranzistory uzavřou), ale to ničemu nevadí - svou práci již vykonaly. Dvojice navzájem inverzních výstupů je zpravidla přímo připojena na hodinové vstupy dalšího stupně čítače, který tak počítá 2x pomaleji - vzniká obvyklá vzestupná sekvence binárních čísel.
 
@@ -55,10 +45,7 @@
 
     <p>Jak ke stejné funkci přistoupil o několik let dříve na opačné straně Evorpy autor čipu AY-3-8500 Duncan Harrower, vidíme pro srovnání v horní části obrázku. Obvod je to robustní, stačí mu jediný hodinový signál, je to nicméně z pohledu optimalizace jakýsi dinosaurus, který spotřeboval zhruba dvojnásobek tranzistorů. Jak tohle monstrum vlastně funguje? Vidíme tři klopné obvody, z nichž horní určuje stav výstupu, a podle něj vždy jeden ze spodních zůstává ve stavu (zleva doprava) L-H. Aktivací hodinového signálu (pravý okraj schématu) jsou pravé strany obou spodních obvodů uzemněny, takže zmíněný obvod se překlopí do stavu H-L, zatímco druhý zaujme přechodně nestabilní stav L-L (protože i jeho levá strana je uzemněna, vlivem obvodu o patro výše). Při skončení hodinového impulsu vyskočí pravá strana ze zmíněného nestabilního stavu na "H" a překlopí tím i horní (výstupní) klopný obvod. Podle předchozího stavu výstupu takto zapůsobí buď jeden, nebo druhý ze spodních obvodů, a výstup tak přejde do stavu opačného. Zajímavostí AY-3-8500 je, že každý stupeň dostává podmíněně hodinový vstup celého čítače - posloupnost binárních čísel tedy není dána zřetězením jednotlivých stupňů (jak bychom asi čekali), ale je explicitně řízena dodatečnými hradly. Druhý stupeň, který je naším příkladem, tedy dostane hodinový impuls, jen pokud již první stupeň dosáhl hodnoty "1" (o to se stará dvojice tranzistorů v pravém dolním rohu). Novější obvod AY-3-8605 (a následovníci), se ovšem již blíží verzi použité ve stejné době i v MAS601 (pravý obrázek): V podstatě celá spodní polovina zastává funkci zmíněných dvou ležatých tranzistorů, jinak je funkce totožná.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-3/5-srovnani-oscilatoru.jpg">
-        <cite>Obr. 5: Srovnání tří verzí oscilátoru</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-3/5-srovnani-oscilatoru.jpg" caption="Obr. 5: Srovnání tří verzí oscilátoru" />
 
     <p>Další detektivní příběh začíná na čipu MAS603, v oblasti generátoru hodinového kmitočtu, kde lze rozeznat poněkud neobvyklou strukturu - jsou zde základy několika nepřipojených tranzistorů a vodivých cest. Světlo do této záhady vnáší původní vývojová dokumentace, z níž čerpá i můj srovnávací obrázek č. 5 (tranzistory jsem pro názornost označil písmeny, jde totiž o tři téměř shodné obvody). Obvod MAS601 si měl původně hodinový kmitočet vytvářet sám, pomocí vlastního vestavěného oscilátoru (na obrázku část "1" vlevo dole), kterému stačil jediný kondenzátor připojený z pinu 16 do země. Měl to být klopný obvod s hysterezí, který zároveň přes tranzistory řídil nabíjení/vybíjení kondenzátoru. Tato koncepce silně připomíná podobný Teslácký obvod MAS1008, navržený pravděpodobně ve stejné době pro zobrazování čísla zvoleného programu na obrazovce televizoru.
 

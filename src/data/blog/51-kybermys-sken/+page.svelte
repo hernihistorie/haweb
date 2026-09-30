@@ -1,6 +1,7 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
 	import { localizeHref } from "$src/lib/paraglide/runtime";
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs />
@@ -11,5 +12,5 @@
     <p>25 čísel tohoto časopisu jsme naskenovali a nahráli na <a href="https://archive.org/details/kybermys">archive.org</a>
     <p>A všechna tato čísla doplnili do naší <a href={localizeHref("/magazines/catalog/kybermys/")}>Databáze časopisů</a>.
     <p>Vzhledem k tomu, že nám chybí více než polovina KyberMyší, tak budeme rádi, pokud se nám ozvete v případě, že byste byli ochotni nám nějaké číslo věnovat na zdigitalizování.
-    <p><img src="/photos/blog-posts/kybermys_sken.jpg" width="100%">
+    <Figure src="/photos/blog-posts/kybermys_sken.jpg" alt="Koláž časopisů Kybermyš" />
 </section>

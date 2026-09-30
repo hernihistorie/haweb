@@ -24,7 +24,7 @@
 
     <!-- SBIRKA -->
     <div>
-        <img src="/photos/homepage/sbirka.jpg">
+        <img src="/photos/homepage/sbirka.jpg" alt="">
         <Box>
             <h3><Loc cs="Sbírka" en="Collection" /></h3>
             <p>
@@ -67,7 +67,7 @@
 
     <!-- ROZHOVORY -->
     <div>
-        <img src="/photos/homepage/rozhovory.jpg">
+        <img src="/photos/homepage/rozhovory.jpg" alt="">
         <Box>
             <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
             <p>
@@ -100,7 +100,7 @@
 
     <!-- DATABAZE MAGAZINU -->
     <div>
-        <img src="/photos/homepage/magaziny.jpg">
+        <img src="/photos/homepage/magaziny.jpg" alt="">
         <Box>
             <h3><Loc cs="Databáze magazínů" en="Magazine database" /></h3>
             <!-- Dlouhodobě: -->
@@ -147,7 +147,7 @@
 
     <!-- VIZUALNI MATERIALY -->
     <div>
-        <img src="/photos/homepage/vizualni_materialy.jpg">
+        <img src="/photos/homepage/vizualni_materialy.jpg" alt="">
         <Box>
             <h3><Loc cs="Vizuální materiály" en="Visual materials" /></h3>
             <!-- Dlouhodobě: -->

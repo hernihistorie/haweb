@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs en />
@@ -16,8 +17,8 @@
             <p>(Photos by: Ladislav Huttl)</p>
         {/snippet}
     </Loc>
-    <p><img src="/photos/blog-posts/cost_1.jpg"></p>
-    <p><img src="/photos/blog-posts/cost_2.jpg"></p>
-    <p><img src="/photos/blog-posts/cost_3.jpg"></p>
-    <p><img src="/photos/blog-posts/cost_4.jpg"></p>
+    <Figure src="/photos/blog-posts/cost_1.jpg" />
+    <Figure src="/photos/blog-posts/cost_2.jpg" />
+    <Figure src="/photos/blog-posts/cost_3.jpg" />
+    <Figure src="/photos/blog-posts/cost_4.jpg" />
 </section>

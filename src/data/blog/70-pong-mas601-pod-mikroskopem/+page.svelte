@@ -1,30 +1,22 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
     import { localizeHref } from '$lib/paraglide/runtime';
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs />
 
 <section>
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg">
-        <cite>Obr. 1: Čip MAS601 po vybalení z černého pouzdra (Foto: Sean Riddle)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/01-vybaleny-MAS601.jpg" caption="Obr. 1: Čip MAS601 po vybalení z černého pouzdra (Foto: Sean Riddle)" />
     <p>V <a href={localizeHref("/blog/67-pong-xd8001-pod-drobnohledem/")}>minulém článku</a> jsme si představili zvenku i zevnitř televizní hru XD-8001, kterou od roku 1979 vyráběla Piešťanská Tesla. Hra je založena na specializovaných čipech MAS601-603, navržených a vyráběných přímo v Piešťanech, což je v rámci tehdejšího východního bloku herní unikát, a i ve světovém měřítku vzácnost. Tento článek je určen pro obzvláště zvídavého a trpělivého čtenáře, neboť půjdeme ještě hlouběji: Nahlédneme přímo do vnitřní struktury zmíněných čipů a pokusíme se rozluštit jejich fungování. Zkusíme si také odpovědět na otázky ze závěru minulého článku: Proč rozdělení na 3 obvody? Proč napětí -18V? Proč je půlka hry analogová?
     
     <p>Jak se vlastně dá takový integrovaný obvod zkoumat? Ve světě existují machři, kteří umí na "brouka" zaútočit kyselinou, zvolna odkrývat jednotlivé jeho vrstvy a detailně je fotografovat přes mikroskop. A tak zatímco v minulosti se údajně na východě Evropy podobně zkoumaly čipy západního původu, nyní si z iniciativy spolku <a href="https://hernihistorie.cz/">Herní historie</a> udělaly výlet za oceán naopak čipy MAS60x. Procesu obvykle zvaného "decap" se ujal <a href="https://seanriddle.com/decap.html">Sean Riddle</a> a výsledkem jsou <a href="https://seanriddle.com/tesla/">snímky</a> všech tří čipů v doslova obrovském rozlišení.
     
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/02-priklady-decap-MAS601.jpg">
-        <cite>Obr. 2: Ukázka z fotky struktury čipu (Foto: Sean Riddle)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/02-priklady-decap-MAS601.jpg" caption="Obr. 2: Ukázka z fotky struktury čipu (Foto: Sean Riddle)" />
 
     <p>Abychom porozuměli jejich obsahu, potřebujeme něco málo vědět o struktuře integrovaných obvodů. Jde o komplikovanou technologii (a to ještě není nic proti dnešním čipům), nám ale naštěstí k pochopení funkce obvodu postačí jen několik základních věcí. Na obrázku 2 jsou malé ukázky z fotek čipu MAS601, a vidíme, že se poměrně dost podobají struktuře oboustranných plošných spojů. Na pravých výřezech vyniká vrchní propojovací vrstva (kovová), vlevo máme stejná místa po jejím odstranění, takže můžeme lépe sledovat spodní vodivé cesty, vytvořené dopováním v křemíkovém základu čipu. Další vrstva mezi nimi (světlé obdélníčky na levých obrázcích) tvoří polem řízené tranzistory (MOS), které se stávají vodivými působením dostatečného napětí na příslušných hradlech - zde tedy na nich ležící kovové vrstvě. Nesmíme si je ovšem splést se vzájemným propojením jednotlivých vrstev (dnes obvykle zvaným "vias"), které rozeznáváme jako (různobarevně zkorodované) čtverečky uvnitř některých políček. Abych se v tom lépe vyznal, překreslil jsem si celou strukturu různými barvami do jediného obrázku (jen tři relevantní vrstvy, čísla na okraji motivu ovšem prozrazují technologii s nejméně pěti vrstvami).
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/03-struktura-MAS602-603.jpg">
-        <cite>Obr. 3: Překreslená struktura MAS602+603 s popsanými prvky</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/03-struktura-MAS602-603.jpg" caption="Obr. 3: Překreslená struktura MAS602+603 s popsanými prvky" />
 
     <p>Nyní již můžeme obvod začít převádět do podoby klasického schématu, je to však obvod poněkud nezvyklý - máme zde totiž jen samé tranzistory (plus ojediněle malý kondenzátor, tvořený obdélníčkem dvou vrstev na sobě). Jak bylo v 70. letech obvyklé, jsou všechny tranzistory stejného typu vodivosti, v tomto případě P (otvírají se při záporném napětí hradla, odtud tedy i záporné napájecí napětí celého systému). Zapojení pak odpovídá logice P-MOS, kde většinou různé kombinace tranzistorů (podle logické funkce) spínají výstup do země, a pokud sepnuty nejsou, objeví se na výstupu napětí přivedené přes odpor (pull-up, nebo zde vzhledem k zápornému napětí možná spíše pull-down). Vznikal tím sice jistý trvalý odběr proudu a možná ne úplně ideální rychlost spínání, bylo však jednodušší tuto verzi vyrobit. (Později přišla technologie CMOS, která kombinuje oba druhy tranzistorů P+N k aktivnímu spínání signálů v obou polaritách.)
 
@@ -32,14 +24,8 @@
 
     <p>Podotýkám, že na čipech existují i struktury, které nemám zcela vysvětlené. Odhaduji, že zdánlivě neúplné tranzistory či malé kondenzátory poblíž vývodů budou nějakou variantou ochrany proti statické elektřině (v případě MAS602+603 jsem toto naznačil i ve schématu), proč se ale vyskytují i uvnitř struktury MAS601 (napočítal jsem takových 39) a naopak chybí u některých pinů (1, 2 a 16), zůstává tak trochu záhadou. Pro funkci obvodu však význam nemají (ani sám autor čipů je v dokumentaci neuvádí), takže je budu dále již ignorovat.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/04-vnitrni-zapojeni-MAS602-603.jpg">
-        <cite>Obr. 4: Podrobné vnitřní zapojení MAS602+3</cite>
-    </div>
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/05-blokove-schema-MAS602-603.jpg">
-        <cite>Obr. 5: Blokové schéma MAS602+3</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/04-vnitrni-zapojeni-MAS602-603.jpg" caption="Obr. 4: Podrobné vnitřní zapojení MAS602+3" />
+    <Figure src="/photos/pong/blog-post-2/05-blokove-schema-MAS602-603.jpg" caption="Obr. 5: Blokové schéma MAS602+3" />
 
     <p>Pojďme tedy nahlédnout do struktury a fungování jednotlivých obvodů. Začneme s MAS602+603, které pracují analogovým způsobem, jsou se svými 75 resp. 80 tranzistory z celé trojice těmi jednoduššími a prohlédneme si je oba společně. Obrázky ukazují pro oba čipy překreslenou strukturu (obr. 3, zde jsem si pro srovnání se schématem tranzistory nově očísloval), podrobné schéma zapojení (obr. 4) a zjednodušené blokové schéma (obr. 5), které nám poslouží k vysvětlení jejich funkce. Jak vidíme, jedná se o dva téměř shodné čipy, které mají dokonce tytéž podkladové struktury se základy tranzistorů, a jen v poslední propojovací vrstvě jsou drobné rozdíly. Odlišným propojením stejných tranzistorů na stejných čipech tak nakonec vznikají dva mírně odlišné obvody. Každý z nich má navíc dvě víceméně stejné poloviny, takže vlastně stojíme před čtveřicí shodných obvodů. Jejich výstupem jsou impulsy, které tvoří vertikální či horizontální složku videosignálu pohyblivých objektů ve hře.
 
@@ -55,15 +41,9 @@
 
     <p>Druhý výstup (pin 7), který v případě MAS602 vlastně není potřeba, je využit ke sloučení horizontální a vertikální synchronizace pro televizor. Obvod MAS603 obsahuje dále generátor hodinového kmitočtu, ke kterému se vrátím až v příštím článku v souvislosti se změnami, kterými prošel, a také takzvaný "pomocný tranzistor", což je prostě jeden ze zbývajících tranzistorů společné základní struktury obou čipů, vyvedený na zbylé piny 14-15 (v přístroji není k ničemu použit). Zbylých tranzistorů je ovšem na čipech více, protože všechny tranzistory čipu MAS602 existují i na čipu MAS603 a naopak, jakožto vedlejší produkty zjednodušeného návrhu. Nadbytečné tranzistory většinou nejsou nikam připojeny, mnohé ani nemají hradlo, nebo jsou trvale zavřené a do funkce obvodu nijak nezasahují. Pro zajímavost jsem pár takových v překresleném schématu ponechal.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/06-struktura-MAS601.jpg">
-        <cite>Obr. 6: Překreslená struktura MAS601</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/06-struktura-MAS601.jpg" caption="Obr. 6: Překreslená struktura MAS601" />
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/07-struktura-MAS601-se-signaly.jpg">
-        <cite>Obr. 7: Pro zvědavé: Překreslená struktura MAS601 s vyznačenými signály a změnami</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/07-struktura-MAS601-se-signaly.jpg" caption="Obr. 7: Pro zvědavé: Překreslená struktura MAS601 s vyznačenými signály a změnami" />
 
     <p>Nyní se dostáváme teprve k té pravé výzvě: Pojďme se podívat na obvod MAS601, který je skutečným srdcem i mozkem celé hry. Je to na svou dobu poměrně dost komplexní logický obvod složený z 963 tranzistorů, takže se raději nebudeme topit v jakémsi nikdy asi nenakresleném obřím schématu celého čipu, ale soustředíme se na jednotlivé funkční celky, z nichž se skládá. I tento obvod jsem si podle fotografií překreslil (obr. 6) a postupně označil jednotlivé jeho části. (Pro hloubavější povahy jsou na druhé verzi - obr. 7 - vyznačeny i jednotlivé signály dle níže uvedených schémat.)
 
@@ -71,15 +51,9 @@
 
     <p>V dalším textu se tedy již přidržíme originální dokumentace, přičemž se pokusím být laskavému čtenáři průvodcem po uvedených schématech. Hned zkraje si ovšem musíme objasnit poměrně nezvyklou definici logických úrovní: Vzhledem k napájecímu napětí -18V je sice v katalogu logická úroveň "L" uváděna jako záporné napětí, zatímco "H" odpovídá potenciálu země, použitá logika ovšem chápe přítomnost napětí (byť záporného) jako jedničku, takže jde vlastně o jistý druh negativní logiky. Nechtěl jsem originální dokumentaci nějak přepisovat, takže si zapamatujme: -18V = úroveň "L" = logická "1"(!), Zem = úroveň "H" = logická "0". Také logické funkce byly ve schématech označeny jinak, než jsme dnes zvyklí - řeckými písmeny Σ (OR) a Π (AND). Protože značení některých signálů a jejich polarit není ani potom zcela zřejmé, připravil jsem navíc i malý rejstřík signálů a jejich významů (příloha).
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/08-blokove-schema-MAS601.jpg">
-        <cite>Obr. 8: Blokové schéma MAS601 (ing. Vladimír Áč, doplněno)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/08-blokove-schema-MAS601.jpg" caption="Obr. 8: Blokové schéma MAS601 (ing. Vladimír Áč, doplněno)" />
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/09-nakresy-her.jpg">
-        <cite>Obr. 9: Nákresy her (ing. Vladimír Áč)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/09-nakresy-her.jpg" caption="Obr. 9: Nákresy her (ing. Vladimír Áč)" />
 
     <p>Takto připraveni se již můžeme bez obav vrhnout do hlubin MAS601. Dobrým začátkem bude původní blokové schéma celého obvodu (obr. 8), které dosti přesně odráží i skutečné uspořádání čipu. Základem celého systému je kaskáda čítačů označených A-E, které počítají periody hodinového signálu 875kHz, a tím vlastně i polohu právě zobrazovaného místa na televizní obrazovce (na vstupu je navíc ještě zakreslen původně plánovaný taktovací generátor). Použity jsou čítače různého typu. A a B jsou dynamické posuvné registry s 8 resp. 7 stupni, které počítají pixely ve vodorovném směru posouváním jediného aktivního bitu přes jednotlivé pozice, C je klasický tříbitový binární čítač, který počítá do 8 televizních řádků (což je výška jednoho pixelu v motivu hry) a prodloužením o další 2 bity poskytuje i kmitočty asi 1kHz a 500Hz pro zvuk. D je opět posuvný registr (tentokrát ovšem statický) s 5 stupni pro 5 pixelů nad sebou (což je šikovné zejména při zobrazení skóre), a nakonec E v podobě tříbitového binárního čítače pokrývá počtem 8 takových pixelových skupin celou výšku obrazovky. Na konci celé kaskády pak máme snímkový kmitočet přibližně 50Hz.
 
@@ -91,10 +65,7 @@
 
     <p>Podobné jsou i důvody k rozdělení systému na tři čipy. Tesla tehdy neuměla vyrobit pouzdra s více než 16 vývody, což by snad mohlo stačit pro plně digitální hru, zvolené kombinované řešení však muselo být právě kvůli obsazení pinů rozděleno. Má to pochopitelně i své nevýhody, zejména že obvod MAS601 nemá téměř vůbec pod kontrolou polohu míče, z čehož plynou některá netypická řešení při startu hry a návratu míče na hřiště po gólu.
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/10-logika-hry.jpg">
-        <cite>Obr. 10: Logika hry na schématech (původně ing. Vladimír Áč, výběr s doplněním)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/10-logika-hry.jpg" caption="Obr. 10: Logika hry na schématech (původně ing. Vladimír Áč, výběr s doplněním)" />
 
     <p>Vraťme se však k vnitřní struktuře obvodu MAS601. Na obrázek 10 jsem z původní dokumentace vybral obvody, které tvoří jádro samotné hry. Na čipu tyto obvody najdeme vpravo od středu v dolní i horní části, a také částečně u pravého okraje. V levé horní části obrázku 10 tak můžeme vidět, jak v závislosti na zvolené hře (signály A+B, při fotbalu také C) a horizontální pozici, dané výstupy z čítačů A a B, vzniká obrazový signál jednotlivých prvků. Oba hráči (LHV/PHV) mají výšku omezenou signálem z MAS603 (LH/PH), při fotbalu se opakují na dvou místech, pravý hráč se objeví pouze při hrách pro dva. Postranní mantinely (LMV/PMV) jsou při fotbalu přerušené otvorem branek dle signálu K, při hrách pro jednoho se pravý zobrazuje vždy, zatímco středová síť (SCV) je zobrazena mimo Peloty vždy, přerušovaná signálem CO. Tyto signály jsou, spolu s horní/dolní krajovou čárou (HC/DC) a zobrazením míče (ZL) na levé straně schématu sloučeny do videosignálu hry (VH).
 
@@ -114,10 +85,7 @@
 
     <p>U spodního okraje obrázku najdeme ještě výstupní obvod videosignálu (M). Jak vidíme, existují zde dvě samostatné cesty pro zobrazení skóre a obrazce hry, každá s vlastním výstupním tranzistorem (takže by za jistých okolností mohl být míč hypoteticky při přeletu přes číslice skóre odlišen jasnější bílou barvou, což mi však nepřipadá moc reálné). Vidíme také, jak je v úsporně navržené logice MAS601 řešeno odstranění nežádoucích částí obrazu centrálně na jediném místě: Videosignál hry (VH) je mimo hřiště zhasínán zatemňovacími signály MOH/MOV, zobrazení skóre (MC) je aktivní pouze v příslušných dvou místech (B3/B4) správného řádku (SR), a jen při zastavené hře (SKR).
 
-    <div class="picture-cite">
-        <p><img src="/photos/pong/blog-post-2/11-zobrazovani-skore.jpg">
-        <cite>Obr. 11: Zobrazování skóre (původně ing. Vladimír Áč, výběr s doplněním)</cite>
-    </div>
+    <Figure src="/photos/pong/blog-post-2/11-zobrazovani-skore.jpg" caption="Obr. 11: Zobrazování skóre (původně ing. Vladimír Áč, výběr s doplněním)" />
 
     <p>Tím jsme již prošli prakticky celou hru, takže zbývá jen počítání a zobrazování skóre - to najdeme na obrázku 11. Vlevo nahoře vidíme dva čtyřbitové čítače pro skóre obou hráčů, nulované při startu hry (nulování skutečně jen maže skóre, žádná další část čipu nulovat nepotřebuje). Nenechme se zmást připojením levého signálu (SL) k pravému čítači a naopak, jde prostě jen o to, že gól na levé straně znamená bod pro pravého hráče a naopak. První řada tranzistorů pod čítači tvoří logické hradlo, které vyhodnocuje konec hry: Jakmile některý čítač dosáhne 15 bodů (binárně samé jedničky), nebude sepnutý žádný z příslušných čtyř tranzistorů, čímž se signál KH odpojí od země, a díky pull-downu ohlásí záporným napětím konec hry. Další dvě řady tranzistorů tvoří multiplexer, který v závislosti na právě vykreslovaném místě obrazovky (B4) pouští do další části střídavě oba údaje, aby se stejnými obvody zobrazilo levé i pravé skóre.
 

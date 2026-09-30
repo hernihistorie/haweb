@@ -1,12 +1,13 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
 </script>
 
 <PageLang cs />
 
 <section>
 
-    <p><img src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_banner.jpg"></p>
+    <Figure src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_banner.jpg" alt="RetroFest 2024 banner" />
 
     <p>S radostí oznamujeme, že v neděli 28. ledna se odehraje další ročník RetroFest streamu! Ať už jste fanoušci retroher, co rádi navštěvují RetroHernu na veřejných akcích, nebo se zajímáte o herní historii v našich kotlinách a chcete vědět na čem pracujeme, doufáme, že vás nalákáme se stavit na našem nepravidelném streamu. Můžete se těšit na přednášku o Československých televizních tenisech, na pařbu Unreal Tournamentu s publikem, na ohlášení několika novinek v rámci našeho projektu Herní archiv, a na hraní více či méně známých her z našich luhů a hájů!
 
@@ -16,6 +17,6 @@
         <p><a href="https://retroherna.org/ut99">Návod na připojení se k Unreal Tournament hře</a>
     </div>
 
-    <p><img src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_program.jpg"></p>
+    <Figure src="https://retroherna.org/wiki/lib/exe/fetch.php?media=web2:novinky:rf24_program.jpg" alt="RetroFest 2024 program" />
 
 </section>
