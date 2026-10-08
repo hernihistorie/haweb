@@ -40,6 +40,12 @@
         document.documentElement.dataset.theme = effectiveTheme;
     });
 
+    // Lets the server tell embedded pages the theme too (see $lib/server/embed.ts)
+    $effect(() => {
+        if (!browser) return;
+        document.cookie = `theme=${themeChoice}; path=/; max-age=31536000; samesite=lax`;
+    });
+
     function setThemeChoice(value: ThemeChoice) {
         themeChoice = value;
         localStorage.setItem('theme', value);

@@ -1,11 +1,16 @@
 <script lang="ts">
-    import LegacyEmbed from '$src/lib/components/RHInventoryEmbed.svelte';
+    import EmbeddedFrame from '$src/lib/components/EmbeddedFrame.svelte';
+    import Meta from '$src/lib/components/layout/Meta.svelte';
+    import { INVENTORY } from '$src/lib/embedded';
 
-    const { data } = $props();
+    const TITLE_SUFFIX = ' - Sbírka Herní Archiv';
+
+    let { data } = $props();
+
+    let frameTitle = $state('');
+    let title = $derived(frameTitle.replace(TITLE_SUFFIX, '') || 'Sbírka');
 </script>
 
-<svelte:head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</svelte:head>
+<Meta {title} />
 
-<LegacyEmbed html={data.html} />
+<EmbeddedFrame app={INVENTORY} src={data.src} bind:title={frameTitle} />
