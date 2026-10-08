@@ -25,6 +25,7 @@
             href={props.image.original}
             target="_blank"
             aria-label={loc(alt) || loc({ cs: "Zvětšit obrázek", en: "Enlarge image" })}
+            data-pswp
             data-pswp-width={props.image.width}
             data-pswp-height={props.image.height}
             onclick={openLightbox}
