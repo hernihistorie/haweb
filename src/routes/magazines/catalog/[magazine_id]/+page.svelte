@@ -16,7 +16,12 @@
 	let { data }: PageProps = $props();
     
     let displayedYear: string | null = $derived.by(() => 
-        (building ? null : page.url.searchParams.get('year')) ?? (Object.keys(data.issues_by_year).length == 1 ? Object.keys(data.issues_by_year)[0] : null)
+        (building ? null : page.url.searchParams.get('year'))
+        ?? (
+            data.issues_by_year && Object.keys(data.issues_by_year).length == 1
+            ? Object.keys(data.issues_by_year)[0]
+            : null
+        )
     );
 </script>
 
@@ -85,29 +90,31 @@
     </p>
 {/if}
 
-<MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
-
-{#if displayedYear}
-    <section class="thin">
-        <ul class="issues unstyled">
-            {#each data.issues_by_year[displayedYear] as issue}
-                <li>
-                    <MagazineIssueBox {issue} issueScanTemplate={data.magazine.url_issue_scan_template} />
-                </li>
-            {/each}
-        </ul>
-    </section>
+{#if data.issues_by_year}
     <MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
-{:else}
-    <div class="guide">
-        <small>
-            <Loc
-                cs="zvolte ročník"
-                en="select a year"
-            />
-        </small>
-        <span class="arrow">⤴</span>
-    </div>
+
+    {#if displayedYear}
+        <section class="thin">
+            <ul class="issues unstyled">
+                {#each data.issues_by_year[displayedYear] as issue}
+                    <li>
+                        <MagazineIssueBox {issue} issueScanTemplate={data.magazine.url_issue_scan_template} />
+                    </li>
+                {/each}
+            </ul>
+        </section>
+        <MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
+    {:else}
+        <div class="guide">
+            <small>
+                <Loc
+                    cs="zvolte ročník"
+                    en="select a year"
+                />
+            </small>
+            <span class="arrow">⤴</span>
+        </div>
+    {/if}
 {/if}
 
 <style>

@@ -106,7 +106,7 @@ export type IssuesByYear = Record<IssueYear, MagazineIssue[]>;
 
 export type MagazineDetail = {
   magazine: MagazineInfo;
-  issues_by_year: IssuesByYear;
+  issues_by_year?: IssuesByYear;
 };
 
 // miss list (/public-magdb/miss-list.yaml)
