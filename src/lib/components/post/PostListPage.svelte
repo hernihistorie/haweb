@@ -21,8 +21,6 @@
     const title = $derived(postKinds[kind].title);
 </script>
 
-<PageLang cs notice="Most posts are only available in Czech." />
-
 <Meta title={activeYear ? `${loc(title)} (${activeYear})` : title} />
 
 <h2>
