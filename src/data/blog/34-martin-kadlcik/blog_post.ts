@@ -1,20 +1,20 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from '$src/types';
-import { authors } from '$src/data/authors';
+import type { BlogPost } from "$src/types";
+import { authors } from "$src/data/authors";
 
 const blogPost: BlogPost = {
     published: true,
     id: 34,
-    slug: 'martin-kadlcik',
+    slug: "martin-kadlcik",
     title: {
-        cs: 'Rozhovor s Martinem Kadlčíkem, autorem hry das ADLERNEST'
+        cs: "Rozhovor s Martinem Kadlčíkem, autorem hry das ADLERNEST",
     },
     date: new Temporal.PlainDate(2024, 12, 27),
     author: authors.HerniHistorie,
     description_html: `
         Po záchraně hry das ADLERNEST na ZX Spectrum jsme položili jeho autorovi - Martinu Kadlčíkovi - i několik otázek ohledně toho, jak hru tvořil, jak se k hrám a počítačům vůbec dostal a co dělá v současnosti.
-    `
+    `,
 };
 
 export default blogPost;

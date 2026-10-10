@@ -1,10 +1,10 @@
 <script lang="ts">
-    import AuthorBio from '$lib/components/blog/AuthorBio.svelte';
+    import AuthorBio from "$lib/components/blog/AuthorBio.svelte";
 
-	import Meta from '$lib/components/layout/Meta.svelte';
-	import BlogBoxes from '../../BlogBoxes.svelte';
+    import Meta from "$lib/components/layout/Meta.svelte";
+    import BlogBoxes from "../../BlogBoxes.svelte";
 
-	const { data } = $props();
+    const { data } = $props();
 </script>
 
 <Meta title={`Blog - ${data.author.name}`} />

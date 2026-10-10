@@ -1,128 +1,96 @@
 <script lang="ts">
-	import Meta from '$src/lib/components/layout/Meta.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import Box from '$lib/components/Box.svelte';
-    import Loc from '$lib/components/Loc.svelte';
-	import BlogBoxes from './blog/BlogBoxes.svelte';
-    import ProjectBoxes from './projects/ProjectBoxes.svelte';
-	import Arrow from '$src/lib/components/Arrow.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+    import Meta from "$src/lib/components/layout/Meta.svelte";
+    import Hero from "$lib/components/Hero.svelte";
+    import Box from "$lib/components/Box.svelte";
+    import Loc from "$lib/components/Loc.svelte";
+    import BlogBoxes from "./blog/BlogBoxes.svelte";
+    import ProjectBoxes from "./projects/ProjectBoxes.svelte";
+    import Arrow from "$src/lib/components/Arrow.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
 
-	let { data } = $props();
+    let { data } = $props();
 </script>
 
 <Meta title="" />
 
 <Hero />
 
-<h2><Loc
-    cs="Naše činnost"
-    en="Our Activities"
-/></h2>
+<h2><Loc cs="Naše činnost" en="Our Activities" /></h2>
 
 <div class="boxes">
-
     <!-- SBIRKA -->
     <div>
-        <img src="/photos/homepage/sbirka.jpg" alt="">
+        <img src="/photos/homepage/sbirka.jpg" alt="" />
         <Box>
             <h3><Loc cs="Sbírka" en="Collection" /></h3>
             <p>
                 <Loc
                     cs="V evidenci vedeme více než 8 000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
-                    en="We maintain a registry of more than 8,000 items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature."
-                />
+                    en="We maintain a registry of more than 8,000 items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature." />
             </p>
             <p>
                 <strong>
-                    <Loc
-                        cs="Počet předmětů v databázi"
-                        en="Number of items in database"
-                    />
-                </strong>:
-                9079
-                <br>
+                    <Loc cs="Počet předmětů v databázi" en="Number of items in database" />
+                </strong>: 9079
+                <br />
                 <strong>
-                    <Loc
-                        cs="Nedávný předmět"
-                        en="Recent item"
-                    />
+                    <Loc cs="Nedávný předmět" en="Recent item" />
                 </strong>:
                 <a href="https://inventory.herniarchiv.cz/asset/8953-mato" class="plain">
-                    <Loc
-                        cs="Osobní počítač Maťo"
-                        en="Personal computer Maťo"
-                    />
+                    <Loc cs="Osobní počítač Maťo" en="Personal computer Maťo" />
                 </a>
             </p>
             <Arrow href="https://inventory.herniarchiv.cz/">
-                <Loc
-                    cs="Náhlednout do sbírky"
-                    en="Browse the collection"
-                />
+                <Loc cs="Náhlednout do sbírky" en="Browse the collection" />
             </Arrow>
         </Box>
     </div>
 
-
     <!-- ROZHOVORY -->
     <div>
-        <img src="/photos/homepage/rozhovory.jpg" alt="">
+        <img src="/photos/homepage/rozhovory.jpg" alt="" />
         <Box>
             <h3><Loc cs="Rozhovory" en="Interviews" /></h3>
             <p>
                 <Loc
                     cs="Neustále se rozšiřující sbírka rozhovorů s představiteli české a slovenské videoherní kultury. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout."
-                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer."
-                />
+                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer." />
             </p>
             <p>
                 <strong>
-                    <Loc
-                        cs="Nejnovější rozhovor"
-                        en="Latest interview"
-                    />:
+                    <Loc cs="Nejnovější rozhovor" en="Latest interview" />:
                 </strong>
-                <a href={localizeHref("/interviews/josef-havelka/")} class="plain">Josef Havelka</a>, 
-                    <Loc
-                        cs="zakladatel <i>Atari klubu Cítov</i>"
-                        en="founder of <i>Atari club Cítov</i>"
-                    />
+                <a href={localizeHref("/interviews/josef-havelka/")} class="plain">Josef Havelka</a
+                >,
+                <Loc
+                    cs="zakladatel <i>Atari klubu Cítov</i>"
+                    en="founder of <i>Atari club Cítov</i>" />
             </p>
             <Arrow href="/interviews">
-                <Loc
-                    cs="Přečíst rozhovory"
-                    en="Read interviews"
-                />
+                <Loc cs="Přečíst rozhovory" en="Read interviews" />
             </Arrow>
         </Box>
     </div>
 
     <!-- DATABAZE MAGAZINU -->
     <div>
-        <img src="/photos/homepage/magaziny.jpg" alt="">
+        <img src="/photos/homepage/magaziny.jpg" alt="" />
         <Box>
             <h3><Loc cs="Databáze magazínů" en="Magazine database" /></h3>
             <!-- Dlouhodobě: -->
             <p>
                 <Loc
                     cs="Tvoříme knihovnu českých a slovenských videoherních časopisů které postupně digitalizujeme. Také vedeme veřejnou databázi těchto časopisů, ve které si můžete prohlédnout obsahy všech doplněných čísel."
-                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues."
-                />
+                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues." />
             </p>
             <p>
                 <strong>
-                    <Loc
-                        cs="Počet časopisů"
-                        en="Number of magazines"
-                    />
-                </strong>: 11<br>
+                    <Loc cs="Počet časopisů" en="Number of magazines" />
+                </strong>: 11<br />
                 <strong>
-                    <Loc
-                        cs="Naposledy zkompletováno"
-                        en="Last completed"
-                    />
-                </strong>: <a href={localizeHref("/magazines/catalog/gamestar/")} class="plain">GameStar</a>
+                    <Loc cs="Naposledy zkompletováno" en="Last completed" />
+                </strong>:
+                <a href={localizeHref("/magazines/catalog/gamestar/")} class="plain">GameStar</a>
             </p>
             <!-- TODO carousel? -->
             <!-- <div class="thumbnails">
@@ -137,25 +105,21 @@
                 </a>
             </div> -->
             <Arrow href={localizeHref("/magazines/")}>
-                <Loc
-                    cs="Sledovat vývoj časopisů"
-                    en="Track magazine progress"
-                />
+                <Loc cs="Sledovat vývoj časopisů" en="Track magazine progress" />
             </Arrow>
         </Box>
     </div>
 
     <!-- VIZUALNI MATERIALY -->
     <div>
-        <img src="/photos/homepage/vizualni_materialy.jpg" alt="">
+        <img src="/photos/homepage/vizualni_materialy.jpg" alt="" />
         <Box>
             <h3><Loc cs="Vizuální materiály" en="Visual materials" /></h3>
             <!-- Dlouhodobě: -->
             <p>
                 <Loc
                     cs="Naše sbírka vizuálních materiálů zahrnuje historické fotografie, obaly k videohrám, plakáty, letáky a další podobné propagační materiály, fotografie našich sbírkových předmětů nebo videoherní snímky obrazovky."
-                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots."
-                />
+                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots." />
             </p>
             <!-- <div class="thumbnails">
                 <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
@@ -163,28 +127,17 @@
                 <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07141.jpg"></a>
             </div> -->
             <Arrow href="/gallery/emil-fafek">
-                <Loc
-                    cs="Prohlédnout Fond Emila Fafka"
-                    en="View Emil Fafek Collection"
-                />
+                <Loc cs="Prohlédnout Fond Emila Fafka" en="View Emil Fafek Collection" />
             </Arrow>
         </Box>
     </div>
-
-
 </div>
 
-<h2><Loc
-    cs="Projekty"
-    en="Projects"
-/></h2>
-<ProjectBoxes all={false}/>
+<h2><Loc cs="Projekty" en="Projects" /></h2>
+<ProjectBoxes all={false} />
 <div style="margin-top: 24px;">
     <Arrow href="/projects">
-        <Loc
-            cs="Všechny projekty"
-            en="All projects"
-        />
+        <Loc cs="Všechny projekty" en="All projects" />
     </Arrow>
 </div>
 
@@ -195,17 +148,11 @@
 </div>
 <div style="margin-top: 24px;">
     <Arrow href="/blog">
-        <Loc
-            cs="Všechny blogové příspěvky"
-            en="All blog posts"
-        />
+        <Loc cs="Všechny blogové příspěvky" en="All blog posts" />
     </Arrow>
 </div>
 
-<h2><Loc
-    cs="Podpořte nás"
-    en="Support us"
-/></h2>
+<h2><Loc cs="Podpořte nás" en="Support us" /></h2>
 <p>
     <Loc
         cs="
@@ -213,14 +160,10 @@
         "
         en="
             The Czechoslovak Game Archive is a project of the non-profit association Herní historie. It is a volunteer activity born out of love for games and the history of our culture. Your support helps us maintain and develop our activities.
-        "
-    />
+        " />
 </p>
 <Arrow href="/support">
-    <Loc
-        cs="Podpořte naši činnost"
-        en="Support our activities"
-    />
+    <Loc cs="Podpořte naši činnost" en="Support our activities" />
 </Arrow>
 
 <style>
@@ -244,7 +187,7 @@
         order: 1;
     }
 
-    .boxes  img {
+    .boxes img {
         margin-left: 42px;
     }
 
@@ -276,7 +219,7 @@
             width: 94%;
         }
     }
-    
+
     @media only screen and (max-width: 800px) {
         .boxes > div {
             width: 100%;

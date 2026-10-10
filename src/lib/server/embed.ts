@@ -1,5 +1,5 @@
-import type { RequestEvent } from '@sveltejs/kit';
-import { encodePath, type EmbeddedApp } from '$src/lib/embedded';
+import type { RequestEvent } from "@sveltejs/kit";
+import { encodePath, type EmbeddedApp } from "$src/lib/embedded";
 
 /**
  * Proxies a request for an embedded app's page or file.
@@ -15,64 +15,91 @@ export async function proxyEmbedded(
     app: EmbeddedApp,
     upstream: string,
     { request, url, cookies }: RequestEvent,
-    path: string
+    path: string,
 ): Promise<Response> {
     const encodedPath = encodePath(path);
     const target = new URL(`${encodedPath}${url.search}`, upstream);
 
     const headers = new Headers({
-        'x-forwarded-prefix': app.framePrefix,
-        'x-haweb-embed': '1'
+        "x-forwarded-prefix": app.framePrefix,
+        "x-haweb-embed": "1",
     });
     for (const name of FORWARDED_REQUEST_HEADERS) {
         const value = request.headers.get(name);
         if (value) headers.set(name, value);
     }
-    const theme = cookies.get('theme');
-    if (theme === 'light' || theme === 'dark') headers.set('x-haweb-theme', theme);
+    const theme = cookies.get("theme");
+    if (theme === "light" || theme === "dark") headers.set("x-haweb-theme", theme);
 
     let res: Response;
     try {
-        res = await fetch(target, { headers, redirect: 'manual', signal: AbortSignal.timeout(30_000) });
+        res = await fetch(target, {
+            headers,
+            redirect: "manual",
+            signal: AbortSignal.timeout(30_000),
+        });
     } catch (e) {
         console.error(`Failed to fetch embedded page: ${target.href}`, e);
         return unavailableResponse(theme);
     }
 
     // A page opened on its own (e.g. in a new tab) rather than in the frame: show it in haweb
-    if (request.headers.get('sec-fetch-dest') === 'document' && res.headers.get('content-type')?.startsWith('text/html')) {
+    if (
+        request.headers.get("sec-fetch-dest") === "document" &&
+        res.headers.get("content-type")?.startsWith("text/html")
+    ) {
         await res.body?.cancel();
         return new Response(null, {
             status: 302,
-            headers: { location: `${app.prefix}/${encodedPath}${url.search}`, vary: 'Sec-Fetch-Dest' }
+            headers: {
+                location: `${app.prefix}/${encodedPath}${url.search}`,
+                vary: "Sec-Fetch-Dest",
+            },
         });
     }
 
-    const responseHeaders = new Headers({ 'content-security-policy': "frame-ancestors 'self'" });
+    const responseHeaders = new Headers({ "content-security-policy": "frame-ancestors 'self'" });
     for (const name of FORWARDED_RESPONSE_HEADERS) {
         const value = res.headers.get(name);
         if (value) responseHeaders.set(name, value);
     }
-    responseHeaders.append('vary', 'Sec-Fetch-Dest');
+    responseHeaders.append("vary", "Sec-Fetch-Dest");
     // The app knows its prefix, but not that it's reached through us
-    const location = responseHeaders.get('location');
+    const location = responseHeaders.get("location");
     if (location) {
         const locationUrl = new URL(location, target);
         if (locationUrl.origin === target.origin) {
-            responseHeaders.set('location', locationUrl.pathname + locationUrl.search + locationUrl.hash);
+            responseHeaders.set(
+                "location",
+                locationUrl.pathname + locationUrl.search + locationUrl.hash,
+            );
         }
     }
 
     return new Response(res.body, { status: res.status, headers: responseHeaders });
 }
 
-const FORWARDED_REQUEST_HEADERS = ['accept', 'accept-language', 'user-agent', 'if-none-match', 'if-modified-since'];
+const FORWARDED_REQUEST_HEADERS = [
+    "accept",
+    "accept-language",
+    "user-agent",
+    "if-none-match",
+    "if-modified-since",
+];
 
 // Not content-encoding or content-length: fetch has already decompressed the body
-const FORWARDED_RESPONSE_HEADERS = ['content-type', 'content-disposition', 'cache-control', 'etag', 'last-modified', 'vary', 'location'];
+const FORWARDED_RESPONSE_HEADERS = [
+    "content-type",
+    "content-disposition",
+    "cache-control",
+    "etag",
+    "last-modified",
+    "vary",
+    "location",
+];
 
 function unavailableResponse(theme: string | undefined): Response {
-    const colorScheme = theme === 'light' || theme === 'dark' ? theme : 'light dark';
+    const colorScheme = theme === "light" || theme === "dark" ? theme : "light dark";
     const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -90,6 +117,9 @@ function unavailableResponse(theme: string | undefined): Response {
 </html>`;
     return new Response(html, {
         status: 502,
-        headers: { 'content-type': 'text/html; charset=utf-8', 'content-security-policy': "frame-ancestors 'self'" }
+        headers: {
+            "content-type": "text/html; charset=utf-8",
+            "content-security-policy": "frame-ancestors 'self'",
+        },
     });
 }

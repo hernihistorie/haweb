@@ -10,11 +10,11 @@ export interface EmbeddedApp {
 }
 
 export const INVENTORY: EmbeddedApp = {
-    prefix: '/inventory',
-    framePrefix: '/inventory/_frame'
+    prefix: "/inventory",
+    framePrefix: "/inventory/_frame",
 };
 
 /** Encodes a decoded route parameter path for use in a URL. */
 export function encodePath(path: string): string {
-    return path.split('/').map(encodeURIComponent).join('/');
+    return path.split("/").map(encodeURIComponent).join("/");
 }

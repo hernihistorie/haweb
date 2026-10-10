@@ -5,9 +5,17 @@
     import { articleImages } from "$src/lib/articleImages";
 
     const img = articleImages(
-        import.meta.glob('./img/*', { eager: true, query: '?w=1600;800&enhanced', import: 'default' }),
-        import.meta.glob('./img/*', { eager: true, import: 'default' }),
-        import.meta.glob('./img/*', { eager: true, query: '?as=meta:width;height', import: 'default' }),
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?w=1600;800&enhanced",
+            import: "default",
+        }),
+        import.meta.glob("./img/*", { eager: true, import: "default" }),
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?as=meta:width;height",
+            import: "default",
+        }),
     );
 </script>
 
@@ -18,78 +26,431 @@
         {#snippet cs()}
             <Figure image={img["01-cela-sestava.jpg"]} />
 
-            <p>V roce 1977 zažilo Československo příchod atraktivní novinky - takzvaných Televizních her. Časopis Amatérské radio otiskl hned dva návody na takové přístroje (v číslech B1+B6/1977 a A10+A11/1977), přihlášené již v září 1976 do soutěže Konkurs AR-TESLA. V květnu 1977 se také na veletrhu v Brně a pražské výstavě Dny nové techniky objevily první prototypy vytvořené různými pracovišti n.p. TESLA: Jednoduchý Televizní tenis (Tesla Piešťany), vzniklý na základě návodu z Amatérského radia ve spolupráci s pražským Hi-Fi klubem (vyráběný později pod označením XD 8000), neméně jednoduchá Televizní odbíjená (Tesla VÚST) osazená jen tranzistory, a do třetice pak přístroj "<b>TV HRY</b>" (rovněž Tesla VÚST), na který se zaměřím v tomto článku.</p>
+            <p>
+                V roce 1977 zažilo Československo příchod atraktivní novinky - takzvaných
+                Televizních her. Časopis Amatérské radio otiskl hned dva návody na takové přístroje
+                (v číslech B1+B6/1977 a A10+A11/1977), přihlášené již v září 1976 do soutěže Konkurs
+                AR-TESLA. V květnu 1977 se také na veletrhu v Brně a pražské výstavě Dny nové
+                techniky objevily první prototypy vytvořené různými pracovišti n.p. TESLA:
+                Jednoduchý Televizní tenis (Tesla Piešťany), vzniklý na základě návodu z Amatérského
+                radia ve spolupráci s pražským Hi-Fi klubem (vyráběný později pod označením XD
+                8000), neméně jednoduchá Televizní odbíjená (Tesla VÚST) osazená jen tranzistory, a
+                do třetice pak přístroj "<b>TV HRY</b>" (rovněž Tesla VÚST), na který se zaměřím v
+                tomto článku.
+            </p>
 
-            <p>Šlo ve své době jednoznačně o nejpokročilejší tuzemskou hru, jejíž propracovaný návrh potvrzuje špičkovou úroveň tehdejšího Výzkumného ústavu pro sdělovací techniku A. S. Popova (VÚST). Mluvíme zde o takzvané první generaci videoher, která se vyznačuje pevně zadrátovanou logikou bez použití mikroprocesoru (i když definice není úplně jednoznačná), a kterou si můžeme ještě pomyslně rozdělit na rané přístroje sestavené z diskrétních součástek nebo jen základních integrovaných obvodů, a pokročilejší verze využívající specializované herní čipy. Prototyp TV HRY stojí někde na hranici obou skupin. Vznikl v řádu měsíců po příchodu celosvětově přelomového čipu AY-3-8500, technicky patří ještě do první skupiny, nabízenou funkcionalitou se čtyřmi hrami a skóre na obrazovce však atakuje spíše skupinu druhou. Tím se podstatně liší od ostatních tuzemských her své doby, a vstupuje spíše do společnosti i ve světě poměrně vzácných větších projektů, jako byly na západě různé (v dané době již odumírající) klony původního arkádového PONGu, či na východě některé (naopak pozdější) sovětské projekty, v čele s konzolí Palestra 02 (1978). Prototyp z VÚSTu byl ovšem na svou dobu i značně komplikovaný a drahý, takže zůstal jen prototypem a jednorázovou výstavní atrakcí, a zanechal jen velmi stručné stopy v dobovém tisku - pár fotografií, či krátkou zmínku o ekonomické neúnosnosti přístroje sestaveného z asi 80 integrovaných obvodů (AR B6/1977). Po úspěšné výstavní premiéře rychle zmizel ze scény, a stal se mezi tuzemskými hrami tak trochu záhadnou kapitolou, o které se toho moc nevědělo.</p>
+            <p>
+                Šlo ve své době jednoznačně o nejpokročilejší tuzemskou hru, jejíž propracovaný
+                návrh potvrzuje špičkovou úroveň tehdejšího Výzkumného ústavu pro sdělovací techniku
+                A. S. Popova (VÚST). Mluvíme zde o takzvané první generaci videoher, která se
+                vyznačuje pevně zadrátovanou logikou bez použití mikroprocesoru (i když definice
+                není úplně jednoznačná), a kterou si můžeme ještě pomyslně rozdělit na rané
+                přístroje sestavené z diskrétních součástek nebo jen základních integrovaných
+                obvodů, a pokročilejší verze využívající specializované herní čipy. Prototyp TV HRY
+                stojí někde na hranici obou skupin. Vznikl v řádu měsíců po příchodu celosvětově
+                přelomového čipu AY-3-8500, technicky patří ještě do první skupiny, nabízenou
+                funkcionalitou se čtyřmi hrami a skóre na obrazovce však atakuje spíše skupinu
+                druhou. Tím se podstatně liší od ostatních tuzemských her své doby, a vstupuje spíše
+                do společnosti i ve světě poměrně vzácných větších projektů, jako byly na západě
+                různé (v dané době již odumírající) klony původního arkádového PONGu, či na východě
+                některé (naopak pozdější) sovětské projekty, v čele s konzolí Palestra 02 (1978).
+                Prototyp z VÚSTu byl ovšem na svou dobu i značně komplikovaný a drahý, takže zůstal
+                jen prototypem a jednorázovou výstavní atrakcí, a zanechal jen velmi stručné stopy v
+                dobovém tisku - pár fotografií, či krátkou zmínku o ekonomické neúnosnosti přístroje
+                sestaveného z asi 80 integrovaných obvodů (AR B6/1977). Po úspěšné výstavní premiéře
+                rychle zmizel ze scény, a stal se mezi tuzemskými hrami tak trochu záhadnou
+                kapitolou, o které se toho moc nevědělo.
+            </p>
 
-            <p>Ani dnes sice nemáme všechny otazníky rozřešené (například nevíme, kdo byl autorem této hry), můžeme však prozkoumat samotný přístroj, který se naštěstí dochoval do dnešních dní, a z iniciativy spolku <a href="https://hernihistorie.cz/">Herní historie</a> se dočkal podrobného zdokumentování a opravy. Vytvořen musel být v období od září 1976 do května 1977 (na základě nejmladších výrobních kódů na použitých součástkách a dobových zpráv o veřejné prezentaci hotového přístroje), takže jde dost pravděpodobně o <b>nejstarší dochovanou tuzemskou videohru vůbec</b>. I v kontextu zemí RVHP zřejmě patří mezi nejstarší projekty svého druhu.</p>
+            <p>
+                Ani dnes sice nemáme všechny otazníky rozřešené (například nevíme, kdo byl autorem
+                této hry), můžeme však prozkoumat samotný přístroj, který se naštěstí dochoval do
+                dnešních dní, a z iniciativy spolku <a href="https://hernihistorie.cz/"
+                    >Herní historie</a>
+                se dočkal podrobného zdokumentování a opravy. Vytvořen musel být v období od září 1976
+                do května 1977 (na základě nejmladších výrobních kódů na použitých součástkách a dobových
+                zpráv o veřejné prezentaci hotového přístroje), takže jde dost pravděpodobně o
+                <b>nejstarší dochovanou tuzemskou videohru vůbec</b>. I v kontextu zemí RVHP zřejmě
+                patří mezi nejstarší projekty svého druhu.
+            </p>
 
-            <Figure image={img["02-Hry-VUST-tisk.jpg"]} caption={{ cs: "Hra na výstavě v květnu 1977 (zdroj: Technický týdeník 24/1977, str. 6)" }} />
+            <Figure
+                image={img["02-Hry-VUST-tisk.jpg"]}
+                caption={{
+                    cs: "Hra na výstavě v květnu 1977 (zdroj: Technický týdeník 24/1977, str. 6)",
+                }} />
 
-            <Figure image={img["03-screenshoty.jpg"]} caption={{ cs: "Nabízí se pelota, hokej, tenis a košíková. Velké skóre je vidět jen po vstřelení gólu." }} />
+            <Figure
+                image={img["03-screenshoty.jpg"]}
+                caption={{
+                    cs: "Nabízí se pelota, hokej, tenis a košíková. Velké skóre je vidět jen po vstřelení gólu.",
+                }} />
 
-            <p>Jaké hry si můžeme zahrát, to asi nejlépe přiblíží obrázek - jak bylo v dané době obvyklé, jedná se o jednoduché míčové hry. Máme zde klasický tenis i hokej (s otvory branek v bočních mantinelech), nechybí ani pelota hraná proti stěně, která je v této verzi hrou pro dva (s oběma/všemi pálkami na stejné straně hřiště), avšak zahrát si ji lze i sólově. Zaujme značně netypická košíková, hraná na stejném hřišti jako hokej, při které hráči ovládají spolu se svými pálkami i otvory v bariéře na středu hřiště (možnou inspirací může být hra "hole-in-the-net" z magazínu Elektor 5/1976). Hra podporuje velkorysý počet až 4 hráčů, rozdělených do dvou týmů, s komfortním ovládáním pálek analogovými joysticky. K dispozici je nastavení rychlosti míče a hlasitosti zvukových efektů (indikují odraz míče a gól), i zobrazení skóre až do 19 bodů, které se při vstupu míče na hřiště zhasíná, a lze jej vynulovat tlačítkem.</p>
+            <p>
+                Jaké hry si můžeme zahrát, to asi nejlépe přiblíží obrázek - jak bylo v dané době
+                obvyklé, jedná se o jednoduché míčové hry. Máme zde klasický tenis i hokej (s otvory
+                branek v bočních mantinelech), nechybí ani pelota hraná proti stěně, která je v této
+                verzi hrou pro dva (s oběma/všemi pálkami na stejné straně hřiště), avšak zahrát si
+                ji lze i sólově. Zaujme značně netypická košíková, hraná na stejném hřišti jako
+                hokej, při které hráči ovládají spolu se svými pálkami i otvory v bariéře na středu
+                hřiště (možnou inspirací může být hra "hole-in-the-net" z magazínu Elektor 5/1976).
+                Hra podporuje velkorysý počet až 4 hráčů, rozdělených do dvou týmů, s komfortním
+                ovládáním pálek analogovými joysticky. K dispozici je nastavení rychlosti míče a
+                hlasitosti zvukových efektů (indikují odraz míče a gól), i zobrazení skóre až do 19
+                bodů, které se při vstupu míče na hřiště zhasíná, a lze jej vynulovat tlačítkem.
+            </p>
 
-            <p>Na první pohled je vidět, že se jedná o originální návrh, který nekopíruje žádnou již existující hru. Jsou zde prvky specifické pro československé konstrukce, jako je zhasínání číslic skóre při vstupu míče na hřiště a podání nového míče zacouváním pálky na krajovou čáru, ale i zcela originální věci, které jinde nenajdeme: Indikace gólů zobrazením tečky v příslušné brance, která je i výzvou k podání nového míče, nezvykle tečkované zobrazení čar na hřišti, nebo přičítání trestných bodů za překročení středové čáry pálkou v tenisu a košíkové. Naproti tomu odrazy míče mají v této hře jen tu nejjednodušší podobu - úhel je vždy stejný a nezmění se žádným manévrováním s pálkou, ani jiným způsobem. Tuto zdánlivou nevýhodu však vyrovnává pohodlný pohyb pálek všemi směry, umožňující změnit dráhu míče v libovolném místě. Autor věnoval značnou pozornost i přehledné a jednoduché obsluze přístroje (možná přímo s ohledem na výstavní prezentaci). Vedle teček indikujících góly a opravdu velkých číslic skóre o tom svědčí třeba i barevné rozlišení pálek, kde levý tým ovládá bílé pálky pomocí rovněž bílých páček joysticků, pravý pak má pálky proužkované a páčky tmavé, a dokonce jsou skříňky joysticků odložených po obou stranách přístroje i zrcadlově symetrické - v kontextu Československa a roku 1977 pozoruhodně propracovaný design. Ovládání je navíc maximálně zjednodušené - podání míče probíhá pouhým kontaktem pálky s krajovou čárou, a po dosažení maximálních 19 bodů se hra po několika vteřinách sama restartuje. Návštěvníci výstavní expozice tak nemuseli vůbec mačkat žádná tlačítka, stačilo se prostě jen chopit joysticku.</p>
+            <p>
+                Na první pohled je vidět, že se jedná o originální návrh, který nekopíruje žádnou
+                již existující hru. Jsou zde prvky specifické pro československé konstrukce, jako je
+                zhasínání číslic skóre při vstupu míče na hřiště a podání nového míče zacouváním
+                pálky na krajovou čáru, ale i zcela originální věci, které jinde nenajdeme: Indikace
+                gólů zobrazením tečky v příslušné brance, která je i výzvou k podání nového míče,
+                nezvykle tečkované zobrazení čar na hřišti, nebo přičítání trestných bodů za
+                překročení středové čáry pálkou v tenisu a košíkové. Naproti tomu odrazy míče mají v
+                této hře jen tu nejjednodušší podobu - úhel je vždy stejný a nezmění se žádným
+                manévrováním s pálkou, ani jiným způsobem. Tuto zdánlivou nevýhodu však vyrovnává
+                pohodlný pohyb pálek všemi směry, umožňující změnit dráhu míče v libovolném místě.
+                Autor věnoval značnou pozornost i přehledné a jednoduché obsluze přístroje (možná
+                přímo s ohledem na výstavní prezentaci). Vedle teček indikujících góly a opravdu
+                velkých číslic skóre o tom svědčí třeba i barevné rozlišení pálek, kde levý tým
+                ovládá bílé pálky pomocí rovněž bílých páček joysticků, pravý pak má pálky
+                proužkované a páčky tmavé, a dokonce jsou skříňky joysticků odložených po obou
+                stranách přístroje i zrcadlově symetrické - v kontextu Československa a roku 1977
+                pozoruhodně propracovaný design. Ovládání je navíc maximálně zjednodušené - podání
+                míče probíhá pouhým kontaktem pálky s krajovou čárou, a po dosažení maximálních 19
+                bodů se hra po několika vteřinách sama restartuje. Návštěvníci výstavní expozice tak
+                nemuseli vůbec mačkat žádná tlačítka, stačilo se prostě jen chopit joysticku.
+            </p>
 
-            <Figure image={img["04-vnitrek-strana-soucastek.jpg"]} caption={{ cs: "Vnitřek přístroje s 82 integrovanými obvody (po opravě)" }} />
+            <Figure
+                image={img["04-vnitrek-strana-soucastek.jpg"]}
+                caption={{ cs: "Vnitřek přístroje s 82 integrovanými obvody (po opravě)" }} />
 
-            <Figure image={img["05-vnitrek-strana-spoju.jpg"]} caption={{ cs: "Pohled ze strany pájení" }} />
+            <Figure
+                image={img["05-vnitrek-strana-spoju.jpg"]}
+                caption={{ cs: "Pohled ze strany pájení" }} />
 
-            <Figure image={img["06-detaily-desek.jpg"]} caption={{ cs: "Styl digitální části a modulátoru se navzájem značně liší" }} />
+            <Figure
+                image={img["06-detaily-desek.jpg"]}
+                caption={{ cs: "Styl digitální části a modulátoru se navzájem značně liší" }} />
 
-            <p>Pojďme nyní nahlédnout do vnitřku přístroje. Po uvolnění dvou šroubků na zadní straně vysuneme z elegantní dřevěné skříně (560x290x122mm včetně nožiček) precizně vyrobenou kovovou krabici, která po odšroubování horního a spodního víka krásně zpřístupní obě strany desek s elektronikou. Na první pohled je zřejmé, že se jedná o prototyp. Zatímco napájecí zdroj a analogová část mají klasickou desku s plošnými spoji, byť s pár dodatečnými modifikacemi, tak celá digitální část s desítkami integrovaných obvodů je sestavena na dvojici univerzálních desek (vyrobených přímo ve VÚSTu). Místy se zde setkáme i se starým systémem značení z počátků tuzemské výroby těchto součástek - například MJA111 (což je MH7472) nebo poněkud zavádějící MHB111 (MH7410). Integrované obvody jsou usazeny v kvalitních zlacených soklech a propojeny precizně provedenou, přesto však značně nepřehlednou záplavou vodičů. Plechová krabička připevněná k zadní stěně pak ukrývá výstupní VF modulátor pro televizor, který nese jasný rukopis VÚSTu jako naší tehdejší špičky spojovací techniky - ve srovnání s jinými dobovými hrami je nezvykle komplexní (3 tranzistory, 4 laděné obvody) a precizně provedený, ani použití konektoru BNC na výstupu není počinem nijak amatérským. Chceme-li přístroj hodnotit v dobovém stylu, podle počtu použitých polovodičových součástek, pak napočítáme 82 integrovaných obvodů, 40 tranzistorů a 13 diod.</p>
+            <p>
+                Pojďme nyní nahlédnout do vnitřku přístroje. Po uvolnění dvou šroubků na zadní
+                straně vysuneme z elegantní dřevěné skříně (560x290x122mm včetně nožiček) precizně
+                vyrobenou kovovou krabici, která po odšroubování horního a spodního víka krásně
+                zpřístupní obě strany desek s elektronikou. Na první pohled je zřejmé, že se jedná o
+                prototyp. Zatímco napájecí zdroj a analogová část mají klasickou desku s plošnými
+                spoji, byť s pár dodatečnými modifikacemi, tak celá digitální část s desítkami
+                integrovaných obvodů je sestavena na dvojici univerzálních desek (vyrobených přímo
+                ve VÚSTu). Místy se zde setkáme i se starým systémem značení z počátků tuzemské
+                výroby těchto součástek - například MJA111 (což je MH7472) nebo poněkud zavádějící
+                MHB111 (MH7410). Integrované obvody jsou usazeny v kvalitních zlacených soklech a
+                propojeny precizně provedenou, přesto však značně nepřehlednou záplavou vodičů.
+                Plechová krabička připevněná k zadní stěně pak ukrývá výstupní VF modulátor pro
+                televizor, který nese jasný rukopis VÚSTu jako naší tehdejší špičky spojovací
+                techniky - ve srovnání s jinými dobovými hrami je nezvykle komplexní (3 tranzistory,
+                4 laděné obvody) a precizně provedený, ani použití konektoru BNC na výstupu není
+                počinem nijak amatérským. Chceme-li přístroj hodnotit v dobovém stylu, podle počtu
+                použitých polovodičových součástek, pak napočítáme 82 integrovaných obvodů, 40
+                tranzistorů a 13 diod.
+            </p>
 
-            <p>Původní dokumentace se sice zřejmě nedochovala, pečlivé zkoumání zmíněného "drátového pekla" však nakonec přineslo nově nakreslené schéma zapojení celého přístroje, které si můžete prohlédnout na obrázcích. (Digitální desky jsou pro rozlišení označeny písmeny A a B, integrované obvody na nich mají původní čísla pozic, jak jsou vyznačena z rubu desky. Propojovací vodiče mezi deskami dostaly pro účely této dokumentace označení malými resp. velkými písmeny abecedy.) Můžeme si především všimnout, že tato hra na rozdíl od srovnatelných západních protějšků (klony PONGu či AY-3-8500) není zcela digitální, ale jde v podstatě o analogovou hru (z pohledu tvorby pohyblivých objektů ve hře), doplněnou o rozsáhlou digitální část. (Podobně pracují i čipy MAS601-603, nebo některé projekty ze Sovětského svazu - o tom více v jiném článku.)</p>
+            <p>
+                Původní dokumentace se sice zřejmě nedochovala, pečlivé zkoumání zmíněného
+                "drátového pekla" však nakonec přineslo nově nakreslené schéma zapojení celého
+                přístroje, které si můžete prohlédnout na obrázcích. (Digitální desky jsou pro
+                rozlišení označeny písmeny A a B, integrované obvody na nich mají původní čísla
+                pozic, jak jsou vyznačena z rubu desky. Propojovací vodiče mezi deskami dostaly pro
+                účely této dokumentace označení malými resp. velkými písmeny abecedy.) Můžeme si
+                především všimnout, že tato hra na rozdíl od srovnatelných západních protějšků
+                (klony PONGu či AY-3-8500) není zcela digitální, ale jde v podstatě o analogovou hru
+                (z pohledu tvorby pohyblivých objektů ve hře), doplněnou o rozsáhlou digitální část.
+                (Podobně pracují i čipy MAS601-603, nebo některé projekty ze Sovětského svazu - o
+                tom více v jiném článku.)
+            </p>
 
-            <Figure image={img["07-TV-Hry-deska-str1.png"]} caption={{ cs: "Překreslené desky celého přístroje" }} />
+            <Figure
+                image={img["07-TV-Hry-deska-str1.png"]}
+                caption={{ cs: "Překreslené desky celého přístroje" }} />
 
-            <Figure image={img["08-TV-Hry-deska-str2.png"]} caption={{ cs: "Druhá strana desek..." }} />
+            <Figure
+                image={img["08-TV-Hry-deska-str2.png"]}
+                caption={{ cs: "Druhá strana desek..." }} />
 
-            <Figure image={img["09-TV-Hry-VUST-schema-1.png"]} caption={{ cs: "Schéma zapojení: 1. stránka s analogovou částí" }} />
+            <Figure
+                image={img["09-TV-Hry-VUST-schema-1.png"]}
+                caption={{ cs: "Schéma zapojení: 1. stránka s analogovou částí" }} />
 
-            <p>První stránka schématu (odpovídá levé ze tří desek v přístroji) obsahuje, vedle robustního napájecího zdroje a dalších drobností, především onu analogovou část. Pětice prakticky stejných obvodů vytváří obrázky čtyř pálek a míče. Používají klasický princip, který přetrval od první konzole Magnavox Odyssey (1972), přes západoevropský časopis Elektor, který byl obvykle zdrojem pro tuzemské konstrukce, až po návody otištěné v Amatérském radiu a převzaté do konzolí Tesla XD 8000. Ani v podání VÚSTu se obvod nijak významně neliší, obsahuje však některá zdokonalení: Synchronizační impulsy jsou místo obvyklých diod přivedeny přes tranzistory, které elegantně řeší jinak typické potíže s přetěžováním synchronizačních signálů, a také pohyb míče má zlepšenou linearitu, díky náhradě obvyklých RC-článků alespoň jednoduchými integrátory. Pro jejich řízení si obvod vyrábí pomocné záporné napětí (-2,6V), a je zde i značně netypický obvod (jednoduchý regulátor), který má za úkol na základě digitálně tvořených limitů udržet míč na okraji hřiště, kdyby snad měl snahu vodorovným směrem odletět pryč - tím je především určeno místo, kde lze po gólu provést podání nového míče. Volba počtu hráčů probíhá jednoduše odpojením některých ovladačů, čímž se příslušné pálky dostávají (analogově) mimo obrazovku, kde nejsou vůbec zobrazovány. K analogové části v podstatě patří i čtvrtá stránka schématu, která dokumentuje vnitřek VF modulátoru a externí doplňky (především ovladače).</p>
+            <p>
+                První stránka schématu (odpovídá levé ze tří desek v přístroji) obsahuje, vedle
+                robustního napájecího zdroje a dalších drobností, především onu analogovou část.
+                Pětice prakticky stejných obvodů vytváří obrázky čtyř pálek a míče. Používají
+                klasický princip, který přetrval od první konzole Magnavox Odyssey (1972), přes
+                západoevropský časopis Elektor, který byl obvykle zdrojem pro tuzemské konstrukce,
+                až po návody otištěné v Amatérském radiu a převzaté do konzolí Tesla XD 8000. Ani v
+                podání VÚSTu se obvod nijak významně neliší, obsahuje však některá zdokonalení:
+                Synchronizační impulsy jsou místo obvyklých diod přivedeny přes tranzistory, které
+                elegantně řeší jinak typické potíže s přetěžováním synchronizačních signálů, a také
+                pohyb míče má zlepšenou linearitu, díky náhradě obvyklých RC-článků alespoň
+                jednoduchými integrátory. Pro jejich řízení si obvod vyrábí pomocné záporné napětí
+                (-2,6V), a je zde i značně netypický obvod (jednoduchý regulátor), který má za úkol
+                na základě digitálně tvořených limitů udržet míč na okraji hřiště, kdyby snad měl
+                snahu vodorovným směrem odletět pryč - tím je především určeno místo, kde lze po
+                gólu provést podání nového míče. Volba počtu hráčů probíhá jednoduše odpojením
+                některých ovladačů, čímž se příslušné pálky dostávají (analogově) mimo obrazovku,
+                kde nejsou vůbec zobrazovány. K analogové části v podstatě patří i čtvrtá stránka
+                schématu, která dokumentuje vnitřek VF modulátoru a externí doplňky (především
+                ovladače).
+            </p>
 
-            <p>Synchronizační impulsy vznikají v této hře digitálně (ve smyslu počítání hodinových impulsů), což najdeme na třetí stránce schématu (resp. v přístroji na pravé desce). Generátor hodinových signálů (v horní části stránky) je sestaven značně netypickým způsobem. Základem je krystal 5MHz (jeden z mála tehdy dostupných typů), který po vydělení kmitočtu dvěma a pěti určuje časový krok v horizontálním směru obrazu v neobvyklém rytmu 1,6:0,4μs (v dalším textu nicméně uvažuji průměrný krok 1μs). Následují čítače pro 64 kroků na obrazový řádek (64μs) a 625 půlřádků na snímek (20ms). Sestaveny jsou z nezvykle zapojených obvodů MH7490, kde oddělené části "A" všech pěti čipů (A47-49 + A58-59) tvoří horizontální čítač (binární), zatímco zbylé tříbitové části čtyř čipů tvoří vertikální čítač - ten počítá poloviny(!) obrazových řádků, a pracuje v poněkud matoucí a netypické pětkové číselné soustavě (využité části čipů MH7490 jsou vlastně čítače modulo 5; výstupy čítačů jsem si označil jako 1H-32H a V1-V8). Toto uspořádání sice svádí k úvahám o mnohem běžnějším výskytu obvodu MH7490 než MH7493 v dané době, vysvětlením však bude spíše snaha o skutečně přesné dodržení standardního časování videosignálu: Čtyřstupňový čítač modulo 5 totiž přeteče po 5^4 = 625 půlřádcích, čímž se dosahuje správného časování obrazu jen samotným čítačem, bez použití nějaké dodatečné logiky. Výsledek je možná přesný až příliš - tato hra je vzácným příkladem konzole první generace, která vytváří plnohodnotný (prokládaný) obraz s 625 řádky (i když samozřejmě jen černobílý a beze zvuku; podobné uspořádání je vidět snad jen u některých pozdějších projektů ze Sovětského svazu). Vzhledem k obsahu zobrazení to ovšem není vůbec nutné, a vlivem krokování vertikálního čítače v půlřádkovém rytmu to vede i k nepříjemným efektům v podobě posunu pravé poloviny obrazu o 1 (prokládaný) řádek nahoru (viz krajové čáry hřiště na screenshotech). Uvedené uspořádání čítačů také způsobuje netypicky tečkované zobrazení některých čar na hřišti, plynoucí z faktu, že signály jednotlivých binárních řádů čítače "modulo 5" nemají nikdy střídu 1:1. Stejná vlastnost zmíněné počáteční děličky pěti rovněž umožňuje zobrazit svislé čáry výrazně tenčí, než by odpovídalo jinak používanému časovému kroku 1μs, a patrně s tím souvisí i značná velikost číslic skóre, kde je naopak žádoucí se podobné nesymetrii v rozměrech pixelů vyhnout. V dolní části (stránky 3 schématu) se z výstupů čítačů dekóduje několik časovacích signálů, které určují zejména formát obrazu a hřiště - to je podrobněji rozkresleno na obrázku (jednotky jsou 1μs a 1 obrazový řádek v půlsnímku).</p>
+            <p>
+                Synchronizační impulsy vznikají v této hře digitálně (ve smyslu počítání hodinových
+                impulsů), což najdeme na třetí stránce schématu (resp. v přístroji na pravé desce).
+                Generátor hodinových signálů (v horní části stránky) je sestaven značně netypickým
+                způsobem. Základem je krystal 5MHz (jeden z mála tehdy dostupných typů), který po
+                vydělení kmitočtu dvěma a pěti určuje časový krok v horizontálním směru obrazu v
+                neobvyklém rytmu 1,6:0,4μs (v dalším textu nicméně uvažuji průměrný krok 1μs).
+                Následují čítače pro 64 kroků na obrazový řádek (64μs) a 625 půlřádků na snímek
+                (20ms). Sestaveny jsou z nezvykle zapojených obvodů MH7490, kde oddělené části "A"
+                všech pěti čipů (A47-49 + A58-59) tvoří horizontální čítač (binární), zatímco zbylé
+                tříbitové části čtyř čipů tvoří vertikální čítač - ten počítá poloviny(!) obrazových
+                řádků, a pracuje v poněkud matoucí a netypické pětkové číselné soustavě (využité
+                části čipů MH7490 jsou vlastně čítače modulo 5; výstupy čítačů jsem si označil jako
+                1H-32H a V1-V8). Toto uspořádání sice svádí k úvahám o mnohem běžnějším výskytu
+                obvodu MH7490 než MH7493 v dané době, vysvětlením však bude spíše snaha o skutečně
+                přesné dodržení standardního časování videosignálu: Čtyřstupňový čítač modulo 5
+                totiž přeteče po 5^4 = 625 půlřádcích, čímž se dosahuje správného časování obrazu
+                jen samotným čítačem, bez použití nějaké dodatečné logiky. Výsledek je možná přesný
+                až příliš - tato hra je vzácným příkladem konzole první generace, která vytváří
+                plnohodnotný (prokládaný) obraz s 625 řádky (i když samozřejmě jen černobílý a beze
+                zvuku; podobné uspořádání je vidět snad jen u některých pozdějších projektů ze
+                Sovětského svazu). Vzhledem k obsahu zobrazení to ovšem není vůbec nutné, a vlivem
+                krokování vertikálního čítače v půlřádkovém rytmu to vede i k nepříjemným efektům v
+                podobě posunu pravé poloviny obrazu o 1 (prokládaný) řádek nahoru (viz krajové čáry
+                hřiště na screenshotech). Uvedené uspořádání čítačů také způsobuje netypicky
+                tečkované zobrazení některých čar na hřišti, plynoucí z faktu, že signály
+                jednotlivých binárních řádů čítače "modulo 5" nemají nikdy střídu 1:1. Stejná
+                vlastnost zmíněné počáteční děličky pěti rovněž umožňuje zobrazit svislé čáry
+                výrazně tenčí, než by odpovídalo jinak používanému časovému kroku 1μs, a patrně s
+                tím souvisí i značná velikost číslic skóre, kde je naopak žádoucí se podobné
+                nesymetrii v rozměrech pixelů vyhnout. V dolní části (stránky 3 schématu) se z
+                výstupů čítačů dekóduje několik časovacích signálů, které určují zejména formát
+                obrazu a hřiště - to je podrobněji rozkresleno na obrázku (jednotky jsou 1μs a 1
+                obrazový řádek v půlsnímku).
+            </p>
 
-            <Figure image={img["10-TV-Hry-VUST-schema-2.png"]} caption={{ cs: "Schéma zapojení: 2. stránka s jádrem hry" }} />
+            <Figure
+                image={img["10-TV-Hry-VUST-schema-2.png"]}
+                caption={{ cs: "Schéma zapojení: 2. stránka s jádrem hry" }} />
 
-            <Figure image={img["11-TV-Hry-VUST-schema-3.png"]} caption={{ cs: "Schéma zapojení: 3. stránka s obvody časování a skóre" }} />
+            <Figure
+                image={img["11-TV-Hry-VUST-schema-3.png"]}
+                caption={{ cs: "Schéma zapojení: 3. stránka s obvody časování a skóre" }} />
 
-            <Figure image={img["12-TV-Hry-VUST-schema-4.png"]} caption={{ cs: "Schéma zapojení: 4. stránka s modulátorem a doplňky" }} />
+            <Figure
+                image={img["12-TV-Hry-VUST-schema-4.png"]}
+                caption={{ cs: "Schéma zapojení: 4. stránka s modulátorem a doplňky" }} />
 
-            <p>Největší část třetí stránky schématu zabírají obvody pro tvorbu skóre. Nalevo máme dvojici čítačů 4+1 bit v kódu BCD pro skóre obou hráčů (A11+21+31), které lze nulovat třemi způsoby: Tlačítkem, signálem "T" generovaným při zapnutí přístroje, a časově zpožděnou detekcí koncového stavu 19 bodů. Následuje multiplexer obou skóre podle aktuálně kreslené poloviny obrazu (A12+32+34), a dále obvody pro zobrazení číslic, provedené v jakémsi československém stylu: Zatímco zahraniční hry na západě i na východě zpravidla pro získání fontu využívaly obvod 7448 určený pro sedmisegmentovky, případně (trochu nelogicky) i jeho obdobu sestavenou z diskrétní logiky, tak tuzemské konstrukce při nedostupnosti obvodu 7448 tento zbytečný mezistupeň zcela vynechávají, a pracují přímo s bitmapovým fontem. V případě VÚSTu najdeme ve schématu matici 4x5 logických hradel (z nichž dvě jsou vynechána), která rozhodují o rozsvícení jednotlivých pixelů v rastru 1x5 a 3x5 pro číslice "1" a "0-9", na základě signálů horizontálního a vertikálního rastru (označil jsem si je SH1-4 a SV1-5), a právě zobrazované číslice. Princip je tedy stejný, jako v druhé variantě zapojení otištěného ve stejné době v Amatérském radiu B6/1977, provedení se však liší (počtem i tvarem číslic).</p>
+            <p>
+                Největší část třetí stránky schématu zabírají obvody pro tvorbu skóre. Nalevo máme
+                dvojici čítačů 4+1 bit v kódu BCD pro skóre obou hráčů (A11+21+31), které lze
+                nulovat třemi způsoby: Tlačítkem, signálem "T" generovaným při zapnutí přístroje, a
+                časově zpožděnou detekcí koncového stavu 19 bodů. Následuje multiplexer obou skóre
+                podle aktuálně kreslené poloviny obrazu (A12+32+34), a dále obvody pro zobrazení
+                číslic, provedené v jakémsi československém stylu: Zatímco zahraniční hry na západě
+                i na východě zpravidla pro získání fontu využívaly obvod 7448 určený pro
+                sedmisegmentovky, případně (trochu nelogicky) i jeho obdobu sestavenou z diskrétní
+                logiky, tak tuzemské konstrukce při nedostupnosti obvodu 7448 tento zbytečný
+                mezistupeň zcela vynechávají, a pracují přímo s bitmapovým fontem. V případě VÚSTu
+                najdeme ve schématu matici 4x5 logických hradel (z nichž dvě jsou vynechána), která
+                rozhodují o rozsvícení jednotlivých pixelů v rastru 1x5 a 3x5 pro číslice "1" a
+                "0-9", na základě signálů horizontálního a vertikálního rastru (označil jsem si je
+                SH1-4 a SV1-5), a právě zobrazované číslice. Princip je tedy stejný, jako v druhé
+                variantě zapojení otištěného ve stejné době v Amatérském radiu B6/1977, provedení se
+                však liší (počtem i tvarem číslic).
+            </p>
 
-            <p>Jádro hry najdeme na prostřední desce, které odpovídá druhá stránka schématu. Z digitálního časování zde vzniká synchronizace obrazu (snímkové synchronizační pulsy jsou zjednodušené tehdy obvyklým způsobem - nepřerušované) i spouštěcí impulsy pro tvorbu pálek a míče, dále se tvoří zobrazení hřiště s čárami a případnou tečkou indikující gól, přidávají se signály pálek, míče a skóre, čímž na výstupu B29 vzniká kompletní obsah videosignálu. Dále se detekují kolize, a podle toho jsou překlápěny klopné obvody směru míče (B22), případně registrovány góly. Stojí za povšimnutí, že v případě peloty může míč odpálit kterýkoliv z hráčů (nemusí se nutně střídat), avšak v případě gólu získá bod ten, kdo míč úspěšně odehrál naposled (pamatuje si to klopný obvod na B36). Obvody jednotlivých funkcí (zobrazení hřiště, odrazy míče, góly podle jednotlivých her) jsou řešeny většinou odděleně, sdílejí jen málo společných hradel. Najdeme zde i obvody zvukových efektů a generátor resetového signálu při zapnutí přístroje (v této generaci videoher poměrně nezvyklá funkce).</p>
+            <p>
+                Jádro hry najdeme na prostřední desce, které odpovídá druhá stránka schématu. Z
+                digitálního časování zde vzniká synchronizace obrazu (snímkové synchronizační pulsy
+                jsou zjednodušené tehdy obvyklým způsobem - nepřerušované) i spouštěcí impulsy pro
+                tvorbu pálek a míče, dále se tvoří zobrazení hřiště s čárami a případnou tečkou
+                indikující gól, přidávají se signály pálek, míče a skóre, čímž na výstupu B29 vzniká
+                kompletní obsah videosignálu. Dále se detekují kolize, a podle toho jsou překlápěny
+                klopné obvody směru míče (B22), případně registrovány góly. Stojí za povšimnutí, že
+                v případě peloty může míč odpálit kterýkoliv z hráčů (nemusí se nutně střídat),
+                avšak v případě gólu získá bod ten, kdo míč úspěšně odehrál naposled (pamatuje si to
+                klopný obvod na B36). Obvody jednotlivých funkcí (zobrazení hřiště, odrazy míče,
+                góly podle jednotlivých her) jsou řešeny většinou odděleně, sdílejí jen málo
+                společných hradel. Najdeme zde i obvody zvukových efektů a generátor resetového
+                signálu při zapnutí přístroje (v této generaci videoher poměrně nezvyklá funkce).
+            </p>
 
-            <p>Podrobnější pohled si zaslouží logika gólů se zastavováním hry a podáním míče. Detekce gólu kolizí míče s brankovou čárou (nebo v některých hrách i trestný bod překročením středové čáry pálkou) aktivuje jeden z klopných obvodů R-S sestavených na obvodu B56, jejichž výstupy přes vodiče M+N řídí čítače skóre. Takto zaregistrovaný gól přes výstup hradla B55-8 zablokuje detekci dalších (duplicitních) gólů pohybem míče v době přerušené hry (nebo případně i dalšího trestného bodu při návratu pálky na správnou polovinu hřiště), a zároveň přes tranzistor (u horního okraje schématu) spustí zvukový efekt gólu. Po dobu tohoto zvuku je potlačeno zobrazení pálek (nedostávají spouštěcí impulsy z výstupu hradla B55-6), a klopný obvod sestavený na čipu B27 přejde do stavu zastavené hry. Tím se potlačí zobrazení míče a zvuky při jeho odrazech, aktivuje se naopak zobrazení skóre a indikační gólové tečky. Při zastavené hře je tedy míč neviditelný, ani se neodráží zleva či zprava, nadále se však pohybuje nahoru a dolů po krajové čáře, na které je držen analogovým regulačním obvodem. Po odeznění zvukového efektu se obnoví zobrazení pálek, které jsou pak schopny (neviditelný) míč na krajové čáře zachytit a odrazit zpět na hřiště. Tím dochází k podání nového míče, který zpravidla vyletí z některého okraje pálky - sám si vlastně takové místo najde. Odpálení míče (kolize s pálkou) vynuluje klopný obvod zastavené hry, čímž zhasne skóre a gólová tečka, objeví se míč, a hra může pokračovat. Klopné obvody gólů na obvodu B56 se však vynulují až v okamžiku, kdy míč doletí na středovou čáru, takže nemůže být započítán další gól při vstupu míče na hřiště (stejným způsobem fungují i konstrukce z Amatérského Radia B6/1977, a také čip MAS601).</p>
+            <p>
+                Podrobnější pohled si zaslouží logika gólů se zastavováním hry a podáním míče.
+                Detekce gólu kolizí míče s brankovou čárou (nebo v některých hrách i trestný bod
+                překročením středové čáry pálkou) aktivuje jeden z klopných obvodů R-S sestavených
+                na obvodu B56, jejichž výstupy přes vodiče M+N řídí čítače skóre. Takto
+                zaregistrovaný gól přes výstup hradla B55-8 zablokuje detekci dalších (duplicitních)
+                gólů pohybem míče v době přerušené hry (nebo případně i dalšího trestného bodu při
+                návratu pálky na správnou polovinu hřiště), a zároveň přes tranzistor (u horního
+                okraje schématu) spustí zvukový efekt gólu. Po dobu tohoto zvuku je potlačeno
+                zobrazení pálek (nedostávají spouštěcí impulsy z výstupu hradla B55-6), a klopný
+                obvod sestavený na čipu B27 přejde do stavu zastavené hry. Tím se potlačí zobrazení
+                míče a zvuky při jeho odrazech, aktivuje se naopak zobrazení skóre a indikační
+                gólové tečky. Při zastavené hře je tedy míč neviditelný, ani se neodráží zleva či
+                zprava, nadále se však pohybuje nahoru a dolů po krajové čáře, na které je držen
+                analogovým regulačním obvodem. Po odeznění zvukového efektu se obnoví zobrazení
+                pálek, které jsou pak schopny (neviditelný) míč na krajové čáře zachytit a odrazit
+                zpět na hřiště. Tím dochází k podání nového míče, který zpravidla vyletí z některého
+                okraje pálky - sám si vlastně takové místo najde. Odpálení míče (kolize s pálkou)
+                vynuluje klopný obvod zastavené hry, čímž zhasne skóre a gólová tečka, objeví se
+                míč, a hra může pokračovat. Klopné obvody gólů na obvodu B56 se však vynulují až v
+                okamžiku, kdy míč doletí na středovou čáru, takže nemůže být započítán další gól při
+                vstupu míče na hřiště (stejným způsobem fungují i konstrukce z Amatérského Radia
+                B6/1977, a také čip MAS601).
+            </p>
 
-            <Figure image={img["13-format-obrazu-VUST.png"]} caption={{ cs: "Nákres uspořádání obrazu a hřiště" }} />
+            <Figure
+                image={img["13-format-obrazu-VUST.png"]}
+                caption={{ cs: "Nákres uspořádání obrazu a hřiště" }} />
 
-            <p>Toto uspořádání má ovšem v kombinaci s volným pohybem pálek po celém hřišti i své slabiny. Asi nejnápadnější jsou případy, kdy míč létá podél krajové čáry (jako před podáním), avšak je viditelný. Jde o různé možné situace, kdy se míč od podání po nový gól vůbec neocitl na středové čáře, takže ještě nebyla ukončena blokace duplicitních gólů a branka jakoby "nepřijímá". Obvykle to souvisí s okamžitým vrácením míče pálkou nacházející se na soupeřově polovině hřiště, včetně možnosti zahrát podání za soupeře (a tím jakoby směrem do zdi), ale příčinou může být i příliš rychlý pohyb míče (který mezi jednotlivými obrazovými snímky udělá tak velký krok, že kontakt se středovou čárou vynechá; stejnou slabinu má v detekci kolizí naprostá většina dobových her). V těchto situacích je také přístroj slepý vůči přešlapům pálek přes středovou čáru (týká se tenisu a košíkové). Druhým častým problémem je indikace gólu (a proces podání míče) na opačné straně hřiště, než kde gól ve skutečnosti padl. Zde je příčinou současná detekce gólu i odrazu míče (vzhledem k jeho relativně značné velikosti), nejčastěji pokud v hokeji či košíkové nastřelíme horní "tyčku" neboli okraj branky, případně pokud si pálka na míč počká přesně na brankové čáře. V tom případě se sice správně započítá gól a zhasne míč, ten však zároveň už letí směrem k soupeři, takže zaujme výchozí polohu (včetně indikační tečky) tam. Při zvlášť pomalém pohybu může dokonce dojít nechtěně k podání uprostřed hřiště, potká-li tam neviditelný míč některou pálku.</p>
+            <p>
+                Toto uspořádání má ovšem v kombinaci s volným pohybem pálek po celém hřišti i své
+                slabiny. Asi nejnápadnější jsou případy, kdy míč létá podél krajové čáry (jako před
+                podáním), avšak je viditelný. Jde o různé možné situace, kdy se míč od podání po
+                nový gól vůbec neocitl na středové čáře, takže ještě nebyla ukončena blokace
+                duplicitních gólů a branka jakoby "nepřijímá". Obvykle to souvisí s okamžitým
+                vrácením míče pálkou nacházející se na soupeřově polovině hřiště, včetně možnosti
+                zahrát podání za soupeře (a tím jakoby směrem do zdi), ale příčinou může být i
+                příliš rychlý pohyb míče (který mezi jednotlivými obrazovými snímky udělá tak velký
+                krok, že kontakt se středovou čárou vynechá; stejnou slabinu má v detekci kolizí
+                naprostá většina dobových her). V těchto situacích je také přístroj slepý vůči
+                přešlapům pálek přes středovou čáru (týká se tenisu a košíkové). Druhým častým
+                problémem je indikace gólu (a proces podání míče) na opačné straně hřiště, než kde
+                gól ve skutečnosti padl. Zde je příčinou současná detekce gólu i odrazu míče
+                (vzhledem k jeho relativně značné velikosti), nejčastěji pokud v hokeji či košíkové
+                nastřelíme horní "tyčku" neboli okraj branky, případně pokud si pálka na míč počká
+                přesně na brankové čáře. V tom případě se sice správně započítá gól a zhasne míč,
+                ten však zároveň už letí směrem k soupeři, takže zaujme výchozí polohu (včetně
+                indikační tečky) tam. Při zvlášť pomalém pohybu může dokonce dojít nechtěně k podání
+                uprostřed hřiště, potká-li tam neviditelný míč některou pálku.
+            </p>
 
-            <p>S výše uvedeným zřejmě souvisí i v přístroji nalezená dodatečná změna zapojení, díky které se při zvukovém efektu gólu ihned potlačí odrazy míče zleva/zprava (dvěma hradly B41, vedle kterých ale na desce ještě existují i pouhé invertory, s odpojenými, avšak v minulosti pájenými výstupy). Tato změna řeší problém současného gólu a odrazu alespoň v některých případech (spodní okraj branky, horní či levý okraj pálky), kdy vzhledem ke směru vykreslování obrazu přichází detekce gólu přece jen o vlásek dříve, avšak pálka vzhledem k zapojení klopného obvodu na B27 dokáže zastavení hry (a tím potlačení míče běžnou cestou) nevhodně pozdržet.</p>
+            <p>
+                S výše uvedeným zřejmě souvisí i v přístroji nalezená dodatečná změna zapojení, díky
+                které se při zvukovém efektu gólu ihned potlačí odrazy míče zleva/zprava (dvěma
+                hradly B41, vedle kterých ale na desce ještě existují i pouhé invertory, s
+                odpojenými, avšak v minulosti pájenými výstupy). Tato změna řeší problém současného
+                gólu a odrazu alespoň v některých případech (spodní okraj branky, horní či levý
+                okraj pálky), kdy vzhledem ke směru vykreslování obrazu přichází detekce gólu přece
+                jen o vlásek dříve, avšak pálka vzhledem k zapojení klopného obvodu na B27 dokáže
+                zastavení hry (a tím potlačení míče běžnou cestou) nevhodně pozdržet.
+            </p>
 
-            <p>Vzhledem k tomu, že se jedná o prototyp, není existence dodatečných změn nijak překvapivá. Patří mezi ně i přidaná stabilizace napájecího napětí pro výstupní modulátor a snížení úrovně jeho výstupního signálu dalšími odpory, úprava časování (hran) při tvorbě pálek, změny velikosti a rychlosti míče, nebo úpravy časových konstant regulačního obvodu jeho krajní polohy. Našly se i dvě chybičky v zapojení (například některé vstupy B52 jsou připojeny o pin vedle) a pár nečistých řešení (pin 12 na B22 nedostává korektní logickou nulu, vodič T vytváří vzájemný zkrat dvou TTL výstupů), ale jsou to vzhledem k velikosti přístroje jen zanedbatelné blechy, které naštěstí na funkci nemají žádný vliv. </p>
+            <p>
+                Vzhledem k tomu, že se jedná o prototyp, není existence dodatečných změn nijak
+                překvapivá. Patří mezi ně i přidaná stabilizace napájecího napětí pro výstupní
+                modulátor a snížení úrovně jeho výstupního signálu dalšími odpory, úprava časování
+                (hran) při tvorbě pálek, změny velikosti a rychlosti míče, nebo úpravy časových
+                konstant regulačního obvodu jeho krajní polohy. Našly se i dvě chybičky v zapojení
+                (například některé vstupy B52 jsou připojeny o pin vedle) a pár nečistých řešení
+                (pin 12 na B22 nedostává korektní logickou nulu, vodič T vytváří vzájemný zkrat dvou
+                TTL výstupů), ale jsou to vzhledem k velikosti přístroje jen zanedbatelné blechy,
+                které naštěstí na funkci nemají žádný vliv.
+            </p>
 
-            <p>Při pohledu na schéma si ještě můžeme všimnout, že výrok o "ne zcela digitální" hře se zdaleka netýká jen tvorby pálek a míče. V přístroji jsem napočítal dalších 20 míst, kde se různé časové intervaly neodměřují počítáním hodinových impulsů, ale nabíjením kondenzátorů - patří sem kompletní tvorba zvuku, proužkování pálek, i různé zpožďování signálů k zajištění jejich správného časového souběhu. V podstatě lze říci, že ryze digitálním způsobem vzniká jen základní formát obrazu, hřiště a skóre. Nic víc.</p>
+            <p>
+                Při pohledu na schéma si ještě můžeme všimnout, že výrok o "ne zcela digitální" hře
+                se zdaleka netýká jen tvorby pálek a míče. V přístroji jsem napočítal dalších 20
+                míst, kde se různé časové intervaly neodměřují počítáním hodinových impulsů, ale
+                nabíjením kondenzátorů - patří sem kompletní tvorba zvuku, proužkování pálek, i
+                různé zpožďování signálů k zajištění jejich správného časového souběhu. V podstatě
+                lze říci, že ryze digitálním způsobem vzniká jen základní formát obrazu, hřiště a
+                skóre. Nic víc.
+            </p>
 
-            <Figure image={img["14-kolaz-z-opravy.jpg"]} caption={{ cs: `Jak se opravuje tuzemská padesátiletá hra: Zmatky na obrazovce, koroze, studeňáky i "hovňáky", či stará "oprava" hrubou silou...` }} />
+            <Figure
+                image={img["14-kolaz-z-opravy.jpg"]}
+                caption={{
+                    cs: `Jak se opravuje tuzemská padesátiletá hra: Zmatky na obrazovce, koroze, studeňáky i "hovňáky", či stará "oprava" hrubou silou...`,
+                }} />
 
-            <Figure image={img["15-detail-mechaniky.jpg"]} caption={{ cs: "Mechanické provedení skříně je precizní" }} />
+            <Figure
+                image={img["15-detail-mechaniky.jpg"]}
+                caption={{ cs: "Mechanické provedení skříně je precizní" }} />
 
-            <p>Zkusme se ještě podívat, jak se herní přístroj z VÚSTu vypořádal s působením zubu času - přece jen nedlouho po zveřejnění tohoto článku oslaví kulatých 50 let. Jak lze vidět v ilustrační koláži z jeho opravy, úplně růžové to nebylo. Zrezivělé šrouby, z nichž některé se při otvírání víka dokonce ukroutily, uvolněná montáž ovládacích prvků i větších celků, kde použité šroubky (M2) byly od samého začátku poddimenzované, upadlý výstupní konektor, na obrazovce jen jedna ze čtyř pálek (navíc neúměrně dlouhá), žádný míč, nestabilní synchronizace obrazu, rozsypané pixely v nesprávně počítaném skóre, nefunkční některé odrazy a trestné body, zvuk odrazu míče natažený do otravného troubení... Bylo nutné vyměnit 5 vadných integrovaných obvodů a 11 zdegradovaných papírových kondenzátorů nechvalně známého typu TC180 (který svou populární, dosti nelichotivou přezdívku rozhodně nezískal náhodou). Protože sortiment Tesly byl tehdy v oblasti svitkových kondenzátorů nevalný, bylo třeba pro dobově odpovídající náhradu sáhnout do "součástkové základny RVHP" (jak se tomu tehdy říkalo): V přístroji už byly dva kondenzátory maďarské (Remix C213), teď přibyly ještě i bulharské (MPT-Pr96). Největším problémem se ovšem ukázalo být velké množství špatných spojů - lidově řečeno studeňáků. VÚST odvedl na svou dobu špičkovou práci při návrhu hry, výrobě skříně, plošných spojů, černě eloxovaného panelu se zahloubenými nápisy (dokonce pravděpodobně už tehdy používali CNC stroje), i umělecký výkon při propojování všech těch drátků zasluhuje vysokou známku. Bohužel ale rutinní pájení při hromadné montáži pasivních součástek, a především soklů pro integrované obvody, je o dost horší ukázkou dobové úrovně - součástek se špatně pájitelnými vývody a jen průměrné snahy se s nimi kvalitně popasovat. Stačilo na přístroj lehce poklepat, a stav celé hry se neuvěřitelně měnil. Již v době, kdy hra sloužila svému účelu, se to kdosi pokoušel řešit svérázným způsobem - brutálním prohnutím desky pomocí šroubu M4 nacpaného pod její okraj. Těžko říci, zda se jednalo o improvizovanou záchranu v průběhu některé z výstav, nebo zda k tomu došlo až v době "posmrtného života" této hry (kterou si po skončení její původní úlohy jeden ze zaměstnanců ústavu odnesl domů, čímž ji vlastně pro nás zachránil). Aby hra opět spolehlivě fungovala (i bez šroubu pod deskou), bylo třeba všechny "studeňáky" přepájet. Vyloženě špatné spoje překročily desítku, následné preventivní přepájení dalších nedůvěryhodných bodů při plošné kontrole šlo do stovek kusů. Tohle není právě dobrá vizitka pro Teslu 70. let.</p>
+            <p>
+                Zkusme se ještě podívat, jak se herní přístroj z VÚSTu vypořádal s působením zubu
+                času - přece jen nedlouho po zveřejnění tohoto článku oslaví kulatých 50 let. Jak
+                lze vidět v ilustrační koláži z jeho opravy, úplně růžové to nebylo. Zrezivělé
+                šrouby, z nichž některé se při otvírání víka dokonce ukroutily, uvolněná montáž
+                ovládacích prvků i větších celků, kde použité šroubky (M2) byly od samého začátku
+                poddimenzované, upadlý výstupní konektor, na obrazovce jen jedna ze čtyř pálek
+                (navíc neúměrně dlouhá), žádný míč, nestabilní synchronizace obrazu, rozsypané
+                pixely v nesprávně počítaném skóre, nefunkční některé odrazy a trestné body, zvuk
+                odrazu míče natažený do otravného troubení... Bylo nutné vyměnit 5 vadných
+                integrovaných obvodů a 11 zdegradovaných papírových kondenzátorů nechvalně známého
+                typu TC180 (který svou populární, dosti nelichotivou přezdívku rozhodně nezískal
+                náhodou). Protože sortiment Tesly byl tehdy v oblasti svitkových kondenzátorů
+                nevalný, bylo třeba pro dobově odpovídající náhradu sáhnout do "součástkové základny
+                RVHP" (jak se tomu tehdy říkalo): V přístroji už byly dva kondenzátory maďarské
+                (Remix C213), teď přibyly ještě i bulharské (MPT-Pr96). Největším problémem se ovšem
+                ukázalo být velké množství špatných spojů - lidově řečeno studeňáků. VÚST odvedl na
+                svou dobu špičkovou práci při návrhu hry, výrobě skříně, plošných spojů, černě
+                eloxovaného panelu se zahloubenými nápisy (dokonce pravděpodobně už tehdy používali
+                CNC stroje), i umělecký výkon při propojování všech těch drátků zasluhuje vysokou
+                známku. Bohužel ale rutinní pájení při hromadné montáži pasivních součástek, a
+                především soklů pro integrované obvody, je o dost horší ukázkou dobové úrovně -
+                součástek se špatně pájitelnými vývody a jen průměrné snahy se s nimi kvalitně
+                popasovat. Stačilo na přístroj lehce poklepat, a stav celé hry se neuvěřitelně
+                měnil. Již v době, kdy hra sloužila svému účelu, se to kdosi pokoušel řešit
+                svérázným způsobem - brutálním prohnutím desky pomocí šroubu M4 nacpaného pod její
+                okraj. Těžko říci, zda se jednalo o improvizovanou záchranu v průběhu některé z
+                výstav, nebo zda k tomu došlo až v době "posmrtného života" této hry (kterou si po
+                skončení její původní úlohy jeden ze zaměstnanců ústavu odnesl domů, čímž ji vlastně
+                pro nás zachránil). Aby hra opět spolehlivě fungovala (i bez šroubu pod deskou),
+                bylo třeba všechny "studeňáky" přepájet. Vyloženě špatné spoje překročily desítku,
+                následné preventivní přepájení dalších nedůvěryhodných bodů při plošné kontrole šlo
+                do stovek kusů. Tohle není právě dobrá vizitka pro Teslu 70. let.
+            </p>
 
-            <p>V rámci opravy bylo také třeba udělat několik zásahů, aby bylo dnes možné hru vůbec hrát. Přidáním jednoho kousku drátu a odnímatelné externí krabičky byl doplněn videovýstup (protože stará televize s VF vstupem začíná být vzácností), jedna přidaná dioda poněkud přiblížila synchronizační pulsy k normované délce, další zajistila spolehlivý rozběh přístroje po zapnutí (zde autor z VÚSTu poněkud hazardoval, když rozběh hry závisel na nijak nedefinovaném výchozím stavu jednoho z klopných obvodů - zřejmě mu byl tehdy čip MH7474 přátelsky nakloněn, což se ale po půlstoletí bohužel změnilo...) V neposlední řadě bylo také třeba jen na základě několika starých fotek kompletně vyrobit repliky ovladačů, protože ty původní nemáme a nejspíš se ani nedochovaly.</p>
+            <p>
+                V rámci opravy bylo také třeba udělat několik zásahů, aby bylo dnes možné hru vůbec
+                hrát. Přidáním jednoho kousku drátu a odnímatelné externí krabičky byl doplněn
+                videovýstup (protože stará televize s VF vstupem začíná být vzácností), jedna
+                přidaná dioda poněkud přiblížila synchronizační pulsy k normované délce, další
+                zajistila spolehlivý rozběh přístroje po zapnutí (zde autor z VÚSTu poněkud
+                hazardoval, když rozběh hry závisel na nijak nedefinovaném výchozím stavu jednoho z
+                klopných obvodů - zřejmě mu byl tehdy čip MH7474 přátelsky nakloněn, což se ale po
+                půlstoletí bohužel změnilo...) V neposlední řadě bylo také třeba jen na základě
+                několika starých fotek kompletně vyrobit repliky ovladačů, protože ty původní nemáme
+                a nejspíš se ani nedochovaly.
+            </p>
 
-            <Figure image={img["16-zadni-panel.jpg"]} caption={{ cs: "Na závěr ještě zadní panel se vzorně označenými konektory" }} />
+            <Figure
+                image={img["16-zadni-panel.jpg"]}
+                caption={{ cs: "Na závěr ještě zadní panel se vzorně označenými konektory" }} />
 
-            <p>Ale říká se - konec dobrý, všechno dobré. Hra je opět v té správné kondici, a možná se s ní někdy potkáte na akcích RetroHerny a Herního archivu. Přestože jde jen o jediný prototyp, který při svém rozsahu a ceně skutečně asi neměl nikdy šanci na hromadnou výrobu, je i přesto zajímavou ukázkou, jak mohla někdy v úplných začátcích vypadat luxusní, pokročilá československá videohra. V tomto je vlastně jakýmsi protipólem až "na dřeň" zjednodušené hry Tesla XD 8000, jejíž prototyp se ve stejné době také vystavoval.</p>
+            <p>
+                Ale říká se - konec dobrý, všechno dobré. Hra je opět v té správné kondici, a možná
+                se s ní někdy potkáte na akcích RetroHerny a Herního archivu. Přestože jde jen o
+                jediný prototyp, který při svém rozsahu a ceně skutečně asi neměl nikdy šanci na
+                hromadnou výrobu, je i přesto zajímavou ukázkou, jak mohla někdy v úplných začátcích
+                vypadat luxusní, pokročilá československá videohra. V tomto je vlastně jakýmsi
+                protipólem až "na dřeň" zjednodušené hry Tesla XD 8000, jejíž prototyp se ve stejné
+                době také vystavoval.
+            </p>
 
             <h4>Zdroje:</h4>
             <ul>
-                <li>Dorian Hanuš: Otazníky nad televizory jarního Brna (týdeník ČS Televize 24/1977)</li>
-                <li>Josef Horázný: Elektronika z lázeňského města (Nová Svoboda 3.6.1977 str. 4)</li>
+                <li>
+                    Dorian Hanuš: Otazníky nad televizory jarního Brna (týdeník ČS Televize 24/1977)
+                </li>
+                <li>
+                    Josef Horázný: Elektronika z lázeňského města (Nová Svoboda 3.6.1977 str. 4)
+                </li>
                 <li>O. Šmejkal: Dny nové techniky Tesla-VÚST '77 (VTM 13/1977 str. 394)</li>
                 <li>Hry na televizní obrazovce (Amatérské Radio B6/1977 str. 222)</li>
                 <li>TV tennis extensions, part 3 (Elektor 5/1976 str. 544)</li>
@@ -98,78 +459,469 @@
         {#snippet en()}
             <Figure image={img["01-cela-sestava.jpg"]} />
 
-            <p>In 1977, Czechoslovakia saw the arrival of an exciting novelty - the so-called Television games. The magazine Amatérské radio published two separate construction guides for such devices (in issues B1+B6/1977 and A10+A11/1977), which had been entered into the AR-TESLA Competition as early as September 1976. In May 1977, the first prototypes created by various departments of the national enterprise TESLA also appeared at the Brno trade fair and at the Prague exhibition Dny nové techniky (New Technology Days): a simple TV tennis (Tesla Piešťany), based on the Amatérské radio guide and developed in cooperation with the Prague Hi-Fi club (later manufactured as the XD 8000), an equally simple TV volleyball (Tesla VÚST) built from transistors only, and finally the "<b>TV HRY</b>" ("TV Games") device (also Tesla VÚST), which is the focus of this article.</p>
+            <p>
+                In 1977, Czechoslovakia saw the arrival of an exciting novelty - the so-called
+                Television games. The magazine Amatérské radio published two separate construction
+                guides for such devices (in issues B1+B6/1977 and A10+A11/1977), which had been
+                entered into the AR-TESLA Competition as early as September 1976. In May 1977, the
+                first prototypes created by various departments of the national enterprise TESLA
+                also appeared at the Brno trade fair and at the Prague exhibition Dny nové techniky
+                (New Technology Days): a simple TV tennis (Tesla Piešťany), based on the Amatérské
+                radio guide and developed in cooperation with the Prague Hi-Fi club (later
+                manufactured as the XD 8000), an equally simple TV volleyball (Tesla VÚST) built
+                from transistors only, and finally the "<b>TV HRY</b>" ("TV Games") device (also
+                Tesla VÚST), which is the focus of this article.
+            </p>
 
-            <p>It was unquestionably the most advanced domestic game of its time, and its sophisticated design confirms the top-class level of what was then the A. S. Popov Research Institute for Communication Technology (VÚST). We are talking about the so-called first generation of video games, characterized by hardwired logic without a microprocessor (although the definition is not entirely clear-cut), which can be further divided into early devices built from discrete components or basic integrated circuits only, and more advanced versions using dedicated game chips. The TV HRY prototype sits somewhere on the border between the two groups. It was created within months of the arrival of the globally groundbreaking AY-3-8500 chip, technically it still belongs to the first group, but with four games and an on-screen score, its functionality rivals the second. This sets it apart from other domestic games of its era and places it in the company of larger projects that were fairly rare even worldwide, such as the various (by then already dying out) clones of the original arcade PONG in the West, or some (conversely, later) Soviet projects in the East, led by the Palestra 02 console (1978). The VÚST prototype was, however, also quite complicated and expensive for its time, so it remained just a prototype and a one-off exhibition attraction, leaving only very brief traces in the period press - a few photographs, and a short remark about the economic unviability of a device built from about 80 integrated circuits (AR B6/1977). After its successful exhibition premiere, it quickly vanished from the scene and became something of a mysterious chapter among domestic games, one about which little was known.</p>
+            <p>
+                It was unquestionably the most advanced domestic game of its time, and its
+                sophisticated design confirms the top-class level of what was then the A. S. Popov
+                Research Institute for Communication Technology (VÚST). We are talking about the
+                so-called first generation of video games, characterized by hardwired logic without
+                a microprocessor (although the definition is not entirely clear-cut), which can be
+                further divided into early devices built from discrete components or basic
+                integrated circuits only, and more advanced versions using dedicated game chips. The
+                TV HRY prototype sits somewhere on the border between the two groups. It was created
+                within months of the arrival of the globally groundbreaking AY-3-8500 chip,
+                technically it still belongs to the first group, but with four games and an
+                on-screen score, its functionality rivals the second. This sets it apart from other
+                domestic games of its era and places it in the company of larger projects that were
+                fairly rare even worldwide, such as the various (by then already dying out) clones
+                of the original arcade PONG in the West, or some (conversely, later) Soviet projects
+                in the East, led by the Palestra 02 console (1978). The VÚST prototype was, however,
+                also quite complicated and expensive for its time, so it remained just a prototype
+                and a one-off exhibition attraction, leaving only very brief traces in the period
+                press - a few photographs, and a short remark about the economic unviability of a
+                device built from about 80 integrated circuits (AR B6/1977). After its successful
+                exhibition premiere, it quickly vanished from the scene and became something of a
+                mysterious chapter among domestic games, one about which little was known.
+            </p>
 
-            <p>Even today, not all questions have been answered (for example, we don't know who designed this game), but we can examine the device itself, which has fortunately survived to this day and, on the initiative of the Herní historie (Game History) association, has been thoroughly documented and repaired. It must have been made between September 1976 and May 1977 (based on the latest date codes on its components and period reports of the finished device's public presentation), which makes it quite likely the <b>oldest surviving domestic video game of all</b>. Even in the context of the <a href="https://en.wikipedia.org/wiki/Comecon">Comecon countries</a>, it is probably among the oldest projects of its kind.</p>
+            <p>
+                Even today, not all questions have been answered (for example, we don't know who
+                designed this game), but we can examine the device itself, which has fortunately
+                survived to this day and, on the initiative of the Herní historie (Game History)
+                association, has been thoroughly documented and repaired. It must have been made
+                between September 1976 and May 1977 (based on the latest date codes on its
+                components and period reports of the finished device's public presentation), which
+                makes it quite likely the <b>oldest surviving domestic video game of all</b>. Even
+                in the context of the
+                <a href="https://en.wikipedia.org/wiki/Comecon">Comecon countries</a>, it is
+                probably among the oldest projects of its kind.
+            </p>
 
-            <Figure image={img["02-Hry-VUST-tisk.jpg"]} caption={{ en: "The game at the exhibition in May 1977 (source: Technický týdeník 24/1977, p. 6)" }} />
+            <Figure
+                image={img["02-Hry-VUST-tisk.jpg"]}
+                caption={{
+                    en: "The game at the exhibition in May 1977 (source: Technický týdeník 24/1977, p. 6)",
+                }} />
 
-            <Figure image={img["03-screenshoty.jpg"]} caption={{ en: "Pelota, hockey, tennis and basketball are on offer. The large score is only visible after a goal is scored." }} />
+            <Figure
+                image={img["03-screenshoty.jpg"]}
+                caption={{
+                    en: "Pelota, hockey, tennis and basketball are on offer. The large score is only visible after a goal is scored.",
+                }} />
 
-            <p>Which games we can play is probably best shown by the picture - as was usual at the time, these are simple ball games. There is classic tennis and hockey (with goal openings in the side walls), as well as pelota played against a wall, which in this version is a game for two (with both/all paddles on the same side of the field), though it can also be played solo. A particularly unusual one is basketball, played on the same field as hockey, in which the players control not only their paddles but also the openings in a barrier in the middle of the field (a possible inspiration may have been the "hole-in-the-net" game from Elektor magazine 5/1976). The game supports a generous number of up to 4 players split into two teams, with comfortable paddle control using analog joysticks. There are settings for the ball speed and the volume of the sound effects (which signal ball bounces and goals), and a score display of up to 19 points, which goes dark when the ball enters the field and can be reset with a button.</p>
+            <p>
+                Which games we can play is probably best shown by the picture - as was usual at the
+                time, these are simple ball games. There is classic tennis and hockey (with goal
+                openings in the side walls), as well as pelota played against a wall, which in this
+                version is a game for two (with both/all paddles on the same side of the field),
+                though it can also be played solo. A particularly unusual one is basketball, played
+                on the same field as hockey, in which the players control not only their paddles but
+                also the openings in a barrier in the middle of the field (a possible inspiration
+                may have been the "hole-in-the-net" game from Elektor magazine 5/1976). The game
+                supports a generous number of up to 4 players split into two teams, with comfortable
+                paddle control using analog joysticks. There are settings for the ball speed and the
+                volume of the sound effects (which signal ball bounces and goals), and a score
+                display of up to 19 points, which goes dark when the ball enters the field and can
+                be reset with a button.
+            </p>
 
-            <p>At first glance it is clear that this is an original design that doesn't copy any existing game. There are elements specific to Czechoslovak designs, such as the score digits going dark when the ball enters the field and serving a new ball by backing the paddle onto the boundary line, but also completely original features found nowhere else: goals indicated by a dot displayed in the respective goal, which also serves as a prompt to serve a new ball, unusual dotted rendering of the lines on the field, or penalty points for crossing the center line with a paddle in tennis and basketball. On the other hand, ball bounces take only the simplest form in this game - the angle is always the same and cannot be changed by maneuvering the paddle or in any other way. This apparent drawback is, however, offset by the comfortable movement of the paddles in all directions, which makes it possible to change the ball's trajectory at any point. The designer also paid considerable attention to clear and simple operation (perhaps with exhibition use directly in mind). Besides the dots indicating goals and the really large score digits, this is also evidenced by the visual distinction between the paddles: the left team controls white paddles using equally white joystick levers, while the right team has striped paddles and dark levers, and the joystick boxes placed on either side of the device are even mirror-symmetric - a remarkably refined design in the context of Czechoslovakia in 1977. The controls are also simplified to the maximum - serving happens simply by touching the boundary line with the paddle, and after the maximum of 19 points is reached, the game restarts on its own after a few seconds. So, visitors to the exhibition didn't have to press any buttons at all, it was enough to simply grab a joystick.</p>
+            <p>
+                At first glance it is clear that this is an original design that doesn't copy any
+                existing game. There are elements specific to Czechoslovak designs, such as the
+                score digits going dark when the ball enters the field and serving a new ball by
+                backing the paddle onto the boundary line, but also completely original features
+                found nowhere else: goals indicated by a dot displayed in the respective goal, which
+                also serves as a prompt to serve a new ball, unusual dotted rendering of the lines
+                on the field, or penalty points for crossing the center line with a paddle in tennis
+                and basketball. On the other hand, ball bounces take only the simplest form in this
+                game - the angle is always the same and cannot be changed by maneuvering the paddle
+                or in any other way. This apparent drawback is, however, offset by the comfortable
+                movement of the paddles in all directions, which makes it possible to change the
+                ball's trajectory at any point. The designer also paid considerable attention to
+                clear and simple operation (perhaps with exhibition use directly in mind). Besides
+                the dots indicating goals and the really large score digits, this is also evidenced
+                by the visual distinction between the paddles: the left team controls white paddles
+                using equally white joystick levers, while the right team has striped paddles and
+                dark levers, and the joystick boxes placed on either side of the device are even
+                mirror-symmetric - a remarkably refined design in the context of Czechoslovakia in
+                1977. The controls are also simplified to the maximum - serving happens simply by
+                touching the boundary line with the paddle, and after the maximum of 19 points is
+                reached, the game restarts on its own after a few seconds. So, visitors to the
+                exhibition didn't have to press any buttons at all, it was enough to simply grab a
+                joystick.
+            </p>
 
-            <Figure image={img["04-vnitrek-strana-soucastek.jpg"]} caption={{ en: "The inside of the device with 82 integrated circuits (after repair)" }} />
+            <Figure
+                image={img["04-vnitrek-strana-soucastek.jpg"]}
+                caption={{
+                    en: "The inside of the device with 82 integrated circuits (after repair)",
+                }} />
 
-            <Figure image={img["05-vnitrek-strana-spoju.jpg"]} caption={{ en: "View from the solder side" }} />
+            <Figure
+                image={img["05-vnitrek-strana-spoju.jpg"]}
+                caption={{ en: "View from the solder side" }} />
 
-            <Figure image={img["06-detaily-desek.jpg"]} caption={{ en: "The styles of the digital section and the modulator differ considerably" }} />
+            <Figure
+                image={img["06-detaily-desek.jpg"]}
+                caption={{
+                    en: "The styles of the digital section and the modulator differ considerably",
+                }} />
 
-            <p>Let's now take a look inside the device. After loosening two screws on the back, we can slide a precisely made metal box out of the elegant wooden case (560x290x122mm including feet), and after unscrewing its top and bottom covers, both sides of the electronics boards are nicely exposed. At first glance it is obvious that this is a prototype. While the power supply and the analog section have a regular printed circuit board, albeit with a few later-done modifications, the entire digital section with dozens of integrated circuits is built on a pair of universal prototyping boards (made directly at VÚST). In places we also encounter the old marking system from the early days of domestic production of these components - for example MJA111 (which is MH7472) or the somewhat misleading MHB111 (MH7410). The integrated circuits sit in quality gold-plated sockets and are interconnected by a precisely executed, yet very confusing flood of wires. A metal box attached to the rear wall houses the RF output modulator for the TV set, which bears the clear signature of VÚST as the country's leading communication technology institute of the time - compared to other games of the era, it is unusually complex (3 transistors, 4 tuned circuits) and precisely built, and the use of a BNC connector on the output isn't exactly amateurish either. If we want to judge the device in the style of the time, by the number of semiconductor components used, we count 82 integrated circuits, 40 transistors and 13 diodes.</p>
+            <p>
+                Let's now take a look inside the device. After loosening two screws on the back, we
+                can slide a precisely made metal box out of the elegant wooden case (560x290x122mm
+                including feet), and after unscrewing its top and bottom covers, both sides of the
+                electronics boards are nicely exposed. At first glance it is obvious that this is a
+                prototype. While the power supply and the analog section have a regular printed
+                circuit board, albeit with a few later-done modifications, the entire digital
+                section with dozens of integrated circuits is built on a pair of universal
+                prototyping boards (made directly at VÚST). In places we also encounter the old
+                marking system from the early days of domestic production of these components - for
+                example MJA111 (which is MH7472) or the somewhat misleading MHB111 (MH7410). The
+                integrated circuits sit in quality gold-plated sockets and are interconnected by a
+                precisely executed, yet very confusing flood of wires. A metal box attached to the
+                rear wall houses the RF output modulator for the TV set, which bears the clear
+                signature of VÚST as the country's leading communication technology institute of the
+                time - compared to other games of the era, it is unusually complex (3 transistors, 4
+                tuned circuits) and precisely built, and the use of a BNC connector on the output
+                isn't exactly amateurish either. If we want to judge the device in the style of the
+                time, by the number of semiconductor components used, we count 82 integrated
+                circuits, 40 transistors and 13 diodes.
+            </p>
 
-            <p>Although it appears the original documentation hasn't survived, careful examination of the aforementioned "wire hell" eventually yielded a newly drawn schematic of the whole device, which you can see in the pictures. (The digital boards are labeled with the letters A and B to tell them apart, and the integrated circuits on them keep their original position numbers as marked on the back of the board. For the purposes of this documentation, the wires connecting the boards were labeled with lowercase and uppercase letters of the alphabet.) Above all, we can notice that unlike comparable Western counterparts (PONG clones or the AY-3-8500), this game isn't fully digital, but is essentially an analog game (in terms of generating the moving game objects), supplemented by an extensive digital section. (The MAS601-603 chips and some projects from the Soviet Union work in a similar way - more on that in another article.)</p>
+            <p>
+                Although it appears the original documentation hasn't survived, careful examination
+                of the aforementioned "wire hell" eventually yielded a newly drawn schematic of the
+                whole device, which you can see in the pictures. (The digital boards are labeled
+                with the letters A and B to tell them apart, and the integrated circuits on them
+                keep their original position numbers as marked on the back of the board. For the
+                purposes of this documentation, the wires connecting the boards were labeled with
+                lowercase and uppercase letters of the alphabet.) Above all, we can notice that
+                unlike comparable Western counterparts (PONG clones or the AY-3-8500), this game
+                isn't fully digital, but is essentially an analog game (in terms of generating the
+                moving game objects), supplemented by an extensive digital section. (The MAS601-603
+                chips and some projects from the Soviet Union work in a similar way - more on that
+                in another article.)
+            </p>
 
-            <Figure image={img["07-TV-Hry-deska-str1.png"]} caption={{ en: "Redrawn boards of the whole device" }} />
+            <Figure
+                image={img["07-TV-Hry-deska-str1.png"]}
+                caption={{ en: "Redrawn boards of the whole device" }} />
 
-            <Figure image={img["08-TV-Hry-deska-str2.png"]} caption={{ en: "The other side of the boards..." }} />
+            <Figure
+                image={img["08-TV-Hry-deska-str2.png"]}
+                caption={{ en: "The other side of the boards..." }} />
 
-            <Figure image={img["09en-TV-Hry-VUST-schema-1.png"]} caption={{ en: "Schematic: page 1 with the analog section" }} />
+            <Figure
+                image={img["09en-TV-Hry-VUST-schema-1.png"]}
+                caption={{ en: "Schematic: page 1 with the analog section" }} />
 
-            <p>The first page of the schematic (corresponding to the left of the three boards in the device) contains, besides a robust power supply and other minor parts, mainly the analog section. Five practically identical circuits generate the images of the four paddles and the ball. They use the classic principle that carried over from the first console, the Magnavox Odyssey (1972), through the Western European magazine Elektor, which was the usual source for domestic designs, all the way to the guides printed in Amatérské radio and adopted in the Tesla XD 8000 consoles. Even in VÚST's version, the circuit doesn't differ significantly, but it does include some improvements: the sync pulses are fed through transistors instead of the usual diodes, which elegantly solves the otherwise typical problems with overloading of the sync signals, and the ball movement has improved linearity thanks to replacing the usual RC networks with at least simple integrators. To drive them, the circuit generates an auxiliary negative voltage (-2.6V), and there is also a very unusual circuit (a simple regulator) the task of which is to keep the ball at the edge of the field based on digitally generated limits, should it tend to fly away horizontally - this mainly determines the spot where a new ball can be served after a goal. The number of players is selected simply by disconnecting some of the controllers, which moves the respective paddles (in an analog way) off-screen, where they aren't displayed at all. The fourth page of the schematic, documenting the inside of the RF modulator and the external accessories (mainly the controllers), essentially also belongs to the analog section.</p>
+            <p>
+                The first page of the schematic (corresponding to the left of the three boards in
+                the device) contains, besides a robust power supply and other minor parts, mainly
+                the analog section. Five practically identical circuits generate the images of the
+                four paddles and the ball. They use the classic principle that carried over from the
+                first console, the Magnavox Odyssey (1972), through the Western European magazine
+                Elektor, which was the usual source for domestic designs, all the way to the guides
+                printed in Amatérské radio and adopted in the Tesla XD 8000 consoles. Even in VÚST's
+                version, the circuit doesn't differ significantly, but it does include some
+                improvements: the sync pulses are fed through transistors instead of the usual
+                diodes, which elegantly solves the otherwise typical problems with overloading of
+                the sync signals, and the ball movement has improved linearity thanks to replacing
+                the usual RC networks with at least simple integrators. To drive them, the circuit
+                generates an auxiliary negative voltage (-2.6V), and there is also a very unusual
+                circuit (a simple regulator) the task of which is to keep the ball at the edge of
+                the field based on digitally generated limits, should it tend to fly away
+                horizontally - this mainly determines the spot where a new ball can be served after
+                a goal. The number of players is selected simply by disconnecting some of the
+                controllers, which moves the respective paddles (in an analog way) off-screen, where
+                they aren't displayed at all. The fourth page of the schematic, documenting the
+                inside of the RF modulator and the external accessories (mainly the controllers),
+                essentially also belongs to the analog section.
+            </p>
 
-            <p>The sync pulses in this game are generated digitally (in the sense of counting clock pulses), which we find on the third page of the schematic (or on the right board in the device). The clock generator (at the top of the page) is built in a very unusual way. It is based on a 5MHz crystal (one of the few types available at the time), which, after its frequency is divided by two and by five, determines the time step in the horizontal direction of the picture in an unusual rhythm of 1.6:0.4μs (in the rest of the text, I nevertheless assume an average step of 1μs). Next come the counters for 64 steps per scan line (64μs) and 625 half-lines per frame (20ms). They are built from unusually wired MH7490 chips, where the separate "A" sections of all five chips (A47-49 + A58-59) form the horizontal (binary) counter, while the remaining three-bit sections of four of the chips form the vertical counter - which counts halves (!) of scan lines and works in a somewhat confusing and atypical base-5 number system (the sections of the MH7490 chips used here are actually modulo 5 counters; I labeled the counter outputs 1H-32H and V1-V8). This arrangement tempts one to speculate that the MH7490 was much more common than the MH7493 at the time, but the more likely explanation is an effort to follow standard video timing truly precisely: a four-stage modulo 5 counter overflows after 5^4 = 625 half-lines, achieving correct picture timing with the counter alone, without any additional logic. The result is perhaps even too precise - this game is a rare example of a first-generation console that produces a full (interlaced) 625-line picture (though of course only black-and-white and without sound; a similar arrangement can perhaps only be seen in some later projects from the Soviet Union). Given what is displayed, however, this isn't necessary at all, and because the vertical counter steps in a half-line rhythm, it also leads to unpleasant effects in the form of the right half of the picture being shifted up by 1 (interlaced) line (see the boundary lines of the field in the screenshots). This counter arrangement also causes the atypical dotted rendering of some lines on the field, resulting from the fact that the signals of the individual binary digits of a "modulo 5" counter never have a 1:1 duty cycle. The same property of the aforementioned initial divide-by-five stage also makes it possible to display vertical lines much thinner than the otherwise used 1μs time step would allow, and the considerable size of the score digits is probably related to it as well, since there it is conversely desirable to avoid such asymmetry in pixel dimensions. In the lower part (of page 3 of the schematic), several timing signals are decoded from the counter outputs, which mainly determine the layout of the picture and the field - this is drawn in more detail in the picture (the units are 1μs and 1 scan line within a field).</p>
+            <p>
+                The sync pulses in this game are generated digitally (in the sense of counting clock
+                pulses), which we find on the third page of the schematic (or on the right board in
+                the device). The clock generator (at the top of the page) is built in a very unusual
+                way. It is based on a 5MHz crystal (one of the few types available at the time),
+                which, after its frequency is divided by two and by five, determines the time step
+                in the horizontal direction of the picture in an unusual rhythm of 1.6:0.4μs (in the
+                rest of the text, I nevertheless assume an average step of 1μs). Next come the
+                counters for 64 steps per scan line (64μs) and 625 half-lines per frame (20ms). They
+                are built from unusually wired MH7490 chips, where the separate "A" sections of all
+                five chips (A47-49 + A58-59) form the horizontal (binary) counter, while the
+                remaining three-bit sections of four of the chips form the vertical counter - which
+                counts halves (!) of scan lines and works in a somewhat confusing and atypical
+                base-5 number system (the sections of the MH7490 chips used here are actually modulo
+                5 counters; I labeled the counter outputs 1H-32H and V1-V8). This arrangement tempts
+                one to speculate that the MH7490 was much more common than the MH7493 at the time,
+                but the more likely explanation is an effort to follow standard video timing truly
+                precisely: a four-stage modulo 5 counter overflows after 5^4 = 625 half-lines,
+                achieving correct picture timing with the counter alone, without any additional
+                logic. The result is perhaps even too precise - this game is a rare example of a
+                first-generation console that produces a full (interlaced) 625-line picture (though
+                of course only black-and-white and without sound; a similar arrangement can perhaps
+                only be seen in some later projects from the Soviet Union). Given what is displayed,
+                however, this isn't necessary at all, and because the vertical counter steps in a
+                half-line rhythm, it also leads to unpleasant effects in the form of the right half
+                of the picture being shifted up by 1 (interlaced) line (see the boundary lines of
+                the field in the screenshots). This counter arrangement also causes the atypical
+                dotted rendering of some lines on the field, resulting from the fact that the
+                signals of the individual binary digits of a "modulo 5" counter never have a 1:1
+                duty cycle. The same property of the aforementioned initial divide-by-five stage
+                also makes it possible to display vertical lines much thinner than the otherwise
+                used 1μs time step would allow, and the considerable size of the score digits is
+                probably related to it as well, since there it is conversely desirable to avoid such
+                asymmetry in pixel dimensions. In the lower part (of page 3 of the schematic),
+                several timing signals are decoded from the counter outputs, which mainly determine
+                the layout of the picture and the field - this is drawn in more detail in the
+                picture (the units are 1μs and 1 scan line within a field).
+            </p>
 
-            <Figure image={img["10en-TV-Hry-VUST-schema-2.png"]} caption={{ en: "Schematic: page 2 with the game core" }} />
+            <Figure
+                image={img["10en-TV-Hry-VUST-schema-2.png"]}
+                caption={{ en: "Schematic: page 2 with the game core" }} />
 
-            <Figure image={img["11en-TV-Hry-VUST-schema-3.png"]} caption={{ en: "Schematic: page 3 with the timing and score circuits" }} />
+            <Figure
+                image={img["11en-TV-Hry-VUST-schema-3.png"]}
+                caption={{ en: "Schematic: page 3 with the timing and score circuits" }} />
 
-            <Figure image={img["12en-TV-Hry-VUST-schema-4.png"]} caption={{ en: "Schematic: page 4 with the modulator and accessories" }} />
+            <Figure
+                image={img["12en-TV-Hry-VUST-schema-4.png"]}
+                caption={{ en: "Schematic: page 4 with the modulator and accessories" }} />
 
-            <p>The largest part of the third page of the schematic is taken up by the score circuits. On the left, we have a pair of 4+1 bit BCD counters for the scores of both players (A11+21+31), which can be reset in three ways: with a button, by the "T" signal generated when the device is switched on, and by time-delayed detection of the final state of 19 points. Next comes a multiplexer that selects between the two scores according to the half of the picture currently being drawn (A12+32+34), followed by the digit display circuits, done in a sort of Czechoslovak style: while foreign games in both the West and the East usually used the 7448 chip intended for seven-segment displays to obtain a font, or (somewhat illogically) its equivalent built from discrete logic, domestic designs, given the unavailability of the 7448, skip this unnecessary intermediate step entirely and work directly with a bitmap font. In the case of VÚST, the schematic contains a 4x5 matrix of logic gates (two of which are omitted), which decide whether individual pixels light up in a 1x5 or 3x5 grid for the digits "1" and "0-9", based on the horizontal and vertical raster signals (I labeled them SH1-4 and SV1-5) and the digit currently being displayed. The principle is thus the same as in the second variant of the circuit printed at the same time in Amatérské radio B6/1977, but the implementation differs (in the number and shape of the digits).</p>
+            <p>
+                The largest part of the third page of the schematic is taken up by the score
+                circuits. On the left, we have a pair of 4+1 bit BCD counters for the scores of both
+                players (A11+21+31), which can be reset in three ways: with a button, by the "T"
+                signal generated when the device is switched on, and by time-delayed detection of
+                the final state of 19 points. Next comes a multiplexer that selects between the two
+                scores according to the half of the picture currently being drawn (A12+32+34),
+                followed by the digit display circuits, done in a sort of Czechoslovak style: while
+                foreign games in both the West and the East usually used the 7448 chip intended for
+                seven-segment displays to obtain a font, or (somewhat illogically) its equivalent
+                built from discrete logic, domestic designs, given the unavailability of the 7448,
+                skip this unnecessary intermediate step entirely and work directly with a bitmap
+                font. In the case of VÚST, the schematic contains a 4x5 matrix of logic gates (two
+                of which are omitted), which decide whether individual pixels light up in a 1x5 or
+                3x5 grid for the digits "1" and "0-9", based on the horizontal and vertical raster
+                signals (I labeled them SH1-4 and SV1-5) and the digit currently being displayed.
+                The principle is thus the same as in the second variant of the circuit printed at
+                the same time in Amatérské radio B6/1977, but the implementation differs (in the
+                number and shape of the digits).
+            </p>
 
-            <p>The core of the game is located on the middle board, which corresponds to the second page of the schematic. Here, the digital timing is used to generate the picture sync (the vertical sync pulses are simplified in the way that was common at the time - without serrations) as well as trigger pulses for generating the paddles and the ball. The field with its lines and the optional dot indicating a goal is also generated here, and the paddle, ball and score signals are added, so that the complete video content comes out at output B29. Collisions are detected as well, according to which the ball direction flip-flops (B22) are toggled, or goals are registered. It is worth noting that in pelota, any player can hit the ball (they don't necessarily have to take turns), but in the case of a goal, the point goes to whoever last successfully played the ball (which is remembered by the flip-flop on B36). The circuits for the individual functions (field display, ball bounces, goals for the individual games) are mostly separate and share only a few common gates. There are also sound effect circuits and a power-on reset generator (a fairly unusual feature in this generation of video games).</p>
+            <p>
+                The core of the game is located on the middle board, which corresponds to the second
+                page of the schematic. Here, the digital timing is used to generate the picture sync
+                (the vertical sync pulses are simplified in the way that was common at the time -
+                without serrations) as well as trigger pulses for generating the paddles and the
+                ball. The field with its lines and the optional dot indicating a goal is also
+                generated here, and the paddle, ball and score signals are added, so that the
+                complete video content comes out at output B29. Collisions are detected as well,
+                according to which the ball direction flip-flops (B22) are toggled, or goals are
+                registered. It is worth noting that in pelota, any player can hit the ball (they
+                don't necessarily have to take turns), but in the case of a goal, the point goes to
+                whoever last successfully played the ball (which is remembered by the flip-flop on
+                B36). The circuits for the individual functions (field display, ball bounces, goals
+                for the individual games) are mostly separate and share only a few common gates.
+                There are also sound effect circuits and a power-on reset generator (a fairly
+                unusual feature in this generation of video games).
+            </p>
 
-            <p>The goal logic, with stopping the game and serving the ball, deserves a closer look. Detection of a goal by the ball colliding with the goal line (or, in some games, a penalty point for a paddle crossing the center line) activates one of the R-S flip-flops built on chip B56, whose outputs control the score counters via wires M+N. A goal registered this way blocks, via the output of gate B55-8, the detection of further (duplicate) goals caused by the ball moving while the game is interrupted (or possibly another penalty point when the paddle returns to its correct half of the field), and at the same time triggers the goal sound effect via a transistor (near the top edge of the schematic). For the duration of this sound, the paddles are not displayed (they don't receive trigger pulses from the output of gate B55-6), and the flip-flop built on chip B27 switches to the stopped-game state. This suppresses the display of the ball and the sounds of its bounces, and activates the display of the score and the goal indicator dot instead. While the game is stopped, the ball is therefore invisible and doesn't bounce off anything on the left or right, but it keeps moving up and down along the boundary line, where it is held by the analog regulator circuit. Once the sound effect ends, the paddles are displayed again and can then catch the (invisible) ball on the boundary line and bounce it back into the field. This serves a new ball, which usually flies out from one of the edges of the paddle - it essentially finds such a spot on its own. Hitting the ball (a collision with a paddle) resets the stopped-game flip-flop, which turns off the score and the goal dot, the ball appears, and the game can continue. The goal flip-flops on chip B56, however, are only reset once the ball reaches the center line, so no further goal can be counted as the ball enters the field (the designs from Amatérské radio B6/1977 and the MAS601 chip work in the same way).</p>
+            <p>
+                The goal logic, with stopping the game and serving the ball, deserves a closer look.
+                Detection of a goal by the ball colliding with the goal line (or, in some games, a
+                penalty point for a paddle crossing the center line) activates one of the R-S
+                flip-flops built on chip B56, whose outputs control the score counters via wires
+                M+N. A goal registered this way blocks, via the output of gate B55-8, the detection
+                of further (duplicate) goals caused by the ball moving while the game is interrupted
+                (or possibly another penalty point when the paddle returns to its correct half of
+                the field), and at the same time triggers the goal sound effect via a transistor
+                (near the top edge of the schematic). For the duration of this sound, the paddles
+                are not displayed (they don't receive trigger pulses from the output of gate B55-6),
+                and the flip-flop built on chip B27 switches to the stopped-game state. This
+                suppresses the display of the ball and the sounds of its bounces, and activates the
+                display of the score and the goal indicator dot instead. While the game is stopped,
+                the ball is therefore invisible and doesn't bounce off anything on the left or
+                right, but it keeps moving up and down along the boundary line, where it is held by
+                the analog regulator circuit. Once the sound effect ends, the paddles are displayed
+                again and can then catch the (invisible) ball on the boundary line and bounce it
+                back into the field. This serves a new ball, which usually flies out from one of the
+                edges of the paddle - it essentially finds such a spot on its own. Hitting the ball
+                (a collision with a paddle) resets the stopped-game flip-flop, which turns off the
+                score and the goal dot, the ball appears, and the game can continue. The goal
+                flip-flops on chip B56, however, are only reset once the ball reaches the center
+                line, so no further goal can be counted as the ball enters the field (the designs
+                from Amatérské radio B6/1977 and the MAS601 chip work in the same way).
+            </p>
 
-            <Figure image={img["13-format-obrazu-VUST.png"]} caption={{ en: "Diagram of the picture and field layout" }} />
+            <Figure
+                image={img["13-format-obrazu-VUST.png"]}
+                caption={{ en: "Diagram of the picture and field layout" }} />
 
-            <p>Combined with the free movement of the paddles across the whole field, however, this arrangement also has its weaknesses. Perhaps the most noticeable are cases where the ball flies along the boundary line (as it does before a serve), yet is visible. These are various possible situations in which the ball never reached the center line between the serve and a new goal, so the blocking of duplicate goals hasn't ended yet and the goal seemingly "doesn't accept" the ball. This is usually related to the ball being returned immediately by a paddle located in the opponent's half of the field, including the possibility of serving on the opponent's behalf (and thus seemingly into a wall), but the cause can also be an excessively fast ball (which takes such a large step between individual frames that it skips contact with the center line; the vast majority of games of the era have the same weakness in their collision detection). In these situations, the device is also blind to paddles crossing the center line (which applies to tennis and basketball). The second common problem is the goal (and the serving process) being indicated on the opposite side of the field from where the goal actually happened. The cause here is simultaneous detection of a goal and a ball bounce (given the ball's relatively large size), most often when we hit the top "post", i.e. the edge of the goal, in hockey or basketball, or when a paddle waits for the ball exactly on the goal line. In that case, the goal is correctly counted and the ball disappears, but it is already flying towards the opponent at the same time, so it takes up its starting position (including the indicator dot) on their side. With particularly slow movement, an unintended serve can even happen in the middle of the field, if the invisible ball meets a paddle there.</p>
+            <p>
+                Combined with the free movement of the paddles across the whole field, however, this
+                arrangement also has its weaknesses. Perhaps the most noticeable are cases where the
+                ball flies along the boundary line (as it does before a serve), yet is visible.
+                These are various possible situations in which the ball never reached the center
+                line between the serve and a new goal, so the blocking of duplicate goals hasn't
+                ended yet and the goal seemingly "doesn't accept" the ball. This is usually related
+                to the ball being returned immediately by a paddle located in the opponent's half of
+                the field, including the possibility of serving on the opponent's behalf (and thus
+                seemingly into a wall), but the cause can also be an excessively fast ball (which
+                takes such a large step between individual frames that it skips contact with the
+                center line; the vast majority of games of the era have the same weakness in their
+                collision detection). In these situations, the device is also blind to paddles
+                crossing the center line (which applies to tennis and basketball). The second common
+                problem is the goal (and the serving process) being indicated on the opposite side
+                of the field from where the goal actually happened. The cause here is simultaneous
+                detection of a goal and a ball bounce (given the ball's relatively large size), most
+                often when we hit the top "post", i.e. the edge of the goal, in hockey or
+                basketball, or when a paddle waits for the ball exactly on the goal line. In that
+                case, the goal is correctly counted and the ball disappears, but it is already
+                flying towards the opponent at the same time, so it takes up its starting position
+                (including the indicator dot) on their side. With particularly slow movement, an
+                unintended serve can even happen in the middle of the field, if the invisible ball
+                meets a paddle there.
+            </p>
 
-            <p>Apparently related to the above is an additional wiring change found in the device, thanks to which left/right ball bounces are suppressed immediately during the goal sound effect (by two gates of B41, next to which, however, the board also contains plain inverters with disconnected, but previously soldered outputs). This change solves the problem of a simultaneous goal and bounce at least in some cases (the bottom edge of the goal, the top or left edge of the paddle), where, due to the direction in which the picture is drawn, the goal detection does arrive a hair earlier, but the paddle, because of the way the flip-flop on B27 is wired, can undesirably delay the stopping of the game (and thus the regular suppression of the ball).</p>
+            <p>
+                Apparently related to the above is an additional wiring change found in the device,
+                thanks to which left/right ball bounces are suppressed immediately during the goal
+                sound effect (by two gates of B41, next to which, however, the board also contains
+                plain inverters with disconnected, but previously soldered outputs). This change
+                solves the problem of a simultaneous goal and bounce at least in some cases (the
+                bottom edge of the goal, the top or left edge of the paddle), where, due to the
+                direction in which the picture is drawn, the goal detection does arrive a hair
+                earlier, but the paddle, because of the way the flip-flop on B27 is wired, can
+                undesirably delay the stopping of the game (and thus the regular suppression of the
+                ball).
+            </p>
 
-            <p>Given that this is a prototype, the presence of additional modifications is hardly surprising. They include added stabilization of the supply voltage for the output modulator and a reduction of its output signal level with additional resistors, an adjustment of the timing (edges) in paddle generation, changes to the size and speed of the ball, and adjustments of the time constants of the regulator circuit for its edge position. Two small wiring mistakes were also found (for example, some inputs of B52 are connected one pin off), as well as a few unclean solutions (pin 12 of B22 doesn't receive a proper logic zero, wire T shorts two TTL outputs together), but given the size of the device, these are just negligible nitpicks which fortunately have no effect on its function.</p>
+            <p>
+                Given that this is a prototype, the presence of additional modifications is hardly
+                surprising. They include added stabilization of the supply voltage for the output
+                modulator and a reduction of its output signal level with additional resistors, an
+                adjustment of the timing (edges) in paddle generation, changes to the size and speed
+                of the ball, and adjustments of the time constants of the regulator circuit for its
+                edge position. Two small wiring mistakes were also found (for example, some inputs
+                of B52 are connected one pin off), as well as a few unclean solutions (pin 12 of B22
+                doesn't receive a proper logic zero, wire T shorts two TTL outputs together), but
+                given the size of the device, these are just negligible nitpicks which fortunately
+                have no effect on its function.
+            </p>
 
-            <p>Looking at the schematic, we can also notice that the statement about a "not entirely digital" game applies to much more than just generating the paddles and the ball. I counted another 20 places in the device where various time intervals are measured not by counting clock pulses, but by charging capacitors - these include all of the sound generation, the paddle striping, and various signal delays that ensure the signals are properly aligned in time. Essentially, it can be said that only the basic picture layout, the field and the score are generated in a purely digital way. Nothing more.</p>
+            <p>
+                Looking at the schematic, we can also notice that the statement about a "not
+                entirely digital" game applies to much more than just generating the paddles and the
+                ball. I counted another 20 places in the device where various time intervals are
+                measured not by counting clock pulses, but by charging capacitors - these include
+                all of the sound generation, the paddle striping, and various signal delays that
+                ensure the signals are properly aligned in time. Essentially, it can be said that
+                only the basic picture layout, the field and the score are generated in a purely
+                digital way. Nothing more.
+            </p>
 
-            <Figure image={img["14-kolaz-z-opravy.jpg"]} caption={{ en: `How to repair a fifty-year-old local game: garbled screen, corrosion, cold joints and "turds" (TC180 capacitors), or an old brute-force "repair"...` }} />
+            <Figure
+                image={img["14-kolaz-z-opravy.jpg"]}
+                caption={{
+                    en: `How to repair a fifty-year-old local game: garbled screen, corrosion, cold joints and "turds" (TC180 capacitors), or an old brute-force "repair"...`,
+                }} />
 
-            <Figure image={img["15-detail-mechaniky.jpg"]} caption={{ en: "The mechanical construction of the case is precise" }} />
+            <Figure
+                image={img["15-detail-mechaniky.jpg"]}
+                caption={{ en: "The mechanical construction of the case is precise" }} />
 
-            <p>Let's also take a look at how the VÚST game device has withstood the ravages of time - after all, not long after this article is published, it will celebrate its 50th birthday. As you can see in the illustrative collage from its repair, things weren't exactly rosy. Rusty screws, some of which even snapped off when opening the cover, loose mounting of the controls as well as larger assemblies, where the screws used (M2) had been undersized from the very beginning, a broken-off output connector, only one of the four paddles on screen (and disproportionately long at that), no ball, unstable picture sync, scattered pixels in an incorrectly counted score, some bounces and penalty points not working, the ball bounce sound stretched into an annoying honk... It was necessary to replace 5 faulty integrated circuits and 11 degraded paper capacitors of the infamous TC180 type (which certainly didn't earn its popular, rather unflattering nickname by chance). Since Tesla's range of film capacitors was poor at the time, finding a period-appropriate replacement meant reaching into the "Comecon component base" (as it was called back then): the device already came with two Hungarian capacitors (Remix C213), and now Bulgarian ones (MPT-Pr96) were added as well. The biggest problem, however, turned out to be a large number of bad solder joints - in Czech colloquially, 'coldies' or cold joints. VÚST did top-class work for its time in designing the game and making the case, the printed circuit boards, and the black anodized panel with engraved lettering (they were probably even using CNC machines back then already), and the artistry of connecting all those wires deserves high marks as well. Unfortunately, the routine soldering during mass assembly of the passive components, and especially the integrated circuit sockets, is a much worse example of the standards of the time - components with poorly solderable leads and only average efforts to deal with them properly. A light tap on the device was enough to dramatically change the state of the whole game. Even back when the game was still serving its purpose, someone tried to solve this in a peculiar way - by brutally bending the board with an M4 screw jammed under its edge. It's hard to say whether this was an improvised rescue during one of the exhibitions, or whether it happened only during the game's "afterlife" (once its original role was over, one of the institute's employees took it home, thereby actually saving it for us). To make the game work reliably again (even without the screw under the board), all the cold joints had to be resoldered. Outright bad joints numbered more than ten, and the subsequent preventive resoldering of other untrustworthy points during a thorough inspection ran into the hundreds. That's not exactly a good testament to 1970s Tesla.</p>
+            <p>
+                Let's also take a look at how the VÚST game device has withstood the ravages of time
+                - after all, not long after this article is published, it will celebrate its 50th
+                birthday. As you can see in the illustrative collage from its repair, things weren't
+                exactly rosy. Rusty screws, some of which even snapped off when opening the cover,
+                loose mounting of the controls as well as larger assemblies, where the screws used
+                (M2) had been undersized from the very beginning, a broken-off output connector,
+                only one of the four paddles on screen (and disproportionately long at that), no
+                ball, unstable picture sync, scattered pixels in an incorrectly counted score, some
+                bounces and penalty points not working, the ball bounce sound stretched into an
+                annoying honk... It was necessary to replace 5 faulty integrated circuits and 11
+                degraded paper capacitors of the infamous TC180 type (which certainly didn't earn
+                its popular, rather unflattering nickname by chance). Since Tesla's range of film
+                capacitors was poor at the time, finding a period-appropriate replacement meant
+                reaching into the "Comecon component base" (as it was called back then): the device
+                already came with two Hungarian capacitors (Remix C213), and now Bulgarian ones
+                (MPT-Pr96) were added as well. The biggest problem, however, turned out to be a
+                large number of bad solder joints - in Czech colloquially, 'coldies' or cold joints.
+                VÚST did top-class work for its time in designing the game and making the case, the
+                printed circuit boards, and the black anodized panel with engraved lettering (they
+                were probably even using CNC machines back then already), and the artistry of
+                connecting all those wires deserves high marks as well. Unfortunately, the routine
+                soldering during mass assembly of the passive components, and especially the
+                integrated circuit sockets, is a much worse example of the standards of the time -
+                components with poorly solderable leads and only average efforts to deal with them
+                properly. A light tap on the device was enough to dramatically change the state of
+                the whole game. Even back when the game was still serving its purpose, someone tried
+                to solve this in a peculiar way - by brutally bending the board with an M4 screw
+                jammed under its edge. It's hard to say whether this was an improvised rescue during
+                one of the exhibitions, or whether it happened only during the game's "afterlife"
+                (once its original role was over, one of the institute's employees took it home,
+                thereby actually saving it for us). To make the game work reliably again (even
+                without the screw under the board), all the cold joints had to be resoldered.
+                Outright bad joints numbered more than ten, and the subsequent preventive
+                resoldering of other untrustworthy points during a thorough inspection ran into the
+                hundreds. That's not exactly a good testament to 1970s Tesla.
+            </p>
 
-            <p>As part of the repair, several interventions were also needed to make the game playable today at all. A video output was added using a single piece of wire and a detachable external box (since old TVs with an RF input are becoming rare), one added diode brought the sync pulses somewhat closer to the standard length, and another ensured reliable startup of the device after power-on (here the VÚST designer took a bit of a gamble, as the startup of the game depended on the undefined initial state of one of the flip-flops - apparently the MH7474 chip was on their side back then, but unfortunately that changed over half a century...) Last but not least, replicas of the controllers had to be built from scratch based on just a few old photos, since we don't have the original ones and they most likely haven't survived.</p>
+            <p>
+                As part of the repair, several interventions were also needed to make the game
+                playable today at all. A video output was added using a single piece of wire and a
+                detachable external box (since old TVs with an RF input are becoming rare), one
+                added diode brought the sync pulses somewhat closer to the standard length, and
+                another ensured reliable startup of the device after power-on (here the VÚST
+                designer took a bit of a gamble, as the startup of the game depended on the
+                undefined initial state of one of the flip-flops - apparently the MH7474 chip was on
+                their side back then, but unfortunately that changed over half a century...) Last
+                but not least, replicas of the controllers had to be built from scratch based on
+                just a few old photos, since we don't have the original ones and they most likely
+                haven't survived.
+            </p>
 
-            <Figure image={img["16-zadni-panel.jpg"]} caption={{ en: "Finally, the rear panel with neatly labeled connectors" }} />
+            <Figure
+                image={img["16-zadni-panel.jpg"]}
+                caption={{ en: "Finally, the rear panel with neatly labeled connectors" }} />
 
-            <p>But as they say - all's well that ends well. The game is back in proper shape, and you might come across it at RetroHerna and Czechoslovak Game Archive events. Although it is just a single prototype which, given its scale and cost, probably really never had a chance at mass production, it is nevertheless an interesting example of what a luxurious, advanced Czechoslovak video game could have looked like at the very beginnings. In this respect, it is actually a kind of counterpart to the Tesla XD 8000 game, which was simplified "to the bone", and whose prototype was being exhibited at the same time.</p>
+            <p>
+                But as they say - all's well that ends well. The game is back in proper shape, and
+                you might come across it at RetroHerna and Czechoslovak Game Archive events.
+                Although it is just a single prototype which, given its scale and cost, probably
+                really never had a chance at mass production, it is nevertheless an interesting
+                example of what a luxurious, advanced Czechoslovak video game could have looked like
+                at the very beginnings. In this respect, it is actually a kind of counterpart to the
+                Tesla XD 8000 game, which was simplified "to the bone", and whose prototype was
+                being exhibited at the same time.
+            </p>
 
             <h4>Sources:</h4>
             <ul>
-                <li>Dorian Hanuš: Otazníky nad televizory jarního Brna (ČS Televize weekly 24/1977)</li>
-                <li>Josef Horázný: Elektronika z lázeňského města (Nová Svoboda, 3 June 1977, p. 4)</li>
+                <li>
+                    Dorian Hanuš: Otazníky nad televizory jarního Brna (ČS Televize weekly 24/1977)
+                </li>
+                <li>
+                    Josef Horázný: Elektronika z lázeňského města (Nová Svoboda, 3 June 1977, p. 4)
+                </li>
                 <li>O. Šmejkal: Dny nové techniky Tesla-VÚST '77 (VTM 13/1977, p. 394)</li>
                 <li>Hry na televizní obrazovce (Amatérské Radio B6/1977, p. 222)</li>
                 <li>TV tennis extensions, part 3 (Elektor 5/1976, p. 544)</li>

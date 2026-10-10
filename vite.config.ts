@@ -1,31 +1,31 @@
-import { paraglideVitePlugin } from '@inlang/paraglide-js';
-import { enhancedImages } from '@sveltejs/enhanced-img';
-import { sveltekit } from '@sveltejs/kit/vite';
+import { paraglideVitePlugin } from "@inlang/paraglide-js";
+import { enhancedImages } from "@sveltejs/enhanced-img";
+import { sveltekit } from "@sveltejs/kit/vite";
 import { pagefindBuild } from "vite-plugin-pagefind";
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
-	plugins: [
-		enhancedImages(),
-		sveltekit(),
-		paraglideVitePlugin({
-			project: './project.inlang',
-			outdir: './src/lib/paraglide',
-			strategy: ['url', 'cookie', 'baseLocale'],
-			urlPatterns: [
-				{
-					pattern: "/:path(.*)?",
-					localized: [
-						["en", "/en/:path(.*)?"],
-						["cs", "/:path(.*)?"],
-					],
-				},
-			],
-		}),
-		pagefindBuild({
-			// Configuration explained here:
-			// https://github.com/Hugos68/vite-plugin-pagefind?tab=readme-ov-file#usage
-			// assetsDirectory: "build",
-		}),
-	]
+    plugins: [
+        enhancedImages(),
+        sveltekit(),
+        paraglideVitePlugin({
+            project: "./project.inlang",
+            outdir: "./src/lib/paraglide",
+            strategy: ["url", "cookie", "baseLocale"],
+            urlPatterns: [
+                {
+                    pattern: "/:path(.*)?",
+                    localized: [
+                        ["en", "/en/:path(.*)?"],
+                        ["cs", "/:path(.*)?"],
+                    ],
+                },
+            ],
+        }),
+        pagefindBuild({
+            // Configuration explained here:
+            // https://github.com/Hugos68/vite-plugin-pagefind?tab=readme-ov-file#usage
+            // assetsDirectory: "build",
+        }),
+    ],
 });

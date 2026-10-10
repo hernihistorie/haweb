@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Box from "../Box.svelte";
-	import MagazineBlock from "./MagazineBlock.svelte";
-	import type { MagazineInfo } from "$src/lib/magdb";
-	import Loc from "../Loc.svelte";
-	import Arrow from "../Arrow.svelte";
+    import Box from "../Box.svelte";
+    import MagazineBlock from "./MagazineBlock.svelte";
+    import type { MagazineInfo } from "$src/lib/magdb";
+    import Loc from "../Loc.svelte";
+    import Arrow from "../Arrow.svelte";
 
-    const { magazine }: {magazine: MagazineInfo} = $props();
+    const { magazine }: { magazine: MagazineInfo } = $props();
 </script>
 
 <Box decoration={false}>
@@ -41,7 +41,7 @@
         margin-top: 0.7em;
     }
 
-     @media (max-width: 620px) {
+    @media (max-width: 620px) {
         .selected-magazine-entry {
             grid-template-columns: 1fr;
             gap: 1em;

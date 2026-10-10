@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+    import type { Snippet } from "svelte";
     let props: {
         children?: Snippet;
     } = $props();
@@ -22,6 +22,5 @@
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 3px;
-
     }
 </style>

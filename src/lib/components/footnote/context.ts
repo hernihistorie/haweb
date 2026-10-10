@@ -1,4 +1,4 @@
-import { createContext, type Snippet } from 'svelte';
+import { createContext, type Snippet } from "svelte";
 
 export class FootnoteHolder {
     footnotes: Snippet[] = [];

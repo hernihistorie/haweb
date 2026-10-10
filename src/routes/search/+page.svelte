@@ -1,58 +1,54 @@
 <script lang="ts">
-    import { page } from '$app/state'
+    import { page } from "$app/state";
     import type { Pagefind } from "vite-plugin-pagefind/types";
-	import { onMount } from 'svelte';
-	import Loc from "$src/lib/components/Loc.svelte";
-	import Box from "$src/lib/components/Box.svelte";
-	import IconSearch from "@lucide/svelte/icons/search";
-	import Meta from '$src/lib/components/layout/Meta.svelte';
- 
-	let pagefind: Pagefind;
- 
-	onMount(async () => {
-		pagefind = await import(
-			// WORKAROUND: we need this templating trick to stop vite from statically analyzing this import
-			/* @vite-ignore */
-			`${'/'}pagefind/pagefind.js`
-		);
-		pagefind.init();
-        searchValue = page.url.searchParams.get('q') || '';
-	});
- 
-	async function fetchSearchResults(val: string) {
-		const search = await pagefind?.debouncedSearch(val);
- 
-		if (search?.results?.length > 0) {
-			const results = search.results;
-			const data = await Promise.all(results.map(async (r) => await r.data()));
-			return data;
-		}
-		return [];
-	}
+    import { onMount } from "svelte";
+    import Loc from "$src/lib/components/Loc.svelte";
+    import Box from "$src/lib/components/Box.svelte";
+    import IconSearch from "@lucide/svelte/icons/search";
+    import Meta from "$src/lib/components/layout/Meta.svelte";
+
+    let pagefind: Pagefind;
+
+    onMount(async () => {
+        pagefind = await import(
+            // WORKAROUND: we need this templating trick to stop vite from statically analyzing this import
+            /* @vite-ignore */
+            `${"/"}pagefind/pagefind.js`
+        );
+        pagefind.init();
+        searchValue = page.url.searchParams.get("q") || "";
+    });
+
+    async function fetchSearchResults(val: string) {
+        const search = await pagefind?.debouncedSearch(val);
+
+        if (search?.results?.length > 0) {
+            const results = search.results;
+            const data = await Promise.all(results.map(async (r) => await r.data()));
+            return data;
+        }
+        return [];
+    }
 
     function stripTitle(title: string) {
-        return title.replace(/ - (Herní archiv|Czechoslovak Game Archive)$/, '');
+        return title.replace(/ - (Herní archiv|Czechoslovak Game Archive)$/, "");
     }
- 
-	let searchValue = $state('');
-	let searchResults = $derived(fetchSearchResults(searchValue));
+
+    let searchValue = $state("");
+    let searchResults = $derived(fetchSearchResults(searchValue));
 </script>
 
-<Meta title={{cs: "Vyhledávání", en: "Search"}} />
+<Meta title={{ cs: "Vyhledávání", en: "Search" }} />
 
 <div class="thin">
     <h2><Loc cs="Vyhledávání" en="Search" /></h2>
-    
+
     <div>
         <div class="search-input">
             <IconSearch />
-            <input
-                type="text"
-                autofocus
-                bind:value={searchValue}
-            />
+            <input type="text" autofocus bind:value={searchValue} />
         </div>
-    
+
         {#await searchResults}
             <div class="loading">
                 <Loc cs="Načítání..." en="Loading..." />
@@ -64,12 +60,11 @@
                         {#if result.meta.image}
                             <img
                                 src={result.meta.image}
-                                alt={result.meta.image_alt ?? ''}
+                                alt={result.meta.image_alt ?? ""}
                                 class="result-image"
-                                loading="lazy"
-                            />
+                                loading="lazy" />
                         {/if}
-                        <a href={result.url.replace('.html', '')} class="result-link">
+                        <a href={result.url.replace(".html", "")} class="result-link">
                             <strong>{stripTitle(result.meta.title)}</strong>
                         </a>
                         {@html result.excerpt}

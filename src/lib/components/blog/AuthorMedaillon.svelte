@@ -1,15 +1,27 @@
 <script lang="ts">
-    import Loc from '../Loc.svelte';
-    import type { Author } from '$src/types';
-	import { localizeHref } from '$src/lib/paraglide/runtime';
-	import type { Temporal } from '@js-temporal/polyfill';
-	import BulletPoint from '../BulletPoint.svelte';
-	import Avatar from '../Avatar.svelte';
-    let { author, date, inline = false }: { author: Author; date?: Temporal.PlainDate | Temporal.PlainDateTime; inline?: boolean } = $props();
+    import Loc from "../Loc.svelte";
+    import type { Author } from "$src/types";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
+    import type { Temporal } from "@js-temporal/polyfill";
+    import BulletPoint from "../BulletPoint.svelte";
+    import Avatar from "../Avatar.svelte";
+    let {
+        author,
+        date,
+        inline = false,
+    }: {
+        author: Author;
+        date?: Temporal.PlainDate | Temporal.PlainDateTime;
+        inline?: boolean;
+    } = $props();
 </script>
 
-<div class:inline={inline}>
-    <Avatar href={localizeHref(`/blog/authors/${author.slug}`)} img={author.image} imgDefault={{alt: "Autor bez obrázku"}} {inline} />
+<div class:inline>
+    <Avatar
+        href={localizeHref(`/blog/authors/${author.slug}`)}
+        img={author.image}
+        imgDefault={{ alt: "Autor bez obrázku" }}
+        {inline} />
     <a href={localizeHref(`/blog/authors/${author.slug}`)}>
         <author>
             <strong>{author.name}</strong>

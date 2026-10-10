@@ -1,36 +1,36 @@
 <script lang="ts">
-	import { locales, localizeHref } from '$lib/paraglide/runtime';
-	import Meta from '$src/lib/components/layout/Meta.svelte';
-	import Header from '$src/lib/components/layout/Header.svelte';
-	import Footer from '$src/lib/components/layout/Footer.svelte';
-	import '../app.css';
-	import { setLocale } from '$lib/paraglide/runtime';
-	import { page } from '$app/state';
-	import { onMount } from 'svelte';
-	import { invalidate } from '$app/navigation';
-	import { MAGDB_ORIGIN } from '$src/lib/magdb';
-	import NavigatingIndicator from '$src/lib/components/layout/NavigatingIndicator.svelte';
-	interface Props {
-		children?: import('svelte').Snippet;
-	}
+    import { locales, localizeHref } from "$lib/paraglide/runtime";
+    import Meta from "$src/lib/components/layout/Meta.svelte";
+    import Header from "$src/lib/components/layout/Header.svelte";
+    import Footer from "$src/lib/components/layout/Footer.svelte";
+    import "../app.css";
+    import { setLocale } from "$lib/paraglide/runtime";
+    import { page } from "$app/state";
+    import { onMount } from "svelte";
+    import { invalidate } from "$app/navigation";
+    import { MAGDB_ORIGIN } from "$src/lib/magdb";
+    import NavigatingIndicator from "$src/lib/components/layout/NavigatingIndicator.svelte";
+    interface Props {
+        children?: import("svelte").Snippet;
+    }
 
-	let { children }: Props = $props();
+    let { children }: Props = $props();
 
-	if (typeof window !== 'undefined') {
-		const url = new URL(window.location.href);
-		const url_lang = url.searchParams.get('lang');
-		if (url_lang) {
-			console.log('setting language to', url_lang, 'due to lang url param');
-			setLocale(url_lang);
-		}
-	}
+    if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        const url_lang = url.searchParams.get("lang");
+        if (url_lang) {
+            console.log("setting language to", url_lang, "due to lang url param");
+            setLocale(url_lang);
+        }
+    }
 
-	// Pick up fresh remote data after hydration
-	onMount(() => {
-		invalidate((url) => url.origin === MAGDB_ORIGIN);
-	});
+    // Pick up fresh remote data after hydration
+    onMount(() => {
+        invalidate((url) => url.origin === MAGDB_ORIGIN);
+    });
 
-	// export const prerender = true;
+    // export const prerender = true;
 </script>
 
 <Meta title="" />
@@ -38,7 +38,7 @@
 <Header />
 
 <main>
-	{@render children?.()}
+    {@render children?.()}
 </main>
 
 <Footer />
@@ -46,17 +46,17 @@
 <NavigatingIndicator />
 
 <div style="display:none" data-pagefind-ignore>
-	<a href="/en">/en</a>
-	<a href="/en/feed.xml">/en/feed.xml</a>
-	{#each locales as locale}
-		<a href={localizeHref(page.url.pathname, { locale })}>{locale}</a>
-	{/each}
+    <a href="/en">/en</a>
+    <a href="/en/feed.xml">/en/feed.xml</a>
+    {#each locales as locale}
+        <a href={localizeHref(page.url.pathname, { locale })}>{locale}</a>
+    {/each}
 </div>
 
 <style>
     main {
         max-width: var(--max-width);
         margin: auto;
-		padding: 0 16px 0 16px;
+        padding: 0 16px 0 16px;
     }
 </style>

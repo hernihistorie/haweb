@@ -1,4 +1,4 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "@js-temporal/polyfill";
 import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
 import { RS, VS } from "../persons";
@@ -15,17 +15,17 @@ const JH: Person = {
     bio: "Josef Havelka studoval a následně i pracoval v rámci zemědělství. K prvnímu počítači se dostal, když mu první manželka přivezla z Francie ZX Spectrum. Během svého působení v rámci zemědělství založil Atari klub při místním JZD a začal se věnovat tisku. Klub byl umístěn v budově, které pan Havelka říkal „první škola“ a fungoval od roku 1986 až do revoluce roku 1989.<br>Chtěli bychom poděkovat <a href='https://www.heroclan.cz'>HERO CLANU</a> za spojení s dobrovolnou přepisovatelkou pro tento rozhovor.",
     photo: {
         url: "/static/interviews/josef-havelka.jpg",
-    }
-}
+    },
+};
 
-export {JH, RS, VS};
+export { JH, RS, VS };
 
 export const data: InterviewData = {
     slug: "josef-havelka",
     lang: "cs",
     title: {
         cs: "Rozhovor s Josefem Havelkou",
-        en: "Interview with Josef Havelka"
+        en: "Interview with Josef Havelka",
     },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
@@ -38,11 +38,11 @@ export const data: InterviewData = {
         length: "2:35:41",
         project: { name: "Atari klub Cítov", url: "/projects/atari-klub-citov/" },
         informed_agreement: true,
-        transcriber: {name: 'Sabina Adlerová'},
+        transcriber: { name: "Sabina Adlerová" },
         redaction: RS,
         publication_date: Temporal.PlainDate.from("2025-01-03"),
         // verifier: null
     },
     status: "published",
-    tags: []
-}
+    tags: [],
+};

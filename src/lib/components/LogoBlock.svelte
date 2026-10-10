@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Logo as LogoType } from "$src/lib/logo";
-	import { localizeHref } from "$src/lib/paraglide/runtime";
-	import Logo from "./Logo.svelte";
+    import type { Logo as LogoType } from "$src/lib/logo";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
+    import Logo from "./Logo.svelte";
 
     const {
         entity,
@@ -9,14 +9,14 @@
         target,
         makeLinkProminent = true,
         withTitle = true,
-        origin
+        origin,
     }: {
-        entity: {title: string, logos?: LogoType[], logo?: LogoType, url?: string},
-        href?: string,
-        target?: string,
-        makeLinkProminent?: boolean,
-        withTitle?: boolean
-        origin?: string
+        entity: { title: string; logos?: LogoType[]; logo?: LogoType; url?: string };
+        href?: string;
+        target?: string;
+        makeLinkProminent?: boolean;
+        withTitle?: boolean;
+        origin?: string;
     } = $props();
 </script>
 
@@ -24,8 +24,7 @@
     class="block"
     class:makeLinkProminent
     href={href ? localizeHref(href) : entity.url ? entity.url : undefined}
-    target={target}
->
+    {target}>
     {#if withTitle}
         <h3 class="title">{entity.title}</h3>
     {/if}

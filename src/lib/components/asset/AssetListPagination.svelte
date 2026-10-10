@@ -1,16 +1,13 @@
 <script lang="ts">
-    import { PAGE_SIZE } from '$src/lib/rhinventory_api';
+    import { PAGE_SIZE } from "$src/lib/rhinventory_api";
 
-    let {
-        assetPage = $bindable<number>(),
-        assetCount = $bindable<number | null>()
-    } = $props();
+    let { assetPage = $bindable<number>(), assetCount = $bindable<number | null>() } = $props();
 
     function getVisiblePages(currentPage: number, totalPages: number) {
         const pages: (number | null)[] = [];
-        
+
         if (totalPages <= 7) {
-            return Array.from({length: totalPages}, (_, i) => i + 1);
+            return Array.from({ length: totalPages }, (_, i) => i + 1);
         }
 
         // Always add first two pages
@@ -24,7 +21,7 @@
         // Add pages around current page
         const start = Math.max(3, currentPage - 1);
         const end = Math.min(totalPages - 2, currentPage + 1);
-        
+
         for (let i = start; i <= end; i++) {
             if (!pages.includes(i)) {
                 pages.push(i);
@@ -53,9 +50,10 @@
                     class:active={assetPage === pageNum}
                     onclick={() => {
                         assetPage = pageNum;
-                        document.querySelector('#assetList')?.scrollIntoView({block: 'start', behavior: 'instant'});
-                    }}
-                >
+                        document
+                            .querySelector("#assetList")
+                            ?.scrollIntoView({ block: "start", behavior: "instant" });
+                    }}>
                     {pageNum}
                 </button>
             {/if}

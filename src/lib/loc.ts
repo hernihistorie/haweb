@@ -4,17 +4,22 @@ import type { LocalizedString } from "$src/types";
 // Use this function if you have a simple string to localize.
 // Use the Loc Svelte component for more complex content.
 export function loc(string: LocalizedString): string {
-    if (typeof string === 'string') {
+    if (typeof string === "string") {
         return string;
     }
-    if (getLocale() === 'cs') {
-        return 'cs' in string ? string.cs : string.en;
+    if (getLocale() === "cs") {
+        return "cs" in string ? string.cs : string.en;
     } else {
-        return 'en' in string ? string.en : string.cs;
+        return "en" in string ? string.en : string.cs;
     }
 }
 
-export function czechPlural(count: number, singular: string, pluralNominative: string, pluralGenitive: string): string {
+export function czechPlural(
+    count: number,
+    singular: string,
+    pluralNominative: string,
+    pluralGenitive: string,
+): string {
     if (count === 1) {
         return singular;
     } else if (count >= 2 && count <= 4) {

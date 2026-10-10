@@ -1,9 +1,9 @@
 <script lang="ts">
     import type { Project } from "$src/types";
     import type { Snippet } from "svelte";
-    import Box from '$lib/components/Box.svelte';
+    import Box from "$lib/components/Box.svelte";
     import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from '$lib/paraglide/runtime';
+    import { localizeHref } from "$lib/paraglide/runtime";
 
     interface Props {
         project: Project;
@@ -14,9 +14,13 @@
     }
 
     let { project, year, left = false, right = false, children }: Props = $props();
-    
+
     // Localize internal URLs (starting with /)
-    let localizedUrl = $derived(project.url && project.url.startsWith('/') && !project.url.startsWith('//') ? localizeHref(project.url) : project.url);
+    let localizedUrl = $derived(
+        project.url && project.url.startsWith("/") && !project.url.startsWith("//")
+            ? localizeHref(project.url)
+            : project.url,
+    );
 </script>
 
 <Box {left} {right}>

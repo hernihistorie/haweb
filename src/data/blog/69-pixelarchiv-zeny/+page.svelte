@@ -6,8 +6,16 @@
 <PageLang cs />
 
 <section>
-    <p>Spřátelený projekt <a href="https://nfa.cz/pixelarchiv/cs">Pixelarchiv.cz</a> pořádá příští čtvrtek (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky. O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními drahami.
-    <p><a href="https://fb.me/e/6m6PhDg5v">Událost naleznete zde.</a>
-    <p>(Obrázek je oficiální propagací akce)   
-    <Figure src="/photos/blog-posts/pixelarchiv_zeny.jpg" />
+    <p>
+        Spřátelený projekt <a href="https://nfa.cz/pixelarchiv/cs">Pixelarchiv.cz</a> pořádá příští čtvrtek
+        (9. října) akci věnovanou ženám v herní kultuře. Na toto téma budou u jednoho stolu diskutovat
+        ženy, které se v herní kultuře pohybují – ať už jde o herní vývojářky, manažerky nebo novinářky.
+        O svých zkušenostech promluví ženy různých generací, s rozmanitým zázemím a odlišnými profesními
+        drahami.
+    </p>
+    <p><a href="https://fb.me/e/6m6PhDg5v">Událost naleznete zde.</a></p>
+    <p>
+        (Obrázek je oficiální propagací akce)
+        <Figure src="/photos/blog-posts/pixelarchiv_zeny.jpg" />
+    </p>
 </section>

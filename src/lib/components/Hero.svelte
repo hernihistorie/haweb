@@ -1,39 +1,36 @@
 <script>
-    import Loc from '$lib/components/Loc.svelte';
-	import Arrow from './Arrow.svelte';
-	var facts = [
-		[18, "Členů spolku", "Organization members"],
-		[9, "Let snahy", "Years of effort"],
-		[50, "Let historie", "Years of history"],
-		[2850, "Tiskovin a příloh", "Printed materials"],
-		[150, "Místních her", "Local games"],
-		[41, "Terabytů dat", "Terabytes of data"],
-	]
+    import Loc from "$lib/components/Loc.svelte";
+    import Arrow from "./Arrow.svelte";
+    var facts = [
+        [18, "Členů spolku", "Organization members"],
+        [9, "Let snahy", "Years of effort"],
+        [50, "Let historie", "Years of history"],
+        [2850, "Tiskovin a příloh", "Printed materials"],
+        [150, "Místních her", "Local games"],
+        [41, "Terabytů dat", "Terabytes of data"],
+    ];
 </script>
 
 <div class="hero">
     <div class="left">
         <h1>
-            <Loc cs="
+            <Loc
+                cs="
                 Česko&shy;slovenský<br>
                 herní archiv"
                 en="
                 Czecho&shy;slovak<br>
                 Game Archive
-                "/>
+                " />
         </h1>
         <p>
             <Loc
                 cs="Zachováváme tu místní historii, která udělala z našich videoher světový fenomén. Objevte s námi počátky české a slovenské herní kultury."
-                en="We are preserving the local history which shaped our video games into a global phenomenon. Discover the roots of Czech and Slovak gaming culture with us."
-            />
+                en="We are preserving the local history which shaped our video games into a global phenomenon. Discover the roots of Czech and Slovak gaming culture with us." />
         </p>
         <p>
             <Arrow href="/about">
-                <Loc
-                    cs="Více o nás"
-                    en="More about us"
-                />
+                <Loc cs="Více o nás" en="More about us" />
             </Arrow>
         </p>
     </div>
@@ -42,21 +39,18 @@
             {#each facts as fact}
                 <li>
                     <div class="checkmark">
-                        <img src="/ico/ico_check.svg" alt="✓">
+                        <img src="/ico/ico_check.svg" alt="✓" />
                     </div>
                     <div class="value">
                         {fact[0]}
                     </div>
                     <div class="text">
-                        <Loc
-                            cs="{fact[1]}"
-                            en="{fact[2]}"
-                        />
+                        <Loc cs={fact[1]} en={fact[2]} />
                     </div>
                 </li>
             {/each}
         </ul>
-		<img class="fact-img" src="/illu/illu_01_sm.png" alt="">
+        <img class="fact-img" src="/illu/illu_01_sm.png" alt="" />
     </div>
 </div>
 
@@ -67,7 +61,6 @@
         margin-bottom: 128px;
         min-height: 320px;
         justify-content: space-between;
-        
     }
     .hero > div {
         width: calc(50% - 16px);
@@ -85,7 +78,6 @@
     h1 {
         text-transform: uppercase;
         font-size: 42px;
-
     }
 
     .hero p {
@@ -109,13 +101,15 @@
     .facts li {
         display: flex;
         background: var(--color-bg);
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
         height: 100%;
         /* min-height: 2.4em; */
         margin-top: 1px;
         align-content: center;
     }
-    
+
     .facts li:last-child {
         margin-bottom: 1px;
     }
@@ -180,8 +174,6 @@
             left: calc(50% - 250px / 4);
         }
     }
-
-
 
     @media only screen and (max-width: 450px) {
         .right {

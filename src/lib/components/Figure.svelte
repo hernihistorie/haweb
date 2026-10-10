@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { LocalizedString } from "$src/types";
-	import type { ArticleImage } from "$src/lib/articleImages";
-	import { openLightbox } from "$src/lib/lightbox";
-	import { loc } from "../loc";
+    import type { LocalizedString } from "$src/types";
+    import type { ArticleImage } from "$src/lib/articleImages";
+    import { openLightbox } from "$src/lib/lightbox";
+    import { loc } from "../loc";
 
     interface Props {
         /** A plain image URL */
@@ -16,7 +16,6 @@
 
     const props: Props = $props();
     const alt = props.alt ?? props.caption ?? "";
-
 </script>
 
 <figure>
@@ -28,9 +27,13 @@
             data-pswp
             data-pswp-width={props.image.width}
             data-pswp-height={props.image.height}
-            onclick={openLightbox}
-        >
-            <enhanced:img src={props.image.picture} sizes="(min-width: 1400px) 1400px, 100vw" alt={loc(alt)} loading="lazy" decoding="async" />
+            onclick={openLightbox}>
+            <enhanced:img
+                src={props.image.picture}
+                sizes="(min-width: 1400px) 1400px, 100vw"
+                alt={loc(alt)}
+                loading="lazy"
+                decoding="async" />
         </a>
     {:else if props.href}
         <a href={props.href} target="_blank">

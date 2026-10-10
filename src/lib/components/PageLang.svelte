@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { PersistedState } from "runed";
-	import {
-		getLocale,
-		localizeHref,
-		deLocalizeHref,
-		extractLocaleFromNavigator,
-		type Locale
-	} from '$lib/paraglide/runtime';
-	import { slide } from 'svelte/transition';
+    import { page } from "$app/state";
+    import { PersistedState } from "runed";
+    import {
+        getLocale,
+        localizeHref,
+        deLocalizeHref,
+        extractLocaleFromNavigator,
+        type Locale,
+    } from "$lib/paraglide/runtime";
+    import { slide } from "svelte/transition";
     interface Props {
         cs?: boolean;
         en?: boolean;
@@ -17,7 +17,7 @@
 
     let { cs, en, notice }: Props = $props();
 
-	const dismissed = new PersistedState("pageLangSwitchDimsissed", false);
+    const dismissed = new PersistedState("pageLangSwitchDimsissed", false);
 
     // Pages are prerendered, so the browser's language can only be checked after hydration.
     let preferredLocale: Locale | undefined = $state();
@@ -33,20 +33,20 @@
     }
 
     const switchLocale = $derived(
-        (preferredLocale === 'cs' && cs) || (preferredLocale === 'en' && en) ? preferredLocale : undefined
+        (preferredLocale === "cs" && cs) || (preferredLocale === "en" && en)
+            ? preferredLocale
+            : undefined,
     );
     const switchHref = $derived(
-        switchLocale ? localizeHref(deLocalizeHref(page.url.pathname), { locale: switchLocale }) : undefined
+        switchLocale
+            ? localizeHref(deLocalizeHref(page.url.pathname), { locale: switchLocale })
+            : undefined,
     );
 </script>
 
 {#if switchLocale && !dismissed.current}
-    <div
-        class="page-lang-notice page-lang-switch"
-        lang={switchLocale}
-        transition:slide
-    >
-        {#if switchLocale == 'cs'}
+    <div class="page-lang-notice page-lang-switch" lang={switchLocale} transition:slide>
+        {#if switchLocale == "cs"}
             <p>
                 🇨🇿 Tato stránka je dostupná v češtině.
                 <a href={switchHref} data-sveltekit-reload>Přepnout do češtiny</a>
@@ -62,18 +62,21 @@
     </div>
 {/if}
 
-{#if getLocale() == 'cs' && !cs}
+{#if getLocale() == "cs" && !cs}
     <div class="page-lang-notice">
         <p>
             {notice ?? "Tato stránka je v současnosti dostupná pouze v angličtině."}
         </p>
     </div>
-{:else if getLocale() == 'en' && !en}
+{:else if getLocale() == "en" && !en}
     <div class="page-lang-notice">
         <p>
-            🇨🇿 
+            🇨🇿
             {notice ?? "This page is currently only available in Czech."}
-            <a href="https://herniarchiv-cz.translate.goog{page.url.pathname}?_x_tr_sl=cs&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp">View with Google Translate</a>
+            <a
+                href="https://herniarchiv-cz.translate.goog{page.url
+                    .pathname}?_x_tr_sl=cs&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp"
+                >View with Google Translate</a>
         </p>
     </div>
 {:else}

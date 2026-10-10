@@ -5,63 +5,59 @@
 -->
 
 <script lang="ts">
-	import { tocStore, tocActiveId } from './stores.ts';
-    
-	
-	interface Props {
-		/** Set the active permalink ID on load. */
-		activeId?: string;
-	}
+    import { tocStore, tocActiveId } from "./stores.ts";
 
-	let { activeId = '' }: Props = $props();
-    
-    let reactiveActiveId = $derived($tocActiveId ? $tocActiveId : activeId.replace('#', ''));
+    interface Props {
+        /** Set the active permalink ID on load. */
+        activeId?: string;
+    }
+
+    let { activeId = "" }: Props = $props();
+
+    let reactiveActiveId = $derived($tocActiveId ? $tocActiveId : activeId.replace("#", ""));
 </script>
 
 <div class="table-of-contents">
-	{#if $tocStore.length}
-		<div style="text-align: center; margin-bottom: 6px;"><strong>Obsah</strong></div>
-		<ul>
-			{#each $tocStore as tocHeading}
-				<li>
-					<a
-						href="#{tocHeading.id}"
-						class="{tocHeading.id === reactiveActiveId
-							? 'active'
-							: 'inactive'}"
-						onclick={() => {
-							//reactiveActiveId = tocHeading.id;
-						}}
-					>
-						{tocHeading.text}
-					</a>
-				</li>
-			{/each}
-		</ul>
-	{/if}
+    {#if $tocStore.length}
+        <div style="text-align: center; margin-bottom: 6px;"><strong>Obsah</strong></div>
+        <ul>
+            {#each $tocStore as tocHeading}
+                <li>
+                    <a
+                        href="#{tocHeading.id}"
+                        class={tocHeading.id === reactiveActiveId ? "active" : "inactive"}
+                        onclick={() => {
+                            //reactiveActiveId = tocHeading.id;
+                        }}>
+                        {tocHeading.text}
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    {/if}
 </div>
 
 <style>
-	.table-of-contents {
-		text-align: left;
-	}
-	.table-of-contents :global(ul) {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.table-of-contents :global(li) {
-		margin-bottom: 0.35em;
-		padding-left: 1em;
-		text-indent: -1em;
-		font-size: 95%;
-	}
-	.table-of-contents :global(a) {
-		text-decoration: none;
-	}
-	.table-of-contents :global(a:hover) {
-		text-decoration: underline;
-	}
+    .table-of-contents {
+        text-align: left;
+    }
+    .table-of-contents :global(ul) {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .table-of-contents :global(li) {
+        margin-bottom: 0.35em;
+        padding-left: 1em;
+        text-indent: -1em;
+        font-size: 95%;
+    }
+    .table-of-contents :global(a) {
+        text-decoration: none;
+    }
+    .table-of-contents :global(a:hover) {
+        text-decoration: underline;
+    }
 
     .active {
         font-weight: bold;

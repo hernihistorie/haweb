@@ -1,34 +1,34 @@
 <script lang="ts">
-  import MagazineYearNavigation from '../../../../lib/components/magazines/MagazineYearNavigation.svelte';
+    import MagazineYearNavigation from "../../../../lib/components/magazines/MagazineYearNavigation.svelte";
 
     import IconQuote from "@lucide/svelte/icons/quote";
     import IconBookOpenText from "@lucide/svelte/icons/book-open-text";
     import IconGlobe from "@lucide/svelte/icons/globe";
-	import { page } from '$app/state';
-	import Meta from '$src/lib/components/layout/Meta.svelte';
-    import Loc from '$src/lib/components/Loc.svelte';
-	import MagazineIssueBox from '$src/lib/components/magazines/MagazineIssueBox.svelte';
-	import MagazinesMenu from '$src/lib/components/magazines/MagazinesMenu.svelte';
-	import type { PageProps } from './$types';
-	import BulletPoint from "$src/lib/components/BulletPoint.svelte";
-	import { building } from "$app/environment";
+    import { page } from "$app/state";
+    import Meta from "$src/lib/components/layout/Meta.svelte";
+    import Loc from "$src/lib/components/Loc.svelte";
+    import MagazineIssueBox from "$src/lib/components/magazines/MagazineIssueBox.svelte";
+    import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
+    import type { PageProps } from "./$types";
+    import BulletPoint from "$src/lib/components/BulletPoint.svelte";
+    import { building } from "$app/environment";
 
-	let { data }: PageProps = $props();
-    
-    let displayedYear: string | null = $derived.by(() => 
-        (building ? null : page.url.searchParams.get('year'))
-        ?? (
-            data.issues_by_year && Object.keys(data.issues_by_year).length == 1
-            ? Object.keys(data.issues_by_year)[0]
-            : null
-        )
+    let { data }: PageProps = $props();
+
+    let displayedYear: string | null = $derived.by(
+        () =>
+            (building ? null : page.url.searchParams.get("year")) ??
+            (data.issues_by_year && Object.keys(data.issues_by_year).length == 1
+                ? Object.keys(data.issues_by_year)[0]
+                : null),
     );
 </script>
 
-<Meta title={{
-    cs: `Časopis ${data.magazine.title}`,
-    en: `Magazine ${data.magazine.title}`
-}} />
+<Meta
+    title={{
+        cs: `Časopis ${data.magazine.title}`,
+        en: `Magazine ${data.magazine.title}`,
+    }} />
 
 <MagazinesMenu />
 
@@ -47,40 +47,46 @@
     <Loc cs={data.magazine.description.cs} en={data.magazine.description.en} />
 </p>
 
-{#if data.magazine.links.archive_org && data.magazine.links.archive_org.trim() !== ''}
+{#if data.magazine.links.archive_org && data.magazine.links.archive_org.trim() !== ""}
     <p>
         <IconBookOpenText class="text-secondary" />
         <Loc>
             {#snippet cs()}
-                Naše skeny tohoto časopisu jsou dostupné na <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+                Naše skeny tohoto časopisu jsou dostupné na <a
+                    href={data.magazine.links.archive_org}>Internet Archive</a
+                >.
             {/snippet}
             {#snippet en()}
-                Our scans of this magazine are available on <a href="{data.magazine.links.archive_org}">Internet Archive</a>.
+                Our scans of this magazine are available on <a
+                    href={data.magazine.links.archive_org}>Internet Archive</a
+                >.
             {/snippet}
         </Loc>
     </p>
 {/if}
 
-{#if Object.entries(data.magazine.links).some(([key, link]) => key != 'archive_org' && link && link.trim() !== '')}
+{#if Object.entries(data.magazine.links).some(([key, link]) => key != "archive_org" && link && link.trim() !== "")}
     <p>
         <IconGlobe class="text-secondary" />
         <Loc cs="Další informace:" en="More information:" />
-        {#each Object.entries(data.magazine.links).filter(([key, link]) => key != 'archive_org' && link && link.trim() !== '') as [key, link], i}
+        {#each Object.entries(data.magazine.links).filter(([key, link]) => key != "archive_org" && link && link.trim() !== "") as [key, link], i}
             {#if i > 0}
                 &nbsp;<BulletPoint class="text-secondary" />
             {/if}
             <a href={link}>
-                {#if key === 'wikipedia_cs'}
+                {#if key === "wikipedia_cs"}
                     <Loc cs="Wikipedie" en="Czech Wikipedia" />
-                {:else if key === 'wikipedia_en'}
+                {:else if key === "wikipedia_en"}
                     <Loc cs="Anglická Wikipedie" en="English Wikipedia" />
-                {:else if key === 'oldgames_sk'}
+                {:else if key === "oldgames_sk"}
                     OldGames.sk
-                {:else if key === 'ndk_cz'}
+                {:else if key === "ndk_cz"}
                     <Loc cs="Národní digitální knihovna" en="Czech National Digital Library" />
-                {:else if key === 'dikda_sk'}
-                    <Loc cs="Digitálna knižnica a digitálny archív" en="Slovak Digital Library and Digital Archive" />
-                {:else if key === 'level_archiv'}
+                {:else if key === "dikda_sk"}
+                    <Loc
+                        cs="Digitálna knižnica a digitálny archív"
+                        en="Slovak Digital Library and Digital Archive" />
+                {:else if key === "level_archiv"}
                     <Loc cs="Level Archiv" en="Level Archiv" />
                 {:else}
                     {key}
@@ -91,26 +97,31 @@
 {/if}
 
 {#if data.issues_by_year}
-    <MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
+    <MagazineYearNavigation
+        magazine={data.magazine}
+        years={Object.keys(data.issues_by_year)}
+        {displayedYear} />
 
     {#if displayedYear}
         <section class="thin">
             <ul class="issues unstyled">
                 {#each data.issues_by_year[displayedYear] as issue}
                     <li>
-                        <MagazineIssueBox {issue} issueScanTemplate={data.magazine.url_issue_scan_template} />
+                        <MagazineIssueBox
+                            {issue}
+                            issueScanTemplate={data.magazine.url_issue_scan_template} />
                     </li>
                 {/each}
             </ul>
         </section>
-        <MagazineYearNavigation magazine={data.magazine} years={Object.keys(data.issues_by_year)} {displayedYear} />
+        <MagazineYearNavigation
+            magazine={data.magazine}
+            years={Object.keys(data.issues_by_year)}
+            {displayedYear} />
     {:else}
         <div class="guide">
             <small>
-                <Loc
-                    cs="zvolte ročník"
-                    en="select a year"
-                />
+                <Loc cs="zvolte ročník" en="select a year" />
             </small>
             <span class="arrow">⤴</span>
         </div>

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { Person } from "$src/types";
-	import Speaker from "./Speaker.svelte";
+    import type { Person } from "$src/types";
+    import Speaker from "./Speaker.svelte";
 
     interface Props {
         speaker?: Person;
-        children?: import('svelte').Snippet;
+        children?: import("svelte").Snippet;
     }
 
     let { speaker, children }: Props = $props();

@@ -1,19 +1,23 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
-	import Arrow from '$src/lib/components/Arrow.svelte';
-	import type { BlogPost } from '$src/types';
-	import type { Snippet } from 'svelte';
-	import Loc from '../Loc.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
-	import BulletPoint from '../BulletPoint.svelte';
-    let { blogPost, children, show_arrow=true }: { blogPost: BlogPost, children?: Snippet, show_arrow?: boolean } = $props();
+    import Lazy from "svelte-lazy";
+    import Arrow from "$src/lib/components/Arrow.svelte";
+    import type { BlogPost } from "$src/types";
+    import type { Snippet } from "svelte";
+    import Loc from "../Loc.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    import BulletPoint from "../BulletPoint.svelte";
+    let {
+        blogPost,
+        children,
+        show_arrow = true,
+    }: { blogPost: BlogPost; children?: Snippet; show_arrow?: boolean } = $props();
 
     let url = $derived(`/blog/${blogPost.id}-${blogPost.slug}`);
     let localizedUrl = $derived(localizeHref(url));
 </script>
 
 <div class="blog-box">
-    <a href="{localizedUrl}">
+    <a href={localizedUrl}>
         {#if blogPost.image}
             <Lazy height={"calc(8em + 4px)"} keep={true}>
                 <img src={blogPost.image} alt="" />
@@ -25,7 +29,7 @@
     </a>
     {#if blogPost.title}
         <h3>
-            <a href="{localizedUrl}">
+            <a href={localizedUrl}>
                 <Loc text={blogPost.title} />
             </a>
         </h3>
@@ -35,7 +39,8 @@
     {:else if blogPost.description_html}
         <Loc text={blogPost.description_html} />
     {/if}
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+    <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
         <div>
             {#if show_arrow}
                 <Arrow href={url} />
@@ -89,10 +94,9 @@
         margin-left: 8px;
     }
 
-	@media screen and (max-width: 1200px) {
-		.blog-box {
-			width: 100%;
-		}
-	}
-
+    @media screen and (max-width: 1200px) {
+        .blog-box {
+            width: 100%;
+        }
+    }
 </style>

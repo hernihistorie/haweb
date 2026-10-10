@@ -1,57 +1,59 @@
 <script lang="ts">
-	import Meta from "$src/lib/components/layout/Meta.svelte";
+    import Meta from "$src/lib/components/layout/Meta.svelte";
     import { DONATE_LINKS } from "$src/constants";
-    import { writable } from 'svelte/store';
+    import { writable } from "svelte/store";
 
-    import spayd from 'spayd';
-    import qrcode from 'qrcode';
-	import PriceButton from "./PriceButton.svelte";
-	import Loc from "$lib/components/Loc.svelte";
-	import { loc } from "$src/lib/loc";
+    import spayd from "spayd";
+    import qrcode from "qrcode";
+    import PriceButton from "./PriceButton.svelte";
+    import Loc from "$lib/components/Loc.svelte";
+    import { loc } from "$src/lib/loc";
 
     const qrCodeOptions = {
         width: 1200,
-        color: {light: '#f3f2e7'},
+        color: { light: "#f3f2e7" },
     };
 
-    const DEFAULT_AMOUNT = '100';
+    const DEFAULT_AMOUNT = "100";
     const amount = writable(DEFAULT_AMOUNT);
     let customValueActive = $state(false);
     let qrCodeUrl: string | undefined = $state();
-    let customValueText = loc({cs: "Vlastní hodnota", en: "Custom value"});
-    let currencyName = loc({cs: "Kč", en: "CZK"});
+    let customValueText = loc({ cs: "Vlastní hodnota", en: "Custom value" });
+    let currencyName = loc({ cs: "Kč", en: "CZK" });
 
     let payment = {
-        acc: 'CZ6406000000008686868686',
+        acc: "CZ6406000000008686868686",
         am: DEFAULT_AMOUNT,
-        cc: 'CZK',
-        msg: 'Příspěvek na záchranu videoher',
-        xvs: '10'
-    }
+        cc: "CZK",
+        msg: "Příspěvek na záchranu videoher",
+        xvs: "10",
+    };
 
-    amount.subscribe(value => {
+    amount.subscribe((value) => {
         payment.am = value;
 
-        qrcode.toDataURL(spayd(payment), qrCodeOptions).then(url => {
-            qrCodeUrl = url;
-        }).catch(err => {
-            console.error(err);
-        })
+        qrcode
+            .toDataURL(spayd(payment), qrCodeOptions)
+            .then((url) => {
+                qrCodeUrl = url;
+            })
+            .catch((err) => {
+                console.error(err);
+            });
 
-
-        if (typeof document !== 'undefined') {
-            const elCustomValue = document.getElementById('customValue');
+        if (typeof document !== "undefined") {
+            const elCustomValue = document.getElementById("customValue");
             customValueActive = elCustomValue && elCustomValue.value == value;
         }
-    })
+    });
 
     function clickCustomValue(ev: Event) {
         const el = ev.target as HTMLInputElement;
-        if (el.value == customValueText || el.value == '') {
+        if (el.value == customValueText || el.value == "") {
             el.value = "";
 
-            document.getElementById('currency').style.visibility = 'visible';
-            document.getElementById('currency').style.left = (1 - 15) + "ch";
+            document.getElementById("currency").style.visibility = "visible";
+            document.getElementById("currency").style.left = 1 - 15 + "ch";
         } else {
             inputValueSet(el);
         }
@@ -59,18 +61,18 @@
 
     function inputValueSet(el: HTMLInputElement) {
         // remove non-numeric characters
-        el.value = el.value.replace(/[^0-9]/g, '');
+        el.value = el.value.replace(/[^0-9]/g, "");
         if (parseInt(el.value) > 99000) {
             el.value = "99000";
         }
-        if (el.value != '') {
-            amount.set(el.value)
+        if (el.value != "") {
+            amount.set(el.value);
 
-            document.getElementById('currency').style.visibility = 'visible';
-            document.getElementById('currency').style.left = (el.value.length - 15) + "ch";
+            document.getElementById("currency").style.visibility = "visible";
+            document.getElementById("currency").style.left = el.value.length - 15 + "ch";
         }
     }
-    
+
     function inputCustomValue(ev: Event) {
         const el = ev.target as HTMLInputElement;
         if (el && el.value) {
@@ -79,44 +81,36 @@
     }
 </script>
 
-<Meta title={{cs: "Podpořte nás", en: "Support us"}} />
+<Meta title={{ cs: "Podpořte nás", en: "Support us" }} />
 
 <article class="thin">
     <h2>
-        <Loc
-            cs="Podpořte nás"
-            en="Support us"
-        />
+        <Loc cs="Podpořte nás" en="Support us" />
     </h2>
     <p>
         <Loc
             cs="Finančně nás můžete podpořit na následujících místech:"
-            en="You can financially support us at the following places:"
-        />
+            en="You can financially support us at the following places:" />
     </p>
 
     <dl>
         {#each Object.entries(DONATE_LINKS) as [name, url]}
             <dt>
-                { name }
+                {name}
             </dt>
             <dd>
-                <a href={ url }>{ url.replace("https://", "") }</a>
+                <a href={url}>{url.replace("https://", "")}</a>
             </dd>
         {/each}
     </dl>
 
     <h3>
-        <Loc
-            cs="Příspěvek na otevřený účet"
-            en="Contribution to our transparent bank account"
-        />
+        <Loc cs="Příspěvek na otevřený účet" en="Contribution to our transparent bank account" />
     </h3>
     <p>
         <Loc
             cs="Zvolte si částku, kterou nás chcete podpořit, a oskenujte kód zapomocí Vaší bankovní aplikace."
-            en="If you have a Czech bank account, you can choose the amount you want to support us with and simply scan the code using your banking app."
-        />
+            en="If you have a Czech bank account, you can choose the amount you want to support us with and simply scan the code using your banking app." />
     </p>
     <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap;">
         <PriceButton value="100" {currencyName} {amount} />
@@ -134,45 +128,49 @@
                 onfocus={clickCustomValue}
                 oninput={inputCustomValue}
                 style="width: 7.5em;"
-
-                class="customvalue {customValueActive ? "active" : ""}"
-            >
+                class="customvalue {customValueActive ? 'active' : ''}" />
             <div
-                class="currency {customValueActive ? "active" : ""}"
+                class="currency {customValueActive ? 'active' : ''}"
                 id="currency"
-                onclick={() => document.getElementById('customValue')?.focus()}
-            >
+                onclick={() => document.getElementById("customValue")?.focus()}>
                 {currencyName}
             </div>
         </div>
     </div>
 
-    <div class = "qrcontainer">
-        <img src={ qrCodeUrl } alt="QR kód" class="qrcode">
-        <img src="/ico/logo_herni_archiv.svg" alt="" class="qrlogo">
+    <div class="qrcontainer">
+        <img src={qrCodeUrl} alt="QR kód" class="qrcode" />
+        <img src="/ico/logo_herni_archiv.svg" alt="" class="qrlogo" />
     </div>
 
     <p style="">
         <Loc>
             {#snippet cs()}
-                Případně můžete sami zaslat částku na náš transparentní účet s číslem:<br>
-                <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong><br>
-                <br>
-                Údaje pro mezinárodní platbu:<br>
-                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
-                <strong>BIC:</strong> AGBACZPP<br>
-                <strong>Příjemce</strong>: Herní historie, z.s.<br>
+                Případně můžete sami zaslat částku na náš transparentní účet s číslem:<br />
+                <strong
+                    ><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a
+                    ></strong
+                ><br />
+                <br />
+                Údaje pro mezinárodní platbu:<br />
+                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br />
+                <strong>BIC:</strong> AGBACZPP<br />
+                <strong>Příjemce</strong>: Herní historie, z.s.<br />
                 <strong>Adresa</strong>: Sportovní 1552/10a, 10100 Praha 10, Czech Republic
-                <br>
+                <br />
             {/snippet}
             {#snippet en()}
-                Alternatively, you can send your contribution to our transparent bank account with number:<br>
-                <strong><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a></strong><br>
-                <br>
-                International (SEPA) bank transfer details:<br>
-                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br>
-                <strong>BIC:</strong> AGBACZPP<br>
-                <strong>Recipient</strong>: Herní historie, z.s.<br>
+                Alternatively, you can send your contribution to our transparent bank account with
+                number:<br />
+                <strong
+                    ><a href="https://transparentniucty.moneta.cz/8686868686">8686868686/0600</a
+                    ></strong
+                ><br />
+                <br />
+                International (SEPA) bank transfer details:<br />
+                <strong>IBAN:</strong> CZ64 0600 0000 0086 8686 8686<br />
+                <strong>BIC:</strong> AGBACZPP<br />
+                <strong>Recipient</strong>: Herní historie, z.s.<br />
                 <strong>Address</strong>: Sportovní 1552/10a, 10100 Praha 10, Czech Republic
             {/snippet}
         </Loc>
@@ -181,15 +179,18 @@
     <p>
         <Loc
             cs="Děkujeme za vaše příspěvky, které nám pomáhají udržovat a rozšiřovat naše aktivity."
-            en="Thank you for your contributions, which help us maintain and expand our activities."
-        />
+            en="Thank you for your contributions, which help us maintain and expand our activities." />
     </p>
 </article>
 
 <style>
     @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     .qrcontainer {
         position: relative;
@@ -201,13 +202,16 @@
         margin: 0 auto;
         aspect-ratio: 1 / 1;
     }
-    
+
     .qrcode {
         width: 400px;
     }
 
     .qrlogo {
-        width: 78px; height: 96px; object-fit: cover; object-position: 0 0;
+        width: 78px;
+        height: 96px;
+        object-fit: cover;
+        object-position: 0 0;
         position: absolute;
         top: calc(50% - 58px);
         left: calc(50% - 49px);

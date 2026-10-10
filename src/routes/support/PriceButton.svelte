@@ -1,5 +1,4 @@
 <script lang="ts">
-
     interface Props {
         value: string;
         currencyName: string;
@@ -12,13 +11,10 @@
 
     amount.subscribe((amount_value: string) => {
         active = amount_value == value;
-    })
-
+    });
 </script>
-    
-<button
-    onclick={() => amount.set(value)}
-    class={active ? "active" : ""}
->
-    {value} {currencyName}
+
+<button onclick={() => amount.set(value)} class={active ? "active" : ""}>
+    {value}
+    {currencyName}
 </button>

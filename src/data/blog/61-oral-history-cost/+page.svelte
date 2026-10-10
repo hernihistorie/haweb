@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Loc from "$src/lib/components/Loc.svelte";
+    import Loc from "$src/lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
     import Figure from "$src/lib/components/Figure.svelte";
 </script>
@@ -9,11 +9,22 @@
 <section>
     <Loc>
         {#snippet cs()}
-            <p>Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney. Workshop vzniknul v rámci projektu <a href="https://costgrade.eu/">Grassroots of Digital Europe</a> na vědecké platformě COST.</p>
+            <p>
+                Včera a dnes spolupořádáme workshop na půdě FSV věnovaný metodám orální historie. Na
+                něm vystoupilo odbornictvo na Apple II a vývojáře Sierra On-Line Laine Nooney.
+                Workshop vzniknul v rámci projektu <a href="https://costgrade.eu/"
+                    >Grassroots of Digital Europe</a> na vědecké platformě COST.
+            </p>
             <p>(Foto od: Ladislav Huttl)</p>
         {/snippet}
         {#snippet en()}
-            <p>Yesterday and today we are co-organizing a workshop at the Faculty of Social Studies dedicated to oral history methods. The event features Laine Nooney, expert on Apple II and Sierra On-Line developers. The workshop was created within the project <a href="https://costgrade.eu/">Grassroots of Digital Europe</a> on the scientific platform COST.</p>
+            <p>
+                Yesterday and today we are co-organizing a workshop at the Faculty of Social Studies
+                dedicated to oral history methods. The event features Laine Nooney, expert on Apple
+                II and Sierra On-Line developers. The workshop was created within the project <a
+                    href="https://costgrade.eu/">Grassroots of Digital Europe</a> on the scientific platform
+                COST.
+            </p>
             <p>(Photos by: Ladislav Huttl)</p>
         {/snippet}
     </Loc>

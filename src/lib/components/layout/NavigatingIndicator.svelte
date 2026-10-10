@@ -1,9 +1,8 @@
 <script lang="ts">
-    import { navigating } from '$app/state';
+    import { navigating } from "$app/state";
 </script>
 
-<div class="navigating-indicator" class:visible={navigating.type}>
-</div>
+<div class="navigating-indicator" class:visible={navigating.type}></div>
 
 <style>
     .navigating-indicator {

@@ -1,11 +1,12 @@
-import { Temporal } from '@js-temporal/polyfill';
-import type { SeriesSlug } from './data/series';
+import { Temporal } from "@js-temporal/polyfill";
+import type { SeriesSlug } from "./data/series";
 
-export type LanguageCode = 'cs' | 'sk' | 'en';
+export type LanguageCode = "cs" | "sk" | "en";
 
-export type LocalizedString = string | ({ cs: string } | { en: string }) | { cs: string; en: string };
+export type LocalizedString =
+    string | ({ cs: string } | { en: string }) | { cs: string; en: string };
 
-type Gender = 'M' | 'F';
+type Gender = "M" | "F";
 
 export interface Image {
     url: string;
@@ -31,7 +32,8 @@ export interface Language {
     name: LocalizedString;
 }
 
-export type InterviewStatus = "in-progress" | "being-transcribed" | "request-only" | "unavailable-for-duration" | "published";
+export type InterviewStatus =
+    "in-progress" | "being-transcribed" | "request-only" | "unavailable-for-duration" | "published";
 
 export interface InterviewData {
     slug: string;
@@ -106,6 +108,6 @@ export interface Author {
     name: LocalizedString;
     nameGenitive: string;
     bio?: LocalizedString;
-    image?: Image
+    image?: Image;
     isDefault?: boolean;
 }

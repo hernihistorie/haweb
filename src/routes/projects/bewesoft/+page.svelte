@@ -1,51 +1,161 @@
 <script lang="ts">
-	import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
-	import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
-	import Heading from "$lib/components/Heading.svelte";
-	import Key from "$lib/components/Key.svelte";
+    import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
+    import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
+    import Heading from "$lib/components/Heading.svelte";
+    import Key from "$lib/components/Key.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
-	import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
-    import { projectBewesoft } from './project';
+    import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
+    import { projectBewesoft } from "./project";
 
-    let assets = loadRHInventoryAssetData({tagId: 26, page: 1, pageSize: 100}).then((value) => {
-        return new Map(value.assets.map(asset => [asset.id, asset]));
+    let assets = loadRHInventoryAssetData({ tagId: 26, page: 1, pageSize: 100 }).then((value) => {
+        return new Map(value.assets.map((asset) => [asset.id, asset]));
     });
 </script>
 
 <ProjectPage project={projectBewesoft}>
     <PageLang cs />
     <p><strong>Název fondu</strong>: Jiří Bernášek (BeWeSoft)</p>
-    <p><strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V. Novák</p>
+    <p>
+        <strong>Jména zpracovatelů</strong>: David Labský, Jiří Bernášek, Vojtěch Straka, Kryštof V.
+        Novák
+    </p>
     <p><strong>Rok dokončení</strong>: 2025</p>
 
-    <hr>
-    
-    <p><img src="/photos/projects/bewesoft-thin.jpg" alt="Diskety a Atari XE"></p>
+    <hr />
 
-    <p><strong>Fond Jiřího Bernáška</strong> – dlouholetého majitele a programátora pro počítače Atari – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci vytvořil i tento doprovodný text, který následně upravil Rudolf Jan Suchý.</p>
+    <p><img src="/photos/projects/bewesoft-thin.jpg" alt="Diskety a Atari XE" /></p>
 
-    <p>Bernášek si své běžně používané diskety pro Atari jako mnoho dalších normálně čísloval, vedle toho si ale cca. od roku 1991 schovával i věci nepoužívané, různé útržky softwaru a dat k případnému pozdějšímu použití – odeslaná korespondence, zdrojáky, různé ukázkové či pro něj těžko použitelné programy odjinud – na to měl druhou řadu disket, značených pro odlišení písmeny. Pro digitalizaci a zveřejnění byly vybrány jen diskety se zdrojáky, které asi jediné nesou zajímavá data jinde se nevyskytující. Mezi těmito disketami jsou ovšem přítomny i jiné věci, které Jiří Bernášek ve stejné době archivoval. Sem by patřila i položka "Archív AH" (kterou vzhledem k datové velikosti reálně tvoří celá krabička disket), což jsou zdrojáky Bernáškových největších projektů <strong>BW-DOS</strong> a <strong>B-TAPE</strong> – tyto programy naleznete k dispozici <a href="https://github.com/HolgerJanz/BW-DOS">na GitHubu</a> (na programech se mimojiné stále pracuje).</p>
-    
-    <p>Diskety jsou ve formátu 360kB se souborovým systémem SpartaDOS, který Jiří Bernášek používal se svou disketovou jednotkou XF551 než přešel na svůj vlastní kompatibilní BW-DOS. Datum a čas vzniku souborů v adresářích jsou tedy většinou autentické, mimo pár případů kdy autor zřejmě zapomněl hodiny při startu systému nastavit (data starší než 1990), nebo kde jde o datum dodatečné reorganizace (komprimace) dat. Některé věci jsou zabalené v archivech typu <code>.ARC</code> – je k nim přiložen i Atárkový program <code>UNARC24</code> pro rozbalení. Obsah archivů nicméně datum a čas neuchovává, údaj "28-11-95" je jen default nenastavených hodin v použitém systému.</p>
+    <p>
+        <strong>Fond Jiřího Bernáška</strong> – dlouholetého majitele a programátora pro počítače Atari
+        – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci
+        vytvořil i tento doprovodný text, který následně upravil Rudolf Jan Suchý.
+    </p>
+
+    <p>
+        Bernášek si své běžně používané diskety pro Atari jako mnoho dalších normálně čísloval,
+        vedle toho si ale cca. od roku 1991 schovával i věci nepoužívané, různé útržky softwaru a
+        dat k případnému pozdějšímu použití – odeslaná korespondence, zdrojáky, různé ukázkové či
+        pro něj těžko použitelné programy odjinud – na to měl druhou řadu disket, značených pro
+        odlišení písmeny. Pro digitalizaci a zveřejnění byly vybrány jen diskety se zdrojáky, které
+        asi jediné nesou zajímavá data jinde se nevyskytující. Mezi těmito disketami jsou ovšem
+        přítomny i jiné věci, které Jiří Bernášek ve stejné době archivoval. Sem by patřila i
+        položka "Archív AH" (kterou vzhledem k datové velikosti reálně tvoří celá krabička disket),
+        což jsou zdrojáky Bernáškových největších projektů <strong>BW-DOS</strong> a
+        <strong>B-TAPE</strong>
+        – tyto programy naleznete k dispozici
+        <a href="https://github.com/HolgerJanz/BW-DOS">na GitHubu</a> (na programech se mimojiné stále
+        pracuje).
+    </p>
+
+    <p>
+        Diskety jsou ve formátu 360kB se souborovým systémem SpartaDOS, který Jiří Bernášek používal
+        se svou disketovou jednotkou XF551 než přešel na svůj vlastní kompatibilní BW-DOS. Datum a
+        čas vzniku souborů v adresářích jsou tedy většinou autentické, mimo pár případů kdy autor
+        zřejmě zapomněl hodiny při startu systému nastavit (data starší než 1990), nebo kde jde o
+        datum dodatečné reorganizace (komprimace) dat. Některé věci jsou zabalené v archivech typu <code
+            >.ARC</code>
+        – je k nim přiložen i Atárkový program <code>UNARC24</code> pro rozbalení. Obsah archivů nicméně
+        datum a čas neuchovává, údaj "28-11-95" je jen default nenastavených hodin v použitém systému.
+    </p>
 
     <div class="img2">
         <img src="/files/bewesoft/DOS.png" alt="BW-DOS" />
         <img src="/files/bewesoft/DOS-MENU.png" alt="BW-DOS MENU" />
     </div>
 
-    <p>Projekty se zpravidla skládají z různých komponent (kód, grafika, fonty, hudba, texty, mapa...), které byly tvořeny jednotlivě různými nástroji. Většinou existoval vždy nějaký "zdrojový" soubor (např. u hry Midnight je soubor <code>PANAK.PIC</code>, tedy obrázek s rozkreslenou animací postavy), pak nějaký narychlo v Atari Basicu slepený program (zde <code>PANAK.BAS</code>), který to konvertuje do formátu navrženého pro konkrétní projekt (zde <code>PANAK.DAT</code> – binární datový blok, který se pak linkuje do spustitelné hry. Někde byly i soubory s příponou <code>.SGM</code> – segmenty ve formátu spustitelného souboru, tedy vlastně totéž jako <code>.COM</code>, <code>.OBJ</code>, nebo dnes <code>.XEX</code>, ale obsahují jen jednotlivý fragment). Většina dalších komponent funguje obdobně, jen třeba pro mapu hry je v Basicu jednoúčelový editor. V uvedeném příkladu lze ještě narazit na <code>PANAK.TST</code> – Basicový program pro testovací zobrazení mimo samotnou hru. Pro celý projekt pak zpravidla existoval dávkový soubor <code>TEST.BAT</code>, pomocí kterého byl během tvorby program opakovaně spouštěn k vyzkoušení po úpravách jednotlivých komponent (jde vlastně o jakýsi provizorní linkovací skript, který přímo na příslušná místa paměti načítá komponenty potřebné ke spuštění programu). Teprve když bylo hotovo, projekt se linkoval dohromady, zpočátku ručně, později Bernáškovým nástrojem <em>Super Packer</em>, který data uměl zároveň i komprimovat (na Atari bylo rozbalení zpravidla rychlejší, než čtení z diskety, chránila se tím integrita kódu, a ještě se šetřilo místo). Všechny zmíněné složky jsou zpravidla v autorově archivu zachovány pro případné pozdější změny a obvykle je přiložen i hotový spustitelný soubor (<code>.COM</code>), tak jak byl vypuštěn mezi lidi. Součástí projektů jsou i ručně psané poznámky na papírech, které zpravidla zahrnují ve více, nebo častěji méně čitelné podobě mapu obsazení paměti, strukturu datových souborů, u her mapu samotné hry, a různé další čmáranice (i tyto materiály většinou fyzicky existují, ale ještě nedošlo ke jejich katalogizaci a digitalizaci).</p>
+    <p>
+        Projekty se zpravidla skládají z různých komponent (kód, grafika, fonty, hudba, texty,
+        mapa...), které byly tvořeny jednotlivě různými nástroji. Většinou existoval vždy nějaký
+        "zdrojový" soubor (např. u hry Midnight je soubor <code>PANAK.PIC</code>, tedy obrázek s
+        rozkreslenou animací postavy), pak nějaký narychlo v Atari Basicu slepený program (zde
+        <code>PANAK.BAS</code>), který to konvertuje do formátu navrženého pro konkrétní projekt
+        (zde <code>PANAK.DAT</code> – binární datový blok, který se pak linkuje do spustitelné hry.
+        Někde byly i soubory s příponou <code>.SGM</code> – segmenty ve formátu spustitelného
+        souboru, tedy vlastně totéž jako <code>.COM</code>, <code>.OBJ</code>, nebo dnes
+        <code>.XEX</code>, ale obsahují jen jednotlivý fragment). Většina dalších komponent funguje
+        obdobně, jen třeba pro mapu hry je v Basicu jednoúčelový editor. V uvedeném příkladu lze
+        ještě narazit na <code>PANAK.TST</code> – Basicový program pro testovací zobrazení mimo
+        samotnou hru. Pro celý projekt pak zpravidla existoval dávkový soubor <code>TEST.BAT</code>,
+        pomocí kterého byl během tvorby program opakovaně spouštěn k vyzkoušení po úpravách
+        jednotlivých komponent (jde vlastně o jakýsi provizorní linkovací skript, který přímo na
+        příslušná místa paměti načítá komponenty potřebné ke spuštění programu). Teprve když bylo
+        hotovo, projekt se linkoval dohromady, zpočátku ručně, později Bernáškovým nástrojem
+        <em>Super Packer</em>, který data uměl zároveň i komprimovat (na Atari bylo rozbalení
+        zpravidla rychlejší, než čtení z diskety, chránila se tím integrita kódu, a ještě se šetřilo
+        místo). Všechny zmíněné složky jsou zpravidla v autorově archivu zachovány pro případné
+        pozdější změny a obvykle je přiložen i hotový spustitelný soubor (<code>.COM</code>), tak
+        jak byl vypuštěn mezi lidi. Součástí projektů jsou i ručně psané poznámky na papírech, které
+        zpravidla zahrnují ve více, nebo častěji méně čitelné podobě mapu obsazení paměti, strukturu
+        datových souborů, u her mapu samotné hry, a různé další čmáranice (i tyto materiály většinou
+        fyzicky existují, ale ještě nedošlo ke jejich katalogizaci a digitalizaci).
+    </p>
 
-    <p>Z použitých nástrojů dominuje především Assembler, v němž bylo napsané téměř vše. Jiří Bernášek používal zejména integrovaná vývojová prostředí. Zpočátku to byl <a href="https://atariwiki.org/wiki/Wiki.jsp?page=Atmas%20II">ATMAS II.</a>, který používal zdrojáky s příponou <code>.SRC</code>. Protože měl ale ATMAS velmi omezenou kapacitu pro zdrojový text (a neuměl include), jsou větší projekty dělené na více částí – v názvech souborů tak najdeme jednotlivé části označené písmeny (A, B, C atd.) které se pak spojovaly ručně (buď byly provázané přes nějakou tabulku skoků, nebo se při úpravách ručně přepisovaly relevantní adresy z jedné části do druhé). Názvy souborů dále obsahují čísla – tam jde o pořadové číslo revize každého souboru. Při každém uložení (kompilaci a otestování) daného souboru bylo číslo navýšeno, aby byla zachována aspoň krátká historie změn a nebyla riskována ztráta dat při přepisování nové verze na disku přímo přes minulou. Staré verze však autor vzhledem k omezenému místu na disketě poměrně brzy odmazával, takže dnes již dochované nejsou – čísla však svědčí o délce vývoje (počtu kdysi existujících verzí souboru). V pozdější době Bernášek používal prostředí <a href="https://atariwiki.org/wiki/Wiki.jsp?page=MAE%20Assembler">MAE</a> (takové zdrojové soubory jsou uloženy s příponou <code>.MAE</code>), a okrajově se samozřejmě vyskytl i Atari Basic (<code>.BAS</code>)</p>
+    <p>
+        Z použitých nástrojů dominuje především Assembler, v němž bylo napsané téměř vše. Jiří
+        Bernášek používal zejména integrovaná vývojová prostředí. Zpočátku to byl <a
+            href="https://atariwiki.org/wiki/Wiki.jsp?page=Atmas%20II">ATMAS II.</a
+        >, který používal zdrojáky s příponou <code>.SRC</code>. Protože měl ale ATMAS velmi
+        omezenou kapacitu pro zdrojový text (a neuměl include), jsou větší projekty dělené na více
+        částí – v názvech souborů tak najdeme jednotlivé části označené písmeny (A, B, C atd.) které
+        se pak spojovaly ručně (buď byly provázané přes nějakou tabulku skoků, nebo se při úpravách
+        ručně přepisovaly relevantní adresy z jedné části do druhé). Názvy souborů dále obsahují
+        čísla – tam jde o pořadové číslo revize každého souboru. Při každém uložení (kompilaci a
+        otestování) daného souboru bylo číslo navýšeno, aby byla zachována aspoň krátká historie
+        změn a nebyla riskována ztráta dat při přepisování nové verze na disku přímo přes minulou.
+        Staré verze však autor vzhledem k omezenému místu na disketě poměrně brzy odmazával, takže
+        dnes již dochované nejsou – čísla však svědčí o délce vývoje (počtu kdysi existujících verzí
+        souboru). V pozdější době Bernášek používal prostředí
+        <a href="https://atariwiki.org/wiki/Wiki.jsp?page=MAE%20Assembler">MAE</a>
+        (takové zdrojové soubory jsou uloženy s příponou <code>.MAE</code>), a okrajově se
+        samozřejmě vyskytl i Atari Basic (<code>.BAS</code>)
+    </p>
 
-    <p>Grafika byla kreslená postupně v řadě programů, zpočátku to byl <a href="https://www.atarimania.com/utility-atari-400-800-xl-xe-micro-illustrator_30240.html">Koala Micro Illustrator</a>, pak <a href="https://www.atarimania.com/utility-atari-400-800-xl-xe-rambrandt_s10936.html">RAMbrandt</a> atd. Pro hi-res monochromní grafiku autor vždy používal německý <a href="https://www.atarimania.com/pgesoft.awp?version=12516">Design Master</a> a v pozdější době začal pracovat i s prokládanou grafikou (na kterou používal asi jednoduchý editor od polských <a href="https://demozoo.org/groups/2260/">Taquart</a>). Někdy se také grafika konvertovala do fontů – tento nástroj asi dělal ještě <a href="https://demozoo.org/sceners/35384/">Magnus/WFMH</a> (též Polsko). Nejstarší hudba byla tvořenoa v programu <a href="https://gury.atari8.info/detail.php?id=7590&src=1&c=ch=s">The Soundmachine</a>, pak Bernášek zkoušel svůj vlastní (značně nehotový) editor <em>BEWEMON</em>, následoval německý <a href="https://gury.atari8.info/detail.php?id=6481&src=1&c=catId=8">Black Magic Composer</a>, legendární polský <a href="https://www.atarimania.com/utility-atari-400-800-xl-xe-chaos-music-composer_37606.html">Chaos Music Composer</a>, a nakonec rovněž polský <a href="https://jaskier.atari8.info/">MPT</a>.</p>
+    <p>
+        Grafika byla kreslená postupně v řadě programů, zpočátku to byl <a
+            href="https://www.atarimania.com/utility-atari-400-800-xl-xe-micro-illustrator_30240.html"
+            >Koala Micro Illustrator</a
+        >, pak
+        <a href="https://www.atarimania.com/utility-atari-400-800-xl-xe-rambrandt_s10936.html"
+            >RAMbrandt</a>
+        atd. Pro hi-res monochromní grafiku autor vždy používal německý
+        <a href="https://www.atarimania.com/pgesoft.awp?version=12516">Design Master</a>
+        a v pozdější době začal pracovat i s prokládanou grafikou (na kterou používal asi jednoduchý editor
+        od polských <a href="https://demozoo.org/groups/2260/">Taquart</a>). Někdy se také grafika
+        konvertovala do fontů – tento nástroj asi dělal ještě
+        <a href="https://demozoo.org/sceners/35384/">Magnus/WFMH</a>
+        (též Polsko). Nejstarší hudba byla tvořenoa v programu
+        <a href="https://gury.atari8.info/detail.php?id=7590&src=1&c=ch=s">The Soundmachine</a>, pak
+        Bernášek zkoušel svůj vlastní (značně nehotový) editor <em>BEWEMON</em>, následoval německý
+        <a href="https://gury.atari8.info/detail.php?id=6481&src=1&c=catId=8"
+            >Black Magic Composer</a
+        >, legendární polský
+        <a
+            href="https://www.atarimania.com/utility-atari-400-800-xl-xe-chaos-music-composer_37606.html"
+            >Chaos Music Composer</a
+        >, a nakonec rovněž polský <a href="https://jaskier.atari8.info/">MPT</a>.
+    </p>
 
     <p>Následuje popis obsahu jednotlivých disket včetně výpisu souborů.</p>
 
-    <Heading h=3 id="archiv-a">ARCHÍV A "BEWESLOVO, KARTA"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6947'))} />
-    <p><strong>BEWESLOVO</strong> je Bernáškův textový editor, v němž psal prakticky všechny texty. Má definovatelné rozložení klávesnice, umí různé ovladače tiskáren (jsou tam tiskárny EPSON, nicméně existovaly i ovladače pro tuzemské Gamacentrum 01 a BT 100), kódování češtiny je vlastní, soubory mají příponu <code>.TXT</code>, a dá se na Atari konvertovat Bernáškovým programem <strong>BTC</strong>. Program vychází z chování editoru v prostředí ATMAS II. Předcházely mu nedochované verze BEWESLOVO 1.0 (prakticky nepoužitelné, v BASICu) a BEWESLOVO 2.0 (velmi primitivní, ale již v assembleru).</p>
+    <Heading h="3" id="archiv-a">ARCHÍV A "BEWESLOVO, KARTA"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6947"))} />
+    <p>
+        <strong>BEWESLOVO</strong> je Bernáškův textový editor, v němž psal prakticky všechny texty.
+        Má definovatelné rozložení klávesnice, umí různé ovladače tiskáren (jsou tam tiskárny EPSON,
+        nicméně existovaly i ovladače pro tuzemské Gamacentrum 01 a BT 100), kódování češtiny je
+        vlastní, soubory mají příponu <code>.TXT</code>, a dá se na Atari konvertovat Bernáškovým
+        programem <strong>BTC</strong>. Program vychází z chování editoru v prostředí ATMAS II.
+        Předcházely mu nedochované verze BEWESLOVO 1.0 (prakticky nepoužitelné, v BASICu) a
+        BEWESLOVO 2.0 (velmi primitivní, ale již v assembleru).
+    </p>
 
-    <p><strong>FACE</strong> (neboli <em>Karta</em>) byl hardwarový projekt postavený kolem jedné paměti EPROM, kterou autor odněkud dostal (cca. 1990-1991). Byla to PBI periferie do sběrnice Atari řady XL, která se chovala jako asi 14kB harddisk pro rychlý boot DOSu a urychlovač komunikace s disktovkou XF551. Tento modul dodnes existuje, ale kvůli stabilitě sběrnice a pozdějšímu příchodu jiných doplňků nebyl nikdy moc používán.</p>
+    <p>
+        <strong>FACE</strong> (neboli <em>Karta</em>) byl hardwarový projekt postavený kolem jedné
+        paměti EPROM, kterou autor odněkud dostal (cca. 1990-1991). Byla to PBI periferie do
+        sběrnice Atari řady XL, která se chovala jako asi 14kB harddisk pro rychlý boot DOSu a
+        urychlovač komunikace s disktovkou XF551. Tento modul dodnes existuje, ale kvůli stabilitě
+        sběrnice a pozdějšímu příchodu jiných doplňků nebyl nikdy moc používán.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -151,15 +261,25 @@ SLOVO30  ARC  31657 15-02-97 00:31
     317 FREE SECTORS
         </pre>
     </details>
-    
-    <Heading h=3 id="archiv-g">ARCHÍV G "RŮZNÉ"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6962'))} />
 
-    <p>Na této disketě je směs z většiny cizího softwaru, který si Jiří Bernášek do archivu odložil. Relevantní jsou v podstatě jen dvě položky:</p>
+    <Heading h="3" id="archiv-g">ARCHÍV G "RŮZNÉ"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6962"))} />
 
-    <p><strong>BEWEMON</strong> je autorův pokus o hudební editor – ačkoliv funguje, tak nebyl nikdy dokončený. Byl vytvořen v Basicu na základě zpětné analýzy jiné Atari hudby. Byly zde přepsané skladby z dětského klavírního alba od P. I. Čajkovského, použité pak v programu 8 Players Demo.</p>
+    <p>
+        Na této disketě je směs z většiny cizího softwaru, který si Jiří Bernášek do archivu
+        odložil. Relevantní jsou v podstatě jen dvě položky:
+    </p>
 
-    <p><strong>ZOLIKY</strong> jsou jednoduchá databáze na výsledky karetní hry žolíky, které byly oblíbené při rodinných večerech autora na chalupě. Mělo to i jakýsi grafický výstup.</p>
+    <p>
+        <strong>BEWEMON</strong> je autorův pokus o hudební editor – ačkoliv funguje, tak nebyl nikdy
+        dokončený. Byl vytvořen v Basicu na základě zpětné analýzy jiné Atari hudby. Byly zde přepsané
+        skladby z dětského klavírního alba od P. I. Čajkovského, použité pak v programu 8 Players Demo.
+    </p>
+
+    <p>
+        <strong>ZOLIKY</strong> jsou jednoduchá databáze na výsledky karetní hry žolíky, které byly oblíbené
+        při rodinných večerech autora na chalupě. Mělo to i jakýsi grafický výstup.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -240,17 +360,32 @@ ZOLIKY   BAS  10149 28-11-95 22:14
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-k">ARCHÍV K "MOJE PROGRAMY - ZDROJÁKY, STR.MOUNT. DEMO, BSCROLL, CODIS, T3d, GAMAC.01, MENU PRO ABBUC"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6961'))} />
-    <p>Na této disketě lze nalézt zdrojáky ke <strong>Strange Mountains Demo</strong> a hře <strong>Tetris 3D</strong>. <strong>BSCROLL</strong> je jednoduchá ukázka velkého scrolleru, odvozená ze Strange Mountains Demo pro autorova známého z Německa, který se chtěl tyto věci naučit – v podstatě tedy výukový materiál. <strong>GAMA</strong> je ovladač pro tiskárnu Gamacentrum 01.</p>
+    <Heading h="3" id="archiv-k"
+        >ARCHÍV K "MOJE PROGRAMY - ZDROJÁKY, STR.MOUNT. DEMO, BSCROLL, CODIS, T3d, GAMAC.01, MENU
+        PRO ABBUC"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6961"))} />
+    <p>
+        Na této disketě lze nalézt zdrojáky ke <strong>Strange Mountains Demo</strong> a hře
+        <strong>Tetris 3D</strong>. <strong>BSCROLL</strong> je jednoduchá ukázka velkého scrolleru,
+        odvozená ze Strange Mountains Demo pro autorova známého z Německa, který se chtěl tyto věci
+        naučit – v podstatě tedy výukový materiál. <strong>GAMA</strong> je ovladač pro tiskárnu Gamacentrum
+        01.
+    </p>
 
-    <p><strong>ABBMENU</strong> je menu pro disketový magazín německého klubu <em>ABBUC e.V.</em> Dle Bernáška se jedná o první pokus na dané téma, který se prakticky nepoužil (snad jen v jednom čísle doplňkové řady "Sondermagazínů"). Nezaměnit s druhým projektem z roku 1993.</p>
+    <p>
+        <strong>ABBMENU</strong> je menu pro disketový magazín německého klubu <em>ABBUC e.V.</em> Dle
+        Bernáška se jedná o první pokus na dané téma, který se prakticky nepoužil (snad jen v jednom čísle
+        doplňkové řady "Sondermagazínů"). Nezaměnit s druhým projektem z roku 1993.
+    </p>
 
-    <p><strong>CODIS</strong> byl neveřejným projektem. Jde o jednoduchý titulkovací systém pro infokanál kabelové televize. Obsahuje i editor zobrazovaných textů. Data k tomuto projektu jsou také na disketě <em>ARCHÍV W</em>.</p>
-
+    <p>
+        <strong>CODIS</strong> byl neveřejným projektem. Jde o jednoduchý titulkovací systém pro
+        infokanál kabelové televize. Obsahuje i editor zobrazovaných textů. Data k tomuto projektu
+        jsou také na disketě <em>ARCHÍV W</em>.
+    </p>
 
     <div class="img1">
-        <img src="/files/bewesoft/CODIS.png" alt="CODIS"/>
+        <img src="/files/bewesoft/CODIS.png" alt="CODIS" />
     </div>
 
     <details>
@@ -381,9 +516,14 @@ VELKE    PIC   7680 09-07-92 17:05
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-m">ARCHÍV M "LÓGR, ATMAS TOOLS, RŮZNÉ UTILITY- BASIC, PRINTER UTILITY, MOJE STARÉ DROBNÉ ZDROJÁKY"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6960'))} />
-    <p>Disketa s drobnějšími, zejména cizími, programy. Archív <em>MYOLDSRC</em> obsahuje autorovy drobnější programové rutiny (nejspíš grafické rutiny), různé varianty přehrávání zvuku či práce s pamětí.</p>
+    <Heading h="3" id="archiv-m"
+        >ARCHÍV M "LÓGR, ATMAS TOOLS, RŮZNÉ UTILITY- BASIC, PRINTER UTILITY, MOJE STARÉ DROBNÉ
+        ZDROJÁKY"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6960"))} />
+    <p>
+        Disketa s drobnějšími, zejména cizími, programy. Archív <em>MYOLDSRC</em> obsahuje autorovy drobnější
+        programové rutiny (nejspíš grafické rutiny), různé varianty přehrávání zvuku či práce s pamětí.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -426,13 +566,33 @@ T143     SRC   3968 28-11-95 22:14
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-p">ARCHÍV P "NEDOKONČENÉ..., OLD STORY, STAVBA"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6959'))} />
-    <p>Disketa obsahuje nikdy nedokončené projekty z období asi 1990-1991. Složka HUDBA je zřejmě přidaná později – jedná se o autorovy hudební pokusy s editory <em>Black Magic Composer</em> a (pravděpodobně) <em>SoundMonitor Professional</em>. Lze zde nalézt hudbu pro hry Golfer a původní nevydanou verzi Midnight, nedokončenou Stavbu, a řadu dalších drobných pokusů.</p>
+    <Heading h="3" id="archiv-p">ARCHÍV P "NEDOKONČENÉ..., OLD STORY, STAVBA"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6959"))} />
+    <p>
+        Disketa obsahuje nikdy nedokončené projekty z období asi 1990-1991. Složka HUDBA je zřejmě
+        přidaná později – jedná se o autorovy hudební pokusy s editory <em>Black Magic Composer</em>
+        a (pravděpodobně) <em>SoundMonitor Professional</em>. Lze zde nalézt hudbu pro hry Golfer a
+        původní nevydanou verzi Midnight, nedokončenou Stavbu, a řadu dalších drobných pokusů.
+    </p>
 
-    <p><strong>Old Story</strong> měla být dle autora hra s chozením po hradě, sbíráním a používáním předmětů kde se poměrně rozsáhlá grafika měla během hry číst z diskety. Fungovala již titulní obrazovka s hudbou podle Fukovy skladby <em>Master of Magic</em> a několika stránkami vyjíždějícími z vody (titul, přehled předmětů), existovala i většina grafiky místností, kreslená v editoru RAMbrandt s barvami vylepšenými přerušením. Když však došlo na pohyb panáčka v místnostech kreslených s perspektivou, časová náročnost si vynutila přerušení projektu. Data pak byla s jistým odstupem odložena jako <code>.ARC</code> archivy, tehdy ještě pomocí jakési utility (zřejmě z USA), která bohužel měla v sobě bug – soubory tedy sice existují, ale rozbalují se s chybami CRC. Hudba byla současně použita v programu BEWESOFT'S DEMO pro magazín <em>ABBUC</em>.</p>
+    <p>
+        <strong>Old Story</strong> měla být dle autora hra s chozením po hradě, sbíráním a
+        používáním předmětů kde se poměrně rozsáhlá grafika měla během hry číst z diskety. Fungovala
+        již titulní obrazovka s hudbou podle Fukovy skladby <em>Master of Magic</em> a několika
+        stránkami vyjíždějícími z vody (titul, přehled předmětů), existovala i většina grafiky
+        místností, kreslená v editoru RAMbrandt s barvami vylepšenými přerušením. Když však došlo na
+        pohyb panáčka v místnostech kreslených s perspektivou, časová náročnost si vynutila
+        přerušení projektu. Data pak byla s jistým odstupem odložena jako <code>.ARC</code> archivy,
+        tehdy ještě pomocí jakési utility (zřejmě z USA), která bohužel měla v sobě bug – soubory
+        tedy sice existují, ale rozbalují se s chybami CRC. Hudba byla současně použita v programu
+        BEWESOFT'S DEMO pro magazín <em>ABBUC</em>.
+    </p>
 
-    <p><strong>STAVBA</strong> měla být hra v podobě jakési pseudo-3D skládačky s bednami a vysokozdvižným vozíkem. Projekt dle autora nepokročil nijak daleko, nějaké části vznikající hry ale v archivu k nalezení jsou.</p>
+    <p>
+        <strong>STAVBA</strong> měla být hra v podobě jakési pseudo-3D skládačky s bednami a vysokozdvižným
+        vozíkem. Projekt dle autora nepokročil nijak daleko, nějaké části vznikající hry ale v archivu
+        k nalezení jsou.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -626,10 +786,17 @@ SMONDATA ARC   6857 14-02-97 22:39
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-r">ARCHÍV R "MOJE PROGRAMY - ZDROJÁKY, INTRO ABBUC 30, GOLFER, SEASIDE DEMO"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6958'))} />
+    <Heading h="3" id="archiv-r"
+        >ARCHÍV R "MOJE PROGRAMY - ZDROJÁKY, INTRO ABBUC 30, GOLFER, SEASIDE DEMO"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6958"))} />
 
-    <p>Na disketě je software <strong>INTRO30</strong>, což je titulní stránka k ABBUC magazínu č.30, dále zde jsou zdrojáky hry <strong>Golfer</strong> (kde došlo k drobné dodatečné úpravě rolujícího textu), a programu <strong>Seaside Demo</strong>. Zdrojový kód ve složce MEGA bude pravděpodobně dodatečně okomentovaná verze pro holandský disketový magazín Mega Magazine, s nímž autor tehdy spolupracoval.</p>
+    <p>
+        Na disketě je software <strong>INTRO30</strong>, což je titulní stránka k ABBUC magazínu
+        č.30, dále zde jsou zdrojáky hry <strong>Golfer</strong> (kde došlo k drobné dodatečné
+        úpravě rolujícího textu), a programu <strong>Seaside Demo</strong>. Zdrojový kód ve složce
+        MEGA bude pravděpodobně dodatečně okomentovaná verze pro holandský disketový magazín Mega
+        Magazine, s nímž autor tehdy spolupracoval.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -802,9 +969,16 @@ PROGRAM  SRC  17408 06-02-93 15:12
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-s">ARCHÍV S "MIDNIGHT"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6957'))} />
-    <p>Na disketě je zdrojový kód hry <strong>Midnight</strong> (původně vydaná polskou firmou <a href="https://www.mobygames.com/company/1109/mirage-media-s-c/">Mirage Software</a>). Jsou zde dvě verze programu – hra měla původně jinou hudbu a před vydáním se modifikovala také animace pro chůzi po rovině (a možná i další drobnosti). Finální úpravy dělal v Polsku Pawel Kalinowski (Pirx / Our 5oft). Hra nakonec dostala jinou hudbu (jejímž autorem není pan Bernášek) a byla na rozdíl od originálu zabalena programem Magnus Cruncher.</p>
+    <Heading h="3" id="archiv-s">ARCHÍV S "MIDNIGHT"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6957"))} />
+    <p>
+        Na disketě je zdrojový kód hry <strong>Midnight</strong> (původně vydaná polskou firmou
+        <a href="https://www.mobygames.com/company/1109/mirage-media-s-c/">Mirage Software</a>).
+        Jsou zde dvě verze programu – hra měla původně jinou hudbu a před vydáním se modifikovala
+        také animace pro chůzi po rovině (a možná i další drobnosti). Finální úpravy dělal v Polsku
+        Pawel Kalinowski (Pirx / Our 5oft). Hra nakonec dostala jinou hudbu (jejímž autorem není pan
+        Bernášek) a byla na rozdíl od originálu zabalena programem Magnus Cruncher.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -996,20 +1170,25 @@ MENU21   SRC   5376 30-11-92 14:51
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-t">ARCHÍV T "MOJE SRC - UNFINISHED DEMO (SRC), FUNMUSIC (SRC)"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6956'))} />
-    <p><strong>Unfinished Demo</strong> je program inspirovaný původně zmínkou o Gandalfových ohňostrojích z Tolkienova <em>Pána Prstenů</em>. Program je nedokončený.</p>
+    <Heading h="3" id="archiv-t"
+        >ARCHÍV T "MOJE SRC - UNFINISHED DEMO (SRC), FUNMUSIC (SRC)"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6956"))} />
+    <p>
+        <strong>Unfinished Demo</strong> je program inspirovaný původně zmínkou o Gandalfových
+        ohňostrojích z Tolkienova <em>Pána Prstenů</em>. Program je nedokončený.
+    </p>
 
-    <p><strong>FunMusic</strong> je hudební hříčka ovládaná myší, která většinou dává s malým úsilím přijatelný hudební výsledek. Program používá optimalizované tabulky ladění (dle autorova vlastního výzkumu, publikovaného tehdy v magazínu Flop) a byla v něm vytvořena hudba pro ABBUC magazín 54.</p>
+    <p>
+        <strong>FunMusic</strong> je hudební hříčka ovládaná myší, která většinou dává s malým úsilím
+        přijatelný hudební výsledek. Program používá optimalizované tabulky ladění (dle autorova vlastního
+        výzkumu, publikovaného tehdy v magazínu Flop) a byla v něm vytvořena hudba pro ABBUC magazín 54.
+    </p>
 
     <div class="img2">
         <img src="/files/bewesoft/FUNMUSIC.png" alt="FUNMUSIC" />
         <!-- <a href=""> -->
         <!-- <img src="/files/bewesoft/UNFINISH3.png" alt="UNFINISH" /> -->
-        <video
-            controls
-            poster="/files/bewesoft/UNFINISH3.png"
-        >
+        <video controls poster="/files/bewesoft/UNFINISH3.png">
             <source src="/files/bewesoft/UNFINISH.webm" type="video/webm" />
             <source src="/files/bewesoft/UNFINISH.mp4" type="video/mp4" />
         </video>
@@ -1098,23 +1277,43 @@ FMC7     TXT  14426 11-03-98 21:28
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-w">ARCHÍV W "MOJE PROGRAMY - ZDROJÁKY, VECTOR SCROLLER, CODIS, CHEAT LOADERY, STRANGE MOUNTAINS II."</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6955'))} />
+    <Heading h="3" id="archiv-w"
+        >ARCHÍV W "MOJE PROGRAMY - ZDROJÁKY, VECTOR SCROLLER, CODIS, CHEAT LOADERY, STRANGE
+        MOUNTAINS II."</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6955"))} />
 
-    <p><strong>Vector Scroller</strong> je ukázka rychlého vykreslování čar a vykreslování různě zakřiveného textu kresleného vektorově v reálném čase. Rutinu Bernášek vyvíjel ve spolupráci s jedním polským ataristou (Konop / Shadows). Autorem hudby je Thorsten Karwoth (je to ukázka přiložená k jeho editoru SoundMonitor Professional). Opět je přítomna i jakási modifikace určená zřejmě pro Mega Magazine.</p>
+    <p>
+        <strong>Vector Scroller</strong> je ukázka rychlého vykreslování čar a vykreslování různě zakřiveného
+        textu kresleného vektorově v reálném čase. Rutinu Bernášek vyvíjel ve spolupráci s jedním polským
+        ataristou (Konop / Shadows). Autorem hudby je Thorsten Karwoth (je to ukázka přiložená k jeho
+        editoru SoundMonitor Professional). Opět je přítomna i jakási modifikace určená zřejmě pro Mega
+        Magazine.
+    </p>
 
-    <p><strong>CODIS</strong> je již zmíněný titulkovací program pro infokanál kabelové televize (viz. disketa ARCHÍV K), data jsou zde zřejmě duplicitní – jde nejspíš o záložní kopii aspoň toho nejdůležitějšího pro případ problému s disketou.</p>
-    
-    <p><strong>STRANGE2</strong> je <strong>Strange Mountains Demo II</strong>, malý prográmek s animovanými fonty.</p>
-    
-    <p><strong>CHEATLD</strong> byly loadery pro crackování komerčních her. To se tehdy dělalo běžně. Jako mnozí další i Jiří Bernášek udělal pár desítek cracků, pod kterými se často podepisoval pomocí smajlíka ":-)". V tomto případě se jedná o dvojici textovek <em>The Pawn</em> a <em>Guild of Thieves</em>, které používají dosti sofistikovaný pseudokód s virtuální pamětí a komprimací obsahu, takže není snadné se do nich nějak vlámat. Proto zde vznikly speciální loadery, které umí hru z kopie originální diskety spustit s potřebnými úpravami.</p>
+    <p>
+        <strong>CODIS</strong> je již zmíněný titulkovací program pro infokanál kabelové televize (viz.
+        disketa ARCHÍV K), data jsou zde zřejmě duplicitní – jde nejspíš o záložní kopii aspoň toho nejdůležitějšího
+        pro případ problému s disketou.
+    </p>
+
+    <p>
+        <strong>STRANGE2</strong> je <strong>Strange Mountains Demo II</strong>, malý prográmek s
+        animovanými fonty.
+    </p>
+
+    <p>
+        <strong>CHEATLD</strong> byly loadery pro crackování komerčních her. To se tehdy dělalo
+        běžně. Jako mnozí další i Jiří Bernášek udělal pár desítek cracků, pod kterými se často
+        podepisoval pomocí smajlíka ":-)". V tomto případě se jedná o dvojici textovek
+        <em>The Pawn</em>
+        a <em>Guild of Thieves</em>, které používají dosti sofistikovaný pseudokód s virtuální
+        pamětí a komprimací obsahu, takže není snadné se do nich nějak vlámat. Proto zde vznikly
+        speciální loadery, které umí hru z kopie originální diskety spustit s potřebnými úpravami.
+    </p>
 
     <div class="img2">
         <img src="/files/bewesoft/STRANGE2.png" alt="STRANGE" />
-        <video
-            controls
-            poster="/files/bewesoft/strange2_2.png"
-        >
+        <video controls poster="/files/bewesoft/strange2_2.png">
             <source src="/files/bewesoft/strange2.mp4" type="video/mp4" />
         </video>
     </div>
@@ -1267,18 +1466,51 @@ ZNAKY4   PIC   7684 01-08-93 13:45
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-z">ARCHÍV Z "MOJE PGMY - ZDROJÁKY - ABBUC MENU, SUPER PACKER, HIDDEN PART, ASSKICKER, ZABABA"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6954'))} />
-    <p><strong>ABBMENU</strong> jsou zdrojáky menu, které autor vytvořil koncem roku 1993 pro magazíny německého klubu <a href="https://abbuc.de/"><em>ABBUC e.V.</em></a> (a používá se tam s mírnými úpravami dodnes). Je to nadstavba DOSu 2.5, k zobrazení obsahu diskety a otevírání souborů různých typů (texty, obrázky, programy v binárním formátu i v Atari Basicu). Zřejmě se hned zkraje dělala nějaká drobná úprava, protože jsou zde dvě verze. (Nezaměnit s nepoužívaným starším projektem z roku 1991.)</p>
+    <Heading h="3" id="archiv-z"
+        >ARCHÍV Z "MOJE PGMY - ZDROJÁKY - ABBUC MENU, SUPER PACKER, HIDDEN PART, ASSKICKER, ZABABA"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6954"))} />
+    <p>
+        <strong>ABBMENU</strong> jsou zdrojáky menu, které autor vytvořil koncem roku 1993 pro
+        magazíny německého klubu <a href="https://abbuc.de/"><em>ABBUC e.V.</em></a> (a používá se tam
+        s mírnými úpravami dodnes). Je to nadstavba DOSu 2.5, k zobrazení obsahu diskety a otevírání souborů
+        různých typů (texty, obrázky, programy v binárním formátu i v Atari Basicu). Zřejmě se hned zkraje
+        dělala nějaká drobná úprava, protože jsou zde dvě verze. (Nezaměnit s nepoužívaným starším projektem
+        z roku 1991.)
+    </p>
 
-    <p><strong>HIDDEN</strong> je demo publikované jako skrytý bonus na disketě <a href="https://demozoo.org/productions/62141/"><em>The Asskicker</em></a> polské skupiny <a href="https://demozoo.org/groups/2247/">Shadows</a>. Původně vzniklo jako příspěvek do jakési jejich sbírky od různých autorů, která nakonec nevyšla. Po dlouhém otálení, během kterého se styl scény značně změnil, bylo nakonec vydané jen jako skrytá část. Předvádí především rychlé grafické rutiny (čáry, tečky, kružnice).</p>
+    <p>
+        <strong>HIDDEN</strong> je demo publikované jako skrytý bonus na disketě
+        <a href="https://demozoo.org/productions/62141/"><em>The Asskicker</em></a>
+        polské skupiny <a href="https://demozoo.org/groups/2247/">Shadows</a>. Původně vzniklo jako
+        příspěvek do jakési jejich sbírky od různých autorů, která nakonec nevyšla. Po dlouhém
+        otálení, během kterého se styl scény značně změnil, bylo nakonec vydané jen jako skrytá
+        část. Předvádí především rychlé grafické rutiny (čáry, tečky, kružnice).
+    </p>
 
-    <p><strong>SUPERPCK</strong> je utilita určená k sestavování a komprimování spustitelných souborů na Atari. Na rozdíl od předchůdců (typu populárního <a href="https://archive.org/details/a8b_Cruncher_v4.64_1990_Magnus_pl">Magnus Cruncheru</a>) je vhodný i k pakování menších programů, které běhají pod DOSem a nepřepisují hned celou paměť, a dá se použít i jako ručně ovládaný linker. Při zavádění pakovaného programu se obejvují typické decentně šedé proužky v pozadí obrazu. Program obsahuje nikdy neopravený bug, kvůli kterému se nepokusí komprimovat některé datové bloky.</p>
+    <p>
+        <strong>SUPERPCK</strong> je utilita určená k sestavování a komprimování spustitelných
+        souborů na Atari. Na rozdíl od předchůdců (typu populárního
+        <a href="https://archive.org/details/a8b_Cruncher_v4.64_1990_Magnus_pl">Magnus Cruncheru</a
+        >) je vhodný i k pakování menších programů, které běhají pod DOSem a nepřepisují hned celou
+        paměť, a dá se použít i jako ručně ovládaný linker. Při zavádění pakovaného programu se
+        obejvují typické decentně šedé proužky v pozadí obrazu. Program obsahuje nikdy neopravený
+        bug, kvůli kterému se nepokusí komprimovat některé datové bloky.
+    </p>
 
-    <p><strong>ZABABA</strong> byl pokus o zkulturnění listingů tištěných na stránkách časopisů. Binární soubory se tehdy ještě v dostupných tiskovinách občas vyskytovaly jako hexadecimální listingy, a třebaže se někdy doplňovaly o kontrolní součty řádků, opisování takového listingu bylo utrpením. Program (pojmenovaný po černokněžníkovi z <em>Pohádek o mašinkách</em>) data kódoval do "slov" (či zaklínadel, chcete-li) ze 6 písmen se střídáním souhláska-samohláska (např. "SASOPU") a s integrovaným kontrolním údajem v každém slově, čímž dosahoval hustoty dat srovnatelné s hexa listingem, při mnohem příznivější ergonomii přepisu do stroje. Přišel však pozdě, v podstatě se tehdy již listingy dál netiskly.</p>
+    <p>
+        <strong>ZABABA</strong> byl pokus o zkulturnění listingů tištěných na stránkách časopisů.
+        Binární soubory se tehdy ještě v dostupných tiskovinách občas vyskytovaly jako hexadecimální
+        listingy, a třebaže se někdy doplňovaly o kontrolní součty řádků, opisování takového
+        listingu bylo utrpením. Program (pojmenovaný po černokněžníkovi z
+        <em>Pohádek o mašinkách</em>) data kódoval do "slov" (či zaklínadel, chcete-li) ze 6 písmen
+        se střídáním souhláska-samohláska (např. "SASOPU") a s integrovaným kontrolním údajem v
+        každém slově, čímž dosahoval hustoty dat srovnatelné s hexa listingem, při mnohem
+        příznivější ergonomii přepisu do stroje. Přišel však pozdě, v podstatě se tehdy již listingy
+        dál netiskly.
+    </p>
 
     <div class="img1">
-        <img src="/files/bewesoft/HIDDEN-DEMO.png" alt="HIDDEN-DEMO"/>
+        <img src="/files/bewesoft/HIDDEN-DEMO.png" alt="HIDDEN-DEMO" />
     </div>
 
     <details>
@@ -1366,18 +1598,27 @@ ZABABGEN BAS   1456 23-07-95 21:43
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-al">ARCHÍV AL "ZDROJÁKY - CMC MUSIC SET, INTRO ABBUC 38"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6953'))} />
+    <Heading h="3" id="archiv-al">ARCHÍV AL "ZDROJÁKY - CMC MUSIC SET, INTRO ABBUC 38"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6953"))} />
 
-    <p><strong>CMC Music Set</strong> je v podstatě hitparáda převážně polské herní muziky z první půlky 90. let, inspirovaná podobnými kompilacemi z 80. let (konkrétně <a href="https://a8.fandal.cz/detail.php?files_id=3679">SSMB's Music Kaleidoscope</a>). Protože ale jde v podstatě o výsledky rozsáhlého crackování her, rozhodl se autor to tenkrát nepodepsat.</p>
+    <p>
+        <strong>CMC Music Set</strong> je v podstatě hitparáda převážně polské herní muziky z první
+        půlky 90. let, inspirovaná podobnými kompilacemi z 80. let (konkrétně
+        <a href="https://a8.fandal.cz/detail.php?files_id=3679">SSMB's Music Kaleidoscope</a>).
+        Protože ale jde v podstatě o výsledky rozsáhlého crackování her, rozhodl se autor to tenkrát
+        nepodepsat.
+    </p>
 
-    <p><strong>INTRO38</strong> je titulní stránka pro ABBUC magazín č. 38. Vznikla tehdy narychlo na výslovné přání předsedy spolku Wolfganga Burgera, dle zadaného tématu příslušného čísla magazínu, když mu adekvátní úvod pro daný magazín chyběl. Hudba je nepůvodní, je zkopírovaná z <em>Mega Magazínu</em> a autorem je zřejmě polský tvůrce <a href="https://demozoo.org/sceners/34551/"><em>Daxey of Waxsoft</em></a>.</p>
+    <p>
+        <strong>INTRO38</strong> je titulní stránka pro ABBUC magazín č. 38. Vznikla tehdy narychlo
+        na výslovné přání předsedy spolku Wolfganga Burgera, dle zadaného tématu příslušného čísla
+        magazínu, když mu adekvátní úvod pro daný magazín chyběl. Hudba je nepůvodní, je zkopírovaná
+        z <em>Mega Magazínu</em> a autorem je zřejmě polský tvůrce
+        <a href="https://demozoo.org/sceners/34551/"><em>Daxey of Waxsoft</em></a>.
+    </p>
 
     <div class="img1">
-        <video
-            controls
-            poster="/files/bewesoft/INTRO38.png"
-        >
+        <video controls poster="/files/bewesoft/INTRO38.png">
             <source src="/files/bewesoft/INTRO38.mp4" type="video/mp4" />
         </video>
     </div>
@@ -1404,13 +1645,42 @@ CMCSET   COM  51075 30-06-94 14:32
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-ao">ARCHÍV AO "MOJE PROGRAMY - ZDROJÁKY - ABBUC INTRO 54, BTC 1.0, HEBREJŠTINA - ROM XL"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6952'))} />
-    <p><strong>INTRO54</strong> je titulní stránka pro ABBUC magazín č. 54, která je především ukázkou hudby vytvořené "klikáním v reálném čase" v programu <em>FunMusic</em>.</p>
+    <Heading h="3" id="archiv-ao"
+        >ARCHÍV AO "MOJE PROGRAMY - ZDROJÁKY - ABBUC INTRO 54, BTC 1.0, HEBREJŠTINA - ROM XL"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6952"))} />
+    <p>
+        <strong>INTRO54</strong> je titulní stránka pro ABBUC magazín č. 54, která je především
+        ukázkou hudby vytvořené "klikáním v reálném čase" v programu <em>FunMusic</em>.
+    </p>
 
-    <p><strong>BTC</strong> (<em>BEWESOFT's Text Converter</em>) je utilita pro převod textů mezi různými kódy, která autorovi sloužila pro přenos mezi různými formáty pro češtinu na Atari, a později se ještě více osvědčila pro export z emulátoru do prostředí PC (kde paradoxně podobná konverze dělá velké problémy, protože na Atari se české znaky typicky dávaly do rozsahu kódů 0-31). Program se spouští z příkazové řádky a akceptuje textovou definici potřebné konverze. Jsou tam nadefinované různé varianty kódování ASCII či Atárkového ATASCII, zdrojáky ATMAS II, tisk na tiskárny EPSON, pro češtinu pak BEWESLOVO (<code>BWS</code>), u nás populární Čapek (<code>CAP</code>), navrhované univerzální kódování češtiny Tcheko Radka Štěrby (<code>TCH</code>), ale i v té době na PC používaný kód bratří Kamenických, dodatečně i Latin 2 a Windows 1250. Snadno se dají dodefinovat i další, takže dodnes při exportu z emulátoru konvertuje autor Atari texty raději pomocí BTC, než se s tím pak trápit na straně PC.</p>
+    <p>
+        <strong>BTC</strong> (<em>BEWESOFT's Text Converter</em>) je utilita pro převod textů mezi
+        různými kódy, která autorovi sloužila pro přenos mezi různými formáty pro češtinu na Atari,
+        a později se ještě více osvědčila pro export z emulátoru do prostředí PC (kde paradoxně
+        podobná konverze dělá velké problémy, protože na Atari se české znaky typicky dávaly do
+        rozsahu kódů 0-31). Program se spouští z příkazové řádky a akceptuje textovou definici
+        potřebné konverze. Jsou tam nadefinované různé varianty kódování ASCII či Atárkového
+        ATASCII, zdrojáky ATMAS II, tisk na tiskárny EPSON, pro češtinu pak BEWESLOVO (<code
+            >BWS</code
+        >), u nás populární Čapek (<code>CAP</code>), navrhované univerzální kódování češtiny Tcheko
+        Radka Štěrby (<code>TCH</code>), ale i v té době na PC používaný kód bratří Kamenických,
+        dodatečně i Latin 2 a Windows 1250. Snadno se dají dodefinovat i další, takže dodnes při
+        exportu z emulátoru konvertuje autor Atari texty raději pomocí BTC, než se s tím pak trápit
+        na straně PC.
+    </p>
 
-    <p><strong>HEBREW</strong> je modifikovaná verze ROM operačního systému Atari, vzniklá úpravou verze z modelu 800XL pro podporu hebrejštiny. Jiří Bernášek tento program dělal pro známého z Jeruzaléma (Nir Dary), který mu poslal starší implementaci (soubor <code>HEBREW.SYS</code>), aby pak společně řešili integraci přímo do ROM počítače. Vzniklá verze má v druhé znakové sadě místo malých písmen hebrejské znaky, a především pak má obrazovkový editor rozšířený pro psaní zleva doprava i zprava doleva – má to pro každý směr vedle klasického režimu i režim Insert (vsunování), aby bylo možno psát střídavě oběma směry bez přemazání již napsaného. Přepínalo se to všechno různými kombinacemi <Key>SHIFT</Key>/<Key>CONTROL</Key> s klávesami <Key>CAPS</Key> a <Key>INVERSE</Key>. Také se daly kdykoliv znakové sady přepínat pro střídavé čtení textů v obou jazycích.</p>
+    <p>
+        <strong>HEBREW</strong> je modifikovaná verze ROM operačního systému Atari, vzniklá úpravou
+        verze z modelu 800XL pro podporu hebrejštiny. Jiří Bernášek tento program dělal pro známého
+        z Jeruzaléma (Nir Dary), který mu poslal starší implementaci (soubor
+        <code>HEBREW.SYS</code>), aby pak společně řešili integraci přímo do ROM počítače. Vzniklá
+        verze má v druhé znakové sadě místo malých písmen hebrejské znaky, a především pak má
+        obrazovkový editor rozšířený pro psaní zleva doprava i zprava doleva – má to pro každý směr
+        vedle klasického režimu i režim Insert (vsunování), aby bylo možno psát střídavě oběma směry
+        bez přemazání již napsaného. Přepínalo se to všechno různými kombinacemi <Key>SHIFT</Key
+        >/<Key>CONTROL</Key> s klávesami <Key>CAPS</Key> a <Key>INVERSE</Key>. Také se daly kdykoliv
+        znakové sady přepínat pro střídavé čtení textů v obou jazycích.
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -1560,19 +1830,26 @@ PATCH20  MAE  11355 16-01-01 18:31
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-ay">ARCHÍV AY "X-DEMO - ZDROJÁKY, EASY DEMO - ZDROJÁK"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6951'))} />
+    <Heading h="3" id="archiv-ay">ARCHÍV AY "X-DEMO - ZDROJÁKY, EASY DEMO - ZDROJÁK"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6951"))} />
 
-    <p><strong>X-DEMO</strong> je program vzniklý po krachu projektu <em>Y</em>, který předvádí alespoň již dokončený hudební modul. Zároveň jde o jistý druh historického dokumentu, program obsahuje jakési pojednání o historii a vývoji Atari scény, viděné poněkud naivníma očima roku 1996 (dokonce dvojjazyčně).</p>
+    <p>
+        <strong>X-DEMO</strong> je program vzniklý po krachu projektu <em>Y</em>, který předvádí
+        alespoň již dokončený hudební modul. Zároveň jde o jistý druh historického dokumentu,
+        program obsahuje jakési pojednání o historii a vývoji Atari scény, viděné poněkud naivníma
+        očima roku 1996 (dokonce dvojjazyčně).
+    </p>
 
-    <p><strong>EASY DEMO</strong> a <strong>KALEIDOSKOP</strong> jsou drobné prográmky reagující na tehdy nový trend demo tvorby pro účast na počítačových srazech, kde se často konaly i soutěže těchto prací a předváděly se často i velmi malá, narychlo vytvořená dílka. Někdy se soutěžilo i v kategoriích s přísně omezenou délkou souboru.</p>
+    <p>
+        <strong>EASY DEMO</strong> a <strong>KALEIDOSKOP</strong> jsou drobné prográmky reagující na tehdy
+        nový trend demo tvorby pro účast na počítačových srazech, kde se často konaly i soutěže těchto
+        prací a předváděly se často i velmi malá, narychlo vytvořená dílka. Někdy se soutěžilo i v kategoriích
+        s přísně omezenou délkou souboru.
+    </p>
 
     <div class="img2">
         <img src="/files/bewesoft/KALEIDO.png" alt="KALEIDO" />
-        <video
-            controls
-            poster="/files/bewesoft/EASY-DEMO.png"
-        >
+        <video controls poster="/files/bewesoft/EASY-DEMO.png">
             <source src="/files/bewesoft/EASY-DEMO.mp4" type="video/mp4" />
         </video>
     </div>
@@ -1668,10 +1945,26 @@ KALEIDO  SRC   3200 26-08-00 18:01
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-bc">ARCHÍV BC "NEDOKONČENÉ PROJEKTY - Y"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6950'))} />
+    <Heading h="3" id="archiv-bc">ARCHÍV BC "NEDOKONČENÉ PROJEKTY - Y"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6950"))} />
 
-    <p>Opět nedokončený projekt. Mělo jít o poněkud experimentální hru z neznámého světa generovaného počítačem (<em>Y</em> je tajuplná "druhá neznámá" někde v pozadí za tolik propíraným <em>X</em>), kde bylo záměrem naplnit paměť namísto konkrétního návrhu grafiky, hudby atd., spíše empiricky sestavenými algoritmy, které by vše generovaly na základě pseudonáhodných čísel (inspirací byla legendární hra <a href="https://en.wikipedia.org/wiki/Rescue_on_Fractalus!"><em>Rescue on Fractalus</em></a>, náhodně generovaná mapa v polské hře <a href="https://www.atarimania.com/game-atari-400-800-xl-xe-vicky_s5659.html"><em>Vicky</em></a>, či hudba ve hře <a href="https://www.atarimania.com/game-atari-400-800-xl-xe-d-bug_1536.html"><em>D-BUG</em></a>). Po rozsáhlé analýze dostupného materiálu ale vznikl pouze modul hudebního doprovodu a fungovalo také ovládání s autodetekcí různých typů ovladače (joystick, myš, světelná pistole, klávesnice).</p>
+    <p>
+        Opět nedokončený projekt. Mělo jít o poněkud experimentální hru z neznámého světa
+        generovaného počítačem (<em>Y</em> je tajuplná "druhá neznámá" někde v pozadí za tolik
+        propíraným <em>X</em>), kde bylo záměrem naplnit paměť namísto konkrétního návrhu grafiky,
+        hudby atd., spíše empiricky sestavenými algoritmy, které by vše generovaly na základě
+        pseudonáhodných čísel (inspirací byla legendární hra
+        <a href="https://en.wikipedia.org/wiki/Rescue_on_Fractalus!"><em>Rescue on Fractalus</em></a
+        >, náhodně generovaná mapa v polské hře
+        <a href="https://www.atarimania.com/game-atari-400-800-xl-xe-vicky_s5659.html"
+            ><em>Vicky</em></a
+        >, či hudba ve hře
+        <a href="https://www.atarimania.com/game-atari-400-800-xl-xe-d-bug_1536.html"
+            ><em>D-BUG</em></a
+        >). Po rozsáhlé analýze dostupného materiálu ale vznikl pouze modul hudebního doprovodu a
+        fungovalo také ovládání s autodetekcí různých typů ovladače (joystick, myš, světelná
+        pistole, klávesnice).
+    </p>
 
     <details>
         <summary>Výpis souborů</summary>
@@ -1694,10 +1987,18 @@ PRAC     ARC  34526 25-07-98 14:54
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-bg">ARCHÍV BG "MULTI DASH - SOURCE"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6949'))} />
+    <Heading h="3" id="archiv-bg">ARCHÍV BG "MULTI DASH - SOURCE"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6949"))} />
 
-    <p><em>Multi Dash</em> je síťová hra pro až 8 počítačů Atari propojených sériovým kabelem, inspirovaná hrou <a href="https://en.wikipedia.org/wiki/Boulder_Dash_(video_game)"><em>Boulder Dash</em></a> a ranou síťovou hrou <a href="https://a8.fandal.cz/detail.php?files_id=2364"><em>Maze of AGDAgon</em></a>. Hrála se poprvé na Atariádě v Prostějově (2000), herní princip se však příliš neosvědčil, protože nebyl otestovaný s větším počtem skutečných hráčů.</p>
+    <p>
+        <em>Multi Dash</em> je síťová hra pro až 8 počítačů Atari propojených sériovým kabelem,
+        inspirovaná hrou
+        <a href="https://en.wikipedia.org/wiki/Boulder_Dash_(video_game)"><em>Boulder Dash</em></a>
+        a ranou síťovou hrou
+        <a href="https://a8.fandal.cz/detail.php?files_id=2364"><em>Maze of AGDAgon</em></a>. Hrála
+        se poprvé na Atariádě v Prostějově (2000), herní princip se však příliš neosvědčil, protože
+        nebyl otestovaný s větším počtem skutečných hráčů.
+    </p>
 
     <div class="img2">
         <img src="/files/bewesoft/MultiDash2.png" alt="MULTI DASH" />
@@ -1801,12 +2102,18 @@ X11      MPT   2041 28-11-95 22:14
         </pre>
     </details>
 
-    <Heading h=3 id="archiv-bk">ARCHÍV BK "MOJE PGM - ZDROJÁKY - MULTI RACE, MULTI WORMS + ČLÁNEK ABBUC"</Heading>
-    <AssetBox data={assets.then(assets => assets.get('6948'))} />
+    <Heading h="3" id="archiv-bk"
+        >ARCHÍV BK "MOJE PGM - ZDROJÁKY - MULTI RACE, MULTI WORMS + ČLÁNEK ABBUC"</Heading>
+    <AssetBox data={assets.then((assets) => assets.get("6948"))} />
 
-    <em>Multi Race</em> je další síťová hra pro až 8 počítačů Atari, tentokrát s obecněji pojatou fyzickou vrstvou komunikace, cílenou na tvorbu dalších podobných her. Zároveň je program pro autora splněným letitým snem o hře s 3D grafikou.
+    <em>Multi Race</em> je další síťová hra pro až 8 počítačů Atari, tentokrát s obecněji pojatou
+    fyzickou vrstvou komunikace, cílenou na tvorbu dalších podobných her. Zároveň je program pro
+    autora splněným letitým snem o hře s 3D grafikou.
 
-    <em>Multi Worms</em> je jednoduchá hra určená spíše jen k demonstraci univerzálního komunikačního modulu a jeho použití k tvorbě podobných her. Vznikla společně s hrou Multi Race, byla publikovaná v magazínech <em>ABBUC</em> i <a href="http://flop.atariportal.cz/"><em>Flop</em></a>.
+    <em>Multi Worms</em> je jednoduchá hra určená spíše jen k demonstraci univerzálního
+    komunikačního modulu a jeho použití k tvorbě podobných her. Vznikla společně s hrou Multi Race,
+    byla publikovaná v magazínech <em>ABBUC</em> i
+    <a href="http://flop.atariportal.cz/"><em>Flop</em></a>.
 
     <div class="img2">
         <img src="/files/bewesoft/MULTI RACE1.png" alt="MULTI RACE" />
@@ -1895,12 +2202,11 @@ NTWGAM3  TXT  16148 10-05-02 14:00
     89 FREE SECTORS
         </pre>
     </details>
-
-
 </ProjectPage>
 
 <style>
-    .img1 img, .img1 video {
+    .img1 img,
+    .img1 video {
         display: block;
         margin: auto;
         margin-bottom: 1rem;
@@ -1914,11 +2220,13 @@ NTWGAM3  TXT  16148 10-05-02 14:00
         margin-bottom: 1rem;
     }
 
-    .img2 img, .img2 video {
+    .img2 img,
+    .img2 video {
         width: 100%;
     }
     @media (max-width: 600px) {
-        .img1 img, .img1 video {
+        .img1 img,
+        .img1 video {
             width: 100%;
         }
         .img2 {

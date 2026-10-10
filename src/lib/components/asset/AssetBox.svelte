@@ -1,11 +1,11 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
+    import Lazy from "svelte-lazy";
     import type { AssetData } from "$src/types";
-	import Box from "../Box.svelte";
-    import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from '@humanspeak/svelte-markdown'
-	import Capsule from "../Capsule.svelte";
-	import Loc from '../Loc.svelte';
-	import DownloadLink from '../DownloadLink.svelte';
+    import Box from "../Box.svelte";
+    import SvelteMarkdown, { defaultRenderers, allowHtmlOnly } from "@humanspeak/svelte-markdown";
+    import Capsule from "../Capsule.svelte";
+    import Loc from "../Loc.svelte";
+    import DownloadLink from "../DownloadLink.svelte";
 
     interface Props {
         data: AssetData | Promise<AssetData | undefined>;
@@ -13,10 +13,10 @@
 
     let { data }: Props = $props();
 
-    const markdownRenderers =  {
+    const markdownRenderers = {
         ...defaultRenderers,
-        html: allowHtmlOnly(['strong', 'em', 'a', 'b', 'i', 'u', 'br', 'p', 'ul', 'ol', 'li'] )
-    }
+        html: allowHtmlOnly(["strong", "em", "a", "b", "i", "u", "br", "p", "ul", "ol", "li"]),
+    };
 </script>
 
 <Box>
@@ -27,40 +27,40 @@
             {#if data}
                 <div>
                     <div class="asset-name">
-                        <a href="{ data.inventory_url }">
+                        <a href={data.inventory_url}>
                             {#if data.id}
                                 <Capsule>
                                     HH{data.id}
                                 </Capsule>
                             {/if}
                         </a>
-                        <a href="{ data.inventory_url }">
-                            { data.name }
+                        <a href={data.inventory_url}>
+                            {data.name}
                         </a>
                     </div>
                     <p>
                         {#if data.description}
-                            <SvelteMarkdown source={data.description} renderers={markdownRenderers}/>
+                            <SvelteMarkdown
+                                source={data.description}
+                                renderers={markdownRenderers} />
                         {/if}
                     </p>
                     {#if data.primary_dump_path}
                         <DownloadLink
-                            title={{cs: 'dump', en: 'dump'}}
+                            title={{ cs: "dump", en: "dump" }}
                             url={data.primary_dump_path}
-                            filesize={data.primary_dump_size}
-                        />
+                            filesize={data.primary_dump_size} />
                     {/if}
                     {#if data.primary_document_path}
                         <DownloadLink
-                            title={{cs: 'dokument', en: 'document'}}
-                            url={data.primary_document_path}
-                        />
+                            title={{ cs: "dokument", en: "document" }}
+                            url={data.primary_document_path} />
                     {/if}
                 </div>
                 {#if data.picture.url}
-                    <a href="{ data.inventory_url }" class="asset-photo">
+                    <a href={data.inventory_url} class="asset-photo">
                         <Lazy height={200} width={334} keep={true}>
-                            <img src="{ data.picture.url }" class="asset-img" alt="">
+                            <img src={data.picture.url} class="asset-img" alt="" />
                         </Lazy>
                     </a>
                 {/if}
@@ -78,8 +78,8 @@
 
 <style>
     .asset-name {
-       font-size: 25px;
-       font-weight: bold; 
+        font-size: 25px;
+        font-weight: bold;
     }
     .asset {
         display: flex;
@@ -104,7 +104,6 @@
         object-fit: cover;
     }
 
-
     @media only screen and (max-width: 600px) {
         .asset {
             flex-direction: column-reverse;
@@ -116,8 +115,8 @@
     }
 
     @media screen and (max-width: 470px) {
-		.asset-photo {
-			width: 90%;
-		}
-	}
+        .asset-photo {
+            width: 90%;
+        }
+    }
 </style>

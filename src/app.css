@@ -37,7 +37,9 @@
 html {
     color-scheme: light;
     scrollbar-color: var(--color-secondary) var(--color-bg);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 html[data-theme="dark"] {
@@ -47,9 +49,11 @@ html[data-theme="dark"] {
 body {
     background: var(--color-bg);
     color: var(--color-text);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 120%;
 
     padding-top: 80px;
@@ -74,14 +78,19 @@ h4 {
 }
 
 .backlink {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
-.backlink + h2, .backlink + h3, .backlink + h4, .backlink + h5 {
+.backlink + h2,
+.backlink + h3,
+.backlink + h4,
+.backlink + h5 {
     margin-top: 0.2em;
 }
 
-article.thin, div.thin, section.thin {
+article.thin,
+div.thin,
+section.thin {
     max-width: 800px;
     margin: auto;
 }
@@ -139,7 +148,8 @@ hr {
     border-style: solid;
 }
 
-code, .codeblock {
+code,
+.codeblock {
     background-color: var(--color-secondary-transparent);
     padding: 3px;
 }
@@ -161,11 +171,11 @@ i {
 }
 
 .codeblock {
-   margin: 0.5em 1em;
-   padding: 1em;
-   overflow-x: scroll;
-   max-height: 80vh;
-   overflow-y: scroll;
+    margin: 0.5em 1em;
+    padding: 1em;
+    overflow-x: scroll;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 .row {
@@ -188,10 +198,11 @@ button {
     border: none;
     padding: 0;
     margin: 0;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
 }
 
-button:not(.link), input {
+button:not(.link),
+input {
     border: 2px solid var(--color-primary);
     background: transparent;
     padding: 8px 16px;
@@ -200,7 +211,8 @@ button:not(.link), input {
     cursor: pointer;
 }
 
-button:not(.link).active, input.active {
+button:not(.link).active,
+input.active {
     background: var(--color-primary);
     color: var(--color-primary-contrast);
 }
@@ -230,7 +242,8 @@ figcaption {
 }
 
 @media only screen and (max-width: 600px) {
-    dt, dd {
+    dt,
+    dd {
         width: 100%;
     }
 

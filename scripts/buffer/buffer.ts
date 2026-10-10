@@ -1,4 +1,4 @@
-const BUFFER_API = 'https://api.buffer.com';
+const BUFFER_API = "https://api.buffer.com";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -23,22 +23,28 @@ export interface BufferPost {
 
 // ── GraphQL helper ─────────────────────────────────────────────────────────
 
-async function gql<T>(token: string, query: string, variables?: Record<string, unknown>): Promise<T> {
+async function gql<T>(
+    token: string,
+    query: string,
+    variables?: Record<string, unknown>,
+): Promise<T> {
     const body = JSON.stringify({ query, variables });
     const res = await fetch(BUFFER_API, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
         body,
     });
     const json = (await res.json()) as { data?: T; errors?: { message: string }[] };
     if (!res.ok) {
-        throw new Error(`Buffer API error: ${res.status} ${res.statusText}\n${JSON.stringify(json, null, 2)}`);
+        throw new Error(
+            `Buffer API error: ${res.status} ${res.statusText}\n${JSON.stringify(json, null, 2)}`,
+        );
     }
     if (json.errors?.length) {
-        throw new Error(`GraphQL errors: ${json.errors.map((e) => e.message).join(', ')}`);
+        throw new Error(`GraphQL errors: ${json.errors.map((e) => e.message).join(", ")}`);
     }
     return json.data!;
 }
@@ -48,7 +54,7 @@ async function gql<T>(token: string, query: string, variables?: Record<string, u
 export async function getOrganizations(token: string): Promise<Organization[]> {
     const data = await gql<{ account: { organizations: Organization[] } }>(
         token,
-        `query { account { organizations { id name } } }`
+        `query { account { organizations { id name } } }`,
     );
     return data.account.organizations;
 }
@@ -59,7 +65,7 @@ export async function getChannels(token: string, orgId: string): Promise<Channel
         `query GetChannels($input: ChannelsInput!) {
             channels(input: $input) { id name service }
         }`,
-        { input: { organizationId: orgId } }
+        { input: { organizationId: orgId } },
     );
     return data.channels;
 }
@@ -69,7 +75,7 @@ export async function getPosts(
     orgId: string,
     channelId: string,
     statuses: string[],
-    numPosts: number
+    numPosts: number,
 ): Promise<BufferPost[]> {
     const data = await gql<{
         posts: { edges: { node: BufferPost }[] };
@@ -97,7 +103,7 @@ export async function getPosts(
                 },
             },
             first: numPosts,
-        }
+        },
     );
     return data.posts.edges.map((e) => e.node);
 }

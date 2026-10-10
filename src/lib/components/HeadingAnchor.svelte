@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { HTMLAttributes } from "svelte/elements";
-    import slugify from 'slugify';
+    import type { HTMLAttributes } from "svelte/elements";
+    import slugify from "slugify";
     import LinkIcon from "@lucide/svelte/icons/link";
 
     interface Props extends HTMLAttributes<HTMLHeadingElement> {
@@ -13,12 +13,14 @@
     const id = $derived(slugify(text));
 
     function copyAnchorLink() {
-        const url = `${document.URL.split('#')[0]}#${id}`;
+        const url = `${document.URL.split("#")[0]}#${id}`;
         navigator.clipboard.writeText(url);
     }
 </script>
 
-<svelte:element this={tag} {id} {...restProps} class="heading-anchor">{text} <a href={`#${id}`} onclick={copyAnchorLink} class="anchor"><LinkIcon /></a></svelte:element>
+<svelte:element this={tag} {id} {...restProps} class="heading-anchor"
+    >{text}
+    <a href={`#${id}`} onclick={copyAnchorLink} class="anchor"><LinkIcon /></a></svelte:element>
 
 <style>
     .heading-anchor {

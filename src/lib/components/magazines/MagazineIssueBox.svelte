@@ -5,27 +5,34 @@
     import IconNotebookText from "@lucide/svelte/icons/notebook-text";
     import IconBookCopy from "@lucide/svelte/icons/book-copy";
     import IconAsterisk from "@lucide/svelte/icons/asterisk";
-	import { czechPlural, englishPlural, loc } from "$src/lib/loc";
-	import type { MagazineIssue } from "$src/lib/magdb";
-	import Box from "../Box.svelte";
-	import Loc from "../Loc.svelte";
-	import MagazineIssueVersionBox from "./MagazineIssueVersionBox.svelte";
-	import { formatPartialDate, parsePartialDate, parseCalendarId, isPartialDateDifferentOrMorePrecise } from "$src/lib/datetime";
-	import Tooltip from "sv-tooltip";
-	import Arrow from "../Arrow.svelte";
-    const { issue, issueScanTemplate }: {issue: MagazineIssue, issueScanTemplate: string | null} = $props();
+    import { czechPlural, englishPlural, loc } from "$src/lib/loc";
+    import type { MagazineIssue } from "$src/lib/magdb";
+    import Box from "../Box.svelte";
+    import Loc from "../Loc.svelte";
+    import MagazineIssueVersionBox from "./MagazineIssueVersionBox.svelte";
+    import {
+        formatPartialDate,
+        parsePartialDate,
+        parseCalendarId,
+        isPartialDateDifferentOrMorePrecise,
+    } from "$src/lib/datetime";
+    import Tooltip from "sv-tooltip";
+    import Arrow from "../Arrow.svelte";
+    const { issue, issueScanTemplate }: { issue: MagazineIssue; issueScanTemplate: string | null } =
+        $props();
 
-    const publishedDate = $derived(parsePartialDate(issue.published_day, issue.published_month, issue.published_year));
+    const publishedDate = $derived(
+        parsePartialDate(issue.published_day, issue.published_month, issue.published_year),
+    );
     const calendarDate = $derived(parseCalendarId(issue.calendar_id));
     const scanUrl = $derived(
-        issue.scan_url ?? (
-            issueScanTemplate
-            ? issueScanTemplate
-                .replace("%Y", issue.published_year?.toString() ?? "")
-                .replace("%M", issue.published_month?.toString().padStart(2, "0") ?? "")
-                .replace("%N", issue.issue_number?.toString() ?? "")
-            : null
-        )
+        issue.scan_url ??
+            (issueScanTemplate
+                ? issueScanTemplate
+                      .replace("%Y", issue.published_year?.toString() ?? "")
+                      .replace("%M", issue.published_month?.toString().padStart(2, "0") ?? "")
+                      .replace("%N", issue.issue_number?.toString() ?? "")
+                : null),
     );
 </script>
 
@@ -47,45 +54,46 @@
                     {#if calendarDate}
                         {formatPartialDate(calendarDate)}
                         {#if publishedDate && isPartialDateDifferentOrMorePrecise(calendarDate, publishedDate)}
-                            <Tooltip tip={`${loc({ cs: "datum vydání", en: "publication date" })}: ${formatPartialDate(publishedDate)}`} top>
+                            <Tooltip
+                                tip={`${loc({ cs: "datum vydání", en: "publication date" })}: ${formatPartialDate(publishedDate)}`}
+                                top>
                                 <IconAsterisk class="text-secondary" />
                             </Tooltip>
                         {/if}
                     {:else if publishedDate}
                         {formatPartialDate(publishedDate)}
                     {:else}
-                        <small class="text-secondary"><Loc cs="datum vydání neznámé" en="publication date unknown" /></small>
+                        <small class="text-secondary"
+                            ><Loc cs="datum vydání neznámé" en="publication date unknown" /></small>
                     {/if}
                 </date>
             </div>
             {#if issue.issuer}
                 <div>
                     <IconBuilding2 class="text-secondary" />
-                        <Loc
-                            cs={issue.issuer}
-                            en={issue.issuer}
-                        />
+                    <Loc cs={issue.issuer} en={issue.issuer} />
                 </div>
             {/if}
             {#if issue.page_count}
                 <div>
                     <IconBookOpenText class="text-secondary" />
-                        <Loc
-                            cs={`${issue.page_count} ${czechPlural(issue.page_count, "strana", "strany", "stran")}`}
-                            en={`${issue.page_count} ${englishPlural(issue.page_count, "page", "pages")}`}
-                        />
+                    <Loc
+                        cs={`${issue.page_count} ${czechPlural(issue.page_count, "strana", "strany", "stran")}`}
+                        en={`${issue.page_count} ${englishPlural(issue.page_count, "page", "pages")}`} />
                 </div>
             {/if}
             {#if issue.versions.length > 1}
                 <div>
                     <IconBookCopy class="text-secondary" />
-                    <Loc cs={`${issue.versions.length} verze`} en={`${issue.versions.length} versions`} />
+                    <Loc
+                        cs={`${issue.versions.length} verze`}
+                        en={`${issue.versions.length} versions`} />
                 </div>
             {/if}
             {#if issue.note}
                 <div>
                     <IconNotebookText class="text-secondary" />
-                    <span class="text-secondary"><Loc cs="Poznámka" en="Note" />:</span><br>
+                    <span class="text-secondary"><Loc cs="Poznámka" en="Note" />:</span><br />
                     {issue.note}
                 </div>
             {/if}
@@ -116,7 +124,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.2em;
-
     }
     .name-date div {
         font-size: 0.9em;
@@ -130,7 +137,7 @@
         grid-template-columns: 3.75fr 10fr;
         gap: 0.1em;
     }
-    
+
     @media (max-width: 800px) {
         .issue {
             grid-template-columns: 1fr;

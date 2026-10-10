@@ -12,13 +12,16 @@
     }
 
     const { href, img, imgDefault, inline }: Props = $props();
-
 </script>
-<a href={href} class="avatar" class:inline>
+
+<a {href} class="avatar" class:inline>
     {#if img}
         <img src={img.url} alt={img.alt ?? "Autor"} />
     {:else}
-        <img src={imgDefault?.url ?? "/images/ha_logo_secondary.png"} alt={imgDefault?.alt} class="avatar-standin">
+        <img
+            src={imgDefault?.url ?? "/images/ha_logo_secondary.png"}
+            alt={imgDefault?.alt}
+            class="avatar-standin" />
     {/if}
 </a>
 

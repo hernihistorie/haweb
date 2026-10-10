@@ -12,7 +12,6 @@ function cleanPathname(path: string): string {
 
 export function pathnameStartswith(prefix: string): boolean {
     return cleanPathname(page.url.pathname).startsWith(cleanPathname(prefix));
-
 }
 
 export function pathnameMatches(pattern: string): boolean {

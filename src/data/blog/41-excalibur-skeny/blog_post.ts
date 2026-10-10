@@ -1,16 +1,16 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from '$src/types';
-import { authors } from '$src/data/authors';
+import type { BlogPost } from "$src/types";
+import { authors } from "$src/data/authors";
 
 const blogPost: BlogPost = {
     published: true,
     id: 41,
-    slug: 'excalibur-skeny',
-    image: '/photos/blog-posts/excalibur.jpg',
+    slug: "excalibur-skeny",
+    image: "/photos/blog-posts/excalibur.jpg",
     title: {
-        cs: 'Oskenovali jsme (SKORO) celý časopis Excalibur',
-        en: 'We digitized (ALMOST) the entire Excalibur magazine'
+        cs: "Oskenovali jsme (SKORO) celý časopis Excalibur",
+        en: "We digitized (ALMOST) the entire Excalibur magazine",
     },
     date: new Temporal.PlainDate(2025, 3, 4),
     // english_translation_date: new Temporal.PlainDate(2025, 12, 11),
@@ -21,8 +21,8 @@ const blogPost: BlogPost = {
         `,
         en: `
             The Excalibur magazine, the zeroth issue of which was published in 1990, was one of the first magazines about video games published in our country, and many significant figures in game journalism began their careers there, including Jakub Červinka, Jan Eisler, Andrej Anastasov, Tomáš Mrkvička, Jan Tománek, and others. We have digitized almost the entire magazine and made it available online.
-        `
-    }
+        `,
+    },
 };
 
 export default blogPost;

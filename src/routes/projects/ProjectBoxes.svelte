@@ -1,31 +1,47 @@
 <script lang="ts">
-	import ThinBox from '$lib/components/ThinBox.svelte';
+    import ThinBox from "$lib/components/ThinBox.svelte";
     import Loc from "$lib/components/Loc.svelte";
-    import type { Project } from '$src/types';
-	import { localizeHref } from '$lib/paraglide/runtime';
+    import type { Project } from "$src/types";
+    import { localizeHref } from "$lib/paraglide/runtime";
 
-    import { projectProgramyZCST } from './programy-z-cst/project';
-    import { projectBewesoft } from './bewesoft/project';
-    import { projectAtariKlubCitov } from './atari-klub-citov/project';
-    import { projectVideostop } from './videostop/project';
-    import { projectEmilFafek } from '../gallery/emil-fafek/project';
-    import { projectOuya } from './ouya/project';
-    import { projectFrantisekStarekCunas } from './frantisek-starek-cunas/project';
+    import { projectProgramyZCST } from "./programy-z-cst/project";
+    import { projectBewesoft } from "./bewesoft/project";
+    import { projectAtariKlubCitov } from "./atari-klub-citov/project";
+    import { projectVideostop } from "./videostop/project";
+    import { projectEmilFafek } from "../gallery/emil-fafek/project";
+    import { projectOuya } from "./ouya/project";
+    import { projectFrantisekStarekCunas } from "./frantisek-starek-cunas/project";
     interface Props {
         all: boolean;
     }
 
     let { all }: Props = $props();
 
-    const homepageProjects: Project[] = [projectFrantisekStarekCunas, projectProgramyZCST, projectBewesoft, projectAtariKlubCitov];
-    const allProjects: Project[] = [projectFrantisekStarekCunas, projectProgramyZCST, projectBewesoft, projectAtariKlubCitov, projectVideostop, projectEmilFafek, projectOuya];
+    const homepageProjects: Project[] = [
+        projectFrantisekStarekCunas,
+        projectProgramyZCST,
+        projectBewesoft,
+        projectAtariKlubCitov,
+    ];
+    const allProjects: Project[] = [
+        projectFrantisekStarekCunas,
+        projectProgramyZCST,
+        projectBewesoft,
+        projectAtariKlubCitov,
+        projectVideostop,
+        projectEmilFafek,
+        projectOuya,
+    ];
 </script>
 
-<div class=project-box>
-    {#each (all ? allProjects : homepageProjects) as project}
+<div class="project-box">
+    {#each all ? allProjects : homepageProjects as project}
         <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
             <h3>
-                <a href={project.url && project.url.startsWith('/') ? localizeHref(project.url) : project.url}>
+                <a
+                    href={project.url && project.url.startsWith("/")
+                        ? localizeHref(project.url)
+                        : project.url}>
                     <Loc text={project.name} />
                 </a>
             </h3>
@@ -34,7 +50,7 @@
     {/each}
 </div>
 
-<style> 
+<style>
     .project-box {
         display: flex;
         flex-wrap: wrap;

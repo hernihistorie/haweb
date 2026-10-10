@@ -1,21 +1,21 @@
 <script lang="ts">
-	import Meta from './layout/Meta.svelte';
-    import type { LocalizedString } from '$src/types';
+    import Meta from "./layout/Meta.svelte";
+    import type { LocalizedString } from "$src/types";
 
     interface Props {
         title: LocalizedString;
         published: boolean;
-        side?: import('svelte').Snippet;
-        content?: import('svelte').Snippet;
+        side?: import("svelte").Snippet;
+        content?: import("svelte").Snippet;
         stickySide?: boolean;
         class?: string;
     }
 
-    let { title, published, side, content, stickySide=false, class: className }: Props = $props();
+    let { title, published, side, content, stickySide = false, class: className }: Props = $props();
 </script>
 
 {#if published}
-    <Meta title={title}/>
+    <Meta {title} />
 {:else}
     <Meta title={""} noindex={true} />
 {/if}
@@ -46,7 +46,7 @@
         padding-right: 8px;
         padding-bottom: 4em;
         overflow-y: scroll;
-        
+
         margin-left: 100px;
         max-width: 260px;
         display: flex;
@@ -63,26 +63,28 @@
         margin-left: 24px;
         max-width: 700px;
     }
-    
+
     .content > :global(h2) {
         margin-top: 0;
         text-transform: uppercase;
     }
-    
+
     .content > :global(p:first-of-type) {
         font-size: 120%;
     }
-    
+
     .content :global(img) {
         max-width: 100%;
     }
 
-    .side :global(img), .side :global(author), .side :global(date) {
+    .side :global(img),
+    .side :global(author),
+    .side :global(date) {
         display: block;
     }
 
-	@media screen and (max-width: 1200px) {
-		article {
+    @media screen and (max-width: 1200px) {
+        article {
             display: block;
             margin-top: 1em;
         }
@@ -95,7 +97,7 @@
             text-align: center;
             width: 100%;
         }
-	}
+    }
 
     @media only screen and (max-width: 800px) {
         .content {

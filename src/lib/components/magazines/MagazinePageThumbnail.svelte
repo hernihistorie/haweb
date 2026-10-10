@@ -1,13 +1,11 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
-	import type { MagDBFile } from "$src/lib/magdb";
-	import { openLightbox } from "$src/lib/lightbox";
-	import { loc } from '$src/lib/loc';
+    import Lazy from "svelte-lazy";
+    import type { MagDBFile } from "$src/lib/magdb";
+    import { openLightbox } from "$src/lib/lightbox";
+    import { loc } from "$src/lib/loc";
 
-    const { page }: {page?: MagDBFile} = $props();
+    const { page }: { page?: MagDBFile } = $props();
 </script>
-
-
 
 <div class="page-wrapper">
     {#if page}
@@ -16,18 +14,19 @@
             target="_blank"
             aria-label={loc({ cs: "Zvětšit sken", en: "Enlarge scan" })}
             data-pswp
-            onclick={openLightbox}
-        >
+            onclick={openLightbox}>
             <Lazy keep={true} height="204px">
-                <img class="thumb" src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path} alt="" />
+                <img
+                    class="thumb"
+                    src={"https://casopisy.herniarchiv.cz/" + page.thumbnail_path}
+                    alt="" />
             </Lazy>
         </a>
     {:else}
         <img
             src="https://casopisy.herniarchiv.cz/static/magdb/missing-a4.png"
             class="thumb missing-scan"
-            alt={loc({cs:"nemáme sken", en:"no scan"})}
-        />
+            alt={loc({ cs: "nemáme sken", en: "no scan" })} />
     {/if}
 </div>
 

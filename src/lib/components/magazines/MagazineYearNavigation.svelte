@@ -1,12 +1,15 @@
 <script lang="ts">
     import { MAGDB_ORIGIN } from "$src/lib/magdb";
-    import Loc from '$src/lib/components/Loc.svelte';
-	import Logo from '$src/lib/components/Logo.svelte';
-	import PipeList from '$src/lib/components/PipeList.svelte';
-	import type { MagazineInfo } from '$src/lib/magdb';
+    import Loc from "$src/lib/components/Loc.svelte";
+    import Logo from "$src/lib/components/Logo.svelte";
+    import PipeList from "$src/lib/components/PipeList.svelte";
+    import type { MagazineInfo } from "$src/lib/magdb";
 
-	let { magazine, years, displayedYear }: { magazine: MagazineInfo, years: string[] | null, displayedYear: string | null } = $props();
-    
+    let {
+        magazine,
+        years,
+        displayedYear,
+    }: { magazine: MagazineInfo; years: string[] | null; displayedYear: string | null } = $props();
 </script>
 
 <div class="logo-years">
@@ -24,9 +27,9 @@
                 {#each years as year}
                     <li class="year" class:active={displayedYear === year}>
                         <a href={displayedYear === year ? `?` : `?year=${year}`}>
-                            {#if year === 'None'}
+                            {#if year === "None"}
                                 <Loc cs="zbytek" en="the rest" />
-                            {:else if year === 'Speciály'}
+                            {:else if year === "Speciály"}
                                 <Loc cs="speciály" en="specials" />
                             {:else}
                                 {year}
@@ -78,4 +81,3 @@
         }
     }
 </style>
-

@@ -6,7 +6,7 @@
 // Table of Content Types
 
 export interface TOCHeadingLink {
-	element: string;
-	id: string;
-	text: string;
+    element: string;
+    id: string;
+    text: string;
 }

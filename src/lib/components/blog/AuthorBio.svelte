@@ -1,16 +1,15 @@
 <script lang="ts">
-	import Loc from '$src/lib/components/Loc.svelte';
-	import { localizeHref } from '$src/lib/paraglide/runtime';
-	import AuthorMedaillon from '$src/lib/components/blog/AuthorMedaillon.svelte';
-	import type { Author } from '$src/types';
+    import Loc from "$src/lib/components/Loc.svelte";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
+    import AuthorMedaillon from "$src/lib/components/blog/AuthorMedaillon.svelte";
+    import type { Author } from "$src/types";
 
-	let { author, secondary=false }: { author: Author; secondary?: boolean } = $props();
+    let { author, secondary = false }: { author: Author; secondary?: boolean } = $props();
 </script>
-
 
 <section class="author-header">
     <div class="author-medaillon">
-        <AuthorMedaillon author={author} />
+        <AuthorMedaillon {author} />
     </div>
     <div class="bio">
         <a href={localizeHref("/blog")} class="backlink" data-pagefind-ignore>
@@ -20,16 +19,17 @@
             <h2>
                 <Loc
                     cs={`Blogové příspěvky od ${author.nameGenitive}`}
-                    en={`Blog posts from ${author.name}`}
-                />
+                    en={`Blog posts from ${author.name}`} />
             </h2>
         {:else}
             <h3>
-                <a href={localizeHref(`/blog/authors/${author.slug}`)} class="backlink" data-pagefind-ignore>
+                <a
+                    href={localizeHref(`/blog/authors/${author.slug}`)}
+                    class="backlink"
+                    data-pagefind-ignore>
                     <Loc
                         cs={`Blogové příspěvky od ${author.nameGenitive}`}
-                        en={`Blog posts from ${author.name}`}
-                    />
+                        en={`Blog posts from ${author.name}`} />
                 </a>
             </h3>
         {/if}
@@ -42,7 +42,8 @@
 </section>
 
 <style>
-    h2, h3 {
+    h2,
+    h3 {
         margin-top: 0.2em;
         margin-bottom: 0.4em;
     }
@@ -56,7 +57,6 @@
         flex-shrink: 0;
     }
 
-
     @media (max-width: 600px) {
         .author-header {
             flex-direction: column;
@@ -67,4 +67,3 @@
         }
     }
 </style>
-

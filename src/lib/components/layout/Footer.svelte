@@ -1,7 +1,7 @@
 <script>
-    import Loc from '$lib/components/Loc.svelte';
-    import { localizeHref } from '$lib/paraglide/runtime';
-	import BulletPoint from '../BulletPoint.svelte';
+    import Loc from "$lib/components/Loc.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    import BulletPoint from "../BulletPoint.svelte";
 </script>
 
 <footer data-pagefind-ignore>
@@ -18,8 +18,7 @@
         <p>
             <Loc
                 cs="Herní archiv je projektem <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-                en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>"
-            />
+                en="Herní archiv is a project of <a href='https://hernihistorie.cz/'>Herní Historie, z. s.</a>" />
         </p>
 
         <p>
@@ -33,7 +32,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-		padding: 0 16px 0 16px;
+        padding: 0 16px 0 16px;
     }
 
     footer {
@@ -42,7 +41,7 @@
         text-align: right;
         font-size: smaller;
 
-		text-transform: uppercase;
+        text-transform: uppercase;
     }
 
     @media screen and (max-width: 850px) {

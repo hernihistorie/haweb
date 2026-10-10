@@ -1,6 +1,6 @@
 <script lang="ts">
     import SocialMediaLink from "$lib/components/layout/SocialMediaLinks/SocialMediaLink.svelte";
-	import SocialMediaLinks from "$src/lib/components/layout/SocialMediaLinks/SocialMediaLinks.svelte";
+    import SocialMediaLinks from "$src/lib/components/layout/SocialMediaLinks/SocialMediaLinks.svelte";
     import ProfilePage, { type ProfileData } from "$src/lib/components/ProfilePage.svelte";
 
     const profile: ProfileData = {
@@ -25,11 +25,18 @@
         <dd>
             <SocialMediaLinks>
                 <SocialMediaLink href="https://bsky.app/profile/sanqui.net" title="Bluesky" />
-                <SocialMediaLink href="https://discord.com/users/83101988983668736" title="Discord" />
+                <SocialMediaLink
+                    href="https://discord.com/users/83101988983668736"
+                    title="Discord" />
                 <SocialMediaLink href="https://sanqui.net/" title="Web" />
             </SocialMediaLinks>
         </dd>
     </dl>
-    <hr>
-    <p>Byl jsem u toho, když se zakládala jak RetroHerna, tak Herní archiv.  Nejvíce mě baví pracovat na našem <a href="https://inventory.herniarchiv.cz/">inventárním systému</a>, ze kterého bych rád vyvinul aplikaci pro všechny.  Také se specializuji přes digitalizaci disket.</p>
+    <hr />
+    <p>
+        Byl jsem u toho, když se zakládala jak RetroHerna, tak Herní archiv. Nejvíce mě baví
+        pracovat na našem <a href="https://inventory.herniarchiv.cz/">inventárním systému</a>, ze
+        kterého bych rád vyvinul aplikaci pro všechny. Také se specializuji přes digitalizaci
+        disket.
+    </p>
 </ProfilePage>

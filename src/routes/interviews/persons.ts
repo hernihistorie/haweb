@@ -3,17 +3,17 @@ import type { Person } from "$src/types";
 export const RS: Person = {
     name: "Rudolf Jan Suchý",
     shortname: "RS",
-    color: "darkred"
-}
+    color: "darkred",
+};
 
 export const AT: Person = {
     name: "Agáta Trlidová",
     shortname: "AT",
-    color: "red"
-}
+    color: "red",
+};
 
 export const VS: Person = {
     name: "Vojtěch Straka",
     shortname: "VS",
-    color: "darkgreen"
-}
+    color: "darkgreen",
+};

@@ -1,14 +1,14 @@
 <script lang="ts">
-    import { afterNavigate, replaceState } from '$app/navigation';
-    import { page } from '$app/state';
-    import { localizeHref } from '$lib/paraglide/runtime';
-    import type { EmbeddedApp } from '$src/lib/embedded';
-    import type { Attachment } from 'svelte/attachments';
+    import { afterNavigate, replaceState } from "$app/navigation";
+    import { page } from "$app/state";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    import type { EmbeddedApp } from "$src/lib/embedded";
+    import type { Attachment } from "svelte/attachments";
 
     let {
         app,
         src,
-        title = $bindable('')
+        title = $bindable(""),
     }: {
         app: EmbeddedApp;
         /** Initial frame URL, under `app.framePrefix` */
@@ -24,7 +24,7 @@
     // but not when layout data is merely invalidated
     let navigationCount = $state(0);
     afterNavigate(({ type }) => {
-        if (type !== 'enter') navigationCount++;
+        if (type !== "enter") navigationCount++;
     });
 
     /** Haweb URL of the page shown in the frame. */
@@ -61,7 +61,7 @@
                 height = Math.ceil(doc.documentElement.getBoundingClientRect().height);
             }).observe(doc.documentElement);
 
-            win.addEventListener('beforeunload', () => {
+            win.addEventListener("beforeunload", () => {
                 loading = true;
                 // Downloads don't replace the page, so no load event would follow
                 setTimeout(() => (loading = false), 10_000);
@@ -74,20 +74,26 @@
             navigated = true;
         };
 
-        iframe.addEventListener('load', onload);
+        iframe.addEventListener("load", onload);
 
         const themeObserver = new MutationObserver(() => {
             if (iframe.contentDocument) syncTheme(iframe.contentDocument);
         });
-        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        themeObserver.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-theme"],
+        });
 
         // The frame may have finished loading before hydration
-        if (iframe.contentWindow?.location.href !== 'about:blank' && iframe.contentDocument?.readyState === 'complete') {
+        if (
+            iframe.contentWindow?.location.href !== "about:blank" &&
+            iframe.contentDocument?.readyState === "complete"
+        ) {
             setTimeout(onload);
         }
 
         return () => {
-            iframe.removeEventListener('load', onload);
+            iframe.removeEventListener("load", onload);
             themeObserver.disconnect();
         };
     };
@@ -99,8 +105,7 @@
         {title}
         class:loading
         style:height={height ? `${height}px` : undefined}
-        {@attach frame}
-    ></iframe>
+        {@attach frame}></iframe>
 {/key}
 
 <style>

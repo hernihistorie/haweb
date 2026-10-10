@@ -1,23 +1,23 @@
 <script lang="ts">
-	import Post from "../Post.svelte";
+    import Post from "../Post.svelte";
     import Loc from "../Loc.svelte";
     import type { BlogPost, BlogPostSeries } from "$src/types";
-	import { getContext, setContext, type Snippet } from "svelte";
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
-    import { FootnoteHolder, setFootnoteContext } from '../footnote/context';
-	import Footnotes from "../footnote/Footnotes.svelte";
-	import AuthorMedaillon from "./AuthorMedaillon.svelte";
-	import BulletPoint from "../BulletPoint.svelte";
-	import AuthorBio from "./AuthorBio.svelte";
-	import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
-	import { Temporal } from '@js-temporal/polyfill';
-	import { loc } from "$src/lib/loc";
-	import { data } from "$src/routes/assets/asset_07392";
+    import { getContext, setContext, type Snippet } from "svelte";
+    import { getLocale, localizeHref } from "$lib/paraglide/runtime";
+    import { FootnoteHolder, setFootnoteContext } from "../footnote/context";
+    import Footnotes from "../footnote/Footnotes.svelte";
+    import AuthorMedaillon from "./AuthorMedaillon.svelte";
+    import BulletPoint from "../BulletPoint.svelte";
+    import AuthorBio from "./AuthorBio.svelte";
+    import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
+    import { Temporal } from "@js-temporal/polyfill";
+    import { loc } from "$src/lib/loc";
+    import { data } from "$src/routes/assets/asset_07392";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
-	setContext('article', {footnotes: []});
-    const articleContext = getContext('article');
+    setContext("article", { footnotes: [] });
+    const articleContext = getContext("article");
 
     interface Props {
         post: BlogPost;
@@ -25,50 +25,53 @@
         children?: Snippet;
     }
 
-    let {
-        post,
-        series,
-        children
-    }: Props = $props();
+    let { post, series, children }: Props = $props();
 
     const postYear = $derived(post.date?.year);
-    const isOlderThanAYear = $derived(post.date
-        ? Temporal.PlainDate.from(post.date).until(Temporal.Now.plainDateISO()).total('days') > 365
-        : false);
-    const blogHref = $derived(isOlderThanAYear && postYear
-        ? localizeHref(`/blog/${postYear}`)
-        : localizeHref('/blog'));
+    const isOlderThanAYear = $derived(
+        post.date
+            ? Temporal.PlainDate.from(post.date).until(Temporal.Now.plainDateISO()).total("days") >
+                  365
+            : false,
+    );
+    const blogHref = $derived(
+        isOlderThanAYear && postYear ? localizeHref(`/blog/${postYear}`) : localizeHref("/blog"),
+    );
 </script>
 
 {#snippet backlinks()}
     <a href={blogHref} class="backlink" data-pagefind-ignore>
-        <Loc cs="Blog Herního archivu" en="Czechoslovak Game Archive Blog" />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
+        <Loc
+            cs="Blog Herního archivu"
+            en="Czechoslovak Game Archive Blog" />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
     </a>
-    {#if !post.author.isDefault }
+    {#if !post.author.isDefault}
         <BulletPoint />
-        <a href={localizeHref(`/blog/authors/${post.author.slug}`)} class="backlink" data-pagefind-ignore>
+        <a
+            href={localizeHref(`/blog/authors/${post.author.slug}`)}
+            class="backlink"
+            data-pagefind-ignore>
             <Loc
                 cs={`Blogové příspěvky od ${post.author.nameGenitive}`}
-                en={`Blog posts from ${post.author.name}`}
-            />
+                en={`Blog posts from ${post.author.name}`} />
         </a>
     {/if}
 {/snippet}
 
 <svelte:head>
-    <meta property="og:title" content="{loc(post.title)}" />
+    <meta property="og:title" content={loc(post.title)} />
     <meta property="og:type" content="article" />
-    <meta property="og:article:author" content="{loc(post.author.name)}" />
+    <meta property="og:article:author" content={loc(post.author.name)} />
     {#if post.date}
-        <meta property="og:article:published_time" content="{post.date.toString()}" />
+        <meta property="og:article:published_time" content={post.date.toString()} />
     {/if}
     {#if post.description_html}
-        <meta property="og:description" content="{loc(post.description_html)}" />
+        <meta property="og:description" content={loc(post.description_html)} />
     {/if}
     {#if post.image}
-        <meta property="og:image" content="{post.image}" data-pagefind-meta="image[content]" />
+        <meta property="og:image" content={post.image} data-pagefind-meta="image[content]" />
     {/if}
-    <meta property="og:locale" content="{getLocale()}" />
+    <meta property="og:locale" content={getLocale()} />
 </svelte:head>
 
 <Post title={post.title} published={post.published ?? false}>
@@ -81,21 +84,24 @@
                         {post.date.day}.&nbsp;{post.date.month}.&nbsp;{post.date.year}
                     </date>
                 {/if}
-                {#if getLocale() == 'en' && post.english_translation_date}
+                {#if getLocale() == "en" && post.english_translation_date}
                     <br />
-                    Translation:<br>
-                    {post.english_translation_date.day}.&nbsp;{post.english_translation_date.month}.&nbsp;{post.english_translation_date.year}
+                    Translation:<br />
+                    {post.english_translation_date.day}.&nbsp;{post.english_translation_date
+                        .month}.&nbsp;{post.english_translation_date.year}
                 {/if}
             </div>
         </div>
     {/snippet}
     {#snippet content()}
         <div>
-            {@render backlinks() }
+            {@render backlinks()}
             {#if !post.published || (post.date && Temporal.PlainDateTime.compare(post.date, Temporal.Now.plainDateTimeISO()) > 0)}
                 <div class="unpublished-notice">
                     <CircleAlertIcon />
-                    <Loc cs="Tento příspěvek zatím není publikován." en="This post is not published yet." />
+                    <Loc
+                        cs="Tento příspěvek zatím není publikován."
+                        en="This post is not published yet." />
                 </div>
             {/if}
             <h2>
@@ -134,15 +140,15 @@
                 </div>
             {/each}
             {#if footnotes.footnotes.length > 0}
-                <hr>
+                <hr />
                 <Footnotes />
             {/if}
         </div>
-        <hr style="margin: 2em 0;">
-        {#if !post.author.isDefault }
+        <hr style="margin: 2em 0;" />
+        {#if !post.author.isDefault}
             <AuthorBio author={post.author} secondary />
         {:else}
-            {@render backlinks() }
+            {@render backlinks()}
         {/if}
     {/snippet}
 </Post>

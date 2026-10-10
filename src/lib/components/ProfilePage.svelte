@@ -3,7 +3,7 @@
     import Arrow from "$lib/components/Arrow.svelte";
     import Avatar from "$lib/components/Avatar.svelte";
     import { localizeHref } from "$lib/paraglide/runtime";
-	import Meta from "./layout/Meta.svelte";
+    import Meta from "./layout/Meta.svelte";
 
     export interface ProfileData {
         name: string;
@@ -48,12 +48,13 @@
         </section>
     </div>
     {#if profile.blogHref}
-        <Arrow href={profile.blogHref}>{profile.blogLabel ?? `Blogové příspěvky od ${profile.name}`}</Arrow>
+        <Arrow href={profile.blogHref}
+            >{profile.blogLabel ?? `Blogové příspěvky od ${profile.name}`}</Arrow>
     {/if}
     {#if trailer}
         {@render trailer()}
     {/if}
-    <a href={localizeHref('/profiles')} class="backlink">Členové spolku a komunity</a>
+    <a href={localizeHref("/profiles")} class="backlink">Členové spolku a komunity</a>
 </article>
 
 <style>

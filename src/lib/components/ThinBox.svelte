@@ -1,20 +1,29 @@
 <script lang="ts">
-	import Arrow from '$src/lib/components/Arrow.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
-    let { href = undefined, title = undefined, children, show_arrow=true, img=undefined, project=false } = $props();
+    import Arrow from "$src/lib/components/Arrow.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    let {
+        href = undefined,
+        title = undefined,
+        children,
+        show_arrow = true,
+        img = undefined,
+        project = false,
+    } = $props();
 
-    let localizedHref = $derived(href && href.startsWith('/') && !href.startsWith('//') ? localizeHref(href) : href);
+    let localizedHref = $derived(
+        href && href.startsWith("/") && !href.startsWith("//") ? localizeHref(href) : href,
+    );
 </script>
 
 <div class="project">
     {#if img}
-        <a href="{localizedHref}">
+        <a href={localizedHref}>
             <img src={img} alt={title} />
         </a>
     {/if}
     {#if title}
         <h3>
-            <a href="{localizedHref}">
+            <a href={localizedHref}>
                 {title}
             </a>
         </h3>
@@ -22,7 +31,7 @@
     {@render children?.()}
     {#if show_arrow}
         <div style="margin-top: 16px;">
-            <Arrow href={href} />
+            <Arrow {href} />
         </div>
     {/if}
 </div>
@@ -49,24 +58,24 @@
     }
 
     @media screen and (max-width: 1300px) {
-		.project {
-			width: calc(33% - 13px);
-		}
-	}
+        .project {
+            width: calc(33% - 13px);
+        }
+    }
     @media screen and (max-width: 1145px) {
-		.project {
-			width: calc(50% - 13px);
-		}
-	}
+        .project {
+            width: calc(50% - 13px);
+        }
+    }
 
     @media screen and (max-width: 850px) {
-		.project {
-			width: 100%;
-		}
-	}
+        .project {
+            width: 100%;
+        }
+    }
     @media screen and (max-width: 470px) {
-		img {
-			width: 10%;
-		}
-	}
+        img {
+            width: 10%;
+        }
+    }
 </style>

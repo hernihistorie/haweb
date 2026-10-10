@@ -1,10 +1,13 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
-	import type { Logo } from "$src/lib/logo";
+    import Lazy from "svelte-lazy";
+    import type { Logo } from "$src/lib/logo";
 
-    const data: {logo: Logo, title: string, origin?: string} = $props();
+    const data: { logo: Logo; title: string; origin?: string } = $props();
 
-    function prefixUrlWithOrigin(url: string | undefined, origin: string | undefined): string | undefined {
+    function prefixUrlWithOrigin(
+        url: string | undefined,
+        origin: string | undefined,
+    ): string | undefined {
         if (!url) return undefined;
         if (!origin) return url;
         if (url.startsWith("http://") || url.startsWith("https://")) return url;
@@ -16,8 +19,7 @@
     <img
         src={prefixUrlWithOrigin(data.logo.url, data.origin)}
         alt={data.title + " - Logo"}
-        class={`logo logo-bg-${data.logo.background_color}`}
-    >
+        class={`logo logo-bg-${data.logo.background_color}`} />
 </Lazy>
 
 <style>

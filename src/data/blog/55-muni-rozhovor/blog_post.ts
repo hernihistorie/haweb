@@ -1,21 +1,21 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from '$src/types';
-import { authors } from '$src/data/authors';
+import type { BlogPost } from "$src/types";
+import { authors } from "$src/data/authors";
 
 const blogPost: BlogPost = {
     published: true,
     id: 55,
-    slug: 'muni-rozhovor',
-    image: '/photos/blog-posts/rozhovor_muni.jpg',
+    slug: "muni-rozhovor",
+    image: "/photos/blog-posts/rozhovor_muni.jpg",
     title: {
-        cs: 'Rozhovor s našema dvěma členy na téma digitalizace'
+        cs: "Rozhovor s našema dvěma členy na téma digitalizace",
     },
     date: new Temporal.PlainDate(2025, 8, 4),
     author: authors.HerniHistorie,
     description_html: `
         Na posledním Game Accessu byli naši dva členové - Rudolf Jan Suchý a Martin Štochl - osloveni Natalií Čornyjovou z MUNI ohledně rozhovoru na téma digitalizace všeho od nosičů digitálních dat až po archiválie jako jsou třeba časopisy.
-    `
+    `,
 };
 
 export default blogPost;

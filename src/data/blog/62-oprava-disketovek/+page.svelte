@@ -6,9 +6,18 @@
 <PageLang cs />
 
 <section>
-    <p>Pro zálohování disket se starými hrami nebo nezazálohovanými daty je v první řadě potřeba mít disketovku. Ačkoliv 5,25" disketovky nejsou zdaleka tak nedostatkové zboží jako ty 8", tak už shání daleko hůře než pár let nazpět. Proto Lukáš Nevařil udělal velkou revizi všech našich disketovek. Kromě toho také jednu disketovku upravil tak, aby mohla číst flipppy-diskety, které se používaly třeba na Commodoru 64 (disketovka s páčkou) nebo starou disketovku z Robotronu.
-    <p>(Foto od: Tomáš "Čápa" Čapek, Lukáš Nevařil, Rudolf Jan Suchý)
-    <Figure src="/photos/blog-posts/disketovky_1.jpg" alt="Hromada 5,25-palcových disketovek" />
-    <Figure src="/photos/blog-posts/disketovky_2.jpg" />
-    <Figure src="/photos/blog-posts/disketovky_3.jpg" />
+    <p>
+        Pro zálohování disket se starými hrami nebo nezazálohovanými daty je v první řadě potřeba
+        mít disketovku. Ačkoliv 5,25" disketovky nejsou zdaleka tak nedostatkové zboží jako ty 8",
+        tak už shání daleko hůře než pár let nazpět. Proto Lukáš Nevařil udělal velkou revizi všech
+        našich disketovek. Kromě toho také jednu disketovku upravil tak, aby mohla číst
+        flipppy-diskety, které se používaly třeba na Commodoru 64 (disketovka s páčkou) nebo starou
+        disketovku z Robotronu.
+    </p>
+    <p>
+        (Foto od: Tomáš "Čápa" Čapek, Lukáš Nevařil, Rudolf Jan Suchý)
+        <Figure src="/photos/blog-posts/disketovky_1.jpg" alt="Hromada 5,25-palcových disketovek" />
+        <Figure src="/photos/blog-posts/disketovky_2.jpg" />
+        <Figure src="/photos/blog-posts/disketovky_3.jpg" />
+    </p>
 </section>

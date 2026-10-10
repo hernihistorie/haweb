@@ -9,17 +9,13 @@ const PongXD8001Series: BlogPostSeries = {
     slug: PONG_XD8001_SERIES_SLUG,
     title: {
         cs: "O televizní hře Tesla XD-8001",
-        en: "Tesla XD-8001 television game"
+        en: "Tesla XD-8001 television game",
     },
     // description: {
     //     cs: "Série článků o vnitřnostech televizní hry Tesla XD-8001.",
     //     en: "A series of blog posts about the insides of the Tesla XD-8001 television game."
     // },
-    blogPosts: [
-        blogPost67,
-        blogPost70,
-        blogPost72
-    ]
+    blogPosts: [blogPost67, blogPost70, blogPost72],
 };
 
 export default PongXD8001Series;

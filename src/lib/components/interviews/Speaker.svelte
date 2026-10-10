@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Person } from "$src/types";
-    import Tooltip from "sv-tooltip"
+    import type { Person } from "$src/types";
+    import Tooltip from "sv-tooltip";
 
     interface Props {
         speaker?: Person;
@@ -11,7 +11,10 @@
 </script>
 
 {#if speaker}
-    <strong><Tooltip tip={speaker.name} top><span style="color: {speaker.color || 'default'};">{ speaker.shortname }</span></Tooltip>{withColon ? ':' : ''}</strong>
+    <strong
+        ><Tooltip tip={speaker.name} top
+            ><span style="color: {speaker.color || 'default'};">{speaker.shortname}</span></Tooltip
+        >{withColon ? ":" : ""}</strong>
 {/if}
 
 <style>

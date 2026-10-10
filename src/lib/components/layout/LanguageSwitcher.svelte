@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { setLocale, getLocale } from '$lib/paraglide/runtime';
+    import { setLocale, getLocale } from "$lib/paraglide/runtime";
 </script>
 
 <div>
-    {#if getLocale() == 'cs'}
-        <button class="link" onclick={() => setLocale('en')}>EN</button>
+    {#if getLocale() == "cs"}
+        <button class="link" onclick={() => setLocale("en")}>EN</button>
     {:else}
-        <button class="link" onclick={() => setLocale('cs')}>CS</button>
+        <button class="link" onclick={() => setLocale("cs")}>CS</button>
     {/if}
 </div>
 
@@ -17,17 +17,17 @@
         justify-content: center;
         height: 100%;
     }
-	button {
+    button {
         user-select: none;
-		color: inherit;
-		text-transform: uppercase;
-		text-decoration: none;
-		white-space: nowrap;
+        color: inherit;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
         cursor: pointer;
         font-size: 100%;
         min-width: 1.5em;
         text-align: right;
-	}
+    }
 
     button:hover {
         text-decoration: underline;

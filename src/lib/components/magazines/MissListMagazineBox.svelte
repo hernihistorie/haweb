@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Box from "../Box.svelte";
-	import MagazineBlock from "./MagazineBlock.svelte";
-	import BulletPoint from "../BulletPoint.svelte";
-	import MagazineIssueVersionNameSuffix from "./MagazineIssueVersionNameSuffix.svelte";
-	import IssueStatus from "./IssueStatus.svelte";
-	import type { MissListMagazine } from "$src/lib/magdb";
-	import Loc from "../Loc.svelte";
+    import Box from "../Box.svelte";
+    import MagazineBlock from "./MagazineBlock.svelte";
+    import BulletPoint from "../BulletPoint.svelte";
+    import MagazineIssueVersionNameSuffix from "./MagazineIssueVersionNameSuffix.svelte";
+    import IssueStatus from "./IssueStatus.svelte";
+    import type { MissListMagazine } from "$src/lib/magdb";
+    import Loc from "../Loc.svelte";
 
-    const { magazine }: {magazine: MissListMagazine} = $props();
+    const { magazine }: { magazine: MissListMagazine } = $props();
 
     let showAllIssues = $derived(magazine.missing_issues.length <= 5);
 </script>
@@ -23,22 +23,21 @@
                         <BulletPoint />
                     </span>
                     <span>
-                        {#if issue.name_suffix.toLowerCase() == 'standard'}
+                        {#if issue.name_suffix.toLowerCase() == "standard"}
                             verze časopisu bez přílohy
                         {:else}
                             <MagazineIssueVersionNameSuffix nameSuffix={issue.name_suffix} />
                         {/if}
                     </span>
-                    <br>
+                    <br />
                     <IssueStatus status={issue.status} />
                 </li>
             {/each}
             {#if !showAllIssues}
-                <button class="link show-more" onclick={() => showAllIssues = true}>
+                <button class="link show-more" onclick={() => (showAllIssues = true)}>
                     <Loc
                         cs={`Prohlédnout všech ${magazine.missing_issues.length} chybějících čísel`}
-                        en={`View all ${magazine.missing_issues.length} missing issues`}
-                    />
+                        en={`View all ${magazine.missing_issues.length} missing issues`} />
                 </button>
             {/if}
         </ul>

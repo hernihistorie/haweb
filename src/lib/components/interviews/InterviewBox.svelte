@@ -1,28 +1,28 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
+    import Lazy from "svelte-lazy";
     import type { InterviewData } from "$src/types";
-	import Box from "$lib/components/Box.svelte";
-	import Loc from "$lib/components/Loc.svelte";
-	import { localizeHref } from '$lib/paraglide/runtime';
-	import BulletPoint from "$lib/components/BulletPoint.svelte";
-	import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
-	import PersonImage from "./PersonImage.svelte";
+    import Box from "$lib/components/Box.svelte";
+    import Loc from "$lib/components/Loc.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    import BulletPoint from "$lib/components/BulletPoint.svelte";
+    import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
+    import PersonImage from "./PersonImage.svelte";
     interface Props {
         data: InterviewData;
         compact?: boolean;
     }
 
-    let { data, compact=false }: Props = $props();
+    let { data, compact = false }: Props = $props();
 </script>
 
 <Box decoration={!compact}>
-    <div class="interview interview-status-{ data.status } { compact ? 'compact' : '' }">
+    <div class="interview interview-status-{data.status} {compact ? 'compact' : ''}">
         <div>
             <h3>
                 <a href={localizeHref("/interviews/" + data.slug)}>
-                    <Loc text={ data.title } />
+                    <Loc text={data.title} />
                 </a>
-                <br>
+                <br />
                 <InterviewStatusCapsule status={data.status} />
             </h3>
             {#if compact}
@@ -37,16 +37,17 @@
                     {#if data.interview.date}
                         <strong>
                             <Loc cs="Datum" en="Date" />:
-                        </strong> 
+                        </strong>
                         <date>
-                            { data.interview.date.toLocaleString("cs-CZ") }
+                            {data.interview.date.toLocaleString("cs-CZ")}
                         </date>
                     {/if}
                     {#if data.interview.length}
                         <BulletPoint />
                         <strong>
                             <Loc cs="Délka" en="Length" />:
-                        </strong> { data.interview.length || "???" }
+                        </strong>
+                        {data.interview.length || "???"}
                     {/if}
                 </p>
             {/if}
@@ -58,8 +59,7 @@
                         <PersonImage
                             image={data.narrator.photo}
                             sepia={data.status !== "published"}
-                            alt={data.narrator.name}
-                        />
+                            alt={data.narrator.name} />
                     </Lazy>
                 </a>
             {/if}
@@ -96,7 +96,6 @@
     .compact h3 {
         font-size: 1.2em;
     }
-
 
     @media only screen and (max-width: 600px) {
         .interview {

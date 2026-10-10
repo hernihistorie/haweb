@@ -6,96 +6,91 @@ import type { Logo } from "./logo";
 export const MAGDB_ORIGIN = "https://casopisy.herniarchiv.cz";
 export const MAGDB_BASE_URL = `${MAGDB_ORIGIN}/public-magdb`;
 
-export type IssueStatus = 
-  | "have"
-  | "dont_have"
-  | "problems"
-  | "existence_unconfirmed"
-  | null;
+export type IssueStatus = "have" | "dont_have" | "problems" | "existence_unconfirmed" | null;
 
-export type MagazinePeriodicity = 
-  | "w" // weekly
-  | "bw" // biweekly
-  | "m" // monthly
-  | "bm" // bimonthly
-  | "q" // quarterly
-  | "a" // annually
-  | "np" // non_periodical
+export type MagazinePeriodicity =
+    | "w" // weekly
+    | "bw" // biweekly
+    | "m" // monthly
+    | "bm" // bimonthly
+    | "q" // quarterly
+    | "a" // annually
+    | "np"; // non_periodical
 
 export type MagDBFile = {
-  path: string;
-  thumbnail_path: string;
+    path: string;
+    thumbnail_path: string;
 };
 
 export type Price = {
-  value: number;
-  currency: string;
+    value: number;
+    currency: string;
 };
 
 // catalog (/public-magdb/catalog.yaml)
 
 export type CatalogMagazine = {
-  id: number;
-  slug: string | null;
-  title: string;
-  description: string;
-  logos?: Logo[];
+    id: number;
+    slug: string | null;
+    title: string;
+    description: string;
+    logos?: Logo[];
 };
 
 export type Catalog = {
-  magazines: CatalogMagazine[];
+    magazines: CatalogMagazine[];
 };
 
 // magazine detail (/public-magdb/catalog/magazine-detail/<id>.yaml)
 
 export type MagazineVersion = {
-  id: number;
-  name_suffix: string;
-  status: IssueStatus;
-  cover_pages: MagDBFile[];
-  index_pages: MagDBFile[];
-  prices: Price[];
+    id: number;
+    name_suffix: string;
+    status: IssueStatus;
+    cover_pages: MagDBFile[];
+    index_pages: MagDBFile[];
+    prices: Price[];
 };
 
 export type MagazineIssue = {
-  id: number;
-  current_magazine_name: string;
-  issue_number: number | null;
-  calendar_id: string | null;
-  issue_title: string;
-  is_special_issue: boolean;
-  published_day: number | null;
-  published_month: number | null;
-  published_year: number | null;
-  periodicity: MagazinePeriodicity | null;
-  page_count: number | null;
-  note: string | null;
-  issuer: string | null;
-  scan_url?: string | null;
-  versions: MagazineVersion[];
+    id: number;
+    current_magazine_name: string;
+    issue_number: number | null;
+    calendar_id: string | null;
+    issue_title: string;
+    is_special_issue: boolean;
+    published_day: number | null;
+    published_month: number | null;
+    published_year: number | null;
+    periodicity: MagazinePeriodicity | null;
+    page_count: number | null;
+    note: string | null;
+    issuer: string | null;
+    scan_url?: string | null;
+    versions: MagazineVersion[];
 };
 
 export type MagazineLinks = {
-  archive_org: string | null;
-  oldgames_sk: string | null;
-  ndk_cz: string | null;
-  dikda_sk: string | null;
-  level_archiv: string | null;
-  wikipedia: string | null;
-  wikidata: string | null;
-  arbitrary: string | null;
-  arbitrary_title: string | null;
-}
+    archive_org: string | null;
+    oldgames_sk: string | null;
+    ndk_cz: string | null;
+    dikda_sk: string | null;
+    level_archiv: string | null;
+    wikipedia: string | null;
+    wikidata: string | null;
+    arbitrary: string | null;
+    arbitrary_title: string | null;
+};
 
 export type MagazineInfo = {
-  id: number;
-  slug: string | null;
-  title: string;
-  description: {cs: string | null; en: string | null};
-  blurb: {cs: string | null; en: string | null};
-  links: MagazineLinks;
-  url_issue_scan_template: string | null;
-  logos?: Logo[];
+    id: number;
+    slug: string | null;
+    title: string;
+    description: { cs: string | null; en: string | null };
+    blurb: { cs: string | null; en: string | null };
+    links: MagazineLinks;
+    url_issue_scan_template: string | null;
+    logos?: Logo[];
 };
 
 // /** year as string (e.g. "2024"), "Speciály" for special issues, or "null" for unknown */
@@ -105,26 +100,26 @@ export type IssueYear = string;
 export type IssuesByYear = Record<IssueYear, MagazineIssue[]>;
 
 export type MagazineDetail = {
-  magazine: MagazineInfo;
-  issues_by_year?: IssuesByYear;
+    magazine: MagazineInfo;
+    issues_by_year?: IssuesByYear;
 };
 
 // miss list (/public-magdb/miss-list.yaml)
 
 export type MissingIssue = {
-  magazine_issue: string;
-  name_suffix: string;
-  status: IssueStatus;
+    magazine_issue: string;
+    name_suffix: string;
+    status: IssueStatus;
 };
 
 export type MissListMagazine = {
-  id: number;
-  slug: string | null;
-  title: string;
-  logos?: Logo[];
-  missing_issues: MissingIssue[];
+    id: number;
+    slug: string | null;
+    title: string;
+    logos?: Logo[];
+    missing_issues: MissingIssue[];
 };
 
 export type MissList = {
-  magazines: MissListMagazine[];
+    magazines: MissListMagazine[];
 };

@@ -5,8 +5,8 @@
 
 <script lang="ts">
     import IntersectionObserver from "svelte-intersection-observer";
-	import AudioPlayer from '$lib/components/AudioPlayer.svelte';
-	import type { InterviewData } from "$src/types";
+    import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+    import type { InterviewData } from "$src/types";
     interface Props {
         data: InterviewData;
     }
@@ -18,15 +18,13 @@
     let threshold: number = 1;
 </script>
 
-
-<IntersectionObserver threshold={threshold} {element} bind:intersecting>
+<IntersectionObserver {threshold} {element} bind:intersecting>
     <div bind:this={element} class="audio-container" class:intersecting>
         <AudioPlayer
             src="/static/interviews/{data.audio_file}"
             duration={data.audio_duration}
             title={data.title}
-            slug={data.slug}
-        />
+            slug={data.slug} />
     </div>
 </IntersectionObserver>
 
@@ -46,7 +44,7 @@
     /* trick to make animating a shadow faster:
        https://tobiasahlin.com/blog/how-to-animate-box-shadow/ */
     .audio-container::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;

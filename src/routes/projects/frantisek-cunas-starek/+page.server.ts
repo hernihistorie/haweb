@@ -1,6 +1,5 @@
-
-import { redirect } from '@sveltejs/kit';
+import { redirect } from "@sveltejs/kit";
 
 export function load() {
-	redirect(301, '/projects/frantisek-starek-cunas/');
+    redirect(301, "/projects/frantisek-starek-cunas/");
 }

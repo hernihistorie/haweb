@@ -1,62 +1,68 @@
 <script lang="ts">
-    import ProjectName from '$lib/components/project/ProjectName.svelte';
+    import ProjectName from "$lib/components/project/ProjectName.svelte";
 
-	import type { InterviewData } from '$src/types';
-    import { tocCrawler } from '$lib/components/TableOfContents/crawler';
-	import Post from '$lib/components/Post.svelte';
-	import InterviewAudio from "$lib/components/interviews/InterviewAudio.svelte";
-	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
-	import NameWithShortname from '$src/lib/components/interviews/NameWithShortname.svelte';
-	import Loc from '$lib/components/Loc.svelte';
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
-	import { loc } from '$lib/loc';
-	import BulletPoint from '$lib/components/BulletPoint.svelte';
-	import { tocStore } from '../TableOfContents/stores';
-	import InterviewStatusCapsule from './InterviewStatusCapsule.svelte';
-	import PersonImage from './PersonImage.svelte';
+    import type { InterviewData } from "$src/types";
+    import { tocCrawler } from "$lib/components/TableOfContents/crawler";
+    import Post from "$lib/components/Post.svelte";
+    import InterviewAudio from "$lib/components/interviews/InterviewAudio.svelte";
+    import TableOfContents from "$lib/components/TableOfContents/TableOfContents.svelte";
+    import NameWithShortname from "$src/lib/components/interviews/NameWithShortname.svelte";
+    import Loc from "$lib/components/Loc.svelte";
+    import { getLocale, localizeHref } from "$lib/paraglide/runtime";
+    import { loc } from "$lib/loc";
+    import BulletPoint from "$lib/components/BulletPoint.svelte";
+    import { tocStore } from "../TableOfContents/stores";
+    import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
+    import PersonImage from "./PersonImage.svelte";
 
-    const { data, toc = true }: { data: InterviewData, toc?: boolean } = $props();
+    const { data, toc = true }: { data: InterviewData; toc?: boolean } = $props();
 </script>
 
 <svelte:head>
-    <meta property="og:title" content="{loc(data.title)}" />
-    <meta property="og:article:author" content={loc({cs: "Herní archiv", en: "Czechoslovak Game Archive"})} />
+    <meta property="og:title" content={loc(data.title)} />
+    <meta
+        property="og:article:author"
+        content={loc({ cs: "Herní archiv", en: "Czechoslovak Game Archive" })} />
     <meta property="og:type" content="article" />
     {#if data.interview.publication_date}
-        <meta property="og:article:published_time" content="{data.interview.publication_date.toString()}" />
+        <meta
+            property="og:article:published_time"
+            content={data.interview.publication_date.toString()} />
     {/if}
     {#if data.narrator.bio}
-        <meta property="og:description" content="{loc(data.narrator.bio)}" />
+        <meta property="og:description" content={loc(data.narrator.bio)} />
     {/if}
     {#if data.narrator.photo?.url}
-        <meta property="og:image" content="{data.narrator.photo?.url}" data-pagefind-meta="image[content]" />
+        <meta
+            property="og:image"
+            content={data.narrator.photo?.url}
+            data-pagefind-meta="image[content]" />
     {/if}
-    <meta property="og:locale" content="{getLocale()}" />
+    <meta property="og:locale" content={getLocale()} />
 </svelte:head>
 
 <Post title={data.title} stickySide class="interview-page" published={true}>
     {#snippet side()}
         <div class="side">
-            {#if data.narrator.photo }
+            {#if data.narrator.photo}
                 <PersonImage
                     image={data.narrator.photo}
                     sepia={data.status !== "published"}
                     alt={data.narrator.name}
-                    width="260px"
-                />
+                    width="260px" />
             {/if}
             <div>
                 <strong>
-                    { data.narrator.name }
+                    {data.narrator.name}
                 </strong>
             </div>
-            {#if data.interview.project }
+            {#if data.interview.project}
                 <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
 
             {#if toc}
                 {#if $tocStore.length}
-                    <hr>
+                    <hr />
                 {/if}
 
                 <TableOfContents />
@@ -68,7 +74,7 @@
             <a href={localizeHref("/interviews")} class="return-link">
                 <Loc cs="Rozhovory Herního archivu" en="Czechoslovak Game Archive Interviews" />
             </a>
-            {#if data.interview.project }    
+            {#if data.interview.project}
                 <BulletPoint />
                 <ProjectName project={data.interview.project} full class="return-link" />
             {/if}
@@ -76,14 +82,14 @@
                 <Loc text={data.title} />
                 <InterviewStatusCapsule status={data.status} />
             </h2>
-            {#if data.audio_file }
+            {#if data.audio_file}
                 <InterviewAudio {data} />
             {/if}
             <dl>
                 <dt>
                     <Loc>
                         {#snippet cs()}
-                            Jméno { data.narrator.gender == "M" ? "narátora" : "narátorky" }
+                            Jméno {data.narrator.gender == "M" ? "narátora" : "narátorky"}
                         {/snippet}
                         {#snippet en()}
                             Narrator's name
@@ -92,46 +98,46 @@
                 </dt>
                 <dd><NameWithShortname person={data.narrator} /></dd>
 
-                {#if data.narrator.birth_year }
+                {#if data.narrator.birth_year}
                     <dt><Loc cs="Ročník narození" en="Year of birth" /></dt>
-                    <dd>{ data.narrator.birth_year }</dd>
+                    <dd>{data.narrator.birth_year}</dd>
                 {/if}
 
-                {#if data.narrator.birth_place }
+                {#if data.narrator.birth_place}
                     <dt><Loc cs="Místo narození" en="Place of birth" /></dt>
-                    <dd><Loc text={ data.narrator.birth_place } /></dd>
+                    <dd><Loc text={data.narrator.birth_place} /></dd>
                 {/if}
 
                 <dt><Loc cs="Datum rozhovoru" en="Interview date" /></dt>
-                <dd>{ data.interview.date.toLocaleString("cs-CZ") }</dd>
+                <dd>{data.interview.date.toLocaleString("cs-CZ")}</dd>
 
-                {#if data.interview.place }
+                {#if data.interview.place}
                     <dt><Loc cs="Místo rozhovoru" en="Interview place" /></dt>
-                    <dd><Loc text={ data.interview.place } /></dd>
+                    <dd><Loc text={data.interview.place} /></dd>
                 {/if}
-                
-                {#if data.interview.interviewers }
+
+                {#if data.interview.interviewers}
                     <dt><Loc cs="Jméno tazatelů" en="Interviewers' names" /></dt>
                     <dd>
                         {#each data.interview.interviewers as person, i}
-                            {#if i > 0},<br>{/if}
+                            {#if i > 0},<br />{/if}
                             <NameWithShortname {person} />
                         {/each}
                     </dd>
                 {/if}
 
-                {#if data.interview.interviewer }
+                {#if data.interview.interviewer}
                     <dt><Loc cs="Jméno tazatele" en="Interviewer's name" /></dt>
                     <dd><NameWithShortname person={data.interview.interviewer} /></dd>
                 {/if}
 
-                {#if data.interview.length }
+                {#if data.interview.length}
                     <dt><Loc cs="Délka rozhovoru" en="Interview length" /></dt>
-                    <dd>{ data.interview.length }</dd>
+                    <dd>{data.interview.length}</dd>
                 {/if}
 
-                {#if data.interview.languages }
-                    {#if getLocale() == 'cs' && data.interview.languages.length == 1 && data.interview.languages[0].code == 'cs' }
+                {#if data.interview.languages}
+                    {#if getLocale() == "cs" && data.interview.languages.length == 1 && data.interview.languages[0].code == "cs"}
                         <!-- Do not show anything if the interview is only in Czech and the page is in Czech -->
                     {:else}
                         <dt>
@@ -150,114 +156,151 @@
                     {/if}
                 {/if}
 
-                
-                {#if data.interview.project }
+                {#if data.interview.project}
                     <dt><Loc cs="Projekt" en="Project" /></dt>
                     <dd>
-                        {#if data.interview.project }
+                        {#if data.interview.project}
                             <ProjectName project={data.interview.project} />
                         {/if}
                     </dd>
                 {/if}
 
-                {#if data.interview.transcriber }
+                {#if data.interview.transcriber}
                     <dt><Loc cs="Přepis" en="Transcription" /></dt>
-                    <dd>{ data.interview.transcriber.name }</dd>
+                    <dd>{data.interview.transcriber.name}</dd>
                 {/if}
 
-                {#if data.interview.redaction }
+                {#if data.interview.redaction}
                     <dt><Loc cs="Redakce" en="Redaction" /></dt>
-                    <dd>{ data.interview.redaction.name }</dd>
+                    <dd>{data.interview.redaction.name}</dd>
                 {/if}
 
-                {#if data.interview.publication_date }
+                {#if data.interview.publication_date}
                     <dt><Loc cs="Datum uveřejnění" en="Publication date" /></dt>
                     <dd>
-                        {
-                            data.interview.publication_date.toLocaleString(
-                                getLocale() == 'cs' ? "cs-CZ" : "en-GB"
-                            ) 
-                        }
+                        {data.interview.publication_date.toLocaleString(
+                            getLocale() == "cs" ? "cs-CZ" : "en-GB",
+                        )}
                     </dd>
                 {/if}
 
-                {#if data.interview.english_translation_publication_date && getLocale() == 'en' }
+                {#if data.interview.english_translation_publication_date && getLocale() == "en"}
                     <dt><Loc cs="…anglického překladu" en="…of English translation" /></dt>
                     <dd>
-                        {
-                            data.interview.english_translation_publication_date.toLocaleString(
-                                getLocale() == 'cs' ? "cs-CZ" : "en-GB"
-                            ) 
-                        }
+                        {data.interview.english_translation_publication_date.toLocaleString(
+                            getLocale() == "cs" ? "cs-CZ" : "en-GB",
+                        )}
                     </dd>
                 {/if}
             </dl>
 
-            {#if data.narrator.bio }
+            {#if data.narrator.bio}
                 <p><Loc text={data.narrator.bio} /></p>
             {/if}
 
-            {#if data.interview.redaction }
+            {#if data.interview.redaction}
                 <p>
                     <Loc>
                         {#snippet cs()}
-                            Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru. Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis, napište na <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> nebo <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>.
+                            Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru.
+                            Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis,
+                            napište na <a href="mailto:info@hernihistorie.cz"
+                                >info@hernihistorie.cz</a>
+                            nebo
+                            <a href="mailto:rudolf.suchy@hernihistorie.cz"
+                                >rudolf.suchy@hernihistorie.cz</a
+                            >.
                         {/snippet}
                         {#snippet en()}
-                            Note: The text below is an edited version of the complete interview transcript. If you are interested in the full transcript for research or other purposes, please contact us at <a href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a> or <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>.
+                            Note: The text below is an edited version of the complete interview
+                            transcript. If you are interested in the full transcript for research or
+                            other purposes, please contact us at <a
+                                href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a>
+                            or
+                            <a href="mailto:rudolf.suchy@hernihistorie.cz"
+                                >rudolf.suchy@hernihistorie.cz</a
+                            >.
                         {/snippet}
                     </Loc>
                 </p>
             {/if}
 
-            <hr>
+            <hr />
 
-            {#if data.status != "published" }
+            {#if data.status != "published"}
                 <p>
                     <em>
                         {#if data.status === "in-progress"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor teprve prochází přepisem a úpravou.  Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
+                                    Tento rozhovor teprve prochází přepisem a úpravou. Pokud máte
+                                    zájem o audio záznam pro badatelské, umělecké nebo úřední účely,
+                                    nebo s námi chcete spolupracovat na dokončení jeho přepisu tak
+                                    nás prosím <a href={localizeHref("/contact")}>kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently being transcribed and edited. If you are interested in an audio recording for research, artistic, or official purposes, or if you would like to collaborate with us to complete the transcript, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently being transcribed and edited. If you
+                                    are interested in an audio recording for research, artistic, or
+                                    official purposes, or if you would like to collaborate with us
+                                    to complete the transcript, please reach out to us through <a
+                                        href={localizeHref("/contact")}>our contacts</a
+                                    >.
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "being-transcribed"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor teprve prochází přepisem a úpravou. Pokud máte zájem o audio záznam pro badatelské, umělecké nebo úřední účely, nebo s námi chcete spolupracovat na dokončení jeho přepisu tak nás prosím <a href="{localizeHref('/contact')}">kontaktujte</a>.
+                                    Tento rozhovor teprve prochází přepisem a úpravou. Pokud máte
+                                    zájem o audio záznam pro badatelské, umělecké nebo úřední účely,
+                                    nebo s námi chcete spolupracovat na dokončení jeho přepisu tak
+                                    nás prosím <a href={localizeHref("/contact")}>kontaktujte</a>.
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently being transcribed and edited. If you are interested in an audio recording for research, artistic, or official purposes, or if you would like to collaborate with us to complete the transcript, please reach out to us through <a href="{localizeHref('/contact')}">our contacts</a>.
+                                    This interview is currently being transcribed and edited. If you
+                                    are interested in an audio recording for research, artistic, or
+                                    official purposes, or if you would like to collaborate with us
+                                    to complete the transcript, please reach out to us through <a
+                                        href={localizeHref("/contact")}>our contacts</a
+                                    >.
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "request-only"}
                             <Loc>
                                 {#snippet cs()}
-                                    Tento rozhovor není v současnosti veřejně dostupný. Pokud máte zájem o rozhovor pro badatelské, umělecké nebo úřední účely, tak nás prosím kontaktujte na <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>
+                                    Tento rozhovor není v současnosti veřejně dostupný. Pokud máte
+                                    zájem o rozhovor pro badatelské, umělecké nebo úřední účely, tak
+                                    nás prosím kontaktujte na <a
+                                        href="mailto:rudolf.suchy@hernihistorie.cz"
+                                        >rudolf.suchy@hernihistorie.cz</a>
                                 {/snippet}
                                 {#snippet en()}
-                                    This interview is currently not available. If you are interested in access for research, artistic, or official purposes, please reach out to us through <a href="mailto:rudolf.suchy@hernihistorie.cz">rudolf.suchy@hernihistorie.cz</a>
+                                    This interview is currently not available. If you are interested
+                                    in access for research, artistic, or official purposes, please
+                                    reach out to us through <a
+                                        href="mailto:rudolf.suchy@hernihistorie.cz"
+                                        >rudolf.suchy@hernihistorie.cz</a>
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "unavailable-for-duration"}
                             <Loc>
                                 {#snippet cs()}
-                                    {#if data.available_date }
-                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna po datu
-                                        { data.available_date.toLocaleString("cs-CZ") }.
+                                    {#if data.available_date}
+                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna po
+                                        datu
+                                        {data.available_date.toLocaleString("cs-CZ")}.
                                     {:else}
-                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna teprve v budoucnosti.
+                                        Publikace a zpřístupnění tohoto rozhovoru bude umožněna
+                                        teprve v budoucnosti.
                                     {/if}
                                 {/snippet}
                                 {#snippet en()}
-                                    {#if data.available_date }
-                                        The publication and access of this interview will be enabled after
-                                        { data.available_date.toLocaleString("en-GB") }.
+                                    {#if data.available_date}
+                                        The publication and access of this interview will be enabled
+                                        after
+                                        {data.available_date.toLocaleString("en-GB")}.
                                     {:else}
-                                        The publication and access of this interview will be enabled in the future.
+                                        The publication and access of this interview will be enabled
+                                        in the future.
                                     {/if}
                                 {/snippet}
                             </Loc>
@@ -265,22 +308,24 @@
                     </em>
                 </p>
             {/if}
-            
-            <article id="tocTarget" use:tocCrawler={{ mode: 'generate' }}>
-                <slot name="content"/>
+
+            <article id="tocTarget" use:tocCrawler={{ mode: "generate" }}>
+                <slot name="content" />
             </article>
 
-            <hr>
+            <hr />
 
-            {#if data.interview.project }
-                <Loc cs="Tento rozhovor je součástí projektu" en="This interview is part of the project" />
+            {#if data.interview.project}
+                <Loc
+                    cs="Tento rozhovor je součástí projektu"
+                    en="This interview is part of the project" />
                 <ProjectName project={data.interview.project} />.
             {/if}
 
-            {#if data.narrator.photo && data.narrator.photo.license_text }
+            {#if data.narrator.photo && data.narrator.photo.license_text}
                 <h4><Loc cs="Fotografie" en="Photograph" /></h4>
-                <a href="{ data.narrator.photo.details_url }">
-                    { data.narrator.photo.license_text }
+                <a href={data.narrator.photo.details_url}>
+                    {data.narrator.photo.license_text}
                 </a>
             {/if}
         </article>
@@ -291,14 +336,15 @@
     :global(.interview-page) :global(.return-link) {
         text-decoration: none;
     }
-    
+
     h2 {
         margin-top: 0.25em;
         margin-bottom: 0;
     }
 
     @media only screen and (max-width: 500px) {
-        dt, dd {
+        dt,
+        dd {
             width: 100%;
         }
         dd {
