@@ -22,6 +22,10 @@
         gap: 64px;
     }
 
+    .blogboxes :global(.blog-box.horizontal) {
+        margin-inline: auto;
+    }
+
     @media only screen and (max-width: 1450px) {
         .blogboxes {
             gap: 59px;

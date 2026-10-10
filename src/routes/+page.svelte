@@ -223,10 +223,6 @@
         display: none;
     }
 
-    .blogboxes :global(.blog-box.horizontal) {
-        margin-inline: auto;
-    }
-
     @media only screen and (max-width: 1460px) {
         .boxes > div img {
             width: 94%;
