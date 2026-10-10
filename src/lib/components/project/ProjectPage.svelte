@@ -9,18 +9,22 @@
     interface Props {
         project: Project;
         thin?: boolean;
+        /** Show a link back to the projects listing */
+        backLink?: boolean;
         children: Snippet;
     }
 
-    let { project, thin = true, children }: Props = $props();
+    let { project, thin = true, backLink = true, children }: Props = $props();
 </script>
 
 <Meta title={project.fullname ?? project.name} />
 
 <article class={thin ? "thin" : ""}>
-    <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
-        <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
-    </a>
+    {#if backLink}
+        <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
+            <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
+        </a>
+    {/if}
     {#if project.image}
         <div class="banner">
             <ImageTitle src={project.image} level={2} aspectRatio="5/2">

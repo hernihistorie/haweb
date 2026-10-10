@@ -1,30 +1,19 @@
 <script lang="ts">
     import type { PageProps } from "./$types";
-    import Meta from "$src/lib/components/layout/Meta.svelte";
+    import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
     import SelectedMagazineBox from "$src/lib/components/magazines/SelectedMagazineBox.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";
+    import { projectMagazines } from "./project";
 
     let { data }: PageProps = $props();
 </script>
 
-<Meta
-    title={{
-        cs: "Databáze časopisů",
-        en: "Magazines Database",
-    }} />
-
 <MagazinesMenu />
 
-<article class="thin">
-    <h2>
-        <Loc
-            cs="Databáze českých a slovenských<br> herních časopisů"
-            en="Czech and Slovak Game Magazines Database" />
-    </h2>
-    <img src="/photos/magazine-shelf.jpg" alt="" class="heading-image" />
+<ProjectPage project={projectMagazines} backLink={false}>
     <Loc>
         {#snippet cs()}
             <p>
@@ -111,11 +100,4 @@
     <img
         src="https://casopisy.herniarchiv.cz/static/magdb/library.jpg"
         alt="Fotografie knihovny s magazíny Level" />
-</article>
-
-<style>
-    .heading-image {
-        margin-top: -1em;
-        margin-bottom: -0.5em;
-    }
-</style>
+</ProjectPage>

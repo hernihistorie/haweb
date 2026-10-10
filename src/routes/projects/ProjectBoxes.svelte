@@ -10,6 +10,7 @@
     import { projectEmilFafek } from "../gallery/emil-fafek/project";
     import { projectOuya } from "./ouya/project";
     import { projectFrantisekStarekCunas } from "./frantisek-starek-cunas/project";
+    import { projectMagazines } from "../magazines/project";
     interface Props {
         all: boolean;
     }
@@ -28,6 +29,7 @@
         projectBewesoft,
         projectAtariKlubCitov,
         projectVideostop,
+        projectMagazines,
         projectEmilFafek,
         projectOuya,
     ];
