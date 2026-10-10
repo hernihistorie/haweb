@@ -80,6 +80,8 @@ export interface Project {
     type?: "project" | "fond";
     url?: string;
     image?: string;
+    /** Wide banner image for the project page; falls back to `image` */
+    bannerImage?: string;
     description?: LocalizedString;
 }
 

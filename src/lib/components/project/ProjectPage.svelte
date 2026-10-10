@@ -15,6 +15,8 @@
     }
 
     let { project, thin = true, backLink = true, children }: Props = $props();
+
+    let bannerImage = $derived(project.bannerImage ?? project.image);
 </script>
 
 <Meta title={project.fullname ?? project.name} />
@@ -25,9 +27,9 @@
             <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
         </a>
     {/if}
-    {#if project.image}
+    {#if bannerImage}
         <div class="banner">
-            <ImageTitle src={project.image} level={2} aspectRatio="5/2">
+            <ImageTitle src={bannerImage} level={2} aspectRatio="5/2">
                 <Loc text={project.fullname ?? project.name} />
             </ImageTitle>
         </div>

@@ -22,12 +22,12 @@
         <p><strong>Rok dokončení projektu</strong>: 2024</p>
     </div>
     <hr />
-    <div class="picture-cite">
+    <!-- <div class="picture-cite">
         <p>
             <img src="/photos/videostop_porad.jpg" alt="Záběr hry v samotném pořadu" />
             <cite><i>Videostop</i> (Ivo Paukert, Česká televize 1996)</cite>
         </p>
-    </div>
+    </div> -->
     <p>
         Původní verze zábavného pořadu <em>Videostop</em> byla vysílaná mezi lety 1985 a 2000. Pořad
         testoval soutěžící v jejich znalostech Československé (a od roku 1989 i světové) filmové a
@@ -46,8 +46,8 @@
         značné míry mohla za popularitu tohoto pořadu moderátorská dvojice (která pořad uváděla od
         roku 1987) Jana Rosáka a filmového historika Karla Čáslavského. Atraktivní byl pořad i kvůli
         samotné koncepci – VIP hosté zde nebyli jen proto, aby radili soutěžícím, ale také se
-        podíleli o různé historky z natáčení nebo z jejich životů. Nicméně, čím se <em
-            >Videostop</em>
+        podíleli o různé historky z natáčení nebo z jejich životů. Nicméně, čím se <em>Videostop</em
+        >
         výrazně lišil od jiných tuzemských soutěžních pořadů z této doby, byla snaha o zapojení nových
         médií do jeho fungování. Toto je zejména patrné pokud <em>Videostop</em> porovnáváte s např.
         <em>Šesti rany do klobouku</em>. V <em>Klobouku</em> byli soutěžící před zodpovídáním otázek
