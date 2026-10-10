@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Capsule from "$lib/components/Capsule.svelte";
+    import Capsule from "#lib/components/Capsule.svelte";
     import type { InterviewStatus } from "$src/types";
     import Loc from "../Loc.svelte";
 

@@ -1,4 +1,4 @@
-import { getLocale } from "$lib/paraglide/runtime";
+import { getLocale } from "#lib/paraglide/runtime.js";
 import type { LocalizedString } from "$src/types";
 
 // Use this function if you have a simple string to localize.

@@ -1,8 +1,8 @@
 <script lang="ts">
     import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
-    import Heading from "$lib/components/Heading.svelte";
-    import Key from "$lib/components/Key.svelte";
+    import Heading from "#lib/components/Heading.svelte";
+    import Key from "#lib/components/Key.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
     import { loadRHInventoryAssetData } from "$src/lib/rhinventory_api";
     import { projectBewesoft } from "./project";

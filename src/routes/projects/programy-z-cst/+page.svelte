@@ -1,7 +1,7 @@
 <script lang="ts">
     import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import LucideDownload from "@lucide/svelte/icons/download";
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import { projectProgramyZCST } from "./project";
     import Meta from "$src/lib/components/layout/Meta.svelte";
 

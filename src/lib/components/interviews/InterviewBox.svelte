@@ -1,10 +1,10 @@
 <script lang="ts">
     import Lazy from "svelte-lazy";
     import type { InterviewData } from "$src/types";
-    import Box from "$lib/components/Box.svelte";
-    import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
-    import BulletPoint from "$lib/components/BulletPoint.svelte";
+    import Box from "#lib/components/Box.svelte";
+    import Loc from "#lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
+    import BulletPoint from "#lib/components/BulletPoint.svelte";
     import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
     import PersonImage from "./PersonImage.svelte";
     interface Props {

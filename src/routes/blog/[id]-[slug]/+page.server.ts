@@ -1,6 +1,6 @@
 import { error, redirect } from "@sveltejs/kit";
 import { getBlogPosts, getBlogPostsById, allBlogPostsById } from "$src/data/blog_posts";
-import { dev } from "$app/environment";
+import { dev } from "$app/env";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 import { localizeHref } from "$src/lib/paraglide/runtime";
 import { seriesByBlogPostId, seriesBySlug } from "$src/data/series";
@@ -19,9 +19,7 @@ export const load: PageServerLoad = async ({ params }) => {
     const blogPost = lookup[Number(params.id)];
 
     if (!blogPost) {
-        error(404, {
-            message: "Blog post not found",
-        });
+        error(404, "Blog post not found");
     }
 
     const expectedSlug = blogPost.slug;

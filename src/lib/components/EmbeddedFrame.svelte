@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { afterNavigate, replaceState } from "$app/navigation";
+    import { afterNavigate, goto } from "$app/navigation";
     import { page } from "$app/state";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import type { EmbeddedApp } from "$src/lib/embedded";
     import type { Attachment } from "svelte/attachments";
 
@@ -9,13 +9,10 @@
         app,
         src,
         title = $bindable(""),
-    }: {
-        app: EmbeddedApp;
+
         /** Initial frame URL, under `app.framePrefix` */
-        src: string;
         /** Title of the page in the frame */
-        title?: string;
-    } = $props();
+    }: { app: EmbeddedApp; src: string; title?: string } = $props();
 
     let height = $state<number>();
     let loading = $state(false);
@@ -23,7 +20,9 @@
     // Recreate the frame on real navigations (e.g. back/forward or a haweb link),
     // but not when layout data is merely invalidated
     let navigationCount = $state(0);
-    afterNavigate(({ type }) => {
+
+    afterNavigate(({ type, shallow }) => {
+        if (shallow && type === "goto") return;
         if (type !== "enter") navigationCount++;
     });
 
@@ -53,7 +52,7 @@
 
             const href = canonicalHref(win.location);
             if (href !== location.pathname + location.search) {
-                replaceState(href, page.state);
+                goto(href, { shallow: true, replace: true, state: page.state });
             }
 
             // Observer from the frame's own realm, as it watches the frame's document

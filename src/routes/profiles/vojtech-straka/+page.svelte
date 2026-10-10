@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SocialMediaLink from "$lib/components/layout/SocialMediaLinks/SocialMediaLink.svelte";
+    import SocialMediaLink from "#lib/components/layout/SocialMediaLinks/SocialMediaLink.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";
     import SocialMediaLinks from "$src/lib/components/layout/SocialMediaLinks/SocialMediaLinks.svelte";
     import ProfilePage, { type ProfileData } from "$src/lib/components/ProfilePage.svelte";

@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { LocalizedString } from "$src/types";
-    import { getLocale } from "$lib/paraglide/runtime";
+    import { getLocale } from "#lib/paraglide/runtime.js";
 
     interface Props {
         title?: string | LocalizedString;

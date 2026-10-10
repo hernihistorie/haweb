@@ -1,16 +1,16 @@
 <script lang="ts">
-    import ProjectName from "$lib/components/project/ProjectName.svelte";
+    import ProjectName from "#lib/components/project/ProjectName.svelte";
 
     import type { InterviewData } from "$src/types";
-    import { tocCrawler } from "$lib/components/TableOfContents/crawler";
-    import Post from "$lib/components/Post.svelte";
-    import InterviewAudio from "$lib/components/interviews/InterviewAudio.svelte";
-    import TableOfContents from "$lib/components/TableOfContents/TableOfContents.svelte";
+    import { tocCrawler } from "#lib/components/TableOfContents/crawler.js";
+    import Post from "#lib/components/Post.svelte";
+    import InterviewAudio from "#lib/components/interviews/InterviewAudio.svelte";
+    import TableOfContents from "#lib/components/TableOfContents/TableOfContents.svelte";
     import NameWithShortname from "$src/lib/components/interviews/NameWithShortname.svelte";
-    import Loc from "$lib/components/Loc.svelte";
-    import { getLocale, localizeHref } from "$lib/paraglide/runtime";
-    import { loc } from "$lib/loc";
-    import BulletPoint from "$lib/components/BulletPoint.svelte";
+    import Loc from "#lib/components/Loc.svelte";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
+    import { loc } from "#lib/loc.js";
+    import BulletPoint from "#lib/components/BulletPoint.svelte";
     import { tocStore } from "../TableOfContents/stores";
     import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
     import PersonImage from "./PersonImage.svelte";

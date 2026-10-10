@@ -1,10 +1,10 @@
 <script lang="ts">
     /* https://docs.google.com/document/d/1EUv8mepuz5gsXFP4tlrr3iypy-hDEpUN/edit */
     import InterviewPage from "$src/lib/components/interviews/InterviewPage.svelte";
-    import Answer from "$lib/components/interviews/Answer.svelte";
-    import Question from "$lib/components/interviews/Question.svelte";
-    import Chapter from "$lib/components/interviews/Chapter.svelte";
-    import Loc from "$lib/components/Loc.svelte";
+    import Answer from "#lib/components/interviews/Answer.svelte";
+    import Question from "#lib/components/interviews/Question.svelte";
+    import Chapter from "#lib/components/interviews/Chapter.svelte";
+    import Loc from "#lib/components/Loc.svelte";
 
     import { data, FS, JS } from "./interview";
     import PageLang from "$src/lib/components/PageLang.svelte";

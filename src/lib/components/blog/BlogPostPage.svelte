@@ -3,7 +3,7 @@
     import Loc from "../Loc.svelte";
     import type { BlogPost, BlogPostSeries } from "$src/types";
     import { getContext, setContext, type Snippet } from "svelte";
-    import { getLocale, localizeHref } from "$lib/paraglide/runtime";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { FootnoteHolder, setFootnoteContext } from "../footnote/context";
     import Footnotes from "../footnote/Footnotes.svelte";
     import AuthorMedaillon from "./AuthorMedaillon.svelte";

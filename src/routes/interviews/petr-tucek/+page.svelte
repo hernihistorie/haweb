@@ -1,9 +1,9 @@
 <script lang="ts">
     /* https://docs.google.com/document/d/1gtzvq2Fpla1VqFLjk-sq0cgIeaiB_NNzKLWI2LFjc7g/edit */
     import InterviewPage from "$src/lib/components/interviews/InterviewPage.svelte";
-    import Answer from "$lib/components/interviews/Answer.svelte";
-    import Question from "$lib/components/interviews/Question.svelte";
-    import Loc from "$lib/components/Loc.svelte";
+    import Answer from "#lib/components/interviews/Answer.svelte";
+    import Question from "#lib/components/interviews/Question.svelte";
+    import Loc from "#lib/components/Loc.svelte";
 
     import { data, PT } from "./interview";
     import PageLang from "$src/lib/components/PageLang.svelte";

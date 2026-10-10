@@ -1,8 +1,8 @@
 <script>
     import Meta from "$src/lib/components/layout/Meta.svelte";
     import { DONATE_LINKS, SOCIAL_MEDIA_LINKS } from "$src/constants";
-    import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import Loc from "#lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 </script>
 
 <Meta

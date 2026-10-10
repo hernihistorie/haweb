@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
-    import Arrow from "$lib/components/Arrow.svelte";
-    import Avatar from "$lib/components/Avatar.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import Arrow from "#lib/components/Arrow.svelte";
+    import Avatar from "#lib/components/Avatar.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import Meta from "./layout/Meta.svelte";
 
     export interface ProfileData {

@@ -1,7 +1,7 @@
 <script lang="ts">
     import Meta from "$src/lib/components/layout/Meta.svelte";
-    import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import Loc from "#lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import { loc } from "$src/lib/loc";
     import LogoBlock from "$src/lib/components/LogoBlock.svelte";
     import type { Logo } from "$src/lib/logo";

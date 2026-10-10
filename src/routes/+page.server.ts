@@ -1,5 +1,5 @@
 import { getBlogPosts } from "$src/data/blog_posts";
-import { prerenderForSearch } from "$lib/prerender.server";
+import { prerenderForSearch } from "#lib/prerender.server.js";
 import type { PageServerLoad } from "./$types";
 
 export const prerender = prerenderForSearch;

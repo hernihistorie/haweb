@@ -11,7 +11,7 @@
     import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
     import type { PageProps } from "./$types";
     import BulletPoint from "$src/lib/components/BulletPoint.svelte";
-    import { building } from "$app/environment";
+    import { building } from "$app/env";
 
     let { data }: PageProps = $props();
 
@@ -71,7 +71,7 @@
         <Loc cs="Další informace:" en="More information:" />
         {#each Object.entries(data.magazine.links).filter(([key, link]) => key != "archive_org" && link && link.trim() !== "") as [key, link], i}
             {#if i > 0}
-                &nbsp;<BulletPoint class="text-secondary" />
+                <BulletPoint class="text-secondary" />
             {/if}
             <a href={link}>
                 {#if key === "wikipedia_cs"}

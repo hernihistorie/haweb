@@ -20,7 +20,7 @@
             class="anchor"
             onclick={() => {
                 if (props.id) {
-                    const url = page.url;
+                    const url = new URL(page.url.href);
                     url.hash = props.id;
                     copy(url.toString());
                 }

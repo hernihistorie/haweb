@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { PageProps } from "./$types";
     import Meta from "$src/lib/components/layout/Meta.svelte";
-    import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import Loc from "#lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import MagazinesMenu from "$src/lib/components/magazines/MagazinesMenu.svelte";
     import SelectedMagazineBox from "$src/lib/components/magazines/SelectedMagazineBox.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";

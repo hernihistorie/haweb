@@ -1,12 +1,12 @@
 <script lang="ts">
     import { slide } from "svelte/transition";
 
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import BurgerMenu from "$src/lib/components/layout/BurgerMenu.svelte";
     import LanguageSwitcher from "./LanguageSwitcher.svelte";
     import SocialMediaLinks from "./SocialMediaLinks/SocialMediaLinks.svelte";
     import ThemeToggle from "./ThemeToggle.svelte";
-    import { getLocale, localizeHref } from "$lib/paraglide/runtime";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { beforeNavigate } from "$app/navigation";
     import SearchLink from "./SearchLink.svelte";
     import { page } from "$app/state";
@@ -21,17 +21,18 @@
     };
 
     var menuItems: MenuItem[] = [
-        {
-            url: "/about",
-            cs: "O nás",
-            en: "About us",
-        },
+        { url: "/about", cs: "O nás", en: "About us" },
         {
             url: "/projects",
             cs: "Projekty",
             en: "Projects",
             submenu: [
-                { url: "/projects", cs: "<b>Naše projekty</b>", en: "<b>Our projects</b>" },
+                {
+                    url: "/projects",
+                    cs: "<b>Naše projekty</b>",
+                    en: "<b>Our projects</b>",
+                },
+
                 {
                     url: "/gallery/emil-fafek",
                     cs: "Fotografie Emila Fafka",
@@ -93,7 +94,9 @@
         currentExpandedMenu = null;
     };
 
-    beforeNavigate(() => {
+    beforeNavigate(({ shallow, type }) => {
+        if (shallow && type === "goto") return;
+
         currentExpandedMenu = null;
         burgerMenuOpen = false;
     });
@@ -129,9 +132,8 @@
                                     ? localizeHref(menuItem.url)
                                     : menuItem.url}
                                 onclick={() => (burgerMenuOpen = false)}
-                                class:active={pathnameStartswith(menuItem.url)}>
-                                <Loc cs={menuItem.cs} en={menuItem.en} />
-                            </a>
+                                class:active={pathnameStartswith(menuItem.url)}
+                                ><Loc cs={menuItem.cs} en={menuItem.en} /></a>
                         </li>
                     {/each}
                 </ul>
@@ -167,12 +169,8 @@
                                     currentExpandedMenu?.url == menuItem.url ? null : menuItem)}
                             tabindex="0">
                             <Loc
-                                cs="{menuItem.cs} &nbsp;{currentExpandedMenu == menuItem
-                                    ? '▴'
-                                    : '▾'}"
-                                en="{menuItem.en} &nbsp;{currentExpandedMenu == menuItem
-                                    ? '▴'
-                                    : '▾'}" />
+                                cs="{menuItem.cs}  {currentExpandedMenu == menuItem ? '▴' : '▾'}"
+                                en="{menuItem.en}  {currentExpandedMenu == menuItem ? '▴' : '▾'}" />
                         </button>
                         {#if currentExpandedMenu}
                             <ul class="dropdown" transition:slide>

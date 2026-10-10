@@ -1,7 +1,7 @@
 <script lang="ts">
-    import AuthorBio from "$lib/components/blog/AuthorBio.svelte";
+    import AuthorBio from "#lib/components/blog/AuthorBio.svelte";
 
-    import Meta from "$lib/components/layout/Meta.svelte";
+    import Meta from "#lib/components/layout/Meta.svelte";
     import BlogBoxes from "../../BlogBoxes.svelte";
 
     const { data } = $props();

@@ -6,7 +6,7 @@
     import spayd from "spayd";
     import qrcode from "qrcode";
     import PriceButton from "./PriceButton.svelte";
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
 
     const qrCodeOptions = {

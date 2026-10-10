@@ -7,7 +7,7 @@
         deLocalizeHref,
         extractLocaleFromNavigator,
         type Locale,
-    } from "$lib/paraglide/runtime";
+    } from "#lib/paraglide/runtime.js";
     import { slide } from "svelte/transition";
     interface Props {
         cs?: boolean;

@@ -4,7 +4,7 @@
     import type { BlogPost } from "$src/types";
     import type { Snippet } from "svelte";
     import Loc from "../Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import BulletPoint from "../BulletPoint.svelte";
     let {
         blogPost,

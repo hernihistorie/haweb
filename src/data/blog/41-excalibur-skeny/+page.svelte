@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
     import { localizeHref } from "$src/lib/paraglide/runtime";
 </script>

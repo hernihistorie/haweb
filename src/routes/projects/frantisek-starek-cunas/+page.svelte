@@ -4,7 +4,7 @@
     import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
     import { data as cunas_data } from "$src/routes/interviews/frantisek-starek-cunas/interview";
     import AssetList from "$src/lib/components/asset/AssetList.svelte";
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import { projectFrantisekStarekCunas } from "../frantisek-starek-cunas/project";
     import { loc } from "$src/lib/loc";
     import LucideDownload from "@lucide/svelte/icons/download";

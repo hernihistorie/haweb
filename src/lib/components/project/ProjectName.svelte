@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Project } from "$src/types";
-    import { localizeHref } from "$lib/paraglide/runtime";
-    import Loc from "$lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
+    import Loc from "#lib/components/Loc.svelte";
 
     let {
         project,

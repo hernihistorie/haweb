@@ -1,6 +1,6 @@
 <script lang="ts">
     import Arrow from "$src/lib/components/Arrow.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     let {
         href = undefined,
         title = undefined,

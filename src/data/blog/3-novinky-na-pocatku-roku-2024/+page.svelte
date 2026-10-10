@@ -1,6 +1,6 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 </script>
 
 <PageLang cs />

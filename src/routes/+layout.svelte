@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { locales, localizeHref } from "$lib/paraglide/runtime";
+    import { locales, localizeHref } from "#lib/paraglide/runtime.js";
     import Meta from "$src/lib/components/layout/Meta.svelte";
     import Header from "$src/lib/components/layout/Header.svelte";
     import Footer from "$src/lib/components/layout/Footer.svelte";
     import "../app.css";
-    import { setLocale } from "$lib/paraglide/runtime";
+    import { setLocale } from "#lib/paraglide/runtime.js";
     import { page } from "$app/state";
     import { onMount } from "svelte";
     import { invalidate } from "$app/navigation";

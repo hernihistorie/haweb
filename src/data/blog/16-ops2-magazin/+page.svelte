@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: `<p>` is invalid inside `<p>` -->
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
     import { localizeHref } from "$src/lib/paraglide/runtime";

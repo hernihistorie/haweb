@@ -2,8 +2,8 @@
     import type { Project } from "$src/types";
     import type { Snippet } from "svelte";
     import Meta from "$src/lib/components/layout/Meta.svelte";
-    import Loc from "$lib/components/Loc.svelte";
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import Loc from "#lib/components/Loc.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 
     interface Props {
         project: Project;

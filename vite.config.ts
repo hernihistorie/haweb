@@ -1,3 +1,5 @@
+import adapter from "@sveltejs/adapter-node";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
@@ -7,7 +9,15 @@ import { defineConfig } from "vite";
 export default defineConfig({
     plugins: [
         enhancedImages(),
-        sveltekit(),
+        sveltekit({
+            // Consult https://kit.svelte.dev/docs/integrations#preprocessors
+            // for more information about preprocessors
+            preprocess: vitePreprocess(),
+            adapter: adapter({ out: process.env.BUILD_OUT || "build", precompress: false }),
+            alias: { $src: "./src" },
+            prerender: { handleMissingId: "warn", handleHttpError: "warn" },
+        }),
+
         paraglideVitePlugin({
             project: "./project.inlang",
             outdir: "./src/lib/paraglide",
@@ -22,10 +32,6 @@ export default defineConfig({
                 },
             ],
         }),
-        pagefindBuild({
-            // Configuration explained here:
-            // https://github.com/Hugos68/vite-plugin-pagefind?tab=readme-ov-file#usage
-            // assetsDirectory: "build",
-        }),
+        pagefindBuild({}),
     ],
 });

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { localizeHref } from "$lib/paraglide/runtime";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
     import type { LocalizedString } from "$src/types";
     import { loc } from "../loc";
     let {

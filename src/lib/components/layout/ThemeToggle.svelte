@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { browser } from "$app/environment";
+    import { browser } from "$app/env";
     import SunIcon from "@lucide/svelte/icons/sun";
     import MoonIcon from "@lucide/svelte/icons/moon";
     import SunMoonIcon from "@lucide/svelte/icons/sun-moon";

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { localizeHref } from "$src/lib/paraglide/runtime";
-    import Loc from "$lib/components/Loc.svelte";
+    import Loc from "#lib/components/Loc.svelte";
     import PipeList from "../PipeList.svelte";
     import { pathnameMatches, pathnameStartswith } from "$src/lib/util";
 </script>
