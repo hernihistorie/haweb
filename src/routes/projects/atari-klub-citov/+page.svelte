@@ -5,7 +5,23 @@
     import { data as havelka_data } from "$src/routes/interviews/josef-havelka/interview";
     import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
+    import { articleImages } from "$src/lib/articleImages";
     import { projectAtariKlubCitov } from "./project";
+
+    const img = articleImages(
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?w=1600;800&enhanced",
+            import: "default",
+        }),
+        import.meta.glob("./img/*", { eager: true, import: "default" }),
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?as=meta:width;height",
+            import: "default",
+        }),
+    );
 
     let interviews: InterviewData[] = [havelka_data];
 </script>
@@ -28,7 +44,7 @@
         spolupráci s armádou (Svazarm), nicméně Okresní klub vědeckotechnické činnosti mládeže v
         Cítově (neboli Atari klub Cítov) vznikl poněkud netradičně při zdejším JZD.
     </p>
-    <p><img src="/photos/citov/citov_stara_skola.jpg" alt="Budova cítovského klubu" /></p>
+    <Figure image={img["citov_stara_skola.jpg"]} caption="Budova cítovského klubu" float="right" />
     <p>
         Tento klub se svou činností začal v září roku 1986 v budově, které se říkalo cítovská stará
         škola. U založení klubu stál Josef Havelka, jeho dcera Kateřina, Jan Nikl, Michal Skůrovec a
@@ -41,7 +57,11 @@
         rozpadu klubu začali někteří členi prodávat vlastní vzdělávací software nebo si začali
         vydělávat komerčním tiskem.
     </p>
-    <p><img src="/photos/citov/citov_kazety.jpg" alt="Původní kazety z cítovského klubu." /></p>
+    <Figure
+        image={img["citov_kazety.jpg"]}
+        caption="Výukové programy na kazetách a disketách patří mezi pozdější produkce klubu"
+        float="right"
+    />
     <p>
         V roce 2023 se dostal do sbírky Herního archivu osobní archiv zakladatele spolku Josefa
         Havelky, jenž obsahoval několik osobních počítačů které se používaly v klubu (případně které

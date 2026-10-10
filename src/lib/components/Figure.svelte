@@ -12,13 +12,18 @@
         caption?: LocalizedString;
         alt?: LocalizedString;
         href?: string;
+        /** Float the figure as a thumbnail beside the text (full width on narrow screens) */
+        float?: "left" | "right";
     }
 
     const props: Props = $props();
-    const alt = props.alt ?? props.caption ?? "";
+    const alt = $derived(props.alt ?? props.caption ?? "");
+    const sizes = $derived(
+        props.float ? "(max-width: 600px) 100vw, 340px" : "(min-width: 1400px) 1400px, 100vw",
+    );
 </script>
 
-<figure>
+<figure class={props.float ? `float-${props.float}` : undefined}>
     {#if props.image}
         <a
             href={props.image.original}
@@ -27,13 +32,15 @@
             data-pswp
             data-pswp-width={props.image.width}
             data-pswp-height={props.image.height}
-            onclick={openLightbox}>
+            onclick={openLightbox}
+        >
             <enhanced:img
                 src={props.image.picture}
-                sizes="(min-width: 1400px) 1400px, 100vw"
+                {sizes}
                 alt={loc(alt)}
                 loading="lazy"
-                decoding="async" />
+                decoding="async"
+            />
         </a>
     {:else if props.href}
         <a href={props.href} target="_blank">
@@ -57,5 +64,31 @@
     /* enhanced:img sets width/height attributes; keep the aspect ratio when max-width scales it down */
     img {
         height: auto;
+    }
+
+    .float-left,
+    .float-right {
+        width: 340px;
+        margin-top: 0.25em;
+        margin-bottom: 1em;
+    }
+
+    .float-left {
+        float: left;
+        margin-right: 1.5em;
+    }
+
+    .float-right {
+        float: right;
+        margin-left: 1.5em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .float-left,
+        .float-right {
+            float: none;
+            width: auto;
+            margin: 1.25em 0;
+        }
     }
 </style>
