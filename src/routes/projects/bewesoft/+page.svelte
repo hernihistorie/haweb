@@ -23,8 +23,6 @@
 
     <hr />
 
-    <p><img src="/photos/projects/bewesoft-thin.jpg" alt="Diskety a Atari XE" /></p>
-
     <p>
         <strong>Fond Jiřího Bernáška</strong> – dlouholetého majitele a programátora pro počítače Atari
         – obsahuje jeho archivní diskety s jeho programy a zdrojovými kódy. Jiří Bernášek k této kolekci

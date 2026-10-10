@@ -3,6 +3,7 @@
     import type { Snippet } from "svelte";
     import Meta from "$src/lib/components/layout/Meta.svelte";
     import Loc from "#lib/components/Loc.svelte";
+    import ImageTitle from "#lib/components/ImageTitle.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
 
     interface Props {
@@ -20,9 +21,17 @@
     <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
         <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
     </a>
-    <h2>
-        <Loc text={project.fullname ?? project.name} />
-    </h2>
+    {#if project.image}
+        <div class="banner">
+            <ImageTitle src={project.image} level={2} aspectRatio="5/2">
+                <Loc text={project.fullname ?? project.name} />
+            </ImageTitle>
+        </div>
+    {:else}
+        <h2>
+            <Loc text={project.fullname ?? project.name} />
+        </h2>
+    {/if}
     {@render children?.()}
     <hr />
     <p>
@@ -39,5 +48,9 @@
 
     h2 {
         margin-top: 0.2em;
+    }
+
+    .banner {
+        margin: 24px 0 32px;
     }
 </style>

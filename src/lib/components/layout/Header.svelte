@@ -12,7 +12,6 @@
     import { page } from "$app/state";
     import { pathnameStartswith } from "$src/lib/util";
     import { loc } from "$src/lib/loc";
-    import { postKindHref, postKindList, postKinds } from "$src/lib/posts";
 
     type MenuItem = {
         url: string;
@@ -22,8 +21,18 @@
     };
 
     var menuItems: MenuItem[] = [
-        { url: "/about", cs: "O nás", en: "About us" },
+        {
+            url: "/about",
+            cs: "O nás",
+            en: "About us",
+            submenu: [
+                { url: "/about", cs: "<b>O nás</b>", en: "<b>About us</b>" },
+                { url: "/contact", cs: "Kontakty", en: "Contacts" },
+                { url: "/support", cs: "Podpořte nás", en: "Support us" },
+            ],
+        },
         { url: "/news", cs: "Novinky", en: "News" },
+        { url: "/articles", cs: "Články", en: "Articles" },
         {
             url: "/projects",
             cs: "Projekty",
@@ -78,14 +87,21 @@
             cs: "Časopisy",
             en: "Magazines",
         },
-        {
-            url: "/contact",
-            cs: "Kontakty",
-            en: "Contacts",
-        },
     ];
     let burgerMenuOpen = $state(false);
     let currentExpandedMenu: MenuItem | null = $state(null);
+
+    // A menu item is active on its own page and on any of its submenu pages
+    function isActive(menuItem: MenuItem): boolean {
+        return [menuItem, ...(menuItem.submenu ?? [])].some(
+            (item) => item.url.startsWith("/") && pathnameStartswith(item.url),
+        );
+    }
+
+    // Compare by URL, as $state wraps the stored menu item in a proxy
+    function isExpanded(menuItem: MenuItem): boolean {
+        return currentExpandedMenu?.url === menuItem.url;
+    }
 
     let resetExpandedMenu = () => {
         currentExpandedMenu = null;
@@ -130,7 +146,7 @@
                                     ? localizeHref(menuItem.url)
                                     : menuItem.url}
                                 onclick={() => (burgerMenuOpen = false)}
-                                class:active={pathnameStartswith(menuItem.url)}
+                                class:active={isActive(menuItem)}
                                 ><Loc cs={menuItem.cs} en={menuItem.en} /></a
                             >
                         </li>
@@ -159,7 +175,7 @@
                     <li>
                         <button
                             class="link"
-                            class:active={pathnameStartswith(menuItem.url)}
+                            class:active={isActive(menuItem)}
                             onclick={() =>
                                 (currentExpandedMenu =
                                     currentExpandedMenu?.url == menuItem.url ? null : menuItem)}
@@ -169,11 +185,11 @@
                             tabindex="0"
                         >
                             <Loc
-                                cs="{menuItem.cs}  {currentExpandedMenu == menuItem ? '▴' : '▾'}"
-                                en="{menuItem.en}  {currentExpandedMenu == menuItem ? '▴' : '▾'}"
+                                cs="{menuItem.cs}  {isExpanded(menuItem) ? '▴' : '▾'}"
+                                en="{menuItem.en}  {isExpanded(menuItem) ? '▴' : '▾'}"
                             />
                         </button>
-                        {#if currentExpandedMenu}
+                        {#if isExpanded(menuItem)}
                             <ul class="dropdown" transition:slide>
                                 {#each menuItem.submenu as subMenuItem}
                                     <li>
@@ -197,7 +213,7 @@
                                 ? localizeHref(menuItem.url)
                                 : menuItem.url}
                             onclick={resetExpandedMenu}
-                            class:active={pathnameStartswith(menuItem.url)}
+                            class:active={isActive(menuItem)}
                         >
                             <Loc cs={menuItem.cs} en={menuItem.en} />
                         </a>

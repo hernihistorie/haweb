@@ -15,12 +15,14 @@
 
     let url = $derived(postHref(blogPost));
     let localizedUrl = $derived(localizeHref(url));
+    // Articles are shown as wide boxes with the image next to the text
+    let horizontal = $derived(blogPost.kind === "article");
 </script>
 
-<div class="blog-box">
-    <a href={localizedUrl}>
+<div class="blog-box" class:horizontal>
+    <a href={localizedUrl} class="image">
         {#if blogPost.image}
-            <Lazy height={"calc(8em + 4px)"} keep={true}>
+            <Lazy height={horizontal ? "calc(9em + 4px)" : "calc(6em + 4px)"} keep={true}>
                 <img src={blogPost.image} alt="" />
             </Lazy>
         {:else}
@@ -28,36 +30,38 @@
             </div> -->
         {/if}
     </a>
-    {#if blogPost.title}
-        <h3>
-            <a href={localizedUrl}>
-                <Loc text={blogPost.title} />
-            </a>
-        </h3>
-    {/if}
-    {#if children}
-        {@render children?.()}
-    {:else if blogPost.description_html}
-        <Loc text={blogPost.description_html} />
-    {/if}
-    <div
-        style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;"
-    >
-        <div>
-            {#if show_arrow}
-                <Arrow href={url} />
-            {/if}
-        </div>
-        <div class="author-date">
-            <author>
-                <Loc text={blogPost.author.name} />
-            </author>
-            <BulletPoint />
-            <date>
-                {#if blogPost.date}
-                    {blogPost.date.day}.&nbsp;{blogPost.date.month}.&nbsp;{blogPost.date.year}
+    <div class="text">
+        {#if blogPost.title}
+            <h3>
+                <a href={localizedUrl}>
+                    <Loc text={blogPost.title} />
+                </a>
+            </h3>
+        {/if}
+        {#if children}
+            {@render children?.()}
+        {:else if blogPost.description_html}
+            <Loc text={blogPost.description_html} />
+        {/if}
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;"
+        >
+            <div>
+                {#if show_arrow}
+                    <Arrow href={url} />
                 {/if}
-            </date>
+            </div>
+            <div class="author-date">
+                <author>
+                    <Loc text={blogPost.author.name} />
+                </author>
+                <BulletPoint />
+                <date>
+                    {#if blogPost.date}
+                        {blogPost.date.day}.&nbsp;{blogPost.date.month}.&nbsp;{blogPost.date.year}
+                    {/if}
+                </date>
+            </div>
         </div>
     </div>
 </div>
@@ -68,7 +72,7 @@
         /* aspect-ratio: 10/3; */
         box-sizing: border-box;
         width: 100%;
-        height: 8em;
+        height: 6em;
         object-fit: cover;
         border: 2px solid var(--color-secondary);
     }
@@ -81,8 +85,34 @@
         width: calc(32% - 24px);
     }
 
+    .blog-box.horizontal {
+        width: 100%;
+        max-width: 60em;
+        display: flex;
+        gap: 24px;
+    }
+
+    .horizontal .image {
+        flex: 0 0 14em;
+    }
+
+    .horizontal img {
+        height: 9em;
+    }
+
+    .horizontal .text {
+        flex: 1;
+        min-width: 0;
+    }
+
     .blog-box h3 {
         margin-top: 0;
+    }
+
+    /* News cards are kept compact, so they're easy to tell apart from projects and articles */
+    .blog-box:not(.horizontal) h3 {
+        font-size: 22px;
+        margin-bottom: 0.6em;
     }
 
     .blog-box h3 a {
@@ -99,6 +129,21 @@
     @media screen and (max-width: 1200px) {
         .blog-box {
             width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .blog-box.horizontal {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .horizontal .image {
+            flex-basis: auto;
+        }
+
+        .horizontal img {
+            height: 8em;
         }
     }
 </style>

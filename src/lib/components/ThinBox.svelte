@@ -1,13 +1,25 @@
 <script lang="ts">
     import Arrow from "$src/lib/components/Arrow.svelte";
+    import ImageTitle from "$src/lib/components/ImageTitle.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
+    import type { Snippet } from "svelte";
     let {
         href = undefined,
         title = undefined,
+        /** Title shown over the bottom of the image */
+        heading = undefined,
         children,
         show_arrow = true,
         img = undefined,
         project = false,
+    }: {
+        href?: string;
+        title?: string;
+        heading?: Snippet;
+        children?: Snippet;
+        show_arrow?: boolean;
+        img?: string;
+        project?: boolean;
     } = $props();
 
     let localizedHref = $derived(
@@ -16,10 +28,16 @@
 </script>
 
 <div class="project">
-    {#if img}
+    {#if img && heading}
+        <a href={localizedHref} class="image">
+            <ImageTitle src={img} alt={title}>{@render heading()}</ImageTitle>
+        </a>
+    {:else if img}
         <a href={localizedHref}>
             <img src={img} alt={title} />
         </a>
+    {:else if heading}
+        <h3><a href={localizedHref}>{@render heading()}</a></h3>
     {/if}
     {#if title}
         <h3>
@@ -29,7 +47,7 @@
         </h3>
     {/if}
     {@render children?.()}
-    {#if show_arrow}
+    {#if show_arrow && href}
         <div style="margin-top: 16px;">
             <Arrow {href} />
         </div>
@@ -48,6 +66,11 @@
 
     .project :global(h3) {
         margin-top: 0;
+    }
+
+    .image {
+        display: block;
+        text-decoration: none;
     }
 
     .project :global(h3 a) {
