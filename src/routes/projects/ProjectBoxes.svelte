@@ -12,6 +12,7 @@
     import { projectFrantisekStarekCunas } from "./frantisek-starek-cunas/project";
     import { projectMagazines } from "../magazines/project";
     import { projectInterviews } from "../interviews/project";
+    import { projectSbirka } from "./sbirka/project";
     interface Props {
         all: boolean;
     }
@@ -30,6 +31,7 @@
         projectBewesoft,
         projectAtariKlubCitov,
         projectVideostop,
+        projectSbirka,
         projectMagazines,
         projectInterviews,
         projectEmilFafek,
