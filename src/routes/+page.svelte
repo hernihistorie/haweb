@@ -17,7 +17,11 @@
 <Meta title="" />
 
 {#snippet latestPosts(kind: PostKind)}
-    <h2><Loc text={postKinds[kind].title} /></h2>
+    <h2>
+        <a href={postKindHref(kind)} class="unstyled">
+            <Loc text={postKinds[kind].title} />
+        </a>
+    </h2>
 
     <div class="blogboxes">
         <PostBoxes posts={data.latestPosts[kind]} />
@@ -44,7 +48,8 @@
             <p>
                 <Loc
                     cs="V evidenci vedeme více než 8 000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
-                    en="We maintain a registry of more than 8,000 items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature." />
+                    en="We maintain a registry of more than 8,000 items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature."
+                />
             </p>
             <p>
                 <strong>
@@ -72,7 +77,8 @@
             <p>
                 <Loc
                     cs="Neustále se rozšiřující sbírka rozhovorů s představiteli české a slovenské videoherní kultury. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout."
-                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer." />
+                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer."
+                />
             </p>
             <p>
                 <strong>
@@ -82,7 +88,8 @@
                 >,
                 <Loc
                     cs="zakladatel <i>Atari klubu Cítov</i>"
-                    en="founder of <i>Atari club Cítov</i>" />
+                    en="founder of <i>Atari club Cítov</i>"
+                />
             </p>
             <Arrow href="/interviews">
                 <Loc cs="Přečíst rozhovory" en="Read interviews" />
@@ -99,7 +106,8 @@
             <p>
                 <Loc
                     cs="Tvoříme knihovnu českých a slovenských videoherních časopisů které postupně digitalizujeme. Také vedeme veřejnou databázi těchto časopisů, ve které si můžete prohlédnout obsahy všech doplněných čísel."
-                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues." />
+                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues."
+                />
             </p>
             <p>
                 <strong>
@@ -137,7 +145,8 @@
             <p>
                 <Loc
                     cs="Naše sbírka vizuálních materiálů zahrnuje historické fotografie, obaly k videohrám, plakáty, letáky a další podobné propagační materiály, fotografie našich sbírkových předmětů nebo videoherní snímky obrazovky."
-                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots." />
+                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots."
+                />
             </p>
             <!-- <div class="thumbnails">
                 <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
@@ -169,7 +178,8 @@
         "
         en="
             The Czechoslovak Game Archive is a project of the non-profit association Herní historie. It is a volunteer activity born out of love for games and the history of our culture. Your support helps us maintain and develop our activities.
-        " />
+        "
+    />
 </p>
 <Arrow href="/support">
     <Loc cs="Podpořte naši činnost" en="Support our activities" />

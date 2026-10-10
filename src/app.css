@@ -109,6 +109,15 @@ a.plain {
     text-decoration-thickness: 1px;
 }
 
+a.unstyled {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.unstyled:hover {
+    text-decoration: underline;
+}
+
 details summary {
     cursor: pointer;
 }
