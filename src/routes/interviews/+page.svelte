@@ -15,8 +15,9 @@
     import { data as cunas_data } from "./frantisek-starek-cunas/interview";
     import { data as tucek_data } from "./petr-tucek/interview";
     import InterviewBox from "$src/lib/components/interviews/InterviewBox.svelte";
-    import Meta from "$src/lib/components/layout/Meta.svelte";
+    import ProjectPage from "$src/lib/components/project/ProjectPage.svelte";
     import Loc from "#lib/components/Loc.svelte";
+    import { projectInterviews } from "./project";
 
     let interviews_public: InterviewData[] = [
         tucek_data,
@@ -37,16 +38,7 @@
     ];
 </script>
 
-<Meta
-    title={{
-        cs: "Rozhovory",
-        en: "Interviews",
-    }} />
-
-<div class="thin">
-    <h2>
-        <Loc cs="Rozhovory" en="Interviews" />
-    </h2>
+<ProjectPage project={projectInterviews} backLink={false}>
     <p>
         <Loc
             cs="Sbírka rozhovorů je primárně složená z interview užívající metodu orální historie s představitelstvem české a slovenské herní kultury. Tyto rozhovory se zaměřují především na široké životopisné vyprávění, během kterého je snaha dát narátorstvu co nejvíce prostoru pro jejich autentický projev. To znamená, že je jejich projev jen minimálně přerušován a veden samotným tazatelem. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout. Tato sbírka také obsahuje rozhovory se zahraničními osobnostmi videoherní kultury, více strukturované rozhovory a záznamy přednášek, konferencí, debat a dalších akcí."
@@ -66,4 +58,4 @@
     {#each interviews_unpublished as data}
         <InterviewBox {data} />
     {/each}
-</div>
+</ProjectPage>

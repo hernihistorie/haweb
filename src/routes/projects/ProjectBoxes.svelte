@@ -11,6 +11,7 @@
     import { projectOuya } from "./ouya/project";
     import { projectFrantisekStarekCunas } from "./frantisek-starek-cunas/project";
     import { projectMagazines } from "../magazines/project";
+    import { projectInterviews } from "../interviews/project";
     interface Props {
         all: boolean;
     }
@@ -30,6 +31,7 @@
         projectAtariKlubCitov,
         projectVideostop,
         projectMagazines,
+        projectInterviews,
         projectEmilFafek,
         projectOuya,
     ];
