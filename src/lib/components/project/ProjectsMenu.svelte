@@ -3,18 +3,22 @@
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import { pathnameMatches } from "$src/lib/util";
     import Loc from "../Loc.svelte";
+
+    let { active }: { active?: "projects" | "timeline" } = $props();
 </script>
 
 <ul>
     <li>
-        <a href={localizeHref("/projects")} class:active={pathnameMatches("/projects/")}>
+        <a
+            href={localizeHref("/projects")}
+            class:active={active === "projects" || pathnameMatches("/projects/")}>
             <Loc cs="Projekty" en="Projects" />
         </a>
     </li>
     <li>
         <a
             href={localizeHref("/projects/timeline")}
-            class:active={pathnameMatches("/projects/timeline")}>
+            class:active={active === "timeline" || pathnameMatches("/projects/timeline")}>
             <Loc cs="Časová osa" en="Timeline" />
         </a>
     </li>

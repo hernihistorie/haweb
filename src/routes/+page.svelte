@@ -7,6 +7,7 @@
     import { postKindHref, postKinds } from "#lib/posts.js";
     import type { PostKind } from "$src/types";
     import ProjectBoxes from "./projects/ProjectBoxes.svelte";
+    import ProjectsMenu from "$src/lib/components/project/ProjectsMenu.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
 
@@ -150,7 +151,7 @@
     </div>
 </div>
 
-<h2><Loc cs="Projekty" en="Projects" /></h2>
+<ProjectsMenu active="projects" />
 <ProjectBoxes all={false} />
 <div style="margin-top: 24px;">
     <Arrow href="/projects">
