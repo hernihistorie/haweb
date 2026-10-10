@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { LocalizedString } from "$src/types";
+    import type { Snippet } from "svelte";
     import type { ArticleImage } from "$src/lib/articleImages";
     import { openLightbox } from "$src/lib/lightbox";
     import { loc } from "../loc";
@@ -14,6 +15,8 @@
         href?: string;
         /** Float the figure as a thumbnail beside the text (full width on narrow screens) */
         float?: "left" | "right";
+        /** Caption with markup; takes precedence over `caption` */
+        children?: Snippet;
     }
 
     const props: Props = $props();
@@ -32,15 +35,13 @@
             data-pswp
             data-pswp-width={props.image.width}
             data-pswp-height={props.image.height}
-            onclick={openLightbox}
-        >
+            onclick={openLightbox}>
             <enhanced:img
                 src={props.image.picture}
                 {sizes}
                 alt={loc(alt)}
                 loading="lazy"
-                decoding="async"
-            />
+                decoding="async" />
         </a>
     {:else if props.href}
         <a href={props.href} target="_blank">
@@ -49,16 +50,24 @@
     {:else}
         <img src={props.src} alt={loc(alt)} loading="lazy" decoding="async" />
     {/if}
-    {#if props.caption}
+    {#if props.children || props.caption}
         <figcaption>
             {#if props.href}
-                <a href={props.href} target="_blank">{loc(props.caption)}</a>
+                <a href={props.href} target="_blank">{@render captionContent()}</a>
             {:else}
-                {loc(props.caption)}
+                {@render captionContent()}
             {/if}
         </figcaption>
     {/if}
 </figure>
+
+{#snippet captionContent()}
+    {#if props.children}
+        {@render props.children()}
+    {:else}
+        {loc(props.caption ?? "")}
+    {/if}
+{/snippet}
 
 <style>
     /* enhanced:img sets width/height attributes; keep the aspect ratio when max-width scales it down */

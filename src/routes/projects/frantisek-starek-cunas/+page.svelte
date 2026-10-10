@@ -6,8 +6,23 @@
     import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { projectFrantisekStarekCunas } from "../frantisek-starek-cunas/project";
-    import { loc } from "$src/lib/loc";
     import LucideDownload from "@lucide/svelte/icons/download";
+    import Figure from "$src/lib/components/Figure.svelte";
+    import { articleImages } from "$src/lib/articleImages";
+
+    const img = articleImages(
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?w=1600;800&enhanced",
+            import: "default",
+        }),
+        import.meta.glob("./img/*", { eager: true, import: "default" }),
+        import.meta.glob("./img/*", {
+            eager: true,
+            query: "?as=meta:width;height",
+            import: "default",
+        }),
+    );
 
     let interviews: InterviewData[] = [cunas_data];
 </script>
@@ -20,20 +35,9 @@
                 <p><strong>Rok dokončení projektu</strong>: 2026"
             en="<p><strong>Collection name</strong>: František Stárek Čuňas
                 <p><strong>Names of the involved archivists</strong>: Rudolf Jan Suchý, Jaroslav Švelch
-                <p><strong>Year of project completion</strong>: 2026" />
+                <p><strong>Year of project completion</strong>: 2026"
+        />
         <hr />
-    </div>
-    <div class="picture-cite">
-        <p>
-            <img
-                src="/photos/frantisek-starek/frantisek_starek_1.jpg"
-                alt="Pavel Lašák u počítače ZX Spectrum+" />
-            <cite
-                ><Loc
-                    cs="Pavel Lašák u počítače ZX Spectrum+ (Zdroj: František Stárek)"
-                    en="Pavel Lašák working on a ZX Spectrum+ (Source: František Stárek)" />
-            </cite>
-        </p>
     </div>
     <Loc>
         {#snippet cs()}
@@ -50,6 +54,17 @@
                     ><i>Jak obehrát železnou oponu</i></a
                 >, Jaroslav Švelch, 2021)
             </p>
+            <Figure
+                image={img["frantisek_starek_1.jpg"]}
+                alt={{
+                    cs: "Pavel Lašák u počítače ZX Spectrum+",
+                    en: "Pavel Lašák working on a ZX Spectrum+",
+                }}
+                caption={{
+                    cs: "Pavel Lašák u počítače ZX Spectrum+ (Zdroj: František Stárek)",
+                    en: "Pavel Lašák working on a ZX Spectrum+ (Source: František Stárek)",
+                }}
+            />
             <p>
                 Stárek, Lašák i Včelák byli majitelé osobního počítače ZX Spectrum, které používali
                 od druhé poloviny 80. let zejména k tvorbě cyklostylových šablon, které měly
@@ -81,6 +96,17 @@
                     href="https://ironcurtain.svelch.com/"><i>Gaming the Iron Curtain</i></a
                 >, Jaroslav Švelch, 2021)
             </p>
+            <Figure
+                image={img["frantisek_starek_1.jpg"]}
+                alt={{
+                    cs: "Pavel Lašák u počítače ZX Spectrum+",
+                    en: "Pavel Lašák working on a ZX Spectrum+",
+                }}
+                caption={{
+                    cs: "Pavel Lašák u počítače ZX Spectrum+ (Zdroj: František Stárek)",
+                    en: "Pavel Lašák working on a ZX Spectrum+ (Source: František Stárek)",
+                }}
+            />
             <p>
                 Stárek, Lašák, and Včelák were owners of the ZX Spectrum personal computer, which
                 they used from the mid-1980s primarily to create stencil templates that simplified
@@ -100,21 +126,18 @@
             </p>
         {/snippet}
     </Loc>
-    <div class="picture-cite">
-        <p>
-            <img
-                src="/photos/frantisek-starek/videomagazin_vokno.png"
-                alt={loc({
-                    cs: "Grafika z Videomagazínu Vokna",
-                    en: "Graphics from Videomagazín Vokna",
-                })} />
-        </p>
-        <cite
-            ><Loc
-                cs="Grafika z <i>Videomagazínu Vokna</i> (Zdroj: František Stárek)"
-                en="Graphics from <i>Videomagazín Vokno</i> (Source: František Stárek)" />
-        </cite>
-    </div>
+    <Figure
+        image={img["videomagazin_vokno.png"]}
+        alt={{
+            cs: "Grafika z Videomagazínu Vokna",
+            en: "Graphics from Videomagazín Vokna",
+        }}
+    >
+        <Loc
+            cs="Grafika z <i>Videomagazínu Vokna</i> (Zdroj: František Stárek)"
+            en="Graphics from <i>Videomagazín Vokno</i> (Source: František Stárek)"
+        />
+    </Figure>
     <p>
         <Loc>
             {#snippet cs()}

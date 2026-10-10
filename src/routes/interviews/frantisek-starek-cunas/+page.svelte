@@ -8,6 +8,7 @@
 
     import { data, FS, JS } from "./interview";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import videomagazinVokno from "$src/routes/projects/frantisek-starek-cunas/img/videomagazin_vokno.png";
 
     let A = Answer;
     let Q = Question;
@@ -149,9 +150,7 @@
                     </p></A>
                 <div class="picture-cite">
                     <p>
-                        <img
-                            src="/photos/frantisek-starek/videomagazin_vokno.png"
-                            alt="Grafika z Videomagazínu Vokna" />
+                        <img src={videomagazinVokno} alt="Grafika z Videomagazínu Vokna" />
                         <cite><i>Videomagazín Vokna</i></cite>
                     </p>
                 </div>
@@ -536,9 +535,7 @@
                     </p></A>
                 <div class="picture-cite">
                     <p>
-                        <img
-                            src="/photos/frantisek-starek/videomagazin_vokno.png"
-                            alt="Graphics from the Vokno Video Magazine" />
+                        <img src={videomagazinVokno} alt="Graphics from the Vokno Video Magazine" />
                         <cite><i>Vokno Video Magazine</i></cite>
                     </p>
                 </div>
