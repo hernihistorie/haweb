@@ -12,6 +12,7 @@
     import { page } from "$app/state";
     import { pathnameStartswith } from "$src/lib/util";
     import { loc } from "$src/lib/loc";
+    import { postKindHref, postKindList, postKinds } from "$src/lib/posts";
 
     type MenuItem = {
         url: string;
@@ -22,6 +23,7 @@
 
     var menuItems: MenuItem[] = [
         { url: "/about", cs: "O nás", en: "About us" },
+        { url: "/news", cs: "Novinky", en: "News" },
         {
             url: "/projects",
             cs: "Projekty",
@@ -77,11 +79,6 @@
             en: "Magazines",
         },
         {
-            url: "/blog",
-            cs: "Blog",
-            en: "Blog",
-        },
-        {
             url: "/contact",
             cs: "Kontakty",
             en: "Contacts",
@@ -110,7 +107,8 @@
                     ? "/ico/logo_herni_archiv.svg"
                     : "/ico/logo_czechoslovak_game_archive.svg"}
                 alt={loc({ cs: "Herní archiv", en: "Czechoslovak Game Archive" })}
-                height="62" />
+                height="62"
+            />
         </a>
         {#if page.url.hostname === "localhost" || page.url.hostname === "127.0.0.1"}
             <div class="localhost">LOCALHOST</div>
@@ -133,7 +131,8 @@
                                     : menuItem.url}
                                 onclick={() => (burgerMenuOpen = false)}
                                 class:active={pathnameStartswith(menuItem.url)}
-                                ><Loc cs={menuItem.cs} en={menuItem.en} /></a>
+                                ><Loc cs={menuItem.cs} en={menuItem.en} /></a
+                            >
                         </li>
                     {/each}
                 </ul>
@@ -167,10 +166,12 @@
                             onkeyup={() =>
                                 (currentExpandedMenu =
                                     currentExpandedMenu?.url == menuItem.url ? null : menuItem)}
-                            tabindex="0">
+                            tabindex="0"
+                        >
                             <Loc
                                 cs="{menuItem.cs}  {currentExpandedMenu == menuItem ? '▴' : '▾'}"
-                                en="{menuItem.en}  {currentExpandedMenu == menuItem ? '▴' : '▾'}" />
+                                en="{menuItem.en}  {currentExpandedMenu == menuItem ? '▴' : '▾'}"
+                            />
                         </button>
                         {#if currentExpandedMenu}
                             <ul class="dropdown" transition:slide>
@@ -180,7 +181,8 @@
                                             href={subMenuItem.url.startsWith("/")
                                                 ? localizeHref(subMenuItem.url)
                                                 : subMenuItem.url}
-                                            onclick={resetExpandedMenu}>
+                                            onclick={resetExpandedMenu}
+                                        >
                                             <Loc cs={subMenuItem.cs} en={subMenuItem.en} />
                                         </a>
                                     </li>
@@ -195,7 +197,8 @@
                                 ? localizeHref(menuItem.url)
                                 : menuItem.url}
                             onclick={resetExpandedMenu}
-                            class:active={pathnameStartswith(menuItem.url)}>
+                            class:active={pathnameStartswith(menuItem.url)}
+                        >
                             <Loc cs={menuItem.cs} en={menuItem.en} />
                         </a>
                     </li>

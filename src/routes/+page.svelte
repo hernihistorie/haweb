@@ -3,7 +3,9 @@
     import Hero from "#lib/components/Hero.svelte";
     import Box from "#lib/components/Box.svelte";
     import Loc from "#lib/components/Loc.svelte";
-    import BlogBoxes from "./blog/BlogBoxes.svelte";
+    import PostBoxes from "#lib/components/post/PostBoxes.svelte";
+    import { postKindHref, postKinds } from "#lib/posts.js";
+    import type { PostKind } from "$src/types";
     import ProjectBoxes from "./projects/ProjectBoxes.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
@@ -13,7 +15,22 @@
 
 <Meta title="" />
 
+{#snippet latestPosts(kind: PostKind)}
+    <h2><Loc text={postKinds[kind].title} /></h2>
+
+    <div class="blogboxes">
+        <PostBoxes posts={data.latestPosts[kind]} />
+    </div>
+    <div style="margin-top: 24px;">
+        <Arrow href={postKindHref(kind)}>
+            <Loc text={postKinds[kind].allTitle} />
+        </Arrow>
+    </div>
+{/snippet}
+
 <Hero />
+
+{@render latestPosts("news")}
 
 <h2><Loc cs="Naše činnost" en="Our Activities" /></h2>
 
@@ -141,16 +158,7 @@
     </Arrow>
 </div>
 
-<h2>Blog</h2>
-
-<div class="blogboxes">
-    <BlogBoxes posts={data.latestBlogPosts} />
-</div>
-<div style="margin-top: 24px;">
-    <Arrow href="/blog">
-        <Loc cs="Všechny blogové příspěvky" en="All blog posts" />
-    </Arrow>
-</div>
+{@render latestPosts("article")}
 
 <h2><Loc cs="Podpořte nás" en="Support us" /></h2>
 <p>

@@ -19,7 +19,9 @@ import type { Organization, Channel } from "./buffer/buffer.js";
 
 const BASE_PATH = join(import.meta.dirname, "..");
 const ENV_PATH = join(BASE_PATH, ".env");
-const BLOG_DIR = join(BASE_PATH, "src/data/blog");
+// Posts imported from Buffer are news; IDs are shared between all post kinds
+const NEWS_DIR = join(BASE_PATH, "src/data/news");
+const POST_DIRS = ["news", "articles"].map((dir) => join(BASE_PATH, "src/data", dir));
 
 const NUM_POSTS = 6; // Number of recent posts to fetch from Buffer
 
@@ -33,7 +35,7 @@ function slugify(text: string): string {
 }
 
 function getNextBlogId(): number {
-    const dirs = readdirSync(BLOG_DIR).filter((d) => /^\d+-/.test(d));
+    const dirs = POST_DIRS.flatMap((dir) => readdirSync(dir)).filter((d) => /^\d+-/.test(d));
     const ids = dirs.map((d) => parseInt(d.split("-")[0], 10)).filter((n) => !isNaN(n));
     return Math.max(0, ...ids) + 1;
 }
@@ -124,7 +126,8 @@ import { authors } from '$src/data/authors';${imageImport}
 const post: Post = {
     published: true,
     id: ${id},
-    slug: '${slug}',${imageLine}
+    slug: '${slug}',
+    kind: 'news',${imageLine}
     title: {
         cs: ${JSON.stringify(title)},
     },
@@ -263,7 +266,7 @@ async function main() {
     const nextId = getNextBlogId();
     const dirName = `${nextId}-${slug}`;
 
-    console.log(`\nWill create: src/data/blog/${dirName}/`);
+    console.log(`\nWill create: src/data/news/${dirName}/`);
     // const proceed = await confirm({ message: 'Create blog post draft?' });
     // if (!proceed) {
     //     console.log('Cancelled.');
@@ -271,7 +274,7 @@ async function main() {
     // }
 
     // 6. Create blog post files
-    const postDir = join(BLOG_DIR, dirName);
+    const postDir = join(NEWS_DIR, dirName);
     mkdirSync(postDir, { recursive: true });
 
     // Download images into img/ next to the blog post
@@ -293,7 +296,7 @@ async function main() {
             try {
                 await downloadImage(url, absPath);
                 downloadedImages.push(filename);
-                console.log(`    → src/data/blog/${dirName}/img/${filename}`);
+                console.log(`    → src/data/news/${dirName}/img/${filename}`);
             } catch (e) {
                 console.error(`    Failed: ${(e as Error).message}`);
             }
@@ -313,14 +316,14 @@ async function main() {
     writeFileSync(join(postDir, "+page.svelte"), generatePageSvelte(post.text, downloadedImages));
 
     console.log(`\nCreated blog post draft:`);
-    console.log(`  src/data/blog/${dirName}/blog_post.ts`);
-    console.log(`  src/data/blog/${dirName}/+page.svelte`);
+    console.log(`  src/data/news/${dirName}/blog_post.ts`);
+    console.log(`  src/data/news/${dirName}/+page.svelte`);
     if (downloadedImages.length > 0) {
         console.log(
-            `  ${downloadedImages.length} image(s) downloaded to src/data/blog/${dirName}/img/`,
+            `  ${downloadedImages.length} image(s) downloaded to src/data/news/${dirName}/img/`,
         );
     }
-    console.log(`\nView (if you have a dev server running): http://localhost:5174/blog/${dirName}`);
+    console.log(`\nView (if you have a dev server running): http://localhost:5174/news/${dirName}`);
     console.log(`\nNote: The post is created with published: true and the scheduled due date.`);
 }
 

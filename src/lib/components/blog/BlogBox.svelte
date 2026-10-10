@@ -6,13 +6,14 @@
     import Loc from "../Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import BulletPoint from "../BulletPoint.svelte";
+    import { postHref } from "#lib/posts.js";
     let {
         blogPost,
         children,
         show_arrow = true,
     }: { blogPost: Post; children?: Snippet; show_arrow?: boolean } = $props();
 
-    let url = $derived(`/blog/${blogPost.id}-${blogPost.slug}`);
+    let url = $derived(postHref(blogPost));
     let localizedUrl = $derived(localizeHref(url));
 </script>
 

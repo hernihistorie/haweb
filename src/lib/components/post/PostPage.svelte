@@ -12,6 +12,7 @@
     import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
     import { Temporal } from "@js-temporal/polyfill";
     import { loc } from "$src/lib/loc";
+    import { postHref, postKindHref, postKinds } from "$src/lib/posts";
     import { data } from "$src/routes/assets/asset_07392";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
@@ -27,6 +28,7 @@
 
     let { post, series, children }: Props = $props();
 
+    const kindInfo = $derived(postKinds[post.kind]);
     const postYear = $derived(post.date?.year);
     const isOlderThanAYear = $derived(
         post.date
@@ -34,28 +36,31 @@
                   365
             : false,
     );
-    const blogHref = $derived(
-        isOlderThanAYear && postYear ? localizeHref(`/blog/${postYear}`) : localizeHref("/blog"),
+    // Link to the year page if the post would no longer be among the latest ones
+    const backlinkYear = $derived(
+        kindInfo.hasYears && isOlderThanAYear && postYear ? postYear : null,
+    );
+    const backlinkHref = $derived(
+        localizeHref(
+            backlinkYear ? `${postKindHref(post.kind)}/${backlinkYear}` : postKindHref(post.kind),
+        ),
     );
 </script>
 
 {#snippet backlinks()}
-    <a href={blogHref} class="backlink" data-pagefind-ignore>
-        <Loc
-            cs="Blog Herního archivu"
-            en="Czechoslovak Game Archive Blog"
-        />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
+    <a href={backlinkHref} class="backlink" data-pagefind-ignore>
+        <Loc text={kindInfo.longTitle} />{#if backlinkYear}&nbsp;({backlinkYear}){/if}
     </a>
     {#if !post.author.isDefault}
         <BulletPoint />
         <a
-            href={localizeHref(`/blog/authors/${post.author.slug}`)}
+            href={localizeHref(`/authors/${post.author.slug}`)}
             class="backlink"
             data-pagefind-ignore
         >
             <Loc
-                cs={`Blogové příspěvky od ${post.author.nameGenitive}`}
-                en={`Blog posts from ${post.author.name}`}
+                cs={`Příspěvky od ${post.author.nameGenitive}`}
+                en={`Posts from ${post.author.name}`}
             />
         </a>
     {/if}
@@ -118,7 +123,7 @@
             {#each series as s (s.slug)}
                 <div class="series-info">
                     <span class="backlink">
-                        <Loc cs="Série příspěvků" en="Blog post series" />
+                        <Loc cs="Série příspěvků" en="Post series" />
                     </span>
                     <h3 class="text-uppercase"><Loc text={s.title} /></h3>
                     {#if s.description}
@@ -134,7 +139,7 @@
                                         <Loc text={post.title} />
                                     </strong>
                                 {:else}
-                                    <a href={localizeHref(`/blog/${blogPost.id}-${blogPost.slug}`)}>
+                                    <a href={localizeHref(postHref(blogPost))}>
                                         <Loc text={blogPost.title} />
                                     </a>
                                 {/if}
@@ -150,7 +155,7 @@
         </div>
         <hr style="margin: 2em 0;" />
         {#if !post.author.isDefault}
-            <AuthorBio author={post.author} secondary />
+            <AuthorBio author={post.author} kind={post.kind} secondary />
         {:else}
             {@render backlinks()}
         {/if}

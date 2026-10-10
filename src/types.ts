@@ -83,9 +83,12 @@ export interface Project {
     description?: LocalizedString;
 }
 
+export type PostKind = "news" | "article";
+
 export interface Post {
     id: number;
     slug: string;
+    kind: PostKind;
     image?: string;
     published?: boolean;
     title: LocalizedString;

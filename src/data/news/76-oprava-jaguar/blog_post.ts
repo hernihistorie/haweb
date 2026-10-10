@@ -1,0 +1,22 @@
+import { Temporal } from "@js-temporal/polyfill";
+
+import type { Post } from "$src/types";
+import { authors } from "$src/data/authors";
+
+const post: Post = {
+    published: true,
+    id: 76,
+    slug: "oprava-jaguar",
+    kind: "news",
+    image: "/photos/blog-posts/oprava-jaguar_1_1.jpg",
+    title: {
+        cs: "Opravili jsme naše Atari Jaguary",
+    },
+    date: new Temporal.PlainDate(2025, 11, 4),
+    author: authors.HerniHistorie,
+    description_html: `
+        Ačkoliv jde o jednu z těch obskurnějších konzolí, tak v naší výjezdové výbavě RetroHerny je dlouho konzole Atari Jaguar. Bohužel oba kousky které vlastníme se nám rozbily a bylo potřeba, aby je opravil šikovný Lukáš Nevařil.
+    `,
+};
+
+export default post;

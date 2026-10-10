@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { getBlogPosts } from "$src/data/blog_posts";
+import { getPosts } from "$src/data/posts";
+import { postHref, postKindHref } from "./posts";
 import type { Post, LanguageCode } from "$src/types";
 import { toPlainDateTime } from "./datetime";
 
@@ -44,7 +45,7 @@ function dateToISOString(date: Temporal.PlainDate | Temporal.PlainDateTime): str
 export function generateAtomFeed(config: FeedConfig): string {
     const { lang, title, subtitle, feedPath } = config;
 
-    const latestPosts = getBlogPosts()
+    const latestPosts = getPosts()
         .filter((post) => post.date)
         .sort((a, b) =>
             Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)),
@@ -60,7 +61,7 @@ export function generateAtomFeed(config: FeedConfig): string {
     <title>${escapeXml(title)}</title>
     <subtitle>${escapeXml(subtitle)}</subtitle>
     <link href="${SITE_URL}${feedPath}" rel="self" type="application/atom+xml"/>
-    <link href="${SITE_URL}/blog" rel="alternate" type="text/html"/>
+    <link href="${SITE_URL}${postKindHref("news")}" rel="alternate" type="text/html"/>
     <id>${SITE_URL}${feedPath}</id>
     <updated>${lastUpdated}</updated>
     <author>
@@ -69,7 +70,9 @@ export function generateAtomFeed(config: FeedConfig): string {
 ${latestPosts
     .map((post) => {
         const postTitle = escapeXml(getTitle(post, lang));
-        const url = `${SITE_URL}/blog/${post.id}-${post.slug}`;
+        const url = `${SITE_URL}${postHref(post)}`;
+        // Entry IDs must never change, so keep the URL from when posts lived under /blog
+        const id = `${SITE_URL}/blog/${post.id}-${post.slug}`;
         const descriptionHtml =
             typeof post.description_html === "string"
                 ? post.description_html
@@ -82,7 +85,7 @@ ${latestPosts
         return `    <entry>
         <title>${postTitle}</title>
         <link href="${url}" rel="alternate" type="text/html"/>
-        <id>${url}</id>
+        <id>${id}</id>
         <author>${post.author.name}</author>
         <published>${date}</published>
         <updated>${date}</updated>

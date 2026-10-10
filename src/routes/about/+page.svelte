@@ -367,7 +367,7 @@
                 <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a>
                 a <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. Všude zpravidla
                 týdně postujeme co se nového děje ve spolku. Také máme
-                <a href={localizeHref("/blog")}>vlastní blog</a>
+                <a href={localizeHref("/news")}>vlastní blog</a>
                 nebo se můžete připojit na náš <a href="https://discord.gg/9cJsyrqg">Discord</a>.
             </p>
         {/snippet}
@@ -382,7 +382,7 @@
                 <a href="https://www.youtube.com/@hernihistorie2018">YouTube</a>, and
                 <a href="https://www.tiktok.com/@herni.historie.cz">TikTok</a>. We generally post
                 weekly updates about what's happening in the association. We also have
-                <a href={localizeHref("/blog")}>our own blog</a>, or you can join our
+                <a href={localizeHref("/news")}>our own blog</a>, or you can join our
                 <a href="https://discord.gg/9cJsyrqg">Discord</a>.
             </p>
         {/snippet}

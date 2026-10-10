@@ -18,11 +18,11 @@
 
 <div class:inline>
     <Avatar
-        href={localizeHref(`/blog/authors/${author.slug}`)}
+        href={localizeHref(`/authors/${author.slug}`)}
         img={author.image}
         imgDefault={{ alt: "Autor bez obrázku" }}
         {inline} />
-    <a href={localizeHref(`/blog/authors/${author.slug}`)}>
+    <a href={localizeHref(`/authors/${author.slug}`)}>
         <author>
             <strong>{author.name}</strong>
         </author>

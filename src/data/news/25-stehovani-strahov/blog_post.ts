@@ -1,0 +1,22 @@
+import { Temporal } from "@js-temporal/polyfill";
+
+import type { Post } from "$src/types";
+import { authors } from "$src/data/authors";
+
+const post: Post = {
+    published: true,
+    id: 25,
+    slug: "stehovani-strahov",
+    kind: "news",
+    image: "/photos/stehovani_strahov.jpg",
+    title: {
+        cs: "Odstěhovali jsme se ze Školíhcího centra na Strahově",
+    },
+    date: new Temporal.PlainDate(2024, 8, 23),
+    author: authors.HerniHistorie,
+    description_html: `
+        Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku.
+    `,
+};
+
+export default post;
