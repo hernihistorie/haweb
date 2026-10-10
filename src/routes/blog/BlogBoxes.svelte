@@ -1,9 +1,9 @@
 <script lang="ts">
     import BlogBox from "$src/lib/components/blog/BlogBox.svelte";
-    import type { BlogPost } from "$src/types";
+    import type { Post } from "$src/types";
 
     interface Props {
-        posts: BlogPost[];
+        posts: Post[];
     }
 
     let { posts }: Props = $props();

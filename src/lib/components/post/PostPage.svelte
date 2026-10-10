@@ -1,14 +1,14 @@
 <script lang="ts">
-    import Post from "../Post.svelte";
+    import Post from "./Post.svelte";
     import Loc from "../Loc.svelte";
-    import type { BlogPost, BlogPostSeries } from "$src/types";
+    import type { Post as PostType, PostSeries } from "$src/types";
     import { getContext, setContext, type Snippet } from "svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { FootnoteHolder, setFootnoteContext } from "../footnote/context";
     import Footnotes from "../footnote/Footnotes.svelte";
-    import AuthorMedaillon from "./AuthorMedaillon.svelte";
+    import AuthorMedaillon from "../blog/AuthorMedaillon.svelte";
     import BulletPoint from "../BulletPoint.svelte";
-    import AuthorBio from "./AuthorBio.svelte";
+    import AuthorBio from "../blog/AuthorBio.svelte";
     import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
     import { Temporal } from "@js-temporal/polyfill";
     import { loc } from "$src/lib/loc";
@@ -20,8 +20,8 @@
     const articleContext = getContext("article");
 
     interface Props {
-        post: BlogPost;
-        series: BlogPostSeries[] | null;
+        post: PostType;
+        series: PostSeries[] | null;
         children?: Snippet;
     }
 
@@ -43,17 +43,20 @@
     <a href={blogHref} class="backlink" data-pagefind-ignore>
         <Loc
             cs="Blog Herního archivu"
-            en="Czechoslovak Game Archive Blog" />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
+            en="Czechoslovak Game Archive Blog"
+        />{#if isOlderThanAYear}&nbsp;({postYear}){/if}
     </a>
     {#if !post.author.isDefault}
         <BulletPoint />
         <a
             href={localizeHref(`/blog/authors/${post.author.slug}`)}
             class="backlink"
-            data-pagefind-ignore>
+            data-pagefind-ignore
+        >
             <Loc
                 cs={`Blogové příspěvky od ${post.author.nameGenitive}`}
-                en={`Blog posts from ${post.author.name}`} />
+                en={`Blog posts from ${post.author.name}`}
+            />
         </a>
     {/if}
 {/snippet}
@@ -101,7 +104,8 @@
                     <CircleAlertIcon />
                     <Loc
                         cs="Tento příspěvek zatím není publikován."
-                        en="This post is not published yet." />
+                        en="This post is not published yet."
+                    />
                 </div>
             {/if}
             <h2>
@@ -123,7 +127,7 @@
                         </p>
                     {/if}
                     <ol>
-                        {#each s.blogPosts as blogPost (blogPost.id)}
+                        {#each s.posts as blogPost (blogPost.id)}
                             <li>
                                 {#if blogPost.id === post.id}
                                     <strong>

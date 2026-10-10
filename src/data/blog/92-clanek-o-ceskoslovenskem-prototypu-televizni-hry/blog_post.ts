@@ -1,10 +1,10 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from "$src/types";
+import type { Post } from "$src/types";
 import { authors } from "$src/data/authors";
 import img01 from "../91-prototyp-televiznich-her-z-tesly-vust/img/01-cela-sestava.jpg?w=1200&format=jpg&imagetools";
 
-const blogPost: BlogPost = {
+const post: Post = {
     published: true,
     id: 92,
     slug: "clanek-o-ceskoslovenskem-prototypu-televizni-hry",
@@ -22,4 +22,4 @@ const blogPost: BlogPost = {
     bufferPostId: "6ab8f3fc8f35fc042c06a55f",
 };
 
-export default blogPost;
+export default post;

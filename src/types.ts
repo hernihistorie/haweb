@@ -83,7 +83,7 @@ export interface Project {
     description?: LocalizedString;
 }
 
-export interface BlogPost {
+export interface Post {
     id: number;
     slug: string;
     image?: string;
@@ -96,11 +96,11 @@ export interface BlogPost {
     bufferPostId?: string;
 }
 
-export interface BlogPostSeries {
+export interface PostSeries {
     slug: SeriesSlug;
     title: LocalizedString;
     description?: LocalizedString;
-    blogPosts: BlogPost[];
+    posts: Post[];
 }
 
 export interface Author {

@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { getBlogPosts } from "$src/data/blog_posts";
-import type { BlogPost, LanguageCode } from "$src/types";
+import type { Post, LanguageCode } from "$src/types";
 import { toPlainDateTime } from "./datetime";
 
 const SITE_URL = "https://herniarchiv.cz";
@@ -18,7 +18,7 @@ function stripHtml(html: string): string {
     return html.replace(/<[^>]*>/g, "").trim();
 }
 
-function getTitle(post: BlogPost, lang: LanguageCode): string {
+function getTitle(post: Post, lang: LanguageCode): string {
     if (typeof post.title === "string") {
         return post.title;
     }

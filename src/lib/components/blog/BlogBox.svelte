@@ -1,7 +1,7 @@
 <script lang="ts">
     import Lazy from "svelte-lazy";
     import Arrow from "$src/lib/components/Arrow.svelte";
-    import type { BlogPost } from "$src/types";
+    import type { Post } from "$src/types";
     import type { Snippet } from "svelte";
     import Loc from "../Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
@@ -10,7 +10,7 @@
         blogPost,
         children,
         show_arrow = true,
-    }: { blogPost: BlogPost; children?: Snippet; show_arrow?: boolean } = $props();
+    }: { blogPost: Post; children?: Snippet; show_arrow?: boolean } = $props();
 
     let url = $derived(`/blog/${blogPost.id}-${blogPost.slug}`);
     let localizedUrl = $derived(localizeHref(url));
@@ -40,7 +40,8 @@
         <Loc text={blogPost.description_html} />
     {/if}
     <div
-        style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+        style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;"
+    >
         <div>
             {#if show_arrow}
                 <Arrow href={url} />

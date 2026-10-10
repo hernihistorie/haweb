@@ -96,7 +96,7 @@ async function getToken(): Promise<string> {
 
 // ── Blog post generation ───────────────────────────────────────────────────
 
-function generateBlogPostTs(
+function generatePostTs(
     id: number,
     slug: string,
     title: string,
@@ -118,10 +118,10 @@ function generateBlogPostTs(
 
     return `import { Temporal } from '@js-temporal/polyfill';
 
-import type { BlogPost } from '$src/types';
+import type { Post } from '$src/types';
 import { authors } from '$src/data/authors';${imageImport}
 
-const blogPost: BlogPost = {
+const post: Post = {
     published: true,
     id: ${id},
     slug: '${slug}',${imageLine}
@@ -134,7 +134,7 @@ const blogPost: BlogPost = {
     bufferPostId: '${bufferPostId}',
 };
 
-export default blogPost;
+export default post;
 `;
 }
 
@@ -307,7 +307,7 @@ async function main() {
 
     writeFileSync(
         join(postDir, "blog_post.ts"),
-        generateBlogPostTs(nextId, slug, title, description, post.dueAt, post.id, mainImage),
+        generatePostTs(nextId, slug, title, description, post.dueAt, post.id, mainImage),
     );
 
     writeFileSync(join(postDir, "+page.svelte"), generatePageSvelte(post.text, downloadedImages));

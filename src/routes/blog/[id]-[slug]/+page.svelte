@@ -1,9 +1,9 @@
 <script lang="ts">
-    import BlogPostPage from "$src/lib/components/blog/BlogPostPage.svelte";
+    import PostPage from "#lib/components/post/PostPage.svelte";
 
     const { data } = $props();
 </script>
 
-<BlogPostPage post={data.blogPost} series={data.series}>
+<PostPage post={data.blogPost} series={data.series}>
     <data.blogPostComponent />
-</BlogPostPage>
+</PostPage>

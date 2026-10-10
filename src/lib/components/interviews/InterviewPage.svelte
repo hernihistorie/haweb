@@ -3,7 +3,7 @@
 
     import type { InterviewData } from "$src/types";
     import { tocCrawler } from "#lib/components/TableOfContents/crawler.js";
-    import Post from "#lib/components/Post.svelte";
+    import Post from "#lib/components/post/Post.svelte";
     import InterviewAudio from "#lib/components/interviews/InterviewAudio.svelte";
     import TableOfContents from "#lib/components/TableOfContents/TableOfContents.svelte";
     import NameWithShortname from "$src/lib/components/interviews/NameWithShortname.svelte";
@@ -22,12 +22,14 @@
     <meta property="og:title" content={loc(data.title)} />
     <meta
         property="og:article:author"
-        content={loc({ cs: "Herní archiv", en: "Czechoslovak Game Archive" })} />
+        content={loc({ cs: "Herní archiv", en: "Czechoslovak Game Archive" })}
+    />
     <meta property="og:type" content="article" />
     {#if data.interview.publication_date}
         <meta
             property="og:article:published_time"
-            content={data.interview.publication_date.toString()} />
+            content={data.interview.publication_date.toString()}
+        />
     {/if}
     {#if data.narrator.bio}
         <meta property="og:description" content={loc(data.narrator.bio)} />
@@ -36,7 +38,8 @@
         <meta
             property="og:image"
             content={data.narrator.photo?.url}
-            data-pagefind-meta="image[content]" />
+            data-pagefind-meta="image[content]"
+        />
     {/if}
     <meta property="og:locale" content={getLocale()} />
 </svelte:head>
@@ -49,7 +52,8 @@
                     image={data.narrator.photo}
                     sepia={data.status !== "published"}
                     alt={data.narrator.name}
-                    width="260px" />
+                    width="260px"
+                />
             {/if}
             <div>
                 <strong>
@@ -205,7 +209,8 @@
                             Poznámka: Text níže je upravená verze kompletního přepisu rozhovoru.
                             Pokud máte z výzkumných nebo jiných důvodů zájem o kompletní přepis,
                             napište na <a href="mailto:info@hernihistorie.cz"
-                                >info@hernihistorie.cz</a>
+                                >info@hernihistorie.cz</a
+                            >
                             nebo
                             <a href="mailto:rudolf.suchy@hernihistorie.cz"
                                 >rudolf.suchy@hernihistorie.cz</a
@@ -215,7 +220,8 @@
                             Note: The text below is an edited version of the complete interview
                             transcript. If you are interested in the full transcript for research or
                             other purposes, please contact us at <a
-                                href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a>
+                                href="mailto:info@hernihistorie.cz">info@hernihistorie.cz</a
+                            >
                             or
                             <a href="mailto:rudolf.suchy@hernihistorie.cz"
                                 >rudolf.suchy@hernihistorie.cz</a
@@ -271,14 +277,16 @@
                                     zájem o rozhovor pro badatelské, umělecké nebo úřední účely, tak
                                     nás prosím kontaktujte na <a
                                         href="mailto:rudolf.suchy@hernihistorie.cz"
-                                        >rudolf.suchy@hernihistorie.cz</a>
+                                        >rudolf.suchy@hernihistorie.cz</a
+                                    >
                                 {/snippet}
                                 {#snippet en()}
                                     This interview is currently not available. If you are interested
                                     in access for research, artistic, or official purposes, please
                                     reach out to us through <a
                                         href="mailto:rudolf.suchy@hernihistorie.cz"
-                                        >rudolf.suchy@hernihistorie.cz</a>
+                                        >rudolf.suchy@hernihistorie.cz</a
+                                    >
                                 {/snippet}
                             </Loc>
                         {:else if data.status === "unavailable-for-duration"}
@@ -318,7 +326,8 @@
             {#if data.interview.project}
                 <Loc
                     cs="Tento rozhovor je součástí projektu"
-                    en="This interview is part of the project" />
+                    en="This interview is part of the project"
+                />
                 <ProjectName project={data.interview.project} />.
             {/if}
 

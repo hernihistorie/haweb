@@ -1,9 +1,9 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from "$src/types";
+import type { Post } from "$src/types";
 import { authors } from "$src/data/authors";
 
-const blogPost: BlogPost = {
+const post: Post = {
     published: true,
     id: 87,
     slug: "vytvorili-jsme-cistici-mechanismus-na-3-5-diskety",
@@ -21,4 +21,4 @@ const blogPost: BlogPost = {
     bufferPostId: "69f3eb99639a311a400956a2",
 };
 
-export default blogPost;
+export default post;

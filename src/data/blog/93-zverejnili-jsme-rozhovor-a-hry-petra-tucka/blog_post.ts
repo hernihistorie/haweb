@@ -1,10 +1,10 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { BlogPost } from "$src/types";
+import type { Post } from "$src/types";
 import { authors } from "$src/data/authors";
 import img01 from "./img/01.jpg?w=1200&format=jpg&imagetools";
 
-const blogPost: BlogPost = {
+const post: Post = {
     published: true,
     id: 93,
     slug: "zverejnili-jsme-rozhovor-a-hry-petra-tucka",
@@ -22,4 +22,4 @@ const blogPost: BlogPost = {
     bufferPostId: "6ab8f916ef37019c7f7eefff",
 };
 
-export default blogPost;
+export default post;
