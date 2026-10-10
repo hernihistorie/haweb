@@ -2,9 +2,10 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 COPY . .
-RUN npm run build
+# Persist enhanced-img's processed images between builds, otherwise every deploy re-resizes all of them
+RUN --mount=type=cache,target=/app/node_modules/.cache npm run build
 RUN npm prune --production
 
 # Use another Node.js Alpine image for the final stage
