@@ -27,6 +27,10 @@ export const data: InterviewData = {
         cs: "Rozhovor s Josefem Havelkou",
         en: "Interview with Josef Havelka",
     },
+    blurb: {
+        cs: "zakladatel <i>Atari klubu Cítov</i>",
+        en: "founder of <i>Atari club Cítov</i>",
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: JH,

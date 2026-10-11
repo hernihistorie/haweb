@@ -27,6 +27,10 @@ export const data: InterviewData = {
         cs: "Dotazník: Martin Kadlčík",
         en: "Questionnaire: Martin Kadlčík",
     },
+    blurb: {
+        cs: "autor textovky <i>das ADLERNEST</i>",
+        en: "author of the text adventure <i>das ADLERNEST</i>",
+    },
     narrator: MK,
     interview: {
         type: "questionnaire",

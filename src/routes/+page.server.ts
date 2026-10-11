@@ -1,5 +1,6 @@
 import { getPosts } from "$src/data/posts";
 import { postKindList } from "#lib/posts.js";
+import { getLatestPublishedInterview } from "./interviews/interviews";
 import { prerenderForSearch } from "#lib/prerender.server.js";
 import type { Post, PostKind } from "$src/types";
 import type { PageServerLoad } from "./$types";
@@ -11,7 +12,15 @@ export const load: PageServerLoad = async () => {
         postKindList.map((kind) => [kind, getPosts(kind).toReversed().slice(0, 3)]),
     ) as Record<PostKind, Post[]>;
 
+    const interview = getLatestPublishedInterview();
+    const latestInterview = interview && {
+        slug: interview.slug,
+        name: interview.narrator.name,
+        blurb: interview.blurb,
+    };
+
     return {
         latestPosts,
+        latestInterview,
     };
 };

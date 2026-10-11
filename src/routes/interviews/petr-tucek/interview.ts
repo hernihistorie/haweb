@@ -30,6 +30,10 @@ export const data: InterviewData = {
         cs: "Dotazník: Petr Tuček",
         en: "Questionnaire: Petr Tuček",
     },
+    blurb: {
+        cs: "autor drobných her pro ZX Spectrum z konce 80. let",
+        en: "author of small ZX Spectrum games from the late 1980s",
+    },
     narrator: PT,
     interview: {
         type: "questionnaire",

@@ -30,6 +30,10 @@ export const data: InterviewData = {
         cs: "Rozhovor se Zdeňkem Vodákem",
         en: "Interview with Zdeněk Vodák",
     },
+    blurb: {
+        cs: "autor programu pro televizní hru <i>Videostop</i>",
+        en: "author of the program for the TV game show <i>Videostop</i>",
+    },
     audio_file: "herni-archiv-rozhovor-zdenek-vodak.m4a",
     audio_duration: 6532,
     narrator: ZV,

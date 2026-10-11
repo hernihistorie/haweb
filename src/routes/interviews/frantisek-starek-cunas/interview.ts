@@ -34,6 +34,10 @@ export const data: InterviewData = {
         cs: "Rozhovor s Františkem Stárkem Čuňasem",
         en: "Interview with František Stárek Čuňas",
     },
+    blurb: {
+        cs: "disident a spoluzakladatel samizdatového periodika <i>Vokno</i>",
+        en: "dissident and co-founder of the samizdat periodical <i>Vokno</i>",
+    },
     // audio_file: "herni-archiv-rozhovor-stanislav-hrda.m4a",
     // audio_duration: 7266, // duration must be correct
     narrator: FS,

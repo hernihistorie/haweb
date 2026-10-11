@@ -39,6 +39,8 @@ export interface InterviewData {
     slug: string;
     lang: string;
     title: LocalizedString;
+    /** One-line description of the narrator */
+    blurb?: LocalizedString;
     audio_file?: string;
     audio_duration?: number;
     narrator: Person;

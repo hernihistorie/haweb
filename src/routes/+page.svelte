@@ -80,17 +80,19 @@
                     en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer."
                 />
             </p>
-            <p>
-                <strong>
-                    <Loc cs="Nejnovější rozhovor" en="Latest interview" />:
-                </strong>
-                <a href={localizeHref("/interviews/josef-havelka/")} class="plain">Josef Havelka</a
-                >,
-                <Loc
-                    cs="zakladatel <i>Atari klubu Cítov</i>"
-                    en="founder of <i>Atari club Cítov</i>"
-                />
-            </p>
+            {#if data.latestInterview}
+                <p>
+                    <strong>
+                        <Loc cs="Nejnovější rozhovor" en="Latest interview" />:
+                    </strong>
+                    <a
+                        href={localizeHref(`/interviews/${data.latestInterview.slug}/`)}
+                        class="plain">{data.latestInterview.name}</a
+                    >{#if data.latestInterview.blurb},
+                        <Loc text={data.latestInterview.blurb} />
+                    {/if}
+                </p>
+            {/if}
             <Arrow href="/interviews">
                 <Loc cs="Přečíst rozhovory" en="Read interviews" />
             </Arrow>
