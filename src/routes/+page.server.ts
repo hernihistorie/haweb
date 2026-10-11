@@ -2,7 +2,7 @@ import { getPosts } from "$src/data/posts";
 import { postKindList } from "#lib/posts.js";
 import { getLatestPublishedInterview } from "./interviews/interviews";
 import { prerenderForSearch } from "#lib/prerender.server.js";
-import { getInventoryStats } from "#lib/server/inventory_stats.js";
+import { getInventoryStats, getMagazineStats } from "#lib/server/inventory_stats.js";
 import type { Post, PostKind } from "$src/types";
 import type { PageServerLoad } from "./$types";
 
@@ -20,9 +20,15 @@ export const load: PageServerLoad = async () => {
         blurb: interview.blurb,
     };
 
+    const [inventoryStats, magazineStats] = await Promise.all([
+        getInventoryStats(),
+        getMagazineStats(),
+    ]);
+
     return {
         latestPosts,
         latestInterview,
-        inventoryStats: await getInventoryStats(),
+        inventoryStats,
+        magazineStats,
     };
 };

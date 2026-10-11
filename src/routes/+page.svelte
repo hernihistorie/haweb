@@ -10,11 +10,10 @@
     import ProjectsMenu from "$src/lib/components/project/ProjectsMenu.svelte";
     import Arrow from "$src/lib/components/Arrow.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
+    import Logo from "#lib/components/Logo.svelte";
 
     let { data } = $props();
 
-    // Shown as "more than N items", so round down; falls back to the last known figure
-    // if rhinventory is unreachable
     let roundedAssetCount = $derived(
         data.inventoryStats ? Math.floor(data.inventoryStats.asset_count / 1000) * 1000 : 8000,
     );
@@ -127,15 +126,35 @@
                     en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues."
                 />
             </p>
-            <p>
-                <strong>
-                    <Loc cs="Počet časopisů" en="Number of magazines" />
-                </strong>: 11<br />
-                <strong>
-                    <Loc cs="Naposledy zkompletováno" en="Last completed" />
-                </strong>:
-                <a href={localizeHref("/magazines/catalog/gamestar/")} class="plain">GameStar</a>
-            </p>
+            {#if data.magazineStats}
+                {@const { magazine_count, latest_magazine } = data.magazineStats}
+                {@const latestMagazineHref =
+                    latest_magazine &&
+                    localizeHref(
+                        `/magazines/catalog/${latest_magazine.slug ?? latest_magazine.id}/`,
+                    )}
+                <p>
+                    <strong>
+                        <Loc cs="Počet časopisů" en="Number of magazines" />
+                    </strong>: {magazine_count}
+                    {#if latest_magazine}
+                        <br />
+                        <strong>
+                            <Loc cs="Naposledy doplněno" en="Recently added" />
+                        </strong>:
+                        <a href={latestMagazineHref} class="plain">{latest_magazine.title}</a>
+                    {/if}
+                </p>
+                {#if latest_magazine?.logo}
+                    <a href={latestMagazineHref} class="latest-magazine-logo">
+                        <Logo
+                            logo={latest_magazine.logo}
+                            title={latest_magazine.title}
+                            --logo-max-height="50px"
+                        />
+                    </a>
+                {/if}
+            {/if}
             <!-- TODO carousel? -->
             <!-- <div class="thumbnails">
                 <a href="#">
@@ -245,6 +264,11 @@
 
     :global(.box) :global(.arrow) {
         margin-top: 1em;
+    }
+
+    .latest-magazine-logo {
+        display: block;
+        margin: auto;
     }
 
     .blogboxes :global(.arrow) {
