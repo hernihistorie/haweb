@@ -12,6 +12,12 @@
     import { localizeHref } from "#lib/paraglide/runtime.js";
 
     let { data } = $props();
+
+    // Shown as "more than N items", so round down; falls back to the last known figure
+    // if rhinventory is unreachable
+    let roundedAssetCount = $derived(
+        data.inventoryStats ? Math.floor(data.inventoryStats.asset_count / 1000) * 1000 : 8000,
+    );
 </script>
 
 <Meta title="" />
@@ -47,22 +53,32 @@
             <h3><Loc cs="Sbírka" en="Collection" /></h3>
             <p>
                 <Loc
-                    cs="V evidenci vedeme více než 8 000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
-                    en="We maintain a registry of more than 8,000 items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature."
+                    cs="V evidenci vedeme více než {roundedAssetCount.toLocaleString(
+                        'cs-CZ',
+                    )} předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
+                    en="We maintain a registry of more than {roundedAssetCount.toLocaleString(
+                        'en-GB',
+                    )} items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature."
                 />
             </p>
-            <p>
-                <strong>
-                    <Loc cs="Počet předmětů v databázi" en="Number of items in database" />
-                </strong>: 9079
-                <br />
-                <strong>
-                    <Loc cs="Nedávný předmět" en="Recent item" />
-                </strong>:
-                <a href="https://inventory.herniarchiv.cz/asset/8953-mato" class="plain">
-                    <Loc cs="Osobní počítač Maťo" en="Personal computer Maťo" />
-                </a>
-            </p>
+            {#if data.inventoryStats}
+                {@const { asset_count, latest_public_asset } = data.inventoryStats}
+                <p>
+                    <strong>
+                        <Loc cs="Počet předmětů v databázi" en="Number of items in database" />
+                    </strong>: {asset_count}
+                    {#if latest_public_asset}
+                        <br />
+                        <strong>
+                            <Loc cs="Nedávný předmět" en="Recent item" />
+                        </strong>:
+                        <a
+                            href="https://inventory.herniarchiv.cz/asset/{latest_public_asset.id}-{latest_public_asset.slug}"
+                            class="plain">{latest_public_asset.name}</a
+                        >
+                    {/if}
+                </p>
+            {/if}
             <Arrow href="https://inventory.herniarchiv.cz/">
                 <Loc cs="Náhlednout do sbírky" en="Browse the collection" />
             </Arrow>
