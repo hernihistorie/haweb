@@ -268,7 +268,8 @@
 
     .latest-magazine-logo {
         display: block;
-        margin: auto;
+        width: fit-content;
+        margin: 0 auto;
     }
 
     .blogboxes :global(.arrow) {
