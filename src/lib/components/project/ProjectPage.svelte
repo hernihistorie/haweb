@@ -4,7 +4,8 @@
     import Meta from "$src/lib/components/layout/Meta.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import ImageTitle from "#lib/components/ImageTitle.svelte";
-    import { localizeHref } from "#lib/paraglide/runtime.js";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
+    import { loc } from "#lib/loc.js";
 
     interface Props {
         project: Project;
@@ -17,9 +18,22 @@
     let { project, thin = true, backLink = true, children }: Props = $props();
 
     let bannerImage = $derived(project.bannerImage ?? project.image);
+    let image = $derived(project.image ?? project.bannerImage);
 </script>
 
 <Meta title={project.fullname ?? project.name} />
+
+<svelte:head>
+    <meta property="og:title" content={loc(project.fullname ?? project.name)} />
+    <meta property="og:type" content="website" />
+    {#if project.description}
+        <meta property="og:description" content={loc(project.description)} />
+    {/if}
+    {#if image}
+        <meta property="og:image" content={image} data-pagefind-meta="image[content]" />
+    {/if}
+    <meta property="og:locale" content={getLocale()} />
+</svelte:head>
 
 <article class={thin ? "thin" : ""}>
     {#if backLink}
