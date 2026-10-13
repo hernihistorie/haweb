@@ -76,7 +76,8 @@
             <a
                 href="https://herniarchiv-cz.translate.goog{page.url
                     .pathname}?_x_tr_sl=cs&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp"
-                >View with Google Translate</a>
+                >View with Google Translate</a
+            >
         </p>
     </div>
 {:else}
@@ -88,6 +89,7 @@
         border: 2px solid var(--color-secondary);
         padding: 0 16px;
         margin: 0;
+        margin-top: 8px;
     }
 
     .page-lang-notice + .page-lang-notice {
