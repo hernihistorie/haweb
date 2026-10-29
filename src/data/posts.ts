@@ -28,11 +28,12 @@ const allPosts: Post[] = Object.entries(postModules)
     });
 
 // The published set depends on the current time, so it has to be computed per request.
-export function getPosts(kind?: PostKind): Post[] {
+// `includeUnpublished` also returns unpublished and future posts, for dev preview.
+export function getPosts(kind?: PostKind, { includeUnpublished = false } = {}): Post[] {
     return allPosts
         .filter((post) => !kind || post.kind === kind)
-        .filter((post) => post.published)
-        .filter((post) => !post.date || isDateInPast(post.date));
+        .filter((post) => includeUnpublished || post.published)
+        .filter((post) => includeUnpublished || !post.date || isDateInPast(post.date));
 }
 
 // Post IDs are unique across all kinds

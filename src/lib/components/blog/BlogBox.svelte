@@ -6,7 +6,9 @@
     import Loc from "../Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import BulletPoint from "../BulletPoint.svelte";
+    import Capsule from "../Capsule.svelte";
     import { postHref } from "#lib/posts.js";
+    import { isDateInPast } from "$src/lib/datetime";
     let {
         blogPost,
         children,
@@ -17,6 +19,10 @@
     let localizedUrl = $derived(localizeHref(url));
     // Articles are shown as wide boxes with the image next to the text
     let horizontal = $derived(blogPost.kind === "article");
+    // Unpublished posts are only listed in dev
+    let unpublished = $derived(
+        !blogPost.published || (blogPost.date && !isDateInPast(blogPost.date)),
+    );
 </script>
 
 <div class="blog-box" class:horizontal>
@@ -36,6 +42,12 @@
                 <a href={localizedUrl}>
                     <Loc text={blogPost.title} />
                 </a>
+                {#if unpublished}
+                    <br />
+                    <Capsule>
+                        <Loc cs="nepublikováno" en="unpublished" />
+                    </Capsule>
+                {/if}
             </h3>
         {/if}
         {#if children}

@@ -2,6 +2,7 @@ import { error } from "@sveltejs/kit";
 import { getPosts, getPostYears } from "$src/data/posts";
 import { postKindBySection, postKinds } from "#lib/posts.js";
 import { prerenderForSearch } from "#lib/prerender.server.js";
+import { dev } from "$app/env";
 import type { PageServerLoad } from "./$types";
 
 export const prerender = prerenderForSearch;
@@ -15,7 +16,7 @@ export const load: PageServerLoad = async ({ params }) => {
         error(404, "No posts found for this year");
     }
 
-    const posts = getPosts(kind)
+    const posts = getPosts(kind, { includeUnpublished: dev })
         .filter((post) => post.date?.year === year)
         .toReversed();
 
