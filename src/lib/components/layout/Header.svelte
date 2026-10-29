@@ -278,7 +278,7 @@
         padding: 0;
         flex-wrap: nowrap;
         margin-top: 4px;
-        background-color: var(--color-bg);
+        background-color: var(--color-surface);
         border: 1px solid var(--color-secondary);
         z-index: 50;
         margin-left: -12px;

@@ -93,7 +93,8 @@
         }}
         onended={() => {
             time.set(0);
-        }}></audio>
+        }}
+    ></audio>
 
     <button class="play" aria-label={paused ? "play" : "pause"} onclick={() => (paused = !paused)}
     ></button>
@@ -124,7 +125,8 @@
                     oldVolume = volume;
                     volume = 0;
                 }
-            }}>
+            }}
+        >
         </button>
         <div class="volume-slider" onpointerdown={volume_pointerdown}>
             <div class="volume-progress" style="--progress: {1 - volume}"></div>
@@ -140,9 +142,8 @@
         gap: 1em;
         padding: 0.5em 1em 0.5em 0.5em;
         border-radius: 2em;
-        background: var(--bg-1);
+        background: var(--color-surface);
         transition: filter 0.2s;
-        color: var(--fg-3);
         user-select: none;
         transition:
             padding 0.3s ease-in-out,
