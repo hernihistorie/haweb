@@ -3,7 +3,7 @@
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import AuthorMedaillon from "$src/lib/components/blog/AuthorMedaillon.svelte";
     import BulletPoint from "$src/lib/components/BulletPoint.svelte";
-    import { postKindHref, postKindList, postKinds } from "$src/lib/posts";
+    import { authorHref, postKindHref, postKindList, postKinds } from "$src/lib/posts";
     import type { Author, PostKind } from "$src/types";
 
     let {
@@ -40,10 +40,7 @@
             </h2>
         {:else}
             <h3>
-                <a
-                    href={localizeHref(`/authors/${author.slug}`)}
-                    class="backlink"
-                    data-pagefind-ignore>
+                <a href={localizeHref(authorHref(author))} class="backlink" data-pagefind-ignore>
                     <Loc
                         cs={`Příspěvky od ${author.nameGenitive}`}
                         en={`Posts from ${author.name}`} />

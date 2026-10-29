@@ -74,7 +74,7 @@
     }
 
     .project :global(h3 a) {
-        color: var(--color-black);
+        color: var(--color-text);
         text-decoration-color: var(--color-secondary);
         text-decoration-thickness: 3px;
         text-transform: uppercase;

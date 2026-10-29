@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post, PostKind } from "$src/types";
-import { isDateInPast, toPlainDateTime } from "$src/lib/datetime";
+import { isPostPublished, toPlainDateTime } from "$src/lib/datetime";
 import { postKinds } from "$src/lib/posts";
 
 // Auto-discover all posts using Vite's glob import.
@@ -32,8 +32,7 @@ const allPosts: Post[] = Object.entries(postModules)
 export function getPosts(kind?: PostKind, { includeUnpublished = false } = {}): Post[] {
     return allPosts
         .filter((post) => !kind || post.kind === kind)
-        .filter((post) => includeUnpublished || post.published)
-        .filter((post) => includeUnpublished || !post.date || isDateInPast(post.date));
+        .filter((post) => includeUnpublished || isPostPublished(post));
 }
 
 // Post IDs are unique across all kinds

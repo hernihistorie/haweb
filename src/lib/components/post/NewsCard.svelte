@@ -3,29 +3,29 @@
     import Capsule from "../Capsule.svelte";
     import Loc from "../Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
-    import { postHref } from "#lib/posts.js";
-    import { formatPostDate, isDateInPast } from "$src/lib/datetime";
+    import { authorHref, postHref } from "#lib/posts.js";
+    import { formatPostDate, isPostPublished } from "$src/lib/datetime";
     import type { Post } from "$src/types";
 
     let { post }: { post: Post } = $props();
 
     const href = $derived(localizeHref(postHref(post)));
-    const authorHref = $derived(localizeHref(`/authors/${post.author.slug}`));
+    const authorUrl = $derived(localizeHref(authorHref(post.author)));
     // Unpublished posts are only listed in dev
-    const unpublished = $derived(!post.published || (post.date && !isDateInPast(post.date)));
+    const unpublished = $derived(!isPostPublished(post));
 </script>
 
 <article class="news-card">
     <div class="avatar">
         <Avatar
-            href={authorHref}
+            href={authorUrl}
             img={post.author.image}
             imgDefault={{ alt: "Autor bez obrázku" }}
-            inline />
+            size={48} />
     </div>
     <div class="body">
         <header>
-            <a href={authorHref} class="author"><Loc text={post.author.name} /></a>
+            <a href={authorUrl} class="author"><Loc text={post.author.name} /></a>
             {#if post.date}
                 <span class="date">
                     &middot; <time datetime={post.date.toString()}
@@ -55,8 +55,7 @@
         position: relative;
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
-        /* The inline avatar brings its own 8px margin */
-        gap: 4px;
+        gap: 12px;
         padding: 16px;
         background: var(--color-surface);
         border: 2px solid var(--color-secondary-transparent);

@@ -1,6 +1,6 @@
 // This module is imported by src/params.ts, which SvelteKit loads directly with Node,
 // so it must not have runtime imports through aliases like $src or #lib.
-import type { Post, PostKind } from "$src/types";
+import type { Author, Post, PostKind } from "$src/types";
 
 interface PostKindInfo {
     /** URL path segment, also the directory name under `src/data/` */
@@ -52,4 +52,8 @@ export function postKindHref(kind: PostKind): string {
 
 export function postHref(post: Pick<Post, "id" | "slug" | "kind">): string {
     return `${postKindHref(post.kind)}/${post.id}-${post.slug}`;
+}
+
+export function authorHref(author: Pick<Author, "slug">): string {
+    return `/authors/${author.slug}`;
 }

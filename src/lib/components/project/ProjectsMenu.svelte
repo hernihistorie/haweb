@@ -44,7 +44,7 @@
 
     li > a {
         font-weight: normal;
-        color: var(--color-black);
+        color: var(--color-text);
         text-decoration: none;
     }
     li > a:hover {

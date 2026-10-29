@@ -8,13 +8,17 @@
         href?: string;
         img?: Img;
         imgDefault?: Img;
-        inline?: boolean;
+        /** Diameter in pixels */
+        size?: number;
     }
 
-    const { href, img, imgDefault, inline }: Props = $props();
+    const { href, img, imgDefault, size = 150 }: Props = $props();
+
+    // Small avatars get a thinner border
+    const borderWidth = $derived(size < 100 ? 2 : 4);
 </script>
 
-<a {href} class="avatar" class:inline>
+<a {href} class="avatar" style:--avatar-size="{size}px" style:--avatar-border="{borderWidth}px">
     {#if img}
         <img src={img.url} alt={img.alt ?? "Autor"} />
     {:else}
@@ -28,24 +32,16 @@
 <style>
     a {
         display: block;
+        flex-shrink: 0;
     }
     .avatar img {
         display: block;
-        width: 150px;
-        height: 150px;
+        box-sizing: content-box;
+        width: var(--avatar-size);
+        height: var(--avatar-size);
         border-radius: 50%;
         object-fit: cover;
-        /* margin-bottom: 8px; */
-        border: 4px solid var(--color-secondary);
+        border: var(--avatar-border) solid var(--color-secondary);
         background: var(--color-bg);
-    }
-
-    .inline.avatar img {
-        border-width: 2px;
-        width: 48px;
-        height: 48px;
-        margin-bottom: 0;
-        vertical-align: middle;
-        margin-right: 8px;
     }
 </style>

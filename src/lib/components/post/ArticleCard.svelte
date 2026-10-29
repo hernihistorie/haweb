@@ -3,8 +3,8 @@
     import BulletPoint from "../BulletPoint.svelte";
     import Loc from "../Loc.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
-    import { postHref } from "#lib/posts.js";
-    import { formatPostDate, isDateInPast } from "$src/lib/datetime";
+    import { authorHref, postHref } from "#lib/posts.js";
+    import { formatPostDate, isPostPublished } from "$src/lib/datetime";
     import { seriesByBlogPostId } from "$src/data/series";
     import type { Post } from "$src/types";
 
@@ -12,7 +12,7 @@
 
     const href = $derived(localizeHref(postHref(post)));
     // Unpublished posts are only listed in dev
-    const unpublished = $derived(!post.published || (post.date && !isDateInPast(post.date)));
+    const unpublished = $derived(!isPostPublished(post));
     const series = $derived(seriesByBlogPostId[post.id]?.[0]);
     const seriesPart = $derived(series ? series.posts.findIndex((p) => p.id === post.id) + 1 : 0);
 </script>
@@ -57,7 +57,7 @@
             </div>
         {/if}
         <div class="byline">
-            <a href={localizeHref(`/authors/${post.author.slug}`)} class="author">
+            <a href={localizeHref(authorHref(post.author))} class="author">
                 <Loc text={post.author.name} />
             </a>
             {#if post.date}

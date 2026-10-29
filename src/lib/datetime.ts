@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { getLocale } from "./paraglide/runtime";
+import type { Post } from "$src/types";
 
 export type PartialDate =
     | { type: "full"; date: Temporal.PlainDate }
@@ -139,4 +140,9 @@ export const SITE_TIME_ZONE = "Europe/Prague";
 export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
     const now = Temporal.Now.plainDateTimeISO(SITE_TIME_ZONE);
     return Temporal.PlainDateTime.compare(toPlainDateTime(date), now) <= 0;
+}
+
+/** Whether a post is publicly visible: marked as published, and its publication time has passed */
+export function isPostPublished(post: Pick<Post, "published" | "date">): boolean {
+    return !!post.published && (!post.date || isDateInPast(post.date));
 }

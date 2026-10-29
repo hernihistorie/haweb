@@ -7,7 +7,7 @@
     import Footnotes from "../footnote/Footnotes.svelte";
     import PostAdjacentNav from "./PostAdjacentNav.svelte";
     import type { Post as PostType, PostSeries } from "$src/types";
-    import { setContext, type Snippet } from "svelte";
+    import type { Snippet } from "svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { FootnoteHolder, setFootnoteContext } from "../footnote/context";
     import CircleAlertIcon from "@lucide/svelte/icons/circle-alert";
@@ -17,12 +17,10 @@
     import copy from "copy-to-clipboard";
     import { Temporal } from "@js-temporal/polyfill";
     import { loc } from "$src/lib/loc";
-    import { formatPostDate, isDateInPast } from "$src/lib/datetime";
-    import { postHref, postKindHref, postKinds } from "$src/lib/posts";
+    import { formatPostDate, isPostPublished } from "$src/lib/datetime";
+    import { authorHref, postHref, postKindHref, postKinds } from "$src/lib/posts";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
-
-    setContext("article", { footnotes: [] });
 
     type PostLink = Pick<PostType, "id" | "slug" | "kind" | "title">;
 
@@ -53,8 +51,8 @@
             backlinkYear ? `${postKindHref(post.kind)}/${backlinkYear}` : postKindHref(post.kind),
         ),
     );
-    const authorHref = $derived(localizeHref(`/authors/${post.author.slug}`));
-    const unpublished = $derived(!post.published || (post.date && !isDateInPast(post.date)));
+    const authorUrl = $derived(localizeHref(authorHref(post.author)));
+    const unpublished = $derived(!isPostPublished(post));
     const translationDate = $derived(
         getLocale() === "en" ? post.english_translation_date : undefined,
     );
@@ -155,11 +153,11 @@
         <div class="status">
             <header class="status-author">
                 <Avatar
-                    href={authorHref}
+                    href={authorUrl}
                     img={post.author.image}
                     imgDefault={{ alt: "Autor bez obrázku" }}
-                    inline />
-                <a href={authorHref} class="author"><Loc text={post.author.name} /></a>
+                    size={48} />
+                <a href={authorUrl} class="author"><Loc text={post.author.name} /></a>
             </header>
             <h2 class="news-title">
                 <Loc text={post.title} />
@@ -200,12 +198,12 @@
             </h2>
             <div class="byline">
                 <Avatar
-                    href={authorHref}
+                    href={authorUrl}
                     img={post.author.image}
                     imgDefault={{ alt: "Autor bez obrázku" }}
-                    inline />
+                    size={48} />
                 <div>
-                    <a href={authorHref} class="author"><Loc text={post.author.name} /></a>
+                    <a href={authorUrl} class="author"><Loc text={post.author.name} /></a>
                     <div class="byline-date">
                         {#if post.date}
                             <time datetime={post.date.toString()}>{formatPostDate(post.date)}</time>
@@ -273,6 +271,7 @@
     .status-author {
         display: flex;
         align-items: center;
+        gap: 8px;
     }
 
     .news-title {
@@ -339,6 +338,7 @@
     .byline {
         display: flex;
         align-items: center;
+        gap: 8px;
         line-height: 1.3;
     }
 
