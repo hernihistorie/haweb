@@ -3,7 +3,7 @@
 
     import type { InterviewData } from "$src/types";
     import { tocCrawler } from "#lib/components/TableOfContents/crawler.js";
-    import Post from "#lib/components/post/Post.svelte";
+    import Interview from "./Interview.svelte";
     import InterviewAudio from "#lib/components/interviews/InterviewAudio.svelte";
     import TableOfContents from "#lib/components/TableOfContents/TableOfContents.svelte";
     import NameWithShortname from "$src/lib/components/interviews/NameWithShortname.svelte";
@@ -44,7 +44,7 @@
     <meta property="og:locale" content={getLocale()} />
 </svelte:head>
 
-<Post title={data.title} stickySide class="interview-page" published={true}>
+<Interview title={data.title} stickySide class="interview-page" published={true}>
     {#snippet side()}
         <div class="side">
             {#if data.narrator.photo}
@@ -339,7 +339,7 @@
             {/if}
         </article>
     {/snippet}
-</Post>
+</Interview>
 
 <style>
     :global(.interview-page) :global(.return-link) {
