@@ -99,8 +99,7 @@
             </div>
             Nic moc z mé tehdejší tvorby se bohužel nedochovalo. Byl jsem proto velmi šťastný, že jsem
             po dlouhých letech našel mou ztracenou hru<a
-                href="https://inventory.herniarchiv.cz/asset/8411-kazeta-das-adlernest"
-                ><em>das Adlernest</em></a>
+                href="/inventory/asset/8411-kazeta-das-adlernest"><em>das Adlernest</em></a>
             a podařilo se ji zachovat budoucím generacím. Inspirací pro tuto hru byl můj koníček vojenské
             historie a tehdejší časté návštěvy těžkého opevnění v Orlických horách, kde jsme s přáteli
             jezdili pomáhat na tvrz Bouda, kde jsme si také občas zaválčili. Na

@@ -69,12 +69,14 @@
                             <Loc cs="Nedávný předmět" en="Recent item" />
                         </strong>:
                         <a
-                            href="https://inventory.herniarchiv.cz/asset/{latest_public_asset.id}-{latest_public_asset.slug}"
+                            href={localizeHref(
+                                `/inventory/asset/${latest_public_asset.id}-${latest_public_asset.slug}`,
+                            )}
                             class="plain">{latest_public_asset.name}</a>
                     {/if}
                 </p>
             {/if}
-            <Arrow href="https://inventory.herniarchiv.cz/">
+            <Arrow href="/inventory/">
                 <Loc cs="Náhlednout do sbírky" en="Browse the collection" />
             </Arrow>
         </Box>
@@ -153,10 +155,10 @@
                 <a href="#">
                     <img src="https://casopisy.herniarchiv.cz/files/12504/level_old.svg">
                 </a>
-                <a href="https://inventory.herniarchiv.cz/asset/7859">
+                <a href="/inventory/asset/7859">
                     <img src="https://casopisy.herniarchiv.cz/files/10195/GSLOGO_1.jpg">
                 </a>
-                <a href="https://inventory.herniarchiv.cz/asset/7859">
+                <a href="/inventory/asset/7859">
                     <img src="https://casopisy.herniarchiv.cz/files/14086/OPSM2.svg">
                 </a>
             </div> -->

@@ -6,7 +6,7 @@ export const projectSbirka: Project = {
         en: "Collection",
     },
     type: "project",
-    url: "https://inventory.herniarchiv.cz/",
+    url: "/inventory/",
     image: "/photos/homepage/sbirka.jpg",
     description: {
         cs: "V evidenci vedeme více než 8 000 předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura.",

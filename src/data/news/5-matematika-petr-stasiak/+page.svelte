@@ -11,9 +11,7 @@
         Stasiak a distribuovala firma Pelos.
     </p>
     <p>
-        Dump programu naleznete v našem <a
-            href="https://inventory.herniarchiv.cz/asset/details/?id=1128">Inventáři</a
-        >.
+        Dump programu naleznete v našem <a href="/inventory/asset/1128">Inventáři</a>.
     </p>
     <p><small>(Foto od: Ruda Suchý)</small></p>
     <p><img src="/photos/matematika.jpg" alt="Kazeta MATEMATIKA" /></p>

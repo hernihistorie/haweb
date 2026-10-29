@@ -47,7 +47,7 @@ export async function loadRHInventoryAssetData(params: {
             primary_dump_size: APIAsset.primary_dump_size,
             primary_document_path: APIAsset.primary_document_path,
             description: APIAsset.description,
-            inventory_url: `https://inventory.herniarchiv.cz/asset/${APIAsset.id}` /* TODO use slug */,
+            inventory_url: `/inventory/asset/${APIAsset.id}` /* TODO use slug */,
         };
     });
 

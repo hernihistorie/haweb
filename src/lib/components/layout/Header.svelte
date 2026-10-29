@@ -73,7 +73,7 @@
             ],
         },
         {
-            url: "https://inventory.herniarchiv.cz/",
+            url: "/inventory/",
             cs: "Sbírka",
             en: "Collection",
         },

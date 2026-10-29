@@ -35,8 +35,7 @@
     <hr />
     <p>
         Byl jsem u toho, když se zakládala jak RetroHerna, tak Herní archiv. Nejvíce mě baví
-        pracovat na našem <a href="https://inventory.herniarchiv.cz/">inventárním systému</a>, ze
-        kterého bych rád vyvinul aplikaci pro všechny. Také se specializuji přes digitalizaci
-        disket.
+        pracovat na našem <a href="/inventory/">inventárním systému</a>, ze kterého bych rád vyvinul
+        aplikaci pro všechny. Také se specializuji přes digitalizaci disket.
     </p>
 </ProfilePage>

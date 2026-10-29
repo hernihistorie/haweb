@@ -12,7 +12,7 @@
         pracovali.
     </p>
     <p>
-        Prvním takovým projektem bylo zveřejnění našeho <a href="https://inventory.herniarchiv.cz/"
+        Prvním takovým projektem bylo zveřejnění našeho <a href="/inventory/"
             >inventarizačního systému</a
         >, jenž slouží k evidenci předmětů které jsou součástí (nejen) naší herně historické sbírky.
         V současnosti zde vedeme více než 7000 předmětů zahrnující herní konzole a počítače, hry,
@@ -21,8 +21,7 @@
     <p>
         Minulý rok jsme také začali s tvorbou metody na digitalizaci počítačových disket a kazet.
         První (zajímavější) plody z našeho experimentování jsme zároveň zveřejnili i v našem
-        inventarizačním systému, jako např. <a
-            href="https://inventory.herniarchiv.cz/admin/asset/details/?id=6838"
+        inventarizačním systému, jako např. <a href="/inventory/asset/6838"
             >tuto uživatelskou kazetu s některými (do nedávna) jinde nezveřejnými hrami na ZX
             Spectrum</a
         >.

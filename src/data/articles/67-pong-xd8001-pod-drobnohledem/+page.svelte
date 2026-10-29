@@ -382,7 +382,7 @@
             <h4>Zdroje obrázků:</h4>
             <ul>
                 <li>
-                    1. <a href="https://inventory.herniarchiv.cz/file/details/?id=12167"
+                    1. <a href="/inventory/file/details/?id=12167"
                         >Obrázek Tesla XD 8001 od Herní archiv</a>
                 </li>
                 <li>
@@ -820,7 +820,7 @@
             <h4>Image sources:</h4>
             <ul>
                 <li>
-                    1. <a href="https://inventory.herniarchiv.cz/file/details/?id=12167"
+                    1. <a href="/inventory/file/details/?id=12167"
                         >Picture of the Tesla XD 8001 by Herní archiv</a>
                 </li>
                 <li>

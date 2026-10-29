@@ -60,14 +60,14 @@
     </TimelineProjectBox>
 
     <TimelineProjectBox
-        project={{ name: "Inventarizace sbírky", url: "https://inventory.herniarchiv.cz/" }}
+        project={{ name: "Inventarizace sbírky", url: "/inventory/" }}
         year={2021}
         right>
         Započat projekt systématického zadávání předmětů v naší sbírce do vlastního digitálního
         systému. Do systému inventáře se zadávají metadata o předmětu a jeho původu. Ke kažému
         předmětu je přiřazena fotografie, dále vytištěn štítek a uložena jeho pozice pro možnosti
         dohledání. Od roku 2024 je značná část inventáře vedena veřejně a <a
-            href="https://inventory.herniarchiv.cz/">můžete do něj nahlédnout</a
+            href={localizeHref("/inventory/")}>můžete do něj nahlédnout</a
         >.
     </TimelineProjectBox>
 

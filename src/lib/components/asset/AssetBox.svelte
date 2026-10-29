@@ -6,6 +6,7 @@
     import Capsule from "../Capsule.svelte";
     import Loc from "../Loc.svelte";
     import DownloadLink from "../DownloadLink.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 
     interface Props {
         data: AssetData | Promise<AssetData | undefined>;
@@ -27,14 +28,14 @@
             {#if data}
                 <div>
                     <div class="asset-name">
-                        <a href={data.inventory_url}>
+                        <a href={localizeHref(data.inventory_url)}>
                             {#if data.id}
                                 <Capsule>
                                     HH{data.id}
                                 </Capsule>
                             {/if}
                         </a>
-                        <a href={data.inventory_url}>
+                        <a href={localizeHref(data.inventory_url)}>
                             {data.name}
                         </a>
                     </div>
@@ -58,7 +59,7 @@
                     {/if}
                 </div>
                 {#if data.picture.url}
-                    <a href={data.inventory_url} class="asset-photo">
+                    <a href={localizeHref(data.inventory_url)} class="asset-photo">
                         <Lazy height={200} width={334} keep={true}>
                             <img src={data.picture.url} class="asset-img" alt="" />
                         </Lazy>

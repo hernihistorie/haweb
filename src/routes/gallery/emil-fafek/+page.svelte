@@ -3,7 +3,7 @@
     import { LightboxGallery, GalleryImage, GalleryThumbnail, i18n } from "svelte-lightbox";
     import { projectEmilFafek } from "./project";
     import Loc from "#lib/components/Loc.svelte";
-    import { getLocale } from "#lib/paraglide/runtime.js";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
 
     let assets = [
         "07140",
@@ -75,7 +75,7 @@
             <GalleryImage id={index}>
                 <img src="/gallery/emil-fafek/2mb/RH{number}.jpg" alt="" />
                 <div class="inventorylink">
-                    <a href="https://inventory.herniarchiv.cz/admin/asset/details/?id={number}">
+                    <a href={localizeHref(`/inventory/asset/${Number(number)}`)}>
                         <Loc
                             cs="Předmět HH{number} v inventáři"
                             en="Item HH{number} in inventory" />
