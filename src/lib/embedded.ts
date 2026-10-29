@@ -14,6 +14,9 @@ export const INVENTORY: EmbeddedApp = {
     framePrefix: "/inventory/_frame",
 };
 
+/** rhinventory itself, which staff use directly */
+export const INVENTORY_ORIGIN = "https://inventory.herniarchiv.cz";
+
 /** Encodes a decoded route parameter path for use in a URL. */
 export function encodePath(path: string): string {
     return path.split("/").map(encodeURIComponent).join("/");
