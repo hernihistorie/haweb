@@ -28,9 +28,7 @@
         </a>
     </h2>
 
-    <div class="blogboxes">
-        <PostBoxes posts={data.latestPosts[kind]} />
-    </div>
+    <PostBoxes posts={data.latestPosts[kind]} />
     <div style="margin-top: 24px;">
         <Arrow href={postKindHref(kind)}>
             <Loc text={postKinds[kind].allTitle} />
@@ -57,8 +55,7 @@
                     )} předmětů, mezi něž spadají hlavně, nikoliv však pouze videohry na původních nosičích, herní konzole a počítače, periferie, přepisovatelná média s uživatelskými programy a literatura."
                     en="We maintain a registry of more than {roundedAssetCount.toLocaleString(
                         'en-GB',
-                    )} items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature."
-                />
+                    )} items, which include primarily, but not exclusively, video games on original media, gaming consoles and computers, peripherals, rewritable media with user programs, and literature." />
             </p>
             {#if data.inventoryStats}
                 {@const { asset_count, latest_public_asset } = data.inventoryStats}
@@ -73,8 +70,7 @@
                         </strong>:
                         <a
                             href="https://inventory.herniarchiv.cz/asset/{latest_public_asset.id}-{latest_public_asset.slug}"
-                            class="plain">{latest_public_asset.name}</a
-                        >
+                            class="plain">{latest_public_asset.name}</a>
                     {/if}
                 </p>
             {/if}
@@ -92,8 +88,7 @@
             <p>
                 <Loc
                     cs="Neustále se rozšiřující sbírka rozhovorů s představiteli české a slovenské videoherní kultury. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout."
-                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer."
-                />
+                    en="A continuously expanding collection of interviews with representatives of Czech and Slovak gaming culture. These testimonies expand our knowledge of the domestic video game scene in a way that other historical sources cannot offer." />
             </p>
             {#if data.latestInterview}
                 <p>
@@ -123,8 +118,7 @@
             <p>
                 <Loc
                     cs="Tvoříme knihovnu českých a slovenských videoherních časopisů které postupně digitalizujeme. Také vedeme veřejnou databázi těchto časopisů, ve které si můžete prohlédnout obsahy všech doplněných čísel."
-                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues."
-                />
+                    en="We are building a library of Czech and Slovak video game magazines which we are gradually digitizing. We also maintain a public database of these magazines where you can view the contents of all completed issues." />
             </p>
             {#if data.magazineStats}
                 {@const { magazine_count, latest_magazine } = data.magazineStats}
@@ -150,8 +144,7 @@
                         <Logo
                             logo={latest_magazine.logo}
                             title={latest_magazine.title}
-                            --logo-max-height="50px"
-                        />
+                            --logo-max-height="50px" />
                     </a>
                 {/if}
             {/if}
@@ -182,8 +175,7 @@
             <p>
                 <Loc
                     cs="Naše sbírka vizuálních materiálů zahrnuje historické fotografie, obaly k videohrám, plakáty, letáky a další podobné propagační materiály, fotografie našich sbírkových předmětů nebo videoherní snímky obrazovky."
-                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots."
-                />
+                    en="Our collection of visual materials includes historical photographs, video game packaging, posters, flyers and other similar promotional materials, photographs of our collection items or video game screenshots." />
             </p>
             <!-- <div class="thumbnails">
                 <a href={localizeHref("/gallery/emil-fafek")}><img src="/gallery/emil-fafek/thumbs/RH07140.jpg"></a>
@@ -215,8 +207,7 @@
         "
         en="
             The Czechoslovak Game Archive is a project of the non-profit association Herní historie. It is a volunteer activity born out of love for games and the history of our culture. Your support helps us maintain and develop our activities.
-        "
-    />
+        " />
 </p>
 <Arrow href="/support">
     <Loc cs="Podpořte naši činnost" en="Support our activities" />
@@ -270,10 +261,6 @@
         display: block;
         width: fit-content;
         margin: 0 auto;
-    }
-
-    .blogboxes :global(.arrow) {
-        display: none;
     }
 
     @media only screen and (max-width: 1460px) {

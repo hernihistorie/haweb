@@ -1,6 +1,8 @@
 :root {
     --color-bg: #f3f2e7;
+    --color-surface: #fbfaf4;
     --color-text: #000;
+    --color-text-muted: #66614f;
     --color-primary: #ef4d37;
     --color-primary-contrast: #fff;
     --color-secondary: #b5a26d;
@@ -16,7 +18,9 @@
 
 :root[data-theme="dark"] {
     --color-bg: #18170c;
+    --color-surface: #222014;
     --color-text: #fff;
+    --color-text-muted: #b9b39d;
     --color-primary: #ef4d37;
     --color-primary-contrast: #fff;
     --color-secondary: #927f49;

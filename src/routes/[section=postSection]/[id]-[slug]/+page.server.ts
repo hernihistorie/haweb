@@ -5,6 +5,7 @@ import { dev } from "$app/env";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 import { localizeHref } from "$src/lib/paraglide/runtime";
 import { seriesByBlogPostId } from "$src/data/series";
+import type { Post } from "$src/types";
 
 // 'auto': posts that are already published at build time get prerendered (which is what
 // pagefind indexes), while posts scheduled for later are rendered on demand once their
@@ -34,8 +35,16 @@ export const load: PageServerLoad = async ({ params }) => {
 
     const series = seriesByBlogPostId[post.id] || null;
 
+    // Neighbouring posts of the same kind, for navigating from one post to the next
+    const siblings = getPosts(post.kind, { includeUnpublished: dev });
+    const index = siblings.findIndex((sibling) => sibling.id === post.id);
+    const summarize = (sibling: Post | undefined) =>
+        sibling && { id: sibling.id, slug: sibling.slug, kind: sibling.kind, title: sibling.title };
+
     return {
         post,
         series,
+        older: index > 0 ? summarize(siblings[index - 1]) : undefined,
+        newer: index >= 0 ? summarize(siblings[index + 1]) : undefined,
     };
 };

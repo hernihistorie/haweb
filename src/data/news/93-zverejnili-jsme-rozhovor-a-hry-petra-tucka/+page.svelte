@@ -51,8 +51,28 @@
         {/snippet}
     </Loc>
 
-    <Figure image={img["01.jpg"]} />
-    <Figure image={img["02.jpg"]} />
-    <Figure image={img["03.jpg"]} />
-    <Figure image={img["04.jpg"]} />
+    <div class="image-grid">
+        <Figure image={img["01.jpg"]} />
+        <Figure image={img["02.jpg"]} />
+        <Figure image={img["03.jpg"]} />
+        <Figure image={img["04.jpg"]} />
+    </div>
 </section>
+
+<style>
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin: 1em 0;
+    }
+
+    .image-grid :global(figure) {
+        margin: 0;
+    }
+
+    .image-grid :global(img) {
+        display: block;
+        width: 100%;
+    }
+</style>

@@ -129,6 +129,11 @@ export function toPlainDateTime(
     return date.toPlainDateTime();
 }
 
+/** Post dates are shown as e.g. "7. 10. 2026" in all locales */
+export function formatPostDate(date: Temporal.PlainDate | Temporal.PlainDateTime): string {
+    return `${date.day}. ${date.month}. ${date.year}`;
+}
+
 export const SITE_TIME_ZONE = "Europe/Prague";
 
 export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {

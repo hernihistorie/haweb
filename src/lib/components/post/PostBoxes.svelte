@@ -1,34 +1,69 @@
 <script lang="ts">
-    import BlogBox from "$src/lib/components/blog/BlogBox.svelte";
+    import ArticleCard from "./ArticleCard.svelte";
+    import NewsCard from "./NewsCard.svelte";
+    import Loc from "../Loc.svelte";
+    import { postKindList, postKinds } from "$src/lib/posts";
     import type { Post } from "$src/types";
 
     interface Props {
         posts: Post[];
+        /** News are shown as a grid of cards, or as a single-column feed */
+        newsLayout?: "grid" | "feed";
     }
 
-    let { posts }: Props = $props();
+    let { posts, newsLayout = "grid" }: Props = $props();
+
+    const groups = $derived(
+        postKindList
+            .map((kind) => ({ kind, posts: posts.filter((post) => post.kind === kind) }))
+            .filter((group) => group.posts.length > 0),
+    );
 </script>
 
-<div class="blogboxes" data-pagefind-ignore>
-    {#each posts as post (post.id)}
-        <BlogBox blogPost={post} />
+<div data-pagefind-ignore>
+    {#each groups as group (group.kind)}
+        {#if groups.length > 1}
+            <h3><Loc text={postKinds[group.kind].title} /></h3>
+        {/if}
+        {#if group.kind === "news"}
+            <div class="news-cards {newsLayout}">
+                {#each group.posts as post (post.id)}
+                    <NewsCard {post} />
+                {/each}
+            </div>
+        {:else}
+            <div class="article-cards">
+                {#each group.posts as post (post.id)}
+                    <ArticleCard {post} />
+                {/each}
+            </div>
+        {/if}
     {/each}
 </div>
 
 <style>
-    .blogboxes {
+    h3 {
+        margin-top: 1.5em;
+    }
+
+    .news-cards {
+        display: grid;
+        gap: 24px;
+    }
+
+    .news-cards.grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+        align-items: start;
+    }
+
+    .news-cards.feed {
+        gap: 16px;
+    }
+
+    .article-cards {
         display: flex;
-        flex-wrap: wrap;
-        gap: 64px;
-    }
-
-    .blogboxes :global(.blog-box.horizontal) {
-        margin-inline: auto;
-    }
-
-    @media only screen and (max-width: 1450px) {
-        .blogboxes {
-            gap: 59px;
-        }
+        flex-direction: column;
+        gap: 48px;
+        max-width: 60em;
     }
 </style>

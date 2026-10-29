@@ -5,7 +5,7 @@
     const { data } = $props();
 </script>
 
-<PostPage post={data.post} series={data.series}>
+<PostPage post={data.post} series={data.series} newer={data.newer} older={data.older}>
     {#if data.langs}
         <PageLang {...data.langs} />
     {/if}

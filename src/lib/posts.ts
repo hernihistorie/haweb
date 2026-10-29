@@ -12,6 +12,9 @@ interface PostKindInfo {
     allTitle: { cs: string; en: string };
     /** Whether the listing is split into per-year pages */
     hasYears: boolean;
+    /** Labels for navigating to the adjacent posts from a post page */
+    newerTitle: { cs: string; en: string };
+    olderTitle: { cs: string; en: string };
 }
 
 export const postKinds = {
@@ -21,6 +24,8 @@ export const postKinds = {
         longTitle: { cs: "Novinky Herního archivu", en: "Czechoslovak Game Archive News" },
         allTitle: { cs: "Všechny novinky", en: "All news" },
         hasYears: true,
+        newerTitle: { cs: "Novější novinka", en: "Newer news" },
+        olderTitle: { cs: "Starší novinka", en: "Older news" },
     },
     article: {
         section: "articles",
@@ -28,6 +33,8 @@ export const postKinds = {
         longTitle: { cs: "Články Herního archivu", en: "Czechoslovak Game Archive Articles" },
         allTitle: { cs: "Všechny články", en: "All articles" },
         hasYears: false,
+        newerTitle: { cs: "Novější článek", en: "Newer article" },
+        olderTitle: { cs: "Starší článek", en: "Older article" },
     },
 } as const satisfies Record<PostKind, PostKindInfo>;
 
