@@ -5,7 +5,7 @@
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import { authorHref, postHref } from "#lib/posts.js";
     import { formatPostDate, isPostPublished } from "$src/lib/datetime";
-    import { seriesByBlogPostId } from "$src/data/series";
+    import ArticleKicker from "./ArticleKicker.svelte";
     import type { Post } from "$src/types";
 
     let { post, featured = false }: { post: Post; featured?: boolean } = $props();
@@ -13,8 +13,6 @@
     const href = $derived(localizeHref(postHref(post)));
     // Unpublished posts are only listed in dev
     const unpublished = $derived(!isPostPublished(post));
-    const series = $derived(seriesByBlogPostId[post.id]?.[0]);
-    const seriesPart = $derived(series ? series.posts.findIndex((p) => p.id === post.id) + 1 : 0);
 </script>
 
 <article class="article-card" class:featured>
@@ -28,23 +26,7 @@
         {/if}
     </a>
     <div class="text">
-        {#if featured || series}
-            <div class="kicker">
-                {#if featured}
-                    <Loc cs="Nejnovější článek" en="Newest article" />
-                {/if}
-                {#if featured && series}
-                    <BulletPoint />
-                {/if}
-                {#if series}
-                    <Loc text={series.title} />
-                    <BulletPoint />
-                    <Loc
-                        cs={`díl ${seriesPart}/${series.posts.length}`}
-                        en={`part ${seriesPart}/${series.posts.length}`} />
-                {/if}
-            </div>
-        {/if}
+        <ArticleKicker {post} {featured} />
         <h3>
             <a {href}><Loc text={post.title} /></a>
         </h3>
@@ -100,15 +82,6 @@
     .placeholder img {
         width: 30%;
         opacity: 0.6;
-    }
-
-    .kicker {
-        color: var(--color-primary);
-        font-size: 0.8em;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        margin-bottom: 0.4em;
     }
 
     h3 {

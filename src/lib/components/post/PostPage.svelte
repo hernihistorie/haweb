@@ -6,6 +6,7 @@
     import AuthorBio from "../blog/AuthorBio.svelte";
     import Footnotes from "../footnote/Footnotes.svelte";
     import PostAdjacentNav from "./PostAdjacentNav.svelte";
+    import ArticleKicker from "./ArticleKicker.svelte";
     import type { Post as PostType, PostSeries } from "$src/types";
     import type { Snippet } from "svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
@@ -113,7 +114,7 @@
 
 {#snippet seriesAndFootnotes()}
     {#each series ?? [] as s (s.slug)}
-        <div class="series-info">
+        <div class="series-info" id="series-{s.slug}">
             <span class="series-label">
                 <Loc cs="Série příspěvků" en="Post series" />
             </span>
@@ -156,7 +157,8 @@
                     href={authorUrl}
                     img={post.author.image}
                     imgDefault={{ alt: "Autor bez obrázku" }}
-                    size={48} />
+                    size={48}
+                />
                 <a href={authorUrl} class="author"><Loc text={post.author.name} /></a>
             </header>
             <h2 class="news-title">
@@ -193,6 +195,12 @@
         <header class="article-header">
             {@render backlink()}
             {@render unpublishedNotice()}
+            <div class="article-kicker">
+                <ArticleKicker
+                    {post}
+                    seriesHref={series?.[0] ? `#series-${series[0].slug}` : undefined}
+                />
+            </div>
             <h2 class="article-title">
                 <Loc text={post.title} />
             </h2>
@@ -201,7 +209,8 @@
                     href={authorUrl}
                     img={post.author.image}
                     imgDefault={{ alt: "Autor bez obrázku" }}
-                    size={48} />
+                    size={48}
+                />
                 <div>
                     <a href={authorUrl} class="author"><Loc text={post.author.name} /></a>
                     <div class="byline-date">
@@ -329,10 +338,14 @@
         margin-bottom: 2em;
     }
 
+    .article-kicker {
+        margin-top: 0.6em;
+    }
+
     .article-title {
         font-size: 44px;
         line-height: 1.1;
-        margin: 0.3em 0 0.5em;
+        margin: 0em 0 0.5em;
     }
 
     .byline {
