@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Na ByteFestu jsme zachránili hru na ZX Spectrum (mimojiné)",
     },
     date: new Temporal.PlainDate(2024, 11, 1),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Podobně jako na minulém ByteFestu, tak i na tomto nám byla donesena kazety s nezazálohovanou hrou na ZX Spectru. Tu nám přinesl Martin Kadlcik a z ni se nám povedlo zdigitalizovat hru jménem "das ADLERNEST".
     `,

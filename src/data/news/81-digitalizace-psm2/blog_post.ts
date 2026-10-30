@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2026, 2, 11),
     // english_translation_date: new Temporal.PlainDate(2026, 1, 22),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             PSM2 u nás začal vycházet v únoru 2002 ve stejném vydavatelství jako Oficiální PS Magazín a Score. Šéfredaktor byl, stejně jako v OPSM, Jan Bludr Modrák. Cena byla 99Kč, ale chyběl demodisk. PSM2 vyšlo jen 16 čísel, poslední v květnu 2003. Celý časopis jsme zdigitalizovali.

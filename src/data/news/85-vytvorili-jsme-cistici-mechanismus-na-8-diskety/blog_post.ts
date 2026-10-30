@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -14,7 +14,7 @@ const post: Post = {
         en: "We created a cleaning mechanism for 8″ floppy disks",
     },
     date: new Temporal.PlainDateTime(2026, 4, 15, 8, 25),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: "Nedávno jsme ve spolupráci s Birdbrain vytvořili mechanismus na čištění 8″ disket. Mechanismus si můžete vytisknout i vy na své 3D tiskárně.",
         en: "Recently, in collaboration with Birdbrain, we created a cleaning mechanism for 8″ floppy disks. You can also print the mechanism on your own 3D printer.",

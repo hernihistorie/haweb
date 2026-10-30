@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Odstěhovali jsme se ze Školíhcího centra na Strahově",
     },
     date: new Temporal.PlainDate(2024, 8, 23),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Minulý týden jsme konečně odstěhovali poslední věci z našeho (již bývalého) skladu ve strahovském školítku.
     `,

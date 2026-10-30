@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -12,7 +12,7 @@ const post: Post = {
         cs: "Novinky na počátku roku 2024",
     },
     date: new Temporal.PlainDate(2024, 3, 1),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Začátkem tohoto roku jsme vypustili (a na streamu oznámili) některé naše projekty, na kterých jsme v rámci našeho spolku a archivu pracovali. V tomto článku se o nich můžete dozvědět.
     `,

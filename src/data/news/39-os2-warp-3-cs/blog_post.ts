@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2025, 2, 12),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             Nedávno se nám do archivu podařilo získat dvě kompletní krabice s operačním systémem OS/2 od IBM. V jedné z nich je dokonce česká varianta OS/2 Warp 3 - pravděpodobně nejranější lokalizovaná verze, která u nás vyšla.

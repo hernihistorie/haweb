@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Originální hra z pořadu Videostop",
     },
     date: new Temporal.PlainDate(2024, 6, 28),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Jak jsme slíbili, tak jsme konečně zdigitalizovali a zveřejnili originální hru z pořadu Videostop. Hra původně neměla být vůbec veřejně distribuovaná a její spuštění a zapojení tedy není úplně triviální. Z tohoto důvodu jsme pro vás připravili stručný návod, který by vás měl seznámit s tím, co vše k hraní potřebujete a jak hru zapnout a ovládat.
     `,

@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2025, 11, 11),
     english_translation_date: new Temporal.PlainDate(2025, 12, 18),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             Z rané éry herního průmyslu asi většina lidí zná zejména Atari VCS, nicméně VCS nebylo jedinou konzolí, která se na americkém trhu tehdy prodávala. Další bylo třeba ColecoVision které se nám po mnoha výjezdech rozbilo. Nakonec ho opravil Lukáš Nevařil takže nyní se na něj můžete těšit na dalších výjezdech!

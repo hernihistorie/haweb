@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -12,7 +12,7 @@ const post: Post = {
         cs: "PlayStation2 Oficiální magazín oskenován a doplněn do Databáze časopisů",
     },
     date: new Temporal.PlainDate(2024, 7, 19),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Minulý týden jsme doplnili do naší databáze časopisů všechna čísla "PlayStation2 OFICIÁLNÍ MAGAZÍN" a jeho skeny jsme zároveň nahráli na Internet archive, kde si je můžete prohlédnout.
     `,

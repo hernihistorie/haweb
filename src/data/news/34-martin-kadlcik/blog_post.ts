@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -12,7 +12,7 @@ const post: Post = {
         cs: "Rozhovor s Martinem Kadlčíkem, autorem hry das ADLERNEST",
     },
     date: new Temporal.PlainDate(2024, 12, 27),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Po záchraně hry das ADLERNEST na ZX Spectrum jsme položili jeho autorovi - Martinu Kadlčíkovi - i několik otázek ohledně toho, jak hru tvořil, jak se k hrám a počítačům vůbec dostal a co dělá v současnosti.
     `,

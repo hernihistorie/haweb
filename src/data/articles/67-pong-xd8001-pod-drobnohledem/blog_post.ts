@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import JiriBernasek from "$src/data/authors/jiri-bernasek/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2025, 9, 26),
     english_translation_date: new Temporal.PlainDate(2026, 7, 16),
-    author: authors.JiriBernasek,
+    author: JiriBernasek,
     description_html: {
         cs: `
             Herní konzole ve stylu známého Pongu byly fenoménem 70. let nejen na západě, ale zhruba od přelomu 1976-1977 začaly různé jejich verze vznikat i v tehdejším Československu. Říkalo se jim tu zpravidla Televizní tenis, či prostě Televizní hra, a my se nyní v trojdílné minisérii článků zaměříme po technické stránce na jeden unikát mezi nimi.

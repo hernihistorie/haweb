@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2026, 1, 23),
     // english_translation_date: new Temporal.PlainDate(2026, 1, 22),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             Dostali jsme příležitost podílet se na výstavě Disk nelze načíst - výstava od týmu Vašulka Kitchen zaměřující se na historii analogových, (před) digitálních technologií, nosičů a uměleckých experimentů zhruba od začátku 90. let.

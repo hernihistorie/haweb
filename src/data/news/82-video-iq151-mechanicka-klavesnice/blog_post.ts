@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2026, 2, 18),
     // english_translation_date: new Temporal.PlainDate(2026, 1, 22),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             Nedávno se nám dostal do rukou speciální kousek IQ 151, který nemá svou klasickou klávesnici vyrobenou z telefonových tlačítek, ale má krásnou klávesnici mechanickou. Toto IQ si od nás půjčil kanál Andrew Tesla a udělal o této krásce video.

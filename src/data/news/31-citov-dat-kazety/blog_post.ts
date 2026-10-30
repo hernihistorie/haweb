@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "PROJEKT CÍTOV - Digitalizace DAT kazet",
     },
     date: new Temporal.PlainDate(2024, 12, 2),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Povedlo se nám dát dohromady funkční sestavu na zálohování DAT kazet.
     `,

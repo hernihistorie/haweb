@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Získali jsme dvě arkády české výroby",
     },
     date: new Temporal.PlainDate(2025, 4, 29),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Arkádové kabinety pravděpodobně české výroby jsme získali díky spolupráci s Honzou Ornou a jeho skvělým projektem Arcade Hry. Ten určitě nemusíme představovat a jsme rádi, že tak skvělou a veřejně dostupnou sbírku máme v Čechách k dispozici.
     `,

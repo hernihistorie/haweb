@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -12,7 +12,7 @@ const post: Post = {
         cs: "PROJEKT CÍTOV - Skeny cítovského zpravodaje",
     },
     date: new Temporal.PlainDate(2024, 12, 9),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Oskenovali jsme počítačový zpravodaj, který vznikal v 80. letech v rámci činnosti cítovského atari klubu.
     `,

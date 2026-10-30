@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -14,7 +14,7 @@ const post: Post = {
         en: "We scanned and published the magazine Doupě",
     },
     date: new Temporal.PlainDateTime(2026, 9, 8, 8, 0),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: "Po letní pauze přicházíme s dalším skenem českého herního magazínu, tentokrát časopisu Doupě. Doupě vzniklo v létě 1999 jako internetový herní magazín vydavatelství Computer Press. Od roku 2005 na něj navázalo tištěné Doupě, měsíčník vycházející jedenáctkrát ročně.",
         en: "After a summer break, we're bringing you another scan of a Czech game magazine, this time it's Doupě. Doupě began in the summer of 1999 as an online game magazine published by Computer Press. Starting from 2005, it evolved into a monthly print publication coming out eleven times a year.",

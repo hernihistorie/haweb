@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import JakubSkrdla from "$src/data/authors/jakub-skrdla/author";
 
 const post: Post = {
     id: 79,
@@ -15,7 +15,7 @@ const post: Post = {
     published: true,
     date: new Temporal.PlainDate(2026, 1, 26),
     english_translation_date: new Temporal.PlainDate(2026, 1, 26),
-    author: authors.JakubSkrdla,
+    author: JakubSkrdla,
     description_html: {
         cs: `
             V roce 1997 vydala automobilka Škoda propagační CD-ROM, který kombinoval běžné marketingové materiály s interaktivním rozhraním podobným point-and-click adventurám.  Dozvěte se v tomto článku více o tomto unikátním multimediálním počinu.

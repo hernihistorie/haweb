@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import JiriBernasek from "$src/data/authors/jiri-bernasek/author";
 import img01 from "./img/1-kolaz-uvodni.jpg?w=1200&format=jpg&imagetools";
 
 const post: Post = {
@@ -16,7 +16,7 @@ const post: Post = {
     },
     // TODO
     date: new Temporal.PlainDateTime(2026, 10, 29, 14, 0),
-    author: authors.JiriBernasek,
+    author: JiriBernasek,
     description_html: {
         cs: `
             Tuzemské televizní hry nevznikaly v žádném vakuu - měly v zahraničí své předchůdce, současníky i následovníky. Vydejte se s námi na vyhlídkový let první generací televizních her bez specializovaných čipů: od <em>Magnavox Odyssey</em> a <em>Pongu</em> přes záplavu klonů a časopisových návodů na západě i ve východním bloku až po svéráznou cestu Sovětského svazu, kde tato éra vydržela o celou dekádu déle.

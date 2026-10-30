@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -14,7 +14,7 @@ const post: Post = {
         en: "We have created a cleaning mechanism for 3,5″ floppy disks",
     },
     date: new Temporal.PlainDateTime(2026, 5, 5, 8, 15),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: "Stejně jako u 8″ disketovek tak i k 3,5″ disketetám jsme ve spolupráci s Birdbrain vytvořili mechanismus na jejich čištění. Oproti předchozím řešením se vyznačuje podporou pro čištění diskety z obou stran",
         en: "Following the one for 8″ flopies, for 3,5″ floppies too we have made a cleaning mechanism in cooperation with Birdbrain. Compared to previous solutions, it provides capability for cleaning floppy disks from both sides.",

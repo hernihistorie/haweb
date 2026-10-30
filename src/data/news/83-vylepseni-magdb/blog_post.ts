@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -15,7 +15,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDate(2026, 3, 3),
     // english_translation_date: new Temporal.PlainDate(2026, 1, 22),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: {
         cs: `
             Vylepšili jsme naši databázi herních časopisů. Nová databáze má samozřejmě lepší a přehlednější uživatelské rozhraní, ale hlavně v ni najdete odkaz na oskenované časopisy (a to jak od nás, tak od jiných subjektů).

@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Rozhovor s našema dvěma členy na téma digitalizace",
     },
     date: new Temporal.PlainDate(2025, 8, 4),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Na posledním Game Accessu byli naši dva členové - Rudolf Jan Suchý a Martin Štochl - osloveni Natalií Čornyjovou z MUNI ohledně rozhovoru na téma digitalizace všeho od nosičů digitálních dat až po archiválie jako jsou třeba časopisy.
     `,

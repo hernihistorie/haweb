@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Předseda našeho spolku byl v Modrák & Friends",
     },
     date: new Temporal.PlainDate(2025, 6, 10),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Předseda našeho spolku Vojtěch Straka byl v podcastu Jan Modrák. Zde povídal zejména o počátcích naší herní tvorby u nás a o tom, jak v podnicích jako je Tesla vznikaly československé telvizní tenisy.
     `,

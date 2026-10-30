@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -12,7 +12,7 @@ const post: Post = {
         cs: "Druhá várka naskenované dopisové komunikace Jana Orny",
     },
     date: new Temporal.PlainDate(2025, 9, 5),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Po měsíci pečlivého skenování sdílíme další várku dopisů které přišly Janu Ornovi, či jim byly odeslány. V této várce najdete zejména dopisy od různých pirátských distributorů stejně jako několik seznamů her, které různí piráti nabízeli.
     `,

@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import JiriBernasek from "$src/data/authors/jiri-bernasek/author";
 import img01 from "./img/01-cela-sestava.jpg?w=1200&format=jpg&imagetools";
 
 const post: Post = {
@@ -16,7 +16,7 @@ const post: Post = {
     },
     date: new Temporal.PlainDateTime(2026, 9, 26, 14, 0),
     // english_translation_date: new Temporal.PlainDate(2026, 9, 27),
-    author: authors.JiriBernasek,
+    author: JiriBernasek,
     description_html: {
         cs: `
              V roce 1977 zažilo Československo příchod atraktivní novinky - takzvaných Televizních her. V tomto článku se zaměříme na přístroj TV HRY od Tesly VÚST, nejpokročilejší dobovou tuzemskou hru a dnes patřící mezi nejstarší dochované. Bez využití mikroprocesoru nebo herního čipu nabízí čtyři hry na motivy pongu.

@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Dumpy press CD firmy Take2",
     },
     date: new Temporal.PlainDate(2024, 4, 1),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Nedávno jsme se dostali k CDčkám z daleké Austrálie s press materiály firmy Take 2. Kromě materiálů k hrám jako je např. Tropico mezi nima byly věci k českým klasikám Mafia a Vietcong!
     `,

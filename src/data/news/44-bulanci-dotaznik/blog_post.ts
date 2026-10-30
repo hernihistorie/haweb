@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import RudolfJanSuchy from "$src/data/authors/rudolf-jan-suchy/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Projekt Fanouškovské aktivity kolem hry Bulánci - DOTAZNÍK",
     },
     date: new Temporal.PlainDate(2025, 4, 16),
-    author: authors.RudolfJanSuchy,
+    author: RudolfJanSuchy,
     description_html: `
         Mnozí z vás jistě vyrůstali na prvních Buláncích - na hře, která několik let v kuse okupovala mnoho školních, firemních a domácích počítačů a která byla hlavní náplní každé hodiny, která probíhala v nějaké počítačové učebně. Narozdíl od jiných významných her československého kánonu si Bulánky moc lidí nepamatuje pro příběh, ani pro hlášky ale právě pro sdílený zážitek z jejich hraní.
     `,

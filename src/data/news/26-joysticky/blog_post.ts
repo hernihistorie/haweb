@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Přírůstek do Herního archivu: Podomácku vyrobené ovladače k ZX Spectru",
     },
     date: new Temporal.PlainDate(2024, 8, 26),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Herní historií nejsou jen hry a oficiální hardware – součástí herní historie (zejména té jenž se odehrávala v rámci bývalého Východního bloku) je i podomácku zbastlené příslušenství, jako např. herní joysticky.
     `,

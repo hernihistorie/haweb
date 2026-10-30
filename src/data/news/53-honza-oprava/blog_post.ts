@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { Post } from "$src/types";
-import { authors } from "$src/data/authors";
+import HerniHistorie from "$src/data/authors/herni-historie/author";
 
 const post: Post = {
     published: true,
@@ -13,7 +13,7 @@ const post: Post = {
         cs: "Opravujeme počítač HONZA",
     },
     date: new Temporal.PlainDate(2025, 7, 15),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: `
         Dnes jsme vytáhli náš nerozbalený počítač PC16NB "Honza" s účelem jej repasovat na případné výjezdy nebo jiné účely. Honzu jsme vybalili z letitého kartonu a začali diagnostikovat potenciální problémy, abychom mohli počítač po 35 letech konečně spustit.
     `,
