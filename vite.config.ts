@@ -5,10 +5,12 @@ import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { pagefindBuild } from "vite-plugin-pagefind";
 import { defineConfig } from "vite";
+import { slideText } from "./src/lib/vite/slideText.ts";
 
 export default defineConfig({
     plugins: [
         enhancedImages(),
+        slideText(),
         sveltekit({
             // Consult https://kit.svelte.dev/docs/integrations#preprocessors
             // for more information about preprocessors

@@ -2,6 +2,7 @@ import { error } from "@sveltejs/kit";
 import { getPosts } from "$src/data/posts";
 import { hasSlidesViewer, postKinds } from "#lib/posts.js";
 import { loadPost } from "#lib/server/posts.js";
+import { loadSlideText } from "#lib/server/slides.js";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 export const prerender = "auto";
@@ -23,5 +24,5 @@ export const load: PageServerLoad = async ({ params }) => {
         error(404, "This post has no slides");
     }
 
-    return { post, slides: post.talk.slides };
+    return { post, slides: post.talk.slides, slideText: await loadSlideText(post) };
 };
