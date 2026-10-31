@@ -11,8 +11,13 @@
     /**
      * A video thumbnail with the title below, in the style of YouTube.
      * Compact cards have the title beside the thumbnail, for sidebars.
+     * Large compact cards have bigger text, for listing videos in page content.
      */
-    let { post, compact = false }: { post: Post; compact?: boolean } = $props();
+    let {
+        post,
+        compact = false,
+        large = false,
+    }: { post: Post; compact?: boolean; large?: boolean } = $props();
 
     const href = $derived(localizeHref(postHref(post)));
     const event = $derived(post.talk?.event);
@@ -20,7 +25,7 @@
     const unpublished = $derived(!isPostPublished(post));
 </script>
 
-<a {href} class="video-card" class:compact>
+<a {href} class="video-card" class:compact class:large>
     <div class="thumbnail">
         <img src={postImage(post)} alt="" loading="lazy" decoding="async" />
         <span class="play"><PlayIcon fill="currentColor" /></span>
@@ -142,6 +147,45 @@
 
     .compact .meta {
         font-size: 0.8em;
+    }
+
+    /* Sized so the text is about as tall as the thumbnail */
+    .compact.large {
+        gap: 12px;
+    }
+
+    .compact.large h3 {
+        font-size: 22px;
+        margin-bottom: 0.4em;
+    }
+
+    .compact.large .meta {
+        font-size: 1em;
+    }
+
+    /* Too narrow for the text beside the thumbnail, so stack them like a regular card */
+    @media screen and (max-width: 600px) {
+        .compact.large {
+            display: block;
+        }
+
+        .compact.large .thumbnail img {
+            border-radius: 12px;
+        }
+
+        .compact.large .play {
+            width: 3em;
+            height: 3em;
+        }
+
+        .compact.large .play :global(svg) {
+            width: 24px;
+            height: 24px;
+        }
+
+        .compact.large h3 {
+            margin-top: 0.6em;
+        }
     }
 
     .meta {

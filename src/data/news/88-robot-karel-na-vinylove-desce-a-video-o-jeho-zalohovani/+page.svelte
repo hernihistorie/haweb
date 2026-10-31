@@ -5,6 +5,9 @@
     import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import Figure from "$src/lib/components/Figure.svelte";
     import Youtube from "svelte-youtube-embed";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
+
+    const videoUrl = localizeHref("/videos/100-karel-pro-iq-151-zachraneny-z-vinylu");
 </script>
 
 <PageLang cs en />
@@ -18,7 +21,7 @@
                 a instrukce k jejich používání. Po zevrubné digitalizaci, na které se podílel i Jan
                 Heřman jsme vykřesali několik programů pro ZX Spectrum (včetně nezazálohované verze
                 Karla pro zmíněnou platformu) ale i Karla pro IQ151. O tomto dobrodružství <a
-                    href="https://www.youtube.com/watch?v=gccZcTYVXbk">natočil Jan Heřman video</a
+                    href={videoUrl}>natočil Jan Heřman video</a
                 >, které naleznete na jeho kanále Andrew Tesla. Ve videu je také rozhovor s Rudolfem
                 Janem Suchým, o historii toho, jak a proč se Karel na LPčka vlastně dostal.
             </p>
@@ -31,11 +34,10 @@
                 digitization process, which also involved Jan Heřman, we managed to resurrect
                 several ZX Spectrum programs (including a previously unpreserved version of Karel
                 for this platform) but also Karel for the Czechoslovak IQ 151 home computer. Jan
-                Heřman recorded <a href="https://www.youtube.com/watch?v=gccZcTYVXbk"
-                    >a video about this adenture</a
-                >, which you will find on his channel, Andrew Tesla. The video also features an
-                interview with Rudolf Jan Suchý about the history of how and why Karel ended up on
-                vinyl records in the first place.
+                Heřman recorded <a href={videoUrl}>a video about this adenture</a>, which you will
+                find on his channel, Andrew Tesla. The video also features an interview with Rudolf
+                Jan Suchý about the history of how and why Karel ended up on vinyl records in the
+                first place.
             </p>
         {/snippet}
     </Loc>

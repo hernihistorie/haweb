@@ -7,6 +7,8 @@
     import AssetList from "$src/lib/components/asset/AssetList.svelte";
     import { projectVideostop } from "./project";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import VideoCard from "$src/lib/components/post/VideoCard.svelte";
+    import videostopTalk from "$src/data/videos/101-historie-a-prezentace-hry-z-poradu-videostop/blog_post";
 
     let interviews: InterviewData[] = [vodak_data, bezdek_data];
 </script>
@@ -46,8 +48,8 @@
         značné míry mohla za popularitu tohoto pořadu moderátorská dvojice (která pořad uváděla od
         roku 1987) Jana Rosáka a filmového historika Karla Čáslavského. Atraktivní byl pořad i kvůli
         samotné koncepci – VIP hosté zde nebyli jen proto, aby radili soutěžícím, ale také se
-        podíleli o různé historky z natáčení nebo z jejich životů. Nicméně, čím se <em>Videostop</em
-        >
+        podíleli o různé historky z natáčení nebo z jejich životů. Nicméně, čím se <em
+            >Videostop</em>
         výrazně lišil od jiných tuzemských soutěžních pořadů z této doby, byla snaha o zapojení nových
         médií do jeho fungování. Toto je zejména patrné pokud <em>Videostop</em> porovnáváte s např.
         <em>Šesti rany do klobouku</em>. V <em>Klobouku</em> byli soutěžící před zodpovídáním otázek
@@ -71,15 +73,9 @@
     </p>
 
     <h3>Články a přednášky</h3>
-    <ul>
-        <li>
-            <b>Přednáška z ByteFESTu 2024</b> s názvem
-            <i>„Historie a prezentace hry z pořadu Videostop"</i>
-            od Rudolfa Jana Suchého (<a href="https://www.youtube.com/watch?v=Ce_lJMa0X6s"
-                >ZÁZNAM ZDE</a
-            >)
-        </li>
-    </ul>
+    <div class="videos">
+        <VideoCard post={videostopTalk} compact large />
+    </div>
 
     <h3 id="Navody">Návody</h3>
     <h4>Návod na spuštění hry Videostop</h4>
@@ -144,3 +140,12 @@
     <h3 id="Predmety">Předměty</h3>
     <AssetList assetTagId={8} />
 </ProjectPage>
+
+<style>
+    .videos {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 1em 0;
+    }
+</style>

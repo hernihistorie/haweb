@@ -3,6 +3,7 @@
     import type { AssetData } from "$src/types";
     import { data as asset08411_data } from "$src/routes/assets/asset_08411";
     import AssetBox from "$src/lib/components/asset/AssetBox.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 
     let assets: AssetData[] = [asset08411_data];
 </script>
@@ -21,12 +22,13 @@
         {/each}
     </p>
     <p>
-        Také jsme měli na ByteFestu přednášku o dějinách a záchraně původní hry z pořadu Videostop,
-        kterou jste si u nás mohli i zahrát. Moc děkujeme za všechny pozitivní reakce a zvídavé
+        Také jsme měli na ByteFestu <a
+            href={localizeHref("/videos/101-historie-a-prezentace-hry-z-poradu-videostop")}
+            >přednášku o dějinách a záchraně původní hry z pořadu Videostop</a
+        >, kterou jste si u nás mohli i zahrát. Moc děkujeme za všechny pozitivní reakce a zvídavé
         otázky které jste kladli - moc nás těší Váš zájem, kterým jste naší snahu hru záchranit
-        zahrnuli. Pokud byste chtěli podobnou činnost podpořit, tak můžete skrze naše <a
-            href="https://herohero.co/hernihistorie">HeroHero</a
-        >.
+        zahrnuli. Pokud byste chtěli podobnou činnost podpořit, tak můžete skrze naše
+        <a href="https://herohero.co/hernihistorie">HeroHero</a>.
     </p>
     <p><img src="/photos/prednaska.jpg" alt="Přednáška" /></p>
     <p><img src="/photos/videostop_photo.jpg" alt="Videostop" /></p>

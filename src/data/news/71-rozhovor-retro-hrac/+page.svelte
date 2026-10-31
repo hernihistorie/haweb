@@ -1,6 +1,7 @@
 <script lang="ts">
     import PageLang from "$src/lib/components/PageLang.svelte";
     import Figure from "$src/lib/components/Figure.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 </script>
 
 <PageLang cs />
@@ -16,7 +17,9 @@
         dokazuje to i existence projektů jako právě Retro Hráč!
     </p>
     <p>
-        Rozhovor najdete <a href="https://www.youtube.com/watch?v=O6DZSGkZ5Ck">ZDE</a>.
+        Rozhovor najdete <a href={localizeHref("/videos/98-retro-pokec-rozhovor-o-retroherne")}
+            >ZDE</a
+        >.
         <Figure src="/photos/blog-posts/rozhovor-retro-hrac.jpg" />
     </p>
     <p>(Obrázek je screenshot z videa)</p>

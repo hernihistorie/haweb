@@ -20,7 +20,7 @@
                 krásce video. V něm se dozvíte, v čem všem se toto IQ 151 liší od těch, které jste mohli
                 v 80. letech potkávat ve školách, nebo jak k mechanické klávesnici toto IQ asi přišlo.
             </p>
-            <Arrow href="https://www.youtube.com/watch?v=pXCawKNNey0">Zkouknout video</Arrow>
+            <Arrow href="/videos/99-iq-151-s-mechanickou-klavesnici">Zkouknout video</Arrow>
             <div style="margin-bottom: 1em;"></div>
             <Youtube id="pXCawKNNey0" />
         {/snippet}
@@ -34,7 +34,7 @@
                 you'll learn how this IQ 151 differs from those you might have encountered in
                 schools in the 80s, and how this IQ probably came to have a mechanical keyboard.
             </p>
-            <Arrow href="https://www.youtube.com/watch?v=pXCawKNNey0">Watch the video</Arrow>
+            <Arrow href="/videos/99-iq-151-s-mechanickou-klavesnici">Watch the video</Arrow>
             <div style="margin-bottom: 1em;"></div>
             <Youtube id="pXCawKNNey0" />
         {/snippet}
