@@ -1,5 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 import type { SeriesSlug } from "./data/series";
+import type { Talk } from "./data/talk";
+import type { Video } from "./data/video";
 
 export type LanguageCode = "cs" | "sk" | "en";
 
@@ -87,7 +89,7 @@ export interface Project {
     description?: LocalizedString;
 }
 
-export type PostKind = "news" | "article";
+export type PostKind = "news" | "article" | "video";
 
 export interface Post {
     id: number;
@@ -101,6 +103,13 @@ export interface Post {
     author: Author;
     description_html?: LocalizedString;
     bufferPostId?: string;
+    /** Required for posts of the "video" kind */
+    video?: Video;
+    /**
+     * Set when the post is a talk.
+     * The post author is the speaker, and the post date is the date of the talk.
+     */
+    talk?: Talk;
 }
 
 export interface PostSeries {
@@ -116,5 +125,6 @@ export interface Author {
     nameGenitive: string;
     bio?: LocalizedString;
     image?: Image;
+    youtubeChannelURL?: string;
     isDefault?: boolean;
 }

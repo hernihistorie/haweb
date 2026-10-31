@@ -12,6 +12,23 @@ const postModules = import.meta.glob<{ default: Component }>([
     "/src/data/*/*/article.*.svelte",
 ]);
 
+// Presentations may have a transcript, either a single `transcript.svelte`
+// or one `transcript.<locale>.svelte` per available language.
+const transcriptModules = import.meta.glob<{ default: Component }>([
+    "/src/data/*/*/transcript.svelte",
+    "/src/data/*/*/transcript.*.svelte",
+]);
+
+async function loadTranscript(dir: string): Promise<Component | null> {
+    // Prefer the current locale, then a shared one, then whichever language exists
+    const path =
+        [`${dir}/transcript.${getLocale()}.svelte`, `${dir}/transcript.svelte`].find(
+            (path) => path in transcriptModules,
+        ) ?? Object.keys(transcriptModules).find((path) => path.startsWith(`${dir}/transcript.`));
+    if (!path) return null;
+    return transcriptModules[path]().then((module) => module.default);
+}
+
 export const load: PageLoad = async ({ data }) => {
     const { post } = data;
     const dir = `/src/data/${postKinds[post.kind].section}/${post.id}-${post.slug}`;
@@ -31,11 +48,15 @@ export const load: PageLoad = async ({ data }) => {
     if (!(path in postModules)) {
         throw new Error(`No post component found at ${path}`);
     }
-    const postComponent = await postModules[path]().then((module) => module.default);
+    const [postComponent, transcriptComponent] = await Promise.all([
+        postModules[path]().then((module) => module.default),
+        loadTranscript(dir),
+    ]);
 
     return {
         ...data,
         postComponent,
+        transcriptComponent,
         langs,
     };
 };

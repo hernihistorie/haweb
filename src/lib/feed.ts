@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { getPosts } from "$src/data/posts";
-import { postHref, postKindHref } from "./posts";
+import { postHref, postImage, postKindHref } from "./posts";
 import type { Post, LanguageCode } from "$src/types";
 import { toPlainDateTime } from "./datetime";
 
@@ -81,6 +81,7 @@ ${latestPosts
                   : (post.description_html?.cs ?? post.description_html?.en ?? "");
         const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : "";
         const date = post.date ? dateToISOString(post.date) : new Date().toISOString();
+        const image = postImage(post);
 
         return `    <entry>
         <title>${postTitle}</title>
@@ -90,7 +91,7 @@ ${latestPosts
         <published>${date}</published>
         <updated>${date}</updated>
         <summary>
-            ${post.image ? `<p><img src="${SITE_URL}${post.image}" /></p>` : ""}
+            ${image ? `<p><img src="${new URL(image, SITE_URL)}" /></p>` : ""}
             <p>${description}</p>
         </summary>
     </entry>`;

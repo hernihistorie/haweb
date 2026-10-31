@@ -18,6 +18,8 @@
         cs: string;
         en: string;
         submenu?: MenuItem[];
+        /** Other pages, not in the submenu, where the item is active */
+        alsoActive?: string[];
     };
 
     var menuItems: MenuItem[] = [
@@ -32,7 +34,7 @@
             ],
         },
         { url: "/news", cs: "Novinky", en: "News" },
-        { url: "/articles", cs: "Články", en: "Articles" },
+        { url: "/articles", cs: "Články", en: "Articles", alsoActive: ["/videos"] },
         {
             url: "/projects",
             cs: "Projekty",
@@ -93,9 +95,11 @@
 
     // A menu item is active on its own page and on any of its submenu pages
     function isActive(menuItem: MenuItem): boolean {
-        return [menuItem, ...(menuItem.submenu ?? [])].some(
-            (item) => item.url.startsWith("/") && pathnameStartswith(item.url),
-        );
+        return [
+            menuItem.url,
+            ...(menuItem.submenu ?? []).map((item) => item.url),
+            ...(menuItem.alsoActive ?? []),
+        ].some((url) => url.startsWith("/") && pathnameStartswith(url));
     }
 
     // Compare by URL, as $state wraps the stored menu item in a proxy

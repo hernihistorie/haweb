@@ -1,6 +1,7 @@
 <script lang="ts">
     import ArticleCard from "./ArticleCard.svelte";
     import NewsCard from "./NewsCard.svelte";
+    import VideoCard from "./VideoCard.svelte";
     import Loc from "../Loc.svelte";
     import { postKindList, postKinds } from "$src/lib/posts";
     import type { Post } from "$src/types";
@@ -31,6 +32,12 @@
                     <NewsCard {post} />
                 {/each}
             </div>
+        {:else if group.kind === "video"}
+            <div class="video-cards">
+                {#each group.posts as post (post.id)}
+                    <VideoCard {post} />
+                {/each}
+            </div>
         {:else}
             <div class="article-cards">
                 {#each group.posts as post (post.id)}
@@ -58,6 +65,14 @@
 
     .news-cards.feed {
         gap: 16px;
+    }
+
+    /* 4-5 per row at full width, like a YouTube channel page */
+    .video-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+        gap: 32px 20px;
+        align-items: start;
     }
 
     .article-cards {

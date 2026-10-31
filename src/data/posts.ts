@@ -19,6 +19,9 @@ const allPosts: Post[] = Object.entries(postModules)
         if (directory !== postKinds[post.kind].section) {
             throw new Error(`Post ${path} has kind "${post.kind}" but is in ${directory}/`);
         }
+        if (post.kind === "video" && !post.video) {
+            throw new Error(`Post ${path} has kind "video" but no video`);
+        }
         return post;
     })
     .sort((a, b) => {

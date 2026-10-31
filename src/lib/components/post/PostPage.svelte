@@ -7,6 +7,7 @@
     import Footnotes from "../footnote/Footnotes.svelte";
     import PostAdjacentNav from "./PostAdjacentNav.svelte";
     import ArticleKicker from "./ArticleKicker.svelte";
+    import VideoWatch from "./VideoWatch.svelte";
     import type { Post as PostType, PostSeries } from "$src/types";
     import type { Snippet } from "svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
@@ -19,7 +20,7 @@
     import { Temporal } from "@js-temporal/polyfill";
     import { loc } from "$src/lib/loc";
     import { formatPostDate, isPostPublished } from "$src/lib/datetime";
-    import { authorHref, postHref, postKindHref, postKinds } from "$src/lib/posts";
+    import { authorHref, postHref, postImage, postKindHref, postKinds } from "$src/lib/posts";
 
     const footnotes = setFootnoteContext(new FootnoteHolder());
 
@@ -30,10 +31,14 @@
         series: PostSeries[] | null;
         newer?: PostLink;
         older?: PostLink;
+        /** Other videos, for the sidebar of a video post */
+        related?: PostType[];
         children?: Snippet;
+        /** Transcript of a presentation, shown collapsed after the body */
+        transcript?: Snippet;
     }
 
-    let { post, series, newer, older, children }: Props = $props();
+    let { post, series, newer, older, related = [], children, transcript }: Props = $props();
 
     const kindInfo = $derived(postKinds[post.kind]);
     const postYear = $derived(post.date?.year);
@@ -54,6 +59,7 @@
     );
     const authorUrl = $derived(localizeHref(authorHref(post.author)));
     const unpublished = $derived(!isPostPublished(post));
+    const image = $derived(postImage(post));
     const translationDate = $derived(
         getLocale() === "en" ? post.english_translation_date : undefined,
     );
@@ -82,8 +88,8 @@
     {#if post.description_html}
         <meta property="og:description" content={loc(post.description_html)} />
     {/if}
-    {#if post.image}
-        <meta property="og:image" content={post.image} data-pagefind-meta="image[content]" />
+    {#if image}
+        <meta property="og:image" content={image} data-pagefind-meta="image[content]" />
     {/if}
     <meta property="og:locale" content={getLocale()} />
 </svelte:head>
@@ -109,6 +115,17 @@
         <BulletPoint />
         Translation:
         <time datetime={translationDate.toString()}>{formatPostDate(translationDate)}</time>
+    {/if}
+{/snippet}
+
+{#snippet transcriptSection()}
+    {#if transcript}
+        <details class="transcript">
+            <summary>
+                <h2><Loc cs="Přepis přednášky" en="Transcript" /></h2>
+            </summary>
+            {@render transcript()}
+        </details>
     {/if}
 {/snippet}
 
@@ -191,6 +208,16 @@
                 <AuthorBio author={post.author} kind={post.kind} secondary />
             </div>
         {/if}
+    {:else if post.kind === "video" && post.video}
+        <VideoWatch {post} video={post.video} {related}>
+            {#snippet top()}
+                {@render backlink()}
+                {@render unpublishedNotice()}
+            {/snippet}
+            {@render children?.()}
+            {@render transcriptSection()}
+            {@render seriesAndFootnotes()}
+        </VideoWatch>
     {:else}
         <header class="article-header">
             {@render backlink()}
@@ -224,6 +251,7 @@
         </header>
         <div class="article-body">
             {@render children?.()}
+            {@render transcriptSection()}
             {@render seriesAndFootnotes()}
         </div>
         <hr />
@@ -231,7 +259,9 @@
             <AuthorBio author={post.author} kind={post.kind} secondary />
         {/if}
     {/if}
-    <PostAdjacentNav kind={post.kind} {newer} {older} />
+    {#if post.kind !== "video"}
+        <PostAdjacentNav kind={post.kind} {newer} {older} />
+    {/if}
 </article>
 
 <style>
@@ -245,6 +275,10 @@
 
     .post-page.article {
         max-width: 720px;
+    }
+
+    .post-page.video {
+        margin-top: 1em;
     }
 
     .backlink {
@@ -368,6 +402,18 @@
     .article-body :global(h3),
     .article-body :global(h4) {
         line-height: 1.25;
+    }
+
+    .transcript {
+        margin: 2em 0;
+    }
+
+    .transcript summary {
+        cursor: pointer;
+    }
+
+    .transcript summary h2 {
+        display: inline;
     }
 
     .post-page :global(img) {

@@ -1,6 +1,8 @@
 // This module is imported by src/params.ts, which SvelteKit loads directly with Node,
 // so it must not have runtime imports through aliases like $src or #lib.
 import type { Author, Post, PostKind } from "$src/types";
+import type { Talk } from "$src/data/talk";
+import type { Event } from "$src/data/events/event";
 
 interface PostKindInfo {
     /** URL path segment, also the directory name under `src/data/` */
@@ -36,6 +38,15 @@ export const postKinds = {
         newerTitle: { cs: "Novější článek", en: "Newer article" },
         olderTitle: { cs: "Starší článek", en: "Older article" },
     },
+    video: {
+        section: "videos",
+        title: { cs: "Videa", en: "Videos" },
+        longTitle: { cs: "Videa Herního archivu", en: "Czechoslovak Game Archive Videos" },
+        allTitle: { cs: "Všechna videa", en: "All videos" },
+        hasYears: false,
+        newerTitle: { cs: "Novější video", en: "Newer video" },
+        olderTitle: { cs: "Starší video", en: "Older video" },
+    },
 } as const satisfies Record<PostKind, PostKindInfo>;
 
 export type PostSection = (typeof postKinds)[PostKind]["section"];
@@ -56,4 +67,28 @@ export function postHref(post: Pick<Post, "id" | "slug" | "kind">): string {
 
 export function authorHref(author: Pick<Author, "slug">): string {
     return `/authors/${author.slug}`;
+}
+
+export function eventHref(event: Pick<Event, "slug">): string {
+    return `/events/${event.slug}`;
+}
+
+export function slidesHref(post: Pick<Post, "id" | "slug" | "kind">): string {
+    return `${postHref(post)}/slides`;
+}
+
+/** Only PDF slides can be browsed on the site, anything else is just linked */
+export function hasSlidesViewer(presentation: Talk | undefined): boolean {
+    const path = presentation?.slides?.url.split(/[?#]/)[0];
+    return !!path?.toLowerCase().endsWith(".pdf");
+}
+
+/** `hqdefault` exists for every video, unlike `maxresdefault` */
+export function youtubeThumbnail(youtubeId: string): string {
+    return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+}
+
+/** The post's image, falling back to the video thumbnail */
+export function postImage(post: Pick<Post, "image" | "video">): string | undefined {
+    return post.image ?? (post.video ? youtubeThumbnail(post.video.youtubeId) : undefined);
 }

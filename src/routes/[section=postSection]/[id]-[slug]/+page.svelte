@@ -5,7 +5,19 @@
     const { data } = $props();
 </script>
 
-<PostPage post={data.post} series={data.series} newer={data.newer} older={data.older}>
+{#snippet transcript()}
+    {#if data.transcriptComponent}
+        <data.transcriptComponent />
+    {/if}
+{/snippet}
+
+<PostPage
+    post={data.post}
+    series={data.series}
+    newer={data.newer}
+    older={data.older}
+    related={data.related}
+    transcript={data.transcriptComponent ? transcript : undefined}>
     {#if data.langs}
         <PageLang {...data.langs} />
     {/if}

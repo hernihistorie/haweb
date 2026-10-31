@@ -30,7 +30,8 @@
             <a
                 href={localizeHref(postKindHref(backlinkKind))}
                 class="backlink"
-                data-pagefind-ignore>
+                data-pagefind-ignore
+            >
                 <Loc text={postKinds[backlinkKind].longTitle} />
             </a>
         {/each}
@@ -43,7 +44,8 @@
                 <a href={localizeHref(authorHref(author))} class="backlink" data-pagefind-ignore>
                     <Loc
                         cs={`Příspěvky od ${author.nameGenitive}`}
-                        en={`Posts from ${author.name}`} />
+                        en={`Posts from ${author.name}`}
+                    />
                 </a>
             </h3>
         {/if}
@@ -52,6 +54,15 @@
                 <Loc text={author.bio} />
             {/if}
         </p>
+        {#if !secondary}
+            {#if author.youtubeChannelURL}
+                <p>
+                    <a href={author.youtubeChannelURL} target="_blank">
+                        <Loc cs="YouTube kanál" en="YouTube channel" />
+                    </a>
+                </p>
+            {/if}
+        {/if}
     </div>
 </section>
 

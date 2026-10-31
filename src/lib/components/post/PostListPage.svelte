@@ -5,6 +5,7 @@
     import ArticleCard from "./ArticleCard.svelte";
     import PostBoxes from "./PostBoxes.svelte";
     import PostYearNav from "./PostYearNav.svelte";
+    import PostKindMenu from "./PostKindMenu.svelte";
     import RssIcon from "@lucide/svelte/icons/rss";
     import { loc } from "$src/lib/loc";
     import { postKinds } from "$src/lib/posts";
@@ -21,15 +22,22 @@
 
     let { kind, posts, years, activeYear = null }: Props = $props();
 
+    // Kinds whose listings are switched between with a menu instead of a heading
+    const menuKinds: PostKind[] = ["article", "video"];
+
     const title = $derived(postKinds[kind].title);
 </script>
 
 <Meta title={activeYear ? `${loc(title)} (${activeYear})` : title} />
 
 {#snippet heading()}
-    <h2>
-        <Loc text={title} />{#if activeYear}&nbsp;({activeYear}){/if}
-    </h2>
+    {#if menuKinds.includes(kind)}
+        <PostKindMenu kinds={menuKinds} active={kind} />
+    {:else}
+        <h2>
+            <Loc text={title} />{#if activeYear}&nbsp;({activeYear}){/if}
+        </h2>
+    {/if}
 {/snippet}
 
 {#snippet yearNav()}
@@ -67,7 +75,7 @@
 {:else}
     {@render heading()}
     {@render yearNav()}
-    {#if !activeYear && posts.length > 0}
+    {#if kind === "article" && !activeYear && posts.length > 0}
         <div class="featured" data-pagefind-ignore>
             <ArticleCard post={posts[0]} featured />
         </div>

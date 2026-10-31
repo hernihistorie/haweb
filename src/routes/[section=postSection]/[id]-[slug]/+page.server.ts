@@ -1,9 +1,8 @@
-import { error, redirect } from "@sveltejs/kit";
-import { getPosts, getPostsById, allPostsById } from "$src/data/posts";
-import { postHref, postKinds } from "#lib/posts.js";
+import { getPosts } from "$src/data/posts";
+import { postKinds } from "#lib/posts.js";
+import { loadPost } from "#lib/server/posts.js";
 import { dev } from "$app/env";
 import type { EntryGenerator, PageServerLoad } from "./$types";
-import { localizeHref } from "$src/lib/paraglide/runtime";
 import { seriesByBlogPostId } from "$src/data/series";
 import type { Post } from "$src/types";
 
@@ -21,17 +20,7 @@ export const entries: EntryGenerator = () => {
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-    const lookup = dev ? allPostsById : getPostsById();
-    const post = lookup[Number(params.id)];
-
-    if (!post) {
-        error(404, "Post not found");
-    }
-
-    // Also redirects posts requested under the wrong section, e.g. an article under /news
-    if (params.section !== postKinds[post.kind].section || params.slug !== post.slug) {
-        return redirect(301, localizeHref(postHref(post)));
-    }
+    const post = loadPost(params);
 
     const series = seriesByBlogPostId[post.id] || null;
 
@@ -41,10 +30,17 @@ export const load: PageServerLoad = async ({ params }) => {
     const summarize = (sibling: Post | undefined) =>
         sibling && { id: sibling.id, slug: sibling.slug, kind: sibling.kind, title: sibling.title };
 
+    // Videos list the other videos in a sidebar instead, newest first
+    const related =
+        post.kind === "video"
+            ? siblings.filter((sibling) => sibling.id !== post.id).toReversed()
+            : undefined;
+
     return {
         post,
         series,
         older: index > 0 ? summarize(siblings[index - 1]) : undefined,
         newer: index >= 0 ? summarize(siblings[index + 1]) : undefined,
+        related,
     };
 };

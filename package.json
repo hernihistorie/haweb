@@ -54,6 +54,7 @@
         "@js-temporal/polyfill": "^0.5.1",
         "@lucide/svelte": "^0.484.0",
         "copy-to-clipboard": "^3.3.3",
+        "pdfjs-dist": "^6.4.299",
         "photoswipe": "^5.4.4",
         "qrcode": "^1.5.4",
         "runed": "^0.37.1",
