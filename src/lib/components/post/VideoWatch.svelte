@@ -7,13 +7,14 @@
     import PresentationIcon from "@lucide/svelte/icons/presentation";
     import DownloadIcon from "@lucide/svelte/icons/download";
     import YoutubeIcon from "@lucide/svelte/icons/youtube";
+    import VideoOffIcon from "@lucide/svelte/icons/video-off";
     import LinkIcon from "@lucide/svelte/icons/link";
     import CheckIcon from "@lucide/svelte/icons/check";
     import copy from "copy-to-clipboard";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import { formatPostDate } from "$src/lib/datetime";
     import { loc } from "$src/lib/loc";
-    import { authorHref, eventHref, hasSlidesViewer, slidesHref } from "$src/lib/posts";
+    import { authorHref, eventHref, hasSlidesViewer, postImage, slidesHref } from "$src/lib/posts";
     import type { Post } from "$src/types";
     import type { Video } from "$src/data/video";
     import type { Snippet } from "svelte";
@@ -36,6 +37,8 @@
     const presentation = $derived(post.talk);
     const event = $derived(presentation?.event);
     const slides = $derived(presentation?.slides);
+    // Shown behind the notice when the recording is missing
+    const image = $derived(postImage(post));
 
     let linkCopied = $state(false);
     function copyLink() {
@@ -51,9 +54,19 @@
         <div class="player">
             <!-- Recreate the embed when navigating between videos, so the previous
                  thumbnail or player doesn't linger while the new one loads -->
-            {#key video.youtubeId}
-                <Youtube id={video.youtubeId} />
-            {/key}
+            {#if video.youtubeId}
+                {#key video.youtubeId}
+                    <Youtube id={video.youtubeId} />
+                {/key}
+            {:else}
+                <div class="missing" class:with-image={image}>
+                    {#if image}
+                        <img src={image} alt="" />
+                    {/if}
+                    <VideoOffIcon size={48} />
+                    <span><Loc cs="Záznam chybí" en="Recording missing" /></span>
+                </div>
+            {/if}
         </div>
         <h2 class="title"><Loc text={post.title} /></h2>
 
@@ -94,10 +107,12 @@
                         <Loc cs="Slajdy" en="Slides" />
                     </a>
                 {/if}
-                <a href="https://www.youtube.com/watch?v={video.youtubeId}" class="pill">
-                    <YoutubeIcon size={18} />
-                    YouTube
-                </a>
+                {#if video.youtubeId}
+                    <a href="https://www.youtube.com/watch?v={video.youtubeId}" class="pill">
+                        <YoutubeIcon size={18} />
+                        YouTube
+                    </a>
+                {/if}
                 <button class="link pill" onclick={copyLink}>
                     {#if linkCopied}
                         <CheckIcon size={18} />
@@ -153,6 +168,44 @@
         margin-top: 12px;
         border-radius: 12px;
         overflow: hidden;
+    }
+
+    .missing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        aspect-ratio: 16 / 9;
+        background: var(--color-secondary-transparent);
+        color: var(--color-text-muted);
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .missing :global(.lucide-icon) {
+        margin: 0;
+    }
+
+    .missing.with-image {
+        position: relative;
+        background: black;
+        color: white;
+        text-shadow: 0 1px 4px black;
+    }
+
+    .missing img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+    }
+
+    /* Above the image */
+    .missing.with-image > :not(img) {
+        position: relative;
     }
 
     .title {

@@ -3,6 +3,7 @@ import { Temporal } from "@js-temporal/polyfill";
 import type { Post } from "$src/types";
 import VojtechStraka from "$src/data/authors/vojtech-straka/author";
 import bytefest2025 from "$src/data/events/bytefest-2025/event";
+import slides from "./slides.pdf?url";
 
 const post: Post = {
     published: true,
@@ -30,6 +31,7 @@ const post: Post = {
     },
     talk: {
         event: bytefest2025,
+        slides: { url: slides },
     },
 };
 

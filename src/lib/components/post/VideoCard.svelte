@@ -3,6 +3,7 @@
     import BulletPoint from "../BulletPoint.svelte";
     import Loc from "../Loc.svelte";
     import PlayIcon from "@lucide/svelte/icons/play";
+    import VideoOffIcon from "@lucide/svelte/icons/video-off";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import { postHref, postImage } from "#lib/posts.js";
     import { formatPostDate, isPostPublished } from "$src/lib/datetime";
@@ -20,6 +21,7 @@
     }: { post: Post; compact?: boolean; large?: boolean } = $props();
 
     const href = $derived(localizeHref(postHref(post)));
+    const image = $derived(postImage(post));
     const event = $derived(post.talk?.event);
     // Unpublished posts are only listed in dev
     const unpublished = $derived(!isPostPublished(post));
@@ -27,8 +29,23 @@
 
 <a {href} class="video-card" class:compact class:large>
     <div class="thumbnail">
-        <img src={postImage(post)} alt="" loading="lazy" decoding="async" />
-        <span class="play"><PlayIcon fill="currentColor" /></span>
+        {#if image}
+            <img src={image} alt="" loading="lazy" decoding="async" />
+        {/if}
+        {#if post.video?.youtubeId}
+            <span class="play"><PlayIcon fill="currentColor" /></span>
+        {:else if image}
+            <!-- e.g. a slide standing in for the recording -->
+            <span class="missing-badge">
+                <VideoOffIcon size={14} />
+                <Loc cs="Záznam chybí" en="Recording missing" />
+            </span>
+        {:else}
+            <div class="missing">
+                <VideoOffIcon />
+                <Loc cs="Záznam chybí" en="Recording missing" />
+            </div>
+        {/if}
     </div>
     <div class="text">
         <h3><Loc text={post.title} /></h3>
@@ -71,13 +88,45 @@
         display: block;
     }
 
-    .thumbnail img {
+    .thumbnail img,
+    .missing {
         display: block;
         width: 100%;
         aspect-ratio: 16 / 9;
         object-fit: cover;
         border-radius: 12px;
         background: var(--color-secondary-transparent);
+    }
+
+    .missing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3em;
+        color: var(--color-text-muted);
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    .missing-badge {
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: rgb(0 0 0 / 0.8);
+        color: white;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+
+    .missing :global(.lucide-icon),
+    .missing-badge :global(.lucide-icon) {
+        margin: 0;
     }
 
     .play {
@@ -126,8 +175,24 @@
         align-items: start;
     }
 
-    .compact .thumbnail img {
+    .compact .thumbnail img,
+    .compact .missing {
         border-radius: 8px;
+    }
+
+    .compact .missing,
+    .compact .missing-badge {
+        font-size: 0.7em;
+    }
+
+    .compact .missing-badge {
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .compact .missing :global(svg) {
+        width: 18px;
+        height: 18px;
     }
 
     .compact .play {
@@ -169,7 +234,8 @@
             display: block;
         }
 
-        .compact.large .thumbnail img {
+        .compact.large .thumbnail img,
+        .compact.large .missing {
             border-radius: 12px;
         }
 

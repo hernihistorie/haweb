@@ -90,5 +90,7 @@ export function youtubeThumbnail(youtubeId: string): string {
 
 /** The post's image, falling back to the video thumbnail */
 export function postImage(post: Pick<Post, "image" | "video">): string | undefined {
-    return post.image ?? (post.video ? youtubeThumbnail(post.video.youtubeId) : undefined);
+    return (
+        post.image ?? (post.video?.youtubeId ? youtubeThumbnail(post.video.youtubeId) : undefined)
+    );
 }
