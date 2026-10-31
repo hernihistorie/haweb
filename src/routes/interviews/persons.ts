@@ -17,3 +17,9 @@ export const VS: Person = {
     shortname: "VS",
     color: "darkgreen",
 };
+
+export const VJ: Person = {
+    name: "Vít Jindra",
+    shortname: "VJ",
+    color: "darkgreen",
+};
