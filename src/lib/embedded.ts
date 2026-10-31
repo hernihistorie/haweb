@@ -1,6 +1,6 @@
 /**
  * Apps whose pages are embedded into haweb through an iframe (see EmbeddedFrame.svelte
- * and $lib/server/embed.ts).
+ * and #lib/server/embed.ts).
  */
 export interface EmbeddedApp {
     /** Path of the haweb pages showing the app, e.g. `/inventory` */
