@@ -4,7 +4,7 @@
     "scripts": {
         "dev": "vite dev",
         "build": "npm run build:search-index && vite build",
-        "build:search-index": "rm -rf build-search static/pagefind && BUILD_SEARCH_INDEX=1 BUILD_OUT=build-search vite build && pagefind --site build-search/prerendered --output-path static/pagefind && rm -rf build-search",
+        "build:search-index": "rm -rf build-search static/pagefind && BUILD_SEARCH_INDEX=1 BUILD_OUT=build-search vite build && pagefind --site build-search/prerendered --output-path static/pagefind && node -e \"fs.writeFileSync('static/pagefind/build-info.json', JSON.stringify({ builtAt: new Date() }))\" && rm -rf build-search",
         "preview": "vite preview",
         "serve-static": "python -m http.server build",
         "test": "playwright test",
