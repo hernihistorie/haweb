@@ -1,6 +1,8 @@
 :root {
     --color-bg: #f3f2e7;
+    --color-surface: #fbfaf4;
     --color-text: #000;
+    --color-text-muted: #66614f;
     --color-primary: #ef4d37;
     --color-primary-contrast: #fff;
     --color-secondary: #b5a26d;
@@ -16,7 +18,9 @@
 
 :root[data-theme="dark"] {
     --color-bg: #18170c;
+    --color-surface: #222014;
     --color-text: #fff;
+    --color-text-muted: #b9b39d;
     --color-primary: #ef4d37;
     --color-primary-contrast: #fff;
     --color-secondary: #927f49;
@@ -37,7 +41,9 @@
 html {
     color-scheme: light;
     scrollbar-color: var(--color-secondary) var(--color-bg);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 html[data-theme="dark"] {
@@ -47,9 +53,11 @@ html[data-theme="dark"] {
 body {
     background: var(--color-bg);
     color: var(--color-text);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 120%;
 
     padding-top: 80px;
@@ -65,19 +73,28 @@ h3 {
     font-size: 30px;
 }
 
+h4 {
+    font-size: 20px;
+}
+
 .text-uppercase {
     text-transform: uppercase;
 }
 
 .backlink {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
-.backlink + h2, .backlink + h3, .backlink + h4, .backlink + h5 {
+.backlink + h2,
+.backlink + h3,
+.backlink + h4,
+.backlink + h5 {
     margin-top: 0.2em;
 }
 
-article.thin, div.thin, section.thin {
+article.thin,
+div.thin,
+section.thin {
     max-width: 800px;
     margin: auto;
 }
@@ -94,6 +111,15 @@ a.plain {
     color: var(--color-text);
     text-decoration-color: var(--color-secondary);
     text-decoration-thickness: 1px;
+}
+
+a.unstyled {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.unstyled:hover {
+    text-decoration: underline;
 }
 
 details summary {
@@ -135,7 +161,8 @@ hr {
     border-style: solid;
 }
 
-code, .codeblock {
+code,
+.codeblock {
     background-color: var(--color-secondary-transparent);
     padding: 3px;
 }
@@ -157,27 +184,26 @@ i {
 }
 
 .codeblock {
-   margin: 0.5em 1em;
-   padding: 1em;
-   overflow-x: scroll;
-   max-height: 80vh;
-   overflow-y: scroll;
+    margin: 0.5em 1em;
+    padding: 1em;
+    overflow-x: scroll;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+.row {
+    margin: 1.25em 0;
+    display: flex;
+    gap: 0.5em;
 }
 
 .column {
-    float: left;
-    width: 48.5%;
     margin-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 17px;
-    font-style: italic;
 }
 
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+figcaption {
+    font-size: 17px;
+    font-style: italic;
 }
 
 button {
@@ -185,10 +211,11 @@ button {
     border: none;
     padding: 0;
     margin: 0;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
 }
 
-button:not(.link), input {
+button:not(.link),
+input {
     border: 2px solid var(--color-primary);
     background: transparent;
     padding: 8px 16px;
@@ -197,7 +224,8 @@ button:not(.link), input {
     cursor: pointer;
 }
 
-button:not(.link).active, input.active {
+button:not(.link).active,
+input.active {
     background: var(--color-primary);
     color: var(--color-primary-contrast);
 }
@@ -216,13 +244,19 @@ figure {
     margin: 1.25em 0;
 }
 
+.row figure {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 figcaption {
     text-align: right;
     font-size: 90%;
 }
 
 @media only screen and (max-width: 600px) {
-    dt, dd {
+    dt,
+    dd {
         width: 100%;
     }
 
@@ -268,4 +302,8 @@ p > .lucide-icon {
     font-size: 90%;
     color: var(--color-secondary-contrast) !important;
     --tooltip-color: var(--color-secondary) !important;
+}
+
+.pswp button {
+    border: none;
 }

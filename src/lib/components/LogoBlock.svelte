@@ -1,20 +1,22 @@
 <script lang="ts">
-	import type { Logo as LogoType } from "$src/lib/logo";
-	import { localizeHref } from "$src/lib/paraglide/runtime";
-	import Logo from "./Logo.svelte";
+    import type { Logo as LogoType } from "$src/lib/logo";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
+    import Logo from "./Logo.svelte";
 
     const {
         entity,
         href,
         target,
         makeLinkProminent = true,
-        withTitle = true
+        withTitle = true,
+        origin,
     }: {
-        entity: {title: string, logos?: LogoType[], logo?: LogoType, url?: string},
-        href?: string,
-        target?: string,
-        makeLinkProminent?: boolean,
-        withTitle?: boolean
+        entity: { title: string; logos?: LogoType[]; logo?: LogoType; url?: string };
+        href?: string;
+        target?: string;
+        makeLinkProminent?: boolean;
+        withTitle?: boolean;
+        origin?: string;
     } = $props();
 </script>
 
@@ -22,16 +24,15 @@
     class="block"
     class:makeLinkProminent
     href={href ? localizeHref(href) : entity.url ? entity.url : undefined}
-    target={target}
->
+    {target}>
     {#if withTitle}
         <h3 class="title">{entity.title}</h3>
     {/if}
     <div class="logo-wrapper">
         {#if entity.logos && entity.logos.length > 0}
-            <Logo logo={entity.logos[0]} title={entity.title} />
+            <Logo logo={entity.logos[0]} {origin} title={entity.title} />
         {:else if entity.logo}
-            <Logo logo={entity.logo} title={entity.title} />
+            <Logo logo={entity.logo} {origin} title={entity.title} />
         {:else}
             <div class="logo-placeholder">{entity.title}</div>
         {/if}

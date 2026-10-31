@@ -1,11 +1,14 @@
-import { Temporal } from '@js-temporal/polyfill';
-import type { SeriesSlug } from './data/series';
+import { Temporal } from "@js-temporal/polyfill";
+import type { SeriesSlug } from "./data/series";
+import type { Talk } from "./data/talk";
+import type { Video } from "./data/video";
 
-export type LanguageCode = 'cs' | 'sk' | 'en';
+export type LanguageCode = "cs" | "sk" | "en";
 
-export type LocalizedString = string | ({ cs: string } | { en: string }) | { cs: string; en: string };
+export type LocalizedString =
+    string | ({ cs: string } | { en: string }) | { cs: string; en: string };
 
-type Gender = 'M' | 'F';
+type Gender = "M" | "F";
 
 export interface Image {
     url: string;
@@ -31,12 +34,15 @@ export interface Language {
     name: LocalizedString;
 }
 
-export type InterviewStatus = "in-progress" | "being-transcribed" | "request-only" | "unavailable-for-duration" | "published";
+export type InterviewStatus =
+    "in-progress" | "being-transcribed" | "request-only" | "unavailable-for-duration" | "published";
 
 export interface InterviewData {
     slug: string;
     lang: string;
     title: LocalizedString;
+    /** One-line description of the narrator */
+    blurb?: LocalizedString;
     audio_file?: string;
     audio_duration?: number;
     narrator: Person;
@@ -78,12 +84,17 @@ export interface Project {
     type?: "project" | "fond";
     url?: string;
     image?: string;
+    /** Wide banner image for the project page; falls back to `image` */
+    bannerImage?: string;
     description?: LocalizedString;
 }
 
-export interface BlogPost {
+export type PostKind = "news" | "article" | "video";
+
+export interface Post {
     id: number;
     slug: string;
+    kind: PostKind;
     image?: string;
     published?: boolean;
     title: LocalizedString;
@@ -92,13 +103,20 @@ export interface BlogPost {
     author: Author;
     description_html?: LocalizedString;
     bufferPostId?: string;
+    /** Required for posts of the "video" kind */
+    video?: Video;
+    /**
+     * Set when the post is a talk.
+     * The post author is the speaker, and the post date is the date of the talk.
+     */
+    talk?: Talk;
 }
 
-export interface BlogPostSeries {
+export interface PostSeries {
     slug: SeriesSlug;
     title: LocalizedString;
     description?: LocalizedString;
-    blogPosts: BlogPost[];
+    posts: Post[];
 }
 
 export interface Author {
@@ -106,6 +124,7 @@ export interface Author {
     name: LocalizedString;
     nameGenitive: string;
     bio?: LocalizedString;
-    image?: Image
+    image?: Image;
+    youtubeChannelURL?: string;
     isDefault?: boolean;
 }

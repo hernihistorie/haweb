@@ -1,6 +1,6 @@
 <script lang="ts">
     interface Props {
-        children?: import('svelte').Snippet;
+        children?: import("svelte").Snippet;
     }
 
     let { children }: Props = $props();
@@ -12,7 +12,7 @@
 
 <style>
     .key {
-        font-family: 'IBM Plex Mono', monospace;
+        font-family: "IBM Plex Mono", monospace;
         background-color: #f0f0f0;
         padding: 0.05em 0.5em;
         border-radius: 0.25em;

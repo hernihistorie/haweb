@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+    import type { Snippet } from "svelte";
     import IconCamera from "@lucide/svelte/icons/camera";
-	import Loc from "$src/lib/components/Loc.svelte";
+    import Loc from "$src/lib/components/Loc.svelte";
 
     let props: {
         children?: Snippet;
@@ -10,7 +10,7 @@
 
 <p>
     <IconCamera />
-    <Loc cs="Foto" en="Photo" />: 
+    <Loc cs="Foto" en="Photo" />:
     {@render props.children?.()}
 </p>
 

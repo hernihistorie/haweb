@@ -1,6 +1,7 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "@js-temporal/polyfill";
 import { czech } from "$src/data/languages";
 import type { InterviewData, Person } from "$src/types";
+import { projectTvurci80 } from "$src/routes/projects/tvurci-z-80tych-let/project";
 
 // https://docs.google.com/document/d/1jym3l5vMQyDJuwkU3bANHMhsfRxdkE8A/edit
 
@@ -16,27 +17,30 @@ export const MK: Person = {
         details_url: "",
         // license_text: ""
     },
-    bio: 'Martin Kadlčík - narozen roku 1972 v Uherském Hradišti - je tvůrce drobné textovky z 80. let jménem <a href="https://inventory.herniarchiv.cz/asset/8411-kazeta-das-adlernest"><em>das ADLERNEST</em></a>, kterou jsme tento rok zdigitalizovali. Mimo svých osobních projektů po revoluci také pracoval na několika nevydaných titulech v Ilusion Softworks a v současnosti pracuje na volné noze pro různá herní studia a v e-shopu sintech. Rozhovor je doplněn o <b>fotky ze zápisníku narátora.</b>'
-}
+    bio: 'Martin Kadlčík - narozen roku 1972 v Uherském Hradišti - je tvůrce drobné textovky z 80. let jménem <a href="/inventory/asset/8411-kazeta-das-adlernest"><em>das ADLERNEST</em></a>, kterou jsme tento rok zdigitalizovali. Mimo svých osobních projektů po revoluci také pracoval na několika nevydaných titulech v Ilusion Softworks a v současnosti pracuje na volné noze pro různá herní studia a v e-shopu sintech. Rozhovor je doplněn o <b>fotky ze zápisníku narátora.</b>',
+};
 
 export const data: InterviewData = {
     slug: "martin-kadlcik",
     lang: "cs",
     title: {
         cs: "Dotazník: Martin Kadlčík",
-        en: "Questionnaire: Martin Kadlčík"
+        en: "Questionnaire: Martin Kadlčík",
+    },
+    blurb: {
+        cs: "autor textovky <i>das ADLERNEST</i>",
+        en: "author of the text adventure <i>das ADLERNEST</i>",
     },
     narrator: MK,
     interview: {
-        length: "N/A",
         type: "questionnaire",
         languages: [czech],
         date: Temporal.PlainDate.from("2024-12-13"),
-        project: {name: "Tvůrci z 80. let"},
+        project: projectTvurci80,
         publication_date: Temporal.PlainDate.from("2024-12-18"),
         // publication_date: Temporal.PlainDate.from(""),
         // verifier: null
     },
     status: "published",
-    tags: []
-}
+    tags: [],
+};

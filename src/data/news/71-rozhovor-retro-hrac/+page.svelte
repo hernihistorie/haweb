@@ -1,0 +1,26 @@
+<script lang="ts">
+    import PageLang from "$src/lib/components/PageLang.svelte";
+    import Figure from "$src/lib/components/Figure.svelte";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
+</script>
+
+<PageLang cs />
+
+<section>
+    <p>
+        Kluci z Retro Hráče si nás, Vojtěcha Straku a Martina Štochla, odchytili na letošním Game
+        Accessu a vyptali se jak se nám daří s RetroHernou i zbytkem projektů. Poprvé jsme se lépe
+        poznali už před mnoha lety na námi spoluorganizovaném ReTripu a od té doby na sebe čas od
+        času narazíme. Dan je skvělý expert na konzolové retro tituly a vrací se teď ke starší sérii
+        Retro Pokec a nám je ctí být součástí nového dílu, kde shrneme nedávnou historii našeho
+        projektu i jaké hry bychom doporučili. Je skvělé, že zájem o historii her je u nás vidět a
+        dokazuje to i existence projektů jako právě Retro Hráč!
+    </p>
+    <p>
+        Rozhovor najdete <a href={localizeHref("/videos/98-retro-pokec-rozhovor-o-retroherne")}
+            >ZDE</a
+        >.
+        <Figure src="/photos/blog-posts/rozhovor-retro-hrac.jpg" />
+    </p>
+    <p>(Obrázek je screenshot z videa)</p>
+</section>

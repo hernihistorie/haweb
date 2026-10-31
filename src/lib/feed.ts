@@ -1,30 +1,31 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { blogPosts } from '$src/data/blog_posts';
-import type { LanguageCode } from '$src/types';
-import { toPlainDateTime } from './datetime';
+import { Temporal } from "@js-temporal/polyfill";
+import { getPosts } from "$src/data/posts";
+import { postHref, postImage, postKindHref } from "./posts";
+import type { Post, LanguageCode } from "$src/types";
+import { toPlainDateTime } from "./datetime";
 
-const SITE_URL = 'https://herniarchiv.cz';
+const SITE_URL = "https://herniarchiv.cz";
 
 function escapeXml(text: string): string {
     return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&apos;");
 }
 
 function stripHtml(html: string): string {
-    return html.replace(/<[^>]*>/g, '').trim();
+    return html.replace(/<[^>]*>/g, "").trim();
 }
 
-function getTitle(post: typeof blogPosts[0], lang: LanguageCode): string {
-    if (typeof post.title === 'string') {
+function getTitle(post: Post, lang: LanguageCode): string {
+    if (typeof post.title === "string") {
         return post.title;
     }
-    return lang === 'en' 
-        ? (post.title.en ?? post.title.cs ?? '')
-        : (post.title.cs ?? post.title.en ?? '');
+    return lang === "en"
+        ? (post.title.en ?? post.title.cs ?? "")
+        : (post.title.cs ?? post.title.en ?? "");
 }
 
 interface FeedConfig {
@@ -43,14 +44,16 @@ function dateToISOString(date: Temporal.PlainDate | Temporal.PlainDateTime): str
 
 export function generateAtomFeed(config: FeedConfig): string {
     const { lang, title, subtitle, feedPath } = config;
-    
-    const latestPosts = [...blogPosts]
-        .filter(post => post.date)
-        .sort((a, b) => Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)))
+
+    const latestPosts = getPosts()
+        .filter((post) => post.date)
+        .sort((a, b) =>
+            Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)),
+        )
         .slice(0, 10);
 
-    const lastUpdated = latestPosts[0]?.date 
-        ? dateToISOString(latestPosts[0].date) 
+    const lastUpdated = latestPosts[0]?.date
+        ? dateToISOString(latestPosts[0].date)
         : new Date().toISOString();
 
     return `<?xml version="1.0" encoding="utf-8"?>
@@ -58,44 +61,50 @@ export function generateAtomFeed(config: FeedConfig): string {
     <title>${escapeXml(title)}</title>
     <subtitle>${escapeXml(subtitle)}</subtitle>
     <link href="${SITE_URL}${feedPath}" rel="self" type="application/atom+xml"/>
-    <link href="${SITE_URL}/blog" rel="alternate" type="text/html"/>
+    <link href="${SITE_URL}${postKindHref("news")}" rel="alternate" type="text/html"/>
     <id>${SITE_URL}${feedPath}</id>
     <updated>${lastUpdated}</updated>
     <author>
         <name>Herní historie</name>
     </author>
-${latestPosts.map(post => {
-    const postTitle = escapeXml(getTitle(post, lang));
-    const url = `${SITE_URL}/blog/${post.id}-${post.slug}`;
-    const descriptionHtml = typeof post.description_html === 'string' 
-        ? post.description_html 
-        : (lang === 'en' 
-            ? (post.description_html?.en ?? post.description_html?.cs ?? '') 
-            : (post.description_html?.cs ?? post.description_html?.en ?? ''));
-    const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : '';
-    const date = post.date ? dateToISOString(post.date) : new Date().toISOString();
-    
-    return `    <entry>
+${latestPosts
+    .map((post) => {
+        const postTitle = escapeXml(getTitle(post, lang));
+        const url = `${SITE_URL}${postHref(post)}`;
+        // Entry IDs must never change, so keep the URL from when posts lived under /blog
+        const id = `${SITE_URL}/blog/${post.id}-${post.slug}`;
+        const descriptionHtml =
+            typeof post.description_html === "string"
+                ? post.description_html
+                : lang === "en"
+                  ? (post.description_html?.en ?? post.description_html?.cs ?? "")
+                  : (post.description_html?.cs ?? post.description_html?.en ?? "");
+        const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : "";
+        const date = post.date ? dateToISOString(post.date) : new Date().toISOString();
+        const image = postImage(post);
+
+        return `    <entry>
         <title>${postTitle}</title>
         <link href="${url}" rel="alternate" type="text/html"/>
-        <id>${url}</id>
+        <id>${id}</id>
         <author>${post.author.name}</author>
         <published>${date}</published>
         <updated>${date}</updated>
         <summary>
-            ${post.image ? `<p><img src="${SITE_URL}${post.image}" /></p>` : ''}
+            ${image ? `<p><img src="${new URL(image, SITE_URL)}" /></p>` : ""}
             <p>${description}</p>
         </summary>
     </entry>`;
-}).join('\n')}
+    })
+    .join("\n")}
 </feed>`;
 }
 
 export function createFeedResponse(feed: string): Response {
     return new Response(feed, {
         headers: {
-            'Content-Type': 'application/atom+xml; charset=utf-8',
-            'Cache-Control': 'max-age=3600'
-        }
+            "Content-Type": "application/atom+xml; charset=utf-8",
+            "Cache-Control": "max-age=3600",
+        },
     });
 }

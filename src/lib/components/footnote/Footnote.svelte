@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-    import { getFootnoteContext } from './context';
+    import type { Snippet } from "svelte";
+    import { getFootnoteContext } from "./context";
     const footnotes = getFootnoteContext();
 
     let {
-        children
+        children,
     }: {
-        children: Snippet
+        children: Snippet;
     } = $props();
 
     // svelte-ignore state_referenced_locally

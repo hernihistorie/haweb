@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getFootnoteContext } from './context';
+    import { getFootnoteContext } from "./context";
     const footnotes = getFootnoteContext();
 </script>
 

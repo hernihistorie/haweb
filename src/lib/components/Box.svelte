@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Arrow from '$src/lib/components/Arrow.svelte';
+    import Arrow from "$src/lib/components/Arrow.svelte";
     interface Props {
         href?: string | undefined;
         left?: boolean | undefined;
         right?: boolean | undefined;
-        children?: import('svelte').Snippet;
-        decoration?: boolean | 'hidden' | undefined;
+        children?: import("svelte").Snippet;
+        decoration?: boolean | "hidden" | undefined;
         class?: string | undefined;
     }
 
@@ -15,16 +15,16 @@
         right = undefined,
         children,
         decoration = true,
-        class: _class = undefined
+        class: _class = undefined,
     }: Props = $props();
 
-    var box_class = $derived(left ? 'left' : right ? 'right' : '');
+    var box_class = $derived(left ? "left" : right ? "right" : "");
 </script>
 
 <div class="box {box_class} {_class}">
     {#if decoration}
-        <div class="cross" class:hidden={decoration === 'hidden'}>
-            <img src="/ico/ico_x.svg" alt="">
+        <div class="cross" class:hidden={decoration === "hidden"}>
+            <img src="/ico/ico_x.svg" alt="" />
         </div>
     {/if}
     <div class="content">
@@ -44,7 +44,7 @@
         margin-bottom: 38px;
     }
 
-    .box.no-margin{
+    .box.no-margin {
         margin-top: 0px;
         margin-bottom: 0px;
     }
@@ -86,7 +86,8 @@
         background: #000;
     }
 
-    .left, .right {
+    .left,
+    .right {
         margin-bottom: -38px;
     }
 
@@ -115,7 +116,8 @@
     }
 
     @media only screen and (max-width: 700px) {
-        .left, .right {
+        .left,
+        .right {
             width: 100%;
         }
 
@@ -129,7 +131,8 @@
             margin-left: 0px;
         }
 
-        .left .cross, .right .cross {
+        .left .cross,
+        .right .cross {
             margin-left: -2px;
             margin-right: 0px;
         }

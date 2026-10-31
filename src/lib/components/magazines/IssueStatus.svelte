@@ -1,33 +1,33 @@
 <script lang="ts">
-	import type { IssueStatus } from "$src/lib/magdb";
-	import IconCheck from "@lucide/svelte/icons/check";
-	import IconSquareDashed from "@lucide/svelte/icons/square-dashed";
-	import IconCircleAlert from "@lucide/svelte/icons/circle-alert";
-	import IconFileQuestion from "@lucide/svelte/icons/file-question";
-	import Loc from "../Loc.svelte";
+    import type { IssueStatus } from "$src/lib/magdb";
+    import IconCheck from "@lucide/svelte/icons/check";
+    import IconSquareDashed from "@lucide/svelte/icons/square-dashed";
+    import IconCircleAlert from "@lucide/svelte/icons/circle-alert";
+    import IconFileQuestion from "@lucide/svelte/icons/file-question";
+    import Loc from "../Loc.svelte";
 
-    const { status }: {status: IssueStatus} = $props();
+    const { status }: { status: IssueStatus } = $props();
 </script>
 
 <span class="status status-{status?.toLowerCase()}">
-    {#if status === 'have'}
+    {#if status === "have"}
         <IconCheck />
-    {:else if status === 'dont_have'}
+    {:else if status === "dont_have"}
         <IconSquareDashed />
-    {:else if status === 'problems'}
+    {:else if status === "problems"}
         <IconCircleAlert />
-    {:else if status === 'existence_unconfirmed'}
+    {:else if status === "existence_unconfirmed"}
         <IconFileQuestion />
     {/if}
 
     <span class="status-text">
-        {#if status === 'have'}
+        {#if status === "have"}
             <Loc cs="máme" en="we have" />
-        {:else if status === 'dont_have'}
+        {:else if status === "dont_have"}
             <Loc cs="nemáme" en="we're missing" />
-        {:else if status === 'problems'}
+        {:else if status === "problems"}
             <Loc cs="máme s vadou" en="we have with defects" />
-        {:else if status === 'existence_unconfirmed'}
+        {:else if status === "existence_unconfirmed"}
             <Loc cs="existence nepotvrzena" en="existence unconfirmed" />
         {/if}
     </span>

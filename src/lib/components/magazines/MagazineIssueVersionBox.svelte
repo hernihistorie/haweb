@@ -1,17 +1,17 @@
 <script lang="ts">
-    import Lazy from 'svelte-lazy';
-	import type { MagazineVersion } from "$src/lib/magdb";
-	import Box from "../Box.svelte";
+    import Lazy from "svelte-lazy";
+    import type { MagazineVersion } from "$src/lib/magdb";
+    import Box from "../Box.svelte";
     import MagazineIssueVersionNameSuffix from "./MagazineIssueVersionNameSuffix.svelte";
-	import Price from "./Price.svelte";
-	import Loc from '../Loc.svelte';
-	import MagazinePageThumbnail from './MagazinePageThumbnail.svelte';
-	import IssueStatus from './IssueStatus.svelte';
+    import Price from "./Price.svelte";
+    import Loc from "../Loc.svelte";
+    import MagazinePageThumbnail from "./MagazinePageThumbnail.svelte";
+    import IssueStatus from "./IssueStatus.svelte";
 
-    const { version, sole }: {version: MagazineVersion, sole: boolean} = $props();
+    const { version, sole }: { version: MagazineVersion; sole: boolean } = $props();
 </script>
 
-<Box class="no-margin" decoration={sole ? 'hidden' : true}>
+<Box class="no-margin" decoration={sole ? "hidden" : true}>
     <div class="version">
         <div class="name-price">
             {#if version.name_suffix}
@@ -31,20 +31,21 @@
                         {/each}
                     </ul>
                 {:else}
-                    <small class="text-secondary"><Loc cs="cena neznámá" en="price unknown" /></small>
+                    <small class="text-secondary"
+                        ><Loc cs="cena neznámá" en="price unknown" /></small>
                 {/if}
             </div>
             <IssueStatus status={version.status} />
         </div>
         <div class="pages">
-            {#if version.cover_pages.length }
+            {#if version.cover_pages.length}
                 {#each version.cover_pages as cover_page}
                     <MagazinePageThumbnail page={cover_page} />
                 {/each}
             {:else}
                 <MagazinePageThumbnail />
             {/if}
-            {#if version.index_pages.length }
+            {#if version.index_pages.length}
                 {#each version.index_pages as index_page}
                     <MagazinePageThumbnail page={index_page} />
                 {/each}
@@ -71,7 +72,7 @@
         display: flex;
         gap: 0.4em;
     }
-    
+
     .prices li::before {
         content: "•";
         color: var(--color-secondary);
