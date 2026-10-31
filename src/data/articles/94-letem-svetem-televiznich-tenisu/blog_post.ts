@@ -5,7 +5,7 @@ import JiriBernasek from "$src/data/authors/jiri-bernasek/author";
 import img01 from "./img/1-kolaz-uvodni.jpg?w=1200&format=jpg&imagetools";
 
 const post: Post = {
-    published: false,
+    published: true,
     id: 94,
     slug: "letem-svetem-televiznich-tenisu",
     kind: "article",
@@ -15,7 +15,7 @@ const post: Post = {
         en: "Around the World of TV Tennis",
     },
     // TODO
-    date: new Temporal.PlainDateTime(2026, 10, 29, 14, 0),
+    date: new Temporal.PlainDateTime(2026, 10, 31, 14, 0),
     author: JiriBernasek,
     description_html: {
         cs: `
