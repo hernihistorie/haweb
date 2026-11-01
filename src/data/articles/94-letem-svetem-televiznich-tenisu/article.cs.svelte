@@ -1,6 +1,7 @@
 <script lang="ts">
     import Figure from "$src/lib/components/Figure.svelte";
     import { img } from "./images";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
 </script>
 
 <section>
@@ -160,8 +161,15 @@
         televizní hry. Nepůjdu na tomto místě do podrobností, ale stojí na nich návod pánů Kryšky a
         Zusky z
         <em>Amatérského radia</em> (kteří však čerpali i z původního <em>Odyssey</em>), adoptovaný
-        později Teslou Piešťany pro konzole řady XD 8000, inspiraci lze vidět i v herních čipech
-        MAS601-603, či prototypu z Tesly VÚST. Vedle toho zde byl i návod Vladislava Čackého,
+        později Teslou Piešťany pro
+        <a href={localizeHref("/articles/67-pong-xd8001-pod-drobnohledem")}>konzole řady XD 8000</a
+        >, inspiraci lze vidět i v
+        <a href={localizeHref("/articles/70-pong-mas601-pod-mikroskopem")}
+            >herních čipech MAS601-603</a
+        >, či
+        <a href={localizeHref("/articles/91-prototyp-televiznich-her-z-tesly-vust")}
+            >prototypu z Tesly VÚST</a
+        >. Vedle toho zde byl i návod Vladislava Čackého,
         postavený přímo na prapůvodním článku ve <em>Funk-Technik</em>, který Čacký přinesl také ve
         formě jen lehce rozšířeného překladu v <em>Ročence sdělovací techniky</em> 1978.
     </p>

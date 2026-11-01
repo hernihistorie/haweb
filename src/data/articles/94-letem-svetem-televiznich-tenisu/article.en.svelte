@@ -1,6 +1,7 @@
 <script lang="ts">
     import Figure from "$src/lib/components/Figure.svelte";
     import { img } from "./images";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
 </script>
 
 <section>
@@ -169,9 +170,15 @@
         At the same time, the <em>Elektor</em> articles also became the main source for Czechoslovak
         television games. I won't go into detail here, but they form the basis of the guide by
         Kryška and Zuska in <em>Amatérské radio</em> (though the two also drew on the original
-        <em>Odyssey</em>), later adopted by Tesla Piešťany for the XD 8000 series consoles, and
-        their inspiration can also be seen in the MAS601-603 game chips and in the prototype from
-        Tesla VÚST. Besides these, there was also a guide by Vladislav Čacký, based directly on the
+        <em>Odyssey</em>), later adopted by Tesla Piešťany for the
+        <a href={localizeHref("/articles/67-pong-xd8001-pod-drobnohledem")}
+            >XD 8000 series consoles</a
+        >, and their inspiration can also be seen in the
+        <a href={localizeHref("/articles/70-pong-mas601-pod-mikroskopem")}>MAS601-603 game chips</a>
+        and in the
+        <a href={localizeHref("/articles/91-prototyp-televiznich-her-z-tesly-vust")}
+            >prototype from Tesla VÚST</a
+        >. Besides these, there was also a guide by Vladislav Čacký, based directly on the
         very original
         <em>Funk-Technik</em> article, which Čacký also presented as an only slightly expanded
         translation in
