@@ -9,8 +9,9 @@
     import RssIcon from "@lucide/svelte/icons/rss";
     import { loc } from "$src/lib/loc";
     import { postKinds } from "$src/lib/posts";
-    import { getLocale } from "#lib/paraglide/runtime.js";
+    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import type { Post, PostKind } from "$src/types";
+    import Notice from "../Notice.svelte";
 
     interface Props {
         kind: PostKind;
@@ -62,7 +63,8 @@
                 <p>
                     <Loc
                         cs="Krátké zprávy o tom, co se děje v archivu, sdílíme i na sociálních sítích."
-                        en="We also share short updates on what's happening in the archive on social media." />
+                        en="We also share short updates on what's happening in the archive on social media."
+                    />
                 </p>
                 <SocialMediaLinks />
                 <a href={getLocale() === "en" ? "/en/feed.xml" : "/feed.xml"} class="rss">
@@ -84,6 +86,39 @@
         <PostBoxes {posts} />
     {/if}
     {@render yearNav()}
+    {#if kind === "article"}
+        <div style="margin: 2rem 0;"></div>
+        <Notice>
+            <Loc>
+                {#snippet cs()}
+                    <p>
+                        <strong
+                            >Máte nápad na vlastní článek na téma související s herní historií?</strong
+                        >
+                    </p>
+                    <p>
+                        Dejte se s námi <a href={localizeHref("/contact")}>v kontaktu</a>, například
+                        po mailu info@herniarchiv.cz. Rádi s vámi článek prokonzultujeme, pomůžeme s
+                        jeho zpracováním a připravíme publikaci.
+                    </p>
+                {/snippet}
+                {#snippet en()}
+                    <p>
+                        <strong
+                            >Do you have an idea for your own article on a topic related to game
+                            history?</strong
+                        >
+                    </p>
+                    <p>
+                        Get in <a href={localizeHref("/contact")}>touch with us</a>, for example by
+                        e-mail at info@herniarchiv.cz. We'll be happy to discuss the article with
+                        you, help with its preparation, and arrange for its publication. English is
+                        not a problem for us!
+                    </p>
+                {/snippet}
+            </Loc>
+        </Notice>
+    {/if}
 {/if}
 
 <style>
