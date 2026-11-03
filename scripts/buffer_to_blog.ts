@@ -14,6 +14,7 @@ import { join, extname } from "path";
 import { config } from "dotenv";
 import { getOrganizations, getChannels, getPosts } from "./buffer/buffer.js";
 import type { Organization, Channel } from "./buffer/buffer.js";
+import { postKinds } from "../src/lib/posts.js";
 
 // ── Configuration ──────────────────────────────────────────────────────────
 
@@ -21,7 +22,7 @@ const BASE_PATH = join(import.meta.dirname, "..");
 const ENV_PATH = join(BASE_PATH, ".env");
 // Posts imported from Buffer are news; IDs are shared between all post kinds
 const NEWS_DIR = join(BASE_PATH, "src/data/news");
-const POST_DIRS = ["news", "articles"].map((dir) => join(BASE_PATH, "src/data", dir));
+const POST_DIRS = Object.values(postKinds).map((kind) => join(BASE_PATH, "src/data", kind.section));
 
 const NUM_POSTS = 6; // Number of recent posts to fetch from Buffer
 
@@ -114,27 +115,27 @@ function generatePostTs(
     const h = date.getHours();
     const min = date.getMinutes();
     const imageImport = mainImage
-        ? `\nimport img01 from "./img/${mainImage}?w=1200&format=jpg&imagetools";\n`
+        ? `\nimport img01 from "./img/${mainImage}?w=1200&format=jpg&imagetools";`
         : "";
     const imageLine = mainImage ? `\n    image: img01,` : "";
 
-    return `import { Temporal } from '@js-temporal/polyfill';
+    return `import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from '$src/types';
-import { authors } from '$src/data/authors';${imageImport}
+import type { Post } from "$src/types";
+import HerniHistorie from "$src/data/authors/herni-historie/author";${imageImport}
 
 const post: Post = {
     published: true,
     id: ${id},
-    slug: '${slug}',
-    kind: 'news',${imageLine}
+    slug: "${slug}",
+    kind: "news",${imageLine}
     title: {
         cs: ${JSON.stringify(title)},
     },
     date: new Temporal.PlainDateTime(${y}, ${m}, ${d}, ${h}, ${min}),
-    author: authors.HerniHistorie,
+    author: HerniHistorie,
     description_html: ${JSON.stringify(description)},
-    bufferPostId: '${bufferPostId}',
+    bufferPostId: "${bufferPostId}",
 };
 
 export default post;
