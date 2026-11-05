@@ -17,12 +17,12 @@ export const load: PageServerLoad = async ({ params }) => {
     }
 
     // A stream's page covers the whole event
-    const stream = getPosts().find((post) => post.stream?.event.slug === event.slug);
+    const stream = getPosts("video").find((post) => post.stream?.event.slug === event.slug);
     if (stream) {
         redirect(301, localizeHref(postHref(stream)));
     }
 
-    const eventPosts = getPosts(undefined, { includeUnpublished: dev }).filter(
+    const eventPosts = getPosts("video", { includeUnpublished: dev }).filter(
         (post) => post.talk?.event.slug === event.slug,
     );
 

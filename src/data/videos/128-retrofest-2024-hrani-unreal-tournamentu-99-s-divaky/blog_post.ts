@@ -1,9 +1,9 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import HerniHistorie from "$src/data/authors/herni-historie/author";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 128,
     slug: "retrofest-2024-hrani-unreal-tournamentu-99-s-divaky",

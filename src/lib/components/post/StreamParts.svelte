@@ -1,10 +1,10 @@
 <script lang="ts">
     import VideoCard from "./VideoCard.svelte";
-    import type { Post } from "$src/types";
+    import type { VideoPost } from "$src/types";
 
     /** The numbered videos of a stream */
     interface Props {
-        parts: Post[];
+        parts: VideoPost[];
         /** The video being watched, highlighted in the list */
         currentId?: number;
         /** Bigger cards with descriptions, for listing the parts in page content */

@@ -14,7 +14,7 @@
         isPostPublished,
     } from "$src/lib/datetime";
     import { czechPlural, englishPlural } from "$src/lib/loc";
-    import type { Post } from "$src/types";
+    import type { PostOfKind } from "$src/types";
 
     /**
      * A video thumbnail with the title below, in the style of YouTube.
@@ -30,7 +30,7 @@
         playlist = false,
         current = false,
     }: {
-        post: Post;
+        post: PostOfKind<"video">;
         compact?: boolean;
         large?: boolean;
         playlist?: boolean;
@@ -42,7 +42,8 @@
     const image = $derived(postImage(post));
     const event = $derived(post.talk?.event);
     const stream = $derived(post.stream);
-    const duration = $derived(post.video?.duration);
+    const video = $derived(post.video);
+    const duration = $derived(video?.duration);
     // Unpublished posts are only listed in dev
     const unpublished = $derived(!isPostPublished(post));
 </script>
@@ -62,7 +63,7 @@
                 <BulletPoint />
                 {formatTotalDuration(streamDuration(stream))}
             </span>
-        {:else if post.video?.youtubeId}
+        {:else if video?.youtubeId}
             <!-- Playlist thumbnails are too small to have their text covered -->
             {#if !playlist}
                 <span class="play"><PlayIcon fill="currentColor" /></span>

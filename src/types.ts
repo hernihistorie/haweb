@@ -91,10 +91,9 @@ export interface Project {
 
 export type PostKind = "news" | "article" | "video";
 
-export interface Post {
+interface PostBase {
     id: number;
     slug: string;
-    kind: PostKind;
     image?: string;
     published?: boolean;
     title: LocalizedString;
@@ -103,16 +102,39 @@ export interface Post {
     author: Author;
     description_html?: LocalizedString;
     bufferPostId?: string;
-    /** Required for posts of the "video" kind, unless they're a stream */
-    video?: Video;
-    /** Set when the post is a playlist of videos instead of a single one */
-    stream?: Stream;
+}
+
+export interface NewsPost extends PostBase {
+    kind: "news";
+}
+
+export interface ArticlePost extends PostBase {
+    kind: "article";
+}
+
+/** A single video */
+export interface VideoPost extends PostBase {
+    kind: "video";
+    video: Video;
+    stream?: undefined;
     /**
      * Set when the post is a talk.
      * The post author is the speaker, and the post date is the date of the talk.
      */
     talk?: Talk;
 }
+
+/** A playlist of videos, listed among the videos */
+export interface StreamPost extends PostBase {
+    kind: "video";
+    stream: Stream;
+    video?: undefined;
+    talk?: undefined;
+}
+
+export type Post = NewsPost | ArticlePost | VideoPost | StreamPost;
+
+export type PostOfKind<K extends PostKind> = Extract<Post, { kind: K }>;
 
 export interface PostSeries {
     slug: SeriesSlug;

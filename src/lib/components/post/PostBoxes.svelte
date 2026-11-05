@@ -3,8 +3,8 @@
     import NewsCard from "./NewsCard.svelte";
     import VideoCard from "./VideoCard.svelte";
     import Loc from "../Loc.svelte";
-    import { postKindList, postKinds } from "$src/lib/posts";
-    import type { Post } from "$src/types";
+    import { postKinds } from "$src/lib/posts";
+    import type { Post, PostKind } from "$src/types";
 
     interface Props {
         posts: Post[];
@@ -14,38 +14,44 @@
 
     let { posts, newsLayout = "grid" }: Props = $props();
 
-    const groups = $derived(
-        postKindList
-            .map((kind) => ({ kind, posts: posts.filter((post) => post.kind === kind) }))
-            .filter((group) => group.posts.length > 0),
-    );
+    const news = $derived(posts.filter((post) => post.kind === "news"));
+    const articles = $derived(posts.filter((post) => post.kind === "article"));
+    const videos = $derived(posts.filter((post) => post.kind === "video"));
+
+    const mixed = $derived([news, articles, videos].filter((group) => group.length > 0).length > 1);
 </script>
 
+{#snippet heading(kind: PostKind)}
+    {#if mixed}
+        <h3><Loc text={postKinds[kind].title} /></h3>
+    {/if}
+{/snippet}
+
 <div data-pagefind-ignore>
-    {#each groups as group (group.kind)}
-        {#if groups.length > 1}
-            <h3><Loc text={postKinds[group.kind].title} /></h3>
-        {/if}
-        {#if group.kind === "news"}
-            <div class="news-cards {newsLayout}">
-                {#each group.posts as post (post.id)}
-                    <NewsCard {post} />
-                {/each}
-            </div>
-        {:else if group.kind === "video"}
-            <div class="video-cards">
-                {#each group.posts as post (post.id)}
-                    <VideoCard {post} />
-                {/each}
-            </div>
-        {:else}
-            <div class="article-cards">
-                {#each group.posts as post (post.id)}
-                    <ArticleCard {post} />
-                {/each}
-            </div>
-        {/if}
-    {/each}
+    {#if news.length > 0}
+        {@render heading("news")}
+        <div class="news-cards {newsLayout}">
+            {#each news as post (post.id)}
+                <NewsCard {post} />
+            {/each}
+        </div>
+    {/if}
+    {#if articles.length > 0}
+        {@render heading("article")}
+        <div class="article-cards">
+            {#each articles as post (post.id)}
+                <ArticleCard {post} />
+            {/each}
+        </div>
+    {/if}
+    {#if videos.length > 0}
+        {@render heading("video")}
+        <div class="video-cards">
+            {#each videos as post (post.id)}
+                <VideoCard {post} />
+            {/each}
+        </div>
+    {/if}
 </div>
 
 <style>

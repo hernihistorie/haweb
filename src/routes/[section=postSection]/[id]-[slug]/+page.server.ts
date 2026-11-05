@@ -36,7 +36,9 @@ export const load: PageServerLoad = async ({ params }) => {
     // Videos list the other videos in a sidebar instead, newest first
     const related =
         post.kind === "video" && !stream
-            ? siblings.filter((sibling) => sibling.id !== post.id).toReversed()
+            ? getListedPosts("video", { includeUnpublished: dev })
+                  .filter((sibling) => sibling.id !== post.id)
+                  .toReversed()
             : undefined;
 
     return {

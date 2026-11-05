@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post, PostKind } from "$src/types";
+import type { Post, PostKind, PostOfKind, StreamPost } from "$src/types";
 import { isPostPublished, toPlainDateTime } from "$src/lib/datetime";
 import { postKinds } from "$src/lib/posts";
 
@@ -31,23 +31,30 @@ const allPosts: Post[] = Object.entries(postModules)
     });
 
 // The stream each stream part belongs to
-export const streamByPartId: Record<number, Post> = Object.fromEntries(
-    allPosts.flatMap((post) => post.stream?.parts.map((part) => [part.id, post]) ?? []),
+export const streamByPartId: Record<number, StreamPost> = Object.fromEntries(
+    allPosts.flatMap((post) =>
+        post.kind === "video" && post.stream
+            ? post.stream.parts.map((part) => [part.id, post] as const)
+            : [],
+    ),
 );
 
 // The published set depends on the current time, so it has to be computed per request.
 // `includeUnpublished` also returns unpublished and future posts, for dev preview.
-export function getPosts(kind?: PostKind, { includeUnpublished = false } = {}): Post[] {
+export function getPosts<K extends PostKind = PostKind>(
+    kind?: K,
+    { includeUnpublished = false } = {},
+): PostOfKind<K>[] {
     return allPosts
-        .filter((post) => !kind || post.kind === kind)
+        .filter((post): post is PostOfKind<K> => !kind || post.kind === kind)
         .filter((post) => includeUnpublished || isPostPublished(post));
 }
 
 // The posts to show in listings, where stream parts are represented by their stream
-export function getListedPosts(
-    kind?: PostKind,
+export function getListedPosts<K extends PostKind = PostKind>(
+    kind?: K,
     options?: { includeUnpublished?: boolean },
-): Post[] {
+): PostOfKind<K>[] {
     return getPosts(kind, options).filter((post) => !streamByPartId[post.id]);
 }
 

@@ -1,11 +1,11 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import DavidLabsky from "$src/data/authors/david-labsky/author";
 import besitka2025 from "$src/data/events/besitka-2025/event";
 import slides from "./slides.pdf?url";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 102,
     slug: "hardware-jako-paratext",

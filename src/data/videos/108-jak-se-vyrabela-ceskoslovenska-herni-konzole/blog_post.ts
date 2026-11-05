@@ -1,9 +1,9 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import TajemnoAZahady from "$src/data/authors/tajemno-a-zahady/author";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 108,
     slug: "jak-se-vyrabela-ceskoslovenska-herni-konzole",

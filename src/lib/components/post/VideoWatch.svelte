@@ -25,26 +25,25 @@
         postImage,
         slidesHref,
     } from "$src/lib/posts";
-    import type { Post } from "$src/types";
-    import type { Video } from "$src/data/video";
+    import type { PostOfKind, StreamPost, VideoPost } from "$src/types";
     import type { Snippet } from "svelte";
 
     /** A video post laid out like a YouTube watch page */
     interface Props {
-        post: Post;
-        video: Video;
+        post: VideoPost;
         /** Other videos for the sidebar */
-        related: Post[];
+        related: PostOfKind<"video">[];
         /** The stream this video is a part of, shown in the sidebar instead of `related` */
-        stream?: Post | null;
+        stream?: StreamPost | null;
         /** Shown above the player, e.g. the backlink */
         top?: Snippet;
         /** The description */
         children?: Snippet;
     }
 
-    let { post, video, related, stream, top, children }: Props = $props();
+    let { post, related, stream, top, children }: Props = $props();
 
+    const video = $derived(post.video);
     const authorUrl = $derived(localizeHref(authorHref(post.author)));
     const presentation = $derived(post.talk);
     const event = $derived(presentation?.event);
@@ -52,7 +51,7 @@
     // Shown behind the notice when the recording is missing
     const image = $derived(postImage(post));
 
-    const parts = $derived(stream?.stream?.parts ?? []);
+    const parts = $derived(stream?.stream.parts ?? []);
     const partIndex = $derived(parts.findIndex((part) => part.id === post.id));
     const previousPart = $derived(parts[partIndex - 1]);
     const nextPart = $derived(parts[partIndex + 1]);
@@ -207,6 +206,7 @@
 
 <style>
     .watch {
+        margin-top: 1em;
         display: grid;
         grid-template-columns: minmax(0, 1fr) 400px;
         gap: 24px;

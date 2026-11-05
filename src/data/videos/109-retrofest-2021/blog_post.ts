@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { StreamPost } from "$src/types";
 import HerniHistorie from "$src/data/authors/herni-historie/author";
 import retrofest2021 from "$src/data/events/retrofest-2021/event";
 import part1 from "../110-retrofest-2021-uvod/blog_post";
@@ -13,7 +13,7 @@ import part7 from "../116-retrofest-2021-talking-heads-jetsy/blog_post";
 import part8 from "../117-retrofest-2021-odhaleni-projektu-herni-archiv/blog_post";
 import part9 from "../118-retrofest-2021-legie/blog_post";
 
-const post: Post = {
+const post: StreamPost = {
     published: true,
     id: 109,
     slug: "retrofest-2021",

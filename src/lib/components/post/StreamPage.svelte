@@ -7,22 +7,21 @@
     import { formatPostDate, formatTotalDuration } from "$src/lib/datetime";
     import { czechPlural, englishPlural } from "$src/lib/loc";
     import { postHref, streamDuration } from "$src/lib/posts";
-    import type { Post } from "$src/types";
-    import type { Stream } from "$src/data/video";
+    import type { StreamPost } from "$src/types";
     import type { Snippet } from "svelte";
 
     /** A stream post, listing the videos it's made up of */
     interface Props {
-        post: Post;
-        stream: Stream;
+        post: StreamPost;
         /** Shown above the title, e.g. the backlink */
         top?: Snippet;
         /** The description */
         children?: Snippet;
     }
 
-    let { post, stream, top, children }: Props = $props();
+    let { post, top, children }: Props = $props();
 
+    const stream = $derived(post.stream);
     const count = $derived(stream.parts.length);
     const firstPart = $derived(stream.parts[0]);
 </script>
@@ -60,7 +59,7 @@
 <style>
     .stream {
         max-width: 900px;
-        margin: 0 auto;
+        margin: 1em auto 0;
     }
 
     .title {

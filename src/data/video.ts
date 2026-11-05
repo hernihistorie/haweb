@@ -1,5 +1,5 @@
 import type { Event } from "./events/event";
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 
 export interface Video {
     /** Unset when the recording is missing, e.g. a talk with only its slides */
@@ -14,5 +14,5 @@ export interface Video {
 export interface Stream {
     event: Event;
     /** Video posts in playlist order. They're only listed through their stream. */
-    parts: Post[];
+    parts: VideoPost[];
 }

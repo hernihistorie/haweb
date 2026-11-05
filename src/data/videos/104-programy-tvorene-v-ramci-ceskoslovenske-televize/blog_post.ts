@@ -1,13 +1,13 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import RudolfJanSuchy from "$src/data/authors/rudolf-jan-suchy/author";
 import bytefest2025 from "$src/data/events/bytefest-2025/event";
 import slides from "./slides.pdf?url";
 // The second slide, as there is no recording to take a thumbnail from
 import thumbnail from "./thumbnail.jpg?w=1200&format=jpg&imagetools";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 104,
     slug: "programy-tvorene-v-ramci-ceskoslovenske-televize",

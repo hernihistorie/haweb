@@ -1,11 +1,11 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import VojtechStraka from "$src/data/authors/vojtech-straka/author";
 import bytefest2025 from "$src/data/events/bytefest-2025/event";
 import slides from "./slides.pdf?url";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 96,
     slug: "televizni-tenis-prvni-ceskoslovenska-hra-v-obchodech",

@@ -90,9 +90,9 @@ export function youtubeThumbnail(youtubeId: string): string {
 }
 
 /** The post's image, falling back to the thumbnail of the video or of the stream's first part */
-export function postImage(post: Pick<Post, "image" | "video" | "stream">): string | undefined {
-    const youtubeId = (post.video ?? post.stream?.parts[0]?.video)?.youtubeId;
-    return post.image ?? (youtubeId ? youtubeThumbnail(youtubeId) : undefined);
+export function postImage(post: Post): string | undefined {
+    const video = post.kind === "video" ? (post.video ?? post.stream.parts[0]?.video) : undefined;
+    return post.image ?? (video?.youtubeId ? youtubeThumbnail(video.youtubeId) : undefined);
 }
 
 /** Total length of a stream in seconds */
