@@ -3,7 +3,10 @@
     import Loc from "../Loc.svelte";
     import Avatar from "../Avatar.svelte";
     import BulletPoint from "../BulletPoint.svelte";
+    import StreamParts from "./StreamParts.svelte";
     import VideoCard from "./VideoCard.svelte";
+    import ChevronLeftIcon from "@lucide/svelte/icons/chevron-left";
+    import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
     import PresentationIcon from "@lucide/svelte/icons/presentation";
     import DownloadIcon from "@lucide/svelte/icons/download";
     import YoutubeIcon from "@lucide/svelte/icons/youtube";
@@ -14,7 +17,14 @@
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import { formatPostDate } from "$src/lib/datetime";
     import { loc } from "$src/lib/loc";
-    import { authorHref, eventHref, hasSlidesViewer, postImage, slidesHref } from "$src/lib/posts";
+    import {
+        authorHref,
+        eventHref,
+        hasSlidesViewer,
+        postHref,
+        postImage,
+        slidesHref,
+    } from "$src/lib/posts";
     import type { Post } from "$src/types";
     import type { Video } from "$src/data/video";
     import type { Snippet } from "svelte";
@@ -25,13 +35,15 @@
         video: Video;
         /** Other videos for the sidebar */
         related: Post[];
+        /** The stream this video is a part of, shown in the sidebar instead of `related` */
+        stream?: Post | null;
         /** Shown above the player, e.g. the backlink */
         top?: Snippet;
         /** The description */
         children?: Snippet;
     }
 
-    let { post, video, related, top, children }: Props = $props();
+    let { post, video, related, stream, top, children }: Props = $props();
 
     const authorUrl = $derived(localizeHref(authorHref(post.author)));
     const presentation = $derived(post.talk);
@@ -39,6 +51,11 @@
     const slides = $derived(presentation?.slides);
     // Shown behind the notice when the recording is missing
     const image = $derived(postImage(post));
+
+    const parts = $derived(stream?.stream?.parts ?? []);
+    const partIndex = $derived(parts.findIndex((part) => part.id === post.id));
+    const previousPart = $derived(parts[partIndex - 1]);
+    const nextPart = $derived(parts[partIndex + 1]);
 
     let linkCopied = $state(false);
     function copyLink() {
@@ -69,6 +86,29 @@
             {/if}
         </div>
         <h2 class="title"><Loc text={post.title} /></h2>
+
+        {#if stream}
+            <!-- The playlist is far down the page on small screens -->
+            <nav class="part-nav" data-pagefind-ignore>
+                <span class="position">
+                    <Loc
+                        cs={`Část ${partIndex + 1} z ${parts.length}`}
+                        en={`Part ${partIndex + 1} of ${parts.length}`} />
+                </span>
+                {#if previousPart}
+                    <a href={localizeHref(postHref(previousPart))} class="pill">
+                        <ChevronLeftIcon size={18} />
+                        <Loc cs="Předchozí" en="Previous" />
+                    </a>
+                {/if}
+                {#if nextPart}
+                    <a href={localizeHref(postHref(nextPart))} class="pill">
+                        <Loc cs="Další" en="Next" />
+                        <ChevronRightIcon size={18} />
+                    </a>
+                {/if}
+            </nav>
+        {/if}
 
         <div class="owner-row">
             <div class="owner">
@@ -144,7 +184,16 @@
         </div>
     </div>
 
-    {#if related.length}
+    {#if stream}
+        <aside class="secondary" data-pagefind-ignore>
+            <h3>
+                <a href={localizeHref(postHref(stream))} class="playlist-title">
+                    <Loc text={stream.title} />
+                </a>
+            </h3>
+            <StreamParts {parts} currentId={post.id} />
+        </aside>
+    {:else if related.length}
         <aside class="secondary" data-pagefind-ignore>
             <h3><Loc cs="Další videa" en="More videos" /></h3>
             <div class="related">
@@ -213,6 +262,20 @@
         line-height: 1.25;
         text-transform: none;
         margin: 12px 0 8px;
+    }
+
+    .part-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .position {
+        margin-right: 4px;
+        color: var(--color-text-muted);
+        font-weight: bold;
     }
 
     .owner-row {
@@ -303,6 +366,15 @@
     .secondary h3 {
         font-size: 18px;
         margin: 0 0 12px;
+    }
+
+    .playlist-title {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .playlist-title:hover {
+        text-decoration: underline;
     }
 
     .related {

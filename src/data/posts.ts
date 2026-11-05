@@ -19,8 +19,8 @@ const allPosts: Post[] = Object.entries(postModules)
         if (directory !== postKinds[post.kind].section) {
             throw new Error(`Post ${path} has kind "${post.kind}" but is in ${directory}/`);
         }
-        if (post.kind === "video" && !post.video) {
-            throw new Error(`Post ${path} has kind "video" but no video`);
+        if (post.kind === "video" && !post.video && !post.stream) {
+            throw new Error(`Post ${path} has kind "video" but no video or stream`);
         }
         return post;
     })
@@ -30,12 +30,25 @@ const allPosts: Post[] = Object.entries(postModules)
         return Temporal.PlainDateTime.compare(toPlainDateTime(a.date), toPlainDateTime(b.date));
     });
 
+// The stream each stream part belongs to
+export const streamByPartId: Record<number, Post> = Object.fromEntries(
+    allPosts.flatMap((post) => post.stream?.parts.map((part) => [part.id, post]) ?? []),
+);
+
 // The published set depends on the current time, so it has to be computed per request.
 // `includeUnpublished` also returns unpublished and future posts, for dev preview.
 export function getPosts(kind?: PostKind, { includeUnpublished = false } = {}): Post[] {
     return allPosts
         .filter((post) => !kind || post.kind === kind)
         .filter((post) => includeUnpublished || isPostPublished(post));
+}
+
+// The posts to show in listings, where stream parts are represented by their stream
+export function getListedPosts(
+    kind?: PostKind,
+    options?: { includeUnpublished?: boolean },
+): Post[] {
+    return getPosts(kind, options).filter((post) => !streamByPartId[post.id]);
 }
 
 // Post IDs are unique across all kinds

@@ -1,7 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 import type { SeriesSlug } from "./data/series";
 import type { Talk } from "./data/talk";
-import type { Video } from "./data/video";
+import type { Stream, Video } from "./data/video";
 
 export type LanguageCode = "cs" | "sk" | "en";
 
@@ -103,8 +103,10 @@ export interface Post {
     author: Author;
     description_html?: LocalizedString;
     bufferPostId?: string;
-    /** Required for posts of the "video" kind */
+    /** Required for posts of the "video" kind, unless they're a stream */
     video?: Video;
+    /** Set when the post is a playlist of videos instead of a single one */
+    stream?: Stream;
     /**
      * Set when the post is a talk.
      * The post author is the speaker, and the post date is the date of the talk.

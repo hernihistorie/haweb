@@ -7,6 +7,7 @@
     import Footnotes from "../footnote/Footnotes.svelte";
     import PostAdjacentNav from "./PostAdjacentNav.svelte";
     import ArticleKicker from "./ArticleKicker.svelte";
+    import StreamPage from "./StreamPage.svelte";
     import VideoWatch from "./VideoWatch.svelte";
     import type { Post as PostType, PostSeries } from "$src/types";
     import type { Snippet } from "svelte";
@@ -33,12 +34,23 @@
         older?: PostLink;
         /** Other videos, for the sidebar of a video post */
         related?: PostType[];
+        /** The stream a video post is a part of */
+        stream?: PostType | null;
         children?: Snippet;
         /** Transcript of a presentation, shown collapsed after the body */
         transcript?: Snippet;
     }
 
-    let { post, series, newer, older, related = [], children, transcript }: Props = $props();
+    let {
+        post,
+        series,
+        newer,
+        older,
+        related = [],
+        stream = null,
+        children,
+        transcript,
+    }: Props = $props();
 
     const kindInfo = $derived(postKinds[post.kind]);
     const postYear = $derived(post.date?.year);
@@ -54,8 +66,16 @@
     );
     const backlinkHref = $derived(
         localizeHref(
-            backlinkYear ? `${postKindHref(post.kind)}/${backlinkYear}` : postKindHref(post.kind),
+            stream
+                ? postHref(stream)
+                : backlinkYear
+                  ? `${postKindHref(post.kind)}/${backlinkYear}`
+                  : postKindHref(post.kind),
         ),
+    );
+    // Parts of a stream need its name to make sense on their own, e.g. in search results
+    const pageTitle = $derived(
+        stream ? `${loc(stream.title)}: ${loc(post.title)}` : loc(post.title),
     );
     const authorUrl = $derived(localizeHref(authorHref(post.author)));
     const unpublished = $derived(!isPostPublished(post));
@@ -73,13 +93,13 @@
 </script>
 
 {#if post.published}
-    <Meta title={post.title} />
+    <Meta title={pageTitle} />
 {:else}
     <Meta title={""} noindex={true} />
 {/if}
 
 <svelte:head>
-    <meta property="og:title" content={loc(post.title)} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:type" content="article" />
     <meta property="og:article:author" content={loc(post.author.name)} />
     {#if post.date}
@@ -97,7 +117,11 @@
 {#snippet backlink()}
     <a href={backlinkHref} class="backlink" data-pagefind-ignore>
         <ArrowLeftIcon size={18} />
-        <Loc text={kindInfo.longTitle} />{#if backlinkYear}&nbsp;({backlinkYear}){/if}
+        {#if stream}
+            <Loc text={stream.title} />
+        {:else}
+            <Loc text={kindInfo.longTitle} />{#if backlinkYear}&nbsp;({backlinkYear}){/if}
+        {/if}
     </a>
 {/snippet}
 
@@ -108,6 +132,11 @@
             <Loc cs="Tento příspěvek zatím není publikován." en="This post is not published yet." />
         </div>
     {/if}
+{/snippet}
+
+{#snippet videoTop()}
+    {@render backlink()}
+    {@render unpublishedNotice()}
 {/snippet}
 
 {#snippet translationNote()}
@@ -208,12 +237,13 @@
                 <AuthorBio author={post.author} kind={post.kind} secondary />
             </div>
         {/if}
+    {:else if post.kind === "video" && post.stream}
+        <StreamPage {post} stream={post.stream} top={videoTop}>
+            {@render children?.()}
+            {@render seriesAndFootnotes()}
+        </StreamPage>
     {:else if post.kind === "video" && post.video}
-        <VideoWatch {post} video={post.video} {related}>
-            {#snippet top()}
-                {@render backlink()}
-                {@render unpublishedNotice()}
-            {/snippet}
+        <VideoWatch {post} video={post.video} {related} {stream} top={videoTop}>
             {@render children?.()}
             {@render transcriptSection()}
             {@render seriesAndFootnotes()}

@@ -1,4 +1,4 @@
-import { getPosts } from "$src/data/posts";
+import { getListedPosts } from "$src/data/posts";
 import { postKindList } from "#lib/posts.js";
 import { getLatestPublishedInterview } from "./interviews/interviews";
 import { prerenderForSearch } from "#lib/prerender.server.js";
@@ -10,7 +10,7 @@ export const prerender = prerenderForSearch;
 
 export const load: PageServerLoad = async () => {
     const latestPosts = Object.fromEntries(
-        postKindList.map((kind) => [kind, getPosts(kind).toReversed().slice(0, 3)]),
+        postKindList.map((kind) => [kind, getListedPosts(kind).toReversed().slice(0, 3)]),
     ) as Record<PostKind, Post[]>;
 
     const interview = getLatestPublishedInterview();

@@ -3,6 +3,7 @@
 import type { Author, Post, PostKind } from "$src/types";
 import type { Talk } from "$src/data/talk";
 import type { Event } from "$src/data/events/event";
+import type { Stream } from "$src/data/video";
 
 interface PostKindInfo {
     /** URL path segment, also the directory name under `src/data/` */
@@ -88,9 +89,13 @@ export function youtubeThumbnail(youtubeId: string): string {
     return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
 }
 
-/** The post's image, falling back to the video thumbnail */
-export function postImage(post: Pick<Post, "image" | "video">): string | undefined {
-    return (
-        post.image ?? (post.video?.youtubeId ? youtubeThumbnail(post.video.youtubeId) : undefined)
-    );
+/** The post's image, falling back to the thumbnail of the video or of the stream's first part */
+export function postImage(post: Pick<Post, "image" | "video" | "stream">): string | undefined {
+    const youtubeId = (post.video ?? post.stream?.parts[0]?.video)?.youtubeId;
+    return post.image ?? (youtubeId ? youtubeThumbnail(youtubeId) : undefined);
+}
+
+/** Total length of a stream in seconds */
+export function streamDuration(stream: Stream): number {
+    return stream.parts.reduce((total, part) => total + (part.video?.duration ?? 0), 0);
 }

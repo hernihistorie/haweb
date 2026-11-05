@@ -2,41 +2,77 @@
     import Capsule from "../Capsule.svelte";
     import BulletPoint from "../BulletPoint.svelte";
     import Loc from "../Loc.svelte";
+    import ListVideoIcon from "@lucide/svelte/icons/list-video";
     import PlayIcon from "@lucide/svelte/icons/play";
     import VideoOffIcon from "@lucide/svelte/icons/video-off";
     import { localizeHref } from "#lib/paraglide/runtime.js";
-    import { postHref, postImage } from "#lib/posts.js";
-    import { formatPostDate, isPostPublished } from "$src/lib/datetime";
+    import { postHref, postImage, streamDuration } from "#lib/posts.js";
+    import {
+        formatPostDate,
+        formatTotalDuration,
+        formatVideoDuration,
+        isPostPublished,
+    } from "$src/lib/datetime";
+    import { czechPlural, englishPlural } from "$src/lib/loc";
     import type { Post } from "$src/types";
 
     /**
      * A video thumbnail with the title below, in the style of YouTube.
      * Compact cards have the title beside the thumbnail, for sidebars.
      * Large compact cards have bigger text, for listing videos in page content.
+     * Playlist cards leave out what all parts of a stream have in common,
+     * and large ones show the description instead.
      */
     let {
         post,
         compact = false,
         large = false,
-    }: { post: Post; compact?: boolean; large?: boolean } = $props();
+        playlist = false,
+        current = false,
+    }: {
+        post: Post;
+        compact?: boolean;
+        large?: boolean;
+        playlist?: boolean;
+        /** Whether this is the video being watched */
+        current?: boolean;
+    } = $props();
 
     const href = $derived(localizeHref(postHref(post)));
     const image = $derived(postImage(post));
     const event = $derived(post.talk?.event);
+    const stream = $derived(post.stream);
+    const duration = $derived(post.video?.duration);
     // Unpublished posts are only listed in dev
     const unpublished = $derived(!isPostPublished(post));
 </script>
 
-<a {href} class="video-card" class:compact class:large>
+<a {href} class="video-card" class:compact class:large aria-current={current ? "true" : undefined}>
     <div class="thumbnail">
         {#if image}
             <img src={image} alt="" loading="lazy" decoding="async" />
         {/if}
-        {#if post.video?.youtubeId}
-            <span class="play"><PlayIcon fill="currentColor" /></span>
+        {#if stream}
+            {@const count = stream.parts.length}
+            <span class="badge">
+                <ListVideoIcon size={14} />
+                <Loc
+                    cs={`${count} ${czechPlural(count, "video", "videa", "videí")}`}
+                    en={`${count} ${englishPlural(count, "video", "videos")}`} />
+                <BulletPoint />
+                {formatTotalDuration(streamDuration(stream))}
+            </span>
+        {:else if post.video?.youtubeId}
+            <!-- Playlist thumbnails are too small to have their text covered -->
+            {#if !playlist}
+                <span class="play"><PlayIcon fill="currentColor" /></span>
+            {/if}
+            {#if duration}
+                <span class="badge">{formatVideoDuration(duration)}</span>
+            {/if}
         {:else if image}
             <!-- e.g. a slide standing in for the recording -->
-            <span class="missing-badge">
+            <span class="badge">
                 <VideoOffIcon size={14} />
                 <Loc cs="Záznam chybí" en="Recording missing" />
             </span>
@@ -52,27 +88,33 @@
         {#if unpublished}
             <Capsule><Loc cs="nepublikováno" en="unpublished" /></Capsule>
         {/if}
-        <div class="meta">
-            {#if event}
+        {#if !playlist}
+            <div class="meta">
+                {#if stream}
+                    <div><Loc cs="Záznam streamu" en="Stream recording" /></div>
+                {:else if event}
+                    <div>
+                        <Loc cs="Přednáška" en="Talk" />
+                        <BulletPoint />
+                        <Loc text={event.shortName ?? event.name} />
+                    </div>
+                {/if}
                 <div>
-                    <Loc cs="Přednáška" en="Talk" />
-                    <BulletPoint />
-                    <Loc text={event.shortName ?? event.name} />
+                    {#if !post.author.isDefault}
+                        <span class="author"><Loc text={post.author.name} /></span>
+                    {/if}
+                    {#if post.date}
+                        <!-- Keep the bullet with the date when the line wraps -->
+                        <span class="date">
+                            {#if !post.author.isDefault}<BulletPoint />{/if}
+                            <time datetime={post.date.toString()}>{formatPostDate(post.date)}</time>
+                        </span>
+                    {/if}
                 </div>
-            {/if}
-            <div>
-                {#if !post.author.isDefault}
-                    <span class="author"><Loc text={post.author.name} /></span>
-                {/if}
-                {#if post.date}
-                    <!-- Keep the bullet with the date when the line wraps -->
-                    <span class="date">
-                        {#if !post.author.isDefault}<BulletPoint />{/if}
-                        <time datetime={post.date.toString()}>{formatPostDate(post.date)}</time>
-                    </span>
-                {/if}
             </div>
-        </div>
+        {:else if large && post.description_html}
+            <div class="meta"><Loc text={post.description_html} /></div>
+        {/if}
     </div>
 </a>
 
@@ -109,7 +151,7 @@
         font-weight: bold;
     }
 
-    .missing-badge {
+    .badge {
         position: absolute;
         right: 6px;
         bottom: 6px;
@@ -125,7 +167,7 @@
     }
 
     .missing :global(.lucide-icon),
-    .missing-badge :global(.lucide-icon) {
+    .badge :global(.lucide-icon) {
         margin: 0;
     }
 
@@ -181,11 +223,11 @@
     }
 
     .compact .missing,
-    .compact .missing-badge {
+    .compact .badge {
         font-size: 0.7em;
     }
 
-    .compact .missing-badge {
+    .compact .badge {
         right: 4px;
         bottom: 4px;
     }

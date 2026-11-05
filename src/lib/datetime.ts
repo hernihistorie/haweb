@@ -135,6 +135,23 @@ export function formatPostDate(date: Temporal.PlainDate | Temporal.PlainDateTime
     return `${date.day}. ${date.month}. ${date.year}`;
 }
 
+/** A video length as shown on its thumbnail, e.g. "4:17:57" or "9:09" */
+export function formatVideoDuration(seconds: number): string {
+    const pad = (value: number) => String(value).padStart(2, "0");
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const rest = pad(seconds % 60);
+    return hours ? `${hours}:${pad(minutes)}:${rest}` : `${minutes}:${rest}`;
+}
+
+/** The length of a whole playlist, e.g. "7 h 10 min" */
+export function formatTotalDuration(seconds: number): string {
+    const totalMinutes = Math.round(seconds / 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return hours ? `${hours} h ${minutes} min` : `${minutes} min`;
+}
+
 export const SITE_TIME_ZONE = "Europe/Prague";
 
 export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
