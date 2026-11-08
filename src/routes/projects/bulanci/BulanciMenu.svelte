@@ -21,12 +21,12 @@
         {@render link({
             url: "/projects/bulanci/",
             match: true,
-            cs: "Bulánci",
-            en: "Combat pillows",
+            cs: "O projektu",
+            en: "About project",
         })}
         {@render link({ url: "/projects/bulanci/maps", cs: "Mapy", en: "Maps" })}
-        {@render link({ url: "/projects/bulanci/fans", cs: "Fanoušci", en: "Fans" })}
         {@render link({ url: "/projects/bulanci/webs", cs: "Weby", en: "Webs" })}
+        {@render link({ url: "/projects/bulanci/fans", cs: "Autoři a kolektivy", en: "Creators and Collectives" })}
     </PipeList>
 </ha-bulanci-menu>
 
