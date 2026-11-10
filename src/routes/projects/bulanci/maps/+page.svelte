@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BulanciMenu from '../BulanciMenu.svelte';
     import Loc from "#lib/components/Loc.svelte";
+	import MapList from "./MapList.svelte";
 
 	const { data } = $props();
 </script>
@@ -20,13 +21,7 @@
 		<p>This archive contains approximately <b>750 maps</b> by more than <b>160 authors</b> that circulated online between 2006 and 2021. The maps were distributed primarily through fan websites and cloud storage services such as Edisk, Webshare, and Ulož.to.</p>
 	{/snippet}
 </Loc>
-<ul>
-	{#each data.bulanciMaps as bulanciMap}
-		<li>
-			{bulanciMap.name}
-		</li>
-	{/each}
-</ul>
+<MapList maps={data.bulanciMaps} />
 
 <style>
 </style>
