@@ -178,10 +178,13 @@
         >
             <option value="">{loc({ cs: "Všichni autoři", en: "All authors" })}</option>
             <option value={UNKNOWN}>
-                {loc({ cs: "Neznámý autor", en: "Unknown author" })} ({unknownAuthorCount})
+                {loc({ cs: "Neznámý autor", en: "Unknown author" })}
+                <span class="count">({unknownAuthorCount})</span>
             </option>
             {#each authorOptions as option (option.name)}
-                <option value={option.name}>{option.name} ({option.count})</option>
+                <option value={option.name}>
+                    {option.name} <span class="count">({option.count})</span>
+                </option>
             {/each}
         </select>
 
@@ -192,10 +195,13 @@
         >
             <option value="">{loc({ cs: "Všechny roky", en: "All years" })}</option>
             {#each yearOptions as option (option.year)}
-                <option value={String(option.year)}>{option.year} ({option.count})</option>
+                <option value={String(option.year)}>
+                    {option.year} <span class="count">({option.count})</span>
+                </option>
             {/each}
             <option value={UNKNOWN}>
-                {loc({ cs: "Neznámý rok", en: "Unknown year" })} ({unknownYearCount})
+                {loc({ cs: "Neznámý rok", en: "Unknown year" })}
+                <span class="count">({unknownYearCount})</span>
             </option>
         </select>
 
@@ -290,12 +296,9 @@
         min-width: 0;
     }
 
-    select {
-        border: 2px solid var(--color-primary);
-        background: var(--color-bg);
-        color: inherit;
-        font-family: inherit;
-        max-width: 100%;
+    .count {
+        color: var(--color-text-muted);
+        font-weight: normal;
     }
 
     .view-toggle {

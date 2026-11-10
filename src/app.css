@@ -230,6 +230,125 @@ input.active {
     color: var(--color-primary-contrast);
 }
 
+select {
+    border: 2px solid var(--color-primary);
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.4em 0.6em;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+/* Customizable select: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select
+ * Browsers without support keep the native picker with the styles above. */
+@supports (appearance: base-select) {
+    select,
+    ::picker(select) {
+        appearance: base-select;
+    }
+
+    select {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        transition:
+            background-color 0.15s ease,
+            color 0.15s ease;
+    }
+
+    select:hover {
+        background: var(--color-secondary-transparent);
+    }
+
+    select:open {
+        background: var(--color-primary);
+        color: var(--color-primary-contrast);
+    }
+
+    select:focus-visible {
+        outline: 2px solid var(--color-secondary);
+        outline-offset: 2px;
+    }
+
+    select::picker-icon {
+        color: var(--color-primary);
+    }
+
+    select:open::picker-icon {
+        color: var(--color-primary-contrast);
+        rotate: 180deg;
+    }
+
+    ::picker(select) {
+        border: 2px solid var(--color-primary);
+        background: var(--color-surface);
+        color: var(--color-text);
+        padding: 0;
+        /* Join the border with the select's border */
+        margin-block: -2px;
+        min-width: anchor-size(width);
+        /* Open downwards, shrinking to the space below; open upwards only
+         * when there isn't room below even for a few options */
+        position-try-order: normal;
+        max-height: max(10em, min(24em, 100%));
+        scrollbar-color: var(--color-secondary) var(--color-surface);
+
+        opacity: 0;
+        translate: 0 -0.25em;
+        transition:
+            opacity 0.15s ease,
+            translate 0.15s ease,
+            overlay 0.15s allow-discrete,
+            display 0.15s allow-discrete;
+    }
+
+    ::picker(select):popover-open {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @starting-style {
+        ::picker(select):popover-open {
+            opacity: 0;
+            translate: 0 -0.25em;
+        }
+    }
+
+    option {
+        padding: 0.35em 0.6em;
+        gap: 0.5em;
+        cursor: pointer;
+    }
+
+    option:not(:last-child) {
+        border-bottom: 1px solid var(--color-secondary-transparent);
+    }
+
+    option:hover,
+    option:focus-visible {
+        background: var(--color-secondary-transparent);
+        outline: none;
+    }
+
+    option:checked {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    option::checkmark {
+        color: var(--color-primary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        ::picker(select) {
+            transition: none;
+        }
+    }
+}
+
 button.link {
     font-size: 1em;
     cursor: pointer;
