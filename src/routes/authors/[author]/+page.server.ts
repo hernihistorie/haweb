@@ -1,6 +1,6 @@
 import { authorsBySlug } from "$src/data/authors";
 import { error } from "@sveltejs/kit";
-import { getPosts } from "$src/data/posts";
+import { getListedPosts } from "$src/data/posts";
 import { prerenderForSearch } from "#lib/prerender.server.js";
 import type { PageServerLoad } from "./$types";
 
@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ params }) => {
         error(404, "Author not found");
     }
 
-    const authorPosts = getPosts()
+    const authorPosts = getListedPosts()
         .filter((post) => post.author.slug === authorSlug)
         .toReversed();
 

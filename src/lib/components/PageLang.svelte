@@ -9,6 +9,7 @@
         type Locale,
     } from "#lib/paraglide/runtime.js";
     import { slide } from "svelte/transition";
+    import Notice from "$src/lib/components/Notice.svelte";
     interface Props {
         cs?: boolean;
         en?: boolean;
@@ -45,55 +46,54 @@
 </script>
 
 {#if switchLocale && !dismissed.current}
-    <div class="page-lang-notice page-lang-switch" lang={switchLocale} transition:slide>
-        {#if switchLocale == "cs"}
-            <p>
-                🇨🇿 Tato stránka je dostupná v češtině.
-                <a href={switchHref} data-sveltekit-reload>Přepnout do češtiny</a>
-            </p>
-            <button class="link" onclick={dismiss} aria-label="Zavřít" title="Zavřít">×</button>
-        {:else}
-            <p>
-                This page is available in English.
-                <a href={switchHref} data-sveltekit-reload>Switch to English</a>
-            </p>
-            <button class="link" onclick={dismiss} aria-label="Dismiss" title="Dismiss">×</button>
-        {/if}
+    <div class="page-lang-slide" transition:slide>
+        <Notice lang={switchLocale}>
+            <div class="page-lang-switch">
+                {#if switchLocale == "cs"}
+                    <p>
+                        🇨🇿 Tato stránka je dostupná v češtině.
+                        <a href={switchHref} data-sveltekit-reload>Přepnout do češtiny</a>
+                    </p>
+                    <button class="link" onclick={dismiss} aria-label="Zavřít" title="Zavřít"
+                        >×</button>
+                {:else}
+                    <p>
+                        This page is available in English.
+                        <a href={switchHref} data-sveltekit-reload>Switch to English</a>
+                    </p>
+                    <button class="link" onclick={dismiss} aria-label="Dismiss" title="Dismiss"
+                        >×</button>
+                {/if}
+            </div>
+        </Notice>
     </div>
 {/if}
 
 {#if getLocale() == "cs" && !cs}
-    <div class="page-lang-notice">
+    <Notice>
         <p>
             {notice ?? "Tato stránka je v současnosti dostupná pouze v angličtině."}
         </p>
-    </div>
+    </Notice>
 {:else if getLocale() == "en" && !en}
-    <div class="page-lang-notice">
+    <Notice>
         <p>
             🇨🇿
             {notice ?? "This page is currently only available in Czech."}
             <a
                 href="https://herniarchiv-cz.translate.goog{page.url
                     .pathname}?_x_tr_sl=cs&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp"
-                >View with Google Translate</a
-            >
+                >View with Google Translate</a>
         </p>
-    </div>
+    </Notice>
 {:else}
     <!-- Content for the page goes here -->
 {/if}
 
 <style>
-    .page-lang-notice {
-        border: 2px solid var(--color-secondary);
-        padding: 0 16px;
-        margin: 0;
-        margin-top: 8px;
-    }
-
-    .page-lang-notice + .page-lang-notice {
-        margin-top: 8px;
+    /* Contain the Notice's margin so slide measures the same height it animates */
+    .page-lang-slide {
+        display: flow-root;
     }
 
     .page-lang-switch {

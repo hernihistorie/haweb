@@ -1,5 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { getPosts } from "$src/data/posts";
+import { getListedPosts } from "$src/data/posts";
 import { postHref, postImage, postKindHref } from "./posts";
 import type { Post, LanguageCode } from "$src/types";
 import { toPlainDateTime } from "./datetime";
@@ -45,7 +45,7 @@ function dateToISOString(date: Temporal.PlainDate | Temporal.PlainDateTime): str
 export function generateAtomFeed(config: FeedConfig): string {
     const { lang, title, subtitle, feedPath } = config;
 
-    const latestPosts = getPosts()
+    const latestPosts = getListedPosts()
         .filter((post) => post.date)
         .sort((a, b) =>
             Temporal.PlainDate.compare(toPlainDateTime(b.date!), toPlainDateTime(a.date!)),

@@ -3,39 +3,58 @@
     import Loc from "../Loc.svelte";
     import Avatar from "../Avatar.svelte";
     import BulletPoint from "../BulletPoint.svelte";
+    import StreamParts from "./StreamParts.svelte";
     import VideoCard from "./VideoCard.svelte";
+    import ChevronLeftIcon from "@lucide/svelte/icons/chevron-left";
+    import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
     import PresentationIcon from "@lucide/svelte/icons/presentation";
     import DownloadIcon from "@lucide/svelte/icons/download";
     import YoutubeIcon from "@lucide/svelte/icons/youtube";
+    import VideoOffIcon from "@lucide/svelte/icons/video-off";
     import LinkIcon from "@lucide/svelte/icons/link";
     import CheckIcon from "@lucide/svelte/icons/check";
     import copy from "copy-to-clipboard";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import { formatPostDate } from "$src/lib/datetime";
     import { loc } from "$src/lib/loc";
-    import { authorHref, eventHref, hasSlidesViewer, slidesHref } from "$src/lib/posts";
-    import type { Post } from "$src/types";
-    import type { Video } from "$src/data/video";
+    import {
+        authorHref,
+        eventHref,
+        hasSlidesViewer,
+        postHref,
+        postImage,
+        slidesHref,
+    } from "$src/lib/posts";
+    import type { PostOfKind, StreamPost, VideoPost } from "$src/types";
     import type { Snippet } from "svelte";
 
     /** A video post laid out like a YouTube watch page */
     interface Props {
-        post: Post;
-        video: Video;
+        post: VideoPost;
         /** Other videos for the sidebar */
-        related: Post[];
+        related: PostOfKind<"video">[];
+        /** The stream this video is a part of, shown in the sidebar instead of `related` */
+        stream?: StreamPost | null;
         /** Shown above the player, e.g. the backlink */
         top?: Snippet;
         /** The description */
         children?: Snippet;
     }
 
-    let { post, video, related, top, children }: Props = $props();
+    let { post, related, stream, top, children }: Props = $props();
 
+    const video = $derived(post.video);
     const authorUrl = $derived(localizeHref(authorHref(post.author)));
     const presentation = $derived(post.talk);
     const event = $derived(presentation?.event);
     const slides = $derived(presentation?.slides);
+    // Shown behind the notice when the recording is missing
+    const image = $derived(postImage(post));
+
+    const parts = $derived(stream?.stream.parts ?? []);
+    const partIndex = $derived(parts.findIndex((part) => part.id === post.id));
+    const previousPart = $derived(parts[partIndex - 1]);
+    const nextPart = $derived(parts[partIndex + 1]);
 
     let linkCopied = $state(false);
     function copyLink() {
@@ -51,11 +70,44 @@
         <div class="player">
             <!-- Recreate the embed when navigating between videos, so the previous
                  thumbnail or player doesn't linger while the new one loads -->
-            {#key video.youtubeId}
-                <Youtube id={video.youtubeId} />
-            {/key}
+            {#if video.youtubeId}
+                {#key video.youtubeId}
+                    <Youtube id={video.youtubeId} />
+                {/key}
+            {:else}
+                <div class="missing" class:with-image={image}>
+                    {#if image}
+                        <img src={image} alt="" />
+                    {/if}
+                    <VideoOffIcon size={48} />
+                    <span><Loc cs="Záznam chybí" en="Recording missing" /></span>
+                </div>
+            {/if}
         </div>
         <h2 class="title"><Loc text={post.title} /></h2>
+
+        {#if stream}
+            <!-- The playlist is far down the page on small screens -->
+            <nav class="part-nav" data-pagefind-ignore>
+                <span class="position">
+                    <Loc
+                        cs={`Část ${partIndex + 1} z ${parts.length}`}
+                        en={`Part ${partIndex + 1} of ${parts.length}`} />
+                </span>
+                {#if previousPart}
+                    <a href={localizeHref(postHref(previousPart))} class="pill">
+                        <ChevronLeftIcon size={18} />
+                        <Loc cs="Předchozí" en="Previous" />
+                    </a>
+                {/if}
+                {#if nextPart}
+                    <a href={localizeHref(postHref(nextPart))} class="pill">
+                        <Loc cs="Další" en="Next" />
+                        <ChevronRightIcon size={18} />
+                    </a>
+                {/if}
+            </nav>
+        {/if}
 
         <div class="owner-row">
             <div class="owner">
@@ -94,10 +146,12 @@
                         <Loc cs="Slajdy" en="Slides" />
                     </a>
                 {/if}
-                <a href="https://www.youtube.com/watch?v={video.youtubeId}" class="pill">
-                    <YoutubeIcon size={18} />
-                    YouTube
-                </a>
+                {#if video.youtubeId}
+                    <a href="https://www.youtube.com/watch?v={video.youtubeId}" class="pill">
+                        <YoutubeIcon size={18} />
+                        YouTube
+                    </a>
+                {/if}
                 <button class="link pill" onclick={copyLink}>
                     {#if linkCopied}
                         <CheckIcon size={18} />
@@ -129,7 +183,16 @@
         </div>
     </div>
 
-    {#if related.length}
+    {#if stream}
+        <aside class="secondary" data-pagefind-ignore>
+            <h3>
+                <a href={localizeHref(postHref(stream))} class="playlist-title">
+                    <Loc text={stream.title} />
+                </a>
+            </h3>
+            <StreamParts {parts} currentId={post.id} />
+        </aside>
+    {:else if related.length}
         <aside class="secondary" data-pagefind-ignore>
             <h3><Loc cs="Další videa" en="More videos" /></h3>
             <div class="related">
@@ -143,6 +206,7 @@
 
 <style>
     .watch {
+        margin-top: 1em;
         display: grid;
         grid-template-columns: minmax(0, 1fr) 400px;
         gap: 24px;
@@ -155,11 +219,63 @@
         overflow: hidden;
     }
 
+    .missing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        aspect-ratio: 16 / 9;
+        background: var(--color-secondary-transparent);
+        color: var(--color-text-muted);
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .missing :global(.lucide-icon) {
+        margin: 0;
+    }
+
+    .missing.with-image {
+        position: relative;
+        background: black;
+        color: white;
+        text-shadow: 0 1px 4px black;
+    }
+
+    .missing img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+    }
+
+    /* Above the image */
+    .missing.with-image > :not(img) {
+        position: relative;
+    }
+
     .title {
         font-size: 26px;
         line-height: 1.25;
         text-transform: none;
         margin: 12px 0 8px;
+    }
+
+    .part-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .position {
+        margin-right: 4px;
+        color: var(--color-text-muted);
+        font-weight: bold;
     }
 
     .owner-row {
@@ -250,6 +366,15 @@
     .secondary h3 {
         font-size: 18px;
         margin: 0 0 12px;
+    }
+
+    .playlist-title {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .playlist-title:hover {
+        text-decoration: underline;
     }
 
     .related {

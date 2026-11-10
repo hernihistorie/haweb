@@ -1,9 +1,9 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import RetroHrac from "$src/data/authors/retro-hrac/author";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 98,
     slug: "retro-pokec-rozhovor-o-retroherne",

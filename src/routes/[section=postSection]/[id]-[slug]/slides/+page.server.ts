@@ -8,7 +8,7 @@ import type { EntryGenerator, PageServerLoad } from "./$types";
 export const prerender = "auto";
 
 export const entries: EntryGenerator = () => {
-    return getPosts()
+    return getPosts("video")
         .filter((post) => hasSlidesViewer(post.talk))
         .map((post) => ({
             section: postKinds[post.kind].section,
@@ -20,7 +20,7 @@ export const entries: EntryGenerator = () => {
 export const load: PageServerLoad = async ({ params }) => {
     const post = loadPost(params, "/slides");
 
-    if (!post.talk?.slides || !hasSlidesViewer(post.talk)) {
+    if (post.kind !== "video" || !post.talk?.slides || !hasSlidesViewer(post.talk)) {
         error(404, "This post has no slides");
     }
 

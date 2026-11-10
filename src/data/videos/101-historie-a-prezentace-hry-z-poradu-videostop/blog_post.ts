@@ -1,10 +1,10 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import RudolfJanSuchy from "$src/data/authors/rudolf-jan-suchy/author";
 import bytefest2024 from "$src/data/events/bytefest-2024/event";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 101,
     slug: "historie-a-prezentace-hry-z-poradu-videostop",

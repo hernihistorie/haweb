@@ -1,9 +1,9 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import AndrewTesla from "$src/data/authors/andrew-tesla/author";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 100,
     slug: "karel-pro-iq-151-zachraneny-z-vinylu",

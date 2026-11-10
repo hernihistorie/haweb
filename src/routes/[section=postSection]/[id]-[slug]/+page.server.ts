@@ -1,4 +1,4 @@
-import { getPosts } from "$src/data/posts";
+import { getListedPosts, getPosts, streamByPartId } from "$src/data/posts";
 import { postKinds } from "#lib/posts.js";
 import { loadPost } from "#lib/server/posts.js";
 import { dev } from "$app/env";
@@ -25,15 +25,20 @@ export const load: PageServerLoad = async ({ params }) => {
     const series = seriesByBlogPostId[post.id] || null;
 
     // Neighbouring posts of the same kind, for navigating from one post to the next
-    const siblings = getPosts(post.kind, { includeUnpublished: dev });
+    const siblings = getListedPosts(post.kind, { includeUnpublished: dev });
     const index = siblings.findIndex((sibling) => sibling.id === post.id);
     const summarize = (sibling: Post | undefined) =>
         sibling && { id: sibling.id, slug: sibling.slug, kind: sibling.kind, title: sibling.title };
 
+    // The stream this video is a part of, whose playlist then replaces the sidebar
+    const stream = streamByPartId[post.id] ?? null;
+
     // Videos list the other videos in a sidebar instead, newest first
     const related =
-        post.kind === "video"
-            ? siblings.filter((sibling) => sibling.id !== post.id).toReversed()
+        post.kind === "video" && !stream
+            ? getListedPosts("video", { includeUnpublished: dev })
+                  .filter((sibling) => sibling.id !== post.id)
+                  .toReversed()
             : undefined;
 
     return {
@@ -42,5 +47,6 @@ export const load: PageServerLoad = async ({ params }) => {
         older: index > 0 ? summarize(siblings[index - 1]) : undefined,
         newer: index >= 0 ? summarize(siblings[index + 1]) : undefined,
         related,
+        stream,
     };
 };

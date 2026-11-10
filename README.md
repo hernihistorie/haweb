@@ -31,6 +31,29 @@ If you wish to release a new version on herniarchiv.cz, run the deploy script:
 
 It will ask for your password on the herniarchiv.cz server.
 
+## Searching the collection
+
+The search also covers public assets from rhinventory. They have their own Pagefind index, separate from the one of the website, which is built from rhinventory's `/public-search.json` and served from `ASSET_INDEX_DIR` by `src/routes/pagefind-assets`.
+
+To build it locally (use `INVENTORY_ORIGIN=http://127.0.0.1:5000` for a local rhinventory):
+
+```bash
+npm run build:asset-index
+```
+
+On the server, `haweb-asset-index.timer` from [hernihistorie/infra](https://github.com/hernihistorie/infra) rebuilds it every night. Setting it up:
+
+1. Deploy rhinventory with `/public-search.json`.
+2. Run the hhbox playbook in the infra repository, which sets up the timer and the directory for the index.
+3. Deploy haweb with `./ops/deploy.sh`, which also restarts it with that directory mounted.
+4. Build the first index with `sudo systemctl start haweb-asset-index.service`.
+
+An asset made private stays in the index until the next rebuild, though its page isn't accessible. If it needs to disappear sooner, rebuild the index right away:
+
+```bash
+sudo systemctl start haweb-asset-index.service
+```
+
 ## Contributing
 
 If you think you can improve our website, feel free to open an issue or discuss matters with us on the [RetroHerna + Herní archiv Discord server](https://discord.gg/9jajeqZ).

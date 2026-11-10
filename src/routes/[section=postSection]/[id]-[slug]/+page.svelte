@@ -17,6 +17,7 @@
     newer={data.newer}
     older={data.older}
     related={data.related}
+    stream={data.stream}
     transcript={data.transcriptComponent ? transcript : undefined}>
     {#if data.langs}
         <PageLang {...data.langs} />

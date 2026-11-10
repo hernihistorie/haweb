@@ -1,6 +1,7 @@
 <script lang="ts">
     import Figure from "$src/lib/components/Figure.svelte";
     import { img } from "./images";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
 </script>
 
 <section>
@@ -38,8 +39,9 @@
     </p>
 
     <Figure
-        image={img["2-mapa-pribuznosti.png"]}
-        caption="The big map: relationships between the games mentioned in the article" />
+        image={img["2en-mapa-pribuznosti.png"]}
+        caption="The big map: relationships between the games mentioned in the article"
+    />
 
     <p>
         Among the games that could be played on these devices, tennis clearly dominates, along with
@@ -82,7 +84,7 @@
         of the device itself was modified by plug-in cartridges. A total of 11 of them were released (plus
         one unreleased). They contained only jumper wires that configured the circuits in the device,
         and offered simple ball games, a game of tag, shooting games, and also a mere cursor function
-        (with or without inertia), used in combination with printed game boards. These were always different
+        (with or without inertia), used in combination with printed game overlays. These were always different
         variations on two paddles, a ball, a center line and the light gun, with some of the objects being
         blanked in various situations.
     </p>
@@ -92,7 +94,7 @@
         entire genre. Although partly inspired by the <em>Odyssey</em> console, it is a more
         advanced, fully digital game. <em>Pong</em> can bounce the ball in different directions from different
         parts of the paddle, speed up the ball during play, and keep score too. However, it contains 66
-        integrated circuits, - something a bar owner could afford, but hardly anyone would buy for their
+        integrated circuits - something a bar owner could afford, but hardly anyone would buy for their
         home (or at least many people thought so). A whole vast arcade machine industry then developed
         in America, of course spilling over into other countries as well, but that is beyond the scope
         of this article.
@@ -111,7 +113,8 @@
 
     <Figure
         image={img["3-kolaz-komerce.jpg"]}
-        caption="Some professional games and their innards (by rows): Brown Box prototype, Magnavox Odyssey, arcade Pong, Videosport MK2, Ping-O-Tronic, Videomaster Olympic, Multiplay 80, Videoshoot, Palestra 02, Bulgarian Turnir" />
+        caption="Some professional games and their innards (by rows): Brown Box prototype, Magnavox Odyssey, arcade Pong, Videosport MK2, Ping-O-Tronic, Videomaster Olympic, Multiplay 80, Videoshoot, Palestra 02, Bulgarian Turnir"
+    />
 
     <p>
         There were, however, many more home consoles built largely on analog principles, from a
@@ -125,8 +128,8 @@
         countries to varying degrees. It was first brought to Germany in 1973 by the company ITT
         Schaub-Lorenz, though probably not in large numbers. When Ing. Günther Bless from this
         company then published almost the entire schematic in the magazine <em>Funk-Technik</em>
-        (December 1973), the full significance of magazine articles became apparent (especially
-        eastwards): the ensuing wave followed carried the most popular ball games of the
+        (December 1973), the full significance of magazine articles became apparent (especially eastwards):
+        the ensuing wave carried the most popular ball games of the
         <em>Odyssey</em> in several directions, including to what was then Czechoslovakia.
     </p>
 
@@ -142,8 +145,8 @@
         editors, the judges, and the pages of the magazine, so the whole event dragged on from the
         planned few months to more than a year. The magazine kept printing some of the entries along
         the way (until it gave up in October 1974 for capacity reasons and published the entire
-        collection as a book), with Lübcke's design appearing in issue 10/1974, and ended up winning
-        the whole competition.
+        collection as a book), with Lübcke's design appearing in issue 10/1974, and winning the
+        whole competition.
     </p>
 
     <p>
@@ -169,10 +172,16 @@
         At the same time, the <em>Elektor</em> articles also became the main source for Czechoslovak
         television games. I won't go into detail here, but they form the basis of the guide by
         Kryška and Zuska in <em>Amatérské radio</em> (though the two also drew on the original
-        <em>Odyssey</em>), later adopted by Tesla Piešťany for the XD 8000 series consoles, and
-        their inspiration can also be seen in the MAS601-603 game chips and in the prototype from
-        Tesla VÚST. Besides these, there was also a guide by Vladislav Čacký, based directly on the
-        very original
+        <em>Odyssey</em>), later adopted by Tesla Piešťany for the
+        <a href={localizeHref("/articles/67-pong-xd8001-pod-drobnohledem")}
+            >XD 8000 series consoles</a
+        >, and their inspiration can also be seen in the
+        <a href={localizeHref("/articles/70-pong-mas601-pod-mikroskopem")}>MAS601-603 game chips</a>
+        and in the
+        <a href={localizeHref("/articles/91-prototyp-televiznich-her-z-tesly-vust")}
+            >prototype from Tesla VÚST</a
+        >. Besides these, there was also a guide by Vladislav Čacký, based directly on the very
+        original
         <em>Funk-Technik</em> article, which Čacký also presented as an only slightly expanded
         translation in
         <em>Ročenka sdělovací techniky</em> (Telecommunications Yearbook) 1978.
@@ -184,7 +193,7 @@
         Bulgarian magazine <em>Radio, televiziya, elektronika</em> in turn the design by V. Čacký,
         while the Romanian
         <em>Tehnium</em> reprinted the <em>Elektor</em> version directly. The situation varied considerably
-        between countries, though, for example in Hungary, they apparently skipped this generation of
+        between countries, though: for example in Hungary, they apparently skipped this generation of
         television games entirely and started straight away with imported AY-3-8500 chips (a guide from
         November 1977), with a remark that games made of discrete components are too complex. No similar
         articles can be found from the GDR or the Yugoslavia of the time (perhaps none even existed),
@@ -228,7 +237,8 @@
 
     <Figure
         image={img["4-kolaz-televizory.jpg"]}
-        caption="A collection of TV sets with a built-in game: The Sofia 23, marked in green, is the only one without a dedicated game chip. The same model can also be found under different brands." />
+        caption="A collection of TV sets with a built-in game: The Sofia 23, marked in green, is the only one without a dedicated game chip. The same model can also be found under different brands."
+    />
 
     <p>
         Returning to the development branch derived directly from the Odyssey, I can also loosely
@@ -271,9 +281,9 @@
         ball movement (again a feature once considered by Baer's team as well). The new version was
         complemented by a simplified <em>Rally</em> variant and, conversely, an improved
         <em>Olympic</em>
-        version (apparently differing only in the wiring of the game switches), which then spread
-        further around the world in the form of various clones and modifications. Practically
-        identical games can thus be found in Australia, as a construction guide for the
+        version (apparently differing only in the wiring of the game switches), which then spread further
+        around the world in the form of various clones and modifications. Practically identical games
+        can thus be found in Australia, as a construction guide for the
         <em>Video Ball</em>
         game in the magazine <em>Electronics Australia</em>, whose readers additionally gave the
         game simple sound effects, and also as the ready-made game <em>Videolympic</em>. A device
@@ -305,7 +315,8 @@
 
     <p>
         A technological rarity was created by the American company Executive Games. Their <em
-            >TV Tennis</em>
+            >TV Tennis</em
+        >
         game, developed during 1975 in cooperation with MIT, is in one of its parts perhaps the most analog
         design to be found in this generation of games (though it also contains a substantial digital
         part), and is another example of the popularity of the aforementioned reference "sawtooth" principle.
@@ -353,13 +364,13 @@
         of on-screen ball games. The <em>TV TAG</em> game was published in
         <em>Popular Electronics</em>
         as early as November 1972, just a few months after the launch of the first <em>Odyssey</em>
-        console (which can also play the same game), making it the oldest known magazine guide for a
-        television game. Conversely, the <em>Space-War</em> game, built mostly from CMOS integrated
-        circuits, was one of the last American games without dedicated chips in 1976. (Its author,
-        Joseph A. Weisbecker, was quite an interesting person in his own right, credited with
-        designs of microprocessors, computers and much more.) What both games have in common is that
-        they don't need a ball and its associated circuits at all, since they are based on direct
-        contact between the two players - in one case it is a game of tag, in the other shooting by
+        console (which can also play the same game), making it the oldest known magazine guide for a television
+        game. Conversely, the <em>Space-War</em> game, built mostly from CMOS integrated circuits,
+        was one of the last American games without dedicated chips in 1976. (Its author, Joseph A.
+        Weisbecker, was quite an interesting person in his own right, credited with designs of
+        microprocessors, computers and much more.) What both games have in common is that they don't
+        need a ball and its associated circuits at all, since they are based on direct contact
+        between the two players - in one case it is a game of tag, in the other shooting by
         instantly stretching the player across the whole width of the screen. Thanks to this, both
         designs are very simple. Perhaps precisely for this reason, though, the late
         <em>Space-War</em> game jumped like a spark to the opposite end of the then divided world, to
@@ -399,7 +410,8 @@
 
     <Figure
         image={img["5-kolaz-casopisy.jpg"]}
-        caption="A kaleidoscope of magazine guides: In black and white at top left the Japanese Hockey, a drawing from Elektor, Pongtronics, Bumper and the narrow TV Tag, at far right the Australian Video Ball, at the bottom the modular Polish and Danish variants based on Amatérské radio and Elektor respectively, and Bumper from the inside. Going up, Space-War, and then, now in color, its Soviet variants Air Battle and Sea Battle, surrounded by B. Igoshev's oscilloscope games, and at bottom right the extensive projects of M. Ovechkin." />
+        caption="A kaleidoscope of magazine guides: In black and white at top left the Japanese Hockey, a drawing from Elektor, Pongtronics, Bumper and the narrow TV Tag, at far right the Australian Video Ball, at the bottom the modular Polish and Danish variants based on Amatérské radio and Elektor respectively, and Bumper from the inside. Going up, Space-War, and then, now in color, its Soviet variants Air Battle and Sea Battle, surrounded by B. Igoshev's oscilloscope games, and at bottom right the extensive projects of M. Ovechkin."
+    />
 
     <p>
         At the same time and in the same magazine, we find two more articles running in parallel:
@@ -440,8 +452,8 @@
     </p>
 
     <p>
-        Even this is not the end of the avalanche of Soviet "telegames" ("teleigr"), though, since a
-        few years before the aforementioned book other authors approached the matter differently,
+        Even this is not the end of the avalanche of Soviet "telegames" ("teleigry"), though, since
+        a few years before the aforementioned book other authors approached the matter differently,
         and came up with guides that were, on the contrary, as simple as possible. V. Tishchenko
         from Kyiv thus published a simplified clone of the original transistor Odyssey game under
         the title "Games on the TV Screen" (1980) in a somewhat surprising place - a magazine for
@@ -468,13 +480,14 @@
     <p>
         Besides the amateur guides, industrially manufactured home games were also made in the
         Soviet Union, of which only the oldest truly fits the topic of this article - the <em
-            >Palestra 02</em>
-        (1978), boasting a name straight out of antiquity, manufactured in Lviv, Ukraine, at an
-        enterprise with the bizarrely Soviet designation "Lviv Production Association named after V.
-        I. Lenin" (over time under various abbreviations such as LPO, PTO, LOORPO, or later LORTA).
-        The four-kilogram box hides 117 TTL integrated circuits on four large boards, which makes it
-        the most complicated mass-produced home console east of the Iron Curtain, and probably in
-        the whole world (and we can make a fifth tally mark for generous Soviet projects bigger than
+            >Palestra 02</em
+        >
+        (1978), boasting a name straight out of antiquity, manufactured in Lviv, Ukraine, at an enterprise
+        with the bizarrely Soviet designation "Lviv Production Association named after V. I. Lenin" (over
+        time under various abbreviations such as LPO, PTO, LOORPO, or later LORTA). The four-kilogram
+        box hides 117 TTL integrated circuits on four large boards, which makes it the most complicated
+        mass-produced home console east of the Iron Curtain, and probably in the whole world (and we can
+        make a fifth tally mark for generous Soviet projects bigger than
         <em>Pong</em>). It is a fully digital game which in function is almost unbelievably similar
         to the games based on the AY-3-8500, but extended even further (an added Volleyball game, 6
         ball speed modes, etc.), with a different sound, and some parts of the circuitry resembling
@@ -489,8 +502,8 @@
         already contained dedicated chips and thus don't quite belong here - there were quite a few
         of them in the Soviet Union: Practically at the same time as the <em>Palestra</em>, the
         <em>Turnir</em>
-        game (1978), built on imported AY-3-8500 chips, went into production in Moscow at the
-        so-called pilot plant of the Research Institute of Long-Range Radio Communication, while the
+        game (1978), built on imported AY-3-8500 chips, went into production in Moscow at the so-called
+        pilot plant of the Research Institute of Long-Range Radio Communication, while the
         <em>Elektronika Eksi Video 01</em> (1978) was created at the Eksiton enterprise (Pavlovskiy
         Posad in the Moscow region), which started producing a slightly modified clone of the
         AY-3-8500 chip for its game under the designation К145ИК17. This chip was also produced by
@@ -508,8 +521,8 @@
         television plant "Elektron" in Ukraine, though in both cases these were only exclusive
         small-batch variants. More of a curiosity was probably the БВ-010С television game and
         digital clock module, offered as part of the modular Estonia БВ-010 stereo hi-fi system
-        (before the mid-1980s) from the Tallinn plant "Punane-RET" in Estonia. All of it still with
-        the same chip and the same games.
+        (before the mid-1980s) from the Tallinn plant "Punane-RET" in Estonia. All of these still
+        used the same chip, with the same games.
     </p>
 
     <p>
@@ -559,14 +572,14 @@
     </p>
 
     <p>
-        The record number of different guides in Soviet magazines points to a trend that we
-        experienced only slightly less here in Czechoslovakia: the importance of home tinkering in a
-        shortage economy. Empty store shelves, and what you don't make yourself, you don't have... A
-        parallel with our homeland can also be seen in the existence of domestic production of
-        consoles and chips for them, albeit poorly available and in tiny quantities, in original
-        projects (including fairly extensive ones) going beyond mere copying of the West, or in the
-        similar year of their arrival. Compared to Czechoslovakia, however, the Soviet Union stayed
-        frozen in this phase for practically a whole decade longer.
+        The sheer volume of guides in Soviet magazines points to a trend that we experienced only
+        slightly less here in Czechoslovakia: the importance of home tinkering in a shortage
+        economy. Empty store shelves, and what you don't make yourself, you don't have... A parallel
+        with our homeland can also be seen in the existence of domestic production of consoles and
+        chips for them, albeit poorly available and in tiny quantities, in original projects
+        (including fairly extensive ones) going beyond mere copying of the West, or in the similar
+        year of their arrival. Compared to Czechoslovakia, however, the Soviet Union stayed frozen
+        in this phase for practically a whole decade longer.
     </p>
 
     <p>
@@ -608,7 +621,8 @@
 
     <Figure
         image={img["6-knihy.jpg"]}
-        caption="In the end, a few rather unusual guides were also published in book form" />
+        caption="In the end, a few rather unusual guides were also published in book form"
+    />
 
     <p>
         So what have we actually found out about Czechoslovak television games made of discrete
@@ -632,7 +646,7 @@
     </p>
 
     <p>
-        Finally, I owe thanks to Vojta Straka of the Herní historie (Game History) association,
+        Finally, I owe thanks to Vojtěch Straka of the Herní historie (Game History) association,
         whose extensive research in this area is closely tied to the creation of my article, as well
         as to the long list of authors of the online content cited here. Romanizations of Cyrillic
         names are not always unambiguous and may differ between sources.
@@ -642,7 +656,8 @@
     <ul>
         <li>
             Wikipedia: <a href="https://en.wikipedia.org/wiki/History_of_video_game_consoles"
-                >History of video game consoles</a>
+                >History of video game consoles</a
+            >
         </li>
         <li>
             David L. Heiserman: How to Design and Build Your Own Custom TV Games (TAB Books inc.,
@@ -650,17 +665,20 @@
         </li>
         <li>
             <a href="https://www.pong-story.com/sanders.htm"
-                >Birth of the video game at Sanders Associates</a>
+                >Birth of the video game at Sanders Associates</a
+            >
         </li>
         <li>
             <a
                 href="https://www.gamingalexandria.com/wp/2022/09/magnavox-odyssey-development-files/"
-                >Magnavox Odyssey – Development Files</a>
+                >Magnavox Odyssey – Development Files</a
+            >
         </li>
         <li>
             Ethan Johnson: <a
                 href="https://thehistoryofhowweplay.wordpress.com/2026/08/22/1974s-bizarre-game-consoles"
-                >1974’s Bizarre Game Consoles</a>
+                >1974’s Bizarre Game Consoles</a
+            >
         </li>
         <li>
             Ing. Günther Bless: "Odyssee", ein elektronischer Spielsimulator (Funk-Technik 24/1973
@@ -725,7 +743,8 @@
         <li>
             Jose Antonio Ortigueira Amor: <a
                 href="https://retroordenadoresorty.blogspot.com/2025/04/consola-pong-hinno-hit-componentes.html"
-                >Consola pong Inno-Hit</a>
+                >Consola pong Inno-Hit</a
+            >
         </li>
         <li>
             Dorian Hanuš: MÍR a vysokou životní úroveň všemu lidstvu (ČS Televize weekly 22/1976)
@@ -737,7 +756,8 @@
         </li>
         <li>
             Videomaster Ltd.: <a href="https://archive.org/details/videomaster-kit-manual"
-                >Videomaster VMIII kit - Assembly manual</a> (September 1975)
+                >Videomaster VMIII kit - Assembly manual</a
+            > (September 1975)
         </li>
         <li>
             David Edwards: Build your own Video Ball Game (Electronics Australia 5/1976 p. 38,
@@ -746,11 +766,13 @@
         <li>
             <a
                 href="https://ia600705.us.archive.org/25/items/1stGenPong/Discrete%20Consoles/IEA_Technology_Tele-Tainment.pdf"
-                >Tele-tainment Instructions</a> (IEA Technology Ltd.)
+                >Tele-tainment Instructions</a
+            > (IEA Technology Ltd.)
         </li>
         <li>
             Martin F. Martorell: <a href="https://prehistoricgaming.com/en/videosport-mk2-1975/"
-                >VideoSport MK2</a>
+                >VideoSport MK2</a
+            >
         </li>
         <li><a href="https://pong-story.com/executivegames.htm">Executive Games</a></li>
         <li>Dash et al.: Electronic Games (patent US4034983A)</li>
@@ -771,7 +793,8 @@
         <li>Joseph A. Weisbecker: Space War Game (Popular Electronics 4/1976 p. 40)</li>
         <li>
             Wikipedia: <a href="https://en.wikipedia.org/wiki/Joseph_Weisbecker"
-                >Joseph Weisbecker</a>
+                >Joseph Weisbecker</a
+            >
         </li>
         <li>Л. Шепотковский, М. Чарный: Телеигра Теннис и Хоккей (Радио 1/1978 p. 22)</li>
         <li>М. Бибиков, Ю. Колпаков: Телеигра Морской бой (Радио 9/1978 p. 17)</li>
@@ -797,19 +820,22 @@
         <li>
             ЛООРПО им. В. И. Ленина: <a
                 href="https://rw6ase.narod.ru/index1/wideoteh/w_pris/palestra02.djvu"
-                >Руководство по эксплуатации приставки телевизионной ПАЛЕСТРА 02</a> (1978)
+                >Руководство по эксплуатации приставки телевизионной ПАЛЕСТРА 02</a
+            > (1978)
         </li>
         <li>Е. Великович: домашние телеигры (Радио 10/1977 p. 60)</li>
         <li>Игровые автоматы (Радио 3/1977 p. 49)</li>
         <li>А. Богдан: Электроника Болгарии (Радио 11/1978 p. 35)</li>
         <li>
             Валентин Холмогоров: <a href="https://habr.com/ru/companies/ruvds/articles/986464/"
-                >Советский «Плейстейшн». История отечественных игровых телеприставок</a>
+                >Советский «Плейстейшн». История отечественных игровых телеприставок</a
+            >
         </li>
         <li>
             Wikibooks: <a
                 href="https://ru.wikibooks.org/wiki/%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B5_%D1%82%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BF%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8/%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D1%87%D0%BD%D1%8B%D0%B5_%D1%82%D0%B5%D0%BB%D0%B5%D0%B8%D0%B3%D1%80%D1%8B"
-                >Советские телевизионные игровые приставки/Фабричные телеигры</a>
+                >Советские телевизионные игровые приставки/Фабричные телеигры</a
+            >
         </li>
         <li>
             Wikipedia: <a href="https://ru.wikipedia.org/wiki/%D0%9A145%D0%98%D0%9A17">К145ИК17</a>
@@ -817,13 +843,15 @@
         <li>ЦКРО Радиотехниика: Турнир (Радио 6/1978, advertisement, back cover)</li>
         <li>
             Сергей Николаевич Ермаков: <a href="https://rw6ase.narod.ru/index0/zd_v9.6.pdf"
-                >Список предприятий, производивших бытовую радиоаппаратуру в 1945-2010 гг.</a>
+                >Список предприятий, производивших бытовую радиоаппаратуру в 1945-2010 гг.</a
+            >
         </li>
         <li>Б. Колобов: Сквош по пятому каналу (Юный техник 10/1989 p. 71)</li>
         <li>
             Wikipedia: <a
                 href="https://en.wikipedia.org/wiki/List_of_first_generation_home_video_game_consoles"
-                >List of first generation home video game consoles</a>
+                >List of first generation home video game consoles</a
+            >
         </li>
     </ul>
 
@@ -833,31 +861,37 @@
         <li>
             Earth: <a
                 href="https://commons.wikimedia.org/wiki/Category:Earth_from_space#/media/File:01-Earth_(LofE01256).png"
-                >Wikimedia</a>
+                >Wikimedia</a
+            >
         </li>
         <li>PONG: <a href="https://cs.wikipedia.org/wiki/Pong">Wikipedia</a></li>
         <li>
             Videosport MK2: <a href="https://prehistoricgaming.com/en/videosport-mk2-1975/"
-                >Martin F. Martorell</a>
+                >Martin F. Martorell</a
+            >
         </li>
         <li>
             Palestra 02: <a href="https://rw6ase.narod.ru/index1/wideoteh/w_pris/palestra02.html"
-                >Domestic Technology of the 20th Century</a>
+                >Domestic Technology of the 20th Century</a
+            >
         </li>
         <li>
             Ping-o-Tronic: <a
                 href="https://www.nightfallcrew.com/22/03/2014/zanussiseleco-ping-o-tronic-1nd-edition-1975"
-                >Nightfall</a>
+                >Nightfall</a
+            >
         </li>
         <li>
             Odyssey: <a
                 href="https://cs.wikipedia.org/wiki/Magnavox_Odyssey#/media/Soubor:Magnavox-Odyssey-Console-Set.jpg"
-                >Wikipedia</a>
+                >Wikipedia</a
+            >
         </li>
         <li>
             Videomaster Olympic: <a
                 href="https://fr.wikipedia.org/wiki/Fichier:Videomaster_Olympic_Home_TV_Game_VM3-D_(4).jpg"
-                >Wikipedia</a>
+                >Wikipedia</a
+            >
         </li>
     </ul>
     <p>Professional games:</p>
@@ -868,7 +902,8 @@
                 >Smithsonian</a
             >,
             <a href="https://www.facebook.com/groups/519858548078322/posts/24642289408741899/"
-                >Facebook</a>
+                >Facebook</a
+            >
         </li>
         <li>
             Odyssey: <a
@@ -877,12 +912,14 @@
             >,
             <a
                 href="https://upload.wikimedia.org/wikipedia/commons/a/a8/Magnavox-Odyssey-Open-FL.jpg"
-                >Wikimedia</a>
+                >Wikimedia</a
+            >
         </li>
         <li>
             PONG: <a href="https://cs.wikipedia.org/wiki/Pong">Wikipedia</a>,
             <a href="https://lakeside-arcade.com/2026/01/25/atari-pong-pcb-repair-logs/"
-                >Lakeside Arcade</a>
+                >Lakeside Arcade</a
+            >
         </li>
         <li>
             Videosport MK2: <a href="https://prehistoricgaming.com/en/videosport-mk2-1975/"
@@ -897,7 +934,8 @@
             >,
             <a
                 href="https://en.wikipedia.org/wiki/Ping-O-Tronic#/media/File:Seleco_Ping_o_Tronic_(Mod._PP_4)_(Zanussi)_(7).jpg"
-                >Wikipedia</a>
+                >Wikipedia</a
+            >
         </li>
         <li>
             Videomaster Olympic: <a
@@ -911,7 +949,8 @@
                 >Domestic Technology of the 20th Century</a
             >,
             <a href="http://www.leningrad.su/museum/show_big.php?n=2987"
-                >Soviet digital electronics museum</a>
+                >Soviet digital electronics museum</a
+            >
         </li>
         <li>Turnir: <a href="https://amuseum.bg/katalog/tv-turnir">Amuseum</a></li>
     </ul>
@@ -920,15 +959,18 @@
         <li>
             <a
                 href="https://sandacite.bg/%D1%82%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-23-%D1%82%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0-%D0%B8%D0%B3%D1%80%D0%B0/"
-                >Sofia 23</a>
+                >Sofia 23</a
+            >
         </li>
         <li>
             <a href="https://rw6ase.narod.ru/index1/wideoteh/w_pris/rubin_c1_205.html"
-                >Рубин Ц1-205</a>
+                >Рубин Ц1-205</a
+            >
         </li>
         <li>
             <a href="https://rw6ase.narod.ru/index1/tw/tw_cw_stand/elektron_c265d.html"
-                >Электрон Ц-265ДЛ</a>
+                >Электрон Ц-265ДЛ</a
+            >
         </li>
         <li>
             <a href="https://en.wikipedia.org/wiki/Odyssey_series">Magnavox Odyssey 4305</a>
@@ -937,21 +979,25 @@
         <li>
             <a
                 href="https://en.wikipedia.org/wiki/List_of_first_generation_home_video_game_consoles#/media/File:Salora_Playmaster.jpg"
-                >Salora Playmaster</a>
+                >Salora Playmaster</a
+            >
         </li>
         <li>
             <a href="https://commons.wikimedia.org/wiki/File:Noblex_Micro_14_14NT320.jpg"
-                >Noblex Micro 14 14NT320</a>
+                >Noblex Micro 14 14NT320</a
+            >
         </li>
         <li>
             <a
                 href="https://www.netauktion.se/auktion/produkt/telefunken-palcolor-8610-inkl-tv-spel"
-                >Telefunken Palcolor 8610</a>
+                >Telefunken Palcolor 8610</a
+            >
         </li>
         <li>
             <a
                 href="https://20thcenturyvideogames.com/index.php?action=vermodelos&amp;submenu=&amp;tipo=2&amp;sistema=TVPong&amp;verletra=verfamilias#TVPong"
-                >Philips 12B 615-22</a>
+                >Philips 12B 615-22</a
+            >
         </li>
         <li>
             Thomson: <a
@@ -962,16 +1008,19 @@
         <li>
             <a
                 href="https://20thcenturyvideogames.com/sistemas/Blaupunkt/modelos/BlaupunktSantiagoColorTS.jpg"
-                >Blaupunkt Santiago Color TS</a>
+                >Blaupunkt Santiago Color TS</a
+            >
         </li>
         <li>
             <a href="https://20thcenturyvideogames.com/sistemas/TVPong/modelos/LoeweCT5160.jpg"
-                >Loewe CT 5160 UTG, CT 5162 UTG</a>
+                >Loewe CT 5160 UTG, CT 5162 UTG</a
+            >
         </li>
         <li>
             <a
                 href="https://20thcenturyvideogames.com/index.php?action=vermodelos&amp;submenu=&amp;tipo=2&amp;sistema=TVPong&amp;verletra=verfamilias#TVPong"
-                >TEC Astrosound TV 12-4 R/W</a>
+                >TEC Astrosound TV 12-4 R/W</a
+            >
         </li>
     </ul>
     <p>Magazine guides:</p>

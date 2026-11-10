@@ -1,11 +1,11 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-import type { Post } from "$src/types";
+import type { VideoPost } from "$src/types";
 import VojtechStraka from "$src/data/authors/vojtech-straka/author";
 import besitka2025 from "$src/data/events/besitka-2025/event";
 // import slides from "./slides.pdf?url";
 
-const post: Post = {
+const post: VideoPost = {
     published: true,
     id: 95,
     slug: "paratexty-ve-sbirkach-spolku-herni-historie",
