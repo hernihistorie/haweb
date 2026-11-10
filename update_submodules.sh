@@ -20,7 +20,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 SUBMODULE=src/data/bulanci-map-sorter
-SPARSE_DIRS=(maps_metadata)
+SPARSE_DIRS=(maps_metadata maps_images)
 
 git submodule init "$SUBMODULE"
 
