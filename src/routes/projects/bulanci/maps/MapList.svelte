@@ -4,6 +4,7 @@
     import { onMount } from "svelte";
     import { useDebounce } from "runed";
     import type { BulanciMap } from "$src/data/bulanci";
+    import { bulanciPlaceGroup, type BulanciPlaceGroup } from "$src/data/bulanciPlaces";
     import Loc from "#lib/components/Loc.svelte";
     import Pagination from "#lib/components/Pagination.svelte";
     import { loc } from "$src/lib/loc";
@@ -37,6 +38,7 @@
     const sort = $derived(parseSort(params.get("sort")));
     const author = $derived(params.get("author") ?? "");
     const year = $derived(params.get("year") ?? "");
+    const place = $derived(params.get("place") ?? "");
     const urlPage = $derived(Math.max(1, parseInt(params.get("page") ?? "", 10) || 1));
 
     // The search is kept locally so that typing isn't disrupted by URL updates.
@@ -98,6 +100,44 @@
     );
     const unknownYearCount = $derived(maps.filter((map) => map.year === null).length);
 
+    /** Keys of the place groups each map was found in */
+    const placeKeys = $derived(
+        new Map(
+            maps.map((map) => [
+                map,
+                new Set(map.placesOfOccurrence.map((place) => bulanciPlaceGroup(place).key)),
+            ]),
+        ),
+    );
+
+    /** Websites and cloud storage services, each sorted by the number of maps */
+    const placeOptions = $derived.by(() => {
+        const options = new Map<string, BulanciPlaceGroup & { count: number }>();
+        for (const map of maps) {
+            const groups = new Map(
+                map.placesOfOccurrence.map((place) => {
+                    const group = bulanciPlaceGroup(place);
+                    return [group.key, group];
+                }),
+            );
+            for (const group of groups.values()) {
+                const option = options.get(group.key) ?? { ...group, count: 0 };
+                option.count++;
+                options.set(group.key, option);
+            }
+        }
+        const sorted = [...options.values()].sort(
+            (a, b) => b.count - a.count || compareStrings(a.name, b.name),
+        );
+        return {
+            webs: sorted.filter((option) => !option.storage),
+            storage: sorted.filter((option) => option.storage),
+        };
+    });
+    const unknownPlaceCount = $derived(
+        maps.filter((map) => map.placesOfOccurrence.length === 0).length,
+    );
+
     const filteredMaps = $derived.by(() => {
         const terms = normalizeForSearch(query).split(/\s+/).filter(Boolean);
         return maps
@@ -114,20 +154,26 @@
                 ) {
                     return false;
                 }
+                if (
+                    place === UNKNOWN
+                        ? map.placesOfOccurrence.length > 0
+                        : place && !placeKeys.get(map)!.has(place)
+                ) {
+                    return false;
+                }
                 const text = searchIndex.get(map)!;
                 return terms.every((term) => text.includes(term));
             })
             .sort((a, b) => compareMaps(a, b, sort));
     });
 
-    const pageSize = $derived(PAGE_SIZE[view]);
-    const pageCount = $derived(Math.max(1, Math.ceil(filteredMaps.length / pageSize)));
+    const pageCount = $derived(Math.max(1, Math.ceil(filteredMaps.length / PAGE_SIZE)));
     // While the search is being typed, the page param is about to be reset
     const currentPage = $derived(
         query.trim() === (params.get("q") ?? "") ? Math.min(urlPage, pageCount) : 1,
     );
-    const pageStart = $derived((currentPage - 1) * pageSize);
-    const pageMaps = $derived(filteredMaps.slice(pageStart, pageStart + pageSize));
+    const pageStart = $derived((currentPage - 1) * PAGE_SIZE);
+    const pageMaps = $derived(filteredMaps.slice(pageStart, pageStart + PAGE_SIZE));
 
     function setPage(pageNum: number) {
         setParams({ page: pageNum > 1 ? String(pageNum) : null });
@@ -139,15 +185,12 @@
     }
 
     function setView(newView: View) {
-        // Keep the first visible map on screen when page sizes differ
-        const newPage = Math.floor(pageStart / PAGE_SIZE[newView]) + 1;
-        setParams({
-            view: newView === "gallery" ? null : newView,
-            page: newPage > 1 ? String(newPage) : null,
-        });
+        setParams({ view: newView === "gallery" ? null : newView });
     }
 
     const sortOptions: { value: string; label: { cs: string; en: string } }[] = [
+        { value: "-places", label: { cs: "Nejvíce výskytů", en: "Most occurrences" } },
+        { value: "places", label: { cs: "Nejméně výskytů", en: "Fewest occurrences" } },
         { value: "name", label: { cs: "Název A–Z", en: "Name A–Z" } },
         { value: "-name", label: { cs: "Název Z–A", en: "Name Z–A" } },
         { value: "year", label: { cs: "Nejstarší", en: "Oldest" } },
@@ -203,6 +246,34 @@
                 {loc({ cs: "Neznámý rok", en: "Unknown year" })}
                 <span class="count">({unknownYearCount})</span>
             </option>
+        </select>
+
+        <select
+            aria-label={loc({ cs: "Výskyt", en: "Found in" })}
+            value={place}
+            onchange={(e) => setFilter({ place: e.currentTarget.value })}
+        >
+            <option value="">{loc({ cs: "Všechny výskyty", en: "Found anywhere" })}</option>
+            <optgroup label={loc({ cs: "Weby", en: "Websites" })}>
+                {#each placeOptions.webs as option (option.key)}
+                    <option value={option.key}>
+                        {option.name} <span class="count">({option.count})</span>
+                    </option>
+                {/each}
+            </optgroup>
+            <optgroup label={loc({ cs: "Úložiště", en: "File hosting" })}>
+                {#each placeOptions.storage as option (option.key)}
+                    <option value={option.key}>
+                        {option.name} <span class="count">({option.count})</span>
+                    </option>
+                {/each}
+            </optgroup>
+            {#if unknownPlaceCount}
+                <option value={UNKNOWN}>
+                    {loc({ cs: "Neznámý výskyt", en: "Unknown origin" })}
+                    <span class="count">({unknownPlaceCount})</span>
+                </option>
+            {/if}
         </select>
 
         <select

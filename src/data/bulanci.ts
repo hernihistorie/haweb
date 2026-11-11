@@ -2,6 +2,7 @@ import slugify from "slugify";
 import { parse } from "yaml";
 import webMetadataRaw from "./bulanci-map-sorter/web_metadata.yaml?raw";
 import authorMetadataRaw from "./bulanci-map-sorter/authors_metadata.yaml?raw";
+import { bulanciPlaceGroup } from "./bulanciPlaces";
 
 /** Metadata for a single map as stored in bulanci-map-sorter/maps_metadata/*.json */
 type BulanciMapJSON = {
@@ -169,7 +170,7 @@ export const bulanciMaps: BulanciMap[] = [...metadataByFilename]
                 ...metadata.places_of_occurrences,
                 ...(duplicatePlaces.get(filename) ?? []),
             ]),
-        ],
+        ].filter(Boolean),
         screenshot: screenshots.get(filename) ?? null,
         loadingScreen: loadingScreens.get(filename) ?? null,
     }))
@@ -283,17 +284,15 @@ export type BulanciPlace =
     /** Uploads to a cloud storage service, grouped */
     | { kind: "storage"; service: string; count: number };
 
-const storageServices: Record<string, string> = { UlozTo: "Ulož.to", Webshare: "Webshare" };
-
 /** Resolves places of occurrence: documented webs first, then other webs, then cloud storage */
 export function resolveBulanciPlaces(places: string[]): BulanciPlace[] {
     const documentedWebs: BulanciPlace[] = [];
     const otherWebs: BulanciPlace[] = [];
     const storageCounts = new Map<string, number>();
     for (const place of places) {
-        const service = place.includes("_") ? storageServices[place.split("_")[0]] : undefined;
-        if (service) {
-            storageCounts.set(service, (storageCounts.get(service) ?? 0) + 1);
+        const group = bulanciPlaceGroup(place);
+        if (group.storage) {
+            storageCounts.set(group.name, (storageCounts.get(group.name) ?? 0) + 1);
         } else if (bulanciWebsByDomain[place]) {
             documentedWebs.push({ kind: "web", domain: place, web: bulanciWebsByDomain[place] });
         } else if (place) {

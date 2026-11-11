@@ -15,24 +15,26 @@ export function mapListHref(filters: Record<string, string>): string {
 
 export type View = "gallery" | "table";
 
-export const PAGE_SIZE: Record<View, number> = { gallery: 24, table: 50 };
+export const PAGE_SIZE = 25;
 
-/** URL parameter value standing for an unknown author or year */
+/** URL parameter value standing for an unknown author, year or place */
 export const UNKNOWN = "-";
 
-export type SortKey = "name" | "year" | "author";
+const SORT_KEYS = ["places", "name", "year", "author"] as const;
+/** `places` sorts by the number of places of occurrence */
+export type SortKey = (typeof SORT_KEYS)[number];
 export type Sort = { key: SortKey; desc: boolean };
 
-export const DEFAULT_SORT: Sort = { key: "name", desc: false };
+export const DEFAULT_SORT: Sort = { key: "places", desc: true };
+
+/** Counts are most interesting from the highest, so they're sorted descending first */
+export const isDescendingFirst = (key: SortKey): boolean => key === "places";
 
 /** Parses the `sort` URL parameter: the key, prefixed by `-` for descending order */
 export function parseSort(value: string | null): Sort {
     const desc = value?.startsWith("-") ?? false;
-    const key = value?.replace(/^-/, "");
-    if (key === "name" || key === "year" || key === "author") {
-        return { key, desc };
-    }
-    return DEFAULT_SORT;
+    const key = SORT_KEYS.find((key) => key === value?.replace(/^-/, ""));
+    return key ? { key, desc } : DEFAULT_SORT;
 }
 
 export function formatSort(sort: Sort): string {
@@ -45,6 +47,11 @@ const collator = new Intl.Collator("cs");
 export function compareMaps(a: BulanciMap, b: BulanciMap, sort: Sort): number {
     const direction = sort.desc ? -1 : 1;
     switch (sort.key) {
+        case "places":
+            return (
+                direction * (a.placesOfOccurrence.length - b.placesOfOccurrence.length) ||
+                collator.compare(a.name, b.name)
+            );
         case "name":
             return direction * collator.compare(a.name, b.name);
         case "year":

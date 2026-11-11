@@ -6,7 +6,7 @@
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
     import MapImage from "./MapImage.svelte";
-    import { mapHref, type Sort, type SortKey } from "./mapList";
+    import { isDescendingFirst, mapHref, type Sort, type SortKey } from "./mapList";
 
     interface Props {
         maps: BulanciMap[];
@@ -17,7 +17,7 @@
     let { maps, sort, onsort }: Props = $props();
 
     function toggleSort(key: SortKey) {
-        onsort({ key, desc: sort.key === key ? !sort.desc : false });
+        onsort({ key, desc: sort.key === key ? !sort.desc : isDescendingFirst(key) });
     }
 </script>
 
@@ -42,7 +42,7 @@
                 {@render sortableHeader("author", { cs: "Autor", en: "Author" })}
                 {@render sortableHeader("year", { cs: "Rok", en: "Year" })}
                 <th><Loc cs="Hudba" en="Music" /></th>
-                <th><Loc cs="Výskyty" en="Found in" /></th>
+                {@render sortableHeader("places", { cs: "Výskyty", en: "Found in" })}
             </tr>
         </thead>
         <tbody>
