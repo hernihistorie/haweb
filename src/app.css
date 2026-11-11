@@ -214,6 +214,10 @@ button {
     font-family: "Barlow", sans-serif;
 }
 
+button:not(.link) {
+    cursor: pointer;
+}
+
 button:not(.link),
 input {
     border: 2px solid var(--color-primary);
@@ -221,7 +225,6 @@ input {
     padding: 8px 16px;
     font-size: 22px;
     margin: 8px;
-    cursor: pointer;
 }
 
 button:not(.link).active,

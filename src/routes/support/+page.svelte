@@ -90,7 +90,8 @@
     <p>
         <Loc
             cs="Finančně nás můžete podpořit na následujících místech:"
-            en="You can financially support us at the following places:" />
+            en="You can financially support us at the following places:"
+        />
     </p>
 
     <dl>
@@ -110,7 +111,8 @@
     <p>
         <Loc
             cs="Zvolte si částku, kterou nás chcete podpořit, a oskenujte kód zapomocí Vaší bankovní aplikace."
-            en="If you have a Czech bank account, you can choose the amount you want to support us with and simply scan the code using your banking app." />
+            en="If you have a Czech bank account, you can choose the amount you want to support us with and simply scan the code using your banking app."
+        />
     </p>
     <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap;">
         <PriceButton value="100" {currencyName} {amount} />
@@ -127,12 +129,14 @@
                 onclick={clickCustomValue}
                 onfocus={clickCustomValue}
                 oninput={inputCustomValue}
-                style="width: 7.5em;"
-                class="customvalue {customValueActive ? 'active' : ''}" />
+                style="width: 7.5em; cursor: pointer;"
+                class="customvalue {customValueActive ? 'active' : ''}"
+            />
             <div
                 class="currency {customValueActive ? 'active' : ''}"
                 id="currency"
-                onclick={() => document.getElementById("customValue")?.focus()}>
+                onclick={() => document.getElementById("customValue")?.focus()}
+            >
                 {currencyName}
             </div>
         </div>
@@ -179,7 +183,8 @@
     <p>
         <Loc
             cs="Děkujeme za vaše příspěvky, které nám pomáhají udržovat a rozšiřovat naše aktivity."
-            en="Thank you for your contributions, which help us maintain and expand our activities." />
+            en="Thank you for your contributions, which help us maintain and expand our activities."
+        />
     </p>
 </article>
 
