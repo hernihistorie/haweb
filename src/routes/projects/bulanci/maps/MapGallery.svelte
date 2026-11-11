@@ -2,6 +2,7 @@
     import type { BulanciMap } from "$src/data/bulanci";
     import { loc } from "$src/lib/loc";
     import MapImage from "./MapImage.svelte";
+    import { mapHref } from "./mapList";
 
     let { maps }: { maps: BulanciMap[] } = $props();
 </script>
@@ -9,19 +10,23 @@
 <ul class="gallery">
     {#each maps as map (map.filename)}
         <li>
-            <figure>
-                <MapImage
-                    image={map.screenshot}
-                    nsfw={map.nsfw}
-                    sizes="(max-width: 520px) calc(100vw - 2em), 320px" />
-                <figcaption>
-                    <span class="name">{map.name}</span>
-                    <span class="meta">
-                        {map.authors.join(", ") || loc({ cs: "neznámý autor", en: "unknown author" })}
-                        {#if map.year}· {map.year}{/if}
-                    </span>
-                </figcaption>
-            </figure>
+            <a href={mapHref(map)}>
+                <figure>
+                    <MapImage
+                        image={map.screenshot}
+                        nsfw={map.nsfw}
+                        revealable={false}
+                        sizes="(max-width: 520px) calc(100vw - 2em), 320px" />
+                    <figcaption>
+                        <span class="name">{map.name}</span>
+                        <span class="meta">
+                            {map.authors.join(", ") ||
+                                loc({ cs: "neznámý autor", en: "unknown author" })}
+                            {#if map.year}· {map.year}{/if}
+                        </span>
+                    </figcaption>
+                </figure>
+            </a>
         </li>
     {/each}
 </ul>
@@ -34,6 +39,17 @@
         padding: 0;
         margin: 0;
         list-style: none;
+    }
+
+    a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:hover .name,
+    a:focus-visible .name {
+        text-decoration: underline;
     }
 
     figure {

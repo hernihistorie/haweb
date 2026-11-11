@@ -6,7 +6,7 @@
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
     import MapImage from "./MapImage.svelte";
-    import type { Sort, SortKey } from "./mapList";
+    import { mapHref, type Sort, type SortKey } from "./mapList";
 
     interface Props {
         maps: BulanciMap[];
@@ -49,12 +49,24 @@
             {#each maps as map (map.filename)}
                 <tr>
                     <td class="thumb">
-                        <MapImage image={map.screenshot} nsfw={map.nsfw} sizes="160px" />
+                        <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
+                            <MapImage
+                                image={map.screenshot}
+                                nsfw={map.nsfw}
+                                revealable={false}
+                                sizes="160px" />
+                        </a>
                     </td>
                     <td class="thumb">
-                        <MapImage image={map.loadingScreen} nsfw={map.nsfw} sizes="160px" />
+                        <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
+                            <MapImage
+                                image={map.loadingScreen}
+                                nsfw={map.nsfw}
+                                revealable={false}
+                                sizes="160px" />
+                        </a>
                     </td>
-                    <td class="name">{map.name}</td>
+                    <td class="name"><a href={mapHref(map)}>{map.name}</a></td>
                     <td>
                         {#if map.authors.length}
                             {map.authors.join(", ")}
@@ -111,6 +123,10 @@
     .thumb {
         width: 160px;
         min-width: 120px;
+    }
+
+    .thumb a {
+        display: block;
     }
 
     .name {

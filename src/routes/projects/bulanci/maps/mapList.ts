@@ -1,4 +1,17 @@
 import type { BulanciMap } from "$src/data/bulanci";
+import { localizeHref } from "$src/lib/paraglide/runtime";
+
+export const MAPS_PATH = "/projects/bulanci/maps";
+
+/** Localized link to the map's own page */
+export const mapHref = (map: Pick<BulanciMap, "id" | "slug">): string =>
+    localizeHref(`${MAPS_PATH}/${map.id}-${map.slug}/`);
+
+/** Localized link to the map list with the given filters */
+export function mapListHref(filters: Record<string, string>): string {
+    const query = new URLSearchParams(filters).toString();
+    return localizeHref(`${MAPS_PATH}/`) + (query ? `?${query}` : "");
+}
 
 export type View = "gallery" | "table";
 
