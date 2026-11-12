@@ -6,6 +6,9 @@
     import Loc from "#lib/components/Loc.svelte";
     import MapGallery from "./maps/MapGallery.svelte";
     import { mapListHref } from "./maps/mapList";
+    import { AUTHORS_PATH } from "./authors/authorList";
+    import FeaturedAuthor from "./authors/FeaturedAuthor.svelte";
+    import { localizeHref } from "$src/lib/paraglide/runtime";
 
     const { data } = $props();
 </script>
@@ -147,6 +150,26 @@
         </a>
     </p>
 
+    <h3><Loc cs="Autoři a kolektivy" en="Creators and Collectives" /></h3>
+    <p>
+        <Loc
+            cs="Mapy a weby vytvořily desítky fanoušků a klanů. Se čtyřmi z nich jsme vedli rozhovory."
+            en="The maps and websites were made by dozens of fans and clans. We interviewed four of them."
+        />
+    </p>
+    <div class="featured-authors">
+        {#each data.interviewees as author (author.slug)}
+            <FeaturedAuthor {author} compact />
+        {/each}
+    </div>
+    <p class="show-all">
+        <a href={localizeHref(`${AUTHORS_PATH}/`)}>
+            <Loc cs="Zobrazit všech" en="Show all" />
+            {data.authorCount}
+            <Loc cs="autorů a kolektivů" en="creators and collectives" />
+        </a>
+    </p>
+
     <h3>Fanouškovské weby</h3>
     <p>
         TODO: asi sem dát diagram co je na samostatné stránce po weby? nebo jen talčítko "Přehled
@@ -157,5 +180,11 @@
 <style>
     .show-all {
         margin-top: 0.75em;
+    }
+
+    .featured-authors {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(19em, 100%), 1fr));
+        gap: 1.25em 1.5em;
     }
 </style>

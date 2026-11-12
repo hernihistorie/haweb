@@ -1,8 +1,9 @@
 <script lang="ts">
     import type { BulanciMap } from "$src/data/bulanci";
-    import { loc } from "$src/lib/loc";
+    import Loc from "#lib/components/Loc.svelte";
     import MapImage from "./MapImage.svelte";
     import { mapHref } from "./mapList";
+    import { authorHref } from "../authors/authorList";
 
     let { maps }: { maps: BulanciMap[] } = $props();
 </script>
@@ -10,23 +11,24 @@
 <ul class="gallery">
     {#each maps as map (map.filename)}
         <li>
-            <a href={mapHref(map)}>
-                <figure>
+            <figure>
+                <a href={mapHref(map)} class="map-link">
                     <MapImage
                         image={map.screenshot}
                         nsfw={map.nsfw}
                         revealable={false}
                         sizes="(max-width: 520px) calc(100vw - 2em), 320px" />
-                    <figcaption>
-                        <span class="name">{map.name}</span>
-                        <span class="meta">
-                            {map.authors.join(", ") ||
-                                loc({ cs: "neznámý autor", en: "unknown author" })}
-                            {#if map.year}· {map.year}{/if}
-                        </span>
-                    </figcaption>
-                </figure>
-            </a>
+                    <span class="name">{map.name}</span>
+                </a>
+                <figcaption class="meta">
+                    {#each map.authors as author, i (author)}
+                        {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
+                    {:else}
+                        <Loc cs="neznámý autor" en="unknown author" />
+                    {/each}
+                    {#if map.year}· {map.year}{/if}
+                </figcaption>
+            </figure>
         </li>
     {/each}
 </ul>
@@ -41,39 +43,46 @@
         list-style: none;
     }
 
+    figure {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        line-height: 1.25;
+        text-align: left;
+    }
+
     a {
-        display: block;
         color: inherit;
         text-decoration: none;
     }
 
-    a:hover .name,
-    a:focus-visible .name {
+    .map-link {
+        display: block;
+    }
+
+    .map-link:hover .name,
+    .map-link:focus-visible .name,
+    .meta a:hover,
+    .meta a:focus-visible {
         text-decoration: underline;
     }
 
-    figure {
-        margin: 0;
-        text-align: left;
+    .name {
+        display: block;
+        padding-top: 0.35em;
+        font-weight: 600;
+        overflow-wrap: anywhere;
     }
 
     figcaption {
-        display: flex;
-        flex-direction: column;
-        padding-top: 0.35em;
-        line-height: 1.25;
-        text-align: left;
+        padding: 0;
         font-style: normal;
-        font-size: 1em;
-    }
-
-    .name {
-        font-weight: 600;
-        overflow-wrap: anywhere;
+        text-align: left;
     }
 
     .meta {
         color: var(--color-text-muted);
         font-size: 0.9em;
+        overflow-wrap: anywhere;
     }
 </style>

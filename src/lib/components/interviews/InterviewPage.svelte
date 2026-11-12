@@ -196,6 +196,9 @@
                         )}
                     </dd>
                 {/if}
+
+                <!-- Extra <dt>/<dd> pairs at the end of the interview's details -->
+                <slot name="meta" />
             </dl>
 
             {#if data.narrator.bio}

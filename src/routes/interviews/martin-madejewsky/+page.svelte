@@ -7,6 +7,7 @@
 
     import { data, MM, RS } from "./interview";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import InterviewAuthorMeta from "$src/routes/projects/bulanci/authors/InterviewAuthorMeta.svelte";
 
     let A = Answer;
     let Q = Question;
@@ -148,5 +149,8 @@
                 <A speaker={MM}>I backed them in the campaign, but they somehow didn't interest me. I miss the simplicity there, so I didn't even try it.</A>
             {/snippet}
         </Loc>
+    {/snippet}
+    {#snippet meta()}
+        <InterviewAuthorMeta name="Made" />
     {/snippet}
 </InterviewPage>

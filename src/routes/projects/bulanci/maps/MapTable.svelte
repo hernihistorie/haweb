@@ -7,6 +7,7 @@
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
     import MapImage from "./MapImage.svelte";
     import { isDescendingFirst, mapHref, type Sort, type SortKey } from "./mapList";
+    import { authorHref } from "../authors/authorList";
 
     interface Props {
         maps: BulanciMap[];
@@ -68,11 +69,11 @@
                     </td>
                     <td class="name"><a href={mapHref(map)}>{map.name}</a></td>
                     <td>
-                        {#if map.authors.length}
-                            {map.authors.join(", ")}
+                        {#each map.authors as author, i (author)}
+                            {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
                         {:else}
                             <span class="unknown"><Loc cs="neznámý" en="unknown" /></span>
-                        {/if}
+                        {/each}
                     </td>
                     <td>{map.year ?? ""}</td>
                     <td class="music">{map.music ?? ""}</td>

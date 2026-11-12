@@ -1,4 +1,4 @@
-import { bulanciMaps } from "$src/data/bulanci";
+import { bulanciAuthors, bulanciMaps } from "$src/data/bulanci";
 import { compareMaps, DEFAULT_SORT } from "./maps/mapList";
 import type { PageServerLoad } from "./$types";
 
@@ -12,5 +12,7 @@ export const load: PageServerLoad = async () => {
             .toSorted((a, b) => compareMaps(a, b, DEFAULT_SORT))
             .slice(0, TOP_MAPS_LIMIT),
         mapCount: bulanciMaps.length,
+        interviewees: bulanciAuthors.filter((author) => author.interview),
+        authorCount: bulanciAuthors.length,
     };
 };

@@ -19,6 +19,7 @@
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
     import { MAPS_PATH, mapListHref, UNKNOWN } from "../mapList";
+    import { authorHref, formatInlineHtml } from "../../authors/authorList";
 
     const { data } = $props();
     const map = $derived(data.map);
@@ -55,14 +56,6 @@
     /** A Wayback Machine link to the source, around the time the map was published */
     const waybackHref = (source: string): string =>
         `https://web.archive.org/web/${map.year ?? 2010}/http://${source}`;
-
-    /** Escapes the text as HTML, except for the few tags descriptions use: <i> and <br> */
-    const formatDescription = (text: string): string =>
-        text
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replace(/&lt;(\/?i|br\s*\/?)&gt;/gi, "<$1>");
 
     const formatSource = (source: string): string =>
         source.startsWith("UlozTo_") ? `Ulož.to (${source.slice("UlozTo_".length)})` : source;
@@ -131,8 +124,7 @@
                 </dt>
                 <dd>
                     {#each map.authors as author, i (author)}
-                        {#if i > 0},
-                        {/if}<a href={mapListHref({ author })}>{author}</a>
+                        {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
                     {:else}
                         <a href={mapListHref({ author: UNKNOWN })} class="unknown">
                             <Loc cs="neznámý" en="unknown" />
@@ -275,7 +267,7 @@
                 <Loc cs="Popis od autora" en="Author's description" />
                 {@render inCzech()}
             </h3>
-            <blockquote lang="cs">{@html formatDescription(map.description)}</blockquote>
+            <blockquote lang="cs">{@html formatInlineHtml(map.description)}</blockquote>
             {#if map.descriptionSource}
                 <p class="citation">
                     <Loc cs="Zdroj:" en="Source:" />
@@ -305,7 +297,7 @@
             <MapGallery maps={data.moreByAuthor} />
             {#if data.moreByAuthorCount > data.moreByAuthor.length}
                 <p class="show-all">
-                    <a href={mapListHref({ author: map.authors[0], sort: "year" })}>
+                    <a href={authorHref(map.authors[0]) + "#maps"}>
                         <Loc cs="Zobrazit všech" en="Show all" />
                         {data.moreByAuthorCount}
                     </a>

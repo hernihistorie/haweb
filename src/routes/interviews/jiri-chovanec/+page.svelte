@@ -7,6 +7,7 @@
 
     import { data, JCH, RS } from "./interview";
     import PageLang from "$src/lib/components/PageLang.svelte";
+    import InterviewAuthorMeta from "$src/routes/projects/bulanci/authors/InterviewAuthorMeta.svelte";
 
     let A = Answer;
     let Q = Question;
@@ -156,5 +157,8 @@
                 <A speaker={JCH}>I was at two. But honestly, I'm a rather unsociable person, so I was hidden somewhere in a corner, watching and cheering. I got into it by chance. Someone told me it existed and asked if I'd come take a look. Once someone was there directly from <i>Bulánci</i>. That's when I finally went. I wandered around the city for an hour before I found it. In the end the crowd gave it away a bit. There were suspiciously many people. I originally thought it was a café, so I walked past it twice. Then I called and asked where it was and found out I'd been walking around it. I went inside and it actually was a café, just with computers set up inside. And the second time I already knew where I was going, because it was at the same place. By then there weren't as many people. By then I also played more. I played with almost everyone who was there.</A>
             {/snippet}
         </Loc>
+    {/snippet}
+    {#snippet meta()}
+        <InterviewAuthorMeta name="Cronos" />
     {/snippet}
 </InterviewPage>
