@@ -4,6 +4,10 @@
     import { projectBulanci } from "./project";
     import BulanciMenu from "./BulanciMenu.svelte";
     import Loc from "#lib/components/Loc.svelte";
+    import MapGallery from "./maps/MapGallery.svelte";
+    import { mapListHref } from "./maps/mapList";
+
+    const { data } = $props();
 </script>
 
 <BulanciMenu />
@@ -128,8 +132,20 @@
     </p>
 
     <h3>Fanouškovské mapy</h3>
-    <p>TODO: sem dát jen top 10 nejrozšířenějších map (podle počtu Places of Occurence)</p>
-    <p>...a pak nějaké tlačítko s "ostatní mapy or sum shit"</p>
+    <p>
+        <Loc
+            cs="Vytvořili jsme archiv více než 750 fanouškovských map, které byly sdíleny na webu. Zde je ukázka nejrozšířenějších map."
+            en="We have created an archive of over 750 fan-made maps that were shared online. Here is a showcase of the most popular maps."
+        />
+    </p>
+    <MapGallery maps={data.topMaps} />
+    <p class="show-all">
+        <a href={mapListHref({})}>
+            <Loc cs="Zobrazit všech" en="Show all" />
+            {data.mapCount}
+            <Loc cs="map" en="maps" />
+        </a>
+    </p>
 
     <h3>Fanouškovské weby</h3>
     <p>
@@ -139,4 +155,7 @@
 </ProjectPage>
 
 <style>
+    .show-all {
+        margin-top: 0.75em;
+    }
 </style>

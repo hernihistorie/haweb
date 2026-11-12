@@ -2,7 +2,7 @@
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import Loc from "#lib/components/Loc.svelte";
     import ProjectMenu from "#lib/components/project/ProjectMenu.svelte";
-    import { pathnameMatches, pathnameStartswith } from "$src/lib/util";
+    import { pathnameStartswith } from "$src/lib/util";
     import { projectMagazines } from "$src/routes/magazines/project";
 </script>
 
