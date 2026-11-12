@@ -4,7 +4,6 @@
     import Meta from "#lib/components/layout/Meta.svelte";
     import { loc } from "$src/lib/loc";
     import { getLocale, localizeHref } from "$src/lib/paraglide/runtime";
-    import IconArchive from "@lucide/svelte/icons/archive";
     import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconGlobe from "@lucide/svelte/icons/globe";
     import IconMap from "@lucide/svelte/icons/map";
@@ -12,6 +11,7 @@
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import BulanciMenu from "../../BulanciMenu.svelte";
+    import BulanciWebLink from "../../BulanciWebLink.svelte";
     import MapList from "../../maps/MapList.svelte";
     import {
         AUTHORS_PATH,
@@ -108,15 +108,7 @@
                         <dd>
                             <ul>
                                 {#each author.webs as web (web.domain)}
-                                    <li>
-                                        <a href={web.url} class="archive-link"
-                                            >{web.domain}<IconArchive
-                                                size="0.9em"
-                                                aria-label="Wayback Machine" /></a>
-                                        {#if web.shownName}
-                                            <span class="muted" lang="cs">{web.shownName}</span>
-                                        {/if}
-                                    </li>
+                                    <li><BulanciWebLink {...web} /></li>
                                 {/each}
                             </ul>
                         </dd>
@@ -285,23 +277,9 @@
         margin-bottom: 0.5em;
     }
 
-    h3 :global(.lucide-icon),
-    .archive-link :global(.lucide-icon) {
+    h3 :global(.lucide-icon) {
         margin: 0;
         vertical-align: -0.15em;
-    }
-
-    h3 :global(.lucide-icon) {
         color: var(--color-text-muted);
-    }
-
-    /* A margin rather than a space, so that the link's underline doesn't extend past the text */
-    .archive-link :global(.lucide-icon) {
-        margin-left: 0.25em;
-    }
-
-    .muted {
-        color: var(--color-text-muted);
-        font-size: 0.85em;
     }
 </style>

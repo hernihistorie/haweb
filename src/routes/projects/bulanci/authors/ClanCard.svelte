@@ -3,6 +3,7 @@
     import Box from "#lib/components/Box.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
+    import BulanciWebLink from "../BulanciWebLink.svelte";
     import { authorHref, mapCountLabel } from "./authorList";
 
     let { clan }: { clan: BulanciAuthor } = $props();
@@ -13,7 +14,7 @@
     {#if clan.webs.length}
         <p class="webs">
             {#each clan.webs as web, i (web.domain)}
-                {#if i > 0},{" "}{/if}<a href={web.url}>{web.domain}</a>
+                {#if i > 0},{" "}{/if}<BulanciWebLink {...web} showName={false} />
             {/each}
         </p>
     {/if}

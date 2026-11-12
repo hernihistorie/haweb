@@ -7,6 +7,7 @@
     import IconMap from "@lucide/svelte/icons/map";
     import IconGlobe from "@lucide/svelte/icons/globe";
     import IconUsers from "@lucide/svelte/icons/users";
+    import BulanciWebLink from "../BulanciWebLink.svelte";
     import {
         authorHref,
         formatInlineHtml,
@@ -62,7 +63,7 @@
                     <span class="label"
                         ><IconGlobe size="1em" /> <Loc cs="Weby" en="Websites" />:</span>
                     {#each author.webs as web, i (web.domain)}
-                        {#if i > 0},{" "}{/if}<a href={web.url}>{web.domain}</a>
+                        {#if i > 0},{" "}{/if}<BulanciWebLink {...web} showName={false} />
                     {/each}
                 </p>
             {/if}

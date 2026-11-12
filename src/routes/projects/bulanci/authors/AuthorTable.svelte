@@ -5,6 +5,7 @@
     import type { LocalizedString } from "$src/types";
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
+    import BulanciWebLink from "../BulanciWebLink.svelte";
     import AuthorMosaic from "./AuthorMosaic.svelte";
     import {
         authorHref,
@@ -76,7 +77,7 @@
                     <td class="number">{author.reach}</td>
                     <td class="webs">
                         {#each author.webs as web (web.domain)}
-                            <a href={web.url}>{web.domain}</a>
+                            <span><BulanciWebLink {...web} showName={false} /></span>
                         {/each}
                     </td>
                     <td>
@@ -156,7 +157,7 @@
         white-space: nowrap;
     }
 
-    .webs a {
+    .webs span {
         display: block;
         font-size: 0.9em;
     }

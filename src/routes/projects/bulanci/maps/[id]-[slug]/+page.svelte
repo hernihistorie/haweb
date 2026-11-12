@@ -16,6 +16,7 @@
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import BulanciMenu from "../../BulanciMenu.svelte";
+    import BulanciWebLink from "../../BulanciWebLink.svelte";
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
     import { MAPS_PATH, mapListHref, UNKNOWN } from "../mapList";
@@ -194,33 +195,9 @@
                                 {place.service}
                                 {#if place.count > 1}<span class="muted">({place.count}×)</span
                                     >{/if}
-                            {:else if place.web}
-                                <IconGlobe size="1em" class="place-icon" />
-                                <a
-                                    href={localizeHref(
-                                        `/projects/bulanci/webs#web-${place.web.id}`,
-                                    )}
-                                >
-                                    {place.domain}
-                                </a>
-                                {#if place.web.shownName}
-                                    <span class="muted" lang="cs">{place.web.shownName}</span>
-                                {/if}
-                                {#if place.web.canonUrl}
-                                    <a
-                                        href={place.web.canonUrl}
-                                        class="archive-link"
-                                        title={loc({
-                                            cs: "Archivovaná verze",
-                                            en: "Archived version",
-                                        })}
-                                    >
-                                        <IconArchive size="0.9em" aria-label="Wayback Machine" />
-                                    </a>
-                                {/if}
                             {:else}
                                 <IconGlobe size="1em" class="place-icon" />
-                                {place.domain}
+                                <BulanciWebLink domain={place.domain} web={place.web} />
                             {/if}
                         </li>
                     {/each}
@@ -259,23 +236,6 @@
             </dl>
         </aside>
     </div>
-
-    {#if map.description}
-        <section>
-            <h3>
-                <IconQuote size="0.9em" />
-                <Loc cs="Popis od autora" en="Author's description" />
-                {@render inCzech()}
-            </h3>
-            <blockquote lang="cs">{@html formatInlineHtml(map.description)}</blockquote>
-            {#if map.descriptionSource}
-                <p class="citation">
-                    <Loc cs="Zdroj:" en="Source:" />
-                    {@render source(map.descriptionSource)}
-                </p>
-            {/if}
-        </section>
-    {/if}
 
     {#if map.descriptionNote}
         <section>
@@ -538,9 +498,11 @@
         margin: 0.2em 0;
     }
 
+    /* Overrides the global icon alignment, which doesn't suit Barlow's low-set letters */
     .places :global(.place-icon),
-    h3 :global(svg) {
-        vertical-align: -0.125em;
+    h3 :global(.lucide-icon) {
+        margin: 0;
+        vertical-align: -0.15em;
         color: var(--color-text-muted);
     }
 
