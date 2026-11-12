@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/state";
-    import { afterNavigate, goto } from "$app/navigation";
+    import { afterNavigate } from "$app/navigation";
+    import { setUrlParams } from "../listParams";
     import { onMount } from "svelte";
     import { useDebounce } from "runed";
     import type { BulanciMap } from "$src/data/bulanci";
@@ -25,7 +26,13 @@
         type View,
     } from "./mapList";
 
-    let { maps }: { maps: BulanciMap[] } = $props();
+    interface Props {
+        maps: BulanciMap[];
+        /** Hidden when the maps are all by one author */
+        authorFilter?: boolean;
+    }
+
+    let { maps, authorFilter = true }: Props = $props();
 
     // The page is prerendered without any query, so the URL is only read once
     // mounted, so that hydration matches the prerendered HTML
@@ -50,21 +57,9 @@
         }
     });
 
-    function setParams(changes: Record<string, string | null>, { replace = false } = {}) {
-        const url = new URL(page.url.href);
-        for (const [key, value] of Object.entries(changes)) {
-            if (value) {
-                url.searchParams.set(key, value);
-            } else {
-                url.searchParams.delete(key);
-            }
-        }
-        goto(url, { replace, reset: false, state: page.state });
-    }
-
     /** Sets a filter, going back to the first page */
     function setFilter(changes: Record<string, string | null>, options?: { replace?: boolean }) {
-        setParams({ ...changes, page: null }, options);
+        setUrlParams({ ...changes, page: null }, options);
     }
 
     const updateQueryParam = useDebounce(
@@ -176,7 +171,7 @@
     const pageMaps = $derived(filteredMaps.slice(pageStart, pageStart + PAGE_SIZE));
 
     function setPage(pageNum: number) {
-        setParams({ page: pageNum > 1 ? String(pageNum) : null });
+        setUrlParams({ page: pageNum > 1 ? String(pageNum) : null });
     }
 
     function setSort(newSort: Sort) {
@@ -185,7 +180,7 @@
     }
 
     function setView(newView: View) {
-        setParams({ view: newView === "gallery" ? null : newView });
+        setUrlParams({ view: newView === "gallery" ? null : newView });
     }
 
     const sortOptions: { value: string; label: { cs: string; en: string } }[] = [
@@ -214,22 +209,24 @@
             oninput={updateQueryParam}
         />
 
-        <select
-            aria-label={loc({ cs: "Autor", en: "Author" })}
-            value={author}
-            onchange={(e) => setFilter({ author: e.currentTarget.value })}
-        >
-            <option value="">{loc({ cs: "Všichni autoři", en: "All authors" })}</option>
-            <option value={UNKNOWN}>
-                {loc({ cs: "Neznámý autor", en: "Unknown author" })}
-                <span class="count">({unknownAuthorCount})</span>
-            </option>
-            {#each authorOptions as option (option.name)}
-                <option value={option.name}>
-                    {option.name} <span class="count">({option.count})</span>
+        {#if authorFilter}
+            <select
+                aria-label={loc({ cs: "Autor", en: "Author" })}
+                value={author}
+                onchange={(e) => setFilter({ author: e.currentTarget.value })}
+            >
+                <option value="">{loc({ cs: "Všichni autoři", en: "All authors" })}</option>
+                <option value={UNKNOWN}>
+                    {loc({ cs: "Neznámý autor", en: "Unknown author" })}
+                    <span class="count">({unknownAuthorCount})</span>
                 </option>
-            {/each}
-        </select>
+                {#each authorOptions as option (option.name)}
+                    <option value={option.name}>
+                        {option.name} <span class="count">({option.count})</span>
+                    </option>
+                {/each}
+            </select>
+        {/if}
 
         <select
             aria-label={loc({ cs: "Rok", en: "Year" })}
