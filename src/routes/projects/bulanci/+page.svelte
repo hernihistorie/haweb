@@ -9,6 +9,7 @@
     import { AUTHORS_PATH } from "./authors/authorList";
     import FeaturedAuthor from "./authors/FeaturedAuthor.svelte";
     import { localizeHref } from "$src/lib/paraglide/runtime";
+    import Arrow from "#lib/components/Arrow.svelte";
 
     const { data } = $props();
 </script>
@@ -143,11 +144,11 @@
     </p>
     <MapGallery maps={data.topMaps} />
     <p class="show-all">
-        <a href={mapListHref({})}>
+        <Arrow href={mapListHref({})}>
             <Loc cs="Zobrazit všech" en="Show all" />
             {data.mapCount}
             <Loc cs="map" en="maps" />
-        </a>
+        </Arrow>
     </p>
 
     <h3><Loc cs="Autoři a kolektivy" en="Creators and Collectives" /></h3>
@@ -163,11 +164,11 @@
         {/each}
     </div>
     <p class="show-all">
-        <a href={localizeHref(`${AUTHORS_PATH}/`)}>
+        <Arrow href={localizeHref(`${AUTHORS_PATH}/`)}>
             <Loc cs="Zobrazit všech" en="Show all" />
             {data.authorCount}
             <Loc cs="autorů a kolektivů" en="creators and collectives" />
-        </a>
+        </Arrow>
     </p>
 
     <h3>Fanouškovské weby</h3>

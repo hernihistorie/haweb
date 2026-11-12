@@ -79,6 +79,6 @@
     .clans {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(min(17em, 100%), 1fr));
-        gap: 1em;
+        gap: 1.75em 1em;
     }
 </style>

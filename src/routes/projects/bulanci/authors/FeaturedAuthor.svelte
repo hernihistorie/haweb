@@ -5,6 +5,8 @@
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import IconMic from "@lucide/svelte/icons/mic";
     import IconMap from "@lucide/svelte/icons/map";
+    import IconGlobe from "@lucide/svelte/icons/globe";
+    import IconUsers from "@lucide/svelte/icons/users";
     import {
         authorHref,
         formatInlineHtml,
@@ -41,12 +43,12 @@
                 <span class="real-name">({interview.name})</span>
             {/if}
         </h3>
-        {#if !compact && otherNames.length}
+        <!-- {#if !compact && otherNames.length}
             <p class="aliases">
                 <Loc cs="Též" en="Also known as" />
                 {otherNames.join(", ")}
             </p>
-        {/if}
+        {/if} -->
         <p class="stats">
             {loc(mapCountLabel(author.mapCount))}
             {#if author.mapYears.length}· {formatYears(author.mapYears)}{/if}
@@ -57,7 +59,8 @@
         {#if !compact}
             {#if author.webs.length}
                 <p class="webs">
-                    <Loc cs="Weby" en="Websites" />:
+                    <span class="label"
+                        ><IconGlobe size="1em" /> <Loc cs="Weby" en="Websites" />:</span>
                     {#each author.webs as web, i (web.domain)}
                         {#if i > 0},{" "}{/if}<a href={web.url}>{web.domain}</a>
                     {/each}
@@ -65,7 +68,8 @@
             {/if}
             {#if author.clans.length}
                 <p class="clans">
-                    <Loc cs="Klany" en="Clans" />:
+                    <span class="label"
+                        ><IconUsers size="1em" /> <Loc cs="Klany" en="Clans" />:</span>
                     {#each author.clans as clan, i (clan)}
                         {#if i > 0},{" "}{/if}<a href={authorHref(clan)}>{clan}</a>
                     {/each}
@@ -77,12 +81,10 @@
         {/if}
         <p class="links">
             <a href={localizeHref("/interviews/" + interview.slug)}>
-                <IconMic size="1em" />
-                <Loc cs="Rozhovor" en="Interview" />
+                <IconMic size="1em" /><Loc cs="Rozhovor" en="Interview" />
             </a>
             <a href={authorHref(author.name)}>
-                <IconMap size="1em" />
-                <Loc cs="Mapy a weby" en="Maps and websites" />
+                <IconMap size="1em" /><Loc cs="Mapy a weby" en="Maps and websites" />
             </a>
         </p>
     </div>
@@ -144,6 +146,22 @@
         overflow-wrap: anywhere;
     }
 
+    .label {
+        color: var(--color-text-muted);
+    }
+
+    /* Overrides the global icon alignment, which doesn't suit Barlow's low-set letters */
+    .label :global(.lucide-icon),
+    .links :global(.lucide-icon) {
+        margin: 0;
+        vertical-align: -0.15em;
+    }
+
+    /* A margin rather than a space, so that the link's underline doesn't extend past the text */
+    .links :global(.lucide-icon) {
+        margin-right: 0.3em;
+    }
+
     .bio {
         margin-top: 0.5em;
     }
@@ -153,12 +171,6 @@
         flex-wrap: wrap;
         gap: 0.25em 1em;
         margin-top: 0.5em;
-    }
-
-    .links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3em;
     }
 
     @media (max-width: 480px) {

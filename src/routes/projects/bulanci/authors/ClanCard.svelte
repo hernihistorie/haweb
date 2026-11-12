@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { BulanciAuthor } from "$src/data/bulanci";
+    import Box from "#lib/components/Box.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
     import { authorHref, mapCountLabel } from "./authorList";
@@ -7,7 +8,7 @@
     let { clan }: { clan: BulanciAuthor } = $props();
 </script>
 
-<article class="clan">
+<Box class="no-margin">
     <h3><a href={authorHref(clan.name)}>{clan.name}</a></h3>
     {#if clan.webs.length}
         <p class="webs">
@@ -27,15 +28,9 @@
     {#if clan.mapCount}
         <p class="label">{loc(mapCountLabel(clan.mapCount))}</p>
     {/if}
-</article>
+</Box>
 
 <style>
-    .clan {
-        padding: 0.75em 1em;
-        border: 1px solid var(--color-secondary-transparent);
-        border-left: 3px solid var(--color-secondary);
-    }
-
     h3 {
         margin: 0 0 0.25em;
         font-size: 1.05em;

@@ -9,9 +9,11 @@
         isClan?: boolean;
         /** The largest width at which the mosaic is shown, in CSS pixels */
         width: number;
+        /** Defaults to that of the screenshots without the HUD */
+        aspectRatio?: string;
     }
 
-    let { maps, isClan = false, width }: Props = $props();
+    let { maps, isClan = false, width, aspectRatio = "800 / 495" }: Props = $props();
 
     const tiles = $derived(maps.slice(0, 4));
 
@@ -23,10 +25,9 @@
 </script>
 
 <!--
-    Screenshots are 800×600, but the bottom ~105px is the game's HUD, so the mosaic
-    has the aspect ratio of the top 800×495 and each tile cuts the HUD off.
+    Screenshots are 800×600, but the bottom ~105px is the game's HUD, which each tile cuts off.
 -->
-<div class="mosaic tiles-{tiles.length}" aria-hidden="true">
+<div class="mosaic tiles-{tiles.length}" style:aspect-ratio={aspectRatio} aria-hidden="true">
     {#each tiles as map, i (map.id)}
         <div class="tile">
             {#if map.screenshot}
@@ -52,7 +53,6 @@
     .mosaic {
         display: grid;
         gap: 2px;
-        aspect-ratio: 800 / 495;
         overflow: hidden;
         background: var(--color-secondary-transparent);
     }

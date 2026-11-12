@@ -1,9 +1,4 @@
-import {
-    bulanciAuthors,
-    bulanciAuthorsBySlug,
-    bulanciMapsByAuthor,
-    getBulanciAuthorPlaces,
-} from "$src/data/bulanci";
+import { bulanciAuthors, bulanciAuthorsBySlug, bulanciMapsByAuthor } from "$src/data/bulanci";
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
@@ -16,10 +11,8 @@ export const load: PageServerLoad = async ({ params }) => {
     if (!author) {
         error(404, "Author not found");
     }
-    const maps = bulanciMapsByAuthor[author.name] ?? [];
     return {
         author,
-        maps,
-        places: getBulanciAuthorPlaces(maps),
+        maps: bulanciMapsByAuthor[author.name] ?? [],
     };
 };
