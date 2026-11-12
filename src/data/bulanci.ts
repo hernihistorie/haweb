@@ -1,8 +1,13 @@
-import slugify from "slugify";
 import { parse } from "yaml";
+import type { InterviewData, LocalizedString } from "$src/types";
+import { data as chovanecInterview } from "$src/routes/interviews/jiri-chovanec/interview";
+import { data as kukalInterview } from "$src/routes/interviews/tomas-kukal/interview";
+import { data as madejewskyInterview } from "$src/routes/interviews/martin-madejewsky/interview";
+import { data as pokornyInterview } from "$src/routes/interviews/jan-pokorny/interview";
 import webMetadataRaw from "./bulanci-map-sorter/web_metadata.yaml?raw";
 import authorMetadataRaw from "./bulanci-map-sorter/authors_metadata.yaml?raw";
 import { bulanciPlaceGroup } from "./bulanciPlaces";
+import { bulanciSlug } from "./bulanciSlug";
 
 /** Metadata for a single map as stored in bulanci-map-sorter/maps_metadata/*.json */
 type BulanciMapJSON = {
@@ -137,9 +142,6 @@ for (const metadata of metadataByFilename.values()) {
     }
 }
 
-const slugifyName = (value: string): string =>
-    slugify(value, { lower: true, strict: true, locale: "cs" });
-
 /** 32-bit FNV-1a hash as 8 hex digits */
 function hash(value: string): string {
     let h = 0x811c9dc5;
@@ -157,7 +159,7 @@ export const bulanciMaps: BulanciMap[] = [...metadataByFilename]
     .filter(([, metadata]) => metadata.privacy !== "hidden" && !metadata.duplicate_of)
     .map(([filename, metadata]) => ({
         id: mapId(filename, metadata.guid),
-        slug: slugifyName(metadata.name) || slugifyName(filename) || "map",
+        slug: bulanciSlug(metadata.name) || bulanciSlug(filename) || "map",
         filename,
         name: normalizeWhitespace(metadata.name) || filename,
         year: parseInt(String(metadata.year), 10) || null,
@@ -204,27 +206,80 @@ function resolveNote(note: string | undefined): string | null {
     return normalized || null;
 }
 
-/**
- * authors_metadata.yaml maps each canonical author name to a list of single-key objects,
- * including `{ alias, visible }` for other names they used
- */
-const authorsYaml = parse(authorMetadataRaw) as Record<string, unknown>;
+/** An author's entry in authors_metadata.yaml, parsed */
+type AuthorMetadata = {
+    name: string;
+    isClan: boolean;
+    descriptionCs: string | null;
+    descriptionEn: string | null;
+    /** Names of the clans the author was a member of */
+    clans: string[];
+    webs: string[];
+    aliases: { alias: string; visible: boolean }[];
+};
 
-type AuthorAlias = { alias: unknown; visible: unknown };
-const isAlias = (entry: unknown): entry is AuthorAlias =>
-    typeof entry === "object" && entry !== null && "alias" in entry && "visible" in entry;
+/**
+ * authors_metadata.yaml maps each canonical author name to null, or to a list of single-key
+ * objects (`description_cs`, `description_en`, `clan`, `web`), plus `{ alias, visible }` for
+ * other names they used. Anything else is a mistake in the data, so it fails the build.
+ */
+function parseAuthorMetadata(raw: string): AuthorMetadata[] {
+    const yaml = parse(raw) as Record<string, unknown>;
+    return Object.entries(yaml).map(([name, entries]) => {
+        const fail = (message: string): never => {
+            throw new Error(`authors_metadata.yaml: ${name}: ${message}`);
+        };
+        const author: AuthorMetadata = {
+            name,
+            isClan: false,
+            descriptionCs: null,
+            descriptionEn: null,
+            clans: [],
+            webs: [],
+            aliases: [],
+        };
+        if (entries === null) {
+            return author;
+        }
+        if (!Array.isArray(entries)) {
+            return fail(`expected a list or null, got ${JSON.stringify(entries)}`);
+        }
+        for (const entry of entries as Record<string, unknown>[]) {
+            const keys = Object.keys(entry ?? {}).sort().join(",");
+            const value = entry?.[Object.keys(entry ?? {})[0]];
+            if (keys === "alias,visible") {
+                if (typeof entry.visible !== "boolean") fail(`'visible' isn't a boolean`);
+                author.aliases.push({
+                    alias: normalizeWhitespace(String(entry.alias)),
+                    visible: entry.visible as boolean,
+                });
+            } else if (keys === "clan" && value === true) {
+                author.isClan = true;
+            } else if (keys === "clan" && typeof value === "string") {
+                author.clans.push(value);
+            } else if (keys === "web" && typeof value === "string") {
+                author.webs.push(value);
+            } else if (keys === "description_cs" && typeof value === "string") {
+                author.descriptionCs = normalizeWhitespace(value);
+            } else if (keys === "description_en" && typeof value === "string") {
+                author.descriptionEn = normalizeWhitespace(value);
+            } else {
+                fail(`unexpected entry ${JSON.stringify(entry)}`);
+            }
+        }
+        return author;
+    });
+}
+
+const authorMetadata = parseAuthorMetadata(authorMetadataRaw);
 
 const normalizeName = (value: string): string => normalizeWhitespace(value).toLocaleLowerCase("cs");
 
-const authorAliases = Object.values(authorsYaml)
-    .flatMap((entries) => (Array.isArray(entries) ? entries : []))
-    .filter(isAlias);
+const authorAliases = authorMetadata.flatMap((author) => author.aliases);
 
 /** Aliases the curators chose not to show, as they may be real names */
 const hiddenAuthorNames = new Set(
-    authorAliases
-        .filter((entry) => entry.visible !== true)
-        .map((entry) => normalizeName(String(entry.alias))),
+    authorAliases.filter((entry) => !entry.visible).map((entry) => normalizeName(entry.alias)),
 );
 
 /**
@@ -233,10 +288,8 @@ const hiddenAuthorNames = new Set(
  */
 const publicAuthorNames = new Set(
     [
-        ...Object.keys(authorsYaml).map(normalizeName),
-        ...authorAliases
-            .filter((entry) => entry.visible === true)
-            .map((entry) => normalizeName(String(entry.alias))),
+        ...authorMetadata.map((author) => normalizeName(author.name)),
+        ...authorAliases.filter((entry) => entry.visible).map((entry) => normalizeName(entry.alias)),
     ].filter((name) => !hiddenAuthorNames.has(name)),
 );
 
@@ -321,3 +374,210 @@ export const bulanciMapPlaces: string[] = [
 ]
     .sort((a, b) => b[1] - a[1])
     .map(([place]) => place);
+
+/** A map as shown in an author's mosaic */
+export type BulanciMapThumbnail = Pick<BulanciMap, "id" | "slug" | "name" | "screenshot">;
+
+export type BulanciAuthorInterview = {
+    slug: string;
+    title: LocalizedString;
+    /** The narrator's real name */
+    name: string;
+    photo: string | null;
+};
+
+export type BulanciAuthorWeb = {
+    domain: string;
+    shownName: string | null;
+    /** Archived version: the documented one, or a Wayback Machine snapshot from around 2010 */
+    url: string;
+};
+
+/** A map author or a collective (clan) from authors_metadata.yaml */
+export type BulanciAuthor = {
+    /** Canonical name, as used in maps' `authors` */
+    name: string;
+    slug: string;
+    isClan: boolean;
+    /** Other names the author used that may be shown publicly */
+    aliases: string[];
+    /** May contain <i> tags */
+    description: LocalizedString | null;
+    /** Websites the author ran */
+    webs: BulanciAuthorWeb[];
+    /** Names of the clans the author was a member of */
+    clans: string[];
+    /** Names of a clan's members; empty for people */
+    members: string[];
+    mapCount: number;
+    /** Distinct years in which the author's maps were published, ascending */
+    mapYears: number[];
+    /** Number of distinct places where any of the author's maps was found */
+    reach: number;
+    /** A few of the most widespread maps that have a screenshot and are safe for work */
+    topMaps: BulanciMapThumbnail[];
+    interview: BulanciAuthorInterview | null;
+};
+
+/** Authors we have interviewed, by their canonical name */
+const authorInterviews: Record<string, InterviewData> = {
+    Cronos: chovanecInterview,
+    JP3035: pokornyInterview,
+    Made: madejewskyInterview,
+    "Tomáš Kukal": kukalInterview,
+};
+
+const AUTHOR_TOP_MAPS_LIMIT = 4;
+
+const byPlaces = (a: BulanciMap, b: BulanciMap): number =>
+    b.placesOfOccurrence.length - a.placesOfOccurrence.length || a.name.localeCompare(b.name, "cs");
+
+/** Maps of each author by the author's canonical name, the most widespread first */
+export const bulanciMapsByAuthor: Record<string, BulanciMap[]> = {};
+for (const map of bulanciMaps) {
+    for (const author of map.authors) {
+        (bulanciMapsByAuthor[author] ??= []).push(map);
+    }
+}
+for (const maps of Object.values(bulanciMapsByAuthor)) {
+    maps.sort(byPlaces);
+}
+
+function localizedDescription(author: AuthorMetadata): LocalizedString | null {
+    const { descriptionCs: cs, descriptionEn: en } = author;
+    if (cs && en) return { cs, en };
+    if (cs) return { cs };
+    if (en) return { en };
+    return authorInterviews[author.name]?.narrator.bio ?? null;
+}
+
+function visibleAliases(author: AuthorMetadata): string[] {
+    const seen = new Set([normalizeName(author.name)]);
+    return author.aliases
+        .filter(({ alias, visible }) => visible && !hiddenAuthorNames.has(normalizeName(alias)))
+        .map(({ alias }) => alias)
+        .filter((alias) => !seen.has(normalizeName(alias)) && seen.add(normalizeName(alias)));
+}
+
+function toAuthor(author: AuthorMetadata): BulanciAuthor {
+    const maps = bulanciMapsByAuthor[author.name] ?? [];
+    const interview = authorInterviews[author.name];
+    return {
+        name: author.name,
+        slug: bulanciSlug(author.name),
+        isClan: author.isClan,
+        aliases: visibleAliases(author),
+        description: localizedDescription(author),
+        webs: author.webs.map((domain) => ({
+            domain,
+            shownName: bulanciWebsByDomain[domain]?.shownName ?? null,
+            url:
+                bulanciWebsByDomain[domain]?.canonUrl ??
+                `https://web.archive.org/web/2010/http://${domain}`,
+        })),
+        clans: author.clans,
+        members: authorMetadata
+            .filter((member) => member.clans.includes(author.name))
+            .map((member) => member.name),
+        mapCount: maps.length,
+        mapYears: [...new Set(maps.map((map) => map.year).filter((year) => year !== null))].sort(
+            (a, b) => a - b,
+        ),
+        reach: new Set(maps.flatMap((map) => map.placesOfOccurrence)).size,
+        topMaps: maps
+            .filter((map) => map.screenshot && !map.nsfw)
+            .slice(0, AUTHOR_TOP_MAPS_LIMIT)
+            .map(({ id, slug, name, screenshot }) => ({ id, slug, name, screenshot })),
+        interview: interview
+            ? {
+                  slug: interview.slug,
+                  title: interview.title,
+                  name: interview.narrator.name,
+                  photo: interview.narrator.photo?.url ?? null,
+              }
+            : null,
+    };
+}
+
+export const bulanciAuthors: BulanciAuthor[] = authorMetadata
+    .map(toAuthor)
+    .sort((a, b) => a.name.localeCompare(b.name, "cs"));
+
+export const bulanciAuthorsBySlug: Record<string, BulanciAuthor> = {};
+export const bulanciAuthorsByName: Record<string, BulanciAuthor> = {};
+for (const author of bulanciAuthors) {
+    if (!author.slug) {
+        throw new Error(`authors_metadata.yaml: ${author.name}: the name has no usable slug`);
+    }
+    const other = bulanciAuthorsBySlug[author.slug];
+    if (other) {
+        throw new Error(
+            `authors_metadata.yaml: ${other.name} and ${author.name} have the same slug '${author.slug}'`,
+        );
+    }
+    bulanciAuthorsBySlug[author.slug] = author;
+    bulanciAuthorsByName[author.name] = author;
+}
+
+for (const author of bulanciAuthors) {
+    for (const clan of author.clans) {
+        if (!bulanciAuthorsByName[clan]?.isClan) {
+            throw new Error(`authors_metadata.yaml: ${author.name}: '${clan}' isn't a clan`);
+        }
+    }
+}
+
+for (const map of bulanciMaps) {
+    for (const author of map.authors) {
+        if (!bulanciAuthorsByName[author]) {
+            throw new Error(
+                `${map.filename}.json: the author '${author}' is missing from authors_metadata.yaml`,
+            );
+        }
+    }
+}
+
+for (const name of Object.keys(authorInterviews)) {
+    if (!bulanciAuthorsByName[name]) {
+        throw new Error(`The interviewed author '${name}' is missing from authors_metadata.yaml`);
+    }
+}
+
+/** A place where an author's maps were found, with the number of their maps found there */
+export type BulanciAuthorPlace = BulanciPlace & { mapCount: number };
+
+/**
+ * Where the author's maps were found: websites first, then cloud storage services,
+ * each by the number of maps. For storage services, `count` is the number of distinct uploads.
+ */
+export function getBulanciAuthorPlaces(maps: BulanciMap[]): BulanciAuthorPlace[] {
+    const places = new Map<string, BulanciAuthorPlace>();
+    const uploads = new Map<string, Set<string>>();
+    for (const map of maps) {
+        const groupsOfMap = new Set<string>();
+        for (const place of map.placesOfOccurrence) {
+            const group = bulanciPlaceGroup(place);
+            let entry = places.get(group.key);
+            if (!entry) {
+                entry = group.storage
+                    ? { kind: "storage", service: group.name, count: 0, mapCount: 0 }
+                    : { kind: "web", domain: place, web: bulanciWebsByDomain[place] ?? null, mapCount: 0 };
+                places.set(group.key, entry);
+            }
+            if (!groupsOfMap.has(group.key)) {
+                groupsOfMap.add(group.key);
+                entry.mapCount++;
+            }
+            if (entry.kind === "storage") {
+                const groupUploads = uploads.get(group.key) ?? new Set();
+                uploads.set(group.key, groupUploads.add(place));
+                entry.count = groupUploads.size;
+            }
+        }
+    }
+    return [...places.values()].sort(
+        (a, b) =>
+            Number(a.kind === "storage") - Number(b.kind === "storage") ||
+            b.mapCount - a.mapCount,
+    );
+}

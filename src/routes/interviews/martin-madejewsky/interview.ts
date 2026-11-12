@@ -25,7 +25,7 @@ export const MM: Person = {
 export {RS, VJ};
 
 export const data: InterviewData = {
-    slug: "martin-madejewský",
+    slug: "martin-madejewsky",
     lang: "cs",
     title: {
         cs: "Rozhovor s Martinem Madejewským",
