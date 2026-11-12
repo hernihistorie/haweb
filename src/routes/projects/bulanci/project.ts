@@ -3,7 +3,7 @@ import type { Project } from '$src/types';
 export const projectBulanci: Project = {
     name: {
         cs: "Bulánci",
-        en: "Combat Pillows (Bulánci)"
+        en: "Bulánci"
     },
     type: "project",
     url: "/projects/bulanci/",

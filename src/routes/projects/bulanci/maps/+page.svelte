@@ -38,10 +38,11 @@
     {#snippet en()}
         <h2>Fan maps</h2>
         <p>
-            In 2006, five years after its release, <i>Bulánci</i> received a <b>map editor</b> that
-            allowed longtime fans to create and share their own maps while also attracting new
-            players. As tools for creating personal websites became increasingly accessible,
-            fan-made maps began to spread more widely across the internet. This gave <i>Bulánci</i>
+            In 2006, five years after its release, <i>Bulánci</i> (also released in English as
+            <em>Combat Pillows</em>) received a <b>map editor</b> that allowed longtime fans to
+            create and share their own maps while also attracting new players. As tools for creating
+            personal websites became increasingly accessible, fan-made maps began to spread more
+            widely across the internet. This gave <i>Bulánci</i>
             a second wind, which lasted until around 2012, when the number of newly published maps gradually
             began to decline. (<a href="https://dspace.cuni.cz/handle/20.500.11956/212593"
                 ><i>Playing, Sharing, Remembering</i></a
