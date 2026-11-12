@@ -181,28 +181,49 @@
             {/if}
         </aside>
 
-        {#if data.places.length}
-            <section class="places-section">
-                <h3>
-                    <IconGlobe size="0.9em" />
-                    <Loc cs="Kde se mapa šířila" en="Where the map was shared" />
-                </h3>
-                <ul class="places">
-                    {#each data.places as place (place.kind === "web" ? place.domain : place.service)}
-                        <li>
-                            {#if place.kind === "storage"}
-                                <IconCloud size="1em" class="place-icon" />
-                                {place.service}
-                                {#if place.count > 1}<span class="muted">({place.count}×)</span
-                                    >{/if}
-                            {:else}
-                                <IconGlobe size="1em" class="place-icon" />
-                                <BulanciWebLink domain={place.domain} web={place.web} />
-                            {/if}
-                        </li>
-                    {/each}
-                </ul>
-            </section>
+        <!-- Next to the technical details: the description first, with the places right below -->
+        {#if map.description || data.places.length}
+            <div class="beside-technical">
+                {#if map.description}
+                    <section>
+                        <h3>
+                            <IconQuote size="0.9em" />
+                            <Loc cs="Popis od autora" en="Author's description" />
+                            {@render inCzech()}
+                        </h3>
+                        <blockquote lang="cs">{@html formatInlineHtml(map.description)}</blockquote>
+                        {#if map.descriptionSource}
+                            <p class="citation">
+                                <Loc cs="Zdroj:" en="Source:" />
+                                {@render source(map.descriptionSource)}
+                            </p>
+                        {/if}
+                    </section>
+                {/if}
+                {#if data.places.length}
+                    <section>
+                        <h3>
+                            <IconGlobe size="0.9em" />
+                            <Loc cs="Kde se mapa šířila" en="Where the map was shared" />
+                        </h3>
+                        <ul class="places">
+                            {#each data.places as place (place.kind === "web" ? place.domain : place.service)}
+                                <li>
+                                    {#if place.kind === "storage"}
+                                        <IconCloud size="1em" class="place-icon" />
+                                        {place.service}
+                                        {#if place.count > 1}<span class="muted">({place.count}×)</span
+                                            >{/if}
+                                    {:else}
+                                        <IconGlobe size="1em" class="place-icon" />
+                                        <BulanciWebLink domain={place.domain} web={place.web} />
+                                    {/if}
+                                </li>
+                            {/each}
+                        </ul>
+                    </section>
+                {/if}
+            </div>
         {/if}
 
         <aside class="technical">
@@ -305,9 +326,13 @@
         grid-row: 1;
     }
 
-    .places-section {
+    .beside-technical {
         grid-row: 2;
         grid-column: 1;
+    }
+
+    /* Lines up with the technical details' heading */
+    .beside-technical > section:first-child {
         margin-top: 0;
     }
 
@@ -333,7 +358,7 @@
         }
 
         .screenshot,
-        .places-section,
+        .beside-technical,
         aside {
             grid-row: auto;
             grid-column: 1;
@@ -395,7 +420,7 @@
         list-style: none;
     }
 
-    /* Side by side with the places' heading, so they share their margins */
+    /* Side by side with the description's or places' heading, so they share their margins */
     .main h3 {
         margin: 1.25rem 0 0.5em;
     }
