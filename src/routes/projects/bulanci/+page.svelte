@@ -69,10 +69,7 @@
             <p>
                 Tento projekt vzniká s požehnáním <a href="http://bulanci.cz/"
                     >původních autorů hry <i>Bulánci</i></a
-                >
-                a za podpory projektu Národního filmového archivu
-                <a href="https://www.nfa.cz/pixelarchiv/cs">Pixelarchiv.cz</a>, který těmto
-                materiálům zajišťuje dlouhodobou archivaci.
+                >.
             </p>
         {/snippet}
         {#snippet en()}
@@ -114,10 +111,7 @@
             <p>
                 This project has the blessing of the <a href="http://bulanci.cz/"
                     >original creators of <i>Bulánci</i></a
-                >
-                and is supported by the National Film Archive's
-                <a href="https://www.nfa.cz/pixelarchiv/cs">Pixelarchiv.cz</a> project, which provides
-                long-term preservation for these materials.
+                >.
             </p>
         {/snippet}
     </Loc>
