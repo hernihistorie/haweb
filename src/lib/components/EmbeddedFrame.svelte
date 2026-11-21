@@ -26,10 +26,14 @@
         if (type !== "enter") navigationCount++;
     });
 
+    /** Path within the app of the page shown in the frame. */
+    function framePath(location: Location) {
+        return location.pathname.slice(app.framePrefix.length) || "/";
+    }
+
     /** Haweb URL of the page shown in the frame. */
     function canonicalHref(location: Location) {
-        const path = location.pathname.slice(app.framePrefix.length);
-        return localizeHref(`${app.prefix}${path}${location.search}`);
+        return localizeHref(`${app.prefix}${framePath(location)}${location.search}`);
     }
 
     function syncTheme(doc: Document) {
@@ -51,6 +55,11 @@
             syncTheme(doc);
 
             const href = canonicalHref(win.location);
+            // E.g. the app redirecting from a staff-only page to its home page
+            if (app.nativePaths.includes(framePath(win.location))) {
+                goto(href, { replace: true });
+                return;
+            }
             if (href !== location.pathname + location.search) {
                 goto(href, { shallow: true, replace: true, state: page.state });
             }
