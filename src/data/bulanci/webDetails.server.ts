@@ -1,5 +1,5 @@
 import { bulanciAuthors } from "./authors.server";
-import { bulanciMaps, byPlaces, type BulanciMap } from "./maps.server";
+import { groupMaps, mapYears } from "./maps.server";
 import {
     bulanciWebsByDomain,
     bulanciWebsById,
@@ -26,17 +26,9 @@ export type BulanciWebDetails = Omit<WebMetadata, "referencedIds"> & {
 };
 
 /** Maps found on each documented website by its domain, the most widespread first */
-export const bulanciMapsByWeb: Record<string, BulanciMap[]> = {};
-for (const map of bulanciMaps) {
-    for (const place of map.placesOfOccurrence) {
-        if (bulanciWebsByDomain[place]) {
-            (bulanciMapsByWeb[place] ??= []).push(map);
-        }
-    }
-}
-for (const maps of Object.values(bulanciMapsByWeb)) {
-    maps.sort(byPlaces);
-}
+export const bulanciMapsByWeb = groupMaps((map) =>
+    map.placesOfOccurrence.filter((place) => bulanciWebsByDomain[place]),
+);
 
 /** Documented fan websites, ordered by id, which roughly follows when they were started */
 export const bulanciWebs: BulanciWebDetails[] = webMetadata
@@ -53,9 +45,7 @@ export const bulanciWebs: BulanciWebDetails[] = webMetadata
                 .map((author) => author.name),
             mapCount: maps.length,
             exclusiveMapCount: maps.filter((map) => map.placesOfOccurrence.length === 1).length,
-            mapYears: [
-                ...new Set(maps.map((map) => map.year).filter((year) => year !== null)),
-            ].sort((a, b) => a - b),
+            mapYears: mapYears(maps),
         };
     })
     .sort((a, b) => a.id - b.id);

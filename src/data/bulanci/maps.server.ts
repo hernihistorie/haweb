@@ -210,5 +210,23 @@ export const bulanciMapPlaces: string[] = [
     .map(([place]) => place);
 
 /** Sorts maps by the number of places they were found in, the most widespread first */
-export const byPlaces = (a: BulanciMap, b: BulanciMap): number =>
+const byPlaces = (a: BulanciMap, b: BulanciMap): number =>
     b.placesOfOccurrence.length - a.placesOfOccurrence.length || a.name.localeCompare(b.name, "cs");
+
+/** Groups maps under each of the keys `keys` gives for them, the most widespread maps first */
+export function groupMaps(keys: (map: BulanciMap) => string[]): Record<string, BulanciMap[]> {
+    const groups: Record<string, BulanciMap[]> = {};
+    for (const map of bulanciMaps) {
+        for (const key of keys(map)) {
+            (groups[key] ??= []).push(map);
+        }
+    }
+    for (const maps of Object.values(groups)) {
+        maps.sort(byPlaces);
+    }
+    return groups;
+}
+
+/** Distinct years in which the maps were published, ascending */
+export const mapYears = (maps: BulanciMap[]): number[] =>
+    [...new Set(maps.map((map) => map.year).filter((year) => year !== null))].sort((a, b) => a - b);

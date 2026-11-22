@@ -4,7 +4,7 @@ import { data as kukalInterview } from "$src/routes/interviews/tomas-kukal/inter
 import { data as madejewskyInterview } from "$src/routes/interviews/martin-madejewsky/interview";
 import { data as pokornyInterview } from "$src/routes/interviews/jan-pokorny/interview";
 import { authorMetadata, visibleAliases, type AuthorMetadata } from "./authorNames.server";
-import { bulanciMaps, byPlaces, type BulanciMap } from "./maps.server";
+import { bulanciMaps, groupMaps, mapYears, type BulanciMap } from "./maps.server";
 import { bulanciSlug } from "./slug";
 import { bulanciWebsByDomain, type BulanciWebRef } from "./webs.server";
 
@@ -56,15 +56,7 @@ const authorInterviews: Record<string, InterviewData> = {
 const AUTHOR_TOP_MAPS_LIMIT = 4;
 
 /** Maps of each author by the author's canonical name, the most widespread first */
-export const bulanciMapsByAuthor: Record<string, BulanciMap[]> = {};
-for (const map of bulanciMaps) {
-    for (const author of map.authors) {
-        (bulanciMapsByAuthor[author] ??= []).push(map);
-    }
-}
-for (const maps of Object.values(bulanciMapsByAuthor)) {
-    maps.sort(byPlaces);
-}
+export const bulanciMapsByAuthor = groupMaps((map) => map.authors);
 
 function localizedDescription(author: AuthorMetadata): LocalizedString | null {
     const { descriptionCs: cs, descriptionEn: en } = author;
@@ -97,9 +89,7 @@ function toAuthor(author: AuthorMetadata): BulanciAuthor {
             .filter((member) => member.clans.includes(author.name))
             .map((member) => member.name),
         mapCount: maps.length,
-        mapYears: [...new Set(maps.map((map) => map.year).filter((year) => year !== null))].sort(
-            (a, b) => a - b,
-        ),
+        mapYears: mapYears(maps),
         reach: new Set(maps.flatMap((map) => map.placesOfOccurrence)).size,
         topMaps: maps
             .filter((map) => map.screenshot && !map.nsfw)
