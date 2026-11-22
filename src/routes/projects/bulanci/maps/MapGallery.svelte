@@ -2,6 +2,7 @@
     import type { BulanciMap } from "$src/data/bulanci/maps.server";
     import Loc from "#lib/components/Loc.svelte";
     import MapImage from "./MapImage.svelte";
+    import MapMonitor from "./MapMonitor.svelte";
     import { mapHref } from "./mapList";
     import { authorHref } from "../authors/authorList";
 
@@ -13,11 +14,13 @@
         <li>
             <figure>
                 <a href={mapHref(map)} class="map-link">
-                    <MapImage
-                        image={map.screenshot}
-                        nsfw={map.nsfw}
-                        revealable={false}
-                        sizes="(max-width: 520px) calc(100vw - 2em), 320px" />
+                    <MapMonitor>
+                        <MapImage
+                            image={map.screenshot}
+                            nsfw={map.nsfw}
+                            revealable={false}
+                            sizes="(max-width: 520px) calc(100vw - 2em), 320px" />
+                    </MapMonitor>
                     <span class="name">{map.name}</span>
                 </a>
                 <figcaption class="meta">

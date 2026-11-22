@@ -6,6 +6,7 @@
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
     import MapImage from "./MapImage.svelte";
+    import MapMonitor from "./MapMonitor.svelte";
     import { isDescendingFirst, mapHref, type Sort, type SortKey } from "./mapList";
     import { authorHref } from "../authors/authorList";
 
@@ -51,20 +52,24 @@
                 <tr>
                     <td class="thumb">
                         <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
-                            <MapImage
-                                image={map.screenshot}
-                                nsfw={map.nsfw}
-                                revealable={false}
-                                sizes="160px" />
+                            <MapMonitor>
+                                <MapImage
+                                    image={map.screenshot}
+                                    nsfw={map.nsfw}
+                                    revealable={false}
+                                    sizes="160px" />
+                            </MapMonitor>
                         </a>
                     </td>
                     <td class="thumb">
                         <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
-                            <MapImage
-                                image={map.loadingScreen}
-                                nsfw={map.nsfw}
-                                revealable={false}
-                                sizes="160px" />
+                            <MapMonitor>
+                                <MapImage
+                                    image={map.loadingScreen}
+                                    nsfw={map.nsfw}
+                                    revealable={false}
+                                    sizes="160px" />
+                            </MapMonitor>
                         </a>
                     </td>
                     <td class="name"><a href={mapHref(map)}>{map.name}</a></td>

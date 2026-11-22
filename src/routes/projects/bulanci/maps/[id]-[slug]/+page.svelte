@@ -21,6 +21,7 @@
     import BulanciWebLink from "../../BulanciWebLink.svelte";
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
+    import MapMonitor from "../MapMonitor.svelte";
     import { MAPS_PATH, mapListHref, UNKNOWN } from "../mapList";
     import { authorHref, formatInlineHtml } from "../../authors/authorList";
 
@@ -102,16 +103,18 @@
     <h2>{map.name}</h2>
 
     <div class="main">
-        <div class="screenshot monitor">
-            <MapImage
-                image={map.screenshot}
-                nsfw={map.nsfw}
-                crop={false}
-                zoomable
-                eager
-                alt={loc({ cs: "Snímek mapy ze hry", en: "In-game screenshot of the map" })}
-                sizes="(max-width: 760px) calc(100vw - 2em), 800px"
-            />
+        <div class="screenshot">
+            <MapMonitor size="large">
+                <MapImage
+                    image={map.screenshot}
+                    nsfw={map.nsfw}
+                    crop={false}
+                    zoomable
+                    eager
+                    alt={loc({ cs: "Snímek mapy ze hry", en: "In-game screenshot of the map" })}
+                    sizes="(max-width: 760px) calc(100vw - 2em), 800px"
+                />
+            </MapMonitor>
         </div>
 
         <aside class="side">
@@ -164,17 +167,19 @@
                 <figure class="loading-screen">
                     <figcaption><Loc cs="Načítací obrazovka" en="Loading screen" /></figcaption>
                     <div class="loading-screen-image">
-                        <MapImage
-                            image={map.loadingScreen}
-                            nsfw={map.nsfw}
-                            crop={false}
-                            zoomable
-                            alt={loc({
-                                cs: "Načítací obrazovka mapy",
-                                en: "Loading screen of the map",
-                            })}
-                            sizes="(max-width: 760px) calc(100vw - 2em), 400px"
-                        />
+                        <MapMonitor size="large">
+                            <MapImage
+                                image={map.loadingScreen}
+                                nsfw={map.nsfw}
+                                crop={false}
+                                zoomable
+                                alt={loc({
+                                    cs: "Načítací obrazovka mapy",
+                                    en: "Loading screen of the map",
+                                })}
+                                sizes="(max-width: 760px) calc(100vw - 2em), 400px"
+                            />
+                        </MapMonitor>
                     </div>
                 </figure>
             {/if}
@@ -319,37 +324,10 @@
         column-gap: 1.5em;
         /* Width of the icons before the labels, by which the values are indented too */
         --icon-slot: 1.4rem;
-        /* Of the monitor around the screenshot */
-        --bezel: 8px;
-        --chin: 16px;
     }
 
     .screenshot {
         grid-row: 1;
-    }
-
-    /* A subtle monitor bezel around the screenshot, with a thicker chin and a power light */
-    .monitor {
-        position: relative;
-        padding: var(--bezel) var(--bezel) var(--chin);
-        border-radius: 10px;
-        background: var(--color-secondary-transparent);
-    }
-
-    .monitor::after {
-        content: "";
-        position: absolute;
-        right: calc(var(--bezel) + 4px);
-        bottom: calc((var(--chin) - 4px) / 2);
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background: var(--color-secondary);
-    }
-
-    .monitor :global(.map-image) {
-        border-radius: 3px;
-        box-shadow: 0 0 0 1px #0002;
     }
 
     .beside-technical {
@@ -464,8 +442,6 @@
         justify-content: flex-end;
         margin: 0;
         border-top: 0.5em solid transparent;
-        /* Level with the bottom of the screen, rather than of the monitor around it */
-        padding-bottom: var(--chin);
     }
 
     .loading-screen figcaption {
@@ -478,9 +454,17 @@
         text-align: left;
     }
 
-    /* As large as fits below the caption while keeping the 4:3 aspect ratio */
-    .loading-screen-image :global(.map-image) {
-        width: min(100cqw, (100cqh - var(--caption-height)) * 4 / 3);
+    /*
+     * As large as fits below the caption while keeping the screen 4:3. The monitor's bezel and
+     * chin (its own custom properties) are added around the screen.
+     */
+    .loading-screen-image :global(.monitor) {
+        box-sizing: border-box;
+        width: min(
+            100cqw,
+            (100cqh - var(--caption-height) - var(--bezel) - var(--chin)) * 4 / 3 + 2 *
+                var(--bezel)
+        );
     }
 
     /* Narrow layouts with a lot of metadata leave room only for a useless thumbnail */
@@ -499,10 +483,9 @@
         .loading-screen {
             container-type: normal;
             display: block;
-            padding-bottom: 0;
         }
 
-        .loading-screen-image :global(.map-image) {
+        .loading-screen-image :global(.monitor) {
             width: auto;
         }
     }
