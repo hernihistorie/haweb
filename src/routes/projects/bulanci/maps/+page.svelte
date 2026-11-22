@@ -26,7 +26,7 @@
             dech, který jim vydržel přibližně do roku 2012, kdy začalo množství nově zveřejňovaných
             map postupně klesat. (<a href="https://dspace.cuni.cz/handle/20.500.11956/212593"
                 ><i>Hraní, sdílení, vzpomínání</i></a
-            >, Bakaláská práce, Rudolf Jan Suchý, 2026)
+            >, Bakalářská práce, Rudolf Jan Suchý, 2026)
         </p>
         <p>
             Tento archiv obsahuje přibližně <b>750 map</b> od více než <b>160 autorů</b>, které se

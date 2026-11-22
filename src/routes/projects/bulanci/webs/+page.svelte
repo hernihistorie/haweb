@@ -1,6 +1,8 @@
 <script lang="ts">
     import BulanciMenu from "../BulanciMenu.svelte";
     import Loc from "#lib/components/Loc.svelte";
+
+    const { data } = $props();
 </script>
 
 <BulanciMenu />
@@ -21,15 +23,15 @@
             ostatních, vznikaly v této době také weby zaměřené na shromažďování a agregaci
             fanouškovských map. (<a href="https://dspace.cuni.cz/handle/20.500.11956/212593"
                 ><i>Hraní, sdílení, vzpomínání</i></a
-            >, Bakaláská práce, Rudolf Jan Suchý, 2026)
+            >, Bakalářská práce, Rudolf Jan Suchý, 2026)
         </p>
         <p>
-            Tento přehled obsahuje <b>56 webů</b>, které byly archivovány a zpřístupněny
-            prostřednictvím projektu <a href="https://archive.org/">Internet Archive</a>. Jedná se
-            především o weby věnované výhradně hře <i>Bulánci</i>, ale také o několik osobních webů
-            a blogů, které se tomuto tématu věnovaly pouze okrajově. Ty ukazují, že šíření map
-            prostřednictvím vlastních webových stránek nebylo výsadou pouze nejzapálenějších
-            fanoušků.
+            Tento přehled obsahuje <b>{data.webCount} webů</b>, které byly archivovány a
+            zpřístupněny prostřednictvím projektu
+            <a href="https://archive.org/">Internet Archive</a>. Jedná se především o weby věnované
+            výhradně hře <i>Bulánci</i>, ale také o několik osobních webů a blogů, které se tomuto
+            tématu věnovaly pouze okrajově. Ty ukazují, že šíření map prostřednictvím vlastních
+            webových stránek nebylo výsadou pouze nejzapálenějších fanoušků.
         </p>
     {/snippet}
     {#snippet en()}
@@ -52,7 +54,8 @@
             >, Bachelor's thesis, Rudolf Jan Suchý, 2026)
         </p>
         <p>
-            This overview contains <b>56 websites</b> archived and made accessible through the
+            This overview contains <b>{data.webCount} websites</b> archived and made accessible
+            through the
             <a href="https://archive.org/">Internet Archive</a>
             project. Most of them are dedicated exclusively to <i>Bulánci</i>, but the selection
             also includes several personal websites and blogs that only touched on the game as a

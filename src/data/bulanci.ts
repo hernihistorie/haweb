@@ -74,15 +74,294 @@ export type BulanciMapDetails = BulanciMap & {
     duplicates: { filename: string; guid: string }[];
 };
 
-/** A fan website documented in bulanci-map-sorter/web_metadata.yaml */
+/**
+ * A fan website documented in bulanci-map-sorter/web_metadata.yaml, with just what's needed to
+ * link to it. The rest of its metadata is in BulanciWebDetails.
+ */
 export type BulanciWeb = {
     /** Shortened URL, as used in places of occurrence */
     domain: string;
     id: number;
+    /** Slugified domain, only cosmetic in URLs */
+    slug: string;
     shownName: string | null;
-    /** Usually a Wayback Machine snapshot */
-    canonUrl: string | null;
+    /** A Wayback Machine snapshot */
+    canonUrl: string;
 };
+
+/** A year of the website's activity and where it was found */
+export type BulanciWebYear = {
+    year: number;
+    /** `wbm` if the year was found on the Wayback Machine, `web` if on the website itself */
+    source: "wbm" | "web";
+};
+
+/** `null` means unknown */
+type Flag = boolean | null;
+
+/** What the website offered, as assessed by the curators */
+export type BulanciWebFeatures = {
+    /** Official information about the game from bulanci.cz */
+    gameInfo: Flag;
+    /** Poetry from the game */
+    poetry: Flag;
+    /** Official lore texts from the game */
+    history: Flag;
+    /** The game could be downloaded */
+    gameDownload: Flag;
+    /** The website presented a clan */
+    clan: Flag;
+    /** The website organized or presented tournaments */
+    tournaments: Flag;
+    /** A manual or guide to the game */
+    manual: Flag;
+    /** Maps made by the website's authors */
+    ownMaps: Flag;
+    /** Maps made by others */
+    othersMaps: Flag;
+};
+
+/** A free hosting service or blogging platform */
+export type BulanciWebService = {
+    /** As used in web_metadata.yaml */
+    key: string;
+    name: string;
+};
+
+/** Everything known about a fan website, for its own page and the list of websites */
+export type BulanciWebDetails = BulanciWeb & {
+    /** May contain <i> tags */
+    description: { cs: string; en: string };
+    /** First known year of activity */
+    startYear: BulanciWebYear;
+    /** Last known year of activity; null for the official website */
+    endYear: BulanciWebYear | null;
+    /** Usually one; empty if unknown */
+    services: BulanciWebService[];
+    /** Null for the official website, which wasn't assessed */
+    features: BulanciWebFeatures | null;
+    /** When `canonUrl` was captured, as YYYY-MM-DD */
+    archivedAt: string;
+    /** The original URL of the page in `canonUrl` */
+    archivedUrl: string;
+    /** Documented websites this one linked to */
+    linksTo: BulanciWeb[];
+    /** Documented websites that linked to this one */
+    linkedFrom: BulanciWeb[];
+    /** Canonical names of the authors and clans who ran the website */
+    authors: string[];
+    /** Number of maps found on the website */
+    mapCount: number;
+    /** Number of maps found on the website and nowhere else */
+    exclusiveMapCount: number;
+    /** Distinct years in which the maps found on the website were published, ascending */
+    mapYears: number[];
+};
+
+/** Display names of the services in web_metadata.yaml */
+const webServices: Record<string, string> = {
+    "blog.cz": "Blog.cz",
+    "Crolink.cz": "Crolink.cz",
+    estranky: "eStránky.cz",
+    ic: "IC.cz",
+    sblog: "Sblog.cz",
+    sweb: "Sweb.cz",
+    webgarden: "Webgarden.cz",
+    webnode: "Webnode",
+    "Webovastranka.sk": "Webovastranka.sk",
+    websnadno: "Websnadno.cz",
+    webzdarma: "Webzdarma",
+};
+
+/** Keys of the feature groups in web_metadata.yaml and of the features within them */
+const webFeatureGroups: Record<string, Record<string, keyof BulanciWebFeatures>> = {
+    "borrowed-info": {
+        "game-info": "gameInfo",
+        poetry: "poetry",
+        history: "history",
+        "game-download": "gameDownload",
+    },
+    community: { clan: "clan", tournaments: "tournaments" },
+    "user-generated-content": {
+        manual: "manual",
+        "own-levels": "ownMaps",
+        "levels-of-other": "othersMaps",
+    },
+};
+
+const requiredWebFields = [
+    "id",
+    "shown-name",
+    "canon_url",
+    "description_cs",
+    "description_en",
+    "startYear",
+    "referenced-web",
+];
+const optionalWebFields = ["endYear", "service", ...Object.keys(webFeatureGroups)];
+
+/** A Wayback Machine snapshot: its timestamp and the original URL */
+const WAYBACK_URL = /^https:\/\/web\.archive\.org\/web\/(\d{4})(\d\d)(\d\d)\d{6}\/(https?:\/\/.+)$/;
+
+/**
+ * Keeps the dots of the domain, which slugify would drop, and turns slashes into dashes:
+ * `sweb.cz/pisinger` becomes `sweb.cz-pisinger`
+ */
+const webSlug = (domain: string): string =>
+    domain
+        .split("/")
+        .filter(Boolean)
+        .map((segment) => segment.split(".").map(bulanciSlug).filter(Boolean).join("."))
+        .join("-");
+
+/** A website's entry in web_metadata.yaml, parsed */
+type WebMetadata = Omit<
+    BulanciWebDetails,
+    "linksTo" | "linkedFrom" | "authors" | "mapCount" | "exclusiveMapCount" | "mapYears"
+> & { referencedIds: number[] };
+
+/**
+ * web_metadata.yaml maps each website's domain to a list of single-key objects, except for
+ * `startYear` and `endYear`, which come with a `source`. Feature groups are lists of single-key
+ * objects too. Anything else is a mistake in the data, so it fails the build.
+ */
+function parseWebMetadata(raw: string): WebMetadata[] {
+    const yaml = parse(raw) as Record<string, unknown>;
+    return Object.entries(yaml).map(([domain, entries]) => {
+        const fail = (message: string): never => {
+            throw new Error(`web_metadata.yaml: ${domain}: ${message}`);
+        };
+        if (!Array.isArray(entries)) {
+            return fail(`expected a list, got ${JSON.stringify(entries)}`);
+        }
+
+        const fields = new Map<string, Record<string, unknown>>();
+        for (const entry of entries as Record<string, unknown>[]) {
+            const keys = Object.keys(entry ?? {});
+            const key = keys.find((k) => k !== "source") ?? fail(`empty entry`);
+            const expected = key === "startYear" || key === "endYear" ? [key, "source"] : [key];
+            if (keys.sort().join() !== expected.sort().join()) {
+                fail(`unexpected entry ${JSON.stringify(entry)}`);
+            }
+            if (![...requiredWebFields, ...optionalWebFields].includes(key)) {
+                fail(`unknown field '${key}'`);
+            }
+            if (fields.has(key)) fail(`'${key}' is given twice`);
+            fields.set(key, entry);
+        }
+        for (const key of requiredWebFields) {
+            if (!fields.has(key)) fail(`'${key}' is missing`);
+        }
+        const value = (key: string): unknown => fields.get(key)?.[key];
+
+        const string = (key: string): string => {
+            const v = value(key);
+            return typeof v === "string" && v.trim()
+                ? normalizeWhitespace(v)
+                : fail(`'${key}' isn't a string`);
+        };
+
+        const year = (key: string): BulanciWebYear | null => {
+            const entry = fields.get(key);
+            if (!entry) return null;
+            if (!Number.isInteger(entry[key])) fail(`'${key}' isn't a year`);
+            if (entry.source !== "wbm" && entry.source !== "web") {
+                fail(`the source of '${key}' isn't 'wbm' or 'web'`);
+            }
+            return { year: entry[key] as number, source: entry.source as "wbm" | "web" };
+        };
+
+        const id = value("id");
+        if (!Number.isInteger(id)) fail(`'id' isn't a number`);
+
+        const shownName = value("shown-name");
+        if (shownName !== null && typeof shownName !== "string") {
+            fail(`'shown-name' isn't a string or null`);
+        }
+
+        const canonUrl = string("canon_url");
+        const wayback =
+            WAYBACK_URL.exec(canonUrl) ??
+            fail(`'canon_url' isn't a Wayback Machine snapshot with a timestamp: ${canonUrl}`);
+
+        const startYear = year("startYear")!;
+        const endYear = year("endYear");
+        if (endYear && endYear.year < startYear.year) fail(`'endYear' is before 'startYear'`);
+
+        const service = value("service") ?? null;
+        const serviceKeys =
+            service === null
+                ? []
+                : typeof service === "string"
+                  ? [service]
+                  : service instanceof Set
+                    ? [...service]
+                    : fail(`'service' isn't a string, a set or null`);
+        const services = serviceKeys.map((key) =>
+            key in webServices
+                ? { key, name: webServices[key] }
+                : fail(`unknown service '${key}', add it to webServices in bulanci.ts`),
+        );
+
+        const referenced = value("referenced-web");
+        if (!(referenced instanceof Set) || ![...referenced].every(Number.isInteger)) {
+            fail(`'referenced-web' isn't a set of IDs`);
+        }
+
+        const groups = Object.keys(webFeatureGroups).filter((group) => fields.has(group));
+        let features: BulanciWebFeatures | null = null;
+        if (groups.length === Object.keys(webFeatureGroups).length) {
+            features = {} as BulanciWebFeatures;
+            for (const [group, names] of Object.entries(webFeatureGroups)) {
+                const list = value(group);
+                if (!Array.isArray(list)) fail(`'${group}' isn't a list`);
+                const flags = Object.assign({}, ...(list as object[])) as Record<string, unknown>;
+                const keys = Object.keys(flags);
+                if (
+                    (list as object[]).some((entry) => Object.keys(entry ?? {}).length !== 1) ||
+                    keys.length !== Object.keys(names).length ||
+                    !keys.every((key) => key in names)
+                ) {
+                    fail(`'${group}' must list exactly ${Object.keys(names).join(", ")}`);
+                }
+                for (const [key, name] of Object.entries(names)) {
+                    const flag = flags[key];
+                    if (flag !== true && flag !== false && flag !== null) {
+                        fail(`'${group}.${key}' isn't true, false or null`);
+                    }
+                    features[name] = flag as Flag;
+                }
+            }
+        } else if (groups.length) {
+            fail(`either all or none of ${Object.keys(webFeatureGroups).join(", ")} must be given`);
+        }
+
+        return {
+            domain,
+            id: id as number,
+            slug: webSlug(domain),
+            shownName: shownName as string | null,
+            canonUrl,
+            description: { cs: string("description_cs"), en: string("description_en") },
+            startYear,
+            endYear,
+            services,
+            features,
+            archivedAt: `${wayback[1]}-${wayback[2]}-${wayback[3]}`,
+            archivedUrl: wayback[4],
+            referencedIds: [...(referenced as Set<number>)].sort((a, b) => a - b),
+        };
+    });
+}
+
+/** Only the fields needed to link to a website */
+const toWeb = ({ domain, id, slug, shownName, canonUrl }: WebMetadata): BulanciWeb => ({
+    domain,
+    id,
+    slug,
+    shownName,
+    canonUrl,
+});
 
 const mapMetadataModules = import.meta.glob<{ default: BulanciMapJSON }>(
     "./bulanci-map-sorter/maps_metadata/*.json",
@@ -245,7 +524,9 @@ function parseAuthorMetadata(raw: string): AuthorMetadata[] {
             return fail(`expected a list or null, got ${JSON.stringify(entries)}`);
         }
         for (const entry of entries as Record<string, unknown>[]) {
-            const keys = Object.keys(entry ?? {}).sort().join(",");
+            const keys = Object.keys(entry ?? {})
+                .sort()
+                .join(",");
             const value = entry?.[Object.keys(entry ?? {})[0]];
             if (keys === "alias,visible") {
                 if (typeof entry.visible !== "boolean") fail(`'visible' isn't a boolean`);
@@ -289,7 +570,9 @@ const hiddenAuthorNames = new Set(
 const publicAuthorNames = new Set(
     [
         ...authorMetadata.map((author) => normalizeName(author.name)),
-        ...authorAliases.filter((entry) => entry.visible).map((entry) => normalizeName(entry.alias)),
+        ...authorAliases
+            .filter((entry) => entry.visible)
+            .map((entry) => normalizeName(entry.alias)),
     ].filter((name) => !hiddenAuthorNames.has(name)),
 );
 
@@ -310,26 +593,40 @@ export function getBulanciMapDetails(map: BulanciMap): BulanciMapDetails {
     };
 }
 
-/**
- * web_metadata.yaml maps each web's domain to a list of single-key objects
- * (some of which carry an extra `source` key)
- */
-const websYaml = parse(webMetadataRaw) as Record<string, Record<string, unknown>[]>;
+const webMetadata = parseWebMetadata(webMetadataRaw);
 
 export const bulanciWebsByDomain: Record<string, BulanciWeb> = Object.fromEntries(
-    Object.entries(websYaml).map(([domain, entries]) => {
-        const fields = Object.assign({}, ...entries) as Record<string, unknown>;
-        return [
-            domain,
-            {
-                domain,
-                id: fields.id as number,
-                shownName: (fields["shown-name"] as string | null) ?? null,
-                canonUrl: (fields.canon_url as string | null) ?? null,
-            },
-        ];
-    }),
+    webMetadata.map((web) => [web.domain, toWeb(web)]),
 );
+
+const bulanciWebsById = new Map<number, BulanciWeb>();
+const webSlugs = new Map<string, string>();
+for (const web of webMetadata) {
+    const other = bulanciWebsById.get(web.id);
+    if (other) {
+        throw new Error(`web_metadata.yaml: ${other.domain} and ${web.domain} have the same id`);
+    }
+    if (!web.slug) {
+        throw new Error(`web_metadata.yaml: ${web.domain}: the domain has no usable slug`);
+    }
+    if (webSlugs.has(web.slug)) {
+        throw new Error(
+            `web_metadata.yaml: ${webSlugs.get(web.slug)} and ${web.domain} have the same slug '${web.slug}'`,
+        );
+    }
+    bulanciWebsById.set(web.id, toWeb(web));
+    webSlugs.set(web.slug, web.domain);
+}
+
+for (const web of webMetadata) {
+    for (const id of web.referencedIds) {
+        if (!bulanciWebsById.has(id) || id === web.id) {
+            throw new Error(
+                `web_metadata.yaml: ${web.domain}: 'referenced-web' contains ${id === web.id ? "its own" : "an unknown"} id ${id}`,
+            );
+        }
+    }
+}
 
 /** A website by its domain; `web` is set if it's documented */
 export type BulanciWebRef = { domain: string; web: BulanciWeb | null };
@@ -463,7 +760,15 @@ function toAuthor(author: AuthorMetadata): BulanciAuthor {
         isClan: author.isClan,
         aliases: visibleAliases(author),
         description: localizedDescription(author),
-        webs: author.webs.map((domain) => ({ domain, web: bulanciWebsByDomain[domain] ?? null })),
+        webs: author.webs.map((domain) => {
+            const web = bulanciWebsByDomain[domain];
+            if (!web) {
+                throw new Error(
+                    `authors_metadata.yaml: ${author.name}: the web '${domain}' is missing from web_metadata.yaml`,
+                );
+            }
+            return { domain, web };
+        }),
         clans: author.clans,
         members: authorMetadata
             .filter((member) => member.clans.includes(author.name))
@@ -531,3 +836,42 @@ for (const name of Object.keys(authorInterviews)) {
         throw new Error(`The interviewed author '${name}' is missing from authors_metadata.yaml`);
     }
 }
+
+/** Maps found on each documented website by its domain, the most widespread first */
+export const bulanciMapsByWeb: Record<string, BulanciMap[]> = {};
+for (const map of bulanciMaps) {
+    for (const place of map.placesOfOccurrence) {
+        if (bulanciWebsByDomain[place]) {
+            (bulanciMapsByWeb[place] ??= []).push(map);
+        }
+    }
+}
+for (const maps of Object.values(bulanciMapsByWeb)) {
+    maps.sort(byPlaces);
+}
+
+/** Documented fan websites, ordered by id, which roughly follows when they were started */
+export const bulanciWebs: BulanciWebDetails[] = webMetadata
+    .map(({ referencedIds, ...web }) => {
+        const maps = bulanciMapsByWeb[web.domain] ?? [];
+        return {
+            ...web,
+            linksTo: referencedIds.map((id) => bulanciWebsById.get(id)!),
+            linkedFrom: webMetadata
+                .filter((other) => other.referencedIds.includes(web.id))
+                .map(toWeb),
+            authors: bulanciAuthors
+                .filter((author) => author.webs.some(({ domain }) => domain === web.domain))
+                .map((author) => author.name),
+            mapCount: maps.length,
+            exclusiveMapCount: maps.filter((map) => map.placesOfOccurrence.length === 1).length,
+            mapYears: [
+                ...new Set(maps.map((map) => map.year).filter((year) => year !== null)),
+            ].sort((a, b) => a - b),
+        };
+    })
+    .sort((a, b) => a.id - b.id);
+
+export const bulanciWebsBySlug: Record<string, BulanciWebDetails> = Object.fromEntries(
+    bulanciWebs.map((web) => [web.slug, web]),
+);
