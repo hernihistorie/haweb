@@ -3,7 +3,7 @@
     import { afterNavigate } from "$app/navigation";
     import { onMount } from "svelte";
     import { useDebounce } from "runed";
-    import type { BulanciAuthor } from "$src/data/bulanci/authors";
+    import type { BulanciAuthor } from "$src/data/bulanci/authors.server";
     import { bulanciSlug } from "$src/data/bulanci/slug";
     import Loc from "#lib/components/Loc.svelte";
     import Pagination from "#lib/components/Pagination.svelte";

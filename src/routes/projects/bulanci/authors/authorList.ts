@@ -1,4 +1,4 @@
-import type { BulanciAuthor } from "$src/data/bulanci/authors";
+import type { BulanciAuthor } from "$src/data/bulanci/authors.server";
 import { bulanciSlug } from "$src/data/bulanci/slug";
 import { czechPlural, englishPlural } from "$src/lib/loc";
 import { localizeHref } from "$src/lib/paraglide/runtime";

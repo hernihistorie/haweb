@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciMapThumbnail } from "$src/data/bulanci/authors";
+    import type { BulanciMapThumbnail } from "$src/data/bulanci/authors.server";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
 

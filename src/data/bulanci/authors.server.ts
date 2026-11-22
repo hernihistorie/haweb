@@ -3,10 +3,10 @@ import { data as chovanecInterview } from "$src/routes/interviews/jiri-chovanec/
 import { data as kukalInterview } from "$src/routes/interviews/tomas-kukal/interview";
 import { data as madejewskyInterview } from "$src/routes/interviews/martin-madejewsky/interview";
 import { data as pokornyInterview } from "$src/routes/interviews/jan-pokorny/interview";
-import { authorMetadata, visibleAliases, type AuthorMetadata } from "./authorNames";
-import { bulanciMaps, byPlaces, type BulanciMap } from "./maps";
+import { authorMetadata, visibleAliases, type AuthorMetadata } from "./authorNames.server";
+import { bulanciMaps, byPlaces, type BulanciMap } from "./maps.server";
 import { bulanciSlug } from "./slug";
-import { bulanciWebsByDomain, type BulanciWebRef } from "./webs";
+import { bulanciWebsByDomain, type BulanciWebRef } from "./webs.server";
 
 /** A map as shown in an author's mosaic */
 export type BulanciMapThumbnail = Pick<BulanciMap, "id" | "slug" | "name" | "screenshot">;

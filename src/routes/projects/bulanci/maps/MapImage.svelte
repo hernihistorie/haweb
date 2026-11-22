@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciMapImage } from "$src/data/bulanci/maps";
+    import type { BulanciMapImage } from "$src/data/bulanci/maps.server";
     import { loc } from "$src/lib/loc";
     import { openLightbox } from "$src/lib/lightbox";
     import IconEyeOff from "@lucide/svelte/icons/eye-off";

@@ -1,4 +1,4 @@
-import { bulanciAuthors } from "$src/data/bulanci/authors";
+import { bulanciAuthors } from "$src/data/bulanci/authors.server";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {

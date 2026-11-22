@@ -1,5 +1,5 @@
-import { bulanciMaps, bulanciMapsById, getBulanciMapDetails } from "$src/data/bulanci/maps";
-import { resolveBulanciPlaces } from "$src/data/bulanci/webs";
+import { bulanciMaps, bulanciMapsById, getBulanciMapDetails } from "$src/data/bulanci/maps.server";
+import { resolveBulanciPlaces } from "$src/data/bulanci/webs.server";
 import { error, redirect } from "@sveltejs/kit";
 import { compareMaps, normalizeForSearch } from "../mapList";
 import type { EntryGenerator, PageServerLoad } from "./$types";

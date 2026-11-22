@@ -1,5 +1,5 @@
-import { bulanciAuthors } from "./authors";
-import { bulanciMaps, byPlaces, type BulanciMap } from "./maps";
+import { bulanciAuthors } from "./authors.server";
+import { bulanciMaps, byPlaces, type BulanciMap } from "./maps.server";
 import {
     bulanciWebsByDomain,
     bulanciWebsById,
@@ -7,7 +7,7 @@ import {
     webMetadata,
     type BulanciWeb,
     type WebMetadata,
-} from "./webs";
+} from "./webs.server";
 
 /** Everything known about a fan website, for its own page and the list of websites */
 export type BulanciWebDetails = Omit<WebMetadata, "referencedIds"> & {

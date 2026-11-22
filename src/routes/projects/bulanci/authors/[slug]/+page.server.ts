@@ -2,7 +2,7 @@ import {
     bulanciAuthors,
     bulanciAuthorsBySlug,
     bulanciMapsByAuthor,
-} from "$src/data/bulanci/authors";
+} from "$src/data/bulanci/authors.server";
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 

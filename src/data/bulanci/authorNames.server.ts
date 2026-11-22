@@ -1,6 +1,6 @@
 /**
  * Parses authors_metadata.yaml and decides which author names may be shown. Kept apart from
- * authors.ts, which needs the maps, so that maps.ts can use it too.
+ * authors.server.ts, which needs the maps, so that maps.server.ts can use it too.
  */
 import { parse } from "yaml";
 import authorMetadataRaw from "../bulanci-map-sorter/authors_metadata.yaml?raw";

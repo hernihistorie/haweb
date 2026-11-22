@@ -1,4 +1,4 @@
-import { publicAuthorNames } from "./authorNames";
+import { publicAuthorNames } from "./authorNames.server";
 import { bulanciSlug } from "./slug";
 import { basename, normalizeName, normalizeWhitespace } from "./util";
 

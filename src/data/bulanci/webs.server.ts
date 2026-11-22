@@ -6,7 +6,7 @@ import { normalizeWhitespace } from "./util";
 
 /**
  * A fan website documented in bulanci-map-sorter/web_metadata.yaml, with just what's needed to
- * link to it. The rest of its metadata is in BulanciWebDetails (webDetails.ts).
+ * link to it. The rest of its metadata is in BulanciWebDetails (webDetails.server.ts).
  */
 export type BulanciWeb = {
     /** Shortened URL, as used in places of occurrence */
@@ -214,7 +214,7 @@ function parseWebMetadata(raw: string): WebMetadata[] {
         const services = serviceKeys.map((key) =>
             key in webServices
                 ? { key, name: webServices[key] }
-                : fail(`unknown service '${key}', add it to webServices in webs.ts`),
+                : fail(`unknown service '${key}', add it to webServices in webs.server.ts`),
         );
 
         const referenced = value("referenced-web");

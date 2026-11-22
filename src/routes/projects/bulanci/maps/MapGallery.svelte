@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciMap } from "$src/data/bulanci/maps";
+    import type { BulanciMap } from "$src/data/bulanci/maps.server";
     import Loc from "#lib/components/Loc.svelte";
     import MapImage from "./MapImage.svelte";
     import { mapHref } from "./mapList";
