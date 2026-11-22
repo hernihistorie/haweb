@@ -308,13 +308,13 @@ select {
             display 0.15s allow-discrete;
     }
 
-    ::picker(select):popover-open {
+    select:open::picker(select) {
         opacity: 1;
         translate: 0 0;
     }
 
     @starting-style {
-        ::picker(select):popover-open {
+        select:open::picker(select) {
             opacity: 0;
             translate: 0 -0.25em;
         }
