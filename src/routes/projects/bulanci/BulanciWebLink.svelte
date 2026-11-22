@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { BulanciWeb } from "$src/data/bulanci/webs.server";
     import { loc } from "$src/lib/loc";
-    import { localizeHref } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";
+    import { webHref } from "./webs/webList";
 
     interface Props {
         domain: string;
-        /** Set if the website is documented on the webs page */
+        /** Set if the website is documented and has its own page */
         web: BulanciWeb | null;
         /** Show the website's name next to the domain */
         showName?: boolean;
@@ -16,11 +16,11 @@
 </script>
 
 <!--
-    A documented website links to its entry on the webs page, plus its archived version.
+    A documented website links to its own page, plus its archived version.
     Other websites are only known by their domain.
 -->
 {#if web}
-    <a href={localizeHref(`/projects/bulanci/webs#web-${web.id}`)}>{domain}</a>{#if web.canonUrl}<a
+    <a href={webHref(web)}>{domain}</a>{#if web.canonUrl}<a
             href={web.canonUrl}
             class="archive-link"
             title={loc({ cs: "Archivovaná verze", en: "Archived version" })}

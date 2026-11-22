@@ -1,5 +1,5 @@
 import { bulanciAuthors } from "./authors.server";
-import { groupMaps, mapYears } from "./maps.server";
+import { groupMaps, imagesByFilename, mapYears, type BulanciMapImage } from "./maps.server";
 import {
     bulanciWebsByDomain,
     bulanciWebsById,
@@ -23,7 +23,21 @@ export type BulanciWebDetails = Omit<WebMetadata, "referencedIds"> & {
     exclusiveMapCount: number;
     /** Distinct years in which the maps found on the website were published, ascending */
     mapYears: number[];
+    /** 800×600 screenshot of the archived front page (`canonUrl`) */
+    screenshot: BulanciMapImage | null;
 };
+
+const screenshotModules = import.meta.glob<string>("../bulanci-map-sorter/web_images/*.png", {
+    eager: true,
+    query: "?w=400;800&format=webp&as=srcset",
+    import: "default",
+});
+
+const screenshots = imagesByFilename(screenshotModules);
+
+/** A hand-made screenshot (`{id}_manual.png`) takes precedence over the automatic one */
+const webScreenshot = (id: number): BulanciMapImage | null =>
+    screenshots.get(`${id}_manual`) ?? screenshots.get(String(id)) ?? null;
 
 /** Maps found on each documented website by its domain, the most widespread first */
 export const bulanciMapsByWeb = groupMaps((map) =>
@@ -46,10 +60,12 @@ export const bulanciWebs: BulanciWebDetails[] = webMetadata
             mapCount: maps.length,
             exclusiveMapCount: maps.filter((map) => map.placesOfOccurrence.length === 1).length,
             mapYears: mapYears(maps),
+            screenshot: webScreenshot(web.id),
         };
     })
     .sort((a, b) => a.id - b.id);
 
-export const bulanciWebsBySlug: Record<string, BulanciWebDetails> = Object.fromEntries(
-    bulanciWebs.map((web) => [web.slug, web]),
+/** By id, as a string, the way it appears in URLs */
+export const bulanciWebDetailsById: Record<string, BulanciWebDetails> = Object.fromEntries(
+    bulanciWebs.map((web) => [String(web.id), web]),
 );

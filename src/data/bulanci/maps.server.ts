@@ -82,7 +82,8 @@ const loadingScreenModules = import.meta.glob<string>(
     { eager: true, query: "?w=400;800&format=webp&as=srcset", import: "default" },
 );
 
-function imagesByFilename(
+/** Images built by vite-imagetools with `as=srcset`, by filename without `suffix` */
+export function imagesByFilename(
     modules: Record<string, string>,
     suffix = "",
 ): Map<string, BulanciMapImage> {

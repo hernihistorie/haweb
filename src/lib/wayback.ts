@@ -26,3 +26,10 @@ export const waybackDate = (timestamp: string): string =>
  */
 export const waybackUrl = (url: string, time: string | number): string =>
     `https://web.archive.org/web/${time}/${url}`;
+
+/**
+ * The snapshot of `url` closest to `timestamp`, meant to be shown in an iframe: the `if_`
+ * modifier leaves out the Wayback Machine's toolbar, but links still lead to other snapshots.
+ */
+export const waybackFrameUrl = (url: string, timestamp: string): string =>
+    `https://web.archive.org/web/${timestamp}if_/${url}`;
