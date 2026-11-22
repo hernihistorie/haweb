@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciAuthor } from "$src/data/bulanci";
+    import type { BulanciAuthor } from "$src/data/bulanci/authors";
     import { loc } from "$src/lib/loc";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";

@@ -1,4 +1,4 @@
-/** Kept separate from bulanci.ts, so that it can be used client-side without loading all the data */
+/** Kept separate from the data modules, so that it can be used client-side without loading all the data */
 
 const storageServices: Record<string, string> = { UlozTo: "Ulož.to", Webshare: "Webshare" };
 

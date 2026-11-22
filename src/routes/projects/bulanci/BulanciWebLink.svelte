@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciWeb } from "$src/data/bulanci";
+    import type { BulanciWeb } from "$src/data/bulanci/webs";
     import { loc } from "$src/lib/loc";
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";

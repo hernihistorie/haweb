@@ -1,4 +1,5 @@
-import { bulanciAuthors, bulanciMaps } from "$src/data/bulanci";
+import { bulanciAuthors } from "$src/data/bulanci/authors";
+import { bulanciMaps } from "$src/data/bulanci/maps";
 import { compareMaps, DEFAULT_SORT } from "./maps/mapList";
 import type { PageServerLoad } from "./$types";
 

@@ -1,4 +1,4 @@
-import { bulanciMaps } from "$src/data/bulanci";
+import { bulanciMaps } from "$src/data/bulanci/maps";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {

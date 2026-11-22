@@ -4,8 +4,8 @@
     import { setUrlParams } from "../listParams";
     import { onMount } from "svelte";
     import { useDebounce } from "runed";
-    import type { BulanciMap } from "$src/data/bulanci";
-    import { bulanciPlaceGroup, type BulanciPlaceGroup } from "$src/data/bulanciPlaces";
+    import type { BulanciMap } from "$src/data/bulanci/maps";
+    import { bulanciPlaceGroup, type BulanciPlaceGroup } from "$src/data/bulanci/places";
     import Loc from "#lib/components/Loc.svelte";
     import Pagination from "#lib/components/Pagination.svelte";
     import { loc } from "$src/lib/loc";

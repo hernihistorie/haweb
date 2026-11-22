@@ -1,4 +1,8 @@
-import { bulanciAuthors, bulanciAuthorsBySlug, bulanciMapsByAuthor } from "$src/data/bulanci";
+import {
+    bulanciAuthors,
+    bulanciAuthorsBySlug,
+    bulanciMapsByAuthor,
+} from "$src/data/bulanci/authors";
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { BulanciAuthor } from "$src/data/bulanci";
+    import type { BulanciAuthor } from "$src/data/bulanci/authors";
     import Box from "#lib/components/Box.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";

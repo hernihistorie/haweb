@@ -1,4 +1,4 @@
-import type { BulanciMap } from "$src/data/bulanci";
+import type { BulanciMap } from "$src/data/bulanci/maps";
 import { localizeHref } from "$src/lib/paraglide/runtime";
 
 export const MAPS_PATH = "/projects/bulanci/maps";

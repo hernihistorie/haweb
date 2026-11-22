@@ -1,5 +1,5 @@
-import type { BulanciAuthor } from "$src/data/bulanci";
-import { bulanciSlug } from "$src/data/bulanciSlug";
+import type { BulanciAuthor } from "$src/data/bulanci/authors";
+import { bulanciSlug } from "$src/data/bulanci/slug";
 import { czechPlural, englishPlural } from "$src/lib/loc";
 import { localizeHref } from "$src/lib/paraglide/runtime";
 import type { LocalizedString } from "$src/types";
