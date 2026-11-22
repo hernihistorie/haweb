@@ -102,7 +102,7 @@
     <h2>{map.name}</h2>
 
     <div class="main">
-        <div class="screenshot">
+        <div class="screenshot monitor">
             <MapImage
                 image={map.screenshot}
                 nsfw={map.nsfw}
@@ -319,10 +319,37 @@
         column-gap: 1.5em;
         /* Width of the icons before the labels, by which the values are indented too */
         --icon-slot: 1.4rem;
+        /* Of the monitor around the screenshot */
+        --bezel: 8px;
+        --chin: 16px;
     }
 
     .screenshot {
         grid-row: 1;
+    }
+
+    /* A subtle monitor bezel around the screenshot, with a thicker chin and a power light */
+    .monitor {
+        position: relative;
+        padding: var(--bezel) var(--bezel) var(--chin);
+        border-radius: 10px;
+        background: var(--color-secondary-transparent);
+    }
+
+    .monitor::after {
+        content: "";
+        position: absolute;
+        right: calc(var(--bezel) + 4px);
+        bottom: calc((var(--chin) - 4px) / 2);
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--color-secondary);
+    }
+
+    .monitor :global(.map-image) {
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px #0002;
     }
 
     .beside-technical {
@@ -437,6 +464,8 @@
         justify-content: flex-end;
         margin: 0;
         border-top: 0.5em solid transparent;
+        /* Level with the bottom of the screen, rather than of the monitor around it */
+        padding-bottom: var(--chin);
     }
 
     .loading-screen figcaption {
@@ -470,6 +499,7 @@
         .loading-screen {
             container-type: normal;
             display: block;
+            padding-bottom: 0;
         }
 
         .loading-screen-image :global(.map-image) {
