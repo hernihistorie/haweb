@@ -3,7 +3,9 @@
     import { page } from "$app/state";
     import Loc from "#lib/components/Loc.svelte";
     import Meta from "#lib/components/layout/Meta.svelte";
+    import { formatBulanciPlace } from "$src/data/bulanci/places";
     import { loc } from "$src/lib/loc";
+    import { waybackUrl } from "$src/lib/wayback";
     import { getLocale, localizeHref } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";
     import IconCalendar from "@lucide/svelte/icons/calendar";
@@ -56,10 +58,7 @@
 
     /** A Wayback Machine link to the source, around the time the map was published */
     const waybackHref = (source: string): string =>
-        `https://web.archive.org/web/${map.year ?? 2010}/http://${source}`;
-
-    const formatSource = (source: string): string =>
-        source.startsWith("UlozTo_") ? `Ulož.to (${source.slice("UlozTo_".length)})` : source;
+        waybackUrl(`http://${source}`, map.year ?? 2010);
 </script>
 
 <Meta title={{ cs: `${map.name} – Mapy Bulánků`, en: `${map.name} – Bulánci maps` }} />
@@ -89,7 +88,7 @@
             <IconArchive size="0.9em" aria-label="Wayback Machine" />
         </a>
     {:else}
-        <span lang="cs">{formatSource(source)}</span>
+        <span lang="cs">{formatBulanciPlace(source)}</span>
     {/if}
 {/snippet}
 

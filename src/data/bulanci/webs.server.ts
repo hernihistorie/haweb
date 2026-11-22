@@ -1,4 +1,5 @@
 import { parse } from "yaml";
+import { parseWaybackUrl, waybackDate } from "$src/lib/wayback";
 import webMetadataRaw from "../bulanci-map-sorter/web_metadata.yaml?raw";
 import { bulanciPlaceGroup } from "./places";
 import { bulanciSlug } from "./slug";
@@ -120,9 +121,6 @@ const requiredWebFields = [
 ];
 const optionalWebFields = ["endYear", "service", ...Object.keys(webFeatureGroups)];
 
-/** A Wayback Machine snapshot: its timestamp and the original URL */
-const WAYBACK_URL = /^https:\/\/web\.archive\.org\/web\/(\d{4})(\d\d)(\d\d)\d{6}\/(https?:\/\/.+)$/;
-
 /**
  * Keeps the dots of the domain, which slugify would drop, and turns slashes into dashes:
  * `sweb.cz/pisinger` becomes `sweb.cz-pisinger`
@@ -194,8 +192,8 @@ function parseWebMetadata(raw: string): WebMetadata[] {
         }
 
         const canonUrl = string("canon_url");
-        const wayback =
-            WAYBACK_URL.exec(canonUrl) ??
+        const snapshot =
+            parseWaybackUrl(canonUrl) ??
             fail(`'canon_url' isn't a Wayback Machine snapshot with a timestamp: ${canonUrl}`);
 
         const startYear = year("startYear")!;
@@ -261,8 +259,8 @@ function parseWebMetadata(raw: string): WebMetadata[] {
             endYear,
             services,
             features,
-            archivedAt: `${wayback[1]}-${wayback[2]}-${wayback[3]}`,
-            archivedUrl: wayback[4],
+            archivedAt: waybackDate(snapshot.timestamp),
+            archivedUrl: snapshot.url,
             referencedIds: [...(referenced as Set<number>)].sort((a, b) => a - b),
         };
     });

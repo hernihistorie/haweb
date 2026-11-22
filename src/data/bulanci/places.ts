@@ -19,3 +19,9 @@ export function bulanciPlaceGroup(place: string): BulanciPlaceGroup {
     }
     return { key: place, name: place, storage: false };
 }
+
+/** A place as shown to people: "UlozTo_5PsfU2pb917t" becomes "Ulož.to (5PsfU2pb917t)" */
+export function formatBulanciPlace(place: string): string {
+    const group = bulanciPlaceGroup(place);
+    return group.storage ? `${group.name} (${place.slice(group.key.length + 1)})` : place;
+}
