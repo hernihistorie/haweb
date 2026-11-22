@@ -16,8 +16,6 @@ export type BulanciWeb = {
     /** Slugified domain, only cosmetic in URLs */
     slug: string;
     shownName: string | null;
-    /** A Wayback Machine snapshot */
-    canonUrl: string;
 };
 
 /** A year of the website's activity and where it was found */
@@ -61,6 +59,8 @@ export type BulanciWebService = {
 
 /** A website's entry in web_metadata.yaml, parsed */
 export type WebMetadata = BulanciWeb & {
+    /** A Wayback Machine snapshot of the front page */
+    canonUrl: string;
     /** May contain <i> tags */
     description: { cs: string; en: string };
     /** First known year of activity */
@@ -267,12 +267,11 @@ function parseWebMetadata(raw: string): WebMetadata[] {
 }
 
 /** Only the fields needed to link to a website */
-export const toWeb = ({ domain, id, slug, shownName, canonUrl }: WebMetadata): BulanciWeb => ({
+export const toWeb = ({ domain, id, slug, shownName }: WebMetadata): BulanciWeb => ({
     domain,
     id,
     slug,
     shownName,
-    canonUrl,
 });
 
 export const webMetadata = parseWebMetadata(webMetadataRaw);

@@ -1,6 +1,8 @@
+import type { BulanciWebDetails } from "$src/data/bulanci/webDetails.server";
 import type { BulanciWeb, BulanciWebFeatures, BulanciWebYear } from "$src/data/bulanci/webs.server";
 import { localizeHref } from "$src/lib/paraglide/runtime";
 import type { LocalizedString } from "$src/types";
+import { compareStrings } from "../maps/mapList";
 
 export const WEBS_PATH = "/projects/bulanci/webs";
 
@@ -61,3 +63,68 @@ export const WEB_FEATURE_GROUPS: WebFeatureGroup[] = [
         ],
     },
 ];
+
+/** URL parameter value standing for an unknown hosting service */
+export const UNKNOWN_HOSTING = "-";
+
+/** What the list of websites needs of each website */
+export type BulanciWebListItem = Pick<
+    BulanciWebDetails,
+    | "id"
+    | "slug"
+    | "domain"
+    | "shownName"
+    | "description"
+    | "startYear"
+    | "endYear"
+    | "services"
+    | "authors"
+    | "mapCount"
+    | "screenshot"
+>;
+
+/** e.g. "2003–2005", "2003", or "since 2002" for the official website, which is still up */
+export function activeYearsLabel(
+    web: Pick<BulanciWebListItem, "startYear" | "endYear">,
+): LocalizedString {
+    const start = web.startYear.year;
+    if (!web.endYear) return { cs: `od ${start}`, en: `since ${start}` };
+    const years = start === web.endYear.year ? String(start) : `${start}–${web.endYear.year}`;
+    return { cs: years, en: years };
+}
+
+const SORT_KEYS = ["year", "name", "maps"] as const;
+export type WebSortKey = (typeof SORT_KEYS)[number];
+export type WebSort = { key: WebSortKey; desc: boolean };
+
+/** Oldest first, which roughly follows the two periods of fan websites */
+export const DEFAULT_WEB_SORT: WebSort = { key: "year", desc: false };
+
+/** Counts are most interesting from the highest, so they're sorted descending first */
+export const isDescendingFirst = (key: WebSortKey): boolean => key === "maps";
+
+/** Parses the `sort` URL parameter: the key, prefixed by `-` for descending order */
+export function parseWebSort(value: string | null): WebSort {
+    const desc = value?.startsWith("-") ?? false;
+    const key = SORT_KEYS.find((key) => key === value?.replace(/^-/, ""));
+    return key ? { key, desc } : DEFAULT_WEB_SORT;
+}
+
+export function formatWebSort(sort: WebSort): string {
+    return (sort.desc ? "-" : "") + sort.key;
+}
+
+/** Compares websites by the given sort, falling back to their id */
+export function compareWebs(a: BulanciWebListItem, b: BulanciWebListItem, sort: WebSort): number {
+    const direction = sort.desc ? -1 : 1;
+    // Ids roughly follow when the websites were started, and put the official website first
+    const byYear = a.startYear.year - b.startYear.year || a.id - b.id;
+    switch (sort.key) {
+        case "year":
+            return direction * byYear;
+        case "name":
+            return direction * compareStrings(webName(a), webName(b)) || byYear;
+        case "maps":
+            return direction * (a.mapCount - b.mapCount) || byYear;
+    }
+}

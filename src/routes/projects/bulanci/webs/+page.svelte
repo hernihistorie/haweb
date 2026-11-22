@@ -1,9 +1,17 @@
 <script lang="ts">
     import BulanciMenu from "../BulanciMenu.svelte";
     import Loc from "#lib/components/Loc.svelte";
+    import Meta from "#lib/components/layout/Meta.svelte";
+    import WebList from "./WebList.svelte";
 
     const { data } = $props();
 </script>
+
+<Meta
+    title={{
+        cs: "Fanouškovské weby - Bulánci",
+        en: "Fan websites - Bulánci",
+    }} />
 
 <BulanciMenu />
 <Loc>
@@ -64,6 +72,7 @@
         </p>
     {/snippet}
 </Loc>
+<WebList webs={data.webs} />
 
 <style>
 </style>
