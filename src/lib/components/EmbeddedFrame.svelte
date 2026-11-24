@@ -92,10 +92,11 @@
             attributeFilter: ["data-theme"],
         });
 
-        // The frame may have finished loading before hydration
+        // The frame may have finished loading before hydration.  Its document is checked
+        // first, as reading the location throws if the frame was redirected to a file.
         if (
-            iframe.contentWindow?.location.href !== "about:blank" &&
-            iframe.contentDocument?.readyState === "complete"
+            iframe.contentDocument?.readyState === "complete" &&
+            iframe.contentWindow?.location.href !== "about:blank"
         ) {
             setTimeout(onload);
         }

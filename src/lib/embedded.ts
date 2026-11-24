@@ -12,12 +12,18 @@ export interface EmbeddedApp {
      * framing them.  When the frame navigates to one, haweb shows its own page instead.
      */
     nativePaths: string[];
+    /**
+     * Path prefixes, relative to `framePrefix`, that visitors are redirected to get from
+     * the app itself.  Meant for files, which may be too large to pass through haweb.
+     */
+    directPaths: string[];
 }
 
 export const INVENTORY: EmbeddedApp = {
     prefix: "/inventory",
     framePrefix: "/inventory/_frame",
     nativePaths: ["/"],
+    directPaths: ["/files/"],
 };
 
 /** rhinventory itself, which staff use directly */

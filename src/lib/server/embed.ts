@@ -2,7 +2,8 @@ import type { RequestEvent } from "@sveltejs/kit";
 import { encodePath, type EmbeddedApp } from "$src/lib/embedded";
 
 /**
- * Proxies a request for an embedded app's page or file.
+ * Proxies a request for an embedded app's page, or redirects to the app itself if it's
+ * for one of its `directPaths`.
  *
  * The app is told where it is served with `X-Forwarded-Prefix`, so it builds its own
  * URLs accordingly, and gets `X-Haweb-Embed: 1` and the visitor's theme in
@@ -20,6 +21,13 @@ export async function proxyEmbedded(
     const encodedPath = encodePath(path);
     const target = new URL(`${encodedPath}${url.search}`, upstream);
 
+    if (app.directPaths.some((prefix) => `/${path}`.startsWith(prefix))) {
+        return new Response(null, {
+            status: 302,
+            headers: { location: target.href, "cache-control": "public, max-age=3600" },
+        });
+    }
+
     const headers = new Headers({
         "x-forwarded-prefix": app.framePrefix,
         "x-haweb-embed": "1",
@@ -31,16 +39,23 @@ export async function proxyEmbedded(
     const theme = cookies.get("theme");
     if (theme === "light" || theme === "dark") headers.set("x-haweb-theme", theme);
 
+    // Only limits waiting for the response to start.  AbortSignal.timeout() would also
+    // cut off a body that takes longer to transfer.
+    const timeout = new AbortController();
+    const timer = setTimeout(() => timeout.abort(), 30_000);
+
     let res: Response;
     try {
         res = await fetch(target, {
             headers,
             redirect: "manual",
-            signal: AbortSignal.timeout(30_000),
+            signal: timeout.signal,
         });
     } catch (e) {
         console.error(`Failed to fetch embedded page: ${target.href}`, e);
         return unavailableResponse(theme);
+    } finally {
+        clearTimeout(timer);
     }
 
     // A page opened on its own (e.g. in a new tab) rather than in the frame: show it in haweb
