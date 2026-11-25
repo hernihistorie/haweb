@@ -10,6 +10,7 @@
     import Loc from "#lib/components/Loc.svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { loc } from "#lib/loc.js";
+    import { absoluteUrl, htmlToText } from "#lib/site.js";
     import BulletPoint from "#lib/components/BulletPoint.svelte";
     import { tocStore } from "../TableOfContents/stores";
     import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
@@ -32,13 +33,14 @@
         />
     {/if}
     {#if data.narrator.bio}
-        <meta property="og:description" content={loc(data.narrator.bio)} />
+        <meta property="og:description" content={htmlToText(loc(data.narrator.bio))} />
     {/if}
     {#if data.narrator.photo?.url}
         <meta
             property="og:image"
-            content={data.narrator.photo?.url}
-            data-pagefind-meta="image[content]"
+            content={absoluteUrl(data.narrator.photo.url)}
+            data-image={data.narrator.photo.url}
+            data-pagefind-meta="image[data-image]"
         />
     {/if}
     <meta property="og:locale" content={getLocale()} />
