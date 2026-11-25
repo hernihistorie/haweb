@@ -64,6 +64,10 @@ export const WEB_FEATURE_GROUPS: WebFeatureGroup[] = [
     },
 ];
 
+/** The first is the default */
+export const WEB_VIEWS = ["network", "timeline", "table"] as const;
+export type WebView = (typeof WEB_VIEWS)[number];
+
 /** URL parameter value standing for an unknown hosting service */
 export const UNKNOWN_HOSTING = "-";
 

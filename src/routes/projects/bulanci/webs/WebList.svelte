@@ -7,6 +7,11 @@
     import { czechPlural, englishPlural, loc } from "$src/lib/loc";
     import { setUrlParams } from "../listParams";
     import { compareStrings, normalizeForSearch } from "../maps/mapList";
+    import type { BulanciWebGraph } from "$src/data/bulanci/webGraph.server";
+    import IconChartGantt from "@lucide/svelte/icons/chart-gantt";
+    import IconTable from "@lucide/svelte/icons/table";
+    import IconWaypoints from "@lucide/svelte/icons/waypoints";
+    import WebGraph from "./WebGraph.svelte";
     import WebTable from "./WebTable.svelte";
     import {
         compareWebs,
@@ -14,15 +19,18 @@
         formatWebSort,
         parseWebSort,
         UNKNOWN_HOSTING,
+        WEB_VIEWS,
         type BulanciWebListItem,
         type WebSort,
+        type WebView,
     } from "./webList";
 
     interface Props {
         webs: BulanciWebListItem[];
+        graph: BulanciWebGraph;
     }
 
-    let { webs }: Props = $props();
+    let { webs, graph }: Props = $props();
 
     // The page is prerendered without any query, so the URL is only read once
     // mounted, so that hydration matches the prerendered HTML
@@ -31,6 +39,9 @@
 
     const params = $derived(mounted ? page.url.searchParams : new URLSearchParams());
 
+    const view: WebView = $derived(
+        WEB_VIEWS.find((view) => view === params.get("view")) ?? WEB_VIEWS[0],
+    );
     const sort = $derived(parseWebSort(params.get("sort")));
     const hosting = $derived(params.get("hosting") ?? "");
 
@@ -103,6 +114,25 @@
         setUrlParams({ sort: value === formatWebSort(DEFAULT_WEB_SORT) ? null : value });
     }
 
+    /** In the graphs, websites that don't match the filters are only dimmed */
+    const matching = $derived(
+        filteredWebs.length < webs.length ? new Set(filteredWebs.map((web) => web.id)) : null,
+    );
+
+    function setView(newView: WebView) {
+        setUrlParams({ view: newView === WEB_VIEWS[0] ? null : newView });
+    }
+
+    const viewOptions: {
+        value: WebView;
+        label: { cs: string; en: string };
+        Icon: typeof IconTable;
+    }[] = [
+        { value: "network", label: { cs: "Síť", en: "Network" }, Icon: IconWaypoints },
+        { value: "timeline", label: { cs: "Časová osa", en: "Timeline" }, Icon: IconChartGantt },
+        { value: "table", label: { cs: "Tabulka", en: "Table" }, Icon: IconTable },
+    ];
+
     const sortOptions: { value: string; label: { cs: string; en: string } }[] = [
         { value: "year", label: { cs: "Nejstarší", en: "Oldest" } },
         { value: "-year", label: { cs: "Nejnovější", en: "Newest" } },
@@ -149,14 +179,29 @@
             {/if}
         </select>
 
-        <select
-            aria-label={loc({ cs: "Řazení", en: "Sort by" })}
-            value={formatWebSort(sort)}
-            onchange={(e) => setSort(parseWebSort(e.currentTarget.value))}>
-            {#each sortOptions as option (option.value)}
-                <option value={option.value}>{loc(option.label)}</option>
+        {#if view === "table"}
+            <select
+                aria-label={loc({ cs: "Řazení", en: "Sort by" })}
+                value={formatWebSort(sort)}
+                onchange={(e) => setSort(parseWebSort(e.currentTarget.value))}>
+                {#each sortOptions as option (option.value)}
+                    <option value={option.value}>{loc(option.label)}</option>
+                {/each}
+            </select>
+        {/if}
+
+        <div class="view-toggle" role="group" aria-label={loc({ cs: "Zobrazení", en: "View" })}>
+            {#each viewOptions as { value, label, Icon } (value)}
+                <button
+                    class:active={view === value}
+                    aria-pressed={view === value}
+                    title={loc(label)}
+                    onclick={() => setView(value)}>
+                    <Icon size="1em" />
+                    <span>{loc(label)}</span>
+                </button>
             {/each}
-        </select>
+        </div>
     </div>
 
     <p class="summary" aria-live="polite">
@@ -173,7 +218,9 @@
         {/if}
     </p>
 
-    {#if filteredWebs.length}
+    {#if view !== "table"}
+        <WebGraph {webs} {graph} {view} {matching} />
+    {:else if filteredWebs.length}
         <WebTable webs={filteredWebs} {sort} onsort={setSort} />
     {/if}
 </section>
@@ -192,7 +239,8 @@
     }
 
     .toolbar input,
-    .toolbar select {
+    .toolbar select,
+    .toolbar button {
         margin: 0;
         font-size: 1rem;
         padding: 0.4em 0.6em;
@@ -208,6 +256,21 @@
         font-weight: normal;
     }
 
+    .view-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .view-toggle button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+    }
+
+    .view-toggle button + button {
+        border-left: none;
+    }
+
     .summary {
         color: var(--color-text-muted);
         margin: 0 0 0.75em;
@@ -216,6 +279,10 @@
     @media (max-width: 600px) {
         .toolbar select {
             flex: 1 1 auto;
+        }
+
+        .view-toggle {
+            margin-left: 0;
         }
     }
 </style>

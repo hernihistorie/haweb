@@ -13,12 +13,10 @@
     import IconLink from "@lucide/svelte/icons/link";
     import IconMap from "@lucide/svelte/icons/map";
     import IconServer from "@lucide/svelte/icons/server";
-    import IconUndo2 from "@lucide/svelte/icons/undo-2";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import IconX from "@lucide/svelte/icons/x";
     import BulanciMenu from "../../BulanciMenu.svelte";
-    import BulanciWebLink from "../../BulanciWebLink.svelte";
     import MapList from "../../maps/MapList.svelte";
     import {
         authorHref,
@@ -26,6 +24,8 @@
         formatYears,
         mapCountLabel,
     } from "../../authors/authorList";
+    import DomainText from "../DomainText.svelte";
+    import WebNeighborhood from "../WebNeighborhood.svelte";
     import {
         formatDate,
         WEB_FEATURE_GROUPS,
@@ -76,14 +76,6 @@
     {year.year}{" "}{@render yearSource(year)}
 {/snippet}
 
-{#snippet webList(webs: typeof web.linksTo)}
-    <ul>
-        {#each webs as other (other.id)}
-            <li><BulanciWebLink domain={other.domain} web={other} /></li>
-        {/each}
-    </ul>
-{/snippet}
-
 <BulanciMenu />
 
 <article class="web-page">
@@ -94,9 +86,8 @@
     {#if web.shownName}
         <h2 lang="cs">{web.shownName}</h2>
     {:else}
-        <!-- Long domains break after a dot rather than anywhere -->
         <h2>
-            {#each web.domain.split(/(?<=[./])/) as part, i (i)}{part}<wbr />{/each}
+            <DomainText domain={web.domain} />
         </h2>
     {/if}
     {#if web.shownName}
@@ -169,16 +160,6 @@
                     <a href={web.canonUrl}>{formatDate(web.archivedAt, getLocale())}</a>
                     <br /><span class="muted url">{web.archivedUrl}</span>
                 </dd>
-
-                {#if web.linksTo.length}
-                    <dt><IconLink size="1em" /> <Loc cs="Odkazuje na" en="Links to" /></dt>
-                    <dd>{@render webList(web.linksTo)}</dd>
-                {/if}
-
-                {#if web.linkedFrom.length}
-                    <dt><IconUndo2 size="1em" /> <Loc cs="Odkazují sem" en="Linked from" /></dt>
-                    <dd>{@render webList(web.linkedFrom)}</dd>
-                {/if}
             </dl>
         </aside>
 
@@ -218,6 +199,16 @@
             {/if}
         </div>
     </div>
+
+    {#if web.linksTo.length || web.linkedFrom.length}
+        <section>
+            <h3>
+                <IconLink size="0.9em" />
+                <Loc cs="Propojení s dalšími weby" en="Links with other websites" />
+            </h3>
+            <WebNeighborhood {web} />
+        </section>
+    {/if}
 
     {#if data.maps.length}
         <section id="maps">
@@ -319,13 +310,12 @@
         display: block;
     }
 
-    /* Also the links of BulanciWebLink */
-    .meta :global(a) {
+    .meta a {
         text-decoration: none;
     }
 
-    .meta :global(a:hover),
-    .meta :global(a:focus-visible) {
+    .meta a:hover,
+    .meta a:focus-visible {
         text-decoration: underline;
     }
 
@@ -333,12 +323,6 @@
         margin: 0 0 0.75em;
         padding-left: var(--icon-slot);
         overflow-wrap: anywhere;
-    }
-
-    .meta ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
     }
 
     .url {

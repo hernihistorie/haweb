@@ -7,6 +7,7 @@
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import { authorHref, formatInlineHtml, mapCountLabel } from "../authors/authorList";
+    import DomainText from "./DomainText.svelte";
     import {
         activeYearsLabel,
         isDescendingFirst,
@@ -41,11 +42,6 @@
             {/if}
         </button>
     </th>
-{/snippet}
-
-<!-- Long domains break after a dot or a slash rather than anywhere -->
-{#snippet domainText(domain: string)}
-    {#each domain.split(/(?<=[./])/) as part, i (i)}{#if i > 0}<wbr />{/if}{part}{/each}
 {/snippet}
 
 <table class="web-table">
@@ -89,9 +85,9 @@
                 <td class="site">
                     {#if web.shownName}
                         <a href={webHref(web)} class="name" lang="cs">{web.shownName}</a>
-                        <span class="domain">{@render domainText(web.domain)}</span>
+                        <span class="domain"><DomainText domain={web.domain} /></span>
                     {:else}
-                        <a href={webHref(web)} class="name">{@render domainText(web.domain)}</a>
+                        <a href={webHref(web)} class="name"><DomainText domain={web.domain} /></a>
                     {/if}
                     {#if web.authors.length}
                         <span class="authors">

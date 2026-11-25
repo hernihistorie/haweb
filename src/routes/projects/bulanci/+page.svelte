@@ -8,10 +8,14 @@
     import { mapListHref } from "./maps/mapList";
     import { AUTHORS_PATH } from "./authors/authorList";
     import FeaturedAuthor from "./authors/FeaturedAuthor.svelte";
+    import { WEBS_PATH } from "./webs/webList";
+    import WebNetworkPreview from "./webs/WebNetworkPreview.svelte";
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import Arrow from "#lib/components/Arrow.svelte";
 
     const { data } = $props();
+
+    const websHref = $derived(localizeHref(`${WEBS_PATH}/`));
 </script>
 
 <BulanciMenu />
@@ -165,16 +169,38 @@
         </Arrow>
     </p>
 
-    <h3>Fanouškovské weby</h3>
+    <h3><Loc cs="Fanouškovské weby" en="Fan websites" /></h3>
     <p>
-        TODO: asi sem dát diagram co je na samostatné stránce po weby? nebo jen talčítko "Přehled
-        fanouškovských webů"
+        <Loc
+            cs="Fanoušci o hře vytvářeli vlastní weby a navzájem na ně odkazovali. Podívejte se, jak byly propojené."
+            en="Fans made their own websites about the game and linked to each other's. See how they were connected."
+        />
+    </p>
+    <a class="web-network" href={websHref} tabindex="-1" aria-hidden="true">
+        <WebNetworkPreview graph={data.webGraph} webs={data.webs} />
+    </a>
+    <p class="show-all">
+        <Arrow href={websHref}>
+            <Loc cs="Zobrazit všech" en="Show all" />
+            {data.webCount}
+            <Loc cs="webů" en="websites" />
+        </Arrow>
     </p>
 </ProjectPage>
 
 <style>
     .show-all {
         margin-top: 0.75em;
+    }
+
+    .web-network {
+        display: block;
+        padding: 8px;
+        border: 2px solid var(--color-secondary);
+    }
+
+    .web-network:hover {
+        border-color: var(--color-primary);
     }
 
     .featured-authors {

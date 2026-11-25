@@ -2,19 +2,23 @@ import { bulanciAuthors } from "./authors.server";
 import { groupMaps, imagesByFilename, mapYears, type BulanciMapImage } from "./maps.server";
 import {
     bulanciWebsByDomain,
-    bulanciWebsById,
+    hostingType,
     toWeb,
     webMetadata,
+    type BulanciHostingType,
     type BulanciWeb,
     type WebMetadata,
 } from "./webs.server";
 
+/** A website linked to or from another one */
+export type BulanciLinkedWeb = BulanciWeb & { hostingType: BulanciHostingType | null };
+
 /** Everything known about a fan website, for its own page and the list of websites */
 export type BulanciWebDetails = Omit<WebMetadata, "referencedIds"> & {
     /** Documented websites this one linked to */
-    linksTo: BulanciWeb[];
+    linksTo: BulanciLinkedWeb[];
     /** Documented websites that linked to this one */
-    linkedFrom: BulanciWeb[];
+    linkedFrom: BulanciLinkedWeb[];
     /** Canonical names of the authors and clans who ran the website */
     authors: string[];
     /** Number of maps found on the website */
@@ -39,6 +43,11 @@ const screenshots = imagesByFilename(screenshotModules);
 const webScreenshot = (id: number): BulanciMapImage | null =>
     screenshots.get(`${id}_manual`) ?? screenshots.get(String(id)) ?? null;
 
+const toLinkedWeb = (web: WebMetadata): BulanciLinkedWeb => ({
+    ...toWeb(web),
+    hostingType: hostingType(web),
+});
+
 /** Maps found on each documented website by its domain, the most widespread first */
 export const bulanciMapsByWeb = groupMaps((map) =>
     map.placesOfOccurrence.filter((place) => bulanciWebsByDomain[place]),
@@ -50,10 +59,14 @@ export const bulanciWebs: BulanciWebDetails[] = webMetadata
         const maps = bulanciMapsByWeb[web.domain] ?? [];
         return {
             ...web,
-            linksTo: referencedIds.map((id) => bulanciWebsById.get(id)!),
+            linksTo: webMetadata
+                .filter((other) => referencedIds.includes(other.id))
+                .map(toLinkedWeb)
+                .sort((a, b) => a.id - b.id),
             linkedFrom: webMetadata
                 .filter((other) => other.referencedIds.includes(web.id))
-                .map(toWeb),
+                .map(toLinkedWeb)
+                .sort((a, b) => a.id - b.id),
             authors: bulanciAuthors
                 .filter((author) => author.webs.some(({ domain }) => domain === web.domain))
                 .map((author) => author.name),

@@ -1,0 +1,19 @@
+/*
+ * Colors of the types of hosting in the graphs of websites, picked to stay distinguishable from
+ * each other with color vision deficiencies, on both backgrounds. An unknown type is hollow.
+ */
+:root {
+    --web-webhosting: #2458a6;
+    --web-blog: #1f9a8a;
+    --web-builder: #b98000;
+    --web-unknown: var(--color-text-muted);
+    --web-link: var(--color-secondary);
+    --web-link-out: var(--color-primary);
+    --web-link-in: var(--color-text);
+}
+
+:root[data-theme="dark"] {
+    --web-webhosting: #4b8ce0;
+    --web-blog: #2a9f8e;
+    --web-builder: #c08a1a;
+}

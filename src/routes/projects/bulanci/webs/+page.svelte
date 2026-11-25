@@ -72,7 +72,7 @@
         </p>
     {/snippet}
 </Loc>
-<WebList webs={data.webs} />
+<WebList webs={data.webs} graph={data.graph} />
 
 <style>
 </style>

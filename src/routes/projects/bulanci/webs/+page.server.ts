@@ -1,9 +1,11 @@
 import { bulanciWebs } from "$src/data/bulanci/webDetails.server";
+import { bulanciWebGraph } from "$src/data/bulanci/webGraph.server";
 import type { PageServerLoad } from "./$types";
 import type { BulanciWebListItem } from "./webList";
 
 export const load: PageServerLoad = async () => {
     return {
+        graph: bulanciWebGraph,
         webCount: bulanciWebs.length,
         // Only what the list shows, to keep the page's data small
         webs: bulanciWebs.map((web): BulanciWebListItem => ({

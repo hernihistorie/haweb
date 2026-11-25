@@ -50,11 +50,15 @@ export type BulanciWebFeatures = {
     othersMaps: Flag;
 };
 
+/** Free webhosting, a blogging platform, or a website builder */
+export type BulanciHostingType = "webhosting" | "blog" | "builder";
+
 /** A free hosting service or blogging platform */
 export type BulanciWebService = {
     /** As used in web_metadata.yaml */
     key: string;
     name: string;
+    type: BulanciHostingType;
 };
 
 /** A website's entry in web_metadata.yaml, parsed */
@@ -79,19 +83,19 @@ export type WebMetadata = BulanciWeb & {
     referencedIds: number[];
 };
 
-/** Display names of the services in web_metadata.yaml */
-const webServices: Record<string, string> = {
-    "blog.cz": "Blog.cz",
-    "Crolink.cz": "Crolink.cz",
-    estranky: "eStránky.cz",
-    ic: "IC.cz",
-    sblog: "Sblog.cz",
-    sweb: "Sweb.cz",
-    webgarden: "Webgarden.cz",
-    webnode: "Webnode",
-    "Webovastranka.sk": "Webovastranka.sk",
-    websnadno: "Websnadno.cz",
-    webzdarma: "Webzdarma",
+/** Display names and types of the services in web_metadata.yaml */
+const webServices: Record<string, Omit<BulanciWebService, "key">> = {
+    "blog.cz": { name: "Blog.cz", type: "blog" },
+    "Crolink.cz": { name: "Crolink.cz", type: "webhosting" },
+    estranky: { name: "eStránky.cz", type: "builder" },
+    ic: { name: "IC.cz", type: "webhosting" },
+    sblog: { name: "Sblog.cz", type: "blog" },
+    sweb: { name: "Sweb.cz", type: "webhosting" },
+    webgarden: { name: "Webgarden.cz", type: "builder" },
+    webnode: { name: "Webnode", type: "builder" },
+    "Webovastranka.sk": { name: "Webovastranka.sk", type: "builder" },
+    websnadno: { name: "Websnadno.cz", type: "builder" },
+    webzdarma: { name: "Webzdarma", type: "webhosting" },
 };
 
 /** Keys of the feature groups in web_metadata.yaml and of the features within them */
@@ -211,7 +215,7 @@ function parseWebMetadata(raw: string): WebMetadata[] {
                     : fail(`'service' isn't a string, a set or null`);
         const services = serviceKeys.map((key) =>
             key in webServices
-                ? { key, name: webServices[key] }
+                ? { key, ...webServices[key] }
                 : fail(`unknown service '${key}', add it to webServices in webs.server.ts`),
         );
 
@@ -273,6 +277,10 @@ export const toWeb = ({ domain, id, slug, shownName }: WebMetadata): BulanciWeb 
     slug,
     shownName,
 });
+
+/** The type of the website's (first) hosting service; null if unknown */
+export const hostingType = ({ services }: Pick<WebMetadata, "services">) =>
+    services[0]?.type ?? null;
 
 export const webMetadata = parseWebMetadata(webMetadataRaw);
 
