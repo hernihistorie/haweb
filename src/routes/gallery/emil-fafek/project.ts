@@ -8,6 +8,7 @@ export const projectEmilFafek: Project = {
     },
     type: "fond",
     url: "/gallery/emil-fafek/",
+    inMenu: true,
     image,
     description: {
         cs: "Emil Fafek byl českým reportážním fotografem, který pracoval mezi lety 1945 a 1990 pro Mladou frontu. Fond obsahuje jeho fotografie z 80. let zaměřené na tehdejší československou počítačovou kulturu.",

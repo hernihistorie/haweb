@@ -4,7 +4,7 @@ import image from "./project.jpg?w=800;400&enhanced";
 export const projectProgramyZCST: Project = {
     name: {
         cs: "Programy z Česko&shy;slovenské televize",
-        en: "Programs from Czecho&shy;&shy;slovak Television",
+        en: "Programs from Czecho&shy;slovak Television",
     },
     fullname: {
         cs: "Projekt Programy z Česko&shy;slovenské televize",
@@ -12,6 +12,8 @@ export const projectProgramyZCST: Project = {
     },
     type: "project",
     url: "/projects/programy-z-cst/",
+    year: 2025,
+    inMenu: true,
     image,
     description: {
         cs: "V 80. letech Československá televize odvysílala dva pořady v rámci kterých byly distribuované programy pro ZX Spectrum. Tento projekt obsahuje téměř všechny tyto programy.",

@@ -93,6 +93,13 @@ export interface Project {
     /** Thin strip behind the project's name in its menu; falls back to the banner */
     menuImage?: Picture;
     description?: LocalizedString;
+    /** Year shown on the timeline; projects without one aren't on it */
+    year?: number;
+    /**
+     * Show in the header's projects menu. Not for projects with their own header item, as the
+     * projects menu would be highlighted on their pages too.
+     */
+    inMenu?: boolean;
 }
 
 export type PostKind = "news" | "article" | "video";

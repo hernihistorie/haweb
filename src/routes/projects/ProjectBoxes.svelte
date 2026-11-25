@@ -1,48 +1,21 @@
 <script lang="ts">
     import ThinBox from "#lib/components/ThinBox.svelte";
     import Loc from "#lib/components/Loc.svelte";
-    import type { Project } from "$src/types";
+    import { projects } from "$src/data/projects";
 
-    import { projectBulanci } from "./bulanci/project";
-    import { projectProgramyZCST } from "./programy-z-cst/project";
-    import { projectBewesoft } from "./bewesoft/project";
-    import { projectAtariKlubCitov } from "./atari-klub-citov/project";
-    import { projectVideostop } from "./videostop/project";
-    import { projectEmilFafek } from "../gallery/emil-fafek/project";
-    import { projectOuya } from "./ouya/project";
-    import { projectFrantisekStarekCunas } from "./frantisek-starek-cunas/project";
-    import { projectMagazines } from "../magazines/project";
-    import { projectInterviews } from "../interviews/project";
-    import { projectSbirka } from "./sbirka/project";
     interface Props {
         all: boolean;
     }
 
     let { all }: Props = $props();
 
-    const homepageProjects: Project[] = [
-        projectBulanci,
-        projectFrantisekStarekCunas,
-        projectProgramyZCST,
-        projectBewesoft,
-    ];
-    const allProjects: Project[] = [
-        projectBulanci,
-        projectFrantisekStarekCunas,
-        projectProgramyZCST,
-        projectBewesoft,
-        projectAtariKlubCitov,
-        projectVideostop,
-        projectSbirka,
-        projectMagazines,
-        projectInterviews,
-        projectEmilFafek,
-        projectOuya,
-    ];
+    const HOMEPAGE_PROJECTS = 4;
+
+    let shownProjects = $derived(all ? projects : projects.slice(0, HOMEPAGE_PROJECTS));
 </script>
 
 <div class="project-box">
-    {#each all ? allProjects : homepageProjects as project}
+    {#each shownProjects as project (project.url)}
         <ThinBox project={all} href={project.url} img={project.image} show_arrow={false}>
             {#snippet heading()}
                 <Loc text={project.name} />

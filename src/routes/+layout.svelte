@@ -10,11 +10,9 @@
     import { invalidate } from "$app/navigation";
     import { MAGDB_ORIGIN } from "$src/lib/magdb";
     import NavigatingIndicator from "$src/lib/components/layout/NavigatingIndicator.svelte";
-    interface Props {
-        children?: import("svelte").Snippet;
-    }
+    import type { LayoutProps } from "./$types";
 
-    let { children }: Props = $props();
+    let { data, children }: LayoutProps = $props();
 
     if (typeof window !== "undefined") {
         const url = new URL(window.location.href);
@@ -35,7 +33,7 @@
 
 <Meta title="" />
 
-<Header />
+<Header menuProjects={data.menuProjects} />
 
 <main>
     {@render children?.()}

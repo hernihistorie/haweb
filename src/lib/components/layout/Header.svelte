@@ -12,85 +12,59 @@
     import { page } from "$app/state";
     import { pathnameStartswith } from "$src/lib/util";
     import { loc } from "$src/lib/loc";
+    import type { LocalizedString, Project } from "$src/types";
 
     type MenuItem = {
         url: string;
-        cs: string;
-        en: string;
+        name: LocalizedString;
         submenu?: MenuItem[];
         /** Other pages, not in the submenu, where the item is active */
         alsoActive?: string[];
     };
 
-    var menuItems: MenuItem[] = [
+    interface Props {
+        /** Projects in the projects submenu */
+        menuProjects: Pick<Project, "name" | "url">[];
+    }
+
+    let { menuProjects }: Props = $props();
+
+    let menuItems: MenuItem[] = $derived([
         {
             url: "/about",
-            cs: "O nás",
-            en: "About us",
+            name: { cs: "O nás", en: "About us" },
             submenu: [
-                { url: "/about", cs: "<b>O nás</b>", en: "<b>About us</b>" },
-                { url: "/contact", cs: "Kontakty", en: "Contacts" },
-                { url: "/support", cs: "Podpořte nás", en: "Support us" },
+                { url: "/about", name: { cs: "<b>O nás</b>", en: "<b>About us</b>" } },
+                { url: "/contact", name: { cs: "Kontakty", en: "Contacts" } },
+                { url: "/support", name: { cs: "Podpořte nás", en: "Support us" } },
             ],
         },
-        { url: "/news", cs: "Novinky", en: "News" },
-        { url: "/articles", cs: "Články", en: "Articles", alsoActive: ["/videos"] },
+        { url: "/news", name: { cs: "Novinky", en: "News" } },
+        { url: "/articles", name: { cs: "Články", en: "Articles" }, alsoActive: ["/videos"] },
         {
             url: "/projects",
-            cs: "Projekty",
-            en: "Projects",
+            name: { cs: "Projekty", en: "Projects" },
             submenu: [
                 {
                     url: "/projects",
-                    cs: "<b>Naše projekty</b>",
-                    en: "<b>Our projects</b>",
+                    name: { cs: "<b>Naše projekty</b>", en: "<b>Our projects</b>" },
                 },
-
-                {
-                    url: "/gallery/emil-fafek",
-                    cs: "Fotografie Emila Fafka",
-                    en: "Emil Fafek photography",
-                },
-                { url: "/projects/videostop", cs: "Videostop", en: "Videostop" },
-                {
-                    url: "/projects/atari-klub-citov",
-                    cs: "Atari klub Cítov",
-                    en: "Atari club Citov",
-                },
-                {
-                    url: "/projects/bewesoft",
-                    cs: "Fond Jiřího Bernáška (BeWe Soft)",
-                    en: "Jiří Bernášek Collection (BeWe Soft)",
-                },
-                {
-                    url: "/projects/programy-z-cst",
-                    cs: "Programy z Československé televize",
-                    en: "Programs from Czechoslovak Television",
-                },
-                {
-                    url: "/projects/frantisek-starek-cunas",
-                    cs: "Fond Františka Stárka Čuňase",
-                    en: "František Stárek Čuňas Collection",
-                },
-                { url: "/projects/bulanci", cs: "Bulánci", en: "Bulánci" },
+                ...menuProjects.map(({ name, url = "" }) => ({ name, url })),
             ],
         },
         {
             url: "/inventory/",
-            cs: "Sbírka",
-            en: "Collection",
+            name: { cs: "Sbírka", en: "Collection" },
         },
         {
             url: "/interviews",
-            cs: "Rozhovory",
-            en: "Interviews",
+            name: { cs: "Rozhovory", en: "Interviews" },
         },
         {
             url: "/magazines",
-            cs: "Časopisy",
-            en: "Magazines",
+            name: { cs: "Časopisy", en: "Magazines" },
         },
-    ];
+    ]);
     let burgerMenuOpen = $state(false);
     let currentExpandedMenu: MenuItem | null = $state(null);
 
@@ -152,7 +126,7 @@
                                     : menuItem.url}
                                 onclick={() => (burgerMenuOpen = false)}
                                 class:active={isActive(menuItem)}
-                                ><Loc cs={menuItem.cs} en={menuItem.en} /></a
+                                ><Loc text={menuItem.name} /></a
                             >
                         </li>
                     {/each}
@@ -189,10 +163,7 @@
                                     currentExpandedMenu?.url == menuItem.url ? null : menuItem)}
                             tabindex="0"
                         >
-                            <Loc
-                                cs="{menuItem.cs}  {isExpanded(menuItem) ? '▴' : '▾'}"
-                                en="{menuItem.en}  {isExpanded(menuItem) ? '▴' : '▾'}"
-                            />
+                            <Loc text="{loc(menuItem.name)}  {isExpanded(menuItem) ? '▴' : '▾'}" />
                         </button>
                         {#if isExpanded(menuItem)}
                             <ul class="dropdown" transition:slide>
@@ -204,7 +175,7 @@
                                                 : subMenuItem.url}
                                             onclick={resetExpandedMenu}
                                         >
-                                            <Loc cs={subMenuItem.cs} en={subMenuItem.en} />
+                                            <Loc text={subMenuItem.name} />
                                         </a>
                                     </li>
                                 {/each}
@@ -220,7 +191,7 @@
                             onclick={resetExpandedMenu}
                             class:active={isActive(menuItem)}
                         >
-                            <Loc cs={menuItem.cs} en={menuItem.en} />
+                            <Loc text={menuItem.name} />
                         </a>
                     </li>
                 {/if}

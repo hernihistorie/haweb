@@ -12,6 +12,8 @@ export const projectAtariKlubCitov: Project = {
     },
     type: "project",
     url: "/projects/atari-klub-citov/",
+    year: 2024,
+    inMenu: true,
     image,
     description: {
         cs: "Počítačový klub Cítov fungoval od roku 1986 do revoluce v roce 1989. Tento projekt shromažďuje materiály spojené s činností tohoto klubu stejně jako s činností jeho členů po rozpadu klubu.",

@@ -14,6 +14,8 @@ export const projectBulanci: Project = {
     },
     type: "project",
     url: "/projects/bulanci/",
+    year: 2026,
+    inMenu: true,
     image: miniature,
     bannerImage: headline,
     bannerUncropped: true,

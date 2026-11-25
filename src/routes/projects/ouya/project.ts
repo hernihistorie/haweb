@@ -5,6 +5,7 @@ export const projectOuya: Project = {
     name: "Ouya",
     type: "project",
     url: "https://www.vice.com/en/article/ouya-is-shutting-down-and-fans-are-preserving-games-before-they-disappear/",
+    year: 2019,
     image,
     description: {
         cs: "Ouya byla neúspěšná herní konzole vyráběná mezi lety 2013 až 2015. Projekt proběhl před uzavřením online storefrontu Ouyi v roce 2019 a byl snahou archivovat digitální knihovnu této platformy.",

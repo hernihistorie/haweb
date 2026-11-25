@@ -10,6 +10,8 @@ export const projectVideostop: Project = {
     },
     type: "project",
     url: "/projects/videostop/",
+    year: 2024,
+    inMenu: true,
     image,
     bannerImage,
     description: {

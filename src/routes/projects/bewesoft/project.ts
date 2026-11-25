@@ -8,6 +8,8 @@ export const projectBewesoft: Project = {
     },
     type: "fond",
     url: "/projects/bewesoft/",
+    year: 2025,
+    inMenu: true,
     image,
     description: {
         cs: "Jiří Bernášek je bývalým tvůrcem her a programů pro osmibitové počítače Atari. Tento fond obsahuje výběr několika jeho archivních disket obsahující programy a zdrojové kódy k Bernáškovým hrám a jinému softwaru.",
