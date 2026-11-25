@@ -13,7 +13,7 @@
 
     let { project, children }: Props = $props();
 
-    let image = $derived(project.bannerImage ?? project.image);
+    let image = $derived(project.menuImage ?? project.bannerImage ?? project.image);
     let href = $derived(
         project.url?.startsWith("/") ? localizeHref(project.url) : project.url,
     );

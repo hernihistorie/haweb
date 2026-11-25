@@ -72,6 +72,7 @@
                     cs: "Fond Františka Stárka Čuňase",
                     en: "František Stárek Čuňas Collection",
                 },
+                { url: "/projects/bulanci", cs: "Bulánci", en: "Bulánci" },
             ],
         },
         {

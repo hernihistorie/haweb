@@ -7,14 +7,23 @@
         /** Heading level of the title */
         level?: 2 | 3;
         aspectRatio?: string;
+        /** Show the image whole: always follow the aspect ratio, however tall or short it gets */
+        uncropped?: boolean;
         /** The title, shown over the bottom of the image */
         children: Snippet;
     }
 
-    let { src, alt = "", level = 3, aspectRatio = "4/3", children }: Props = $props();
+    let {
+        src,
+        alt = "",
+        level = 3,
+        aspectRatio = "4/3",
+        uncropped = false,
+        children,
+    }: Props = $props();
 </script>
 
-<div class="image-title" style:--aspect-ratio={aspectRatio}>
+<div class="image-title" class:uncropped style:--aspect-ratio={aspectRatio}>
     <img {src} {alt} />
     <svelte:element this={`h${level}`} class="title">
         {@render children()}
@@ -32,6 +41,10 @@
         max-height: 24em;
         aspect-ratio: var(--aspect-ratio);
         object-fit: cover;
+    }
+
+    .uncropped img {
+        max-height: none;
     }
 
     .title {
@@ -57,6 +70,10 @@
     @media screen and (max-width: 700px) {
         img {
             min-height: 12em;
+        }
+
+        .uncropped img {
+            min-height: 0;
         }
 
         h2.title {

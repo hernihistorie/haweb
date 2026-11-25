@@ -48,7 +48,11 @@
     {/if}
     {#if bannerImage}
         <div class="banner">
-            <ImageTitle src={bannerImage} level={2} aspectRatio="5/2">
+            <ImageTitle
+                src={bannerImage}
+                level={2}
+                aspectRatio={project.bannerAspectRatio ?? "5/2"}
+                uncropped={project.bannerAspectRatio !== undefined}>
                 <Loc text={project.fullname ?? project.name} />
             </ImageTitle>
         </div>

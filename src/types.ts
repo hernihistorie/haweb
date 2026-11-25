@@ -86,6 +86,10 @@ export interface Project {
     image?: string;
     /** Wide banner image for the project page; falls back to `image` */
     bannerImage?: string;
+    /** Aspect ratio of `bannerImage`, to show it whole instead of cropped to the usual banner shape */
+    bannerAspectRatio?: string;
+    /** Thin strip behind the project's name in its menu; falls back to the banner */
+    menuImage?: string;
     description?: LocalizedString;
 }
 

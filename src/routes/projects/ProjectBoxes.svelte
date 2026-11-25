@@ -3,6 +3,7 @@
     import Loc from "#lib/components/Loc.svelte";
     import type { Project } from "$src/types";
 
+    import { projectBulanci } from "./bulanci/project";
     import { projectProgramyZCST } from "./programy-z-cst/project";
     import { projectBewesoft } from "./bewesoft/project";
     import { projectAtariKlubCitov } from "./atari-klub-citov/project";
@@ -20,12 +21,13 @@
     let { all }: Props = $props();
 
     const homepageProjects: Project[] = [
+        projectBulanci,
         projectFrantisekStarekCunas,
         projectProgramyZCST,
         projectBewesoft,
-        projectAtariKlubCitov,
     ];
     const allProjects: Project[] = [
+        projectBulanci,
         projectFrantisekStarekCunas,
         projectProgramyZCST,
         projectBewesoft,
