@@ -6,6 +6,7 @@
     import ImageTitle from "#lib/components/ImageTitle.svelte";
     import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
     import { loc } from "#lib/loc.js";
+    import { absoluteUrl, htmlToText } from "#lib/site.js";
 
     interface Props {
         project: Project;
@@ -27,10 +28,14 @@
     <meta property="og:title" content={loc(project.fullname ?? project.name)} />
     <meta property="og:type" content="website" />
     {#if project.description}
-        <meta property="og:description" content={loc(project.description)} />
+        <meta property="og:description" content={htmlToText(loc(project.description))} />
     {/if}
     {#if image}
-        <meta property="og:image" content={image} data-pagefind-meta="image[content]" />
+        <meta
+            property="og:image"
+            content={absoluteUrl(image)}
+            data-image={image}
+            data-pagefind-meta="image[data-image]" />
     {/if}
     <meta property="og:locale" content={getLocale()} />
 </svelte:head>

@@ -3,8 +3,7 @@ import { getListedPosts } from "$src/data/posts";
 import { postHref, postImage, postKindHref } from "./posts";
 import type { Post, LanguageCode } from "$src/types";
 import { toPlainDateTime } from "./datetime";
-
-const SITE_URL = "https://herniarchiv.cz";
+import { SITE_URL, absoluteUrl, htmlToText } from "./site";
 
 function escapeXml(text: string): string {
     return text
@@ -13,10 +12,6 @@ function escapeXml(text: string): string {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&apos;");
-}
-
-function stripHtml(html: string): string {
-    return html.replace(/<[^>]*>/g, "").trim();
 }
 
 function getTitle(post: Post, lang: LanguageCode): string {
@@ -79,7 +74,7 @@ ${latestPosts
                 : lang === "en"
                   ? (post.description_html?.en ?? post.description_html?.cs ?? "")
                   : (post.description_html?.cs ?? post.description_html?.en ?? "");
-        const description = descriptionHtml ? escapeXml(stripHtml(descriptionHtml)) : "";
+        const description = descriptionHtml ? escapeXml(htmlToText(descriptionHtml)) : "";
         const date = post.date ? dateToISOString(post.date) : new Date().toISOString();
         const image = postImage(post);
 
@@ -91,7 +86,7 @@ ${latestPosts
         <published>${date}</published>
         <updated>${date}</updated>
         <summary>
-            ${image ? `<p><img src="${new URL(image, SITE_URL)}" /></p>` : ""}
+            ${image ? `<p><img src="${absoluteUrl(image)}" /></p>` : ""}
             <p>${description}</p>
         </summary>
     </entry>`;

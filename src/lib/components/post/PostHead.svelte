@@ -3,6 +3,7 @@
     import { getLocale } from "#lib/paraglide/runtime.js";
     import { loc } from "$src/lib/loc";
     import { postImage } from "$src/lib/posts";
+    import { absoluteUrl, htmlToText } from "#lib/site.js";
     import type { Post, StreamPost } from "$src/types";
 
     /** The page title and OpenGraph metadata of a post */
@@ -29,10 +30,14 @@
         <meta property="og:article:published_time" content={post.date.toString()} />
     {/if}
     {#if post.description_html}
-        <meta property="og:description" content={loc(post.description_html)} />
+        <meta property="og:description" content={htmlToText(loc(post.description_html))} />
     {/if}
     {#if image}
-        <meta property="og:image" content={image} data-pagefind-meta="image[content]" />
+        <meta
+            property="og:image"
+            content={absoluteUrl(image)}
+            data-image={image}
+            data-pagefind-meta="image[data-image]" />
     {/if}
     <meta property="og:locale" content={getLocale()} />
 </svelte:head>
