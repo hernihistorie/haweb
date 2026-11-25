@@ -3,6 +3,7 @@
     import ImageTitle from "$src/lib/components/ImageTitle.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import type { Snippet } from "svelte";
+    import type { Picture } from "vite-imagetools";
     let {
         href = undefined,
         title = undefined,
@@ -18,9 +19,18 @@
         heading?: Snippet;
         children?: Snippet;
         show_arrow?: boolean;
-        img?: string;
+        /** Shown along with the heading */
+        img?: Picture;
         project?: boolean;
     } = $props();
+
+    // Follows the widths of .project
+    const sizes = [
+        { media: "(min-width: 1301px)", width: "min(25vw, 330px)" },
+        { media: "(min-width: 1146px)", width: "33vw" },
+        { media: "(min-width: 851px)", width: "50vw" },
+        { width: "100vw" },
+    ];
 
     let localizedHref = $derived(
         href && href.startsWith("/") && !href.startsWith("//") ? localizeHref(href) : href,
@@ -30,11 +40,7 @@
 <div class="project">
     {#if img && heading}
         <a href={localizedHref} class="image">
-            <ImageTitle src={img} alt={title}>{@render heading()}</ImageTitle>
-        </a>
-    {:else if img}
-        <a href={localizedHref}>
-            <img src={img} alt={title} />
+            <ImageTitle image={img} alt={title} {sizes} lazy>{@render heading()}</ImageTitle>
         </a>
     {:else if heading}
         <h3><a href={localizedHref}>{@render heading()}</a></h3>
@@ -55,11 +61,6 @@
 </div>
 
 <style>
-    img {
-        width: 100%;
-        aspect-ratio: 4/3;
-    }
-
     .project {
         width: calc(25% - 19px);
     }
@@ -94,11 +95,6 @@
     @media screen and (max-width: 850px) {
         .project {
             width: 100%;
-        }
-    }
-    @media screen and (max-width: 470px) {
-        img {
-            width: 10%;
         }
     }
 </style>

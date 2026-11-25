@@ -1,4 +1,5 @@
 import type { Project } from "$src/types";
+import image from "./project.jpg?w=1200;800;400&enhanced";
 
 export const projectMagazines: Project = {
     name: {
@@ -11,7 +12,7 @@ export const projectMagazines: Project = {
     },
     type: "project",
     url: "/magazines/",
-    image: "/photos/magazine-shelf.jpg",
+    image,
     description: {
         cs: "Tvoříme knihovnu českých a slovenských herních časopisů včetně digitalizace. Veřejná databáze katalogizuje jednotlivá vydání a odkazuje na skeny.",
         en: "We are building a library of Czech and Slovak game magazines, which we are gradually digitizing. The public database catalogs individual issues and links to scans.",

@@ -19,7 +19,7 @@
     let { project, thin = true, backLink = true, children }: Props = $props();
 
     let bannerImage = $derived(project.bannerImage ?? project.image);
-    let image = $derived(project.image ?? project.bannerImage);
+    let image = $derived((project.image ?? project.bannerImage)?.img.src);
 </script>
 
 <Meta title={project.fullname ?? project.name} />
@@ -49,10 +49,11 @@
     {#if bannerImage}
         <div class="banner">
             <ImageTitle
-                src={bannerImage}
+                image={bannerImage}
                 level={2}
-                aspectRatio={project.bannerAspectRatio ?? "5/2"}
-                uncropped={project.bannerAspectRatio !== undefined}>
+                aspectRatio={5 / 2}
+                uncropped={project.bannerUncropped}
+                sizes={[{ width: `min(100vw, ${thin ? "800px" : "1400px"})` }]}>
                 <Loc text={project.fullname ?? project.name} />
             </ImageTitle>
         </div>

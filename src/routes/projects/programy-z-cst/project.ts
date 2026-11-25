@@ -1,4 +1,5 @@
 import type { Project } from "$src/types";
+import image from "./project.jpg?w=800;400&enhanced";
 
 export const projectProgramyZCST: Project = {
     name: {
@@ -11,7 +12,7 @@ export const projectProgramyZCST: Project = {
     },
     type: "project",
     url: "/projects/programy-z-cst/",
-    image: "/photos/projects/cst.jpg",
+    image,
     description: {
         cs: "V 80. letech Československá televize odvysílala dva pořady v rámci kterých byly distribuované programy pro ZX Spectrum. Tento projekt obsahuje téměř všechny tyto programy.",
         en: "In the 1980s, Czechoslovak Television broadcast two programs during which software for the ZX Spectrum was distributed. This project contains almost all of these programs.",

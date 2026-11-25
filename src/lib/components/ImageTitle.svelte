@@ -1,30 +1,55 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
+    import type { Picture } from "vite-imagetools";
 
     interface Props {
-        src: string;
+        image: Picture;
         alt?: string;
         /** Heading level of the title */
         level?: 2 | 3;
-        aspectRatio?: string;
-        /** Show the image whole: always follow the aspect ratio, however tall or short it gets */
+        /** Shape which the image is cropped to */
+        aspectRatio?: number;
+        /** Show the image whole, however tall or short it gets */
         uncropped?: boolean;
+        /** How wide the component is: the first size whose media query matches, as in `<img sizes>` */
+        sizes: { media?: string; width: string }[];
+        /** For images which might not be scrolled to */
+        lazy?: boolean;
         /** The title, shown over the bottom of the image */
         children: Snippet;
     }
 
     let {
-        src,
+        image,
         alt = "",
         level = 3,
-        aspectRatio = "4/3",
+        aspectRatio = 4 / 3,
         uncropped = false,
+        sizes,
+        lazy = false,
         children,
     }: Props = $props();
+
+    const imageRatio = $derived(image.img.w / image.img.h);
+    // Images wider than the crop are scaled to its height, so they need more pixels than it's wide
+    const scale = $derived(uncropped ? 1 : Math.max(1, imageRatio / aspectRatio));
+    const imageSizes = $derived(
+        sizes
+            .map(({ media, width }) => `${media ?? ""} calc(${width} * ${scale.toFixed(2)})`.trim())
+            .join(", "),
+    );
 </script>
 
-<div class="image-title" class:uncropped style:--aspect-ratio={aspectRatio}>
-    <img {src} {alt} />
+<div
+    class="image-title"
+    class:uncropped
+    style:--aspect-ratio={uncropped ? imageRatio : aspectRatio}>
+    <enhanced:img
+        src={image}
+        sizes={imageSizes}
+        {alt}
+        loading={lazy ? "lazy" : undefined}
+        decoding="async" />
     <svelte:element this={`h${level}`} class="title">
         {@render children()}
     </svelte:element>
@@ -38,6 +63,8 @@
     img {
         display: block;
         width: 100%;
+        /* enhanced:img sets width/height attributes */
+        height: auto;
         max-height: 24em;
         aspect-ratio: var(--aspect-ratio);
         object-fit: cover;

@@ -20,7 +20,10 @@
 </script>
 
 <nav class="project-menu" data-pagefind-ignore>
-    <a {href} class="name" style:background-image={image ? `url("${image}")` : undefined}>
+    <a {href} class="name">
+        {#if image}
+            <enhanced:img src={image} sizes="330px" alt="" decoding="async" />
+        {/if}
         <span><Loc text={project.name} /></span>
     </a>
     <div class="items">
@@ -48,13 +51,21 @@
         margin-right: 24px;
         padding: 0 4em 0 12px;
         background-color: var(--color-secondary);
-        background-size: cover;
-        background-position: center;
         color: white;
         font-weight: bold;
         text-transform: uppercase;
         text-decoration: none;
         white-space: nowrap;
+    }
+
+    .name :global(img) {
+        position: absolute;
+        inset: 0;
+        /* Under the gradient */
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .name::before {

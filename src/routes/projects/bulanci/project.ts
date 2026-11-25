@@ -1,18 +1,22 @@
 import type { Project } from '$src/types';
-import headline from "./img/bulanci_headline.jpg?w=1600&format=jpg&imagetools";
-import menu from "./img/bulanci_menu.jpg?w=660&format=jpg&imagetools";
-import miniature from "./img/bulanci_miniature.jpg?w=1200&format=jpg&imagetools";
+import headline from "./img/bulanci_headline.jpg?w=1600;800;400&enhanced";
+import menu from "./img/bulanci_menu.jpg?w=660;330&enhanced";
+import miniature from "./img/bulanci_miniature.jpg?w=1200;800;400&enhanced";
 
 export const projectBulanci: Project = {
     name: {
         cs: "Bulánci",
         en: "Bulánci"
     },
+    fullname: {
+        cs: "Projekt Bulánci",
+        en: "Project Bulánci"
+    },
     type: "project",
     url: "/projects/bulanci/",
     image: miniature,
     bannerImage: headline,
-    bannerAspectRatio: "2/1",
+    bannerUncropped: true,
     menuImage: menu,
     description: {
         cs: "Kultovní střílečka <i>Bulánci</i> z roku 2001 patřila ve své době mezi nejvíce šířené české hry na internetu. Projekt mapuje internetové aktivity jejích fanoušků a obsahuje archiv přibližně 750 fanouškovských map, přehled 56 webů a rozhovory s fanoušky i autory hry.",

@@ -1,4 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
+import type { Picture } from "vite-imagetools";
 import type { SeriesSlug } from "./data/series";
 import type { Talk } from "./data/talk";
 import type { Stream, Video } from "./data/video";
@@ -83,13 +84,14 @@ export interface Project {
     fullname?: LocalizedString;
     type?: "project" | "fond";
     url?: string;
-    image?: string;
+    /** Image for listings and link previews */
+    image?: Picture;
     /** Wide banner image for the project page; falls back to `image` */
-    bannerImage?: string;
-    /** Aspect ratio of `bannerImage`, to show it whole instead of cropped to the usual banner shape */
-    bannerAspectRatio?: string;
+    bannerImage?: Picture;
+    /** Show the banner whole, instead of cropping it to the usual banner shape */
+    bannerUncropped?: boolean;
     /** Thin strip behind the project's name in its menu; falls back to the banner */
-    menuImage?: string;
+    menuImage?: Picture;
     description?: LocalizedString;
 }
 
