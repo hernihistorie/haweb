@@ -49,4 +49,11 @@ fi
 git -C "$SUBMODULE" sparse-checkout set --cone "${SPARSE_DIRS[@]}"
 
 # Check out the commit recorded in this repository.
-git submodule update "$SUBMODULE"
+# After the --no-checkout clone the submodule's index is empty, but it's already at that
+# commit, so plain `git submodule update` would leave it empty; force the checkout then
+# (an empty index means there are no local changes to lose).
+if [ -z "$(git -C "$SUBMODULE" ls-files)" ]; then
+    git submodule update --force "$SUBMODULE"
+else
+    git submodule update "$SUBMODULE"
+fi
