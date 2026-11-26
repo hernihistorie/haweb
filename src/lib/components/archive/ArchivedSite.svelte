@@ -9,6 +9,8 @@
 
 <script lang="ts">
     import Loc from "#lib/components/Loc.svelte";
+    import { goto } from "$app/navigation";
+    import { page } from "$app/state";
     import { loc } from "$src/lib/loc";
     import { waybackFrameUrl, waybackUrl } from "$src/lib/wayback";
     import IconExternalLink from "@lucide/svelte/icons/external-link";
@@ -47,12 +49,32 @@
     }: Props = $props();
 
     /**
-     * The archived copy is only loaded on request: the Wayback Machine is slow, and may be
-     * unavailable or stop allowing to be framed
+     * The window is maximized in place, so that the archived copy doesn't have to load again,
+     * with a history entry of its own, so that going back restores it
      */
-    let browsing = $state(false);
+    const maximized = $derived(page.state.maximizedArchive === url);
+
+    /**
+     * The archived copy is only loaded on request: the Wayback Machine is slow, and may be
+     * unavailable or stop allowing to be framed. A maximized window always shows it, as
+     * there's little point to a screenshot that big.
+     */
+    let browsingRequested = $state(false);
+    const browsing = $derived(browsingRequested || maximized);
     let loaded = $state(false);
     let viewportWidth = $state(0);
+    let viewportHeight = $state(0);
+
+    /**
+     * In the page, the copy is rendered at the window size the site was designed for, then
+     * scaled to fit. Maximized, it fills the window at its actual size like in a real browser,
+     * only scaled down on screens too narrow for the site.
+     */
+    const frameScale = $derived(
+        (maximized ? Math.min(1, viewportWidth / width) : viewportWidth / width) || 1,
+    );
+    const frameWidth = $derived(maximized ? viewportWidth / frameScale : width);
+    const frameHeight = $derived(maximized ? viewportHeight / frameScale : height);
 
     const frameSrc = $derived(waybackFrameUrl(url, timestamp));
     /** The usual snapshot page, with the Wayback Machine's toolbar */
@@ -70,20 +92,63 @@
 
     function stopBrowsing() {
         closed = true;
-        browsing = false;
+        browsingRequested = false;
         loaded = false;
+        restore();
+    }
+
+    function maximize() {
+        playClicked = false;
+        browsingRequested = true;
+        void goto(page.url.href, {
+            state: { ...page.state, maximizedArchive: url },
+            shallow: true,
+        });
+    }
+
+    /** Leaves the history entry added by maximizing, rather than adding another one */
+    function restore() {
+        if (maximized) history.back();
+    }
+
+    function minimize() {
+        if (maximized) restore();
+        else stopBrowsing();
     }
 
     /** Keeps the keyboard focus, which was on a button that got replaced */
     const focus: Attachment<HTMLElement> = (element) => element.focus();
+
+    /**
+     * Whether the copy was opened with the play button, which the frame replaces. Opened by
+     * maximizing, the focus stays on the window's buttons, where Escape can restore it.
+     */
+    let playClicked = false;
+    const focusIfPlayed: Attachment<HTMLElement> = (element) => {
+        if (playClicked) element.focus();
+    };
+
+    function play() {
+        playClicked = true;
+        browsingRequested = true;
+    }
 </script>
 
 <figure class="archived-site">
-    <BrowserWindow title={windowTitle} {url} {status} onclose={browsing ? stopBrowsing : undefined}>
+    <BrowserWindow
+        title={windowTitle}
+        {url}
+        {status}
+        {maximized}
+        onminimize={browsing ? minimize : undefined}
+        ontogglemaximized={maximized ? restore : maximize}
+        onclose={browsing ? stopBrowsing : undefined}>
         <div
             class="viewport"
-            style:aspect-ratio="{width} / {height}"
-            bind:clientWidth={viewportWidth}>
+            class:maximized
+            style:aspect-ratio={maximized ? undefined : `${width} / ${height}`}
+            bind:clientWidth={viewportWidth}
+            bind:clientHeight={viewportHeight}>
             {#if screenshot}
                 <img
                     src={screenshot.src}
@@ -108,14 +173,14 @@
                     title={loc({ cs: "Archivovaná kopie webu", en: "Archived copy of" }) +
                         " " +
                         name}
-                    {width}
-                    {height}
+                    width={frameWidth}
+                    height={frameHeight}
                     class:loaded
-                    style:transform="scale({viewportWidth / width || 1})"
+                    style:transform="scale({frameScale})"
                     sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
                     referrerpolicy="no-referrer"
                     onload={() => (loaded = true)}
-                    {@attach focus}></iframe>
+                    {@attach focusIfPlayed}></iframe>
                 {#if !loaded}
                     <p class="overlay status" role="status">
                         <Loc
@@ -124,10 +189,7 @@
                     </p>
                 {/if}
             {:else}
-                <button
-                    class="overlay play"
-                    onclick={() => (browsing = true)}
-                    {@attach closed && focus}>
+                <button class="overlay play" onclick={play} {@attach closed && focus}>
                     <span class="play-label">
                         <IconPlay size="1.1em" />
                         <Loc cs="Otevřít archivovanou kopii" en="Browse the archived copy" />
@@ -160,6 +222,12 @@
         position: relative;
         overflow: hidden;
         background: var(--color-secondary-transparent);
+    }
+
+    /* Takes what the window's chrome leaves of the browser window */
+    .viewport.maximized {
+        flex: 1;
+        min-height: 0;
     }
 
     img {
