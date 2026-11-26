@@ -1,4 +1,5 @@
 <script lang="ts">
+    import InfoTip from "#lib/components/InfoTip.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
     import type { LocalizedString } from "$src/types";
@@ -10,6 +11,7 @@
     import NoValue from "../NoValue.svelte";
     import DomainText from "./DomainText.svelte";
     import {
+        ACTIVE_YEARS_EXPLANATION,
         activeYearsLabel,
         isDescendingFirst,
         webHref,
@@ -32,16 +34,39 @@
     }
 </script>
 
-{#snippet sortableHeader(key: WebSortKey, label: LocalizedString, className = "")}
+{#snippet arrow(key: WebSortKey)}
+    {#if sort.key === key}
+        {#if sort.desc}<IconArrowDown size="1em" />{:else}<IconArrowUp size="1em" />{/if}
+    {/if}
+{/snippet}
+
+{#snippet sortableHeader(
+    key: WebSortKey,
+    label: LocalizedString,
+    className = "",
+    hint?: LocalizedString,
+)}
     <th
         class={className}
         aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}>
+        <!--
+            A hint goes between the label and the arrow. It's a button of its own, so the arrow
+            becomes another one that sorts too, hidden from assistive technology (see aria-sort).
+        -->
         <button class="link sort" onclick={() => toggleSort(key)}>
             {loc(label)}
-            {#if sort.key === key}
-                {#if sort.desc}<IconArrowDown size="1em" />{:else}<IconArrowUp size="1em" />{/if}
-            {/if}
+            {#if !hint}{@render arrow(key)}{/if}
         </button>
+        {#if hint}
+            <InfoTip text={hint} />
+            {#if sort.key === key}
+                <button
+                    class="link sort"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    onclick={() => toggleSort(key)}>{@render arrow(key)}</button>
+            {/if}
+        {/if}
     </th>
 {/snippet}
 
@@ -51,7 +76,7 @@
             <th><Loc cs="Náhled" en="Preview" /></th>
             {@render sortableHeader("name", { cs: "Web", en: "Website" })}
             <th><Loc cs="Popis" en="Description" /></th>
-            {@render sortableHeader("year", { cs: "Aktivní", en: "Active" })}
+            {@render sortableHeader("year", { cs: "Aktivní", en: "Active" }, "", ACTIVE_YEARS_EXPLANATION)}
             <th><Loc cs="Hosting" en="Hosting" /></th>
             {@render sortableHeader("maps", { cs: "Mapy", en: "Maps" }, "number")}
         </tr>

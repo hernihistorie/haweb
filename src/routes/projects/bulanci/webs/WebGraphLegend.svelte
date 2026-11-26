@@ -2,96 +2,158 @@
     import "./webGraph.css";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
+    import IconCircleHelp from "@lucide/svelte/icons/circle-help";
+    import IconX from "@lucide/svelte/icons/x";
     import {
-        HOSTING_TYPE_LABELS,
-        HOSTING_TYPES,
+        HOSTING_GROUPS,
         hostingColor,
+        OTHER_HOSTING_LABEL,
         UNKNOWN_HOSTING_LABEL,
-        webHostingType,
+        webHostingGroup,
+        type HostingGroup,
     } from "./webGraph";
     import type { BulanciWebListItem, WebView } from "./webList";
 
     interface Props {
-        /** To list the services of each type of hosting, most used first */
+        /** To name the services in each group of hosting, most used first */
         webs: BulanciWebListItem[];
         view: Exclude<WebView, "table">;
     }
 
     let { webs, view }: Props = $props();
 
-    const servicesByType = $derived(
+    const id = $props.id();
+    let open = $state(false);
+    let toggle: HTMLElement;
+
+    const servicesByGroup = $derived(
         new Map(
-            HOSTING_TYPES.map((type) => {
+            HOSTING_GROUPS.map((group): [HostingGroup, string[]] => {
                 const counts = new Map<string, number>();
-                for (const web of webs.filter((web) => webHostingType(web) === type)) {
+                for (const web of webs.filter((web) => webHostingGroup(web) === group)) {
                     const { name } = web.services[0];
                     counts.set(name, (counts.get(name) ?? 0) + 1);
                 }
-                const names = [...counts].sort((a, b) => b[1] - a[1]).map(([name]) => name);
-                return [type, names.join(", ")];
+                return [group, [...counts].sort((a, b) => b[1] - a[1]).map(([name]) => name)];
             }),
         ),
     );
 </script>
 
-<ul class="legend" aria-label={loc({ cs: "Legenda", en: "Legend" })}>
-    {#each HOSTING_TYPES as type (type)}
+<svelte:window
+    onkeydown={(event) => {
+        if (event.key === "Escape") open = false;
+    }}
+    onpointerdown={(event) => {
+        if (open && !toggle.contains(event.target as Node)) open = false;
+    }} />
+
+<!-- Above the graph's top right corner, with the legend opening over the graph -->
+<div class="legend-toggle" bind:this={toggle}>
+    <button
+        type="button"
+        class="link"
+        aria-expanded={open}
+        aria-controls={id}
+        onclick={() => (open = !open)}>
+        {#if open}<IconX size="1em" />{:else}<IconCircleHelp size="1em" />{/if}
+        <Loc cs="Legenda" en="Legend" />
+    </button>
+
+    <ul class="legend" {id} hidden={!open} aria-label={loc({ cs: "Legenda", en: "Legend" })}>
+        {#each HOSTING_GROUPS as group (group)}
+            {@const services = servicesByGroup.get(group) ?? []}
+            <li>
+                <span class="symbol"
+                    ><span class="swatch" style:--hosting={hostingColor(group)}></span></span>
+                {#if group === "other"}
+                    <span>
+                        {loc(OTHER_HOSTING_LABEL)}
+                        {#if services.length}
+                            <span class="services">({services.join(", ")})</span>
+                        {/if}
+                    </span>
+                {:else}
+                    <span>{services[0]}</span>
+                {/if}
+            </li>
+        {/each}
         <li>
             <span class="symbol"
-                ><span class="swatch" style:--hosting={hostingColor(type)}></span></span>
-            <span>
-                {loc(HOSTING_TYPE_LABELS[type])}
-                {#if servicesByType.get(type)}
-                    <span class="services">({servicesByType.get(type)})</span>
-                {/if}
-            </span>
+                ><span class="swatch unknown" style:--hosting={hostingColor(null)}></span></span>
+            {loc(UNKNOWN_HOSTING_LABEL)}
         </li>
-    {/each}
-    <li>
-        <span class="symbol"
-            ><span class="swatch unknown" style:--hosting={hostingColor(null)}></span></span>
-        {loc(UNKNOWN_HOSTING_LABEL)}
-    </li>
-    <li>
-        <span class="symbol"><span class="line"></span></span>
-        <Loc cs="Odkazy z vybraného webu" en="Links from the selected website" />
-    </li>
-    <li>
-        <span class="symbol"><span class="line inbound"></span></span>
-        <Loc cs="Odkazy na vybraný web" en="Links to the selected website" />
-    </li>
-    <li>
-        <span class="symbol"><span class="line defunct"></span></span>
-        <Loc
-            cs="Odkazovaný web už zřejmě nebyl aktivní"
-            en="Linked website was probably no longer active" />
-    </li>
-    <li>
-        <span class="symbol sizes" class:dots={view === "timeline"}
-            ><span></span><span></span></span>
-        {#if view === "network"}
-            <Loc
-                cs="Velikost okna: počet odkazů z jiných fanouškovských webů"
-                en="Window size: number of links from other fan websites" />
-        {:else}
-            <Loc
-                cs="Velikost tečky: počet odkazů z jiných fanouškovských webů"
-                en="Dot size: number of links from other fan websites" />
-        {/if}
-    </li>
-</ul>
+        <li>
+            <span class="symbol"><span class="line"></span></span>
+            <Loc cs="Odkazy z vybraného webu" en="Links from the selected website" />
+        </li>
+        <li>
+            <span class="symbol"><span class="line inbound"></span></span>
+            <Loc cs="Odkazy na vybraný web" en="Links to the selected website" />
+        </li>
+        <li>
+            <span class="symbol sizes" class:dots={view === "timeline"}
+                ><span></span><span></span></span>
+            {#if view === "network"}
+                <Loc
+                    cs="Velikost okna: počet odkazů z jiných fanouškovských webů"
+                    en="Window size: number of links from other fan websites" />
+            {:else}
+                <Loc
+                    cs="Velikost tečky: počet odkazů z jiných fanouškovských webů"
+                    en="Dot size: number of links from other fan websites" />
+            {/if}
+        </li>
+    </ul>
+</div>
 
 <style>
+    .legend-toggle {
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        bottom: 100%;
+        /* In line with the number of websites above the graph */
+        margin-bottom: 0.9em;
+    }
+
+    button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3em;
+        color: var(--color-text-muted);
+    }
+
+    /* Overrides the global icon margin, which would push it above the middle of the text */
+    button :global(.lucide-icon) {
+        margin: 0;
+    }
+
+    button:hover,
+    button:focus-visible,
+    button[aria-expanded="true"] {
+        color: var(--color-primary);
+    }
+
     .legend {
+        position: absolute;
+        top: calc(100% + 0.4em);
+        right: 0;
         box-sizing: border-box;
-        width: fit-content;
-        max-width: 100%;
-        margin: 1.5em 0 0 auto;
+        width: max-content;
+        max-width: min(32em, calc(100vw - 2em));
+        margin: 0;
         padding: 0.8em 1em;
         border: 2px solid var(--color-secondary);
+        background: var(--color-surface);
+        box-shadow: 0 4px 12px #0002;
         font-size: 0.85em;
         line-height: 1.35;
         list-style: none;
+    }
+
+    .legend[hidden] {
+        display: none;
     }
 
     li {
@@ -136,11 +198,6 @@
 
     .line.inbound {
         border-color: var(--web-link-in);
-    }
-
-    .line.defunct {
-        border-top-style: dashed;
-        border-color: var(--web-link);
     }
 
     .sizes span {

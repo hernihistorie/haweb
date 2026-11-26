@@ -1,4 +1,3 @@
-import type { BulanciHostingType } from "$src/data/bulanci/webs.server";
 import type {
     BulanciWebGraph,
     BulanciWebGraphNode,
@@ -8,26 +7,40 @@ import type { LocalizedString } from "$src/types";
 import type { HTMLAnchorAttributes } from "svelte/elements";
 import type { BulanciWebListItem } from "./webList";
 
-export const HOSTING_TYPE_LABELS: Record<BulanciHostingType, LocalizedString> = {
-    webhosting: { cs: "Webhosting zdarma", en: "Free web hosting" },
-    blog: { cs: "Blogovací platforma", en: "Blogging platform" },
-    builder: { cs: "Stavebnice webů", en: "Website builder" },
-};
+/**
+ * The hosting services common enough to get a color of their own in the graphs, by their key in
+ * web_metadata.yaml. The rest share one color.
+ */
+const PROMINENT_SERVICES = { webzdarma: "webzdarma", "blog.cz": "blog", websnadno: "websnadno" };
 
-export const HOSTING_TYPES = Object.keys(HOSTING_TYPE_LABELS) as BulanciHostingType[];
+/** A prominent hosting service, or any of the others */
+export type HostingGroup = (typeof PROMINENT_SERVICES)[keyof typeof PROMINENT_SERVICES] | "other";
+
+/** In the order of the legend */
+export const HOSTING_GROUPS: HostingGroup[] = [...Object.values(PROMINENT_SERVICES), "other"];
+
+export const OTHER_HOSTING_LABEL: LocalizedString = { cs: "Jiný hosting", en: "Other hosting" };
 
 export const UNKNOWN_HOSTING_LABEL: LocalizedString = {
     cs: "Neznámý / vlastní",
     en: "Unknown / own",
 };
 
-export const webHostingType = ({
+/** The group of a hosting service by its key; null if the service is unknown */
+export const hostingGroup = (serviceKey: string | null): HostingGroup | null =>
+    serviceKey === null
+        ? null
+        : (PROMINENT_SERVICES[serviceKey as keyof typeof PROMINENT_SERVICES] ?? "other");
+
+/** The group of the website's (first) hosting service */
+export const webHostingGroup = ({
     services,
-}: Pick<BulanciWebListItem, "services">): BulanciHostingType | null => services[0]?.type ?? null;
+}: Pick<BulanciWebListItem, "services">): HostingGroup | null =>
+    hostingGroup(services[0]?.key ?? null);
 
 /** A CSS color from webGraph.css */
-export const hostingColor = (type: BulanciHostingType | null): string =>
-    `var(--web-${type ?? "unknown"})`;
+export const hostingColor = (group: HostingGroup | null): string =>
+    `var(--web-${group ?? "unknown"})`;
 
 /** The website whose links are highlighted, and those it's linked with */
 export type WebHighlight = { id: number; related: Set<number> };
@@ -73,13 +86,12 @@ export function networkLinkPath(source: BulanciWebGraphNode, target: BulanciWebG
 
 /** Classes of a link in the graph, see WebLinks.svelte */
 export function webLinkClasses(
-    { source, target, defunct }: BulanciWebLink,
+    { source, target }: BulanciWebLink,
     { highlight, matching }: Pick<WebGraphViewProps, "highlight" | "matching">,
 ) {
     const outbound = highlight?.id === source;
     const inbound = highlight?.id === target;
     return {
-        defunct,
         outbound,
         inbound,
         dimmed: highlight

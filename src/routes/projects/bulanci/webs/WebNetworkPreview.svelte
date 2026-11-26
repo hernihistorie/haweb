@@ -1,14 +1,13 @@
 <script lang="ts">
     import "./webGraph.css";
     import type { BulanciWebGraph, BulanciWebLink } from "$src/data/bulanci/webGraph.server";
-    import type { BulanciHostingType } from "$src/data/bulanci/webs.server";
-    import { hostingColor, networkLinkPath } from "./webGraph";
+    import { hostingColor, hostingGroup, networkLinkPath } from "./webGraph";
     import WebLinks from "./WebLinks.svelte";
 
     interface Props {
         graph: BulanciWebGraph;
         /** What's shown of each website, by its id */
-        webs: Record<number, { hostingType: BulanciHostingType | null; screenshot: string | null }>;
+        webs: Record<number, { hostingService: string | null; screenshot: string | null }>;
     }
 
     let { graph, webs }: Props = $props();
@@ -35,14 +34,14 @@
         <WebLinks links={fanLinks} highlight={null} matching={null} {path} />
     </svg>
     {#each graph.nodes as node (node.id)}
-        {@const { hostingType, screenshot } = webs[node.id]}
+        {@const { hostingService, screenshot } = webs[node.id]}
         <span
             class="window"
-            class:unknown={!hostingType}
+            class:unknown={!hostingService}
             style:left={percent(node.x - node.width / 2, graph.width)}
             style:top={percent(node.y - node.height / 2, graph.height)}
             style:width={percent(node.width, graph.width)}
-            style:--hosting={hostingColor(hostingType)}>
+            style:--hosting={hostingColor(hostingGroup(hostingService))}>
             {#if screenshot}
                 <img
                     src={screenshot}

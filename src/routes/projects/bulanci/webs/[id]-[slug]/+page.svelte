@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/state";
+    import InfoTip from "#lib/components/InfoTip.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import Meta from "#lib/components/layout/Meta.svelte";
     import ArchivedSite from "#lib/components/archive/ArchivedSite.svelte";
@@ -25,6 +26,7 @@
     import DomainText from "../DomainText.svelte";
     import WebNeighborhood from "../WebNeighborhood.svelte";
     import {
+        ACTIVE_YEARS_EXPLANATION,
         formatDate,
         WEB_FEATURE_GROUPS,
         webName,
@@ -102,7 +104,13 @@
 
         <aside class="side">
             <dl class="meta">
-                <dt><IconCalendar size="1em" /> <Loc cs="Aktivní" en="Active" /></dt>
+                <dt>
+                    <IconCalendar size="1em" />
+                    <span>
+                        <Loc cs="Aktivní" en="Active" />
+                        <InfoTip text={ACTIVE_YEARS_EXPLANATION} />
+                    </span>
+                </dt>
                 <dd>
                     {#if !web.endYear}
                         <Loc cs="od" en="since" />

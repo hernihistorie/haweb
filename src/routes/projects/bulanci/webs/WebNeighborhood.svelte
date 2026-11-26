@@ -4,7 +4,7 @@
     import type { BulanciLinkedWeb, BulanciWebDetails } from "$src/data/bulanci/webDetails.server";
     import type { LocalizedString } from "$src/types";
     import IconArrowLeftRight from "@lucide/svelte/icons/arrow-left-right";
-    import { hostingColor, webHostingType } from "./webGraph";
+    import { hostingColor, hostingGroup, webHostingGroup } from "./webGraph";
     import { webHref, webName } from "./webList";
 
     interface Props {
@@ -16,6 +16,9 @@
 
     let { web }: Props = $props();
 
+    /** Short lists are easy to count at a glance, so only longer ones show their length */
+    const SHOWN_COUNT_MIN = 6;
+
     /** Rows have a fixed height, so that the connectors can be drawn without measuring them */
     const ROW_HEIGHT = 30;
     const MIN_HEIGHT = 240;
@@ -23,7 +26,7 @@
     const height = $derived(
         Math.max(MIN_HEIGHT, Math.max(web.linksTo.length, web.linkedFrom.length) * ROW_HEIGHT),
     );
-    const type = $derived(webHostingType(web));
+    const group = $derived(webHostingGroup(web));
     const mutualIds = $derived.by(() => {
         const linkedFromIds = new Set(web.linkedFrom.map((other) => other.id));
         return new Set(web.linksTo.map((other) => other.id).filter((id) => linkedFromIds.has(id)));
@@ -43,7 +46,10 @@
 </script>
 
 {#snippet heading(label: LocalizedString, count: number)}
-    <h4>{loc(label)} <span class="count">({count})</span></h4>
+    <h4>
+        {loc(label)}
+        {#if count >= SHOWN_COUNT_MIN}<span class="count">({count})</span>{/if}
+    </h4>
 {/snippet}
 
 {#snippet connectors(webs: BulanciLinkedWeb[], side: "in" | "out")}
@@ -65,7 +71,7 @@
         {#each webs as other (other.id)}
             <li
                 class:dimmed={activeId !== null && activeId !== other.id}
-                style:--hosting={hostingColor(other.hostingType)}>
+                style:--hosting={hostingColor(hostingGroup(other.hostingService))}>
                 <a
                     href={webHref(other)}
                     title={other.domain}
@@ -80,7 +86,7 @@
                         <IconArrowLeftRight size="1em" />
                     </span>
                 {/if}
-                <span class="dot" class:unknown={!other.hostingType}></span>
+                <span class="dot" class:unknown={!other.hostingService}></span>
             </li>
         {/each}
     </ul>
@@ -95,9 +101,9 @@
         {/if}
     </div>
     {@render connectors(web.linkedFrom, "in")}
-    <div class="center" style:--hosting={hostingColor(type)} aria-hidden="true">
+    <div class="center" style:--hosting={hostingColor(group)} aria-hidden="true">
         <div class="window">
-            <span class="title-bar" class:unknown={!type}></span>
+            <span class="title-bar" class:unknown={!group}></span>
             {#if web.screenshot}
                 <img
                     src={web.screenshot.src}

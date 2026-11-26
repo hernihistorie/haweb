@@ -6,7 +6,7 @@
         hostingColor,
         isWebDimmed,
         networkLinkPath,
-        webHostingType,
+        webHostingGroup,
         type WebGraphViewProps,
     } from "./webGraph";
 
@@ -33,17 +33,17 @@
     <ul>
         {#each webs as web (web.id)}
             {@const node = nodesById.get(web.id)!}
-            {@const type = webHostingType(web)}
+            {@const group = webHostingGroup(web)}
             <li
                 class:dimmed={isWebDimmed(web.id, { highlight, matching })}
                 class:highlighted={highlight?.id === web.id}
                 style:left="{node.x - node.width / 2}px"
                 style:top="{node.y - node.height / 2}px"
                 style:width="{node.width}px"
-                style:--hosting={hostingColor(type)}>
+                style:--hosting={hostingColor(group)}>
                 <a {...nodeProps(web)}>
                     <span class="window">
-                        <span class="title-bar" class:unknown={!type}></span>
+                        <span class="title-bar" class:unknown={!group}></span>
                         {#if web.screenshot}
                             <img
                                 src={web.screenshot.src}

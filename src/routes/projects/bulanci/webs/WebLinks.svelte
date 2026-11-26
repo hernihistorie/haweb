@@ -30,10 +30,6 @@
         transition: opacity 0.15s;
     }
 
-    .defunct {
-        stroke-dasharray: 4 4;
-    }
-
     .dimmed {
         opacity: 0.07;
     }

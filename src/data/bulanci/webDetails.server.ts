@@ -2,16 +2,18 @@ import { bulanciAuthors } from "./authors.server";
 import { groupMaps, imagesByFilename, mapYears, type BulanciMapImage } from "./maps.server";
 import {
     bulanciWebsByDomain,
-    hostingType,
+    hostingService,
     toWeb,
     webMetadata,
-    type BulanciHostingType,
     type BulanciWeb,
     type WebMetadata,
 } from "./webs.server";
 
 /** A website linked to or from another one */
-export type BulanciLinkedWeb = BulanciWeb & { hostingType: BulanciHostingType | null };
+export type BulanciLinkedWeb = BulanciWeb & {
+    /** Key of its (first) hosting service; null if unknown */
+    hostingService: string | null;
+};
 
 /** Everything known about a fan website, for its own page and the list of websites */
 export type BulanciWebDetails = Omit<WebMetadata, "referencedIds"> & {
@@ -45,7 +47,7 @@ const webScreenshot = (id: number): BulanciMapImage | null =>
 
 const toLinkedWeb = (web: WebMetadata): BulanciLinkedWeb => ({
     ...toWeb(web),
-    hostingType: hostingType(web),
+    hostingService: hostingService(web),
 });
 
 /** Maps found on each documented website by its domain, the most widespread first */

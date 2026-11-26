@@ -6,8 +6,6 @@ export type BulanciWebLink = {
     source: number;
     /** ID of the website it links to */
     target: number;
-    /** The linked website's last known year is before the linking one's first */
-    defunct: boolean;
     /** The link is to or from the official website */
     official: boolean;
 };
@@ -41,7 +39,7 @@ export type BulanciWebGraph = {
 const OFFICIAL_DOMAIN = "bulanci.cz";
 
 const WIDTH = 1352;
-const HEIGHT = 1060;
+const HEIGHT = 900;
 /** Space above the windows for the years */
 const HEADER_HEIGHT = 40;
 const LABEL_HEIGHT = 38;
@@ -116,12 +114,10 @@ function buildWebGraph(): BulanciWebGraph {
     const official = webs.find((web) => web.domain === OFFICIAL_DOMAIN);
     if (!official) throw new Error(`web_metadata.yaml: ${OFFICIAL_DOMAIN} is missing`);
 
-    const websById = new Map(webs.map((web) => [web.id, web]));
     const links: BulanciWebLink[] = webs.flatMap((web) =>
         web.referencedIds.map((target) => ({
             source: web.id,
             target,
-            defunct: (websById.get(target)!.endYear?.year ?? Infinity) < web.startYear.year,
             official: web === official || target === official.id,
         })),
     );
@@ -166,7 +162,7 @@ function buildWebGraph(): BulanciWebGraph {
         )
         .force("charge", forceManyBody().strength(-420))
         .force("x", forceX<LayoutNode>(({ column }) => column.x + column.width / 2).strength(0.08))
-        .force("y", forceY(HEIGHT / 2).strength(0.05))
+        .force("y", forceY(HEIGHT / 2).strength(0.12))
         .force("separate", () => {
             for (let i = 0; i < 4; i++) {
                 separate(nodes);

@@ -77,6 +77,11 @@
         color: var(--color-text-muted);
     }
 
+    /* Overrides the global icon margin, which would push it above the middle of the text */
+    .info-tip :global(.lucide-icon) {
+        margin: 0;
+    }
+
     .info-tip:hover,
     .info-tip:focus-visible {
         color: var(--color-primary);

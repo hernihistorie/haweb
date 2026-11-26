@@ -141,6 +141,7 @@
     }} />
 
 <div class="web-graph" bind:this={container}>
+    <WebGraphLegend {webs} {view} />
     <div class="scroll" onscroll={() => (active = null)}>
         {#if view === "network"}
             <WebNetwork {...viewProps} />
@@ -187,8 +188,6 @@
         </div>
     {/if}
 </div>
-
-<WebGraphLegend {webs} {view} />
 
 <style>
     .web-graph {

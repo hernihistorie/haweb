@@ -1,11 +1,13 @@
 /*
- * Colors of the types of hosting in the graphs of websites, picked to stay distinguishable from
- * each other with color vision deficiencies, on both backgrounds. An unknown type is hollow.
+ * Colors of the hosting services in the graphs of websites (see HOSTING_GROUPS in webGraph.ts),
+ * validated to stay distinguishable from each other with color vision deficiencies, on both
+ * backgrounds. The other services share the dark green; unknown hosting is hollow.
  */
 :root {
-    --web-webhosting: #2458a6;
+    --web-webzdarma: #2458a6;
     --web-blog: #1f9a8a;
-    --web-builder: #b98000;
+    --web-websnadno: #b98000;
+    --web-other: #3e7029;
     --web-unknown: var(--color-text-muted);
     --web-link: var(--color-secondary);
     --web-link-out: var(--color-primary);
@@ -13,7 +15,7 @@
 }
 
 :root[data-theme="dark"] {
-    --web-webhosting: #4b8ce0;
+    --web-webzdarma: #4b8ce0;
     --web-blog: #2a9f8e;
-    --web-builder: #c08a1a;
+    --web-websnadno: #c08a1a;
 }

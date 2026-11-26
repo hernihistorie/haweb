@@ -88,6 +88,12 @@ export type BulanciWebListItem = Pick<
 >;
 
 /** e.g. "2003–2005", "2003", or "since 2002" for the official website, which is still up */
+/** What the years in which a website was active mean */
+export const ACTIVE_YEARS_EXPLANATION: LocalizedString = {
+    cs: "Léta, ve kterých byl web aktivně upravován a rozšiřován, ne ve kterých byl stále přístupný.",
+    en: "The years in which the website was actively updated and expanded, not those in which it was merely still accessible.",
+};
+
 export function activeYearsLabel(
     web: Pick<BulanciWebListItem, "startYear" | "endYear">,
 ): LocalizedString {

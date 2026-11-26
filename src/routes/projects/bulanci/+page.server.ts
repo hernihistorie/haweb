@@ -1,7 +1,7 @@
 import { bulanciAuthors } from "$src/data/bulanci/authors.server";
 import { bulanciWebGraph } from "$src/data/bulanci/webGraph.server";
 import { bulanciWebs } from "$src/data/bulanci/webDetails.server";
-import { hostingType } from "$src/data/bulanci/webs.server";
+import { hostingService } from "$src/data/bulanci/webs.server";
 import { bulanciMaps } from "$src/data/bulanci/maps.server";
 import { compareMaps, DEFAULT_SORT } from "./maps/mapList";
 import type { PageServerLoad } from "./$types";
@@ -23,7 +23,7 @@ export const load: PageServerLoad = async () => {
         webs: Object.fromEntries(
             bulanciWebs.map((web) => [
                 web.id,
-                { hostingType: hostingType(web), screenshot: web.screenshot?.src ?? null },
+                { hostingService: hostingService(web), screenshot: web.screenshot?.src ?? null },
             ]),
         ),
         webCount: bulanciWebs.length,

@@ -25,15 +25,32 @@
     }
 </script>
 
+{#snippet arrow(key: SortKey)}
+    {#if sort.key === key}
+        {#if sort.desc}<IconArrowDown size="1em" />{:else}<IconArrowUp size="1em" />{/if}
+    {/if}
+{/snippet}
+
 {#snippet sortableHeader(key: SortKey, label: LocalizedString, hint?: LocalizedString)}
     <th aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}>
+        <!--
+            A hint goes between the label and the arrow. It's a button of its own, so the arrow
+            becomes another one that sorts too, hidden from assistive technology (see aria-sort).
+        -->
         <button class="link sort" onclick={() => toggleSort(key)}>
             {loc(label)}
-            {#if sort.key === key}
-                {#if sort.desc}<IconArrowDown size="1em" />{:else}<IconArrowUp size="1em" />{/if}
-            {/if}
+            {#if !hint}{@render arrow(key)}{/if}
         </button>
-        {#if hint}<InfoTip text={hint} />{/if}
+        {#if hint}
+            <InfoTip text={hint} />
+            {#if sort.key === key}
+                <button
+                    class="link sort"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    onclick={() => toggleSort(key)}>{@render arrow(key)}</button>
+            {/if}
+        {/if}
     </th>
 {/snippet}
 

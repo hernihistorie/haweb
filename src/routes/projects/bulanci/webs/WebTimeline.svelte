@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { BulanciWebLink } from "$src/data/bulanci/webGraph.server";
     import WebLinks from "./WebLinks.svelte";
-    import { hostingColor, isWebDimmed, webHostingType, type WebGraphViewProps } from "./webGraph";
+    import { hostingColor, isWebDimmed, webHostingGroup, type WebGraphViewProps } from "./webGraph";
     import { webName } from "./webList";
 
     let { webs, links, inboundCounts, highlight, matching, nodeProps }: WebGraphViewProps =
@@ -70,16 +70,16 @@
         </svg>
         <ul>
             {#each webs as web (web.id)}
-                {@const type = webHostingType(web)}
+                {@const group = webHostingGroup(web)}
                 {@const radius = dotRadius(web.id)}
                 <li
                     class:dimmed={isWebDimmed(web.id, { highlight, matching })}
                     class:highlighted={highlight?.id === web.id}
-                    class:unknown={!type}
+                    class:unknown={!group}
                     style:top="{rowY.get(web.id)! - ROW_HEIGHT / 2}px"
                     style:width="{dotX + DOT_SLOT / 2}px"
                     style:height="{ROW_HEIGHT}px"
-                    style:--hosting={hostingColor(type)}>
+                    style:--hosting={hostingColor(group)}>
                     <a {...nodeProps(web)}>
                         <span
                             class="label"
