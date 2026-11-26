@@ -1,3 +1,10 @@
+# Production dependencies get their own stage, so the final image can reuse the
+# node_modules layer from cache whenever package*.json hasn't changed
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev
+
 # Use a Node.js Alpine image for the builder stage
 FROM node:22-alpine AS builder
 WORKDIR /app
@@ -6,15 +13,16 @@ RUN --mount=type=cache,target=/root/.npm npm ci
 COPY . .
 # Persist enhanced-img's processed images between builds, otherwise every deploy re-resizes all of them
 RUN --mount=type=cache,target=/app/node_modules/.cache npm run build
-RUN npm prune --production
 
 # Use another Node.js Alpine image for the final stage
 FROM node:22-alpine
 WORKDIR /app
-COPY --from=builder /app/build build/
-COPY --from=builder /app/node_modules node_modules/
-COPY --from=builder /app/scripts/build_asset_index.ts scripts/
+# Ordered from least to most frequently changing, so the build output (which changes
+# on every deploy) doesn't invalidate the layers before it
+COPY --from=deps /app/node_modules node_modules/
 COPY package.json .
+COPY scripts/build_asset_index.ts scripts/
+COPY --from=builder /app/build build/
 EXPOSE 3000
 ENV NODE_ENV=production
 ENV ASSET_INDEX_DIR=/data/asset-index
