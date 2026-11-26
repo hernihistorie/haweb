@@ -31,6 +31,10 @@ If you wish to release a new version on herniarchiv.cz, run the deploy script:
 
 It will ask for your password on the herniarchiv.cz server.
 
+## Searching the website
+
+`npm run build` also builds the Pagefind index of the website, into `build/search-index`, with `scripts/build_search_index.ts`. It crawls the built server, so every page linked on the site is searchable, whether prerendered or not. To leave a page out, return `hideFromSearch: true` from its load function, or mark parts of it with `data-pagefind-ignore`. The dev server serves the index of the last build, so run `npm run build` once to try searching in development.
+
 ## Searching the collection
 
 The search also covers public assets from rhinventory. They have their own Pagefind index, separate from the one of the website, which is built from rhinventory's `/public-search.json` and served from `ASSET_INDEX_DIR` by `src/routes/pagefind-assets`.

@@ -1,10 +1,11 @@
 import { getListedPosts, getPostYears } from "$src/data/posts";
 import { postKindBySection, postKinds } from "#lib/posts.js";
-import { prerenderForSearch } from "#lib/prerender.server.js";
 import { dev } from "$app/env";
 import type { PageServerLoad } from "./$types";
 
-export const prerender = prerenderForSearch;
+// Lists what is published, so it is rendered on demand (scripts/build_search_index.ts
+// still adds it to the search index)
+export const prerender = false;
 
 export const load: PageServerLoad = async ({ params }) => {
     const kind = postKindBySection[params.section];

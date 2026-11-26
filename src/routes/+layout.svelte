@@ -35,7 +35,7 @@
 
 <Header menuProjects={data.menuProjects} />
 
-<main>
+<main data-pagefind-ignore={page.data.hideFromSearch ? "all" : undefined}>
     {@render children?.()}
 </main>
 

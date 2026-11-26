@@ -1,13 +1,14 @@
 import { eventsBySlug } from "$src/data/events";
 import { error, redirect } from "@sveltejs/kit";
 import { getPosts } from "$src/data/posts";
-import { prerenderForSearch } from "#lib/prerender.server.js";
 import { postHref } from "#lib/posts.js";
 import { localizeHref } from "#lib/paraglide/runtime.js";
 import { dev } from "$app/env";
 import type { PageServerLoad } from "./$types";
 
-export const prerender = prerenderForSearch;
+// Lists what is published, so it is rendered on demand (scripts/build_search_index.ts
+// still adds it to the search index)
+export const prerender = false;
 
 export const load: PageServerLoad = async ({ params }) => {
     const event = eventsBySlug[params.event];
