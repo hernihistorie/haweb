@@ -1,5 +1,6 @@
 <script lang="ts">
     import { loc } from "$src/lib/loc";
+    import type { LocalizedString } from "$src/types";
     import IconArrowLeft from "@lucide/svelte/icons/arrow-left";
     import IconArrowRight from "@lucide/svelte/icons/arrow-right";
     import IconGlobe from "@lucide/svelte/icons/globe";
@@ -7,6 +8,16 @@
     import IconRotateCw from "@lucide/svelte/icons/rotate-cw";
     import IconX from "@lucide/svelte/icons/x";
     import type { Snippet } from "svelte";
+
+    /** Only the window buttons work, as a page can't control a frame from another site */
+    type WindowButtonKind = "minimize" | "maximize" | "restore" | "close";
+
+    const WINDOW_BUTTON_LABELS: Record<WindowButtonKind, LocalizedString> = {
+        minimize: { cs: "Minimalizovat okno", en: "Minimize the window" },
+        maximize: { cs: "Maximalizovat okno", en: "Maximize the window" },
+        restore: { cs: "Obnovit velikost okna", en: "Restore the window" },
+        close: { cs: "Zavřít archivovanou kopii", en: "Close the archived copy" },
+    };
 
     interface Props {
         /** Shown in the title bar */
@@ -84,23 +95,23 @@
 
 <svelte:window onkeydown={onWindowKeydown} />
 
-{#snippet windowButton(
-    onclick: (() => void) | undefined,
-    label: string,
-    className: string,
-    icon: Snippet,
-)}
+<!-- A working button when given what to do, otherwise just its picture -->
+{#snippet windowButton(kind: WindowButtonKind, onclick: (() => void) | undefined)}
+    {#snippet icon()}
+        {#if kind === "close"}
+            <IconX size="13" strokeWidth={3} />
+        {:else}
+            <span class={kind}></span>
+        {/if}
+    {/snippet}
+    {@const className = ["window-button", { close: kind === "close" }]}
     {#if onclick}
-        <button class="window-button {className}" {onclick} aria-label={label}
+        <button class={className} {onclick} aria-label={loc(WINDOW_BUTTON_LABELS[kind])}
             >{@render icon()}</button>
     {:else}
-        <span class="window-button {className}" aria-hidden="true">{@render icon()}</span>
+        <span class={className} aria-hidden="true">{@render icon()}</span>
     {/if}
 {/snippet}
-
-{#snippet minimizeIcon()}<span class="minimize"></span>{/snippet}
-{#snippet maximizeIcon()}<span class={maximized ? "restore" : "maximize"}></span>{/snippet}
-{#snippet closeIcon()}<IconX size="13" strokeWidth={3} />{/snippet}
 
 <!--
     A symbolic browser window of the early 2000s (Windows XP and Internet Explorer 6), drawn in
@@ -117,26 +128,9 @@
     <div class="title-bar" ondblclick={onTitleBarDoubleClick}>
         <IconGlobe size="15" aria-hidden="true" />
         <span class="title" aria-hidden="true">{title}</span>
-        {@render windowButton(
-            onminimize,
-            loc({ cs: "Minimalizovat okno", en: "Minimize the window" }),
-            "",
-            minimizeIcon,
-        )}
-        {@render windowButton(
-            ontogglemaximized,
-            maximized
-                ? loc({ cs: "Obnovit velikost okna", en: "Restore the window" })
-                : loc({ cs: "Maximalizovat okno", en: "Maximize the window" }),
-            "",
-            maximizeIcon,
-        )}
-        {@render windowButton(
-            onclose,
-            loc({ cs: "Zavřít archivovanou kopii", en: "Close the archived copy" }),
-            "close",
-            closeIcon,
-        )}
+        {@render windowButton("minimize", onminimize)}
+        {@render windowButton(maximized ? "restore" : "maximize", ontogglemaximized)}
+        {@render windowButton("close", onclose)}
     </div>
 
     <div class="chrome" aria-hidden="true">

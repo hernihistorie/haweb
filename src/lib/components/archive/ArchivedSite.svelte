@@ -70,11 +70,11 @@
      * scaled to fit. Maximized, it fills the window at its actual size like in a real browser,
      * only scaled down on screens too narrow for the site.
      */
-    const frameScale = $derived(
-        (maximized ? Math.min(1, viewportWidth / width) : viewportWidth / width) || 1,
-    );
-    const frameWidth = $derived(maximized ? viewportWidth / frameScale : width);
-    const frameHeight = $derived(maximized ? viewportHeight / frameScale : height);
+    const frame = $derived.by(() => {
+        if (!maximized) return { scale: viewportWidth / width || 1, width, height };
+        const scale = Math.min(1, viewportWidth / width) || 1;
+        return { scale, width: viewportWidth / scale, height: viewportHeight / scale };
+    });
 
     const frameSrc = $derived(waybackFrameUrl(url, timestamp));
     /** The usual snapshot page, with the Wayback Machine's toolbar */
@@ -87,50 +87,65 @@
             : loc({ cs: "Hotovo", en: "Done" }),
     );
 
-    /** Whether the copy was closed, so the focus goes back to the button that opened it */
-    let closed = $state(false);
+    /**
+     * Where the keyboard focus goes when the frame and the play button replace each other,
+     * taking the place of the button that had it. Opened by maximizing, the focus stays on the
+     * window's buttons, where Escape can restore it.
+     */
+    let focusOnRender: "frame" | "play" | null = null;
+    const focusIf =
+        (target: typeof focusOnRender): Attachment<HTMLElement> =>
+        (element) => {
+            if (focusOnRender === target) element.focus();
+        };
+
+    function play() {
+        focusOnRender = "frame";
+        browsingRequested = true;
+    }
 
     function stopBrowsing() {
-        closed = true;
+        focusOnRender = "play";
         browsingRequested = false;
         loaded = false;
         restore();
     }
 
-    function maximize() {
-        playClicked = false;
+    /**
+     * The length of the history once maximized. The archived site's own navigation adds to
+     * it, as the frame shares the page's history.
+     */
+    let maximizedHistoryLength = 0;
+
+    async function maximize() {
+        focusOnRender = null;
         browsingRequested = true;
-        void goto(page.url.href, {
+        await goto(page.url.href, {
             state: { ...page.state, maximizedArchive: url },
             shallow: true,
         });
+        maximizedHistoryLength = history.length;
     }
 
-    /** Leaves the history entry added by maximizing, rather than adding another one */
+    /**
+     * Goes back to before maximizing, so as not to leave a history entry behind. Once the
+     * archived site has been navigated, going back would navigate it instead, so the entry is
+     * marked as restored in place.
+     */
     function restore() {
-        if (maximized) history.back();
+        if (!maximized) return;
+        if (history.length === maximizedHistoryLength) {
+            history.back();
+        } else {
+            const state = { ...page.state };
+            delete state.maximizedArchive;
+            void goto(page.url.href, { state, shallow: true, replace: true });
+        }
     }
 
     function minimize() {
         if (maximized) restore();
         else stopBrowsing();
-    }
-
-    /** Keeps the keyboard focus, which was on a button that got replaced */
-    const focus: Attachment<HTMLElement> = (element) => element.focus();
-
-    /**
-     * Whether the copy was opened with the play button, which the frame replaces. Opened by
-     * maximizing, the focus stays on the window's buttons, where Escape can restore it.
-     */
-    let playClicked = false;
-    const focusIfPlayed: Attachment<HTMLElement> = (element) => {
-        if (playClicked) element.focus();
-    };
-
-    function play() {
-        playClicked = true;
-        browsingRequested = true;
     }
 </script>
 
@@ -173,14 +188,14 @@
                     title={loc({ cs: "Archivovaná kopie webu", en: "Archived copy of" }) +
                         " " +
                         name}
-                    width={frameWidth}
-                    height={frameHeight}
+                    width={frame.width}
+                    height={frame.height}
                     class:loaded
-                    style:transform="scale({frameScale})"
+                    style:transform="scale({frame.scale})"
                     sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
                     referrerpolicy="no-referrer"
                     onload={() => (loaded = true)}
-                    {@attach focusIfPlayed}></iframe>
+                    {@attach focusIf("frame")}></iframe>
                 {#if !loaded}
                     <p class="overlay status" role="status">
                         <Loc
@@ -189,7 +204,7 @@
                     </p>
                 {/if}
             {:else}
-                <button class="overlay play" onclick={play} {@attach closed && focus}>
+                <button class="overlay play" onclick={play} {@attach focusIf("play")}>
                     <span class="play-label">
                         <IconPlay size="1.1em" />
                         <Loc cs="Otevřít archivovanou kopii" en="Browse the archived copy" />

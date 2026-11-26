@@ -5,8 +5,10 @@ const config: PlaywrightTestConfig = {
         command: "npm run preview",
         port: 4173,
     },
-    testDir: "tests",
-    testMatch: /(.+\.)?(test|spec)\.[jt]s/,
+    // Tests live in tests/, or next to the component they test as *.e2e.ts
+    testDir: ".",
+    testMatch: [/\/tests\/([^/]+\.)?(test|spec)\.[jt]s$/, /\/src\/.+\.e2e\.[jt]s$/],
+    testIgnore: ["**/node_modules/**", "**/.svelte-kit/**", "**/build/**"],
 };
 
 export default config;
