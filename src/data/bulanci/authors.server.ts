@@ -4,7 +4,7 @@ import { data as kukalInterview } from "$src/routes/interviews/tomas-kukal/inter
 import { data as madejewskyInterview } from "$src/routes/interviews/martin-madejewsky/interview";
 import { data as pokornyInterview } from "$src/routes/interviews/jan-pokorny/interview";
 import { authorMetadata, visibleAliases, type AuthorMetadata } from "./authorNames.server";
-import { bulanciMaps, groupMaps, mapYears, type BulanciMap } from "./maps.server";
+import { bulanciMaps, groupMaps, type BulanciMap } from "./maps.server";
 import { bulanciSlug } from "./slug";
 import { bulanciWebsByDomain, type BulanciWebRef } from "./webs.server";
 
@@ -36,9 +36,10 @@ export type BulanciAuthor = {
     /** Names of a clan's members; empty for people */
     members: string[];
     mapCount: number;
-    /** Distinct years in which the author's maps were published, ascending */
-    mapYears: number[];
-    /** Number of distinct places where any of the author's maps was found */
+    /**
+     * Number of distinct places where any of the author's maps was found. Not shown, only used
+     * to order authors with as many maps.
+     */
     reach: number;
     /** A few of the most widespread maps that have a screenshot and are safe for work */
     topMaps: BulanciMapThumbnail[];
@@ -89,7 +90,6 @@ function toAuthor(author: AuthorMetadata): BulanciAuthor {
             .filter((member) => member.clans.includes(author.name))
             .map((member) => member.name),
         mapCount: maps.length,
-        mapYears: mapYears(maps),
         reach: new Set(maps.flatMap((map) => map.placesOfOccurrence)).size,
         topMaps: maps
             .filter((map) => map.screenshot && !map.nsfw)

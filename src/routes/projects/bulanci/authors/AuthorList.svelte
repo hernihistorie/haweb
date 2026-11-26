@@ -41,7 +41,6 @@
     const sort = $derived(parseAuthorSort(params.get("sort")));
     const has = $derived(params.get("has") ?? "");
     const clan = $derived(params.get("clan") ?? "");
-    const year = $derived(params.get("year") ?? "");
     const urlPage = $derived(Math.max(1, parseInt(params.get("page") ?? "", 10) || 1));
 
     // The search is kept locally so that typing isn't disrupted by URL updates.
@@ -74,18 +73,11 @@
 
     const hasOptions = [
         { value: "web", label: { cs: "S vlastním webem", en: "With a website" } },
-        { value: "bio", label: { cs: "S medailonkem", en: "With a profile" } },
         { value: "maps", label: { cs: "S mapami", en: "With maps" } },
     ];
 
     const matchesHas = (author: BulanciAuthor, value: string): boolean =>
-        value === "web"
-            ? author.webs.length > 0
-            : value === "bio"
-              ? author.description !== null
-              : value === "maps"
-                ? author.mapCount > 0
-                : true;
+        value === "web" ? author.webs.length > 0 : value === "maps" ? author.mapCount > 0 : true;
 
     const clanOptions = $derived(
         clans.map((clan) => ({
@@ -95,22 +87,12 @@
         })),
     );
 
-    const yearOptions = $derived(
-        [...new Set(authors.flatMap((author) => author.mapYears))]
-            .sort((a, b) => a - b)
-            .map((year) => ({
-                year,
-                count: authors.filter((author) => author.mapYears.includes(year)).length,
-            })),
-    );
-
     const filteredAuthors = $derived.by(() => {
         const terms = normalizeForSearch(query).split(/\s+/).filter(Boolean);
         return authors
             .filter((author) => {
                 if (!matchesHas(author, has)) return false;
                 if (clan && !author.clans.some((name) => bulanciSlug(name) === clan)) return false;
-                if (year && !author.mapYears.includes(parseInt(year, 10))) return false;
                 const text = searchIndex.get(author)!;
                 return terms.every((term) => text.includes(term));
             })
@@ -139,14 +121,10 @@
     }
 
     const sortOptions: { value: string; label: { cs: string; en: string } }[] = [
-        { value: "-reach", label: { cs: "Největší dosah", en: "Widest reach" } },
-        { value: "reach", label: { cs: "Nejmenší dosah", en: "Narrowest reach" } },
         { value: "-maps", label: { cs: "Nejvíce map", en: "Most maps" } },
         { value: "maps", label: { cs: "Nejméně map", en: "Fewest maps" } },
         { value: "name", label: { cs: "Jméno A–Z", en: "Name A–Z" } },
         { value: "-name", label: { cs: "Jméno Z–A", en: "Name Z–A" } },
-        { value: "year", label: { cs: "Nejdříve aktivní", en: "Earliest active" } },
-        { value: "-year", label: { cs: "Nejpozději aktivní", en: "Latest active" } },
     ];
 </script>
 
@@ -183,18 +161,6 @@
             {#each clanOptions as option (option.slug)}
                 <option value={option.slug} disabled={option.count === 0}>
                     {option.name} <span class="count">({option.count})</span>
-                </option>
-            {/each}
-        </select>
-
-        <select
-            aria-label={loc({ cs: "Aktivní v roce", en: "Active in" })}
-            value={year}
-            onchange={(e) => setFilter({ year: e.currentTarget.value })}>
-            <option value="">{loc({ cs: "Všechny roky", en: "All years" })}</option>
-            {#each yearOptions as option (option.year)}
-                <option value={String(option.year)}>
-                    {option.year} <span class="count">({option.count})</span>
                 </option>
             {/each}
         </select>

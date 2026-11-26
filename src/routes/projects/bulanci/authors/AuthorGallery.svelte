@@ -4,9 +4,19 @@
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import AuthorMosaic from "./AuthorMosaic.svelte";
-    import { authorHref, formatYears, mapCountLabel } from "./authorList";
+    import { authorHref, mapCountLabel, webCountLabel } from "./authorList";
 
     let { authors }: { authors: BulanciAuthor[] } = $props();
+
+    /** A single website is named, more would make the caption too long, so they're counted */
+    const metaParts = (author: BulanciAuthor): string[] => [
+        ...(author.mapCount ? [loc(mapCountLabel(author.mapCount))] : []),
+        ...(author.webs.length === 1
+            ? [author.webs[0].domain]
+            : author.webs.length
+              ? [loc(webCountLabel(author.webs.length))]
+              : []),
+    ];
 </script>
 
 <!-- Unlike map thumbnails, the cards are taller and have their text over the top of the image -->
@@ -25,14 +35,7 @@
                                 size="0.9em" />{/if}
                         {author.name}
                     </span>
-                    <span class="meta">
-                        {#if author.mapCount}
-                            {loc(mapCountLabel(author.mapCount))}
-                            {#if author.mapYears.length}· {formatYears(author.mapYears)}{/if}
-                        {:else if author.webs.length}
-                            {author.webs.map((web) => web.domain).join(", ")}
-                        {/if}
-                    </span>
+                    <span class="meta">{metaParts(author).join(" · ")}</span>
                 </span>
             </a>
         </li>

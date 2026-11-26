@@ -1,10 +1,12 @@
 <script lang="ts">
-    import type { BulanciMap } from "$src/data/bulanci/maps.server";
+    import type { BulanciMap, BulanciMapImage } from "$src/data/bulanci/maps.server";
+    import InfoTip from "#lib/components/InfoTip.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import { loc } from "$src/lib/loc";
     import type { LocalizedString } from "$src/types";
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
+    import NoValue from "../NoValue.svelte";
     import MapImage from "./MapImage.svelte";
     import MapMonitor from "./MapMonitor.svelte";
     import { isDescendingFirst, mapHref, type Sort, type SortKey } from "./mapList";
@@ -23,7 +25,7 @@
     }
 </script>
 
-{#snippet sortableHeader(key: SortKey, label: LocalizedString)}
+{#snippet sortableHeader(key: SortKey, label: LocalizedString, hint?: LocalizedString)}
     <th aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}>
         <button class="link sort" onclick={() => toggleSort(key)}>
             {loc(label)}
@@ -31,7 +33,22 @@
                 {#if sort.desc}<IconArrowDown size="1em" />{:else}<IconArrowUp size="1em" />{/if}
             {/if}
         </button>
+        {#if hint}<InfoTip text={hint} />{/if}
     </th>
+{/snippet}
+
+{#snippet thumb(map: BulanciMap, image: BulanciMapImage | null)}
+    <td class="thumb">
+        {#if image}
+            <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
+                <MapMonitor>
+                    <MapImage {image} nsfw={map.nsfw} revealable={false} sizes="160px" />
+                </MapMonitor>
+            </a>
+        {:else}
+            <NoValue />
+        {/if}
+    </td>
 {/snippet}
 
 <div class="table-wrapper">
@@ -44,34 +61,21 @@
                 {@render sortableHeader("author", { cs: "Autor", en: "Author" })}
                 {@render sortableHeader("year", { cs: "Rok", en: "Year" })}
                 <th><Loc cs="Hudba" en="Music" /></th>
-                {@render sortableHeader("places", { cs: "Výskyty", en: "Found in" })}
+                {@render sortableHeader(
+                    "places",
+                    { cs: "Výskyty", en: "Found in" },
+                    {
+                        cs: "Počet webů a balíčků šířených na cloudových úložištích, ve kterých se mapa nacházela.",
+                        en: "Number of websites, and of packages shared on cloud storage services, that the map was found in.",
+                    },
+                )}
             </tr>
         </thead>
         <tbody>
             {#each maps as map (map.filename)}
                 <tr>
-                    <td class="thumb">
-                        <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
-                            <MapMonitor>
-                                <MapImage
-                                    image={map.screenshot}
-                                    nsfw={map.nsfw}
-                                    revealable={false}
-                                    sizes="160px" />
-                            </MapMonitor>
-                        </a>
-                    </td>
-                    <td class="thumb">
-                        <a href={mapHref(map)} tabindex="-1" aria-hidden="true">
-                            <MapMonitor>
-                                <MapImage
-                                    image={map.loadingScreen}
-                                    nsfw={map.nsfw}
-                                    revealable={false}
-                                    sizes="160px" />
-                            </MapMonitor>
-                        </a>
-                    </td>
+                    {@render thumb(map, map.screenshot)}
+                    {@render thumb(map, map.loadingScreen)}
                     <td class="name"><a href={mapHref(map)}>{map.name}</a></td>
                     <td>
                         {#each map.authors as author, i (author)}
@@ -80,10 +84,11 @@
                             <span class="unknown"><Loc cs="neznámý" en="unknown" /></span>
                         {/each}
                     </td>
-                    <td>{map.year ?? ""}</td>
-                    <td class="music">{map.music ?? ""}</td>
+                    <td>{#if map.year}{map.year}{:else}<NoValue />{/if}</td>
+                    <td class="music">{#if map.music}{map.music}{:else}<NoValue />{/if}</td>
                     <td class="places" title={map.placesOfOccurrence.join("\n")}>
-                        {map.placesOfOccurrence.length}
+                        {#if map.placesOfOccurrence.length}{map.placesOfOccurrence.length}{:else}<NoValue
+                            />{/if}
                     </td>
                 </tr>
             {/each}
@@ -129,6 +134,7 @@
     .thumb {
         width: 160px;
         min-width: 120px;
+        text-align: center;
     }
 
     .thumb a {

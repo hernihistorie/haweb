@@ -11,10 +11,7 @@
     import {
         authorHref,
         formatInlineHtml,
-        formatYears,
         mapCountLabel,
-        REACH_EXPLANATION,
-        reachLabel,
     } from "./authorList";
 
     interface Props {
@@ -52,10 +49,6 @@
         {/if} -->
         <p class="stats">
             {loc(mapCountLabel(author.mapCount))}
-            {#if author.mapYears.length}· {formatYears(author.mapYears)}{/if}
-            {#if author.reach}
-                · <span title={loc(REACH_EXPLANATION)}>{loc(reachLabel(author.reach))}</span>
-            {/if}
         </p>
         {#if !compact}
             {#if author.webs.length}
@@ -135,10 +128,6 @@
     .stats {
         color: var(--color-text-muted);
         font-size: 0.9em;
-    }
-
-    .stats [title] {
-        cursor: help;
     }
 
     .webs,

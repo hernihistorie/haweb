@@ -6,12 +6,11 @@
     import IconArrowUp from "@lucide/svelte/icons/arrow-up";
     import IconArrowDown from "@lucide/svelte/icons/arrow-down";
     import BulanciWebLink from "../BulanciWebLink.svelte";
-    import AuthorMosaic from "./AuthorMosaic.svelte";
+    import NoValue from "../NoValue.svelte";
     import {
         authorHref,
-        formatYears,
+        formatInlineHtml,
         isDescendingFirst,
-        REACH_EXPLANATION,
         type AuthorSort,
         type AuthorSortKey,
     } from "./authorList";
@@ -29,10 +28,10 @@
     }
 </script>
 
-{#snippet sortableHeader(key: AuthorSortKey, label: LocalizedString, title?: LocalizedString)}
+{#snippet sortableHeader(key: AuthorSortKey, label: LocalizedString, className = "")}
     <th
-        aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}
-        title={title && loc(title)}>
+        class={className}
+        aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}>
         <button class="link sort" onclick={() => toggleSort(key)}>
             {loc(label)}
             {#if sort.key === key}
@@ -46,44 +45,48 @@
     <table>
         <thead>
             <tr>
-                <th><Loc cs="Mapy" en="Maps" /></th>
                 {@render sortableHeader("name", { cs: "Autor", en: "Author" })}
-                {@render sortableHeader("maps", { cs: "Počet map", en: "Map count" })}
-                {@render sortableHeader("year", { cs: "Roky", en: "Years" })}
-                {@render sortableHeader("reach", { cs: "Dosah", en: "Reach" }, REACH_EXPLANATION)}
+                {@render sortableHeader("maps", { cs: "Mapy", en: "Maps" }, "number")}
                 <th><Loc cs="Weby" en="Websites" /></th>
                 <th><Loc cs="Klany" en="Clans" /></th>
+                <th><Loc cs="Popis" en="Description" /></th>
             </tr>
         </thead>
         <tbody>
             {#each authors as author (author.slug)}
+                {@const description = author.description && loc(author.description)}
                 <tr>
-                    <td class="thumb">
-                        <a href={authorHref(author.name)} tabindex="-1" aria-hidden="true">
-                            <AuthorMosaic
-                                maps={author.topMaps}
-                                isClan={author.isClan}
-                                width={160} />
-                        </a>
-                    </td>
                     <td class="name">
                         <a href={authorHref(author.name)}>{author.name}</a>
                         {#if author.aliases.length}
                             <span class="aliases">{author.aliases.join(", ")}</span>
                         {/if}
                     </td>
-                    <td class="number">{author.mapCount}</td>
-                    <td class="years">{formatYears(author.mapYears)}</td>
-                    <td class="number">{author.reach}</td>
+                    <td class="number">
+                        {#if author.mapCount}{author.mapCount}{:else}<NoValue />{/if}
+                    </td>
                     <td class="webs">
                         {#each author.webs as web (web.domain)}
                             <span><BulanciWebLink {...web} showName={false} /></span>
+                        {:else}
+                            <NoValue />
                         {/each}
                     </td>
                     <td>
                         {#each author.clans as clan, i (clan)}
                             {#if i > 0},{" "}{/if}<a href={authorHref(clan)}>{clan}</a>
+                        {:else}
+                            <NoValue />
                         {/each}
+                    </td>
+                    <td class="description">
+                        {#if description}
+                            <!-- Cut off after two lines; the whole text is on the author's page -->
+                            <span class="clamped" title={description.replace(/<[^>]*>/g, "")}
+                                >{@html formatInlineHtml(description)}</span>
+                        {:else}
+                            <NoValue />
+                        {/if}
                     </td>
                 </tr>
             {/each}
@@ -105,17 +108,13 @@
     td {
         padding: 0.4em 0.6em;
         text-align: left;
-        vertical-align: middle;
+        vertical-align: top;
         border-bottom: 1px solid var(--color-secondary-transparent);
     }
 
     th {
         white-space: nowrap;
         border-bottom: 2px solid var(--color-secondary);
-    }
-
-    th[title] {
-        cursor: help;
     }
 
     .sort {
@@ -130,13 +129,8 @@
         background: var(--color-secondary-transparent);
     }
 
-    .thumb {
-        width: 120px;
-        min-width: 100px;
-    }
-
-    .thumb a {
-        display: block;
+    .name {
+        min-width: 8em;
     }
 
     .name a {
@@ -153,12 +147,21 @@
         text-align: right;
     }
 
-    .years {
-        white-space: nowrap;
-    }
-
     .webs span {
         display: block;
         font-size: 0.9em;
+    }
+
+    .description {
+        min-width: 16em;
+        font-size: 0.9em;
+    }
+
+    .clamped {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
     }
 </style>

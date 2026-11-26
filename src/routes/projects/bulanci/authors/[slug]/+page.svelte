@@ -4,7 +4,6 @@
     import Meta from "#lib/components/layout/Meta.svelte";
     import { loc } from "$src/lib/loc";
     import { getLocale, localizeHref } from "$src/lib/paraglide/runtime";
-    import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconGlobe from "@lucide/svelte/icons/globe";
     import IconMap from "@lucide/svelte/icons/map";
     import IconMic from "@lucide/svelte/icons/mic";
@@ -14,13 +13,9 @@
     import BulanciWebLink from "../../BulanciWebLink.svelte";
     import MapList from "../../maps/MapList.svelte";
     import {
-        AUTHORS_PATH,
         authorHref,
         formatInlineHtml,
-        formatYears,
         mapCountLabel,
-        REACH_EXPLANATION,
-        reachLabel,
     } from "../authorList";
 
     const { data } = $props();
@@ -61,10 +56,6 @@
 
 <article class="author-page">
     <div class="thin">
-        <a href={localizeHref(`${AUTHORS_PATH}/`)} class="back">
-            <Loc cs="Autoři a kolektivy" en="Creators and Collectives" />
-        </a>
-
         <div class="header" class:with-photo={author.interview?.photo}>
             {#if author.interview?.photo}
                 <img class="photo" src={author.interview.photo} alt={author.interview.name} />
@@ -86,16 +77,7 @@
                         <dt><IconMap size="1em" /> <Loc cs="Mapy" en="Maps" /></dt>
                         <dd>
                             <a href="#maps">{loc(mapCountLabel(author.mapCount))}</a>
-                            {#if author.reach}
-                                · <span title={loc(REACH_EXPLANATION)} class="help"
-                                    >{loc(reachLabel(author.reach))}</span>
-                            {/if}
                         </dd>
-                    {/if}
-
-                    {#if author.mapYears.length}
-                        <dt><IconCalendar size="1em" /> <Loc cs="Aktivní" en="Active" /></dt>
-                        <dd>{formatYears(author.mapYears)}</dd>
                     {/if}
 
                     {#if author.webs.length}
@@ -172,15 +154,6 @@
 </article>
 
 <style>
-    .back {
-        text-decoration: none;
-    }
-
-    .back:hover,
-    .back:focus-visible {
-        text-decoration: underline;
-    }
-
     h2 {
         margin: 0.25em 0 0.1em;
         overflow-wrap: anywhere;
@@ -263,10 +236,6 @@
         margin: 0;
         padding: 0;
         list-style: none;
-    }
-
-    .help {
-        cursor: help;
     }
 
     section {

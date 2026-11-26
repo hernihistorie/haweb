@@ -7,6 +7,7 @@
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import { authorHref, formatInlineHtml, mapCountLabel } from "../authors/authorList";
+    import NoValue from "../NoValue.svelte";
     import DomainText from "./DomainText.svelte";
     import {
         activeYearsLabel,
@@ -99,16 +100,19 @@
                         </span>
                     {/if}
                 </td>
-                <td class="description">{@html formatInlineHtml(loc(web.description))}</td>
+                <td class="description" class:empty={!loc(web.description)}>
+                    {#if loc(web.description)}{@html formatInlineHtml(loc(web.description))}{:else}<NoValue
+                        />{/if}
+                </td>
                 <td class="years">{loc(activeYearsLabel(web))}</td>
-                <td class="hosting"
+                <td class="hosting" class:empty={!web.services.length}
                     >{#if web.services.length}{web.services
                             .map((service) => service.name)
-                            .join(", ")}{/if}</td>
-                <td class="number maps"
+                            .join(", ")}{:else}<NoValue />{/if}</td>
+                <td class="number maps" class:empty={!web.mapCount}
                     >{#if web.mapCount}<span class="wide">{web.mapCount}</span><span class="narrow"
                             >{loc(mapCountLabel(web.mapCount))}</span
-                        >{/if}</td>
+                        >{:else}<NoValue />{/if}</td>
             </tr>
         {/each}
     </tbody>
@@ -328,8 +332,8 @@
             grid-column: 4;
         }
 
-        .hosting:empty,
-        .maps:empty {
+        /* Without the column headers, a dash for no value would mean nothing */
+        td.empty {
             display: none;
         }
 

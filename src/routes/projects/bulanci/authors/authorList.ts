@@ -11,15 +11,14 @@ export const AUTHORS_PATH = "/projects/bulanci/authors";
 export const authorHref = (name: string): string =>
     localizeHref(`${AUTHORS_PATH}/${bulanciSlug(name)}/`);
 
-const SORT_KEYS = ["reach", "maps", "name", "year"] as const;
-/** `reach` sorts by the number of distinct places where the author's maps were found */
+const SORT_KEYS = ["maps", "name"] as const;
 export type AuthorSortKey = (typeof SORT_KEYS)[number];
 export type AuthorSort = { key: AuthorSortKey; desc: boolean };
 
-export const DEFAULT_AUTHOR_SORT: AuthorSort = { key: "reach", desc: true };
+export const DEFAULT_AUTHOR_SORT: AuthorSort = { key: "maps", desc: true };
 
 /** Counts are most interesting from the highest, so they're sorted descending first */
-export const isDescendingFirst = (key: AuthorSortKey): boolean => key === "reach" || key === "maps";
+export const isDescendingFirst = (key: AuthorSortKey): boolean => key === "maps";
 
 /** Parses the `sort` URL parameter: the key, prefixed by `-` for descending order */
 export function parseAuthorSort(value: string | null): AuthorSort {
@@ -32,29 +31,20 @@ export function formatAuthorSort(sort: AuthorSort): string {
     return (sort.desc ? "-" : "") + sort.key;
 }
 
-/** Compares authors by the given sort. Authors without dated maps always go last by year. */
+/**
+ * Compares authors by the given sort. Authors with as many maps are ordered by how widespread
+ * their maps were, which isn't shown, but puts the better-known authors first.
+ */
 export function compareAuthors(a: BulanciAuthor, b: BulanciAuthor, sort: AuthorSort): number {
     const direction = sort.desc ? -1 : 1;
     const byName = compareStrings(a.name, b.name);
     switch (sort.key) {
-        case "reach":
-            return (
-                direction * (a.reach - b.reach) || direction * (a.mapCount - b.mapCount) || byName
-            );
         case "maps":
             return (
                 direction * (a.mapCount - b.mapCount) || direction * (a.reach - b.reach) || byName
             );
         case "name":
             return direction * byName;
-        case "year": {
-            const yearA = a.mapYears[0];
-            const yearB = b.mapYears[0];
-            if (yearA === yearB) return byName;
-            if (yearA === undefined) return 1;
-            if (yearB === undefined) return -1;
-            return direction * (yearA - yearB) || byName;
-        }
     }
 }
 
@@ -71,15 +61,10 @@ export const mapCountLabel = (count: number): LocalizedString => ({
     en: `${count} ${englishPlural(count, "map", "maps")}`,
 });
 
-export const reachLabel = (count: number): LocalizedString => ({
-    cs: `${count} ${czechPlural(count, "místo", "místa", "míst")} výskytu`,
-    en: `found in ${count} ${englishPlural(count, "place", "places")}`,
+export const webCountLabel = (count: number): LocalizedString => ({
+    cs: `${count} ${czechPlural(count, "web", "weby", "webů")}`,
+    en: `${count} ${englishPlural(count, "website", "websites")}`,
 });
-
-export const REACH_EXPLANATION: LocalizedString = {
-    cs: "Počet různých míst (webů a nahrání na úložiště), kde se objevila některá z map autora",
-    en: "The number of distinct places (websites and file hosting uploads) where any of the author's maps appeared",
-};
 
 /** Escapes the text as HTML, except for the few tags descriptions use: <i> and <br> */
 export const formatInlineHtml = (text: string): string =>

@@ -1,12 +1,11 @@
 <script lang="ts">
-    import { afterNavigate } from "$app/navigation";
     import { page } from "$app/state";
     import Loc from "#lib/components/Loc.svelte";
     import Meta from "#lib/components/layout/Meta.svelte";
     import { formatBulanciPlace } from "$src/data/bulanci/places";
     import { loc } from "$src/lib/loc";
     import { waybackUrl } from "$src/lib/wayback";
-    import { getLocale, localizeHref } from "$src/lib/paraglide/runtime";
+    import { getLocale } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";
     import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconCloud from "@lucide/svelte/icons/cloud";
@@ -14,7 +13,6 @@
     import IconMusic from "@lucide/svelte/icons/music";
     import IconNotebookPen from "@lucide/svelte/icons/notebook-pen";
     import IconQuote from "@lucide/svelte/icons/quote";
-    import IconSignature from "@lucide/svelte/icons/signature";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
     import BulanciMenu from "../../BulanciMenu.svelte";
@@ -22,20 +20,11 @@
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
     import MapMonitor from "../MapMonitor.svelte";
-    import { MAPS_PATH, mapListHref, UNKNOWN } from "../mapList";
+    import { mapListHref, UNKNOWN } from "../mapList";
     import { authorHref, formatInlineHtml } from "../../authors/authorList";
 
     const { data } = $props();
     const map = $derived(data.map);
-
-    // Going back to the list restores its search, filters and page if we came from there
-    const listPath = localizeHref(MAPS_PATH);
-    let backHref = $state(listPath);
-    afterNavigate(({ from }) => {
-        if (from && from.url.pathname.replace(/\/$/, "") === listPath) {
-            backHref = from.url.pathname + from.url.search + "#maps";
-        }
-    });
 
     const authorsLabel = $derived(
         map.authors.length > 1 ? { cs: "Autoři", en: "Authors" } : { cs: "Autor", en: "Author" },
@@ -96,10 +85,6 @@
 <BulanciMenu />
 
 <article class="map-page">
-    <a href={backHref} class="back">
-        <Loc cs="Fanouškovské mapy do Bulánků" en="Bulánci fan maps" />
-    </a>
-
     <h2>{map.name}</h2>
 
     <div class="main">
@@ -135,14 +120,6 @@
                     {/each}
                 </dd>
 
-                {#if map.authorEap}
-                    <dt>
-                        <IconSignature size="1em" />
-                        <Loc cs="Autor uvedený v souboru" en="Author stored in the file" />
-                    </dt>
-                    <dd>{map.authorEap}</dd>
-                {/if}
-
                 <dt><IconCalendar size="1em" /> <Loc cs="Rok" en="Year" /></dt>
                 <dd>
                     {#if map.year}
@@ -177,7 +154,7 @@
                                     cs: "Načítací obrazovka mapy",
                                     en: "Loading screen of the map",
                                 })}
-                                sizes="(max-width: 760px) calc(100vw - 2em), 400px"
+                                sizes="(max-width: 760px) 60vw, 400px"
                             />
                         </MapMonitor>
                     </div>
@@ -239,7 +216,11 @@
                     <dt>GUID</dt>
                     <dd><code>{map.guid}</code></dd>
                 {/if}
-                {#if map.descriptionSource && !map.description}
+                {#if map.authorEap}
+                    <dt><Loc cs="Autor uvedený v souboru" en="Author stored in the file" /></dt>
+                    <dd>{map.authorEap}</dd>
+                {/if}
+                {#if map.descriptionSource}
                     <dt><Loc cs="Zdroj datace" en="Source of the year" /></dt>
                     <dd>{@render source(map.descriptionSource)}</dd>
                 {/if}
@@ -300,15 +281,6 @@
 </article>
 
 <style>
-    .back {
-        text-decoration: none;
-    }
-
-    .back:hover,
-    .back:focus-visible {
-        text-decoration: underline;
-    }
-
     h2 {
         margin-top: 0.25em;
         overflow-wrap: anywhere;
@@ -324,6 +296,8 @@
         column-gap: 1.5em;
         /* Width of the icons before the labels, by which the values are indented too */
         --icon-slot: 1.4rem;
+        /* Keeps the loading screen's image about 11rem wide, including its caption */
+        --loading-min-height: 11.5rem;
     }
 
     .screenshot {
@@ -346,13 +320,13 @@
     }
 
     /*
-     * Doesn't contribute to the row's height, so the row is as tall as the screenshot
-     * and this stretches to match it. The loading screen gets the space left over.
+     * The loading screen's image doesn't count towards the row's height (it's a size container),
+     * so the row is usually as tall as the screenshot and the loading screen gets the space left
+     * below the metadata. Where that's less than its minimum, the row grows past the screenshot.
      */
     .side {
         display: grid;
-        grid-template-rows: auto minmax(0, 1fr);
-        contain: size;
+        grid-template-rows: auto minmax(var(--loading-min-height), 1fr);
     }
 
     @media (max-width: 760px) {
@@ -467,22 +441,37 @@
         );
     }
 
-    /* Narrow layouts with a lot of metadata leave room only for a useless thumbnail */
-    @container (max-height: 6rem) {
-        .loading-screen > * {
-            display: none;
-        }
-    }
-
+    /* The loading screen goes right below the screenshot, smaller, with its caption beside it */
     @media (max-width: 760px) {
         .side {
-            display: block;
-            contain: none;
+            display: contents;
+        }
+
+        .screenshot {
+            order: -2;
         }
 
         .loading-screen {
+            order: -1;
             container-type: normal;
-            display: block;
+            display: grid;
+            grid-template-columns: 60% 1fr;
+            align-items: start;
+            /* Closer to the screenshot than the rest of the blocks are to each other */
+            margin-top: -0.75em;
+            border-top: none;
+        }
+
+        .loading-screen figcaption {
+            grid-row: 1;
+            grid-column: 2;
+            height: auto;
+            padding: 0 0 0 0.75em;
+        }
+
+        .loading-screen-image {
+            grid-row: 1;
+            grid-column: 1;
         }
 
         .loading-screen-image :global(.monitor) {

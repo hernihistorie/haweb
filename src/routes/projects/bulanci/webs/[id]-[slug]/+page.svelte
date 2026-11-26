@@ -5,17 +5,15 @@
     import ArchivedSite from "#lib/components/archive/ArchivedSite.svelte";
     import type { BulanciWebYear } from "$src/data/bulanci/webs.server";
     import { czechPlural, loc } from "$src/lib/loc";
-    import { getLocale, localizeHref } from "$src/lib/paraglide/runtime";
+    import { getLocale } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";
     import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconCheck from "@lucide/svelte/icons/check";
-    import IconCircleHelp from "@lucide/svelte/icons/circle-help";
     import IconLink from "@lucide/svelte/icons/link";
     import IconMap from "@lucide/svelte/icons/map";
     import IconServer from "@lucide/svelte/icons/server";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
-    import IconX from "@lucide/svelte/icons/x";
     import BulanciMenu from "../../BulanciMenu.svelte";
     import MapList from "../../maps/MapList.svelte";
     import {
@@ -29,7 +27,6 @@
     import {
         formatDate,
         WEB_FEATURE_GROUPS,
-        WEBS_PATH,
         webName,
         YEAR_SOURCE_LABELS,
     } from "../webList";
@@ -46,11 +43,13 @@
         en: `${web.exclusiveMapCount} found nowhere else`,
     });
 
-    const FEATURE_STATES = {
-        yes: { cs: "ano", en: "yes" },
-        no: { cs: "ne", en: "no" },
-        unknown: { cs: "nezjištěno", en: "not determined" },
-    };
+    /** Only what the website did offer, leaving out groups with nothing in them */
+    const offeredFeatureGroups = $derived(
+        WEB_FEATURE_GROUPS.map((group) => ({
+            ...group,
+            features: group.features.filter((feature) => web.features?.[feature.key] === true),
+        })).filter((group) => group.features.length),
+    );
 </script>
 
 <Meta title={{ cs: `${name} – Weby o Buláncích`, en: `${name} – Bulánci fan websites` }} />
@@ -79,10 +78,6 @@
 <BulanciMenu />
 
 <article class="web-page">
-    <a href={localizeHref(`${WEBS_PATH}/`)} class="back">
-        <Loc cs="Fanouškovské weby" en="Fan websites" />
-    </a>
-
     {#if web.shownName}
         <h2 lang="cs">{web.shownName}</h2>
     {:else}
@@ -161,42 +156,24 @@
                     <br /><span class="muted url">{web.archivedUrl}</span>
                 </dd>
             </dl>
+
+            {#if offeredFeatureGroups.length}
+                <section class="features">
+                    <h3><Loc cs="Co web nabízel" en="What the website offered" /></h3>
+                    {#each offeredFeatureGroups as group (group.features[0].key)}
+                        <h4><Loc text={group.label} /></h4>
+                        <ul>
+                            {#each group.features as feature (feature.key)}
+                                <li><IconCheck size="1em" /> <Loc text={feature.label} /></li>
+                            {/each}
+                        </ul>
+                    {/each}
+                </section>
+            {/if}
         </aside>
 
         <div class="below-screenshot">
             <p class="description">{@html formatInlineHtml(description)}</p>
-
-            {#if web.features}
-                <section class="features">
-                    <h3><Loc cs="Co web nabízel" en="What the website offered" /></h3>
-                    <div class="feature-groups">
-                        {#each WEB_FEATURE_GROUPS as group (group.features[0].key)}
-                            <div>
-                                <h4><Loc text={group.label} /></h4>
-                                <ul>
-                                    {#each group.features as feature (feature.key)}
-                                        {@const value = web.features[feature.key]}
-                                        {@const state =
-                                            value === true
-                                                ? "yes"
-                                                : value === false
-                                                  ? "no"
-                                                  : "unknown"}
-                                        <li class={state} title={loc(FEATURE_STATES[state])}>
-                                            {#if state === "yes"}<IconCheck size="1em" />
-                                            {:else if state === "no"}<IconX size="1em" />
-                                            {:else}<IconCircleHelp size="1em" />{/if}
-                                            <Loc text={feature.label} />
-                                            <span class="visually-hidden"
-                                                >: {loc(FEATURE_STATES[state])}</span>
-                                        </li>
-                                    {/each}
-                                </ul>
-                            </div>
-                        {/each}
-                    </div>
-                </section>
-            {/if}
         </div>
     </div>
 
@@ -222,15 +199,6 @@
 </article>
 
 <style>
-    .back {
-        text-decoration: none;
-    }
-
-    .back:hover,
-    .back:focus-visible {
-        text-decoration: underline;
-    }
-
     h2 {
         margin: 0.25em 0 0;
         overflow-wrap: anywhere;
@@ -353,18 +321,18 @@
         color: var(--color-text-muted);
     }
 
+    /* Below the metadata, the group labels and features lined up with its labels and values */
     section.features {
         margin-top: 1.5em;
     }
 
-    .feature-groups {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-        gap: 0.5em 1.5em;
+    .features h3 {
+        margin-top: 0;
     }
 
     h4 {
-        margin: 0 0 0.25em;
+        margin: 0.5em 0 0.1em;
+        padding-left: var(--icon-slot);
         color: var(--color-text-muted);
         font-size: 0.85em;
         font-weight: normal;
@@ -388,28 +356,6 @@
         position: relative;
         top: 0.15em;
         margin: 0;
-    }
-
-    .features li.yes :global(.lucide-icon) {
         color: var(--color-primary);
-    }
-
-    .features li.no,
-    .features li.unknown {
-        color: var(--color-text-muted);
-    }
-
-    .features li.unknown {
-        font-style: italic;
-        cursor: help;
-    }
-
-    .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
     }
 </style>
