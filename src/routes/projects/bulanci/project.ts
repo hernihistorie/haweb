@@ -1,3 +1,4 @@
+import { Temporal } from "@js-temporal/polyfill";
 import type { Project } from '$src/types';
 import headline from "./img/bulanci_headline.jpg?w=1600;800;400&enhanced&placeholder";
 import menu from "./img/bulanci_menu.jpg?w=660;330&enhanced";
@@ -15,6 +16,7 @@ export const projectBulanci: Project = {
     type: "project",
     url: "/projects/bulanci/",
     year: 2026,
+    releaseDate: Temporal.PlainDate.from("2026-12-07"),
     inMenu: true,
     image: miniature,
     bannerImage: headline,

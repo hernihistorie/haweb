@@ -13,6 +13,10 @@ import { slideText } from "./src/lib/vite/slideText.ts";
 const searchIndexAdapter = { name: "search-index", adapt() {} };
 
 export default defineConfig({
+    define: {
+        // Lets prerendered pages and the browser agree on what was released when they were built
+        __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    },
     plugins: [
         imagePlaceholder(),
         enhancedImages(),

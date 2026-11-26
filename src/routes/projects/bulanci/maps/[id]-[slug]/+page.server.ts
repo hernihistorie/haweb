@@ -4,9 +4,6 @@ import { error, redirect } from "@sveltejs/kit";
 import { compareMaps, normalizeForSearch } from "../mapList";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
-// 'auto': every map is prerendered, while URLs with an outdated slug still get redirected
-export const prerender = "auto";
-
 /** How many of the author's other maps are shown before linking to the filtered list */
 const MORE_BY_AUTHOR_LIMIT = 8;
 

@@ -1,3 +1,6 @@
+import { dev } from "$app/env";
+import { BUILD_TIME } from "#lib/datetime.js";
+import { isProjectReleased } from "#lib/projects.js";
 import type { Project } from "$src/types";
 
 import { projectBulanci } from "$src/routes/projects/bulanci/project";
@@ -14,6 +17,9 @@ import { projectOuya } from "$src/routes/projects/ouya/project";
 
 // All listed projects, in the order they're shown in. Drives the project boxes (the homepage
 // shows the first few), the header menu (`inMenu`) and the timeline (`year`).
+// Projects not yet released when the site was built are left out, except in dev. Going by the
+// build time rather than the current time keeps prerendered pages and the browser in agreement,
+// so a project shows up in these lists with the first deploy after its release date.
 // Importing this pulls in every project's description and image URLs, so the header gets its
 // items from the root layout's server load instead.
 export const projects: Project[] = [
@@ -28,4 +34,4 @@ export const projects: Project[] = [
     projectInterviews,
     projectEmilFafek,
     projectOuya,
-];
+].filter((project) => dev || isProjectReleased(project, BUILD_TIME));

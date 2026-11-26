@@ -6,8 +6,6 @@ import {
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
-export const prerender = true;
-
 export const entries: EntryGenerator = () => bulanciAuthors.map(({ slug }) => ({ slug }));
 
 export const load: PageServerLoad = async ({ params }) => {

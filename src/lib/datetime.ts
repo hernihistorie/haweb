@@ -154,8 +154,15 @@ export function formatTotalDuration(seconds: number): string {
 
 export const SITE_TIME_ZONE = "Europe/Prague";
 
-export function isDateInPast(date: Temporal.PlainDate | Temporal.PlainDateTime): boolean {
-    const now = Temporal.Now.plainDateTimeISO(SITE_TIME_ZONE);
+/** When the site was built; `__BUILD_TIME__` is set in vite.config.ts */
+export const BUILD_TIME = Temporal.Instant.from(__BUILD_TIME__)
+    .toZonedDateTimeISO(SITE_TIME_ZONE)
+    .toPlainDateTime();
+
+export function isDateInPast(
+    date: Temporal.PlainDate | Temporal.PlainDateTime,
+    now = Temporal.Now.plainDateTimeISO(SITE_TIME_ZONE),
+): boolean {
     return Temporal.PlainDateTime.compare(toPlainDateTime(date), now) <= 0;
 }
 

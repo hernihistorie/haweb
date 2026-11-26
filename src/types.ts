@@ -106,6 +106,11 @@ export interface Project {
      * projects menu would be highlighted on their pages too.
      */
     inMenu?: boolean;
+    /**
+     * Until this date (midnight, Prague time), the project is left out of the menu, boxes, timeline
+     * and search, though its pages are up. Its pages must use `#lib/server/release.js` for search.
+     */
+    releaseDate?: Temporal.PlainDate | Temporal.PlainDateTime;
 }
 
 export type PostKind = "news" | "article" | "video";
