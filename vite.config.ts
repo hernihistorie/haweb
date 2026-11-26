@@ -5,6 +5,7 @@ import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { pagefindBuild } from "vite-plugin-pagefind";
 import { defineConfig } from "vite";
+import { imagePlaceholder } from "./src/lib/vite/imagePlaceholder.ts";
 import { slideText } from "./src/lib/vite/slideText.ts";
 
 // The search index build only needs the prerendered HTML in .svelte-kit/output,
@@ -13,6 +14,7 @@ const searchIndexAdapter = { name: "search-index", adapt() {} };
 
 export default defineConfig({
     plugins: [
+        imagePlaceholder(),
         enhancedImages(),
         slideText(),
         sveltekit({

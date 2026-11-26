@@ -1,8 +1,8 @@
-import type { Picture } from "vite-imagetools";
+import type { PlaceholderPicture } from "$src/types";
 
 export interface ArticleImage {
     /** Build-time resized thumbnails (avif/webp/fallback, srcset) */
-    picture: Picture;
+    picture: PlaceholderPicture;
     /** URL of the untouched original */
     original: string;
     /** Dimensions of the original, needed by the lightbox */
@@ -20,7 +20,7 @@ export function articleImages(
         const filename = path.split("/").pop()!;
         const { width, height } = sizes[path] as { width: number; height: number };
         images[filename] = {
-            picture: picture as Picture,
+            picture: picture as PlaceholderPicture,
             original: originals[path] as string,
             width,
             height,

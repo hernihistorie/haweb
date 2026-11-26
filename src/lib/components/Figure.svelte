@@ -2,6 +2,7 @@
     import type { LocalizedString } from "$src/types";
     import type { Snippet } from "svelte";
     import type { ArticleImage } from "$src/lib/articleImages";
+    import { placeholderStyle } from "$src/lib/placeholder";
     import { openLightbox } from "$src/lib/lightbox";
     import { loc } from "../loc";
 
@@ -40,6 +41,7 @@
                 src={props.image.picture}
                 {sizes}
                 alt={loc(alt)}
+                style={placeholderStyle(props.image.picture)}
                 loading="lazy"
                 decoding="async" />
         </a>

@@ -1,9 +1,10 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
-    import type { Picture } from "vite-imagetools";
+    import type { PlaceholderPicture } from "$src/types";
+    import { placeholderStyle } from "$src/lib/placeholder";
 
     interface Props {
-        image: Picture;
+        image: PlaceholderPicture;
         alt?: string;
         /** Heading level of the title */
         level?: 2 | 3;
@@ -48,6 +49,7 @@
         src={image}
         sizes={imageSizes}
         {alt}
+        style={placeholderStyle(image)}
         loading={lazy ? "lazy" : undefined}
         decoding="async" />
     <svelte:element this={`h${level}`} class="title">

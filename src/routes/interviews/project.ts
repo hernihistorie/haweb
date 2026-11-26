@@ -1,5 +1,5 @@
 import type { Project } from "$src/types";
-import image from "../../../static/photos/homepage/rozhovory.jpg?w=800;400&enhanced";
+import image from "../../../static/photos/homepage/rozhovory.jpg?w=800;400&enhanced&placeholder";
 
 export const projectInterviews: Project = {
     name: {

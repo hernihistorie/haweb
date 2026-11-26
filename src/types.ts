@@ -79,15 +79,21 @@ export interface AssetData {
     inventory_url: string;
 }
 
+/** An enhanced image, with a placeholder if it's imported with `&enhanced&placeholder` */
+export type PlaceholderPicture = Picture & {
+    /** Tiny version of the image as a data URI, see `placeholderStyle()` */
+    placeholder?: string;
+};
+
 export interface Project {
     name: LocalizedString;
     fullname?: LocalizedString;
     type?: "project" | "fond";
     url?: string;
     /** Image for listings and link previews */
-    image?: Picture;
+    image?: PlaceholderPicture;
     /** Wide banner image for the project page; falls back to `image` */
-    bannerImage?: Picture;
+    bannerImage?: PlaceholderPicture;
     /** Show the banner whole, instead of cropping it to the usual banner shape */
     bannerUncropped?: boolean;
     /** Thin strip behind the project's name in its menu; falls back to the banner */

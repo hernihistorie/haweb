@@ -3,7 +3,7 @@
     import ImageTitle from "$src/lib/components/ImageTitle.svelte";
     import { localizeHref } from "#lib/paraglide/runtime.js";
     import type { Snippet } from "svelte";
-    import type { Picture } from "vite-imagetools";
+    import type { PlaceholderPicture } from "$src/types";
     let {
         href = undefined,
         title = undefined,
@@ -20,7 +20,7 @@
         children?: Snippet;
         show_arrow?: boolean;
         /** Shown along with the heading */
-        img?: Picture;
+        img?: PlaceholderPicture;
         project?: boolean;
     } = $props();
 

@@ -1,5 +1,5 @@
 import type { Project } from "$src/types";
-import image from "./project.jpg?w=800;400&enhanced";
+import image from "./project.jpg?w=800;400&enhanced&placeholder";
 
 export const projectAtariKlubCitov: Project = {
     name: {

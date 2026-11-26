@@ -1,6 +1,6 @@
 import type { Project } from "$src/types";
-import bannerImage from "./banner.jpg?w=1420;800;400&enhanced";
-import image from "./project.jpg?w=800;400&enhanced";
+import bannerImage from "./banner.jpg?w=1420;800;400&enhanced&placeholder";
+import image from "./project.jpg?w=800;400&enhanced&placeholder";
 
 export const projectVideostop: Project = {
     name: "Videostop",

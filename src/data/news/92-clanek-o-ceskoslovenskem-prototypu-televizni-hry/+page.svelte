@@ -10,7 +10,7 @@
     const img = articleImages(
         import.meta.glob("../../articles/91-prototyp-televiznich-her-z-tesly-vust/img/*", {
             eager: true,
-            query: "?w=1600;800&enhanced",
+            query: "?w=1600;800&enhanced&placeholder",
             import: "default",
         }),
         import.meta.glob("../../articles/91-prototyp-televiznich-her-z-tesly-vust/img/*", {

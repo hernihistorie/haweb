@@ -9,3 +9,10 @@ declare module "*&enhanced" {
     const picture: Picture;
     export default picture;
 }
+
+declare module "*&enhanced&placeholder" {
+    import type { PlaceholderPicture } from "$src/types";
+
+    const picture: PlaceholderPicture;
+    export default picture;
+}
