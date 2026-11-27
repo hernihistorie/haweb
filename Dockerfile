@@ -3,12 +3,15 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
+# npm needs the package.json of every workspace in package-lock.json
+COPY hhweb/package.json hhweb/
 RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev
 
 # Use a Node.js Alpine image for the builder stage
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
+COPY hhweb/package.json hhweb/
 RUN --mount=type=cache,target=/root/.npm npm ci
 COPY . .
 # Persist enhanced-img's processed images between builds, otherwise every deploy re-resizes all of them

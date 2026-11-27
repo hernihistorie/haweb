@@ -16,3 +16,7 @@ src/lib/paraglide
 
 static/pagefind/
 /asset-index
+
+# hhweb, the hernihistorie.cz app
+/hhweb/build
+/hhweb/.svelte-kit

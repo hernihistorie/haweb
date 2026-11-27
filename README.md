@@ -21,6 +21,14 @@ npm install --force
 npm run dev
 ```
 
+## hernihistorie.cz (hhweb)
+
+The website of Herní historie, z.s., the nonprofit behind the archive, is a separate SvelteKit app in [`hhweb/`](hhweb/). It's an npm workspace of this repository, so `npm install` here sets up both, and it can use haweb's `src/lib` as `$haweb/lib/...`. See its [README](hhweb/README.md).
+
+```bash
+npm run dev:hh
+```
+
 ## Deployment
 
 If you wish to release a new version on herniarchiv.cz, run the deploy script:

@@ -12,8 +12,14 @@
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
         "lint": "prettier --plugin-search-dir . --check . && eslint .",
-        "format": "prettier --plugin-search-dir . --write ."
+        "format": "prettier --plugin-search-dir . --write .",
+        "dev:hh": "npm run dev -w hhweb",
+        "build:hh": "npm run build -w hhweb",
+        "check:hh": "npm run check -w hhweb"
     },
+    "workspaces": [
+        "hhweb"
+    ],
     "devDependencies": {
         "@fontsource/fira-mono": "^4.5.10",
         "@inlang/paraglide-js": "^2.5.0",
