@@ -38,7 +38,7 @@
     ];
 </script>
 
-<ProjectPage project={projectInterviews} backLink={false}>
+<ProjectPage project={projectInterviews}>
     <p>
         <Loc
             cs="Sbírka rozhovorů je primárně složená z interview užívající metodu orální historie s představitelstvem české a slovenské herní kultury. Tyto rozhovory se zaměřují především na široké životopisné vyprávění, během kterého je snaha dát narátorstvu co nejvíce prostoru pro jejich autentický projev. To znamená, že je jejich projev jen minimálně přerušován a veden samotným tazatelem. Tato svědectví rozšiřují poznání o tuzemské videoherní scéně způsobem, který nemohou jiné historické prameny nabídnout. Tato sbírka také obsahuje rozhovory se zahraničními osobnostmi videoherní kultury, více strukturované rozhovory a záznamy přednášek, konferencí, debat a dalších akcí."

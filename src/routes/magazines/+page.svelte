@@ -13,7 +13,7 @@
 
 <MagazinesMenu />
 
-<ProjectPage project={projectMagazines} backLink={false}>
+<ProjectPage project={projectMagazines}>
     <Loc>
         {#snippet cs()}
             <p>

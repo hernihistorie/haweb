@@ -4,19 +4,17 @@
     import Meta from "$src/lib/components/layout/Meta.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import ImageTitle from "#lib/components/ImageTitle.svelte";
-    import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
+    import { getLocale } from "#lib/paraglide/runtime.js";
     import { loc } from "#lib/loc.js";
     import { absoluteUrl, htmlToText } from "#lib/site.js";
 
     interface Props {
         project: Project;
         thin?: boolean;
-        /** Show a link back to the projects listing */
-        backLink?: boolean;
         children: Snippet;
     }
 
-    let { project, thin = true, backLink = true, children }: Props = $props();
+    let { project, thin = true, children }: Props = $props();
 
     let bannerImage = $derived(project.bannerImage ?? project.image);
     let image = $derived((project.image ?? project.bannerImage)?.img.src);
@@ -41,11 +39,6 @@
 </svelte:head>
 
 <article class={thin ? "thin" : ""}>
-    {#if backLink}
-        <a href={localizeHref("/projects")} style="margin-bottom: -12px;">
-            <Loc cs="Projekty Herního archivu" en="Czechoslovak Game Archive Projects" />
-        </a>
-    {/if}
     {#if bannerImage}
         <div class="banner">
             <ImageTitle
@@ -72,10 +65,6 @@
 </article>
 
 <style>
-    a {
-        text-decoration: none;
-    }
-
     h2 {
         margin-top: 0.2em;
     }
