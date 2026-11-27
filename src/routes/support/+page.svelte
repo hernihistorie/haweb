@@ -132,13 +132,13 @@
                 style="width: 7.5em; cursor: pointer;"
                 class="customvalue {customValueActive ? 'active' : ''}"
             />
-            <div
+            <label
+                for="customValue"
                 class="currency {customValueActive ? 'active' : ''}"
                 id="currency"
-                onclick={() => document.getElementById("customValue")?.focus()}
             >
                 {currencyName}
-            </div>
+            </label>
         </div>
     </div>
 
