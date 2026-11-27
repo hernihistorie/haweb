@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { Snippet } from "svelte";
     import ProjectName from "#lib/components/project/ProjectName.svelte";
 
     import type { InterviewData } from "$src/types";
@@ -16,7 +17,17 @@
     import InterviewStatusCapsule from "./InterviewStatusCapsule.svelte";
     import PersonImage from "./PersonImage.svelte";
 
-    const { data, toc = true }: { data: InterviewData; toc?: boolean } = $props();
+    interface Props {
+        data: InterviewData;
+        toc?: boolean;
+        /** The interview text itself */
+        content?: Snippet;
+        /** Extra <dt>/<dd> pairs at the end of the interview's details */
+        meta?: Snippet;
+    }
+
+    // Renamed because `content` is also the name of the snippet passed to <Interview> below
+    const { data, toc = true, content: interviewContent, meta: interviewMeta }: Props = $props();
 </script>
 
 <svelte:head>
@@ -200,7 +211,7 @@
                 {/if}
 
                 <!-- Extra <dt>/<dd> pairs at the end of the interview's details -->
-                <slot name="meta" />
+                {@render interviewMeta?.()}
             </dl>
 
             {#if data.narrator.bio}
@@ -323,7 +334,7 @@
             {/if}
 
             <article id="tocTarget" use:tocCrawler={{ mode: "generate" }}>
-                <slot name="content" />
+                {@render interviewContent?.()}
             </article>
 
             <hr />

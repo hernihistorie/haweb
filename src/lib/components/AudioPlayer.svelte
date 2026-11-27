@@ -6,6 +6,7 @@
     import type { LocalizedString } from "$src/types";
     import { persisted } from "svelte-persisted-store";
     import Loc from "./Loc.svelte";
+    import { loc } from "#lib/loc.js";
 
     interface Props {
         src: string;
@@ -71,11 +72,66 @@
         return func;
     }
 
+    /** Keyboard control for a slider, following the ARIA slider pattern */
+    function make_slider_keydown(
+        getValue: () => number,
+        setValue: (value: number) => void,
+        getMax: () => number,
+        step: number,
+        big_step: number,
+    ) {
+        return (e: KeyboardEvent) => {
+            const max = getMax();
+            let value: number;
+            switch (e.key) {
+                case "ArrowRight":
+                case "ArrowUp":
+                    value = getValue() + step;
+                    break;
+                case "ArrowLeft":
+                case "ArrowDown":
+                    value = getValue() - step;
+                    break;
+                case "PageUp":
+                    value = getValue() + big_step;
+                    break;
+                case "PageDown":
+                    value = getValue() - big_step;
+                    break;
+                case "Home":
+                    value = 0;
+                    break;
+                case "End":
+                    value = max;
+                    break;
+                default:
+                    return;
+            }
+            // Don't scroll the page
+            e.preventDefault();
+            setValue(Math.min(Math.max(value, 0), max));
+        };
+    }
+
     let time_pointerdown = make_slider_pointerdown((value) => time.set(value), duration, true);
     let volume_pointerdown = make_slider_pointerdown(
         (value) => (volume = value),
         max_volume,
         false,
+    );
+    const time_keydown = make_slider_keydown(
+        () => $time,
+        (value) => time.set(value),
+        () => duration,
+        5,
+        30,
+    );
+    const volume_keydown = make_slider_keydown(
+        () => volume,
+        (value) => (volume = value),
+        () => max_volume,
+        0.1,
+        0.1,
     );
 </script>
 
@@ -108,7 +164,18 @@
 
         <div class="time">
             <span class="time-text">{format_time($time)}</span>
-            <div class="slider" onpointerdown={time_pointerdown}>
+            <div
+                class="slider"
+                role="slider"
+                tabindex="0"
+                aria-label={loc({ cs: "Pozice přehrávání", en: "Playback position" })}
+                aria-valuemin={0}
+                aria-valuemax={Math.round(duration)}
+                aria-valuenow={Math.round($time)}
+                aria-valuetext="{format_time($time)} / {format_time(duration)}"
+                onpointerdown={time_pointerdown}
+                onkeydown={time_keydown}
+            >
                 <div class="progress" style="--progress: {$time / duration}"></div>
             </div>
             <span>{format_time(duration)}</span>
@@ -128,7 +195,19 @@
             }}
         >
         </button>
-        <div class="volume-slider" onpointerdown={volume_pointerdown}>
+        <div
+            class="volume-slider"
+            role="slider"
+            tabindex="0"
+            aria-label={loc({ cs: "Hlasitost", en: "Volume" })}
+            aria-orientation="vertical"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(volume * 100)}
+            aria-valuetext="{Math.round(volume * 100)} %"
+            onpointerdown={volume_pointerdown}
+            onkeydown={volume_keydown}
+        >
             <div class="volume-progress" style="--progress: {1 - volume}"></div>
         </div>
     </div>
@@ -235,6 +314,12 @@
         border-radius: 0.5em;
         overflow: hidden;
         border: 2px solid var(--color-secondary);
+    }
+
+    .slider:focus-visible,
+    .volume-slider:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     .volume-progress {

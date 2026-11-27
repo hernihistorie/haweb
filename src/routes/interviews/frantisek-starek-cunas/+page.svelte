@@ -258,20 +258,20 @@
                 </A>
 
                 <div class="row">
-                    <div class="column">
+                    <figure class="column">
                         <img
                             src="/photos/frantisek-starek/kniha_scr.jpg"
                             alt="Screen programu Kniha"
                             style="width:100%" />
                         <figcaption>Načítací obrazovka programu Kniha</figcaption>
-                    </div>
-                    <div class="column">
+                    </figure>
+                    <figure class="column">
                         <img
                             src="/photos/frantisek-starek/kniha_prog.jpg"
                             alt="Program Kniha"
                             style="width:100%" />
                         <figcaption>Program Kniha</figcaption>
-                    </div>
+                    </figure>
                 </div>
 
                 <Q speaker={JS}>Měl jsi kazety se seznamy předplatitelů někde schované?</Q>
