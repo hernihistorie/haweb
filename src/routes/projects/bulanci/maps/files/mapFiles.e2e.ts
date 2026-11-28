@@ -56,8 +56,28 @@ test("only published maps have a file", async ({ request }) => {
 
 test("the map's page links to its file", async ({ page }) => {
     await page.goto(`/projects/bulanci/maps/${EDAM.id}-edam/`);
-    const link = page.getByRole("link", { name: EDAM.file, exact: true });
+    const link = page.getByRole("link", { name: /^Stáhnout/ });
     await expect(link).toHaveAttribute("href", fileUrl(EDAM.id));
     const [download] = await Promise.all([page.waitForEvent("download"), link.click()]);
     expect(download.suggestedFilename()).toBe(EDAM.file);
+});
+
+test("Play starts the web player with the map in place of the screenshot", async ({ page }) => {
+    // The player isn't part of the website (nginx serves it in production)
+    await page.route("**/play/bulanci/**", (route) =>
+        route.fulfill({ contentType: "text/html", body: "<title>player</title>" }),
+    );
+    await page.goto(`/projects/bulanci/maps/${EDAM.id}-edam/`);
+    await page.getByRole("button", { name: "Hrát" }).click();
+
+    const frame = page.locator(".screenshot iframe");
+    await expect(frame).toHaveAttribute(
+        "src",
+        `/play/bulanci/?maps=${encodeURIComponent(fileUrl(EDAM.id))}&autostart=1`,
+    );
+    await expect(page.locator(".screenshot img")).toHaveCount(0);
+
+    await page.getByRole("button", { name: "Zpět na snímek" }).click();
+    await expect(frame).toHaveCount(0);
+    await expect(page.locator(".screenshot img")).not.toHaveCount(0);
 });

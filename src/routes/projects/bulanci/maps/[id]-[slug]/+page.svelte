@@ -12,13 +12,19 @@
     import IconCloud from "@lucide/svelte/icons/cloud";
     import IconDownload from "@lucide/svelte/icons/download";
     import IconGlobe from "@lucide/svelte/icons/globe";
+    import IconImage from "@lucide/svelte/icons/image";
+    import IconKeyboard from "@lucide/svelte/icons/keyboard";
+    import IconMaximize from "@lucide/svelte/icons/maximize";
     import IconMusic from "@lucide/svelte/icons/music";
     import IconNotebookPen from "@lucide/svelte/icons/notebook-pen";
+    import IconPlay from "@lucide/svelte/icons/play";
     import IconQuote from "@lucide/svelte/icons/quote";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
+    import { tick } from "svelte";
     import BulanciMenu from "../../BulanciMenu.svelte";
     import BulanciWebLink from "../../BulanciWebLink.svelte";
+    import BulanciPlayer from "../BulanciPlayer.svelte";
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
     import MapMonitor from "../MapMonitor.svelte";
@@ -27,6 +33,20 @@
 
     const { data } = $props();
     const map = $derived(data.map);
+
+    /** The map being played in place of its screenshot, so that another map's page starts without */
+    let playingId: string | null = $state(null);
+    const playing = $derived(playingId === map.id);
+    let player: BulanciPlayer | undefined = $state();
+    let screenshot: HTMLElement | undefined = $state();
+
+    async function play() {
+        playingId = map.id;
+        await tick();
+        // The buttons are below the screenshot on narrow screens
+        screenshot?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        player?.focus();
+    }
 
     const authorsLabel = $derived(
         map.authors.length > 1 ? { cs: "Autoři", en: "Authors" } : { cs: "Autor", en: "Author" },
@@ -99,63 +119,109 @@
     <h2>{map.name}</h2>
 
     <div class="main">
-        <div class="screenshot">
+        <div class="screenshot" bind:this={screenshot}>
             <MapMonitor size="large">
-                <MapImage
-                    image={map.screenshot}
-                    nsfw={map.nsfw}
-                    crop={false}
-                    zoomable
-                    eager
-                    alt={loc({ cs: "Snímek mapy ze hry", en: "In-game screenshot of the map" })}
-                    sizes="(max-width: 760px) calc(100vw - 2em), 800px"
-                />
+                {#if playing}
+                    <!-- The game is 800×600 like the screenshot, so it takes its place -->
+                    <BulanciPlayer
+                        bind:this={player}
+                        class="map-image"
+                        maps={[mapFileHref(map)]}
+                        autostart
+                        title={`Bulánci – ${map.name}`}
+                        onmessage={(message) => {
+                            if (message.type === "shown") player?.focus();
+                            // KONEC in the game's menu
+                            if (message.type === "exit") playingId = null;
+                        }} />
+                {:else}
+                    <MapImage
+                        image={map.screenshot}
+                        nsfw={map.nsfw}
+                        crop={false}
+                        zoomable
+                        eager
+                        alt={loc({
+                            cs: "Snímek mapy ze hry",
+                            en: "In-game screenshot of the map",
+                        })}
+                        sizes="(max-width: 760px) calc(100vw - 2em), 800px"
+                    />
+                {/if}
             </MapMonitor>
+            {#if playing}
+                <div class="player-controls">
+                    <button class="link" onclick={() => (playingId = null)}>
+                        <IconImage size="1em" />
+                        <Loc cs="Zpět na snímek" en="Back to the screenshot" />
+                    </button>
+                    <button class="link" onclick={() => player?.fullscreen()}>
+                        <IconMaximize size="1em" />
+                        <Loc cs="Celá obrazovka" en="Full screen" />
+                    </button>
+                </div>
+            {/if}
         </div>
 
         <aside class="side">
-            <dl class="meta">
-                <dt>
-                    {#if map.authors.length > 1}<IconUsers size="1em" />{:else}<IconUser
-                            size="1em"
-                        />{/if}
-                    <Loc text={authorsLabel} />
-                </dt>
-                <dd>
-                    {#each map.authors as author, i (author)}
-                        {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
-                    {:else}
-                        <a href={mapListHref({ author: UNKNOWN })} class="unknown">
-                            <Loc cs="neznámý" en="unknown" />
-                        </a>
-                    {/each}
-                </dd>
-
-                <dt><IconCalendar size="1em" /> <Loc cs="Rok" en="Year" /></dt>
-                <dd>
-                    {#if map.year}
-                        <a href={mapListHref({ year: String(map.year) })}>{map.year}</a>
-                    {:else}
-                        <a href={mapListHref({ year: UNKNOWN })} class="unknown">
-                            <Loc cs="neznámý" en="unknown" />
-                        </a>
-                    {/if}
-                </dd>
-
-                {#if map.music}
-                    <dt><IconMusic size="1em" /> <Loc cs="Hudba" en="Music" /></dt>
-                    <dd>{map.music}</dd>
-                {/if}
-                {#if map.file}
-                    <dt><IconDownload size="1em" /> <Loc cs="Stáhnout" en="Download" /></dt>
+            <div class="side-top">
+                <dl class="meta">
+                    <dt>
+                        {#if map.authors.length > 1}<IconUsers size="1em" />{:else}<IconUser
+                                size="1em"
+                            />{/if}
+                        <Loc text={authorsLabel} />
+                    </dt>
                     <dd>
-                        <a href={mapFileHref(map)} download="{map.filename}.eap"
-                            >{map.filename}.eap</a
-                        >
-                        <span class="muted">({formatFileSize(map.file.size)})</span>
+                        {#each map.authors as author, i (author)}
+                            {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
+                        {:else}
+                            <a href={mapListHref({ author: UNKNOWN })} class="unknown">
+                                <Loc cs="neznámý" en="unknown" />
+                            </a>
+                        {/each}
                     </dd>
+
+                    <dt><IconCalendar size="1em" /> <Loc cs="Rok" en="Year" /></dt>
+                    <dd>
+                        {#if map.year}
+                            <a href={mapListHref({ year: String(map.year) })}>{map.year}</a>
+                        {:else}
+                            <a href={mapListHref({ year: UNKNOWN })} class="unknown">
+                                <Loc cs="neznámý" en="unknown" />
+                            </a>
+                        {/if}
+                    </dd>
+
+                    {#if map.music}
+                        <dt><IconMusic size="1em" /> <Loc cs="Hudba" en="Music" /></dt>
+                        <dd>{map.music}</dd>
+                    {/if}
+                </dl>
+
+                {#if map.file}
+                    <div class="actions">
+                        <button class="play" onclick={play}>
+                            <IconPlay size="1.1em" />
+                            <Loc cs="Hrát" en="Play" />
+                        </button>
+                        <a class="download" href={mapFileHref(map)} download="{map.filename}.eap">
+                            <IconDownload size="1.1em" />
+                            <span>
+                                <Loc cs="Stáhnout" en="Download" />
+                                <span class="size">{formatFileSize(map.file.size)}</span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- Only shown on touch screens without a mouse, where there's likely no keyboard either -->
+                    <p class="keyboard-note">
+                        <IconKeyboard size="1.1em" />
+                        <Loc
+                            cs="Hra se ovládá jen klávesnicí."
+                            en="The game is played with a keyboard only." />
+                    </p>
                 {/if}
-            </dl>
+            </div>
 
             {#if map.loadingScreen}
                 <!-- Fills the space left below the metadata, flush with the bottom of the screenshot -->
@@ -460,6 +526,101 @@
 
     .unknown {
         color: var(--color-text-muted);
+    }
+
+    /* Play is the main action, filled; Download is outlined like the site's other buttons */
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin: 0.25em 0 0.75em;
+    }
+
+    .actions .play,
+    .actions .download {
+        display: inline-flex;
+        flex: 1 1 auto;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45em;
+        margin: 0;
+        padding: 0.45em 1em;
+        border: 2px solid var(--color-primary);
+        font: inherit;
+        font-size: 1.1em;
+        font-weight: 600;
+        line-height: 1.2;
+        text-decoration: none;
+        transition: background 0.15s;
+    }
+
+    .actions .play {
+        background: var(--color-primary);
+        color: var(--color-primary-contrast);
+    }
+
+    .actions .play:hover,
+    .actions .play:focus-visible {
+        background: color-mix(in srgb, var(--color-primary) 82%, #000);
+    }
+
+    .actions .download {
+        background: transparent;
+        color: var(--color-text);
+    }
+
+    .actions .download:hover,
+    .actions .download:focus-visible {
+        background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .actions :global(.lucide-icon) {
+        flex: none;
+        margin: 0;
+    }
+
+    .actions .size {
+        color: var(--color-text-muted);
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
+    .keyboard-note {
+        display: none;
+        align-items: center;
+        gap: 0.4em;
+        margin: -0.25em 0 0.75em;
+        color: var(--color-text-muted);
+        font-size: 0.85em;
+    }
+
+    @media (pointer: coarse) and (not (any-pointer: fine)) {
+        .keyboard-note {
+            display: flex;
+        }
+    }
+
+    /* Below the game, like the archived website viewer's links below a website */
+    .player-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.25em 1.25em;
+        padding: 0.4em 0 0;
+        font-size: 0.85em;
+    }
+
+    .player-controls button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3em;
+        color: var(--color-text-muted);
+        cursor: pointer;
+    }
+
+    .player-controls button:hover,
+    .player-controls button:focus-visible {
+        color: var(--color-text);
     }
 
     /* The caption and image sit at the bottom of the space left over */

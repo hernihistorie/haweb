@@ -68,6 +68,8 @@ In development, point `CORUSCANT_DIR` at a local directory laid out like that ho
 CORUSCANT_DIR=/path/to/coruscant npm run dev
 ```
 
+The Play button on a map's page loads the Bulánci web player from `/play/bulanci/` with the map's file. The player isn't part of the website: in production nginx serves it ([hernihistorie/bulanci](https://github.com/hernihistorie/bulanci), `player/`), and the dev server proxies that path to the player's own server, so run `npm run serve` in `player/` next to `npm run dev` (or set `BULANCI_PLAYER_URL` if it runs elsewhere than `http://localhost:8080`).
+
 ## Contributing
 
 If you think you can improve our website, feel free to open an issue or discuss matters with us on the [RetroHerna + Herní archiv Discord server](https://discord.gg/9jajeqZ).

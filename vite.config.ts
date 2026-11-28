@@ -47,4 +47,16 @@ export default defineConfig({
         }),
         pagefindBuild({}),
     ],
+    server: {
+        proxy: {
+            // The Bulánci web player isn't part of the website: in production nginx serves it
+            // at /play/bulanci/. In development, run `npm run serve` in the player
+            // (hernihistorie/bulanci, player/), so that it loads maps from the dev server
+            // like it does on the website.
+            "/play/bulanci/": {
+                target: process.env.BULANCI_PLAYER_URL ?? "http://localhost:8080",
+                rewrite: (path) => path.replace(/^\/play\/bulanci/, ""),
+            },
+        },
+    },
 });
