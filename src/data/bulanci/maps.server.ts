@@ -172,6 +172,33 @@ export const bulanciMaps: BulanciMap[] = [...metadataByFilename]
     }))
     .sort((a, b) => a.name.localeCompare(b.name, "cs"));
 
+/** What a map gallery shows of a map */
+export type BulanciGalleryMap = Pick<
+    BulanciMap,
+    "id" | "slug" | "filename" | "name" | "year" | "authors" | "nsfw" | "screenshot"
+>;
+
+/** Only what a gallery shows, for sending many maps to the browser */
+export const galleryMap = ({
+    id,
+    slug,
+    filename,
+    name,
+    year,
+    authors,
+    nsfw,
+    screenshot,
+}: BulanciMap): BulanciGalleryMap => ({
+    id,
+    slug,
+    filename,
+    name,
+    year,
+    authors,
+    nsfw,
+    screenshot,
+});
+
 export const bulanciMapsByFilename: Record<string, BulanciMap> = Object.fromEntries(
     bulanciMaps.map((map) => [map.filename, map]),
 );

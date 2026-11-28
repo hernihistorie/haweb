@@ -18,6 +18,7 @@
 {/snippet}
 
 <ProjectMenu project={projectBulanci}>
+    {@render link({ url: "/projects/bulanci/play", cs: "Hrát", en: "Play" })}
     {@render link({ url: "/projects/bulanci/maps", cs: "Mapy", en: "Maps" })}
     {@render link({ url: "/projects/bulanci/webs", cs: "Weby", en: "Webs" })}
     {@render link({

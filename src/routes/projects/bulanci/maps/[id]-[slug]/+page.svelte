@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/state";
+    import ActionButton from "#lib/components/ActionButton.svelte";
     import Loc from "#lib/components/Loc.svelte";
     import Meta from "#lib/components/layout/Meta.svelte";
     import { formatBulanciPlace } from "$src/data/bulanci/places";
@@ -13,7 +14,6 @@
     import IconDownload from "@lucide/svelte/icons/download";
     import IconGlobe from "@lucide/svelte/icons/globe";
     import IconImage from "@lucide/svelte/icons/image";
-    import IconKeyboard from "@lucide/svelte/icons/keyboard";
     import IconMaximize from "@lucide/svelte/icons/maximize";
     import IconMusic from "@lucide/svelte/icons/music";
     import IconNotebookPen from "@lucide/svelte/icons/notebook-pen";
@@ -21,9 +21,12 @@
     import IconQuote from "@lucide/svelte/icons/quote";
     import IconUser from "@lucide/svelte/icons/user";
     import IconUsers from "@lucide/svelte/icons/users";
-    import { tick } from "svelte";
+    import { replaceState } from "$app/navigation";
+    import { onMount, tick } from "svelte";
     import BulanciMenu from "../../BulanciMenu.svelte";
+    import BulanciControls from "../../BulanciControls.svelte";
     import BulanciWebLink from "../../BulanciWebLink.svelte";
+    import KeyboardNote from "../../KeyboardNote.svelte";
     import BulanciPlayer from "../BulanciPlayer.svelte";
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
@@ -42,11 +45,29 @@
 
     async function play() {
         playingId = map.id;
+        setPlayInUrl(true);
         await tick();
         // The buttons are below the screenshot on narrow screens
         screenshot?.scrollIntoView({ block: "nearest", behavior: "smooth" });
         player?.focus();
     }
+
+    function stop() {
+        playingId = null;
+        setPlayInUrl(false);
+    }
+
+    /** `?play` in the URL, so that a link to the page while playing starts the game too */
+    function setPlayInUrl(playing: boolean) {
+        const url = new URL(location.href);
+        url.search = playing ? "?play" : "";
+        if (url.href !== location.href) replaceState(url, page.state);
+    }
+
+    // The page is prerendered without any query, so `?play` is only seen once mounted
+    onMount(() => {
+        if (new URLSearchParams(location.search).has("play")) play();
+    });
 
     const authorsLabel = $derived(
         map.authors.length > 1 ? { cs: "Autoři", en: "Authors" } : { cs: "Autor", en: "Author" },
@@ -132,7 +153,7 @@
                         onmessage={(message) => {
                             if (message.type === "shown") player?.focus();
                             // KONEC in the game's menu
-                            if (message.type === "exit") playingId = null;
+                            if (message.type === "exit") stop();
                         }} />
                 {:else}
                     <MapImage
@@ -151,7 +172,7 @@
             </MapMonitor>
             {#if playing}
                 <div class="player-controls">
-                    <button class="link" onclick={() => (playingId = null)}>
+                    <button class="link" onclick={stop}>
                         <IconImage size="1em" />
                         <Loc cs="Zpět na snímek" en="Back to the screenshot" />
                     </button>
@@ -201,29 +222,28 @@
 
                 {#if map.file}
                     <div class="actions">
-                        <button class="play" onclick={play}>
+                        <ActionButton variant="filled" onclick={play}>
                             <IconPlay size="1.1em" />
                             <Loc cs="Hrát" en="Play" />
-                        </button>
-                        <a class="download" href={mapFileHref(map)} download="{map.filename}.eap">
+                        </ActionButton>
+                        <ActionButton href={mapFileHref(map)} download="{map.filename}.eap">
                             <IconDownload size="1.1em" />
                             <span>
                                 <Loc cs="Stáhnout" en="Download" />
                                 <span class="size">{formatFileSize(map.file.size)}</span>
                             </span>
-                        </a>
+                        </ActionButton>
                     </div>
-                    <!-- Only shown on touch screens without a mouse, where there's likely no keyboard either -->
-                    <p class="keyboard-note">
-                        <IconKeyboard size="1.1em" />
-                        <Loc
-                            cs="Hra se ovládá jen klávesnicí."
-                            en="The game is played with a keyboard only." />
-                    </p>
+                    <KeyboardNote />
                 {/if}
             </div>
 
-            {#if map.loadingScreen}
+            {#if playing}
+                <!-- The keys matter more than the loading screen while playing -->
+                <div class="controls">
+                    <BulanciControls />
+                </div>
+            {:else if map.loadingScreen}
                 <!-- Fills the space left below the metadata, flush with the bottom of the screenshot -->
                 <figure class="loading-screen">
                     <figcaption><Loc cs="Načítací obrazovka" en="Loading screen" /></figcaption>
@@ -528,7 +548,6 @@
         color: var(--color-text-muted);
     }
 
-    /* Play is the main action, filled; Download is outlined like the site's other buttons */
     .actions {
         display: flex;
         flex-wrap: wrap;
@@ -536,68 +555,14 @@
         margin: 0.25em 0 0.75em;
     }
 
-    .actions .play,
-    .actions .download {
-        display: inline-flex;
+    .actions > :global(.action-button) {
         flex: 1 1 auto;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45em;
-        margin: 0;
-        padding: 0.45em 1em;
-        border: 2px solid var(--color-primary);
-        font: inherit;
-        font-size: 1.1em;
-        font-weight: 600;
-        line-height: 1.2;
-        text-decoration: none;
-        transition: background 0.15s;
-    }
-
-    .actions .play {
-        background: var(--color-primary);
-        color: var(--color-primary-contrast);
-    }
-
-    .actions .play:hover,
-    .actions .play:focus-visible {
-        background: color-mix(in srgb, var(--color-primary) 82%, #000);
-    }
-
-    .actions .download {
-        background: transparent;
-        color: var(--color-text);
-    }
-
-    .actions .download:hover,
-    .actions .download:focus-visible {
-        background: color-mix(in srgb, var(--color-primary) 12%, transparent);
-    }
-
-    .actions :global(.lucide-icon) {
-        flex: none;
-        margin: 0;
     }
 
     .actions .size {
         color: var(--color-text-muted);
         font-size: 0.8em;
         font-weight: normal;
-    }
-
-    .keyboard-note {
-        display: none;
-        align-items: center;
-        gap: 0.4em;
-        margin: -0.25em 0 0.75em;
-        color: var(--color-text-muted);
-        font-size: 0.85em;
-    }
-
-    @media (pointer: coarse) and (not (any-pointer: fine)) {
-        .keyboard-note {
-            display: flex;
-        }
     }
 
     /* Below the game, like the archived website viewer's links below a website */
@@ -665,6 +630,10 @@
 
         .screenshot {
             order: -2;
+        }
+
+        .controls {
+            order: -1;
         }
 
         .loading-screen {

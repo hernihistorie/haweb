@@ -3,6 +3,9 @@ import { localizeHref } from "$src/lib/paraglide/runtime";
 
 export const MAPS_PATH = "/projects/bulanci/maps";
 
+/** How many maps each gallery on the Play page shows: two full rows on a wide screen */
+export const PLAY_GALLERY_SIZE = 10;
+
 /** Localized link to the map's own page */
 export const mapHref = (map: Pick<BulanciMap, "id" | "slug">): string =>
     localizeHref(`${MAPS_PATH}/${map.id}-${map.slug}/`);

@@ -7,6 +7,8 @@
     In development, vite.config.ts proxies /play/bulanci/ to the player's `npm run serve`.
 -->
 <script lang="ts">
+    import { onMount } from "svelte";
+
     type PlayerMessage = { source: "bulanci-player"; type: string; [key: string]: unknown };
 
     interface Props {
@@ -16,6 +18,11 @@
         maps?: string[];
         /** Start downloading right away instead of waiting for "Hrát" inside the frame */
         autostart?: boolean;
+        /**
+         * Let the game play sound right away if the page already had a click. Without it, the
+         * sound starts with the first click or key press in the game itself.
+         */
+        allowAutoplay?: boolean;
         title?: string;
         /** Every message from the player ({type: 'ready'|'progress'|'shown'|'error'|'exit'|...}) */
         onmessage?: (message: PlayerMessage) => void;
@@ -26,6 +33,7 @@
         src = "/play/bulanci/",
         maps = [],
         autostart = false,
+        allowAutoplay = true,
         title = "Bulánci",
         onmessage,
         class: className = "",
@@ -33,6 +41,10 @@
 
     let frame: HTMLIFrameElement | undefined = $state();
     let status = $state("idle");
+    let mounted = $state(false);
+    onMount(() => {
+        mounted = true;
+    });
 
     const frameSrc = $derived.by(() => {
         const url = new URL(src, "http://placeholder/");
@@ -86,12 +98,20 @@
 <svelte:window onmessage={handleMessage} />
 
 <div class="bulanci-player {className}" data-status={status}>
-    <iframe
-        bind:this={frame}
-        src={frameSrc}
-        {title}
-        allow="fullscreen; autoplay; keyboard-map"
-        allowfullscreen></iframe>
+    <!--
+        Only in the browser: prerendering would follow the link to the player, which isn't part of
+        the website, and the player's first messages would arrive before the page listens
+    -->
+    {#if mounted}
+        <iframe
+            bind:this={frame}
+            src={frameSrc}
+            {title}
+            allow={allowAutoplay
+                ? "fullscreen; autoplay; keyboard-map"
+                : "fullscreen; keyboard-map"}
+            allowfullscreen></iframe>
+    {/if}
 </div>
 
 <style>

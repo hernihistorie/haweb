@@ -12,6 +12,8 @@
     import WebNetworkPreview from "./webs/WebNetworkPreview.svelte";
     import { localizeHref } from "$src/lib/paraglide/runtime";
     import Arrow from "#lib/components/Arrow.svelte";
+    import ActionButton from "#lib/components/ActionButton.svelte";
+    import IconPlay from "@lucide/svelte/icons/play";
 
     const { data } = $props();
 
@@ -120,6 +122,13 @@
         {/snippet}
     </Loc>
 
+    <p class="play">
+        <ActionButton variant="filled" href={localizeHref("/projects/bulanci/play/")}>
+            <IconPlay size="1.1em" />
+            <Loc cs="Zahrajte si Bulánky v prohlížeči" en="Play Bulánci in your browser" />
+        </ActionButton>
+    </p>
+
     <h3>Články a přednášky</h3>
     <p>
         TODO: sem dát <a href="https://dspace.cuni.cz/handle/20.500.11956/212593"
@@ -189,6 +198,10 @@
 </ProjectPage>
 
 <style>
+    .play {
+        margin: 1.5em 0;
+    }
+
     .show-all {
         margin-top: 0.75em;
     }

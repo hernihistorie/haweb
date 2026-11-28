@@ -1,12 +1,20 @@
 <script lang="ts">
-    import type { BulanciMap } from "$src/data/bulanci/maps.server";
+    import type { BulanciGalleryMap } from "$src/data/bulanci/maps.server";
     import Loc from "#lib/components/Loc.svelte";
+    import { loc } from "$src/lib/loc";
+    import IconPlay from "@lucide/svelte/icons/play";
     import MapImage from "./MapImage.svelte";
     import MapMonitor from "./MapMonitor.svelte";
     import { mapHref } from "./mapList";
     import { authorHref } from "../authors/authorList";
 
-    let { maps }: { maps: BulanciMap[] } = $props();
+    interface Props {
+        maps: BulanciGalleryMap[];
+        /** Adds a button to play each map, which calls this */
+        onplay?: (map: BulanciGalleryMap) => void;
+    }
+
+    let { maps, onplay }: Props = $props();
 </script>
 
 <ul class="gallery">
@@ -23,6 +31,15 @@
                     </MapMonitor>
                     <span class="name">{map.name}</span>
                 </a>
+                {#if onplay}
+                    <button
+                        class="play"
+                        onclick={() => onplay(map)}
+                        title={loc({ cs: "Hrát tuto mapu", en: "Play this map" })}
+                        aria-label={loc({ cs: `Hrát mapu ${map.name}`, en: `Play ${map.name}` })}>
+                        <IconPlay size="1.2em" />
+                    </button>
+                {/if}
                 <figcaption class="meta">
                     {#each map.authors as author, i (author)}
                         {#if i > 0},{" "}{/if}<a href={authorHref(author)}>{author}</a>
@@ -47,6 +64,7 @@
     }
 
     figure {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin: 0;
@@ -87,5 +105,35 @@
         color: var(--color-text-muted);
         font-size: 0.9em;
         overflow-wrap: anywhere;
+    }
+
+    /* In the screenshot's top right corner, inside the monitor's bezel */
+    .play {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.4em;
+        height: 2.4em;
+        margin: 0;
+        padding: 0 0 0 0.15em;
+        border: 2px solid #fffc;
+        border-radius: 50%;
+        background: var(--color-primary);
+        color: var(--color-primary-contrast);
+        box-shadow: 0 2px 6px #0006;
+        cursor: pointer;
+        transition: transform 0.15s;
+    }
+
+    .play:hover,
+    .play:focus-visible {
+        transform: scale(1.1);
+    }
+
+    .play :global(.lucide-icon) {
+        margin: 0;
     }
 </style>
