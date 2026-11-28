@@ -7,6 +7,13 @@ export const MAPS_PATH = "/projects/bulanci/maps";
 export const mapHref = (map: Pick<BulanciMap, "id" | "slug">): string =>
     localizeHref(`${MAPS_PATH}/${map.id}-${map.slug}/`);
 
+/**
+ * The map's .eap file (served by files/[file]/+server.ts). The same in every language, since
+ * the Bulánci web player loads maps by URL.
+ */
+export const mapFileHref = (map: Pick<BulanciMap, "id">): string =>
+    `${MAPS_PATH}/files/${map.id}.eap`;
+
 /** Localized link to the map list with the given filters */
 export function mapListHref(filters: Record<string, string>): string {
     const query = new URLSearchParams(filters).toString();

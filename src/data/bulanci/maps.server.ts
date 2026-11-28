@@ -1,6 +1,23 @@
+import mapFilesJSON from "../bulanci-map-sorter/maps_files.json";
 import { publicAuthorNames } from "./authorNames.server";
 import { bulanciSlug } from "./slug";
 import { basename, normalizeName, normalizeWhitespace } from "./util";
+
+/**
+ * Size and checksums of a map's .eap file, from bulanci-map-sorter/maps_files.json. The files
+ * themselves are on coruscant, in bulanci-maps/ (see src/lib/server/coruscant.ts).
+ */
+export type BulanciMapFile = {
+    size: number;
+    crc32: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+    blake3: string;
+};
+
+/** By file name, with the extension */
+const mapFiles: Record<string, BulanciMapFile> = mapFilesJSON;
 
 /** Metadata for a single map as stored in bulanci-map-sorter/maps_metadata/*.json */
 type BulanciMapJSON = {
@@ -65,6 +82,8 @@ export type BulanciMapDetails = BulanciMap & {
     descriptionNote: string | null;
     /** Visual duplicates of this map that were merged into it */
     duplicates: { filename: string; guid: string }[];
+    /** The .eap file to download, null if it's missing */
+    file: BulanciMapFile | null;
 };
 
 const mapMetadataModules = import.meta.glob<{ default: BulanciMapJSON }>(
@@ -195,8 +214,16 @@ export function getBulanciMapDetails(map: BulanciMap): BulanciMapDetails {
         descriptionSource: normalizeWhitespace(metadata.description_source) || null,
         descriptionNote: resolveNote(metadata.description_note),
         duplicates: duplicatesByFilename.get(map.filename) ?? [],
+        file: bulanciMapFile(map),
     };
 }
+
+/** The map's .eap file, null if it's missing */
+export const bulanciMapFile = (map: BulanciMap): BulanciMapFile | null =>
+    mapFiles[`${map.filename}.eap`] ?? null;
+
+/** Path of the map's .eap file on coruscant, for serveCoruscantFile() */
+export const bulanciMapFilePath = (map: BulanciMap): string => `bulanci-maps/${map.filename}.eap`;
 
 /** Every place a map was found in sorted by frequency */
 export const bulanciMapPlaces: string[] = [

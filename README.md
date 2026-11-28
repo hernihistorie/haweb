@@ -58,6 +58,16 @@ An asset made private stays in the index until the next rebuild, though its page
 sudo systemctl start haweb-asset-index.service
 ```
 
+## Large files
+
+Files too large for the repository or the server, such as the Bulánci maps (`/projects/bulanci/maps/files/<id>.eap`), live on coruscant, the NAS, in the home of its user `haweb`. `serveCoruscantFile()` in `src/lib/server/coruscant.ts` sends one after the route has checked that it may: in production, nginx on hhbox sends it from a read-only mount of that home (`CORUSCANT_X_ACCEL_REDIRECT`, see [hernihistorie/infra](https://github.com/hernihistorie/infra)). To add a collection, put its directory in that home on coruscant (the Bulánci maps are uploaded by `deploy_maps.py` in bulanci-map-sorter) and serve its files from a route like `src/routes/projects/bulanci/maps/files`.
+
+In development, point `CORUSCANT_DIR` at a local directory laid out like that home, e.g. one with a `bulanci-maps` symlink to bulanci-map-sorter's `_MAPS_`:
+
+```bash
+CORUSCANT_DIR=/path/to/coruscant npm run dev
+```
+
 ## Contributing
 
 If you think you can improve our website, feel free to open an issue or discuss matters with us on the [RetroHerna + Herní archiv Discord server](https://discord.gg/9jajeqZ).

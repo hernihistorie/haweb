@@ -3,12 +3,14 @@
     import Loc from "#lib/components/Loc.svelte";
     import Meta from "#lib/components/layout/Meta.svelte";
     import { formatBulanciPlace } from "$src/data/bulanci/places";
+    import { formatFileSize } from "$src/lib/fileSize";
     import { loc } from "$src/lib/loc";
     import { waybackUrl } from "$src/lib/wayback";
     import { getLocale } from "$src/lib/paraglide/runtime";
     import IconArchive from "@lucide/svelte/icons/archive";
     import IconCalendar from "@lucide/svelte/icons/calendar";
     import IconCloud from "@lucide/svelte/icons/cloud";
+    import IconDownload from "@lucide/svelte/icons/download";
     import IconGlobe from "@lucide/svelte/icons/globe";
     import IconMusic from "@lucide/svelte/icons/music";
     import IconNotebookPen from "@lucide/svelte/icons/notebook-pen";
@@ -20,7 +22,7 @@
     import MapGallery from "../MapGallery.svelte";
     import MapImage from "../MapImage.svelte";
     import MapMonitor from "../MapMonitor.svelte";
-    import { mapListHref, UNKNOWN } from "../mapList";
+    import { mapFileHref, mapListHref, UNKNOWN } from "../mapList";
     import { authorHref, formatInlineHtml } from "../../authors/authorList";
 
     const { data } = $props();
@@ -49,6 +51,15 @@
     /** A Wayback Machine link to the source, around the time the map was published */
     const waybackHref = (source: string): string =>
         waybackUrl(`http://${source}`, map.year ?? 2010);
+
+    /** The checksums in bulanci-map-sorter/maps_files.json, as they're usually written */
+    const CHECKSUMS = [
+        ["crc32", "CRC32"],
+        ["md5", "MD5"],
+        ["sha1", "SHA-1"],
+        ["sha256", "SHA-256"],
+        ["blake3", "BLAKE3"],
+    ] as const;
 </script>
 
 <Meta title={{ cs: `${map.name} – Mapy Bulánků`, en: `${map.name} – Bulánci maps` }} />
@@ -135,8 +146,15 @@
                     <dt><IconMusic size="1em" /> <Loc cs="Hudba" en="Music" /></dt>
                     <dd>{map.music}</dd>
                 {/if}
-                <!-- TODO: a download button for the .eap file goes here, once the files are published -->
-                <a href="#">Download (TODO)</a>
+                {#if map.file}
+                    <dt><IconDownload size="1em" /> <Loc cs="Stáhnout" en="Download" /></dt>
+                    <dd>
+                        <a href={mapFileHref(map)} download="{map.filename}.eap"
+                            >{map.filename}.eap</a
+                        >
+                        <span class="muted">({formatFileSize(map.file.size)})</span>
+                    </dd>
+                {/if}
             </dl>
 
             {#if map.loadingScreen}
@@ -212,6 +230,27 @@
             <dl class="meta">
                 <dt><Loc cs="Soubor" en="File" /></dt>
                 <dd><code>{map.filename}.eap</code></dd>
+                {#if map.file}
+                    <dt><Loc cs="Velikost" en="Size" /></dt>
+                    <dd>
+                        {new Intl.NumberFormat(getLocale()).format(map.file.size)}
+                        <Loc cs="bajtů" en="bytes" />
+                    </dd>
+                    <dt><Loc cs="Kontrolní součty" en="Checksums" /></dt>
+                    <dd>
+                        <details class="checksums">
+                            <summary>{CHECKSUMS.map(([, label]) => label).join(", ")}</summary>
+                            <ul>
+                                {#each CHECKSUMS as [key, label] (key)}
+                                    <li>
+                                        <span class="muted">{label}</span>
+                                        <code>{map.file[key]}</code>
+                                    </li>
+                                {/each}
+                            </ul>
+                        </details>
+                    </dd>
+                {/if}
                 {#if map.guid}
                     <dt>GUID</dt>
                     <dd><code>{map.guid}</code></dd>
@@ -396,6 +435,22 @@
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    .checksums summary {
+        cursor: pointer;
+        color: var(--color-text-muted);
+        font-size: 0.85em;
+    }
+
+    .checksums li {
+        margin-top: 0.4em;
+    }
+
+    /* Each on its own line below its name; SHA-256 and BLAKE3 wrap anywhere */
+    .checksums code {
+        display: block;
+        overflow-wrap: anywhere;
     }
 
     /* Side by side with the description's or places' heading, so they share their margins */
